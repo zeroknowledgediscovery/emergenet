@@ -1,0 +1,241 @@
+\pgfplotsset{
+  discard if/.style 2 args={
+    x filter/.append code={
+      \edef\tempa{\thisrow{#1}}
+      \edef\tempb{#2}
+      \ifx\tempa\tempb
+      \def\pgfmathresult{inf}
+      \fi
+    }
+  },
+  discard if not/.style 2 args={
+    x filter/.append code={
+      \edef\tempa{\thisrow{#1}}
+      \edef\tempb{#2}
+      \ifx\tempa\tempb
+      \else
+      \def\pgfmathresult{inf}
+      \fi
+    }
+  }
+}
+
+\begin{tikzpicture}
+
+  \def\NNX{1}
+  \noexpand\def\YMAX{15}
+  \def\YLABEL{}
+  \newcommand{\PPX}[3][2001]{
+    \begin{axis}[name=XX,\TEXTCOL,anchor=center,
+      title={},legend columns=1,
+      legend style={text=black,anchor=west,at={(0.5,1.8)},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+          column sep=5pt,
+        },},
+      ymax=0,
+      ymin=-\YMAX,
+      xmin=#1,
+      xmax=2022,
+      name=X0,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=false,
+      enlarge y limits=false,
+      enlarge x limits=0.06,
+      axis on top=false,
+      axis line style={black!2, very thick},
+      grid=both,minor x tick num=3,
+      major grid style={opacity=1,,thick,black!10},
+      minor grid style={opacity=1,,semithick,Red4!5},
+      major tick length=0pt,
+      minor tick length=0pt,
+      ytick style={draw=none},
+      scaled y ticks = false,
+      y tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % \thinspace optional
+      },
+      x tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % Optional
+      },
+      xlabel={year},ylabel style={yshift=1in,align=center,xshift=1.9in},
+      xlabel style={yshift=.05in},ybar,,bar width=\BWIDTH,
+      ytick={#2},xtick={2000,2004,2008,2012,2016,2020},xticklabels={},xlabel={},ylabel={\YLABEL},,ylabel style={yshift=-.8in,align=center,xshift=-1.9in},
+      xtick=data, xticklabel style={rotate=90}]
+      
+      \addplot [area legend,restrict x to domain=0:2022,negstyle]
+      table [col sep=comma,x expr=\coordindex+#1,
+      y expr=(\thisrow{\NMX}
+      -\thisrow{ldistance_WHO})/(\NNX)] {\DATAQNETx};
+    \end{axis}
+    % 
+    \begin{axis}[\TEXTCOL,anchor=center,yshift=\HGT,
+      title={},legend columns=1,legend style={text=black,anchor=west,at={(0.5,.8)},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+          column sep=5pt,
+        },},
+      ymin=0,
+      ymax=\YMAX,
+      xmax=2022,
+      xmin=#1,
+      name=X0,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=false,
+      enlarge y limits=false,
+      enlarge x limits=0.06,
+      axis on top=false,
+      axis line style={black!2, very thick},
+      grid=both,minor x tick num=3,
+      major grid style={opacity=1,,thick,black!10},
+      minor grid style={opacity=1,,semithick,Red4!5},
+      major tick length=0pt,
+      minor tick length=0pt,
+      ytick style={draw=none},
+      scaled y ticks = false,
+      y tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % \thinspace optional
+      },
+      x tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % Optional
+      },
+      xlabel={year},ylabel style={yshift=0.8in,align=center,xshift=1in},
+      xlabel style={yshift=.05in},ybar,,bar width=\BWIDTH,ytick={#3},,xtick={2000,2004,2008,2012,2016,2020},xticklabels={},xlabel={},
+      xtick=data, xticklabel style={rotate=90}]
+      
+      \addplot [area legend,restrict x to domain=0:2022,posstyle]
+      table [col sep=comma,x expr=\coordindex+#1,y expr=(\thisrow{\NMX}-\thisrow{ldistance_WHO})/(\NNX)] {\DATAQNETx};
+    \end{axis}
+
+    \begin{axis}[\TEXTCOL,anchor=center,yshift=0,
+      title={},legend columns=1,legend style={text=black,anchor=west,at={(0.5,.8)},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+          column sep=5pt,
+        },},
+      ymin=0,
+      ymax=\YMAX,
+      xmax=2022, 
+      xmin=#1,
+      name=X0,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=false,
+      enlarge y limits=false,
+      enlarge x limits=0.060,
+      axis on top=false,
+      axis line style={black!2, very thick},
+      % grid,
+      grid style={opacity=1,dashed,thick,black!10},
+      major tick length=0pt,
+      ytick style={draw=none},
+      scaled y ticks = false,
+      y tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % \thinspace optional
+      },
+      x tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % Optional
+      },
+      xlabel={year},ylabel style={yshift=0.2in,align=center,xshift=1in},
+      xlabel style={yshift=.05in},ybar,
+      ,bar width=\BWIDTH,ytick={},yticklabels={},
+      ,xtick={2000,2004,2008,2012,2016,2020},xlabel={},
+      xtick=data, xticklabel style={rotate=90}]
+      
+      \addplot [area legend,restrict x to domain=0:2022,draw=none,fill=none]
+      table [col sep=comma,x expr=\coordindex+#1,y expr=0] {\DATAQNETx};
+    \end{axis}
+  }
+
+  \def\TEXTCOL{gray}
+  \def\RCLR{IndianRed1}
+  \def\RCLRB{IndianRed1}
+  \def\QCLRC{Orchid3}
+  \def\QCLD{gray!50}
+  \def\QCLRB{black}
+  \def\QCLR{black}
+  \def\YST{-.3in}
+  \noexpand\def\PCOL{black!0}
+  \noexpand\def\NCOL{black!0}
+  \noexpand\def\PCOLf{black!90}
+  \noexpand\def\NCOLf{Red1}
+  \def\SC{1.35}
+  \def\XCOL{lightgray!70}
+  \def\BWIDTH{8.2pt}
+  \tikzset{%
+    posstyle/.style =   {line width=1pt,
+      draw=\PCOL,fill=\PCOLf}}
+  \tikzset{%
+    negstyle/.style =   {line width=1pt,
+      draw=\NCOL,fill=\NCOLf}}
+  \def\HGT{.3in}
+  \def\WDT{2.75in}
+
+  \def\YTICKA{0,-5,-10}
+  \def\YTICKB{0,5,10}
+\def\NMX{ldistance_Qnet_recommendation}
+  \node[anchor=north west] (A) at (0,0) {\begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{9}\selectfont]
+      \def\DATAQNETx{Figures/plotdata/south_h1n1_ha.csv}
+      \def\YLABEL{}
+      \PPX[2001]{\YTICKA}{\YTICKB}
+    \end{tikzpicture}};
+
+  \node[anchor=north west] (B) at ([yshift=\YST]A.south west) {\begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{9}\selectfont]
+      \def\DATAQNETx{Figures/plotdata/south_h1n1_na.csv}
+      \def\YLABEL{}
+      \PPX[2001]{\YTICKA}{\YTICKB}
+    \end{tikzpicture}};
+
+  \node[anchor=north west] (C) at ([xshift=-.25in,yshift=0in]A.north east) {\begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{9}\selectfont]
+      \def\DATAQNETx{Figures/plotdata/south_h3n2_ha.csv}
+      \def\YLABEL{}
+      \PPX[2005]{\YTICKA}{\YTICKB}
+    \end{tikzpicture}};
+
+  \node[anchor=north west] (D) at ($(B.north west)!(C.west)!(B.north east)$) {\begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{9}\selectfont]
+      \def\DATAQNETx{Figures/plotdata/south_h3n2_na.csv}
+      \def\YLABEL{}
+      \PPX[2003]{\YTICKA}{\YTICKB}
+    \end{tikzpicture}};
+
+\def\NMX{ldistance_Qnet_recommendation_0}
+
+  \node[anchor=north west] (E) at ([yshift=\YST]B.south west) {\begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{9}\selectfont]
+      \def\DATAQNETx{Figures/plotdata/south_h1n1_na_3cluster.csv}
+      \def\YLABEL{}
+      \PPX[2001]{\YTICKA}{\YTICKB}
+    \end{tikzpicture}};
+
+
+
+  \node[anchor=north west] (F) at ($(E.north west)!(D.west)!(E.north east)$) {\begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{9}\selectfont]
+      \def\DATAQNETx{Figures/plotdata/south_h3n2_na_3cluster.csv}
+      \def\YLABEL{}
+      \PPX[2003]{\YTICKA}{\YTICKB}
+    \end{tikzpicture}};
+
+
+
+  
+  \node[anchor=south west] (L1) at ([yshift=0in,xshift=.55in]A.north west) {{\Large a.} Influenza A H1N1 HA};
+  \node[anchor=south west] (L2) at ([xshift=0in]$(L1.north west)!(B.north)!(L1.south west)$) {{\Large b.} Influenza A H1N1 NA};
+  \node[anchor=south west] (L3) at ([xshift=0.55in]$(L1.south west)!(C.west)!(L1.south east)$) {{\Large c.} Influenza A H3N2 HA};
+  \node[anchor=south west] (L4) at ($(L2.south west)!(L3.west)!(L2.south east)$) {{\Large d.} Influenza A H3N2 NA};
+
+  \node[anchor=south west] (L5) at ([xshift=0in]$(L2.north west)!(E.north)!(L2.south west)$) {{\Large e.} Influenza A H1N1 NA (multi-cluster)};
+  \node[anchor=south west] (L4) at ($(L5.south west)!(L4.west)!(L5.south east)$) {{\Large f.} Influenza A H3N2 NA (multi-cluster)};
+
+
+
+  
+   \node[opacity=1,fill=\PCOLf,text width=.5in,text height=.05in,label={[text=\PCOLf,fill=white,font=\bf\sffamily\fontsize{9}{6}\selectfont]0:WHO better}] (X1) at ([yshift=1.2in]$(A.west)!.7!2:(C.west)$) {};
+   \node[opacity=1,fill=\NCOLf,text width=.5in,text height=.05in,label={[text=\NCOLf,fill=white,font=\bf\sffamily\fontsize{9}{6}\selectfont]0:\qnet better},anchor=north west] (X1) at ([xshift=1.2in]X1.north east) {};
+
+\end{tikzpicture}

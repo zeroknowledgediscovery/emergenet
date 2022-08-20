@@ -1,0 +1,316 @@
+\documentclass[onecolumn, compsoc,10pt]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\input{preamble.tex} 
+\input{customdef}
+\usepackage{flushend}
+\externaldocument[SI-]{SI}
+% \externaldocument[EXT-]{exfig}
+\newif\iftikzX
+\tikzXtrue
+\tikzXfalse
+\def\Extended{}
+\newif\ifFIGS
+\FIGSfalse  
+\FIGStrue
+ 
+% \authorcontributions{%Please provide details of author contributions here.
+% JL and TL implemented the algorithm, AE and IC interpreted results and worked on mathematical modeling and IC  wrote the paper
+% }
+
+\tikzexternalenable   
+\pgfplotsset{compat=1.18}
+\begin{document} 
+ 
+\maketitle
+
+ 
+
+
+
+\begin{center}
+    \textbf{Abstract}
+\end{center}
+
+{\color{MediumBlue}
+    {\bf \sffamily \fontsize{10}{12}\selectfont \noindent
+    Influenza viruses constantly evolve~\cite{dos2016influenza}, and mismatches between predicted and circulating strains impact vaccine effectiveness~\cite{tricco2013comparing}.A barrier to predicting the season-specific dominant strains is the limited ability to predict future mutations, or estimate the numerical likelihood of specific future strains. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a moderately strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.}
+}
+
+
+
+
+
+\vspace{10pt}
+  
+\IEEEPARstart{T}{he} COVID-19 pandemic is one of the most devastating disasters of the past century. As researchers strive to develop effective therapeutics and vaccines to combat the \hcov virus, a looming question is whether we can prepare better for the next pandemic. Current surveillance paradigms, while crucial for mapping disease ecosystems, are limited in their ability to address this challenge. Habitat encroachment, climate change, and other ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic} unquestionably drive up the odds of zoonotic spill-over. Nevertheless, efforts at tracking these effects have not improved our ability to quantify future risk of emergence of a specific strain from a specific host~\cite{fair2019viral}. Tracking viral diversity in hosts such as bats or swines, while important, might not transparently map to emergence risk.
+
+A key barrier to making progress in this direction has been the missing ability to estimate the likelihood of specific mutations in the future and thus to assess the risk of emergence from circulating strains. We urgently need tools to compute the likelihood of a wild strain spontaneously giving rise to another by random chance. Currently, this likelihood is qualitatively equated to sequence similarity, which is measured by the number of mutations it takes to change one strain to another. In reality, the odds of one sequence mutating to another is not just a function of how many mutations they differ by, but also of how specific mutations incrementally affect fitness. Ignoring the constraints arising from the need to conserve function makes any assessment of the mutation likelihood open to subjective bias. Here, we show that a precise calculation is possible when sequence similarity is evaluated via a new biologically-aware metric, which we call the \textit{q-distance}.
+
+As an applications of the q-distance, we show that we can improve seasonal forecasts for the future dominant circulating strain by learning from the mutational patterns of key surface proteins: Hemaglutinnin (HA) and Neuraminidase (NA) for Influenza A (selected for their known roles in cellular entry and exit~\cite{gamblin2010influenza}). We outperform the WHO's recommendations for the flu-shot composition consistently over past two decades, measured as the number of mutations that separate the predicted from the dominant circulating strain in each season. Our recommendations repeatedly end up closer to the dominant circulating strain, illustrating the potential of our approach to correctly predict evolutionary trajectories. 
+
+A second application of the q-distance shows its utility in assessing risk effectively and quickly. We compare q-distance results to the CDC's Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}, which gives a grade between 1-10 for emergence risk and public health impact to Influenza A viruses not currently circulating among humans. Our results show strong negative correlations between IRAT emergence risk grades and q-distances to the nearest human strains to the strains in question. However, while IRAT takes months to analyze a single strain -- hence the small number of analyzed strains -- q-analysis can be done within seconds. Moreover, q-analysis only requires sequence data, while IRAT requires information for 10 risk elements, grouped into three categories: “properties of the virus,” “attributes of the population,” and “ecology \& epidemiology of the virus”~\cite{Influenz24:online}. Thus, our method could potentially be a low-cost, efficient substitute to IRAT, which could used at scale to rank the risk of emergence of non-circulating strains.
+
+A successful completion of this study will have profound impact on  bio-surveillance strategies. Empowered with the ability to rank newly collected strains by risk, we would be able to better judge pandemic risks, quantify the odds of a particular strain spilling to humans, and estimate its potential to lead to a global pandemic. And for strains already circulating in the human population, our tools will estimate the chances of new mutants, and their odds of escaping current vaccines. This study potentially represents an important step forward in modeling emerging pathogens, with uncharted impact on science and health, particularly as we prepare for the aftermath of \cov.
+
+
+
+
+
+\section*{\qnet Advantages and Related Literature}
+
+Numerous tools exist for ad hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, which are not inherently biologically meaningful -- a smaller edit distance between two strains does not necessarily imply that a feasible trajectory exists from one to the other in the wild. These measures tend to be  variations of distances between symbolic sequences, and are not aware of selection pressures and evolutionary dynamics. Despite the diverse techniques and concepts explored in these domains, the key missing piece is effectively learning which changes are likely in the wild, conditioned on possibly the entire sequence of the current strain. Our algorithm is the first of its kind to learn an appropriate metric of comparison from data, without assuming any model of DNA or amino acid substitution, or a genealogical tree a priori, and is  designed to be aware of the impact of the  host environment and background epidemiology.
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[ht]
+  \tikzexternalenable
+  \tikzsetnextfilename{tape}
+  \centering
+   \iftikzX
+  \input{Figures/figscheme}  
+  \vspace{0pt}   
+
+  \else \includegraphics[width=0.95\textwidth]{Figures/External/tape.pdf}
+  \fi
+\vspace{-10pt}
+ 
+\captionN{\textbf{Key insights: ability to quantify risk and rank-order strains.} \textbf{Panel a.} Using sequence variations observed in large databases, we distill evolutionary constraints on a genomic sequence to induce a biology-aware metric for comparing subtle differences in mutating sequences. This metric (q-distance) adjusts to specific organisms, background populations and selection pressures, and reflects the true likelihood of a spontaneous jump from one sequence to the other. We can use this sequence level metric to compute distances between a sequence and a population, and two populations.  \textbf{Panels b-c} illustrates that we can calculate bounds on the  exact likelihood of a spontaneous jump  between  strains (panel b) and rank-order strains observed in a diverse set of hosts to accurately model future emergence risk (panel c).}\label{figscheme}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figscheme}
+\fi
+%#############################################
+%#############################################
+
+This is a major improvement over the existing state of art in phylogeny construction from sequences, which generally assume a model for character substitution (either for nucleotides or amino acid residues) ignoring the effect of selection and the existence of long-range complex dependencies in viable mutations along the genomic sequence. Notably, even relatively complex substitution models ($e.g.$ ones that allow site specific mutation rates) do not capture the effect of individual changes that may dramatically alter fitness in the environment. Our proposed approach, on the other hand, learns from and leverages these patterns, using sophisticated pattern discovery via novel machine learning algorithms. While the effect of the environment and selection cannot be inferred from a single sequence, an entire database of observed strains, processed through sophisticated learning, can parse out predictive models of these complex interactions. Our only intuitively well-justified assumption on the evolutionary dynamics is that more fit strains end up with more progenies (follows from definition of Malthusian fitness), and are thus more likely to be sampled in surveillance efforts (again, intuitively obvious).  Thus, in a strict mathematical sense, the distance we propose is not a distance between two strains $x,y$, but a distance between strain $x^A$ ($x$ in a background environment $A$) and a strain  $y^B$ ($y$ in a background environment $B$). Indeed we can show that the distance between the same pair of  strains of \infl HA is different based on if they are collected in 2008 vs in 2009, reflecting that the background environment and circulating diversity changed over the two years.  Thus, our  distance metric  is fundamentally different from measures that exist in the literature. In particular, our mathematical framework leads to the key result that the q-distance is a scaled representation of the log-likelihood of spontaneous jump  between strains. This interpretation is missing in existing tools, and makes way for leveraging the q-distance to model emergence of new strains. Thus, we can predict entirely new sequences -- which differ by a non-trivial number of edits from any observed strain -- that still lead to functional proteins, as demonstrated in our preliminary studies.
+
+Very recently, two articles have explored the possibility of predicting  pathogenicity from genomic sequences (Mollentze~\cite{mollentze2021identifying}) and forecasting which amongst observed mutations will dominate the circulating population (Maher et al~\cite{maher2021predicting}). These studies provide strong pieces of evidence that challenge the idea that forecasting future variants of virus strains is impossible, while aligns with our goals. While their questions overlap with our framework, our approach is distinct and more ambitious. For example,  Mollentze  uses  classical  sequence similarity; extended to include similarity to  human housekeeping genes hoping to identify viruses  evading the human immune system more easily.  The demonstrated  performance is poor (incorrectly tagging all SARS-related coronaviruses as potentially pathogenic), implying un-actionable specificity. On the other hand,  Maher outright assumes mutations to be independent. Features are found manually,  are specific to \hcov, and the authors take  a meta-analysis-esque route, compiling together a ``kitchen-sink'' of features via standard machine learning. Importantly, these approaches  only aim to predict point mutations, with  the gargantuan complexity of tracking a more complete strain through a high-dimensional sequence space well beyond their conceptual limits. Thus, even the question if whether a yet-to-be-seen strain is indeed a valid biological encoding of a virus (which is simpler to determining risk posed by such future variants) cannot answered by our peers, limiting such approaches to analyzing mutations already seen, or strains  already collected.  Additionally, generalizability and actionability is  suspect, given that Maher's features are \hcov specific, and Mollentze's similarity to house-keeping genes might not be universal. Finally, both these  approaches apply to a mutation or a combination of mutations that already exist, and cannot predict new mutations, or new strains.
+
+
+
+
+
+\section*{Methods}
+
+Aiming to validate our metric in the context of  viral evolution, we begin by collecting over $98,000$ Influenza A HA/NA nucleotide sequences from two public databases (NCBI % \href{https://www.ncbi.nlm.nih.gov/genome/viruses/}{https://www.ncbi.nlm.nih.gov/genome/viruses/}
+and GISAID; % \href{https://www.gisaid.org/}{https://www.gisaid.org/}
+see SI-Table~\ref{SI-tabseq}), uncovering a network of  dependencies between individual mutations revealed through subtle variations of the aligned sequences. These dependencies define our organism-specific model referred to as the \textit{quasi-species network} or the \qnet (see Fig.~\ref{figscheme} and \ref{fig0}). The q-distance, informed by the dependencies modeled by the inferred {\qnet}s, adapts to the specific organism, allele frequencies, and variations in the background population. 
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \tikzexternalenable
+  \tikzsetnextfilename{scheme}
+  \centering 
+  \iftikzX
+  \input{Figures/fig0}  
+  \vspace{0pt}   
+  
+  \else \includegraphics[width=0.97\textwidth]{Figures/External/scheme.pdf}
+  \fi
+  \captionN{\textbf{\qnet Computation scheme}. \textbf{Panel a}. 
+As an example, beginning with aligned sequences, we calculate a conditional inference tree for index 1274, which involves indices 1064, 1445, 197 as predictive features. These features are automatically selected by the algorithm, as being maximally predictive of the base at 1274. Then, we compute predictors for each of these predictive indices, $e.g.$ we show the inference tree computed for index 1064, which involves index 1314 and 339 as features. Continuing, we find that the predictor for 1314 involves indices 1263, 636 and 21, and that for 1263 involves 1314, 667 and 313. Note that recursive dependencies arise automatically: the predictor for 1263  depends on 1314, and that for 1314 depends on 1263.  \textbf{Panels b-c} show \qnet dependency graphs for \hcov spike protein and Influenza A HA respectively, illustrating the distinct patterns of mutational constraints inferred. Both HA in Influenza A and the spike protein in \hcov are implicated in viral entry into host cells, and crucial for host specificity of infections. Additionally, the inferred structures underscore the significantly more complex dependencies in \hcov compared to Influenza A.}\label{fig0}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{fig0}
+\fi
+%#############################################
+%#############################################
+
+Using aligned genomic sequences sampled from  similar populations, $e.g.$ HA from Human Influenza A in year 2008, we construct the \qnet via  customized machine learning algorithms to  learn models for predicting the mutational variations at each sequence index using other indices  as features. For example, in Fig.~\ref{fig0}a,  the predictor for index 1274 uses variation at index 1064 as a feature, and the predictor for index 1064 uses index 1314 as a feature, and so on -- ultimately uncovering a recursive dependency structure. The \qnet predicts the nucleotide distribution over the base alphabet at any specific index, conditioned on the nucleotides making up the rest of the sequence of the gene or genome fragment under consideration. Aside from this example, amino acids sequences can also be used to train the \qnet. Finally, we define the q-distance (See Eq.~\eqref{q-distance} in Materials and Methods) as the square-root of the Jensen-Shannon (JS) divergence~\cite{cover} of these conditional distributions from one sequence to another, averaged over the entire sequence. Invoking Sanov's theorem on large deviations~\cite{cover}, we show  that the  likelihood of spontaneous change is bounded above and below by a simple exponential function of the  q-distance. 
+
+The mathematical intuition behind relating the new distance to change-probability  is the same as in the prediction of  a biased outcome when we sequentially toss a fair coin. With an overwhelming probability, such an experiment with a fair coin should result in roughly equal number of heads and tails. However, ``large deviations'' can happen, and the probability of such rare events is quantifiable~\cite{varadhan2010large} with existing theory. We show here that the likelihood of a spontaneous transition of a genomic sequence to a  different variant by random chance may also be similarly bounded, given we have the \qnet as  an estimated model of the evolutionary constraints.
+
+Importantly, the q-distance  between two sequences may change even if only the background population changes (See SI-Table~\ref{SI-tabex}, where  the distance between two  fixed sequences vary when we vary their collection years). Sequences may have a large q-distance and a small edit distance, and vice versa (although on average the two distances tend to be positively correlated, see SI-Table~\ref{SI-tabcor}).  Hence for tracking drift in Influenza A, we construct a seasonal \qnet for each sub-type and protein that we consider.
+
+Our first application aims to predict dominant strains for the seasonal flu epidemic. Periodic adjustment of the Influenza vaccine components is necessary to account for antigenic drift~\cite{boni2008vaccination,dos2016influenza}. The flu shot in each hemisphere is annually prepared at least six months in advance, and is based on a cocktail of historical strains determined by the WHO via global surveillance~\cite{agor2018models}, hoping to match the circulating strain(s) in the upcoming flu season. A variety of hard-to-model effects hinder this prediction, which, despite observed cross-reactive effects~\cite{tricco2013comparing}, have limited vaccine effectiveness in recent years~\cite{cdceff}. For predicting future strains, we hypothesized that since the probability of a drift exponentially decreases with an increasing q-distance, the centroid of the strain distribution in our metric will change slowly. If true, the strain selected closest to the ``q''-centroid will be a good approximation of next season's dominant strain. We then computed the dominant strain in each season as the centroid of the strain distribution observed in a given season in the classical sense (no. of mutations), since the edit distance metric is widely used and offers a point of comparison between WHO predictions and \qnet predictions. Note that the recommendations for the northern hemisphere are given in February, while that for the southern hemisphere are given at the end of December the previous year, keeping in mind that the flu season in the south begins a few months early, as described in Fig.~\ref{figseasonal}. Finally, we computed the edit distance (no. of mutations) between the dominant strain and the WHO and \qnet predictions.
+
+Our second application aims to compare emergence risk grades given by the CDC through its Influenza Risk Assessment Tool (IRAT) with results using our q-distance metric. While IRAT uses a combination of 10 weighted risk elements evaluated slowly over the course of several months per strain, we attempt to quantify emergence risk quickly with the q-distance metric. We looked at the same strains that were analyzed by IRAT. For each strain previously analyzed by IRAT, we construct \qnet models for HA and NA segments using all human strains of the same variety circulating in the year prior to risk assessment. For example, the "A/swine/Shandong/1207/2016" strain was assessed by IRAT in July 2020, so we will use human H1N1 strains circulating between July 1, 2019 through June 30, 2020. For sub-types with few human strains (H1N2, H5N1, H5N6, H7N7, H9N2), we only use the upper bound of the date. We then compute the average q-distance between the strain in question and the circulating human strains for both HA and HA segments. Seven of the 23 strains are not included in our comparison due to having zero or too few human strains in the sample space to construct a \qnet; see Supplementary Text, SI-Table~\ref{SI-irattab}. We hypothesize that a lower average q-distance between the strain in question and circulating human strains should correspond to a higher emergence risk. Hence, we expect to see a high negative correlation between q-distance and IRAT grade, which assigns 1 to be the lowest risk and 10 to be the highest risk.
+
+ 
+
+
+
+\section*{Results} 
+
+We tested the hypothesis of our first application, computing the strain closest to the ``q''-centroid for each flu season and selecting that strain as the prediction for the next season's dominant strain. We performed this analysis on past two decades of sequence data for Influenza A (H1N1 and H3N2) with promising results: the q-distance based prediction demonstrably outperforms WHO recommendations by reducing  the  distance between the predicted and  the dominant  strain (Fig.~\ref{figseasonal}). Recall that we identify the dominant strain to be the one that occurs most frequently, computed as the centroid of the strain distribution observed in a given season in the classical sense (no. of mutations).
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{table*}[!ht]\centering
+\captionN{Out-performance of \qnet recommendations over WHO 
+for Influenza A vaccine composition}\label{tabperf}\centering
+
+\sffamily\fontsize{9}{9}\selectfont
+
+\input{Figures/tabdata/improvement_qnet}
+\end{table*}
+\else
+\refstepcounter{table}\label{tabperf}
+\fi
+%#############################################
+%#############################################
+
+The \qnet single-cluster predictions consistently outperform the WHO recommendations. For H1N1 HA, the \qnet induced recommendation outperforms the WHO suggestion by $>33\%$ on average over the last two decades, and $>71\%$ on average in the last decade. The gains for H1N1 NA over the same time periods are $>15\%$ and $>52\%$, respectively. For H3N2 HA, the \qnet induced recommendation outperforms the WHO suggestion by $>37\%$ on average over the last two decades, and $>40\%$ in the last decade. The gains for H3N2 NA over the same time periods are $>14\%$ and $>15\%$, respectively. Finding multi-cluster predictions has the potential to yield even more improved results, as seen in Fig.~\ref{figseasonal} and SI-Table~\ref{SI-tabrec8} through SI-Table~\ref{SI-tabrec11}.
+
+The full table of single-cluster results with improvement broken down by hemisphere is given in Table~\ref{tabperf}. Fig.~\ref{figseasonal} illustrates the relative gains computed for both subtypes and the two hemispheres (since the flu season occupy distinct time periods and may have different dominant strains in the northern and southern hemispheres~\cite{boni2008vaccination}). Additional improvement is possible if we recommend multiple strains every season for the vaccine cocktail (Fig.~\ref{figseasonal}e,f,k,l). The details of the specific strain  recommendations made by the \qnet approach for two subtypes (H1N1, H3N2), for two genes (HA, NA) and for the northern and the southern hemispheres over the previous two decades are enumerated in the Supplementary Text in Tables SI-Table~\ref{SI-tabrec0} through SI-Table~\ref{SI-tabrec11}.
+
+We hypothesized in our second application that there will be a high negative correlation between q-distance and IRAT emergence grade. Plotting our results in Fig.~\ref{figirat}, we find a correlation of $-0.7032$ $(p < 0.005)$, which is statistically and substantively significant. We can conclude, therefore, that a lower averae q-distance to currently circulating human strains corresponds to a higher risk of emergence with respect to the CDC's grades. Due to the small number of Influenza A strains that have been analyzed by IRAT, we should be wary of the realistic statistical significance of our results. Achieving a moderately high correlation coefficient and p-value is nevertheless a positive result, and further uncovers the potential of our model to quantify risk of emergence. 
+
+For further analysis, we also performed q-analysis on IRAT H1- and H3- sub-types by taking average q-distance between the target strain and all human-circulating strains available, with no upper or lower collection date bound. We expected the correlation to be worse than with bounded strains, since a strain being ``close" to humans at some point in the past does not necessarily mean being close now. Indeed, our results showed almost no correlation to the IRAT emergence risk scores. Bounded results for H1- and H3- sub-types yielded a correlation of $-0.6916$, while unbounded results yielded a correlation of $0.0545$; see SI-Fig.~\ref{SI-irat}.
+
+Given the efficiency of the q-distance computations, we can track how risk of emergence changes over time by continually updating the current human-circulating strains each year. For exact average q-distance and \qnet sample size statistics, please see SI-Table~\ref{SI-irattab} in the Supplementary Text.
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \tikzexternalenable
+  \tikzsetnextfilename{scheme}
+  \centering 
+  \iftikzX
+  \input{Figures/External/IRAT_combined.png}  
+  \vspace{0pt}   
+  
+  \else \includegraphics[width=0.9\textwidth]{Figures/External/IRAT_combined.png}
+  \fi
+  \captionN{\textbf{IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained.
+  }\label{figirat}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figirat}
+\fi
+%#############################################
+%#############################################
+
+
+
+
+
+\section*{Discussion \& Sequence Comparisons}
+
+For further discussion, we looked at our \qnet predictions more closely. Comparing the \qnet inferred strain (QNT) against the one recommended by the WHO, we find: 1) the residues that only the QNT matches correctly with DOM (while the WHO fails) are largely localized within the receptor binding domain (RBD), with $>57\%$ occurring within  the RBD on average (see Fig.~\ref{figseq}a for a specific example), and 2) when the WHO strain deviates from  the QNT/DOM  matched residue, the ``correct'' residue is often replaced in the WHO recommendation with one that has very different side chain, hydropathy  and/or chemical properties (See Fig.~\ref{figseq}b-f), suggesting deviations in recognition characteristics. Combined with the fact that we find circulating strains are almost always within a few edits of the DOM (See SI-Fig.~\ref{SI-figdom}), these observations suggest that hosts vaccinated with the QNT recommendation is more likely to have season-specific antibodies that are more likely to recognize a larger cross-section of the circulating strains.
+
+High season-to-season genomic variation in the key  Influenza capsidic proteins is driven by two opposing influences: 1) the need to conserve function  limiting random mutations, and 2) hyper-variability to escape recognition by neutralizing antibodies. Even a  single residue change in the surface proteins might dramatically alter recognition characteristics, brought about by unpredictable~\cite{carugo2001normalized,righetto2014comparative} changes in local or regional properties such as charge, hydropathy, side chain solvent accessibility~\cite{lee1971interpretation,shrake1973environment,momen2008impact,adamczak2005combining}.
+
+Focusing on the average localization of the QNT to WHO deviations in the HA molecular  structure, the changes are observed to primarily occur in the HA1 sub-unit (See Fig.~\ref{figseq}g-i, HA0 numbering used, other numbering conversions are given in SI-Table~\ref{SI-tabnum}), with the most frequent deviations  occurring around the $\approx 200$ loop, the $\approx 220$ loop, the $\approx 180$ helix, and the $\approx 100$ helix, in addition to some residues in the HA2 sub-unit ($\approx 49$ \& $\approx 124$). Unsurprisingly, the residues we find to be most impacted in the HA1 sub-unit (the globular top of the fusion protein) have been repeatedly implicated in receptor binding interactions~\cite{tzarum2015structure,lazniewski2018structural,garcia2015dynamic}. Thus, we are able to fine tune the future recommendation over the state of the art, largely by modifying residue recommendations around the RBD and  structures affecting recognition dynamics.
+
+
+
+
+
+\section*{Limitations \& Conclusion}
+
+Calculation of q-distance  is currently limited to similar and aligned sequences, $e.g.$  Influenza strains from different sub-types, hosts or seasons. Furthermore, we need a sufficient diversity of observed strains to successfully construct the \qnet. A multi-variate regression analysis indicates  that the most important factor for our approach to succeed is  the diversity of the sequence dataset (see Supplementary Text, SI Table~\ref{SI-tabreg}). Arguably, simply reducing the edit distance from the dominant strain is not guaranteed to translate to a better immunological protection. Nevertheless, consistent improvement in this metric achieved purely via computational means suggests the possibility of improvement over current practice. 
+
+In conclusion, we introduce a data-driven distance metric to track subtle deviations in sequences. We show that we can use the q-distance metric to make recommendations for the flu-shot composition, outperforming the WHO's recommendations in relation to the dominant strain. We also show that we can roughly replicate the CDC's IRAT grades for emergence risk of strains not currently circulating among humans in an efficient manner that can be scaled to rank many more strains than is currently done. The ability to predict future flu strains via subtle variations in a limited set of immunologically important residues suggest that the tools developed here could lead to more effective escape-resistant vaccines, which could be essential in preempting and mitigating the next pandemic.
+
+
+
+
+
+\input{method}
+
+
+
+
+
+\section*{Data Sharing} 
+
+Working software is publicly available at \href{https://pypi.org/project/quasinet/}{https://pypi.org/project/quasinet/}.
+Accession numbers of all sequences used, and acknowledgement documentation for GISAID sequences is available as supplementary information.
+
+
+
+
+
+\subsection*{Data Source}
+  
+In this study, we use sequences for the Hemaglutinnin (HA)  and Neuraminidase (NA) for Influenza A (for subtypes H1N1 and H3N2), which are key enablers of cellular entry and exit mechanisms respectively~\cite{mcauley2019influenza}. We use two sequences databases: 1) National Center for Biotechnology Information (NCBI) virus~\cite{hatcher2017virus} and 2) GISAID~\cite{bogner2006global} databases. The former is a community portal for viral sequence data, aiming to increase the usability of data archived in various NCBI repositories. GISAID has a somewhat more restricted user agreement, and use of GISAID data in an analysis requires acknowledgment of the contributions of both the submitting and the originating laboratories (Corresponding acknowledgment tables are included as supplementary information). We collected a total of 98,299 sequences in our analysis, although not all were used due to some being duplicates (See SI-Table~\ref{SI-tabseq}).
+
+
+  
+  
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \centering
+  \tikzexternalenable
+   \tikzsetnextfilename{seasonalpred_both}
+
+  \tikzXtrue 
+  \iftikzX
+  \hspace{-20pt}\resizebox{.975\linewidth}{!}{\input{Figures/seasonalpred_both}}
+   \else  \hspace{-10pt}\includegraphics[width=0.975\textwidth]{Figures/seasonalpred_both.tex}
+   \fi
+   \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figseasonal}
+\fi
+%#############################################
+%#############################################
+
+
+
+
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \centering
+  \tikzexternalenable
+    \tikzsetnextfilename{sequence}
+\vspace{-5pt}
+
+  \iftikzX
+  \input{Figures/sequence_}  
+  \vspace{0pt}   
+  
+  \else
+  \includegraphics[width=0.87\textwidth]{Figures/External/sequence.pdf}  \vspace{-5pt}   
+
+  \fi
+\vspace{0pt}
+
+\captionN{\textbf{Sequence comparisons.} The observed dominant strain, we note that the correct \qnet  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix.}\label{figseq}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figseq}
+\fi
+%#############################################
+%#############################################
+
+
+
+
+
+%#############################################
+%#############################################
+\def\MXCOL{black}
+\def\FXCOL{Orchid3}
+\def\MNCOL{SeaGreen4}
+\def\FNCOL{SeaGreen4}
+\def\NCOL{SeaGreen4}
+\def\XCOL{Tomato}
+\def\WCOL{Tomato}
+\def\YCOL{DodgerBlue4}
+\def\TEXTCOL{gray}
+\def\AXISCOL{white}
+
+% Bibliography
+%\bibliography{qnet,BibLib1,bioshock_refs,bioshock,keck}
+% \bibliographystyle{vancouver}
+\bibliographystyle{naturemag}
+\bibliography{allbib}
+
+% \bibliographystyle{naturemag}
+
+\end{document}

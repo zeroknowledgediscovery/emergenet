@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{cover}
+Cover TM, Thomas JA.
+\newblock Elements of Information Theory (Wiley Series in Telecommunications
+  and Signal Processing).
+\newblock New York, NY, USA: Wiley-Interscience; 2006.
+
+\bibitem{fedotov2003refinements}
+Fedotov AA, Harremo{\"e}s P, Topsoe F.
+\newblock Refinements of Pinsker's inequality.
+\newblock IEEE Transactions on Information Theory. 2003;49(6):1491--1498.
+
+\end{thebibliography}
