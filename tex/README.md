@@ -1,4 +1,4 @@
-# Publication draft
+# Publication Draft
 
 ```
 EmergeNet
