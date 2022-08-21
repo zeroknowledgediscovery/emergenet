@@ -15,7 +15,7 @@
 \FIGStrue
  
 % \authorcontributions{%Please provide details of author contributions here.
-% JL and TL implemented the algorithm, AE and IC interpreted results and worked on mathematical modeling and IC  wrote the paper
+% JL and TL implemented the algorithm, AE and IC interpreted results and worked on mathematical modeling and IC wrote the paper
 % }
 
 \tikzexternalenable   
@@ -34,7 +34,7 @@
 
 {\color{MediumBlue}
     {\bf \sffamily \fontsize{10}{12}\selectfont \noindent
-    Influenza viruses constantly evolve~\cite{dos2016influenza}, and mismatches between predicted and circulating strains impact vaccine effectiveness~\cite{tricco2013comparing}.A barrier to predicting the season-specific dominant strains is the limited ability to predict future mutations, or estimate the numerical likelihood of specific future strains. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a moderately strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.}
+    Influenza viruses constantly evolve~\cite{dos2016influenza}, and mismatches between predicted and circulating strains impact vaccine effectiveness~\cite{tricco2013comparing}. A barrier to predicting the season-specific dominant strains is the limited ability to predict future mutations, or estimate the numerical likelihood of specific future strains. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a moderately strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.}
 }
 
 
@@ -173,7 +173,7 @@ Given the efficiency of the q-distance computations, we can track how risk of em
   \tikzsetnextfilename{scheme}
   \centering 
   \iftikzX
-  \input{Figures/External/IRAT_combined.png}  
+  \input{Figures/External/irat_combined.png}  
   \vspace{0pt}   
   
   \else \includegraphics[width=0.9\textwidth]{Figures/External/IRAT_combined.png}
@@ -230,7 +230,7 @@ Accession numbers of all sequences used, and acknowledgement documentation for G
 
 \subsection*{Data Source}
   
-In this study, we use sequences for the Hemaglutinnin (HA)  and Neuraminidase (NA) for Influenza A (for subtypes H1N1 and H3N2), which are key enablers of cellular entry and exit mechanisms respectively~\cite{mcauley2019influenza}. We use two sequences databases: 1) National Center for Biotechnology Information (NCBI) virus~\cite{hatcher2017virus} and 2) GISAID~\cite{bogner2006global} databases. The former is a community portal for viral sequence data, aiming to increase the usability of data archived in various NCBI repositories. GISAID has a somewhat more restricted user agreement, and use of GISAID data in an analysis requires acknowledgment of the contributions of both the submitting and the originating laboratories (Corresponding acknowledgment tables are included as supplementary information). We collected a total of 98,299 sequences in our analysis, although not all were used due to some being duplicates (See SI-Table~\ref{SI-tabseq}).
+In this study, we use sequences for the Hemaglutinnin (HA)  and Neuraminidase (NA) for Influenza A (for subtypes H1N1 and H3N2), which are key enablers of cellular entry and exit mechanisms respectively~\cite{mcauley2019influenza}. We use two sequences databases: 1) National Center for Biotechnology Information (NCBI) virus~\cite{hatcher2017virus} and 2) GISAID~\cite{bogner2006global} databases. The former is a community portal for viral sequence data, aiming to increase the usability of data archived in various NCBI repositories. GISAID has a somewhat more restricted user agreement, and use of GISAID data in an analysis requires acknowledgment of the contributions of both the submitting and the originating laboratories (Corresponding acknowledgment tables are included as supplementary information). We collected a total of 98,299 sequences in our analysis, although not all were used due to some being duplicates (see SI-Table~\ref{SI-tabseq}).
 
 
   
