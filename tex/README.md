@@ -1,5 +1,9 @@
 # Publication Draft
+
 ## Learning Mutational Patterns at Scale to Analyze Sequence Divergence in Novel Pathogens
+Influenza viruses constantly evolve, and mismatches between predicted and circulating strains impact vaccine effectiveness. A barrier to predicting the season-specific dominant strains is the limited ability to predict future mutations, or estimate the numerical likelihood of specific future strains. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a moderately strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.
+
+## File Tree
 ```
 EmergeNet
 ├── irat_qnet
