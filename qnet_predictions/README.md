@@ -44,10 +44,9 @@ To compute Qnet predictions strain for the **YEAR1 - YEAR2** flu season:
         - Create three clusters, then find the dominant strain of each cluster
 
 ## WHO vs. Qnet Predictions
-        - See this [link](https://www.fludb.org/brc/vaccineRecommend.spg?decorator=influenza#:~:text=From%20these%20data%2C%20the%20WHO,recommendation%20are%20also%20usually%20suggested.) for WHO recommendations and this [link](https://platform.epicov.org/epi3/frontend#507f8c) to search the sequences
-        - Compute edit distance between dominant strain and WHO predicted strain, Qnet predicted strains
-        - Tables 4 - 15 in the paper
-
+    - See this [link](https://www.fludb.org/brc/vaccineRecommend.spg?decorator=influenza#:~:text=From%20these%20data%2C%20the%20WHO,recommendation%20are%20also%20usually%20suggested.) for WHO recommendations and this [link](https://platform.epicov.org/epi3/frontend#507f8c) to search the sequences
+    - Compute edit distance between dominant strain and WHO predicted strain, Qnet predicted strains
+    - Tables 4 - 15 in the paper
 
 ## File Tree
 ```
