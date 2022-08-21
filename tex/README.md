@@ -9,7 +9,7 @@ EmergeNet
     │   ├── External : Fig. 1-3, 5, SI-Fig. 1-3
     │   ├── plotdata : CSV data for Fig. 4
     │   ├── seasonalpred_both.tex : LaTeX file for Fig. 4
-    │   └── tabdata : LaTeX files for Table 1, SI-Table 1, 3-18
+    │   └── tabdata : LaTeX files for Tab. 1, SI-Tab. 1, 3-18
     ├── SI.pdf : supplementary text PDF
     ├── SI.tex : supplementary text body
     ├── SIfig.tex : supplementary text figures
