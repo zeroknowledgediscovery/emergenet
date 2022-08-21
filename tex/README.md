@@ -1,5 +1,5 @@
 # Publication Draft
-
+## Learning Mutational Patterns at Scale to Analyze Sequence Divergence in Novel Pathogens
 ```
 EmergeNet
 ├── irat_qnet
