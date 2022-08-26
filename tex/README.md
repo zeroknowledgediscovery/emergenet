@@ -5,7 +5,7 @@ Influenza viruses constantly evolve, and mismatches between predicted and circul
 
 ## File Tree
 ```
-EmergeNet
+Emergenet
 ├── irat_qnet
 ├── qnet_predictions
 └── tex

@@ -32,7 +32,7 @@
 
 ## File Tree
 ```
-EmergeNet
+Emergenet
 ├── irat_qnet
 │   ├── figures
 │   │   ├── irat_combined.png : Fig. 3

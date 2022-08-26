@@ -50,7 +50,7 @@ To compute Qnet predictions strain for the **YEAR1 - YEAR2** flu season:
 
 ## File Tree
 ```
-EmergeNet
+Emergenet
 ├── irat_qnet
 ├── qnet_predictions
 │   ├── misc
