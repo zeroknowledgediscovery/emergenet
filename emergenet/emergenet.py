@@ -30,12 +30,12 @@ class Enet(object):
                 raise ValueError('The file must contain exactly 1 sequence!')
             for record in SeqIO.parse(seq, 'fasta'):
                 self.seq = str(record.seq.upper())
-                self.seq_metadata = str(record.id)
+                self.seq_metadata = str(record.description)
         else:
             self.seq = seq.upper()
             self.seq_metadata = seq_metadata
 
-        if seq_trunc_length > len(seq):
+        if seq_trunc_length > len(self.seq):
             raise ValueError('Length to truncate sequences must not be greater than target sequence length!')
         self.seq_trunc_length = seq_trunc_length
 
@@ -173,44 +173,6 @@ class Enet(object):
         qnet.fit(seq_arr)
         return qnet
 
-    @staticmethod
-    def save_model(qnet, outfile, low_mem=False):
-        """Saves a Qnet model.
-
-        Parameters
-        ----------
-        qnet : Qnet
-            A Qnet instance
-
-        outfile : str
-            File name to save to ('.joblib')
-
-        low_mem : bool
-            If True, save the Qnet with low memory by deleting all data attributes except the tree structure
-
-        Returns
-        -------
-        None
-        """
-        save_qnet(qnet, outfile, low_mem)
-
-    @staticmethod
-    def load_model(filepath):
-        """Loads a Qnet model.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        Returns
-        -------
-        qnet : Qnet
-            A Qnet instance
-        """
-        qnet = load_qnet(filepath)
-        return qnet
-
     def emergence_risk(self, seq_df, qnet, sample_size=None):
         """Computes emergence risk score.
 
@@ -237,5 +199,43 @@ class Enet(object):
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         for i in range(len(seq_arr)):
             qdist_sum += qdistance(target_seq, seq_arr[i], qnet, qnet)
-        emergence_risk_score = qdist_sum/len(seq_arr)
+        emergence_risk_score = qdist_sum / len(seq_arr)
         return emergence_risk_score
+
+
+def save_model(qnet, outfile, low_mem=False):
+    """Saves a Qnet model.
+
+    Parameters
+    ----------
+    qnet : Qnet
+        A Qnet instance
+
+    outfile : str
+        File name to save to ('.joblib')
+
+    low_mem : bool
+        If True, save the Qnet with low memory by deleting all data attributes except the tree structure
+
+    Returns
+    -------
+    None
+    """
+    save_qnet(qnet, outfile, low_mem)
+
+
+def load_model(filepath):
+    """Loads a Qnet model.
+
+    Parameters
+    ----------
+    filepath : str
+        File name
+
+    Returns
+    -------
+    qnet : Qnet
+        A Qnet instance
+    """
+    qnet = load_qnet(filepath)
+    return qnet
