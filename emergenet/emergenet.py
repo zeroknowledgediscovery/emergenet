@@ -4,7 +4,7 @@ from Bio import SeqIO
 from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet
 
 
-class Emergenet(object):
+class Enet(object):
     """Emergenet architecture.
 
     Parameters
