@@ -172,7 +172,8 @@ class Enet(object):
         if len(seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
         seq_arr = self._sequence_array(seq_df, sample_size)
-        qnet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)], n_jobs=n_jobs)
+        qnet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)],
+                    random_state=self.random_state, n_jobs=n_jobs)
         qnet.fit(seq_arr)
         return qnet
 
