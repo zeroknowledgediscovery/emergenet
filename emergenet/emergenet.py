@@ -11,7 +11,7 @@ class Enet(object):
     ----------
     seq : str
         The target sequence to be analysed by Emergenet
-        Either nucleotide/amino acid sequence or fasta file path (containing '.fasta')
+        Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')
 
     seq_trunc_length : int
         Length to truncate sequences in Qnet analysis
