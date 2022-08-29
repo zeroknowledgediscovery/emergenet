@@ -150,7 +150,7 @@ class Enet(object):
             seq_df.to_csv(outfile, index=False)
         return seq_df
 
-    def train(self, seq_df, sample_size=None):
+    def train(self, seq_df, sample_size=None, n_jobs=1):
         """Trains a Qnet model.
 
         Parameters
@@ -161,6 +161,9 @@ class Enet(object):
         sample_size : int
             Number of strains to train Qnet on
 
+        n_jobs : int
+            Number of CPUs to use when training
+
         Returns
         -------
         qnet : Qnet
@@ -169,7 +172,7 @@ class Enet(object):
         if len(seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
         seq_arr = self._sequence_array(seq_df, sample_size)
-        qnet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)], n_jobs=1)
+        qnet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)], n_jobs=n_jobs)
         qnet.fit(seq_arr)
         return qnet
 
