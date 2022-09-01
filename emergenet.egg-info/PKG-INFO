@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: emergenet
-Version: 0.0.2
+Version: 0.0.3
 Summary: Superfast Risk Estimation of Emerging Pathogens
 Home-page: https://github.com/zeroknowledgediscovery/emergenet
 Author: zed.uchicago.edu
 Author-email: ishanu@uchicago.edu
 License: LICENSE
-Download-URL: https://github.com/zeroknowledgediscovery/emergenet/archive/0.0.2.tar.gz
+Download-URL: https://github.com/zeroknowledgediscovery/emergenet/archive/0.0.3.tar.gz
 Keywords: computational biology,decision trees,machine learning,emerging pathogens
 Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
@@ -24,9 +24,8 @@ License-File: LICENSE.md
 Emergenet
 ===============
 
-.. image:: https://zenodo.org/badge/388924904.svg
-   :target: https://zenodo.org/badge/latestdoi/388924904
-
+.. image:: https://zenodo.org/badge/526971595.svg
+   :target: https://zenodo.org/badge/latestdoi/526971595
 
 .. image:: http://zed.uchicago.edu/logo/emergenet.png
    :height: 300px

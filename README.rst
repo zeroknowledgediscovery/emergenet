@@ -2,9 +2,8 @@
 Emergenet
 ===============
 
-.. image:: https://zenodo.org/badge/388924904.svg
-   :target: https://zenodo.org/badge/latestdoi/388924904
-
+.. image:: https://zenodo.org/badge/526971595.svg
+   :target: https://zenodo.org/badge/latestdoi/526971595
 
 .. image:: http://zed.uchicago.edu/logo/emergenet.png
    :height: 300px
