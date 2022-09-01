@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>emergenet.emergenet API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#666666;background-color:black;//mix-blend-mode:difference;color:#bbbbbb;z-index:3}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#66bb66;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#66FF66}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:transparent;padding:1px 4px;color:#FFA500;overflow-wrap:break-word}h1 code{background:transparent}pre{overflow-wrap:break-word;background:#111111;word-wrap:break-word;border:0;border-top:1px solid #666;border-bottom:1px solid #666;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#333333;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#aaeeaa;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;color:#bbbbbb;background-color:black;overflow-wrap:break-word}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>emergenet.emergenet</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import pandas as pd
+from Bio import SeqIO
+from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet
+
+
+class Enet(object):
+    &#34;&#34;&#34;Emergenet architecture.
+
+    Parameters
+    ----------
+    seq : str
+        The target sequence to be analysed by Emergenet
+        Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
+
+    seq_trunc_length : int
+        Length to truncate sequences in Qnet analysis
+        Sequences used to train Qnet and compute q-distance must be of same length
+
+    seq_metadata : str
+        Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
+
+    random_state : int
+        Sets seed for random number generator
+    &#34;&#34;&#34;
+
+    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
+        if seq.endswith(&#39;.fasta&#39;):
+            if self._count_seqs(seq) != 1:
+                raise ValueError(&#39;The file must contain exactly 1 sequence!&#39;)
+            for record in SeqIO.parse(seq, &#39;fasta&#39;):
+                self.seq = str(record.seq.upper())
+                self.seq_metadata = str(record.description)
+        else:
+            self.seq = seq.upper()
+            self.seq_metadata = seq_metadata
+
+        if seq_trunc_length &gt; len(self.seq):
+            raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+        self.seq_trunc_length = seq_trunc_length
+
+        if random_state &lt; 0:
+            raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
+        self.random_state = random_state
+
+    def __repr__(self):
+        return &#34;emergenet.Emergenet&#34;
+
+    def __str__(self):
+        return self.__repr__()
+
+    @staticmethod
+    def _count_seqs(filepath):
+        &#34;&#34;&#34;Returns number of sequences in a fasta file.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        Returns
+        -------
+        seq_df : int
+            Number of sequences
+        &#34;&#34;&#34;
+        with open(filepath, &#39;r&#39;) as f:
+            fasta = SeqIO.parse(f, &#39;fasta&#39;)
+            if not any(fasta):
+                raise ValueError(&#39;The infile must be in fasta format!&#39;)
+        with open(filepath, &#39;r&#39;) as f:
+            lines = f.read()
+        num_sequences = lines.count(&#39;&gt;&#39;)
+        return num_sequences
+
+    def _parse_fasta(self, filepath):
+        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
+        `id` contains fasta metadata.
+        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        Returns
+        -------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+        &#34;&#34;&#34;
+        if self._count_seqs(filepath) &lt; 1:
+            raise ValueError(&#39;The file contains no sequences!&#39;)
+        ids = []
+        seqs = []
+        for record in SeqIO.parse(filepath, &#39;fasta&#39;):
+            if len(record.seq) &lt; self.seq_trunc_length:
+                continue
+            ids.append(str(record.id))
+            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
+        seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
+        return seq_df
+
+    def _sequence_array(self, seq_df, sample_size=None):
+        &#34;&#34;&#34;Extracts array of sequence arrays from DataFrame; includes target sequence.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame containing sequences
+
+        sample_size : int
+            Number of strains to sample
+
+        Returns
+        -------
+        seq_lst: numpy.ndarray
+            Array of sequence arrays
+        &#34;&#34;&#34;
+        if &#39;sequence&#39; not in seq_df.columns:
+            return ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
+        if sample_size is None or sample_size &gt; len(seq_df):
+            sample_size = len(seq_df)
+        seqs = seq_df[&#39;sequence&#39;].sample(sample_size, random_state=self.random_state).values
+        seq_lst = []
+        for seq in seqs:
+            seq_lst.append(seq)
+        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
+        seq_lst = np.array(seq_lst)
+        return seq_lst
+
+    def load_data(self, filepath, outfile=None):
+        &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        outfile : str
+            File name to save to (&#39;.csv&#39;)
+
+        Returns
+        -------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+        &#34;&#34;&#34;
+        seq_df = self._parse_fasta(filepath)
+        if outfile is not None:
+            if not outfile.endswith(&#39;.csv&#39;):
+                raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
+            seq_df.to_csv(outfile, index=False)
+        return seq_df
+
+    def train(self, seq_df, sample_size=None, n_jobs=1):
+        &#34;&#34;&#34;Trains a Qnet model.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        sample_size : int
+            Number of strains to train Qnet on
+
+        n_jobs : int
+            Number of CPUs to use when training
+
+        Returns
+        -------
+        qnet : Qnet
+            Trained Qnet
+        &#34;&#34;&#34;
+        if len(seq_df) &lt; 1:
+            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        qnet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+                    random_state=self.random_state, n_jobs=n_jobs)
+        qnet.fit(seq_arr)
+        return qnet
+
+    def emergence_risk(self, seq_df, qnet, sample_size=None):
+        &#34;&#34;&#34;Computes emergence risk score.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        qnet : Qnet
+            Qnet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with
+
+        Returns
+        -------
+        emergence_risk_score : int
+            Emergence risk score
+        &#34;&#34;&#34;
+        if len(seq_df) &lt; 1:
+            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        qdist_sum = 0
+        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+        for i in range(len(seq_arr)):
+            qdist_sum += qdistance(target_seq, seq_arr[i], qnet, qnet)
+        emergence_risk_score = qdist_sum / len(seq_arr)
+        return emergence_risk_score
+
+
+def save_model(qnet, outfile, low_mem=False):
+    &#34;&#34;&#34;Saves a Qnet model.
+
+    Parameters
+    ----------
+    qnet : Qnet
+        A Qnet instance
+
+    outfile : str
+        File name to save to (&#39;.joblib&#39;)
+
+    low_mem : bool
+        If True, save the Qnet with low memory by deleting all data attributes except the tree structure
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    save_qnet(qnet, outfile, low_mem)
+
+
+def load_model(filepath):
+    &#34;&#34;&#34;Loads a Qnet model.
+
+    Parameters
+    ----------
+    filepath : str
+        File name
+
+    Returns
+    -------
+    qnet : Qnet
+        A Qnet instance
+    &#34;&#34;&#34;
+    qnet = load_qnet(filepath)
+    return qnet</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="emergenet.emergenet.load_model"><code class="name flex">
+<span>def <span class="ident">load_model</span></span>(<span>filepath)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads a Qnet model.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>File name</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>A Qnet instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_model(filepath):
+    &#34;&#34;&#34;Loads a Qnet model.
+
+    Parameters
+    ----------
+    filepath : str
+        File name
+
+    Returns
+    -------
+    qnet : Qnet
+        A Qnet instance
+    &#34;&#34;&#34;
+    qnet = load_qnet(filepath)
+    return qnet</code></pre>
+</details>
+</dd>
+<dt id="emergenet.emergenet.save_model"><code class="name flex">
+<span>def <span class="ident">save_model</span></span>(<span>qnet, outfile, low_mem=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves a Qnet model.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>A Qnet instance</dd>
+<dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
+<dd>File name to save to ('.joblib')</dd>
+<dt><strong><code>low_mem</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, save the Qnet with low memory by deleting all data attributes except the tree structure</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_model(qnet, outfile, low_mem=False):
+    &#34;&#34;&#34;Saves a Qnet model.
+
+    Parameters
+    ----------
+    qnet : Qnet
+        A Qnet instance
+
+    outfile : str
+        File name to save to (&#39;.joblib&#39;)
+
+    low_mem : bool
+        If True, save the Qnet with low memory by deleting all data attributes except the tree structure
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    save_qnet(qnet, outfile, low_mem)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="emergenet.emergenet.Enet"><code class="flex name class">
+<span>class <span class="ident">Enet</span></span>
+<span>(</span><span>seq, seq_trunc_length, seq_metadata=None, random_state=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Emergenet architecture.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>seq</code></strong> :&ensp;<code>str</code></dt>
+<dd>The target sequence to be analysed by Emergenet
+Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</dd>
+<dt><strong><code>seq_trunc_length</code></strong> :&ensp;<code>int</code></dt>
+<dd>Length to truncate sequences in Qnet analysis
+Sequences used to train Qnet and compute q-distance must be of same length</dd>
+<dt><strong><code>seq_metadata</code></strong> :&ensp;<code>str</code></dt>
+<dd>Describes the sequence; added automatically if 'seq' is a fasta file path</dd>
+<dt><strong><code>random_state</code></strong> :&ensp;<code>int</code></dt>
+<dd>Sets seed for random number generator</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Enet(object):
+    &#34;&#34;&#34;Emergenet architecture.
+
+    Parameters
+    ----------
+    seq : str
+        The target sequence to be analysed by Emergenet
+        Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
+
+    seq_trunc_length : int
+        Length to truncate sequences in Qnet analysis
+        Sequences used to train Qnet and compute q-distance must be of same length
+
+    seq_metadata : str
+        Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
+
+    random_state : int
+        Sets seed for random number generator
+    &#34;&#34;&#34;
+
+    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
+        if seq.endswith(&#39;.fasta&#39;):
+            if self._count_seqs(seq) != 1:
+                raise ValueError(&#39;The file must contain exactly 1 sequence!&#39;)
+            for record in SeqIO.parse(seq, &#39;fasta&#39;):
+                self.seq = str(record.seq.upper())
+                self.seq_metadata = str(record.description)
+        else:
+            self.seq = seq.upper()
+            self.seq_metadata = seq_metadata
+
+        if seq_trunc_length &gt; len(self.seq):
+            raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+        self.seq_trunc_length = seq_trunc_length
+
+        if random_state &lt; 0:
+            raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
+        self.random_state = random_state
+
+    def __repr__(self):
+        return &#34;emergenet.Emergenet&#34;
+
+    def __str__(self):
+        return self.__repr__()
+
+    @staticmethod
+    def _count_seqs(filepath):
+        &#34;&#34;&#34;Returns number of sequences in a fasta file.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        Returns
+        -------
+        seq_df : int
+            Number of sequences
+        &#34;&#34;&#34;
+        with open(filepath, &#39;r&#39;) as f:
+            fasta = SeqIO.parse(f, &#39;fasta&#39;)
+            if not any(fasta):
+                raise ValueError(&#39;The infile must be in fasta format!&#39;)
+        with open(filepath, &#39;r&#39;) as f:
+            lines = f.read()
+        num_sequences = lines.count(&#39;&gt;&#39;)
+        return num_sequences
+
+    def _parse_fasta(self, filepath):
+        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
+        `id` contains fasta metadata.
+        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        Returns
+        -------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+        &#34;&#34;&#34;
+        if self._count_seqs(filepath) &lt; 1:
+            raise ValueError(&#39;The file contains no sequences!&#39;)
+        ids = []
+        seqs = []
+        for record in SeqIO.parse(filepath, &#39;fasta&#39;):
+            if len(record.seq) &lt; self.seq_trunc_length:
+                continue
+            ids.append(str(record.id))
+            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
+        seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
+        return seq_df
+
+    def _sequence_array(self, seq_df, sample_size=None):
+        &#34;&#34;&#34;Extracts array of sequence arrays from DataFrame; includes target sequence.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame containing sequences
+
+        sample_size : int
+            Number of strains to sample
+
+        Returns
+        -------
+        seq_lst: numpy.ndarray
+            Array of sequence arrays
+        &#34;&#34;&#34;
+        if &#39;sequence&#39; not in seq_df.columns:
+            return ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
+        if sample_size is None or sample_size &gt; len(seq_df):
+            sample_size = len(seq_df)
+        seqs = seq_df[&#39;sequence&#39;].sample(sample_size, random_state=self.random_state).values
+        seq_lst = []
+        for seq in seqs:
+            seq_lst.append(seq)
+        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
+        seq_lst = np.array(seq_lst)
+        return seq_lst
+
+    def load_data(self, filepath, outfile=None):
+        &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        outfile : str
+            File name to save to (&#39;.csv&#39;)
+
+        Returns
+        -------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+        &#34;&#34;&#34;
+        seq_df = self._parse_fasta(filepath)
+        if outfile is not None:
+            if not outfile.endswith(&#39;.csv&#39;):
+                raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
+            seq_df.to_csv(outfile, index=False)
+        return seq_df
+
+    def train(self, seq_df, sample_size=None, n_jobs=1):
+        &#34;&#34;&#34;Trains a Qnet model.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        sample_size : int
+            Number of strains to train Qnet on
+
+        n_jobs : int
+            Number of CPUs to use when training
+
+        Returns
+        -------
+        qnet : Qnet
+            Trained Qnet
+        &#34;&#34;&#34;
+        if len(seq_df) &lt; 1:
+            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        qnet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+                    random_state=self.random_state, n_jobs=n_jobs)
+        qnet.fit(seq_arr)
+        return qnet
+
+    def emergence_risk(self, seq_df, qnet, sample_size=None):
+        &#34;&#34;&#34;Computes emergence risk score.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        qnet : Qnet
+            Qnet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with
+
+        Returns
+        -------
+        emergence_risk_score : int
+            Emergence risk score
+        &#34;&#34;&#34;
+        if len(seq_df) &lt; 1:
+            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        qdist_sum = 0
+        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+        for i in range(len(seq_arr)):
+            qdist_sum += qdistance(target_seq, seq_arr[i], qnet, qnet)
+        emergence_risk_score = qdist_sum / len(seq_arr)
+        return emergence_risk_score</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="emergenet.emergenet.Enet.emergence_risk"><code class="name flex">
+<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, qnet, sample_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Computes emergence risk score.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>DataFrame of sequences</dd>
+<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>Qnet that sequences in seq_df belong to</dd>
+<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of strains to compute emergence risk with</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
+<dd>Emergence risk score</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def emergence_risk(self, seq_df, qnet, sample_size=None):
+    &#34;&#34;&#34;Computes emergence risk score.
+
+    Parameters
+    ----------
+    seq_df : pd.DataFrame
+        DataFrame of sequences
+
+    qnet : Qnet
+        Qnet that sequences in seq_df belong to
+
+    sample_size : int
+        Number of strains to compute emergence risk with
+
+    Returns
+    -------
+    emergence_risk_score : int
+        Emergence risk score
+    &#34;&#34;&#34;
+    if len(seq_df) &lt; 1:
+        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+    seq_arr = self._sequence_array(seq_df, sample_size)
+    qdist_sum = 0
+    target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+    for i in range(len(seq_arr)):
+        qdist_sum += qdistance(target_seq, seq_arr[i], qnet, qnet)
+    emergence_risk_score = qdist_sum / len(seq_arr)
+    return emergence_risk_score</code></pre>
+</details>
+</dd>
+<dt id="emergenet.emergenet.Enet.load_data"><code class="name flex">
+<span>def <span class="ident">load_data</span></span>(<span>self, filepath, outfile=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads fasta file data and optionally saves to CSV.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>File name</dd>
+<dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
+<dd>File name to save to ('.csv')</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>DataFrame of sequences</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_data(self, filepath, outfile=None):
+    &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
+
+    Parameters
+    ----------
+    filepath : str
+        File name
+
+    outfile : str
+        File name to save to (&#39;.csv&#39;)
+
+    Returns
+    -------
+    seq_df : pd.DataFrame
+        DataFrame of sequences
+    &#34;&#34;&#34;
+    seq_df = self._parse_fasta(filepath)
+    if outfile is not None:
+        if not outfile.endswith(&#39;.csv&#39;):
+            raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
+        seq_df.to_csv(outfile, index=False)
+    return seq_df</code></pre>
+</details>
+</dd>
+<dt id="emergenet.emergenet.Enet.train"><code class="name flex">
+<span>def <span class="ident">train</span></span>(<span>self, seq_df, sample_size=None, n_jobs=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Trains a Qnet model.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>DataFrame of sequences</dd>
+<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of strains to train Qnet on</dd>
+<dt><strong><code>n_jobs</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of CPUs to use when training</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>Trained Qnet</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def train(self, seq_df, sample_size=None, n_jobs=1):
+    &#34;&#34;&#34;Trains a Qnet model.
+
+    Parameters
+    ----------
+    seq_df : pd.DataFrame
+        DataFrame of sequences
+
+    sample_size : int
+        Number of strains to train Qnet on
+
+    n_jobs : int
+        Number of CPUs to use when training
+
+    Returns
+    -------
+    qnet : Qnet
+        Trained Qnet
+    &#34;&#34;&#34;
+    if len(seq_df) &lt; 1:
+        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+    seq_arr = self._sequence_array(seq_df, sample_size)
+    qnet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+                random_state=self.random_state, n_jobs=n_jobs)
+    qnet.fit(seq_arr)
+    return qnet</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<img src="logozed_nowhite.png" alt="drawing" style="width:400px;"/>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="emergenet" href="index.html">emergenet</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="emergenet.emergenet.load_model" href="#emergenet.emergenet.load_model">load_model</a></code></li>
+<li><code><a title="emergenet.emergenet.save_model" href="#emergenet.emergenet.save_model">save_model</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="emergenet.emergenet.Enet" href="#emergenet.emergenet.Enet">Enet</a></code></h4>
+<ul class="">
+<li><code><a title="emergenet.emergenet.Enet.emergence_risk" href="#emergenet.emergenet.Enet.emergence_risk">emergence_risk</a></code></li>
+<li><code><a title="emergenet.emergenet.Enet.load_data" href="#emergenet.emergenet.Enet.load_data">load_data</a></code></li>
+<li><code><a title="emergenet.emergenet.Enet.train" href="#emergenet.emergenet.Enet.train">train</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+Author: Lynn Zheng, Jin Li and Ishanu Chattopadhyay <a href="https://zed.uchicago.edu"> Zero Knowledge Discovery, University of Chicago</a>. Email: ishanu@uchicago.edu
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

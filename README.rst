@@ -1,0 +1,25 @@
+===============
+Emergenet
+===============
+
+.. image:: https://zenodo.org/badge/388924904.svg
+   :target: https://zenodo.org/badge/latestdoi/388924904
+
+
+.. image:: http://zed.uchicago.edu/logo/emergenet.png
+   :height: 300px
+   :scale: 25%
+   :alt: cognet logo
+   :align: center
+
+.. class:: no-web no-pdf
+
+:Info: Draft link will be posted here
+:Author: ZeD@UChicago <zed.uchicago.edu>
+:Description: Superfast risk estimation for emerging strains (https://pypi.org/project/emergenet/) fo. 
+:Documentation: https://zeroknowledgediscovery.github.io/emergenet/
+
+
+**Usage:**
+
+

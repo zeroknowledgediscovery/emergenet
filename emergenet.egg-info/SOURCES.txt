@@ -1,0 +1,13 @@
+LICENSE
+LICENSE.md
+MANIFEST.in
+README.rst
+setup.py
+version.py
+emergenet/__init__.py
+emergenet/emergenet.py
+emergenet.egg-info/PKG-INFO
+emergenet.egg-info/SOURCES.txt
+emergenet.egg-info/dependency_links.txt
+emergenet.egg-info/requires.txt
+emergenet.egg-info/top_level.txt
