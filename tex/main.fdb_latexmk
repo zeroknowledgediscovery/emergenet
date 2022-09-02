@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1662091631 "main.aux" "main.bbl" "main" 1662091640
+["bibtex main"] 1662091631 "main.aux" "main.bbl" "main" 1662091824
   "/usr/share/texlive/texmf-dist/bibtex/bst/nature/naturemag.bst" 1136766823 34867 ae05936b307e5838449d1bb5fdbb2c19 ""
   "allbib.bib" 1661012839 316407 713a65f73fcefca608632b035e53d590 ""
-  "main.aux" 1662091639 13880 f9dff599a082bd7078cd2db58a73727b "pdflatex"
+  "main.aux" 1662091823 13880 f9dff599a082bd7078cd2db58a73727b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1662091631 "main.tex" "main.pdf" "main" 1662091640
+["pdflatex"] 1662091815 "main.tex" "main.pdf" "main" 1662091824
   "/home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccex10.600pk" 1618455428 13872 6e6620f099c1f49c5aabacaea9bb868b ""
   "/home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk" 1618455371 13828 6dc6afcbe97e7aa5c57f2fd50cb739e8 ""
   "/home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi5.600pk" 1618455424 6856 46a593c4e79796958373d21fd0991f46 ""
@@ -428,12 +428,13 @@
   "Figures/seasonalpred_northern.tex" 1662088582 8459 6800a3f3413f6a64155605bde1d7e3f9 ""
   "Figures/seasonalpred_southern.tex" 1662088582 8871 159f5377e9d66e75389d5f06d22faadb ""
   "Figures/tabdata/improvement_qnet.tex" 1662088582 697 b57666eea91e648db64937215617add7 ""
+  "SI.aux" 1662091661 12035 e0aa477064f631191bb8d964a04c422c ""
   "SI.tex" 1662088535 10986 67407b9992d46526e6867f854136c62c ""
   "customdef.tex" 1662088545 2333 7efbdfd90b7bd70c8210e9b10d1ec9bd ""
-  "main.aux" 1662091639 13880 f9dff599a082bd7078cd2db58a73727b "pdflatex"
+  "main.aux" 1662091823 13880 f9dff599a082bd7078cd2db58a73727b "pdflatex"
   "main.bbl" 1662091631 13540 4d6245a3c1069410df36ccd9bb1202ab "bibtex main"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1662088528 35653 0a7ae02e9ca40f709da967cbf55df7b4 ""
+  "main.tex" 1662091810 35642 33ed108939c2e7512f8284c68e55941b ""
   "method.tex" 1661012839 6658 060494f9f1df5d548735e6bfeb605f48 ""
   "preamble.tex" 1661012839 16002 f343635b7222864250d6ca019fa8afff ""
   (generated)
