@@ -18,7 +18,12 @@ Emergenet
 :Description: Superfast risk estimation for emerging strains (https://pypi.org/project/emergenet/) fo. 
 :Documentation: https://zeroknowledgediscovery.github.io/emergenet/
 
-
 **Usage:**
 
+.. code-block::
 
+   from emergenet.emergenet import Enet, save_model, load_model
+
+
+**Usage:**
+**Usage:**

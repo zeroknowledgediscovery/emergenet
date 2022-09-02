@@ -3,6 +3,19 @@
 ## Scalably predicting emergence of viral strains, future mutations, and risk
 
 ```
+### Usage
+
+```
+pip install emergenet
+```
+
+
+### Documentation
+
+https://zeroknowledgediscovery.github.io/emergenet/
+
+### Directory Structure
+
 Emergenet
 ├── emergenet: files for Emergenet package
 ├── examples: examples using the Emergenet package
