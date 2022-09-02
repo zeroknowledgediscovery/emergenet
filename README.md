@@ -1,6 +1,6 @@
 # Emergenet
 
-## Modeling emergence of viral strains and predicting future mutations
+## Scalably predicting emergence of viral strains, future mutations, and risk
 
 ```
 Emergenet
