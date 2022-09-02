@@ -24,6 +24,3 @@ Emergenet
 
    from emergenet.emergenet import Enet, save_model, load_model
 
-
-**Usage:**
-**Usage:**
