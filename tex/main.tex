@@ -25,21 +25,15 @@
 \maketitle
 
  
-
-
-
 \begin{center}
     \textbf{Abstract}
 \end{center}
 
 {\color{MediumBlue}
-    {\bf \sffamily \fontsize{10}{12}\selectfont \noindent
-    Influenza viruses constantly evolve~\cite{dos2016influenza}, and mismatches between predicted and circulating strains impact vaccine effectiveness~\cite{tricco2013comparing}. A barrier to predicting the season-specific dominant strains is the limited ability to predict future mutations, or estimate the numerical likelihood of specific future strains. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a moderately strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.}
+  {\bf \sffamily \fontsize{10}{12}\selectfont \noindent
+    
+Influenza viruses constantly evolve~\cite{dos2016influenza}, and mismatches between predicted and circulating strains impact vaccine effectiveness~\cite{tricco2013comparing}. Currently precisely predicting the season-specific dominant strains is limited by our inability to forecast future mutations, or quantify the numerical likelihood of specific strains emerging in future. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a moderately strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.}
 }
-
-
-
-
 
 \vspace{10pt}
   
@@ -49,9 +43,9 @@ A key barrier to making progress in this direction has been the missing ability 
 
 As an applications of the q-distance, we show that we can improve seasonal forecasts for the future dominant circulating strain by learning from the mutational patterns of key surface proteins: Hemaglutinnin (HA) and Neuraminidase (NA) for Influenza A (selected for their known roles in cellular entry and exit~\cite{gamblin2010influenza}). We outperform the WHO's recommendations for the flu-shot composition consistently over past two decades, measured as the number of mutations that separate the predicted from the dominant circulating strain in each season. Our recommendations repeatedly end up closer to the dominant circulating strain, illustrating the potential of our approach to correctly predict evolutionary trajectories. 
 
-A second application of the q-distance shows its utility in assessing risk effectively and quickly. We compare q-distance results to the CDC's Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}, which gives a grade between 1-10 for emergence risk and public health impact to Influenza A viruses not currently circulating among humans. Our results show strong negative correlations between IRAT emergence risk grades and q-distances to the nearest human strains to the strains in question. However, while IRAT takes months to analyze a single strain -- hence the small number of analyzed strains -- q-analysis can be done within seconds. Moreover, q-analysis only requires sequence data, while IRAT requires information for 10 risk elements, grouped into three categories: “properties of the virus,” “attributes of the population,” and “ecology \& epidemiology of the virus”~\cite{Influenz24:online}. Thus, our method could potentially be a low-cost, efficient substitute to IRAT, which could used at scale to rank the risk of emergence of non-circulating strains.
+A second application of the q-distance shows its utility in assessing risk effectively and quickly. We compare q-distance results to the CDC's Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}, which gives a grade between 1-10 for emergence risk and public health impact to Influenza A viruses not currently circulating among humans. Our results show strong negative correlations between IRAT emergence risk grades and q-distances to the nearest human strains to the strains in question. However, while IRAT takes months to analyze a single strain -- hence the small number of analyzed strains -- q-analysis can be done within seconds. Moreover, q-analysis only requires sequence data, while IRAT requires information for 10 risk elements, grouped into three categories: 1) properties of the virus, 2) attributes of the population, and 3) ecology and epidemiology of the virus~\cite{Influenz24:online}. Thus, our method could potentially be a low-cost, efficient substitute to IRAT, which could used at scale to rank the risk of emergence of non-circulating strains.
 
-A successful completion of this study will have profound impact on  bio-surveillance strategies. Empowered with the ability to rank newly collected strains by risk, we would be able to better judge pandemic risks, quantify the odds of a particular strain spilling to humans, and estimate its potential to lead to a global pandemic. And for strains already circulating in the human population, our tools will estimate the chances of new mutants, and their odds of escaping current vaccines. This study potentially represents an important step forward in modeling emerging pathogens, with uncharted impact on science and health, particularly as we prepare for the aftermath of \cov.
+Our tool can  have profound impact on  bio-surveillance strategies. The ability to rank newly collected strains by risk, allows actionable estimates of  pandemic risks via  quantifying the odds of a particular strain spilling into to the human population. Additionally,  for strains already circulating in humans, our tools can estimate the odds  of specific  new mutan varaints emerging, and their ability to  escape current vaccines. %This study potentially represents an important step forward in modeling emerging pathogens, with uncharted impact on science and health, particularly as we prepare for the aftermath of \cov.
 
 
 
