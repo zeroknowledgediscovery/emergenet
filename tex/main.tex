@@ -19,7 +19,7 @@
 % }
 
 \tikzexternalenable   
-\pgfplotsset{compat=1.18}
+%\pgfplotsset{compat=1.18}
 \begin{document} 
  
 \maketitle
@@ -32,7 +32,11 @@
 {\color{MediumBlue}
   {\bf \sffamily \fontsize{10}{12}\selectfont \noindent
     
-Influenza viruses constantly evolve~\cite{dos2016influenza}, and mismatches between predicted and circulating strains impact vaccine effectiveness~\cite{tricco2013comparing}. Currently precisely predicting the season-specific dominant strains is limited by our inability to forecast future mutations, or quantify the numerical likelihood of specific strains emerging in future. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a strong linear correlation between our predictions and the CDC's, though our predictions require much less time and resources.}
+    Influenza viruses constantly evolve~\cite{dos2016influenza}, producing small sequence alterations that are enough to evade host immunity, and cause the seasonal epidemic. Mismatches between predicted and circulating strains dramatically reduce  vaccine effectiveness~\cite{tricco2013comparing}, and despite serious  impact on global health from the
+    recurring yearly infection spike,  improved prediction of the dominant strain in future flu seasons has proven elusive.   In addition to such antigenic drifts, novel strains emerging into humans pose the  graver threat of a global pandemic. While we currently collect large number of wild specimens from diverse hosts and geolocations, the technology necessary for objectively, reliably and scalably  evaluating the risk posed by individual strains to the human population with respect to its pathogenicity and pandemic potential, is  non-existent.  In this study, we introduce a new machine learning algorithm to automatically parse out emergent evolutionary constraints operating on viral sequences in the wild, allowing us to predict the likelihood of specific mutations occurring in future, thereby estimating the  numerical likelihood of specific future strains. We show that our approach outperforms  WHO recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres. We also show that we can replicate CDC's Influence Risk Assessment (IRAT) score for  influenza A viruses that are not currently circulating in humans. While the evaluating IRAT score 
+ involves detailed experimental assays and   can take weeks, our approach produces a highly correlated risk assessment in seconds. This dramatic scale-up allows to fully leverage the tens of thousands of strains collected in global surveillance efforts, and deploy meaningful preemptive pandemic mitigation strategies. 
+    % Currently precisely predicting the season-specific dominant strains is limited by our inability to forecast future mutations, or quantify the numerical likelihood of specific strains emerging in future. In this study, we introduce a biology-aware sequence similarity metric based on deep pattern recognition of emergent evolutionary constraints. We use our model in two applications. One, we calculate the odds of future mutations, outperforming WHO recommended flu vaccine compositions almost consistently over the past two decades. Two, we compute emergence risk of strains previously analyzed by the CDC's Influenza Risk Assessment Tool, showing a strong  correlation between our predictions and the CDC's, though our predictions require much less time and resources.
+  }
 }
 
 \vspace{10pt}
