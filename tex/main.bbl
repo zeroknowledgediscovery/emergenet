@@ -68,6 +68,41 @@
   \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
 \newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
 
+\bibitem{cover}
+\bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}
+\newblock \emph{\bibinfo{title}{Elements of Information Theory (Wiley Series in
+  Telecommunications and Signal Processing)}}
+  (\bibinfo{publisher}{Wiley-Interscience}, \bibinfo{address}{New York, NY,
+  USA}, \bibinfo{year}{2006}).
+
+\bibitem{varadhan2010large}
+\bibinfo{author}{Varadhan, S.~S.}
+\newblock \bibinfo{title}{Large deviations}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the International
+  Congress of Mathematicians 2010 (ICM 2010) (In 4 Volumes) Vol. I: Plenary
+  Lectures and Ceremonies Vols. II--IV: Invited Lectures}},
+  \bibinfo{pages}{622--639} (\bibinfo{organization}{World Scientific},
+  \bibinfo{year}{2010}).
+
+\bibitem{boni2008vaccination}
+\bibinfo{author}{Boni, M.~F.}
+\newblock \bibinfo{title}{Vaccination and antigenic drift in influenza}.
+\newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{26}},
+  \bibinfo{pages}{C8--C14} (\bibinfo{year}{2008}).
+
+\bibitem{agor2018models}
+\bibinfo{author}{Agor, J.~K.} \& \bibinfo{author}{{\"O}zalt{\i}n, O.~Y.}
+\newblock \bibinfo{title}{Models for predicting the evolution of influenza to
+  inform vaccine strain selection}.
+\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{678--683}
+  (\bibinfo{year}{2018}).
+
+\bibitem{cdceff}
+\bibinfo{title}{Cdc vaccine effectiveness studies} (\bibinfo{year}{2020}).
+\newblock
+  \urlprefix\url{https://www.cdc.gov/flu/vaccines-work/effectiveness-studies.htm}.
+
 \bibitem{posada1998modeltest}
 \bibinfo{author}{Posada, D.} \& \bibinfo{author}{Crandall, K.~A.}
 \newblock \bibinfo{title}{Modeltest: testing the model of dna substitution.}
@@ -130,41 +165,6 @@
 \newblock \emph{\bibinfo{journal}{Science Translational Medicine}}
   \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{eabk3445}
   (\bibinfo{year}{2022}).
-
-\bibitem{cover}
-\bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}
-\newblock \emph{\bibinfo{title}{Elements of Information Theory (Wiley Series in
-  Telecommunications and Signal Processing)}}
-  (\bibinfo{publisher}{Wiley-Interscience}, \bibinfo{address}{New York, NY,
-  USA}, \bibinfo{year}{2006}).
-
-\bibitem{varadhan2010large}
-\bibinfo{author}{Varadhan, S.~S.}
-\newblock \bibinfo{title}{Large deviations}.
-\newblock In \emph{\bibinfo{booktitle}{Proceedings of the International
-  Congress of Mathematicians 2010 (ICM 2010) (In 4 Volumes) Vol. I: Plenary
-  Lectures and Ceremonies Vols. II--IV: Invited Lectures}},
-  \bibinfo{pages}{622--639} (\bibinfo{organization}{World Scientific},
-  \bibinfo{year}{2010}).
-
-\bibitem{boni2008vaccination}
-\bibinfo{author}{Boni, M.~F.}
-\newblock \bibinfo{title}{Vaccination and antigenic drift in influenza}.
-\newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{26}},
-  \bibinfo{pages}{C8--C14} (\bibinfo{year}{2008}).
-
-\bibitem{agor2018models}
-\bibinfo{author}{Agor, J.~K.} \& \bibinfo{author}{{\"O}zalt{\i}n, O.~Y.}
-\newblock \bibinfo{title}{Models for predicting the evolution of influenza to
-  inform vaccine strain selection}.
-\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
-  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{678--683}
-  (\bibinfo{year}{2018}).
-
-\bibitem{cdceff}
-\bibinfo{title}{Cdc vaccine effectiveness studies} (\bibinfo{year}{2020}).
-\newblock
-  \urlprefix\url{https://www.cdc.gov/flu/vaccines-work/effectiveness-studies.htm}.
 
 \bibitem{carugo2001normalized}
 \bibinfo{author}{Carugo, O.} \& \bibinfo{author}{Pongor, S.}
