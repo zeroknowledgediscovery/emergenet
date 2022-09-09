@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  9 SEP 2022 01:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  9 SEP 2022 01:35
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -3053,7 +3053,7 @@ PGFPlots: reading {Figures/plotdata/north_h3n2_na_3cluster.csv}
 PGFPlots: reading {Figures/plotdata/north_h3n2_na_3cluster.csv}
 PGFPlots: reading {Figures/plotdata/north_h3n2_na_3cluster.csv}
 ))
-<Figures/External/sequence.pdf, id=7540, 491.435pt x 672.11098pt>
+<Figures/External/sequence.pdf, id=7537, 491.435pt x 672.11098pt>
 File: Figures/External/sequence.pdf Graphic file (type pdf)
 <use Figures/External/sequence.pdf>
 Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 277.
@@ -3078,7 +3078,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  52529 strings out of 478862
  1157171 string characters out of 5858945
- 2525553 words of memory out of 8000000
+ 2524916 words of memory out of 8000000
  69030 multiletter control sequences out of 15000+600000
  508944 words of font info for 258 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
@@ -3139,7 +3139,7 @@ b></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share
 mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/font
 s/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /zapfding/uzdr.pfb>
-Output written on main.pdf (12 pages, 7522767 bytes).
+Output written on main.pdf (12 pages, 7523314 bytes).
 PDF statistics:
  7865 PDF objects out of 8907 (max. 8388607)
  5202 compressed objects within 53 object streams
