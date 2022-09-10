@@ -6,7 +6,7 @@ import warnings
 package_name = 'emergenet'
 example_dir = 'examples/'
 bin_dir = 'bin/'
-example_data_dir = example_dir + 'examples_data/'
+example_data_dir = example_dir + 'example_data/'
 
 version = {}
 with open("version.py") as fp:
