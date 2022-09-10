@@ -298,8 +298,8 @@ class Enet(object):
                 cur_min_qdist = min(qdist, cur_min_qdist)
                 cur_max_qdist = max(qdist, cur_max_qdist)
             avg_qdist_list.append(cur_avg_qdist / qsamples)
-            min_qdist_list += cur_min_qdist
-            max_qdist_list += cur_max_qdist
+            min_qdist_list.append(cur_min_qdist)
+            max_qdist_list.append(cur_max_qdist)
         avg_emergence_risk_score = np.average(avg_qdist_list)
         min_emergence_risk_score = np.average(min_qdist_list)
         max_emergence_risk_score = np.average(max_qdist_list)
