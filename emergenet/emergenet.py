@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 from Bio import SeqIO
-from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet
+from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet, membership_degree
+from quasinet import qsampling as qs
 
 
 class Enet(object):
@@ -15,7 +16,7 @@ class Enet(object):
 
     seq_trunc_length : int
         Length to truncate sequences in Qnet analysis
-        Sequences used to train Qnet and compute q-distance must be of same length
+        (Sequences used to train Qnet and compute q-distance must be of same length)
 
     seq_metadata : str
         Describes the sequence; added automatically if 'seq' is a fasta file path
@@ -108,7 +109,7 @@ class Enet(object):
             DataFrame containing sequences
 
         sample_size : int
-            Number of strains to sample
+            Number of strains to sample randomly
 
         Returns
         -------
@@ -119,7 +120,9 @@ class Enet(object):
             return ValueError('The DataFrame must store sequences in `sequence` column!')
         if sample_size is None or sample_size > len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df['sequence'].sample(sample_size, random_state=self.random_state).values
+        seqs = seq_df['sequence']
+        if sample_size < len(seq_df):
+            seqs = seqs.sample(sample_size, random_state=self.random_state).values
         seq_lst = []
         for seq in seqs:
             seq_lst.append(seq)
@@ -159,7 +162,7 @@ class Enet(object):
             DataFrame of sequences
 
         sample_size : int
-            Number of strains to train Qnet on
+            Number of strains to train Qnet on, sampled randomly
 
         n_jobs : int
             Number of CPUs to use when training
@@ -177,6 +180,37 @@ class Enet(object):
         qnet.fit(seq_arr)
         return qnet
 
+    def sequence_membership(self, seq_df, qnet, sample_size=None):
+        """Computes membership degree (see Quasinet documentation) of each sequence
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        qnet : Qnet
+            Qnet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with, sampled randomly
+
+        Returns
+        -------
+        membership_degrees : np.ndarray
+            Array of membership degrees
+        """
+        if len(seq_df) < 1:
+            raise ValueError('The DataFrame contains no sequences!')
+        if 'sequence' not in seq_df.columns:
+            return ValueError('The DataFrame must store sequences in `sequence` column!')
+        if sample_size is None or sample_size > len(seq_df):
+            sample_size = len(seq_df)
+        seqs = seq_df['sequence']
+        if sample_size < len(seq_df):
+            seqs = seqs.sample(sample_size, random_state=self.random_state).values
+        membership_degrees = np.array([membership_degree(seq[self.seq_trunc_length], qnet) for seq in seqs.values])
+        return membership_degrees
+
     def emergence_risk(self, seq_df, qnet, sample_size=None):
         """Computes emergence risk score.
 
@@ -189,22 +223,88 @@ class Enet(object):
             Qnet that sequences in seq_df belong to
 
         sample_size : int
-            Number of strains to compute emergence risk with
+            Number of strains to compute emergence risk with, sampled randomly
 
         Returns
         -------
         emergence_risk_score : int
             Emergence risk score
+
+        variance : int
+            Variance of emergence risk score
         """
         if len(seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
         seq_arr = self._sequence_array(seq_df, sample_size)
-        qdist_sum = 0
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+        qdist_list = []
         for i in range(len(seq_arr)):
-            qdist_sum += qdistance(target_seq, seq_arr[i], qnet, qnet)
-        emergence_risk_score = qdist_sum / len(seq_arr)
-        return emergence_risk_score
+            qdist_list.append(qdistance(target_seq, seq_arr[i], qnet, qnet))
+        emergence_risk_score = np.average(qdist_list)
+        variance = np.var(qdist_list)
+        return emergence_risk_score, variance
+
+    def emergence_risk_qsampling(self, seq_df, qnet, sample_size=None, qsamples=None, steps=None):
+        """Computes emergence risk score using qsampling.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        qnet : Qnet
+            Qnet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with, sampled randomly
+
+        qsamples : int
+            Number of qsamples to draw from each strain
+
+        steps : int
+            Number of steps to run q-sampling
+
+        Returns
+        -------
+        avg_emergence_risk_score : int
+            Average emergence risk score among all qsampled sequences
+
+        min_emergence_risk_score : int
+            Lower bound on emergence risk score
+
+        max_emergence_risk_score : int
+            Upper bound on emergence risk score
+        """
+        if len(seq_df) < 1:
+            raise ValueError('The DataFrame contains no sequences!')
+        if qsamples < 1:
+            raise ValueError('Number of qsamples must be positive!')
+        if steps < 1:
+            raise ValueError('Number of steps must be positive!')
+
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+        avg_qdist_list = []
+        min_qdist_list = []
+        max_qdist_list = []
+        for i in range(len(seq_arr)):
+            cur_avg_qdist = 0
+            cur_min_qdist = 1
+            cur_max_qdist = 0
+            for j in range(qsamples):
+                qs_seq = qs.qsample(seq_arr[i], qnet, steps)
+                qdist = qdistance(target_seq, qs_seq, qnet, qnet)
+                cur_avg_qdist += qdist
+                cur_min_qdist = min(qdist, cur_min_qdist)
+                cur_max_qdist = max(qdist, cur_max_qdist)
+            avg_qdist_list.append(cur_avg_qdist / qsamples)
+            min_qdist_list += cur_min_qdist
+            max_qdist_list += cur_max_qdist
+        avg_emergence_risk_score = np.average(avg_qdist_list)
+        min_emergence_risk_score = np.average(min_qdist_list)
+        max_emergence_risk_score = np.average(max_qdist_list)
+        variance = np.var(avg_qdist_list)
+        return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
 
 
 def save_model(qnet, outfile, low_mem=False):
