@@ -15,7 +15,7 @@ Emergenet
 
 :Info: Draft link will be posted here
 :Author: ZeD@UChicago <zed.uchicago.edu>
-:Description: Superfast risk estimation for emerging strains (https://pypi.org/project/emergenet/) fo. 
+:Description: Superfast risk estimation for emerging strains (https://pypi.org/project/emergenet/)
 :Documentation: https://zeroknowledgediscovery.github.io/emergenet/
 
 **Usage:**
