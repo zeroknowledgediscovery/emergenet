@@ -208,7 +208,7 @@ class Enet(object):
         seqs = seq_df['sequence']
         if sample_size < len(seq_df):
             seqs = seqs.sample(sample_size, random_state=self.random_state).values
-        membership_degrees = np.array([membership_degree(seq[self.seq_trunc_length], qnet) for seq in seqs])
+        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], qnet) for seq in seqs])
         return membership_degrees
 
     def emergence_risk(self, seq_df, qnet, sample_size=None):
