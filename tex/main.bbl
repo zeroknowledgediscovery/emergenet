@@ -21,6 +21,29 @@
 \newblock \emph{\bibinfo{journal}{BMC medicine}} \textbf{\bibinfo{volume}{11}},
   \bibinfo{pages}{153} (\bibinfo{year}{2013}).
 
+\bibitem{huddleston2020integrating}
+\bibinfo{author}{Huddleston, J.} \emph{et~al.}
+\newblock \bibinfo{title}{Integrating genotypes and phenotypes improves
+  long-term forecasts of seasonal influenza a/h3n2 evolution}.
+\newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{e60067} (\bibinfo{year}{2020}).
+
+\bibitem{neher2014predicting}
+\bibinfo{author}{Neher, R.~A.}, \bibinfo{author}{Russell, C.~A.} \&
+  \bibinfo{author}{Shraiman, B.~I.}
+\newblock \bibinfo{title}{Predicting evolution from the shape of genealogical
+  trees}.
+\newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{3}},
+  \bibinfo{pages}{e03568} (\bibinfo{year}{2014}).
+
+\bibitem{Influenz24:online}
+\bibinfo{author}{CDC}.
+\newblock \bibinfo{title}{Influenza risk assessment tool (irat) | pandemic
+  influenza (flu) | cdc}.
+\newblock
+  \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
+\newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
+
 \bibitem{rulli2017nexus}
 \bibinfo{author}{Rulli, M.~C.}, \bibinfo{author}{Santini, M.},
   \bibinfo{author}{Hayman, D.~T.} \& \bibinfo{author}{D’Odorico, P.}
@@ -64,14 +87,6 @@
 \bibinfo{title}{Cdc vaccine effectiveness studies} (\bibinfo{year}{2020}).
 \newblock
   \urlprefix\url{https://www.cdc.gov/flu/vaccines-work/effectiveness-studies.htm}.
-
-\bibitem{Influenz24:online}
-\bibinfo{author}{CDC}.
-\newblock \bibinfo{title}{Influenza risk assessment tool (irat) | pandemic
-  influenza (flu) | cdc}.
-\newblock
-  \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
-\newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
 
 \bibitem{gamblin2010influenza}
 \bibinfo{author}{Gamblin, S.~J.} \& \bibinfo{author}{Skehel, J.~J.}
@@ -125,14 +140,6 @@
 \newblock \emph{\bibinfo{journal}{Annual Review of Ecology and systematics}}
   \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{437--466}
   (\bibinfo{year}{1997}).
-
-\bibitem{neher2014predicting}
-\bibinfo{author}{Neher, R.~A.}, \bibinfo{author}{Russell, C.~A.} \&
-  \bibinfo{author}{Shraiman, B.~I.}
-\newblock \bibinfo{title}{Predicting evolution from the shape of genealogical
-  trees}.
-\newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{3}},
-  \bibinfo{pages}{e03568} (\bibinfo{year}{2014}).
 
 \bibitem{VanderMeer2010}
 \bibinfo{author}{van~der Meer, F. J. U.~M.}, \bibinfo{author}{Orsel, K.} \&
