@@ -36,19 +36,21 @@ Influenza viruses constantly evolve~\cite{dos2016influenza}, typically producing
 \vspace{10pt}
 \section*{Introduction}
 
-Influenza viruses constantly evolve~\cite{dos2016influenza},  producing small sequence alterations over a time scale of months  that  perturb surface protein structures sufficiently to evade the prevailing host immunity, and cause the  recurring seasonal flu epidemic. Such  infection peaks claim a quarter to half a million lives annually~\cite{huddleston2020integrating},  necessitating yearly innoculation of the population with a  reformulated  vaccine.  Designing the optimal flu shot requires predicting the dominant  strain(s)  in the upcoming season, and deviations between the predicted and the circulating strain(s) dramatically reduce  vaccine effectiveness~\cite{tricco2013comparing}. Unfortunately,  despite  recent advances in forecasting tools~\cite{neher2014predicting,huddleston2020integrating}, prediction of the dominant strain(s) remains imperfect. 
+Influenza viruses constantly evolve~\cite{dos2016influenza},  producing small sequence alterations over a time scale of months  that  perturb surface protein structures sufficiently to evade the prevailing host immunity, and cause the  recurring seasonal flu epidemic. These yearly  infection peaks claim a quarter to half a million lives~\cite{huddleston2020integrating} globally,  necessitating yearly innoculation of the human population with a  reformulated  vaccine.  Designing the optimal flu shot requires predicting the dominant  strain(s)  in the upcoming season, and deviations between the predicted and the circulating strain(s)  reduce  vaccine effectiveness~\cite{tricco2013comparing} dramatically. Unfortunately,  despite  recent advances in forecasting tools~\cite{neher2014predicting,huddleston2020integrating}, prediction of the dominant strain(s) remains imperfect. 
 
-While the seasonal flu epidemic is a crucial health concern, novel \infl strains spilling over into humans from animal reservoirs pose the even graver threat of a global pandemic. With the memory of sudden emergence of   COVID-19 fresh in our minds, a looimng question  is whether we can prepare for, preempt and mitigate such events in the future.  \infl,  partly on account of its segmented genome and its wide prevalence is common animal hosts, has historically demonstrated its ability to easily incorporate genes from multiple strains and emerge as novel human pathogens,  thus posing a high risk of triggering the next  pandemic.
+While the seasonal flu epidemic is a crucial health concern, novel \infl strains spilling over into humans from animal reservoirs pose the even graver threat of a global pandemic. With the memory of sudden emergence of   COVID-19 fresh in our minds, a looimng question  is whether we can prepare for, preempt and mitigate such events in the future.  \infl,  partly on account of its segmented genome and its wide prevalence is common animal hosts, has historically demonstrated its ability to easily incorporate genes from multiple strains and emerge as novel human pathogens,  thus harboring  a high potential  of triggering the next  pandemic.
 
-To mitigate such risk we must preemptively identify specific strains in animal hosts that do not yet circulate in humans, but   have the potential to  jump to humans, and quickly achieve human-to-human (HH) transmission capability. Despite global surveillance efforts to  collecting wild specimens from diverse hosts and geo-locations,  current ability to objectively, reliably and scalably  evaluate the risk posed to  humans by  individual strains  is limited.
+To mitigate such risk we must preemptively identify specific strains in animal hosts that do not yet circulate in humans, but   have the potential to  jump to humans, and quickly achieve human-to-human (HH) transmission capability. Despite global surveillance efforts to  collecting wild specimens from diverse hosts and geo-locations, our  current ability to objectively, reliably and scalably  evaluate the risk posed to  humans by  individual strains  is limited.
 
 CDC's current, somewhat subjective, solution to this problem is the Influenza Risk Assessment Tool (IRAT), which  uses a combination of ten weighted risk elements, aiming to factor in the   1) properties of the virus, 2) attributes of the population, and 3) ecology and epidemiological characteristics of the virus~\cite{Influenz24:online} that are largely  expert-selected. The IRAT score assigns  a grade between 1-10 for emergence risk and public health impact to Influenza A viruses not currently circulating among humans. However, evaluating the IRAT risk elemenst  involve multiple experimental assays for each strain, possibly taking  weeks to return the final   score for a single strain. Thus, we have a scalability problem: while  the current global biosurveillance efforts are collecting tens of thousands of sequences every year, most of these sequences will never be analyzed in time. IRAT assessment protocols are  not fast enough to leverage the full capacity of current surveillance output, and thus have low odds of  preempting a pandemic.
 
 
-In this study, we introduce a new machine learning algorithm to automatically parse out emergent evolutionary constraints operating on viral sequences in the wild, ultimately culminating in the ability to rapidly rank-order strains isolated in animal hosts according to their pandemic potential. This is realized by our learning framework via predicting the likelihood of specific future  mutations, and  consequently, the numerical likelihood of specific  strains emerging through natural evolutionary processes shaped by diverse, hard-to-model selection pressures.
-To summarize our key results, we first demonstrate that our forecasts outperform WHO recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres. Such predictive capability validates our framework, outperforming recent proposals using computational or experimental frameworks~\cite{huddleston2020integrating,neher2014predicting}, and thus can potentially non-trivially improve the effectiveness of the flu shot.
+In this study, we introduce a new machine learning algorithm to automatically parse out emergent evolutionary constraints operating on viral sequences in the wild, purely from sequence variations recorded in publicly available databases such as the GISAID and NCBI. This ultimately culminates in our ability to rapidly rank-order strains isolated in animal hosts according to their pandemic potential. At the core of our algorithmic framework, referred to as the \enet, is a recursive forest of  cross-predicting conditional inference trees, that allows us to  predict the likelihood of specific future  mutations, and  consequently, the numerical likelihood of specific  strains emerging through natural evolutionary processes.
+Evolutionary trajectories in the wild are shaped by complex hard-to-model selection pressures, and the \enet maximally incorporates the impact of these effects by  learning emergent patterns from sequence databases.
+As our first result, we predict dominant strain(s) for the seasonal flu, outperforming  WHO/CDC recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres. This  validates our framework, and  outlines an approach to improve the effectiveness of the flu shot, outperforming  recent proposals using computational and/or experimental frameworks~\cite{huddleston2020integrating,neher2014predicting}.
+Importantly, we use only sequence information, but sophisticated pattern recognition allows us to get much better predictive performance to what has been reliazed by the state of the art, even with the use of more detailed phenotypic information on past strains.
 
-However, our key outcome  is  replicating the IRAT score for  \infl  viruses, specifically ones that do not yet circulate in humans, in seconds as opposed to weeks. This dramatic reduction in time and cost potentially opens the door to fully exploiting the  current biosurvellinace capacity, scalably analyzing risk from  the tens of thousands of strains collected every year, and hence moving towards   meaningful preemptive pandemic mitigation strategies. 
+Our key outcome, however,  relates to estimating the pandemic potential of novel strains. We replicate the IRAT score for  \infl  viruses, specifically ones that do not yet circulate in humans, in seconds as opposed to weeks taken by the detailed experimental assays. This dramatic reduction in time and cost potentially opens the door to fully exploiting the  current biosurvellinace capacity, scalably analyzing risk from  the tens of thousands of strains collected every year, and hence moving towards   meaningful preemptive pandemic mitigation strategies. 
 
 {\color{Red1}
 \section*{Discussion}
@@ -59,8 +61,9 @@ Currently, the composition of the flu shot is decided at least six months in adv
 
 
 \section*{Brief Methods}
+A key barrier to making progress  on both the problems cited above, namely predicting the dominant strain(s) in seasonal flu, as well as estimating the numerical odds of an animal strain  to spillover and attain HH capability,  is our limited understanding of the emergent dependencies across individual mutations that  constrain evolutionary trajectories. Thus, to the best of our knowledge, the state of the art has no tools to estimate the numerical likelihood of specific mutations in the future, and in general  the likelihood of a wild strain spontaneously giving rise to another by random chance. Currently, this likelihood is often qualitatively equated to sequence similarity, which is measured by the number of mutations it takes to change one strain to another. However, the odds of one sequence mutating to another is not just a function of how many mutations separate them, but also of how specific mutations incrementally affect fitness. Ignoring the constraints arising from the need to conserve function makes any assessment of the mutation likelihood open to subjective bias. Here, we show that a precise calculation is possible when sequence similarity is evaluated via a new biologically-aware metric, which we call the \textit{q-distance}.
 
-A key barrier to making progress in this direction has been the missing ability to estimate the numerical likelihood of specific mutations in the future, and in general  the likelihood of a wild strain spontaneously giving rise to another by random chance. Currently, this likelihood is qualitatively equated to sequence similarity, which is measured by the number of mutations it takes to change one strain to another. However, the odds of one sequence mutating to another is not just a function of how many mutations separate them, but also of how specific mutations incrementally affect fitness. Ignoring the constraints arising from the need to conserve function makes any assessment of the mutation likelihood open to subjective bias. Here, we show that a precise calculation is possible when sequence similarity is evaluated via a new biologically-aware metric, which we call the \textit{q-distance}.
+Some recent efforts have recognized this gap, and have attempted to predict future dominant strain by incorporating other phenotypic details. 
 
 As an applications of the q-distance, we show that we can improve seasonal forecasts for the future dominant circulating strain by learning from the mutational patterns of key surface proteins: Hemaglutinnin (HA) and Neuraminidase (NA) for Influenza A (selected for their known roles in cellular entry and exit~\cite{gamblin2010influenza}). We outperform the WHO's recommendations for the flu-shot composition consistently over past two decades, measured as the number of mutations that separate the predicted from the dominant circulating strain in each season. Our recommendations repeatedly end up closer to the dominant circulating strain, illustrating the potential of our approach to correctly predict evolutionary trajectories. 
 
@@ -69,6 +72,43 @@ We also show that this new metric allows us to  assess the risk posed by novel s
 {\color{Red1} Discussion? 
 Thus, the tool proposed in this study  can  profoundly impact  bio-surveillance strategies. The ability to rank newly collected strains by risk at scale, allows actionable estimates of  pandemic risks via  quantifying the odds of a particular strain spilling into to the human population. Additionally,  for strains already circulating in humans, our tools can estimate the odds  of specific  new mutan varaints emerging, and their ability to  escape current vaccines. %This study potentially represents an important step forward in modeling emerging pathogens, with uncharted impact on science and health, particularly as we prepare for the aftermath of \cov.
 }
+
+
+
+%###################################                                            
+\ifFIGS
+\begin{figure*}[t]
+  \tikzexternaldisable
+  \tikzsetnextfilename{scheme2_brief}
+  \centering
+  \tikzXtrue
+  \iftikzX
+  \input{Figures/fig0brief}
+  \vspace{0pt}
+
+  \else \includegraphics[width=0.92\textwidth]{Figures/External/scheme2_brief.p\
+df}
+  \fi
+  \captionN{\textbf{\qnet Computation Scheme}. \textbf{Panel a}.
+As an example,  beginning with aligned sequences, we calculate a conditional in\
+ference tree for index 1274, which involves indices 1064, 1445, 197 as predicti\
+ve features. These features are automatically selected by the algorithm, as bei\
+ng maximally predictive of the base at 1274. Then, we compute predictors for ea\
+ch of these predictive indices, $e.g.$ we show the inference tree computed for \
+index 1064, which involves index 1314 and 339 as features. Continuing, we find \
+that the predictor for 1314 involves indices 1263, 636 and 21, and that for 126\
+3 involves 1314, 667 and 313. Note that recursive dependencies arise automatica\
+lly: the predictor for 1263  depends on 1314, and that for 1314 depends on 1263\
+.  \textbf{Panels c} show \qnet dependency graphs for  Influenza A HA. HA in In\
+fluenza A is implicated in viral entry into host cells, and crucial for host sp\
+ecificity of infections.}\label{fig000}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{fig000}
+\fi
+%#############################################                                  
+%#############################################                                  
+
 
 
 
