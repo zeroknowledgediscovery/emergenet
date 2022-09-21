@@ -1,0 +1,28 @@
+\begin{tabular}{l|rrr|r}
+\multicolumn{5}{c}{}\\[7.59998pt]
+\multicolumn{1}{c}{}
+&\multicolumn{1}{c}{\kern1ex\begin{rotopo}{90}WHO:\end{rotopo}}
+&\multicolumn{1}{c}{\kern1ex\begin{rotopo}{90}DOM:\end{rotopo}}
+&\multicolumn{1}{c}{\kern1ex\begin{rotopo}{90}QNT:\end{rotopo}}
+&\\ \cline{2-4}
+&\multicolumn{3}{|c|}{}&\\[-2ex]
+WHO:
+& {---\hss }
+& \percentsimilarity{1}{2}
+& \percentsimilarity{1}{3}
+&\\
+DOM:
+& \percentidentity{2}{1}
+& {---\hss }
+& \percentsimilarity{2}{3}
+&\\
+QNT:
+& \percentidentity{3}{1}
+& \percentidentity{3}{2}
+& {---\hss }
+&\\
+\cline{2-4}
+\multicolumn{4}{c}{}&
+\multicolumn{1}{r}{\kern1.5ex\begin{rotopo}{90}\kern 1em\% simil.\end{rotopo}}\\[-2ex]
+\multicolumn{1}{c}{}&\multicolumn{3}{l}{\% identity}&\\
+\end{tabular}

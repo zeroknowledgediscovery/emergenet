@@ -1,0 +1,296 @@
+\documentclass[onecolumn,10pt]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\input{preamble.tex} 
+
+\usepackage{texshade}
+\usepackage[usenames]{xcolor}
+
+\begin{document}
+
+
+
+\begin{tikzpicture}[font=\bf\sffamily\fontsize{8}{8}\selectfont]
+  \def\SEQA{2009-2010h1n1_HA_north}
+  \def\SEQB{2018-2019h1n1_HA_north}
+  \def\SEQC{2016-2017h1n1_HA_south}
+  \def\SEQD{2016-2017h1n1_HA_north}
+  \def\SEQE{2018-2019h3n2_HA_north}
+  \def\LENA{550}
+  \def\LENB{63}
+  \def\LENC{286}
+  \def\LENE{1}
+  \def\LEND{320}
+  \node[] (T1) at (0,0){  
+    % 
+    \begin{tikzpicture}
+      \node[,label={[yshift=-.2in]90:{\large a.} 2018-2019 (Northern Hemisphere)}] (A) at (0,0) {
+        \mnp{1.01\textwidth}{
+          \begin{texshade}{\SEQA}
+            \shadingmode[allmatchspecial]{identical}
+            \shadingcolors{grays}
+            \conservedresidues{White}{Red}{upper}{bf}
+            \allmatchresidues{gray!50}{lightgray!10}{upper}{bf}
+            \nomatchresidues{black}{lightgray!10}{upper}{bf}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \setfont{features}{tt}{up}{bf}{scriptsize}
+            \feature{top}{1}{\LENB..\LENC}{brace[black]}{RBD}
+            % \threshold[80]{50}
+            \setends{1}{\LENE..\LEND}
+            \showruler{1}{top}
+            \hideconsensus
+            % \defconsensus{.}{lower}{upper}
+            % \showlegend
+          \end{texshade}
+          % 
+        }};
+    \end{tikzpicture}};
+
+  \node[anchor=north west,label={[]90:{\large b.} 2018-2019 (Northern Hemisphere)}] (T2) at ([xshift=.1in]T1.south west) {
+    \begin{tikzpicture}[font=\bf\sffamily\fontsize{7}{7}\selectfont]
+      \node[] (A) at (0,0) {
+        \mnp{2.65in}{\begin{texshade}{\SEQB}
+            \shadingmode[chemical]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQB}
+            \shadingmode[standard area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQB}
+            \shadingmode[accessible area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny}
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            \showlegend
+          \end{texshade}
+          % 
+        }};
+    \end{tikzpicture}};
+
+  \node[anchor=north west,label={[]90:{\large c.} 2016-2017 (Southern Hemisphere)}] (T3) at ([xshift=.4in]T2.north  east) {
+    \begin{tikzpicture}[font=\bf\sffamily\fontsize{7}{7}\selectfont]
+      \node[label={[yshift=-1in,xshift=.15in]170:\mnp{.4in}{\raggedright type \\ \vspace{35pt} sd. chn. area \\ \vspace{35pt} acc. sd. chn.}}] (A) at (0,0) {
+        \mnp{3.5in}{\begin{texshade}{\SEQC}
+            \shadingmode[chemical]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQC}
+            \shadingmode[standard area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQC}
+            \shadingmode[accessible area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny}
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+        }};
+    \end{tikzpicture}};
+
+  \node[anchor=north west,label={[]90:{\large d.} 2016-2017 (Northern Hemisphere)}] (T4) at ([xshift=0in]T3.south west) {
+    \begin{tikzpicture}[font=\bf\sffamily\fontsize{7}{7}\selectfont]
+      \node[label={[yshift=-1in,xshift=.15in]170:\mnp{.4in}{\raggedright type \\ \vspace{35pt} sd. chn. area \\ \vspace{35pt} acc. sd. chn.}}] (A) at (0,0) {
+        \mnp{3.2in}{\begin{texshade}{\SEQD}
+            \shadingmode[chemical]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQD}
+            \shadingmode[standard area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQD}
+            \shadingmode[accessible area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny}
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+        }};
+    \end{tikzpicture}};
+
+
+
+  \node[anchor=north west,label={[]90:{\large e.} 2016-2017 (H3N2 Northern Hemisphere)}] (T5) at ([xshift=0in]T4.south west) {
+    \begin{tikzpicture}[font=\bf\sffamily\fontsize{7}{7}\selectfont]
+      \node[label={[yshift=-1in,xshift=.15in]170:\mnp{.4in}{\raggedright type \\ \vspace{35pt} sd. chn. area \\ \vspace{35pt} acc. sd. chn.}}] (A) at (0,0) {
+        \mnp{3.2in}{\begin{texshade}{\SEQE}
+            \shadingmode[chemical]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQE}
+            \shadingmode[standard area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny} 
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+          \begin{texshade}{\SEQE}
+            \shadingmode[accessible area]{functional}
+            \hideallmatchpositions
+            \rulersteps{1}
+            \setfont{residues}{sf}{up}{bf}{tiny}
+            \setfont{numbering}{sf}{up}{bf}{tiny} 
+            \setfont{names}{tt}{up}{bf}{small}
+            \setfont{legend}{tt}{up}{bf}{scriptsize}
+            \threshold[80]{50}
+            \setends{1}{1..\LENA}
+            \showruler{1}{top}
+            \hideconsensus
+            \shadeallresidues
+            % \showlegend
+          \end{texshade}
+          % 
+        }};
+    \end{tikzpicture}};
+
+
+  
+\end{tikzpicture}
+\clearpage
+
+\begin{table}[t]
+  \caption{Text ...}
+  \begin{center}
+    \similaritytable
+  \end{center}
+\end{table}
+
+\end{document}
+
+% \begin{texshade}{seq_2018.fasta}
+%   \shadingmode[rasmol]{functional}
+%   \setfont{residues}{sf}{up}{bf}{tiny} %rm,sf,ff|it,sl,sc,up|bf,md
+%   \setfont{numbering}{sf}{up}{bf}{tiny} %rm,sf,ff|it,sl,sc,up|bf,md
+%   \setfont{names}{tt}{up}{bf}{small}
+%   \threshold[80]{50}
+%   \setends{1}{63..317}
+%   \showruler{1}{top}
+%   \hideconsensus
+%   \shadeallresidues
+%   \showlegend
+% \end{texshade}
+\setends{1}{63..286}

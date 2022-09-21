@@ -1,0 +1,44 @@
+ _aln.pos         10        20        30        40        50        60
+4uo0B     --------------------G-------------------I----------------------FGAI- 
+QNT:      MKTIIALSYILCLVFAQKIPGNDNSTATLCLGHHAVPNGTIVKTITNDRIEVTNATELVQNSSIGEIC 
+ _consrvd                     *                   *                       * *
+
+ _aln.p   70        80        90       100       110       120       130
+4uo0B     ----------------A--G--------------FIE------N-------------------G---- 
+QNT:      DSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEF 
+ _consrvd                 *  *              * *      *                   *
+
+ _aln.pos  140       150       160       170       180       190       200
+4uo0B     ------WEGMV-DG------------------W--------------------------YG------- 
+QNT:      KNESFNWTGVTQNGTSSACIRRSSSSFFSRLNWLTHLNYTYPALNVTMPNKEQFDKLYIWGVHHPGTD 
+ _consrvd       * *    *                  *                           *
+
+ _aln.pos    210       220       230       240       250       260       270
+4uo0B     ----FRYQNSEGTGQAADLKSTQTAIDQIN-------------------------------------- 
+QNT:      KDQIFLYAQSSGRITVSTKRSQQAVIPNIGSRPRIRDIPSRISIYWTIVKPGDILLINSTGNLIAPRG 
+ _consrvd     * *  * *        * *  *  *
+
+ _aln.pos      280       290       300       310       320       330       340
+4uo0B     -----------------------E-------------------------------------------- 
+QNT:      YFKIRSGKSSIMRSDAPIGKCKSECITPNGSIPNDKPFQNVNRITYGACPRYVKHSTLKLATGMRNVP 
+ _consrvd                        *
+
+ _aln.pos        350       360       370       380       390       400
+4uo0B     -------------------------------------------------------KLNRVIERTNEKF 
+QNT:      EKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGRGQAADLKSTQAAIDQINGKLNRLIGKTNEKF 
+ _consrvd                                                        **** *  *****
+
+ _aln.p  410       420       430       440       450       460       470
+4uo0B     HQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDAEMNKLFEKTRRQLRENAE 
+QNT:      HQIEKEFSEVEGRVQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTKKQLRENAE 
+ _consrvd ************* *********************************** *********  *******
+
+ _aln.pos  480       490       500       510       520       530       540
+4uo0B     DMGGGCFKIYHKCDNACIGSIRNGTYDHYIYRDEALNNRFQ--------------------------- 
+QNT:      DMGNGCFKIYHKCDNACIGSIRNETYDHNVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLC 
+ _consrvd *** ******************* ****  ***********
+
+ _aln.pos    550
+4uo0B     ------ 
+QNT:      VALLGF 
+ _consrvd

@@ -1,0 +1,91 @@
+\documentclass[onecolumn]{article}
+
+\usepackage{texshade}
+\usepackage[usenames,x11names]{xcolor}
+\begin{document}
+% fasta format shouls be like as following
+%>MH293472
+%MKAILVVLLYTFTTGNADTLCIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDRHNGKLCKLRGVAPLHLGKCNIAGWLLGNPECELLFTASSWSYIVETSNSDNGTCYPGDFINYEELREQLSSVSSFERFEIFPKASSWPNHETNRGVTAACPYAGANSFYRNLIWLVKKGNSYPKLSKSYINNKEKEVLVLWGIHHPPTSNDQQSLYQNADAYVFVGSSKYSKKFKPEIATRPKVRGQAGRMNYYWTLVEPGDTITFEATGNLVVPRYAFAMKRGSGSGIITSDTPVHDCNTTCQTPKGAINTSLPFQNIHPVTIGECPKYVKSTKLRMATGLRNIPSIQSRGLFGAIAGFIEGGWTGMIDGWYGYHHQNEQGSGYAADRKSTQNAIDGITNKVNSVIEKMNTQFTAVGKEFNHLEKRIENLNKKVDDGLLDVWTYNAELLVLLENERTLDYHDSNVKNLYEKVRSQLKNNAKEIGNGCFEFYHKCDDTCMESVKNGTYDYPKYSEEAKLNREEIDGVKLESTRIYQILAIYSTVASSLVLLVSLGAISFWMCSNGSLQCRICI
+%>HM461786
+%MKTILVVLLYTFTTAYADTLCIGYHANNSTDTVDTVLEKNITVTHSVNLLENKHNGKLCKLRGVAPLHLGKCNIAGWLLGNPECESLFTARSWSYIVETPNPDNGTCYPGDFTNYEELREHLSSVLSFERFEIFPKTNSWPNHDTDKGVTAACPYAGANSFYRNLIWLVKKGNSYPKLSKSYINNKKKEVLVIWGIHHPPTSTDQQTLYQNADAYVFVGSSKYSKKFKPEIAARPKVRDQAGRMNYYWTLIEPGDTITFEATGNLVVPRYAFAMERGSGSGIIISDKPVHGCNTTCQTPKGAINTSLPFQNIHPVTIGECPKYVKSTKLKMATGLRNIPSIQSRGLFGAIAGFIEGGWTGMIDGWYGYHHQNEQGSGYAADQKSTQNAIDGITNKVNSVIEKMNTQFTAVGKEFNQLEKRIESLNNKVDDGFLDIWTYNAELLILLENERTLDYHDSNVKNLYEKVRNQLKNNAKEIGNGCFEFYHKCDDTCMESVKNGNYSYPKYSEEAKLDREKREGVKVESTRIYQILAIYSTVASSLVLLVSLGAISFWMVSNGSLQCRIC
+%%% note the first line has ">NAME"
+% and second line the sequence
+
+\def\SEQ{MH293472.fasta}
+\def\LEN{500}
+  \def\LENB{63}
+  \def\LENC{286}
+
+%
+\begin{texshade}{\SEQ}
+  \shadingmode[allmatchspecial]{identical}
+  % \shadingcolors{reds}
+\shadeallresidues
+\conservedresidues{black}{Red1!10}{upper}{bf}
+\allmatchresidues{black}{lightgray!10}{upper}{bf}
+\nomatchresidues{black}{Red3!50}{upper}{bf}
+\setfont{residues}{sf}{up}{bf}{tiny} 
+ \setfont{numbering}{sf}{up}{bf}{tiny} 
+ \setfont{names}{tt}{up}{bf}{small}
+ \setfont{legend}{tt}{up}{bf}{scriptsize}
+\threshold[10]{35}
+\feature{top}{1}{\LENB..\LENC}{brace[black]}{RBD}
+\setends{1}{1..\LEN}
+\showruler{1}{top}
+\hideconsensus
+%\defconsensus{.}{lower}{upper}
+%\showconsensus[ColdHot]{bottom}
+%\showlegend
+\end{texshade}
+%
+
+%
+\begin{texshade}{\SEQ}
+  %\shadingmode[allmatchspecial]{identical}
+\shadingmode[accessible area]{functional}  % \shadingcolors{reds}
+\hideallmatchpositions
+\shadeallresidues
+\conservedresidues{black}{Red1!10}{upper}{bf}
+\allmatchresidues{black}{lightgray!10}{upper}{bf}
+\nomatchresidues{black}{Red3!50}{upper}{bf}
+\setfont{residues}{sf}{up}{bf}{tiny} 
+ \setfont{numbering}{sf}{up}{bf}{tiny} 
+ \setfont{names}{tt}{up}{bf}{small}
+ \setfont{legend}{tt}{up}{bf}{scriptsize}
+\threshold[10]{35}
+\feature{top}{1}{\LENB..\LENC}{brace[black]}{RBD}
+\setends{1}{1..\LEN}
+\showruler{1}{top}
+\hideconsensus
+%\defconsensus{.}{lower}{upper}
+%\showconsensus[ColdHot]{bottom}
+\showlegend
+\end{texshade}
+%
+
+%
+\begin{texshade}{\SEQ}
+  %\shadingmode[allmatchspecial]{identical}
+\shadingmode[chemical]{functional}  % \shadingcolors{reds}
+\hideallmatchpositions
+\shadeallresidues
+\conservedresidues{black}{Red1!10}{upper}{bf}
+\allmatchresidues{black}{lightgray!10}{upper}{bf}
+\nomatchresidues{black}{Red3!50}{upper}{bf}
+\setfont{residues}{sf}{up}{bf}{tiny} 
+ \setfont{numbering}{sf}{up}{bf}{tiny} 
+ \setfont{names}{tt}{up}{bf}{small}
+ \setfont{legend}{tt}{up}{bf}{scriptsize}
+\threshold[10]{35}
+\feature{top}{1}{\LENB..\LENC}{brace[black]}{RBD}
+\setends{1}{1..\LEN}
+\showruler{1}{top}
+\hideconsensus
+%\defconsensus{.}{lower}{upper}
+%\showconsensus[ColdHot]{bottom}
+\showlegend
+\end{texshade}
+%
+
+
+\end{document}
