@@ -1,0 +1,29 @@
+graph Tree {
+node [shape=box, style="filled, rounded", color="black",penwidth="3", fontname=helvetica] ;
+graph [splines=straight, bgcolor=transparent, dpi=600] ;
+edge [fontname=helvetica,color=black] ;
+1 [label="index:
+1314", fillcolor="#c88654",fontcolor="black"] ;
+2 [label="index:
+667", fillcolor="#3a9fdd",fontcolor="black"] ;
+3 [label="G
+frac: 0.15
+", fillcolor="#399de5",fontcolor="black"] ;
+4 [label="C
+frac: 0.01
+", fillcolor="#5ed046",fontcolor="black"] ;
+5 [label="index:
+313", fillcolor="#e3813a",fontcolor="black"] ;
+6 [label="A
+frac: 0.83
+", fillcolor="#e58139",fontcolor="black"] ;
+7 [label="G
+frac: 0.01
+", fillcolor="#5f96be",fontcolor="black"] ;
+1 -- 2 [label=" ACG ",fontcolor=black,penwidth=3] ;
+1 -- 5 [label=" T ",fontcolor=black,penwidth=3] ;
+2 -- 3 [label=" A ",fontcolor=black,penwidth=3] ;
+2 -- 4 [label=" CTG ",fontcolor=black,penwidth=3] ;
+5 -- 6 [label=" A ",fontcolor=black,penwidth=3] ;
+5 -- 7 [label=" CG ",fontcolor=black,penwidth=3] ;
+}
