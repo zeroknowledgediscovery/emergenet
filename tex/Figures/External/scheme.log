@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  21 SEP 2022 01:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  21 SEP 2022 23:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1822,101 +1822,60 @@ nput line 39.
 Package natbib Warning: Citation `huddleston2020integrating' on page 1 undefine
 d on input line 39.
 
-
-Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
-ut line 45.
-
-
-Package natbib Warning: Citation `huddleston2020integrating' on page 2 undefine
-d on input line 50.
-
-
-Package natbib Warning: Citation `neher2014predicting' on page 2 undefined on i
-nput line 50.
-
-
-Package natbib Warning: Citation `rulli2017nexus' on page 2 undefined on input 
-line 57.
-
-
-Package natbib Warning: Citation `chua2002anthropogenic' on page 2 undefined on
- input line 57.
-
-
-Package natbib Warning: Citation `childs2004zoonotic' on page 2 undefined on in
-put line 57.
-
-
-Package natbib Warning: Citation `fair2019viral' on page 2 undefined on input l
-ine 57.
-
-
-Package natbib Warning: Citation `agor2018models' on page 2 undefined on input 
-line 60.
-
-
-Package natbib Warning: Citation `tricco2013comparing' on page 2 undefined on i
-nput line 60.
-
-
-Package natbib Warning: Citation `cdceff' on page 2 undefined on input line 60.
-
-
-
-Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
-ut line 60.
-
-
-Package natbib Warning: Citation `gamblin2010influenza' on page 3 undefined on 
-input line 68.
-
-
-Package natbib Warning: Citation `Influenz24:online' on page 3 undefined on inp
-ut line 70.
-
-
-Package natbib Warning: Citation `Influenz24:online' on page 3 undefined on inp
-ut line 70.
-
-(./Figures/fig0brief.tex
+(./Figures/scheme.tex
 \openout8 = `./Figures/External/scheme.dpth'.
 
-<Figures/plotdata/TREE_P1274.pdf, id=34, 4228.79875pt x 2567.5925pt>
-File: Figures/plotdata/TREE_P1274.pdf Graphic file (type pdf)
-<use Figures/plotdata/TREE_P1274.pdf>
-Package pdftex.def Info: Figures/plotdata/TREE_P1274.pdf  used on input line 29
-.
-(pdftex.def)             Requested size: 216.81pt x 131.63893pt.
-<Figures/plotdata/TREE_P1064.pdf, id=35, 2651.9075pt x 2710.125pt>
-File: Figures/plotdata/TREE_P1064.pdf Graphic file (type pdf)
-<use Figures/plotdata/TREE_P1064.pdf>
-Package pdftex.def Info: Figures/plotdata/TREE_P1064.pdf  used on input line 30
-.
-(pdftex.def)             Requested size: 144.54pt x 147.71336pt.
-<Figures/plotdata/TREE_P1314.pdf, id=36, 3128.68875pt x 3580.37625pt>
-File: Figures/plotdata/TREE_P1314.pdf Graphic file (type pdf)
-<use Figures/plotdata/TREE_P1314.pdf>
-Package pdftex.def Info: Figures/plotdata/TREE_P1314.pdf  used on input line 31
-.
-(pdftex.def)             Requested size: 169.83493pt x 194.32628pt.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <8> on input line 43.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <6> on input line 43.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 43.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 43.
 
 
-pdfTeX warning: pdflatex (file ./Figures/emergenetscheme.pdf): PDF inclusion: f
-ound PDF version <1.7>, but at most version <1.5> allowed
-<Figures/emergenetscheme.pdf, id=37, 2068.84908pt x 2276.505pt>
-File: Figures/emergenetscheme.pdf Graphic file (type pdf)
-<use Figures/emergenetscheme.pdf>
-Package pdftex.def Info: Figures/emergenetscheme.pdf  used on input line 78.
-(pdftex.def)             Requested size: 433.62pt x 477.14227pt.
-[3
+pdfTeX warning: pdflatex (file ./Figures/e2.pdf): PDF inclusion: found PDF vers
+ion <1.7>, but at most version <1.5> allowed
+<Figures/e2.pdf, id=34, 499.8675pt x 1194.38213pt>
+File: Figures/e2.pdf Graphic file (type pdf)
+<use Figures/e2.pdf>
+Package pdftex.def Info: Figures/e2.pdf  used on input line 19.
+(pdftex.def)             Requested size: 216.81pt x 518.03938pt.
+<Figures/trees/procP1314.pdf, id=35, 3053.4075pt x 3220.03pt>
+File: Figures/trees/procP1314.pdf Graphic file (type pdf)
+<use Figures/trees/procP1314.pdf>
+Package pdftex.def Info: Figures/trees/procP1314.pdf  used on input line 30.
+(pdftex.def)             Requested size: 216.81pt x 228.61882pt.
+<Figures/trees/procP1274.pdf, id=36, 3897.56125pt x 2476.25125pt>
+File: Figures/trees/procP1274.pdf Graphic file (type pdf)
+<use Figures/trees/procP1274.pdf>
+Package pdftex.def Info: Figures/trees/procP1274.pdf  used on input line 31.
+(pdftex.def)             Requested size: 271.0125pt x 172.18398pt.
+<Figures/trees/procP1263.pdf, id=37, 3964.8125pt x 2476.25125pt>
+File: Figures/trees/procP1263.pdf Graphic file (type pdf)
+<use Figures/trees/procP1263.pdf>
+Package pdftex.def Info: Figures/trees/procP1263.pdf  used on input line 32.
+(pdftex.def)             Requested size: 271.0125pt x 169.23679pt.
+<Figures/trees/procP1064.pdf, id=38, 2567.5925pt x 2476.25125pt>
+File: Figures/trees/procP1064.pdf Graphic file (type pdf)
+<use Figures/trees/procP1064.pdf>
+Package pdftex.def Info: Figures/trees/procP1064.pdf  used on input line 33.
+(pdftex.def)             Requested size: 180.67499pt x 174.22433pt.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 48.
+LaTeX Font Info:    External font `xccex10' loaded for size
+(Font)              <8.03> on input line 48.
+LaTeX Font Info:    External font `xccex10' loaded for size
+(Font)              <5.62097> on input line 48.
+LaTeX Font Info:    External font `xccex10' loaded for size
+(Font)              <4.015> on input line 48.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 7.62846pt on input line 48.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 5.3399pt on input line 48.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 3.81422pt on input line 48.
+LaTeX Font Info:    External font `xccex10' loaded for size
+(Font)              <8> on input line 53.
+LaTeX Font Info:    External font `xccex10' loaded for size
+(Font)              <6> on input line 53.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 7.59998pt on input line 53.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 5.69998pt on input line 53.
+[1
 \providecommand \oddpage@label [2]{}
 {/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 
@@ -2926,168 +2885,229 @@ ed
 pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
 dmap/pdftex.map): invalid entry for `rtxptmro': SlantFont/ExtendFont can be use
 d only with embedded Type1 fonts
-} <./Figures/plotdata/TREE_P1274.pdf> <./Figures/plotdata/TREE_P1064.pdf
+} <./Figures/e2.pdf> <./Figures/trees/procP1314.pdf> <./Figures/trees/procP1274
+.pdf
 
-pdfTeX warning: pdflatex (file ./Figures/plotdata/TREE_P1064.pdf): PDF inclusio
-n: multiple pdfs with page group included in a single page
-> <./Figures/plotdata/TREE_P1314.pdf
+pdfTeX warning: pdflatex (file ./Figures/trees/procP1274.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+> <./Figures/trees/procP1263.pdf
 
-pdfTeX warning: pdflatex (file ./Figures/plotdata/TREE_P1314.pdf): PDF inclusio
-n: multiple pdfs with page group included in a single page
-> <./Figures/emergenetscheme.pdf>])
+pdfTeX warning: pdflatex (file ./Figures/trees/procP1263.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+> <./Figures/trees/procP1064.pdf
+
+pdfTeX warning: pdflatex (file ./Figures/trees/procP1064.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+>])
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <9> on input line 104.
+(Font)              <9> on input line 67.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 104.
+(Font)              scaled to size 8.54997pt on input line 67.
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 145.
-
-
-LaTeX Warning: Reference `fig0' on page 3 undefined on input line 145.
+Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
+ut line 81.
 
 
-LaTeX Warning: Reference `fig0' on page 3 undefined on input line 169.
+Package natbib Warning: Citation `huddleston2020integrating' on page 2 undefine
+d on input line 86.
 
 
-LaTeX Warning: Reference `q-distance' on page 3 undefined on input line 169.
+Package natbib Warning: Citation `neher2014predicting' on page 2 undefined on i
+nput line 86.
 
 
-Package natbib Warning: Citation `cover' on page 3 undefined on input line 169.
+Package natbib Warning: Citation `rulli2017nexus' on page 2 undefined on input 
+line 93.
+
+
+Package natbib Warning: Citation `chua2002anthropogenic' on page 2 undefined on
+ input line 93.
+
+
+Package natbib Warning: Citation `childs2004zoonotic' on page 2 undefined on in
+put line 93.
+
+
+Package natbib Warning: Citation `fair2019viral' on page 2 undefined on input l
+ine 93.
+
+
+Package natbib Warning: Citation `agor2018models' on page 2 undefined on input 
+line 96.
+
+
+Package natbib Warning: Citation `tricco2013comparing' on page 2 undefined on i
+nput line 96.
+
+
+Package natbib Warning: Citation `cdceff' on page 2 undefined on input line 96.
 
 
 
-Package natbib Warning: Citation `cover' on page 3 undefined on input line 169.
+Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
+ut line 96.
+
+
+Package natbib Warning: Citation `gamblin2010influenza' on page 3 undefined on 
+input line 104.
+
+
+Package natbib Warning: Citation `Influenz24:online' on page 3 undefined on inp
+ut line 106.
+
+
+Package natbib Warning: Citation `Influenz24:online' on page 3 undefined on inp
+ut line 106.
+
+
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 143.
+
+
+LaTeX Warning: Reference `fig0' on page 3 undefined on input line 143.
+
+
+LaTeX Warning: Reference `fig0' on page 3 undefined on input line 167.
+
+
+LaTeX Warning: Reference `q-distance' on page 3 undefined on input line 167.
+
+
+Package natbib Warning: Citation `cover' on page 3 undefined on input line 167.
+
+
+
+Package natbib Warning: Citation `cover' on page 3 undefined on input line 167.
 
 
 
 Package natbib Warning: Citation `varadhan2010large' on page 4 undefined on inp
-ut line 171.
+ut line 169.
 
 
 Package natbib Warning: Citation `boni2008vaccination' on page 4 undefined on i
-nput line 175.
+nput line 173.
 
 
 Package natbib Warning: Citation `dos2016influenza' on page 4 undefined on inpu
-t line 175.
+t line 173.
 
 
 Package natbib Warning: Citation `agor2018models' on page 4 undefined on input 
-line 175.
+line 173.
 
 
 Package natbib Warning: Citation `tricco2013comparing' on page 4 undefined on i
-nput line 175.
+nput line 173.
 
 
-Package natbib Warning: Citation `cdceff' on page 4 undefined on input line 175
+Package natbib Warning: Citation `cdceff' on page 4 undefined on input line 173
 .
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 175.
+LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 173.
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 185.
+LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 183.
 
 (./Figures/tabdata/improvement_qnet.tex)
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 204.
+LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 202.
 
 
-LaTeX Warning: Reference `tabperf' on page 4 undefined on input line 206.
+LaTeX Warning: Reference `tabperf' on page 5 undefined on input line 204.
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 206.
+LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 204.
 
 
-Package natbib Warning: Citation `boni2008vaccination' on page 4 undefined on i
-nput line 206.
+Package natbib Warning: Citation `boni2008vaccination' on page 5 undefined on i
+nput line 204.
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 206.
+LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 204.
 
 
-LaTeX Warning: Reference `figirat' on page 5 undefined on input line 208.
+LaTeX Warning: Reference `figirat' on page 5 undefined on input line 206.
 
 The command '\includegraphics [width=0.9\textwidth ]{Figures/External/IRAT_comb
 ined.png}' has been optimized away. Use '/tikz/external/optimize=false' to disa
 ble this.
 
 Package natbib Warning: Citation `posada1998modeltest' on page 5 undefined on i
-nput line 241.
+nput line 239.
 
 
 Package natbib Warning: Citation `goldberger2005genomic' on page 5 undefined on
- input line 241.
+ input line 239.
 
 
 Package natbib Warning: Citation `huelsenbeck1997phylogeny' on page 5 undefined
- on input line 241.
+ on input line 239.
 
 
 Package natbib Warning: Citation `neher2014predicting' on page 5 undefined on i
-nput line 241.
+nput line 239.
 
 
 Package natbib Warning: Citation `VanderMeer2010' on page 5 undefined on input 
-line 241.
+line 239.
 
 
 Package natbib Warning: Citation `Smith2009' on page 5 undefined on input line 
-241.
+239.
 
 
 Package natbib Warning: Citation `mollentze2021identifying' on page 6 undefined
- on input line 246.
+ on input line 244.
 
 
 Package natbib Warning: Citation `maher2021predicting' on page 6 undefined on i
-nput line 246.
+nput line 244.
 
 
-LaTeX Warning: Reference `figseq' on page 6 undefined on input line 255.
+LaTeX Warning: Reference `figseq' on page 6 undefined on input line 253.
 
 
-LaTeX Warning: Reference `figseq' on page 6 undefined on input line 255.
+LaTeX Warning: Reference `figseq' on page 6 undefined on input line 253.
 
 
 Package natbib Warning: Citation `carugo2001normalized' on page 6 undefined on 
-input line 257.
+input line 255.
 
 
 Package natbib Warning: Citation `righetto2014comparative' on page 6 undefined 
-on input line 257.
+on input line 255.
 
 
 Package natbib Warning: Citation `lee1971interpretation' on page 6 undefined on
- input line 257.
+ input line 255.
 
 
 Package natbib Warning: Citation `shrake1973environment' on page 6 undefined on
- input line 257.
+ input line 255.
 
 
 Package natbib Warning: Citation `momen2008impact' on page 6 undefined on input
- line 257.
+ line 255.
 
 
 Package natbib Warning: Citation `adamczak2005combining' on page 6 undefined on
- input line 257.
+ input line 255.
 
 
-LaTeX Warning: Reference `figseq' on page 6 undefined on input line 259.
+LaTeX Warning: Reference `figseq' on page 6 undefined on input line 257.
 
 
 Package natbib Warning: Citation `tzarum2015structure' on page 6 undefined on i
-nput line 259.
+nput line 257.
 
 
 Package natbib Warning: Citation `lazniewski2018structural' on page 6 undefined
- on input line 259.
+ on input line 257.
 
 
 Package natbib Warning: Citation `garcia2015dynamic' on page 6 undefined on inp
-ut line 259.
+ut line 257.
 
 (./method.tex
 
@@ -3137,29 +3157,29 @@ LaTeX Warning: Reference `figseasonal' on page 8 undefined on input line 66.
 )
 
 Package natbib Warning: Citation `mcauley2019influenza' on page 8 undefined on 
-input line 292.
+input line 290.
 
 
 Package natbib Warning: Citation `hatcher2017virus' on page 8 undefined on inpu
-t line 292.
+t line 290.
 
 
 Package natbib Warning: Citation `bogner2006global' on page 8 undefined on inpu
-t line 292.
+t line 290.
 
 (./Figures/seasonalpred_both.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
-) (./Figures/sequence_.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
 )
+The command '\includegraphics [width=0.87\textwidth ]{Figures/External/sequence
+.pdf}' has been optimized away. Use '/tikz/external/optimize=false' to disable 
+this.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 342.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 340.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 342.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 340.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <5> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 342.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 340.
 No file ./Figures/External/scheme.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -3169,21 +3189,22 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 51658 strings out of 478862
- 1134702 string characters out of 5858945
- 1911220 words of memory out of 8000000
- 68293 multiletter control sequences out of 15000+600000
- 492400 words of font info for 243 fonts, out of 8000000 for 9000
+ 51811 strings out of 478862
+ 1137370 string characters out of 5858945
+ 1910900 words of memory out of 8000000
+ 68446 multiletter control sequences out of 15000+600000
+ 502741 words of font info for 273 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 115i,13n,111p,2425b,1457s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/urw/helvetic/uhvr8a.pfb>
-Output written on ./Figures/External/scheme.pdf (1 page, 510953 bytes).
+ 115i,13n,111p,2425b,1471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/x
+ccsy8.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/sh
+are/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on ./Figures/External/scheme.pdf (1 page, 554525 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
+ 176 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
