@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1663864498 "main.aux" "main.bbl" "main" 1663865469
+["bibtex main"] 1663866077 "main.aux" "main.bbl" "main" 1663866256
   "/usr/share/texlive/texmf-dist/bibtex/bst/nature/naturemag.bst" 1480098435 34867 ae05936b307e5838449d1bb5fdbb2c19 ""
   "allbib.bib" 1663090077 317190 fe754a66cd4332ccf149bf42b95baa68 ""
-  "main.aux" 1663865413 13317 18bb7ca31b5c8fd9733f3cc3674c9c2a "pdflatex"
+  "main.aux" 1663866215 13317 f60818d725386e26686dc85191868733 "pdflatex"
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1663865410 "main.tex" "main.pdf" "main" 1663865469
+  "main.blg"
+["pdflatex"] 1663866212 "main.tex" "main.pdf" "main" 1663866256
   "/home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccex10.600pk" 1549563000 13872 3445730e5506a4c2091ac11b7417de69 ""
   "/home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk" 1549563003 13828 49608e91a8a4c34cc268efa3d7fed677 ""
   "/home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi5.600pk" 1549562997 6856 b6a2db07958c732dd34ca6a5399dbb39 ""
@@ -391,15 +391,15 @@
   "Figures/tabdata/improvement_qnet.tex" 1662566269 697 b57666eea91e648db64937215617add7 ""
   "SI.aux" 1663861494 11506 0f29fe4f0b39d7e17eff5ca685bbc2c2 ""
   "customdef.tex" 1663594437 2346 07eac80b153b2c57ae21569806a0b66a ""
-  "main.aux" 1663865413 13317 18bb7ca31b5c8fd9733f3cc3674c9c2a "pdflatex"
-  "main.bbl" 1663864498 13881 218904cf212037b37418ab7643bd91a4 "bibtex main"
-  "main.out" 1663865411 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1663865409 47552 c5bca0286d96b67ff4502ae2cb5a1075 ""
+  "main.aux" 1663866215 13317 f60818d725386e26686dc85191868733 "pdflatex"
+  "main.bbl" 1663866077 13881 218904cf212037b37418ab7643bd91a4 "bibtex main"
+  "main.out" 1663866213 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1663866211 47036 ddc231f2cf70cffca693015c9ae33f12 ""
   "method.tex" 1663865345 9565 6530e5e88674e331d7a875a5bba29cad ""
   "preamble.tex" 1663770433 16001 e7e4ef7943df08a254d320dbd244c3db ""
   (generated)
-  "main.aux"
   "main.auxlock"
-  "main.log"
-  "main.pdf"
   "main.out"
+  "main.aux"
+  "main.pdf"
+  "main.log"

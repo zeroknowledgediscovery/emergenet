@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  22 SEP 2022 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  22 SEP 2022 12:03
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2133,7 +2133,7 @@ LaTeX Warning: Reference `fig0' on page 4 undefined on input line 139.
 LaTeX Warning: Reference `fig0' on page 4 undefined on input line 163.
 
 [4] (./Figures/tabdata/improvement_qnet.tex) [5]
-<Figures/External/IRAT_combined.png, id=266, 899.7615pt x 665.8476pt>
+<Figures/External/IRAT_combined.png, id=268, 899.7615pt x 665.8476pt>
 File: Figures/External/IRAT_combined.png Graphic file (type png)
 <use Figures/External/IRAT_combined.png>
 Package pdftex.def Info: Figures/External/IRAT_combined.png  used on input line
@@ -2201,11 +2201,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
 Here is how much of TeX's memory you used:
  47560 strings out of 492678
  1065614 string characters out of 6133536
- 1629302 words of memory out of 11000000
+ 1630803 words of memory out of 11000000
  50400 multiletter control sequences out of 15000+600000
  103539 words of font info for 229 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 64i,13n,96p,2386b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,13n,96p,2323b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{thm.1} has been referenced but does not exist, re
 placed by a fixed one
 
@@ -2258,7 +2258,7 @@ public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier
 </usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (13 pages, 6185712 bytes).
+Output written on main.pdf (13 pages, 6185256 bytes).
 PDF statistics:
  734 PDF objects out of 1000 (max. 8388607)
  475 compressed objects within 5 object streams
