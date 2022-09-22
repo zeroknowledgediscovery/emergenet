@@ -22,10 +22,12 @@
 \citation{huddleston2020integrating}
 \citation{tricco2013comparing}
 \citation{neher2014predicting,huddleston2020integrating}
+\citation{Hothorn06unbiasedrecursive}
+\citation{Hothorn06unbiasedrecursive}
 \providecommand \oddpage@label [2]{}
 \citation{Influenz24:online}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {Emergenet\xspace  inference and applications}. \textbf  {a}, As an example, beginning with aligned sequences, we calculate a conditional in\ ference tree for index 1274, which involves indices 1064, 1445, 197 as predicti\ ve features. These features are automatically selected by the algorithm, as bei\ ng maximally predictive of the base at 1274. Then, we compute predictors for ea\ ch of these predictive indices, $e.g.$ we show the inference tree computed for \ index 1064, which involves index 1314 and 339 as features. Continuing, we find \ that the predictor for 1314 involves indices 1263, 636 and 21, and that for 126\ 3 involves 1314, 667 and 313. Note that recursive dependencies arise automatica\ lly: the predictor for 1263 depends on 1314, and that for 1314 depends on 1263\ . \textbf  {Panels c} show Qnet\xspace  dependency graphs for Influenza A HA. HA in In\ fluenza A is implicated in viral entry into host cells, and crucial for host sp\ ecificity of infections. }}{2}{figure.1}\protected@file@percent }
-\newlabel{fig000}{{1}{2}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {\enet inference and applications}. \textbf {a}, As an example, beginning with aligned sequences, we calculate a conditional in\^^Mference tree for index 1274, which involves indices 1064, 1445, 197 as predicti\^^Mve features. These features are automatically selected by the algorithm, as bei\^^Mng maximally predictive of the base at 1274. Then, we compute predictors for ea\^^Mch of these predictive indices, $e.g.$ we show the inference tree computed for \^^Mindex 1064, which involves index 1314 and 339 as features. Continuing, we find \^^Mthat the predictor for 1314 involves indices 1263, 636 and 21, and that for 126\^^M3 involves 1314, 667 and 313. Note that recursive dependencies arise automatica\^^Mlly: the predictor for 1263 depends on 1314, and that for 1314 depends on 1263\^^M. \textbf {Panels c} show \qnet dependency graphs for Influenza A HA. HA in In\^^Mfluenza A is implicated in viral entry into host cells, and crucial for host sp\^^Mecificity of infections}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {Emergenet\xspace  inference and applications}. \textbf  {a}, Variations of genomes for identical subgroups of Influenza A\xspace  are analyzed to infer a recursive forest of decision trees (conditional inference trees\nobreakspace  {}\cite  {Hothorn06unbiasedrecursive}), the Emergenet\xspace  , which maximally captures the emergent dependencies between an a priori unspecified number of mutations, deletions and insertions. With these inferred dependencies we can estimate the numerical odds of specific mutations, and by extension, the numerical value of the probability of one strain giving rise to another in the wild, under complex selection pressures from the background. b, Snapshot of decision trees from the Emergenet\xspace  constructed for H1N1 haemagglutinnin 2018 sequences. Note that the decision tree predicting the bases at index 1274 uses the bases at 1064, 1445, 197 as features. These features are automatically selected, as being maximally predictive of the bases be at 1274. Then, we compute predictors for each of these feature indices, $e.g.$ trees for index 1064, which involves index 1314 and 339 as features. Continuing, we find that the trees for index 1314 involves indices 1263, 636 and 21, and that for 1263 involves 1314, 667 and 313. The predictor for 1263 depends on 1314, and that for 1314 depends on 1263, revealing the recursive structure of Emergenet\xspace  . c, First application: With Emergenet\xspace  induced ability to quantify mutation probabilities, we forecast dominant strain(s) for the next flu season, using only sequences collected in the previous season (and the inferred Emergenet\xspace  , using data from the past year). d, Second application: estimation of the risk of a global pandemic posed by individual animal strains that are still not known to circulate in humans. }}{2}{figure.1}}
+\newlabel{figscheme}{{1}{2}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {\enet inference and applications}. \textbf {a}, Variations of genomes for identical subgroups of \infl are analyzed to infer a recursive forest of decision trees (conditional inference trees~\cite {Hothorn06unbiasedrecursive}), the \enet , which maximally captures the emergent dependencies between an a priori unspecified number of mutations, deletions and insertions. With these inferred dependencies we can estimate the numerical odds of specific mutations, and by extension, the numerical value of the probability of one strain giving rise to another in the wild, under complex selection pressures from the background. b, Snapshot of decision trees from the \enet constructed for H1N1 haemagglutinnin 2018 sequences. Note that the decision tree predicting the bases at index 1274 uses the bases at 1064, 1445, 197 as features. These features are automatically selected, as being maximally predictive of the bases be at 1274. Then, we compute predictors for each of these feature indices, $e.g.$ trees for index 1064, which involves index 1314 and 339 as features. Continuing, we find that the trees for index 1314 involves indices 1263, 636 and 21, and that for 1263 involves 1314, 667 and 313. The predictor for 1263 depends on 1314, and that for 1314 depends on 1263, revealing the recursive structure of \enet . c, First application: With \enet induced ability to quantify mutation probabilities, we forecast dominant strain(s) for the next flu season, using only sequences collected in the previous season (and the inferred \enet , using data from the past year). d, Second application: estimation of the risk of a global pandemic posed by individual animal strains that are still not known to circulate in humans}{figure.1}{}}
 \citation{huddleston2020integrating,neher2014predicting}
 \citation{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic}
 \citation{fair2019viral}
@@ -43,11 +45,11 @@
 \citation{agor2018models}
 \citation{tricco2013comparing}
 \citation{cdceff}
-\citation{boni2008vaccination}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  Out-performance of Qnet\xspace  recommendations over WHO for Influenza A vaccine composition }}{5}{table.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  Out-performance of Qnet\xspace  recommendations over WHO for Influenza A vaccine composition }}{5}{table.1}}
 \newlabel{tabperf}{{1}{5}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont Out-performance of \qnet recommendations over WHO for Influenza A vaccine composition}{table.1}{}}
+\citation{boni2008vaccination}
 \citation{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative Qnet\xspace  could not be trained.  }}{6}{figure.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative Qnet\xspace  could not be trained.  }}{6}{figure.2}}
 \newlabel{figirat}{{2}{6}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained}{figure.2}{}}
 \citation{mollentze2021identifying}
 \citation{maher2021predicting}
@@ -58,10 +60,11 @@
 \citation{cover}
 \citation{vanmarcke2010random}
 \citation{Hothorn06unbiasedrecursive}
+\newlabel{defqdistance}{{2}{8}{Q-distance -- pseudo-metric between sequences}{defn.2}{}}
 \citation{manning1999foundations}
 \citation{cover}
-\newlabel{defqdistance}{{2}{8}{Q-distance -- pseudo-metric between sequences}{defn.2}{}}
-\newlabel{q-distance}{{3}{8}{Q-distance -- pseudo-metric between sequences}{equation.0.3}{}}
+\newlabel{q-distance}{{3}{9}{Q-distance -- pseudo-metric between sequences}{equation.0.3}{}}
+\newlabel{fundeq}{{4}{9}{Theoretical Probability Bounds}{equation.0.4}{}}
 \citation{mcauley2019influenza}
 \citation{hatcher2017virus}
 \citation{bogner2006global}
@@ -69,46 +72,44 @@
 \bibdata{allbib}
 \bibcite{dos2016influenza}{{1}{}{{}}{{}}}
 \bibcite{tricco2013comparing}{{2}{}{{}}{{}}}
-\newlabel{fundeq}{{4}{9}{Theoretical Probability Bounds}{equation.0.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {Seasonal predictions for Influenza A.} Relative out-performance of Qnet\xspace  predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf  {Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year. }}{10}{figure.3}\protected@file@percent }
-\newlabel{figseasonal}{{3}{10}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf {Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year}{figure.3}{}}
 \bibcite{huddleston2020integrating}{{3}{}{{}}{{}}}
 \bibcite{neher2014predicting}{{4}{}{{}}{{}}}
-\bibcite{Influenz24:online}{{5}{}{{}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {Sequence comparisons.} The observed dominant strain, we note that the correct Qnet\xspace  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix. }}{11}{figure.4}\protected@file@percent }
-\newlabel{figseq}{{4}{11}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {Sequence comparisons.} The observed dominant strain, we note that the correct \qnet deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix}{figure.4}{}}
-\bibcite{rulli2017nexus}{{6}{}{{}}{{}}}
-\bibcite{chua2002anthropogenic}{{7}{}{{}}{{}}}
-\bibcite{childs2004zoonotic}{{8}{}{{}}{{}}}
-\bibcite{fair2019viral}{{9}{}{{}}{{}}}
-\bibcite{agor2018models}{{10}{}{{}}{{}}}
-\bibcite{cdceff}{{11}{}{{}}{{}}}
-\bibcite{gamblin2010influenza}{{12}{}{{}}{{}}}
-\bibcite{cover}{{13}{}{{}}{{}}}
-\bibcite{varadhan2010large}{{14}{}{{}}{{}}}
-\bibcite{boni2008vaccination}{{15}{}{{}}{{}}}
-\bibcite{posada1998modeltest}{{16}{}{{}}{{}}}
-\bibcite{goldberger2005genomic}{{17}{}{{}}{{}}}
-\bibcite{huelsenbeck1997phylogeny}{{18}{}{{}}{{}}}
-\bibcite{VanderMeer2010}{{19}{}{{}}{{}}}
-\bibcite{Smith2009}{{20}{}{{}}{{}}}
-\bibcite{mollentze2021identifying}{{21}{}{{}}{{}}}
-\bibcite{maher2021predicting}{{22}{}{{}}{{}}}
-\bibcite{carugo2001normalized}{{23}{}{{}}{{}}}
-\bibcite{righetto2014comparative}{{24}{}{{}}{{}}}
-\bibcite{lee1971interpretation}{{25}{}{{}}{{}}}
-\bibcite{shrake1973environment}{{26}{}{{}}{{}}}
-\bibcite{momen2008impact}{{27}{}{{}}{{}}}
-\bibcite{adamczak2005combining}{{28}{}{{}}{{}}}
-\bibcite{tzarum2015structure}{{29}{}{{}}{{}}}
-\bibcite{lazniewski2018structural}{{30}{}{{}}{{}}}
-\bibcite{garcia2015dynamic}{{31}{}{{}}{{}}}
-\bibcite{hernandez2018algorithmically}{{32}{}{{}}{{}}}
-\bibcite{vanmarcke2010random}{{33}{}{{}}{{}}}
-\bibcite{Hothorn06unbiasedrecursive}{{34}{}{{}}{{}}}
+\bibcite{Hothorn06unbiasedrecursive}{{5}{}{{}}{{}}}
+\bibcite{Influenz24:online}{{6}{}{{}}{{}}}
+\bibcite{rulli2017nexus}{{7}{}{{}}{{}}}
+\bibcite{chua2002anthropogenic}{{8}{}{{}}{{}}}
+\bibcite{childs2004zoonotic}{{9}{}{{}}{{}}}
+\bibcite{fair2019viral}{{10}{}{{}}{{}}}
+\bibcite{agor2018models}{{11}{}{{}}{{}}}
+\bibcite{cdceff}{{12}{}{{}}{{}}}
+\bibcite{gamblin2010influenza}{{13}{}{{}}{{}}}
+\bibcite{cover}{{14}{}{{}}{{}}}
+\bibcite{varadhan2010large}{{15}{}{{}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {Seasonal predictions for Influenza A.} Relative out-performance of Qnet\xspace  predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf  {Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year. }}{11}{figure.3}}
+\newlabel{figseasonal}{{3}{11}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf {Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year}{figure.3}{}}
+\bibcite{boni2008vaccination}{{16}{}{{}}{{}}}
+\bibcite{posada1998modeltest}{{17}{}{{}}{{}}}
+\bibcite{goldberger2005genomic}{{18}{}{{}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \color  {darkgray} \sffamily  \fontsize  {9}{10}\selectfont  \textbf  {Sequence comparisons.} The observed dominant strain, we note that the correct Qnet\xspace  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix. }}{12}{figure.4}}
+\newlabel{figseq}{{4}{12}{\color {darkgray} \sffamily \fontsize {9}{10}\selectfont \textbf {Sequence comparisons.} The observed dominant strain, we note that the correct \qnet deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix}{figure.4}{}}
+\bibcite{huelsenbeck1997phylogeny}{{19}{}{{}}{{}}}
+\bibcite{VanderMeer2010}{{20}{}{{}}{{}}}
+\bibcite{Smith2009}{{21}{}{{}}{{}}}
+\bibcite{mollentze2021identifying}{{22}{}{{}}{{}}}
+\bibcite{maher2021predicting}{{23}{}{{}}{{}}}
+\bibcite{carugo2001normalized}{{24}{}{{}}{{}}}
+\bibcite{righetto2014comparative}{{25}{}{{}}{{}}}
+\bibcite{lee1971interpretation}{{26}{}{{}}{{}}}
+\bibcite{shrake1973environment}{{27}{}{{}}{{}}}
+\bibcite{momen2008impact}{{28}{}{{}}{{}}}
+\bibcite{adamczak2005combining}{{29}{}{{}}{{}}}
+\bibcite{tzarum2015structure}{{30}{}{{}}{{}}}
+\bibcite{lazniewski2018structural}{{31}{}{{}}{{}}}
+\bibcite{garcia2015dynamic}{{32}{}{{}}{{}}}
+\bibcite{hernandez2018algorithmically}{{33}{}{{}}{{}}}
+\bibcite{vanmarcke2010random}{{34}{}{{}}{{}}}
 \bibcite{manning1999foundations}{{35}{}{{}}{{}}}
 \bibcite{mcauley2019influenza}{{36}{}{{}}{{}}}
 \bibcite{hatcher2017virus}{{37}{}{{}}{{}}}
 \bibcite{bogner2006global}{{38}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{13}

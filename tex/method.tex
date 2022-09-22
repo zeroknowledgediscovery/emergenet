@@ -55,13 +55,52 @@ The ability to estimate the probability of spontaneous jump between sequences in
 
 
 
-\subsection*{Application: Predicting Seasonal Strains}
+\subsection*{Application 1: Predicting Seasonal Strains}
 
-Analyzing the distribution of sequences using the q-distance allows us to estimate seasonal drift, which is particularly applicable to Influenza and Influenza-like viruses for which periodic adjustments of vaccine components are necessary to account for antigenic variations. 
+Analyzing the distribution of sequences observed to circulate in the human population at the present time allows us to forecast dominant strain(s) in the next flu season as follows:
 
-Our prediction is based on the following intuition: since the probability of spontaneous jump to a strain further away in the q-distance is exponentially lower, the q-centroid of the strain distribution (the centroid computed in the q-distance metric) observed over a season is expected to move slowly, and will be close to the dominant strain in the next season. Thus, we estimate the predicted dominant strain $\widehat{x}^{t+1}$ at time $t+1$, as a function of the observed population at time $t$ as follows:
+% Our prediction is based on the following intuition: since the probability of spontaneous jump to a strain further away in the q-distance is exponentially lower, the q-centroid of the strain distribution (the centroid computed in the q-distance metric) observed over a season is expected to move slowly, and will be close to the dominant strain in the next season. Thus, we estimate the predicted dominant strain $\widehat{x}^{t+1}$ at time $t+1$, as a function of the observed population at time $t$ as follows:
+% \cgather{
+% \widehat{x}^{t+1} = \argmin_{x\in P} \sum_{y \in P^t} \theta(x,y)
+%   }%
+% where $P^t$ is the sequence population at time $t$ and $P = P^t \cup P^{t-1} \cup P^{t-2} \cup \dots \cup P^1$. Here the unit of time is chosen to reflect the appropriate frequency over which vaccine components are re-assessed. In the case of Influenza, this is typically one year. Using this formulation, we  test if the predicted strains are  closer to the  dominant strain in the classical edit distance, when compared against the WHO vaccine recommendations (See Fig.~\ref{figseasonal}).
+
+
+
+\def\E{\mathcal{E}}
+\def\dst{x_\star^{t+\delta}}
+\def\dsta{x^{t+\delta}}
+
+Let $\dst$ be a dominant strain in the upcoming flu season at time $t+\delta$,
+where $H^t$ is the set of observed strains presently in circulation in the human population (at tiem $t$). We will assume that the \enet  remains unchanged upto $t+\delta$.
+From the RHS bound established in Theorem~\ref{SI-thmbnd} in the supplementary text, we have:
+
+\calign{
+  &\ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}} \geqq  -\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,\dsta)\\
+\Rightarrow &\sum_{x \in H^t} \ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}}  \sum_{x \in H^t}
+\geqq  -\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,\dsta)\\
+\Rightarrow  &\sum_{x\in H^t}  \theta(x,\dsta) - \abs{H^t}A \ln \mem{\dsta} \geqq  A \ln \frac{1}{\prod_{x \in H^t} Pr(x \rightarrow \dsta)} \intertext{where $A =\frac{1-\alpha}{\sqrt{8}N^2} $. Since minimizing the LHS maaximizes the lower bound on the probability of the observed strains simulatenously giving rise to $\dsta$, a dominant strain  $\dst$ may be estimated via the optimization:}
+&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y) - \abs{H^t}A \ln \mem{y}
+\intertext{Further noting that the second term on the right is at least an order of magnitude smaller compared to teh first terem, a good approximation for the optimization may be stated as:}
+&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y)
+}
+
+
+\subsection*{Application 2: Measure of Pandemic Potential}
+\def\ast{x_a^t}
+\def\hst{x_h^{t+\delta}}
+We measure the potential of an animal strain $\ast$ to spillover and become HH capable as a human strain $\hst$, as follows:
 \cgather{
-\widehat{x}^{t+1} = \argmin_{x\in P} \sum_{y \in P^t} \theta(x,y)
-  }%
-where $P^t$ is the sequence population at time $t$ and $P = P^t \cup P^{t-1} \cup P^{t-2} \cup \dots \cup P^1$. Here the unit of time is chosen to reflect the appropriate frequency over which vaccine components are re-assessed. In the case of Influenza, this is typically one year. Using this formulation, we  test if the predicted strains are  closer to the  dominant strain in the classical edit distance, when compared against the WHO vaccine recommendations (See Fig.~\ref{figseasonal}).
+\rho(\ast) \triangleq \frac{1}{\abs{H^t}} \sum_{x \in H^t} \theta(\ast,x)
+}
+
+The intuition here is that a lower bound of $\rho(\ast)$ scales as average log-likelihood of the $\ast$ giving rise to a human strains in circulation at time $t$. Since the strains in $H^t$ are already HH capable, a high average likelihood of producing a similar strain has a high potential of being a HH cabale novel variant, which is a necessary condition of a pandemic strain. To establish the lower bound, we note that from  Theorem~\ref{SI-thmbnd} in the supplementary text, we have:
+
+\cgather{
+  \sum_{y \in H^t}\ln \abs{\frac{Pr(\ast \rightarrow y)}{\mem{y}}} \leqq -\frac{\sqrt{8}N^2}{1-\alpha} \abs{H^t}  \rho(\ast) \intertext{Denoting, $A =\frac{1-\alpha}{\sqrt{8}N^2} $,  $A\ln(\prod_{y \in H^t}\mem{y}) = C$, and $\langle \cdot \rangle$ as the geometric mean function, we have:}
+\Rightarrow  \rho(\ast) \geqq A \ln \left (\prod_{y \in H^t}Pr(\ast \rightarrow y)\right )^{1/\abs{H^t}} + C \\
+\Rightarrow \rho(\ast) \geqq A \ln \left \langle Pr(\ast \rightarrow \hst) \right \rangle + C
+}
+Noting that $A,C$ are not functions of $\ast$, we conclude that the risk measure $\rho(\cdot)$ scales with the average loglikelihhod  of producing strains close to a circulating human strain at the current time. 
+
 }

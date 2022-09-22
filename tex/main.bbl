@@ -36,6 +36,15 @@
 \newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{3}},
   \bibinfo{pages}{e03568} (\bibinfo{year}{2014}).
 
+\bibitem{Hothorn06unbiasedrecursive}
+\bibinfo{author}{Hothorn, T.}, \bibinfo{author}{Hornik, K.} \&
+  \bibinfo{author}{Zeileis, A.}
+\newblock \bibinfo{title}{Unbiased recursive partitioning: A conditional
+  inference framework}.
+\newblock \emph{\bibinfo{journal}{JOURNAL OF COMPUTATIONAL AND GRAPHICAL
+  STATISTICS}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{651--674}
+  (\bibinfo{year}{2006}).
+
 \bibitem{Influenz24:online}
 \bibinfo{author}{CDC}.
 \newblock \bibinfo{title}{Influenza risk assessment tool (irat) | pandemic
@@ -259,15 +268,6 @@
 \bibinfo{author}{Vanmarcke, E.}
 \newblock \emph{\bibinfo{title}{Random fields: analysis and synthesis}}
   (\bibinfo{publisher}{World scientific}, \bibinfo{year}{2010}).
-
-\bibitem{Hothorn06unbiasedrecursive}
-\bibinfo{author}{Hothorn, T.}, \bibinfo{author}{Hornik, K.} \&
-  \bibinfo{author}{Zeileis, A.}
-\newblock \bibinfo{title}{Unbiased recursive partitioning: A conditional
-  inference framework}.
-\newblock \emph{\bibinfo{journal}{JOURNAL OF COMPUTATIONAL AND GRAPHICAL
-  STATISTICS}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{651--674}
-  (\bibinfo{year}{2006}).
 
 \bibitem{manning1999foundations}
 \bibinfo{author}{Manning, C.~D.}, \bibinfo{author}{Manning, C.~D.} \&
