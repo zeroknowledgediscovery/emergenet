@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 17:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 18:20
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1950,11 +1950,11 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<Figures/External/scheme.pdf, id=41, 522.61649pt x 524.39615pt>
+<Figures/External/scheme.pdf, id=41, 522.61649pt x 528.19029pt>
 File: Figures/External/scheme.pdf Graphic file (type pdf)
 <use Figures/External/scheme.pdf>
 Package pdftex.def Info: Figures/External/scheme.pdf  used on input line 51.
-(pdftex.def)             Requested size: 496.33034pt x 498.03748pt.
+(pdftex.def)             Requested size: 496.33034pt x 501.64091pt.
 LaTeX Font Info:    External font `xccex10' loaded for size
 (Font)              <9> on input line 62.
 LaTeX Font Info:    External font `xccex10' loaded for size
@@ -2973,19 +2973,22 @@ dmap/pdftex.map): invalid entry for `rtxptmro': SlantFont/ExtendFont can be use
 d only with embedded Type1 fonts
 }] [2 <./Figures/External/scheme.pdf>] [3]
 
-LaTeX Warning: Reference `fig0' on page 4 undefined on input line 144.
+LaTeX Warning: Reference `fig0' on page 4 undefined on input line 153.
 
 
-LaTeX Warning: Reference `fig0' on page 4 undefined on input line 168.
+LaTeX Warning: Reference `fig0' on page 4 undefined on input line 177.
 
 [4] (./Figures/tabdata/improvement_qnet.tex) [5]
-<Figures/External/IRAT_combined.png, id=266, 899.7615pt x 665.8476pt>
+<Figures/External/IRAT_combined.png, id=260, 899.7615pt x 665.8476pt>
 File: Figures/External/IRAT_combined.png Graphic file (type png)
 <use Figures/External/IRAT_combined.png>
 Package pdftex.def Info: Figures/External/IRAT_combined.png  used on input line
- 225.
+ 234.
 (pdftex.def)             Requested size: 446.69426pt x 330.56586pt.
- [6 <./Figures/External/irat_combined.png>] [7] (./method.tex
+ [6
+
+pdfTeX warning: pdflatex: pop empty color page stack 0
+ <./Figures/External/irat_combined.png>] [7] (./method.tex [8]
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9.53561> not available
 (Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6.6749> not available
@@ -2997,25 +3000,25 @@ LaTeX Font Info:    Trying to load font information for U+dsrom on input line 3
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [8]
+)
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.6749> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 35.
  [9])
 (./Figures/seasonalpred_both.tex
 ===== Image './Figures/External/seasonalpred_both' is up-to-date. ======
 )
-<Figures/External/sequence.pdf, id=373, 491.435pt x 672.11098pt>
+<Figures/External/sequence.pdf, id=370, 491.435pt x 672.11098pt>
 File: Figures/External/sequence.pdf Graphic file (type pdf)
 <use Figures/External/sequence.pdf>
-Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 336.
+Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 352.
 
 (pdftex.def)             Requested size: 431.80496pt x 590.58775pt.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 341.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 357.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 341.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 357.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <5> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 341.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 357.
  (./main.bbl [10]
 
 LaTeX Warning: Text page 11 contains only floats.
@@ -3032,21 +3035,17 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 86 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 51726 strings out of 478862
- 1136366 string characters out of 5858945
- 1927744 words of memory out of 8000000
- 68250 multiletter control sequences out of 15000+600000
+ 51727 strings out of 478862
+ 1136371 string characters out of 5858945
+ 1927801 words of memory out of 8000000
+ 68251 multiletter control sequences out of 15000+600000
  503329 words of font info for 242 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  111i,13n,108p,2323b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{thm.1} has been referenced but does
- not exist, replaced by a fixed one
+pdfTeX warning (dest): name{thm.1} has been referenced but does not exist, re
+placed by a fixed one
 
 pdfTeX warning (dest): name{table.17} has been referenced but does not exist, r
 eplaced by a fixed one
@@ -3098,7 +3097,7 @@ e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/zapfding/uzdr.pfb>
-Output written on main.pdf (13 pages, 6195529 bytes).
+Output written on main.pdf (13 pages, 6199223 bytes).
 PDF statistics:
  735 PDF objects out of 1000 (max. 8388607)
  476 compressed objects within 5 object streams

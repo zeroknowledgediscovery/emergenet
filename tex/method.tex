@@ -1,9 +1,9 @@
 \allowdisplaybreaks{
 Next, we briefly describe the  details of the computational framework.
 
-\section*{\qnet Framework}
+\section*{\enet Framework}
 
-We do not assume that the mutational  variations at the individual indices of a genomic sequence are independent (See Fig~\ref{figscheme}a). Irrespective of whether mutations are truly random~\cite{hernandez2018algorithmically}, since only certain combinations of individual mutations are viable, individual mutations across a genomic sequence replicating in the wild  appear  constrained, which is what is explicitly  modeled in our approach. The mathematical form of our metric is not arbitrary; JS divergence is a symmetricised version of the more common KL divergence~\cite{cover} between distributions, and among  different possibilities, the q-distance  is the simplest metric such that the likelihood of a spontaneous jump (See Eq.~\eqref{fundeq} in Methods) is provably bounded above and below  by simple exponential functions of the q-distance. 
+We do not assume that the mutational  variations at the individual indices of a genomic sequence are independent (See Fig~\ref{figscheme}a). Irrespective of whether mutations are truly random~\cite{hernandez2018algorithmically}, since only certain combinations of individual mutations are viable, individual mutations across a genomic sequence replicating in the wild  appear  constrained, which is what is explicitly  modeled in our approach. The mathematical form of our metric is not arbitrary; JS divergence is a symmetricised version of the more common KL divergence~\cite{cover} between distributions, and among  different possibilities, the \qdist  is the simplest metric such that the likelihood of a spontaneous jump (See Eq.~\eqref{fundeq} in Methods) is provably bounded above and below  by simple exponential functions of the \qdist. 
 
 Consider a set of random variables $X=\{X_i\}$, with $i \in \{1, \cdots, N\}$, each taking value from the respective sets $\Sigma_i$. A sample $x \in \prod_1^N \Sigma_i$ is an ordered $N$-tuple, consisting of a realization of each of the variables $X_i$ with the $i^{th}$ entry $x_i$ being the realization of random variable $X_i$. We use the notation $x_{-i}$ and $x^{i,\sigma}$ to denote:
 \begin{subequations}\cgather{
@@ -13,8 +13,8 @@ x^{i,\sigma} \triangleq x_1, \cdots, x_{i-1},\sigma,x_{i+1},\cdots,x_N, \sigma \
 
 We note that $X$ defines a random field~\cite{vanmarcke2010random} over the index set $\{1, \cdots, N\}$. To clarify the biological picture, we refer to the sample $x$ as an amino acid or nucleotide sequence, identifying the entry at  each index with the corresponding  protein residue or the  nucleotide base pair.
 
-\begin{defn}[\qnet]
-For a random field $X=\{X_i\}$ indexed by $i \in \{1, \cdots, N\}$, the \qnet is defined to be the set of predictors $\Phi=\{\qn\}$, $i.e.$, we have:
+\begin{defn}[\enet]
+For a random field $X=\{X_i\}$ indexed by $i \in \{1, \cdots, N\}$, the \enet is defined to be the set of predictors $\Phi=\{\qn\}$, $i.e.$, we have:
 \cgather{
 \qn : \prod_{j \neq i} \Sigma_j \rightarrow \D,
 }  where for a sequence $x$, $\Phi_i(x_{-i}) $ estimates the distribution of $X_i$ on the set $\Sigma_i$.
@@ -27,8 +27,8 @@ We use conditional inference trees as models for predictors~\cite{Hothorn06unbia
 
 \subsection*{Biology-Aware Distance Between Sequences}
 
-\begin{defn}[Q-distance -- pseudo-metric between sequences]\label{defqdistance}
-Given two sequences $x,y \in \prod_1^N\Sigma_i$, such that $x,y$ are drawn from the  populations $P,Q$  inducing the \qnet $\Phi^P,\Phi^Q$, respectively,  we define a pseudo-metric $\theta(x,y) $, as follows:
+\begin{defn}[\qdist: adaptive biologically meaningful dissimilarity between sequences]\label{defqdistance}
+Given two sequences $x,y \in \prod_1^N\Sigma_i$, such that $x,y$ are drawn from the  populations $P,Q$  inducing the \enet $\Phi^P,\Phi^Q$, respectively,  we define a pseudo-metric $\theta(x,y) $, as follows:
 \cgather{\label{q-distance}
 \theta(x,y) \triangleq \mathbf{E}_i \left (  \J^{\frac{1}{2}} \left (\qn^P(x_{-i}) , \qn^Q(y_{-i})\right ) \right )
 } 
@@ -42,7 +42,7 @@ The square-root in the definition arises naturally from the bounds we are able t
 
 \subsection*{Theoretical Probability Bounds}
 
-The \qnet framework  allows us to rigorously compute bounds on the probability of a spontaneous change of one strain to another, brought about by chance mutations. While any sequence of mutations is equally likely, the ``fitness'' of the resultant strain, or the probability that it will even result in a viable strain, is not. Thus the necessity of preserving  function  dictates that not all random changes  are viable, and the probability of observing some trajectories through the sequence space  are far greater  than others. The \qnet framework allows us to explore this constrained dynamics, as revealed by a sufficiently large set of genomic sequences.
+The \enet framework  allows us to rigorously compute bounds on the probability of a spontaneous change of one strain to another, brought about by chance mutations. While any sequence of mutations is equally likely, the ``fitness'' of the resultant strain, or the probability that it will even result in a viable strain, is not. Thus the necessity of preserving  function  dictates that not all random changes  are viable, and the probability of observing some trajectories through the sequence space  are far greater  than others. The \enet framework allows us to explore this constrained dynamics, as revealed by a sufficiently large set of genomic sequences.
 
 We show in Theorem~\ref{SI-thmbnd} in the supplementary text that at a significance level $\alpha$, with a sequence length $N$, the probability of spontaneous jump of sequence $x$ from population $P$ to sequence $y$ in population $Q$, $Pr(x \rightarrow y)$, is bounded by:
 \cgather{\label{fundeq}
@@ -72,16 +72,16 @@ Analyzing the distribution of sequences observed to circulate in the human popul
 \def\dsta{x^{t+\delta}}
 
 Let $\dst$ be a dominant strain in the upcoming flu season at time $t+\delta$,
-where $H^t$ is the set of observed strains presently in circulation in the human population (at tiem $t$). We will assume that the \enet  remains unchanged upto $t+\delta$.
+where $H^t$ is the set of observed strains presently in circulation in the human population (at time $t$). We will assume that the \enet  remains unchanged upto $t+\delta$.
 From the RHS bound established in Theorem~\ref{SI-thmbnd} in the supplementary text, we have:
 
 \calign{
   &\ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}} \geqq  -\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,\dsta)\\
 \Rightarrow &\sum_{x \in H^t} \ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}}  \sum_{x \in H^t}
 \geqq  -\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,\dsta)\\
-\Rightarrow  &\sum_{x\in H^t}  \theta(x,\dsta) - \abs{H^t}A \ln \mem{\dsta} \geqq  A \ln \frac{1}{\prod_{x \in H^t} Pr(x \rightarrow \dsta)} \intertext{where $A =\frac{1-\alpha}{\sqrt{8}N^2} $. Since minimizing the LHS maaximizes the lower bound on the probability of the observed strains simulatenously giving rise to $\dsta$, a dominant strain  $\dst$ may be estimated via the optimization:}
+\Rightarrow  &\sum_{x\in H^t}  \theta(x,\dsta) - \abs{H^t}A \ln \mem{\dsta} \geqq  A \ln \frac{1}{\prod_{x \in H^t} Pr(x \rightarrow \dsta)} \intertext{where $A =\frac{1-\alpha}{\sqrt{8}N^2} $, where $N$ is the sequence length considered, and $\alpha$ is a fixed significance level. Since minimizing the LHS maximizes the lower bound on the probability of the observed strains simultaneously giving rise to $\dsta$, a dominant strain  $\dst$ may be estimated as a solution to the optimization problem:}
 &\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y) - \abs{H^t}A \ln \mem{y}
-\intertext{Further noting that the second term on the right is at least an order of magnitude smaller compared to teh first terem, a good approximation for the optimization may be stated as:}
+\intertext{Further noting that the second term on the right is at least an order of magnitude smaller compared to the first term, a good approximation for the optimization may be stated as:}
 &\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y)
 }
 
@@ -95,7 +95,7 @@ We measure the potential of an animal strain $\ast$ to spillover and become HH c
 }
 
 The intuition here is that a lower bound of $\rho(\ast)$ scales as average log-likelihood of the $\ast$ giving rise to a human strains in circulation at time $t$. Since the strains in $H^t$ are already HH capable, a high average likelihood of producing a similar strain has a high potential of being a HH cabale novel variant, which is a necessary condition of a pandemic strain. To establish the lower bound, we note that from  Theorem~\ref{SI-thmbnd} in the supplementary text, we have:
-
+%
 \cgather{
   \sum_{y \in H^t}\ln \abs{\frac{Pr(\ast \rightarrow y)}{\mem{y}}} \leqq -\frac{\sqrt{8}N^2}{1-\alpha} \abs{H^t}  \rho(\ast) \intertext{Denoting, $A =\frac{1-\alpha}{\sqrt{8}N^2} $,  $A\ln(\prod_{y \in H^t}\mem{y}) = C$, and $\langle \cdot \rangle$ as the geometric mean function, we have:}
 \Rightarrow  \rho(\ast) \geqq A \ln \left (\prod_{y \in H^t}Pr(\ast \rightarrow y)\right )^{1/\abs{H^t}} + C \\

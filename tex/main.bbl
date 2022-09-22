@@ -53,50 +53,6 @@
   \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
 \newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
 
-\bibitem{rulli2017nexus}
-\bibinfo{author}{Rulli, M.~C.}, \bibinfo{author}{Santini, M.},
-  \bibinfo{author}{Hayman, D.~T.} \& \bibinfo{author}{D’Odorico, P.}
-\newblock \bibinfo{title}{The nexus between forest fragmentation in africa and
-  ebola virus disease outbreaks}.
-\newblock \emph{\bibinfo{journal}{Scientific reports}}
-  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{41613} (\bibinfo{year}{2017}).
-
-\bibitem{chua2002anthropogenic}
-\bibinfo{author}{Chua, K.~B.}, \bibinfo{author}{Chua, B.~H.} \&
-  \bibinfo{author}{Wang, C.~W.}
-\newblock \bibinfo{title}{Anthropogenic deforestation, el niiio and the
-  emergence of nipah virus in malaysia}.
-\newblock \emph{\bibinfo{journal}{Malaysian Journal of Pathology}}
-  \textbf{\bibinfo{volume}{24}}, \bibinfo{pages}{15--21}
-  (\bibinfo{year}{2002}).
-
-\bibitem{childs2004zoonotic}
-\bibinfo{author}{Childs, J.}
-\newblock \bibinfo{title}{Zoonotic viruses of wildlife: hither from yon}.
-\newblock In \emph{\bibinfo{booktitle}{Emergence and Control of Zoonotic Viral
-  Encephalitides}}, \bibinfo{pages}{1--11} (\bibinfo{publisher}{Springer},
-  \bibinfo{year}{2004}).
-
-\bibitem{fair2019viral}
-\bibinfo{author}{Fair, J.} \& \bibinfo{author}{Fair, J.}
-\newblock \bibinfo{title}{Viral forecasting, pathogen cataloging, and disease
-  ecosystem mapping: Measuring returns on investments}.
-\newblock \emph{\bibinfo{journal}{Current Topics in Microbiology and
-  Immunology}} \bibinfo{pages}{75--83} (\bibinfo{year}{2019}).
-
-\bibitem{agor2018models}
-\bibinfo{author}{Agor, J.~K.} \& \bibinfo{author}{{\"O}zalt{\i}n, O.~Y.}
-\newblock \bibinfo{title}{Models for predicting the evolution of influenza to
-  inform vaccine strain selection}.
-\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
-  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{678--683}
-  (\bibinfo{year}{2018}).
-
-\bibitem{cdceff}
-\bibinfo{title}{Cdc vaccine effectiveness studies} (\bibinfo{year}{2020}).
-\newblock
-  \urlprefix\url{https://www.cdc.gov/flu/vaccines-work/effectiveness-studies.htm}.
-
 \bibitem{gamblin2010influenza}
 \bibinfo{author}{Gamblin, S.~J.} \& \bibinfo{author}{Skehel, J.~J.}
 \newblock \bibinfo{title}{Influenza hemagglutinin and neuraminidase membrane
@@ -126,6 +82,19 @@
 \newblock \bibinfo{title}{Vaccination and antigenic drift in influenza}.
 \newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{26}},
   \bibinfo{pages}{C8--C14} (\bibinfo{year}{2008}).
+
+\bibitem{agor2018models}
+\bibinfo{author}{Agor, J.~K.} \& \bibinfo{author}{{\"O}zalt{\i}n, O.~Y.}
+\newblock \bibinfo{title}{Models for predicting the evolution of influenza to
+  inform vaccine strain selection}.
+\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{678--683}
+  (\bibinfo{year}{2018}).
+
+\bibitem{cdceff}
+\bibinfo{title}{Cdc vaccine effectiveness studies} (\bibinfo{year}{2020}).
+\newblock
+  \urlprefix\url{https://www.cdc.gov/flu/vaccines-work/effectiveness-studies.htm}.
 
 \bibitem{posada1998modeltest}
 \bibinfo{author}{Posada, D.} \& \bibinfo{author}{Crandall, K.~A.}
@@ -181,6 +150,37 @@
 \newblock \emph{\bibinfo{journal}{Science Translational Medicine}}
   \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{eabk3445}
   (\bibinfo{year}{2022}).
+
+\bibitem{rulli2017nexus}
+\bibinfo{author}{Rulli, M.~C.}, \bibinfo{author}{Santini, M.},
+  \bibinfo{author}{Hayman, D.~T.} \& \bibinfo{author}{D’Odorico, P.}
+\newblock \bibinfo{title}{The nexus between forest fragmentation in africa and
+  ebola virus disease outbreaks}.
+\newblock \emph{\bibinfo{journal}{Scientific reports}}
+  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{41613} (\bibinfo{year}{2017}).
+
+\bibitem{chua2002anthropogenic}
+\bibinfo{author}{Chua, K.~B.}, \bibinfo{author}{Chua, B.~H.} \&
+  \bibinfo{author}{Wang, C.~W.}
+\newblock \bibinfo{title}{Anthropogenic deforestation, el niiio and the
+  emergence of nipah virus in malaysia}.
+\newblock \emph{\bibinfo{journal}{Malaysian Journal of Pathology}}
+  \textbf{\bibinfo{volume}{24}}, \bibinfo{pages}{15--21}
+  (\bibinfo{year}{2002}).
+
+\bibitem{childs2004zoonotic}
+\bibinfo{author}{Childs, J.}
+\newblock \bibinfo{title}{Zoonotic viruses of wildlife: hither from yon}.
+\newblock In \emph{\bibinfo{booktitle}{Emergence and Control of Zoonotic Viral
+  Encephalitides}}, \bibinfo{pages}{1--11} (\bibinfo{publisher}{Springer},
+  \bibinfo{year}{2004}).
+
+\bibitem{fair2019viral}
+\bibinfo{author}{Fair, J.} \& \bibinfo{author}{Fair, J.}
+\newblock \bibinfo{title}{Viral forecasting, pathogen cataloging, and disease
+  ecosystem mapping: Measuring returns on investments}.
+\newblock \emph{\bibinfo{journal}{Current Topics in Microbiology and
+  Immunology}} \bibinfo{pages}{75--83} (\bibinfo{year}{2019}).
 
 \bibitem{carugo2001normalized}
 \bibinfo{author}{Carugo, O.} \& \bibinfo{author}{Pongor, S.}

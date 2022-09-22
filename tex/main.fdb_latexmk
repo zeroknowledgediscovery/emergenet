@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1663886500 "main.aux" "main.bbl" "main" 1663886892
+["bibtex main"] 1663888802 "main.aux" "main.bbl" "main" 1663888805
   "/usr/share/texlive/texmf-dist/bibtex/bst/nature/naturemag.bst" 1136766823 34867 ae05936b307e5838449d1bb5fdbb2c19 ""
   "allbib.bib" 1663099819 317190 fe754a66cd4332ccf149bf42b95baa68 ""
-  "main.aux" 1663886892 13462 8cfc4592e2566d5b7db1095043112d77 "pdflatex"
+  "main.aux" 1663888805 13518 75268cabee72ceb1b1adc5cf46359d5a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1663886889 "main.tex" "main.pdf" "main" 1663886892
+["pdflatex"] 1663888802 "main.tex" "main.pdf" "main" 1663888805
   "/home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccex10.600pk" 1618455428 13872 6e6620f099c1f49c5aabacaea9bb868b ""
   "/home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk" 1618455371 13828 6dc6afcbe97e7aa5c57f2fd50cb739e8 ""
   "/home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi5.600pk" 1618455424 6856 46a593c4e79796958373d21fd0991f46 ""
@@ -399,21 +399,21 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1646724888 39615 efe1ff3cc501ab49a9a7724657050f26 ""
   "/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1654850845 5189091 52139256ee5b64dae3b07628a54c7f8a ""
   "Figures/External/irat_combined.png" 1662088582 543085 68fa54aa50acda86f55b96fe18f86f73 ""
-  "Figures/External/scheme.pdf" 1663819584 554525 5de2e6023f093e2c18eb82453cb09b8f ""
+  "Figures/External/scheme.pdf" 1663888793 557633 1da953ee6ac227a6b5a69e3c77346699 ""
   "Figures/External/seasonalpred_both.dpth" 0 -1 0 ""
   "Figures/External/seasonalpred_both.md5" 1663738174 62 74ba52b78f0bf4545483590d2b66d905 ""
   "Figures/External/seasonalpred_both.pdf" 1663738181 59543 00b85ad349ccc34ce0b02348f6579a5d ""
   "Figures/External/sequence.pdf" 1663738186 4972254 8d80b7504d36dc8bf0a976a6edbcabbc ""
   "Figures/seasonalpred_both.tex" 1662088582 632 7e264c9df4bec3004f8247ab3d3481b4 ""
   "Figures/tabdata/improvement_qnet.tex" 1662088582 697 b57666eea91e648db64937215617add7 ""
-  "SI.aux" 1663886880 12035 e0aa477064f631191bb8d964a04c422c ""
+  "SI.aux" 1663887938 12035 e0aa477064f631191bb8d964a04c422c ""
   "SI.tex" 1663883616 10987 365558657e14e9834c4ebaf41ba9a5e2 ""
-  "customdef.tex" 1663376954 2346 07eac80b153b2c57ae21569806a0b66a ""
-  "main.aux" 1663886892 13462 8cfc4592e2566d5b7db1095043112d77 "pdflatex"
-  "main.bbl" 1663886500 13881 218904cf212037b37418ab7643bd91a4 "bibtex main"
+  "customdef.tex" 1663887535 2376 b2fec42a32b2b29856c2610595d63121 ""
+  "main.aux" 1663888805 13518 75268cabee72ceb1b1adc5cf46359d5a "pdflatex"
+  "main.bbl" 1663888802 13881 6c7b543023240743d963bccb3afc1a71 "bibtex main"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1663886888 47183 393aaa99c9cf87bd221302b8c4869073 ""
-  "method.tex" 1663883616 9565 6530e5e88674e331d7a875a5bba29cad ""
+  "main.tex" 1663888798 47750 ed495fd3943c4f3c6b8ac821ba313058 ""
+  "method.tex" 1663888216 9693 4ec17cf8b3a8bd4a1c23a048b21f2d54 ""
   "preamble.tex" 1663738169 16001 e7e4ef7943df08a254d320dbd244c3db ""
   (generated)
   "main.aux"

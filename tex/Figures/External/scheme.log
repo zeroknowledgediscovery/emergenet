@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  21 SEP 2022 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 18:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1829,11 +1829,11 @@ d on input line 39.
 
 pdfTeX warning: pdflatex (file ./Figures/e2.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<Figures/e2.pdf, id=34, 499.8675pt x 1194.38213pt>
+<Figures/e2.pdf, id=34, 500.83109pt x 1205.46356pt>
 File: Figures/e2.pdf Graphic file (type pdf)
 <use Figures/e2.pdf>
 Package pdftex.def Info: Figures/e2.pdf  used on input line 19.
-(pdftex.def)             Requested size: 216.81pt x 518.03938pt.
+(pdftex.def)             Requested size: 216.81pt x 521.83408pt.
 <Figures/trees/procP1314.pdf, id=35, 3053.4075pt x 3220.03pt>
 File: Figures/trees/procP1314.pdf Graphic file (type pdf)
 <use Figures/trees/procP1314.pdf>
@@ -2900,214 +2900,222 @@ pdfTeX warning: pdflatex (file ./Figures/trees/procP1064.pdf): PDF inclusion: m
 ultiple pdfs with page group included in a single page
 >])
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <9> on input line 67.
+(Font)              <9> on input line 62.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 67.
+(Font)              scaled to size 8.54997pt on input line 62.
 
-Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
-ut line 81.
+Package natbib Warning: Citation `Hothorn06unbiasedrecursive' on page 1 undefin
+ed on input line 62.
+
+
+Package natbib Warning: Citation `Hothorn06unbiasedrecursive' on page 1 undefin
+ed on input line 62.
+
+
+Package natbib Warning: Citation `Influenz24:online' on page 1 undefined on inp
+ut line 76.
 
 
 Package natbib Warning: Citation `huddleston2020integrating' on page 2 undefine
-d on input line 86.
+d on input line 81.
 
 
 Package natbib Warning: Citation `neher2014predicting' on page 2 undefined on i
-nput line 86.
-
-
-Package natbib Warning: Citation `rulli2017nexus' on page 2 undefined on input 
-line 93.
-
-
-Package natbib Warning: Citation `chua2002anthropogenic' on page 2 undefined on
- input line 93.
-
-
-Package natbib Warning: Citation `childs2004zoonotic' on page 2 undefined on in
-put line 93.
-
-
-Package natbib Warning: Citation `fair2019viral' on page 2 undefined on input l
-ine 93.
-
-
-Package natbib Warning: Citation `agor2018models' on page 2 undefined on input 
-line 96.
-
-
-Package natbib Warning: Citation `tricco2013comparing' on page 2 undefined on i
-nput line 96.
-
-
-Package natbib Warning: Citation `cdceff' on page 2 undefined on input line 96.
-
-
-
-Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
-ut line 96.
+nput line 81.
 
 
 Package natbib Warning: Citation `gamblin2010influenza' on page 3 undefined on 
-input line 104.
+input line 114.
 
 
 Package natbib Warning: Citation `Influenz24:online' on page 3 undefined on inp
-ut line 106.
+ut line 116.
 
 
 Package natbib Warning: Citation `Influenz24:online' on page 3 undefined on inp
-ut line 106.
+ut line 116.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 143.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 153.
 
 
-LaTeX Warning: Reference `fig0' on page 3 undefined on input line 143.
+LaTeX Warning: Reference `fig0' on page 3 undefined on input line 153.
 
 
-LaTeX Warning: Reference `fig0' on page 3 undefined on input line 167.
+LaTeX Warning: Reference `fig0' on page 3 undefined on input line 177.
 
 
-LaTeX Warning: Reference `q-distance' on page 3 undefined on input line 167.
+LaTeX Warning: Reference `q-distance' on page 3 undefined on input line 177.
 
 
-Package natbib Warning: Citation `cover' on page 3 undefined on input line 167.
-
-
-
-Package natbib Warning: Citation `cover' on page 3 undefined on input line 167.
+Package natbib Warning: Citation `cover' on page 3 undefined on input line 177.
 
 
 
-Package natbib Warning: Citation `varadhan2010large' on page 4 undefined on inp
-ut line 169.
+Package natbib Warning: Citation `cover' on page 3 undefined on input line 177.
+
+
+
+Package natbib Warning: Citation `varadhan2010large' on page 3 undefined on inp
+ut line 179.
 
 
 Package natbib Warning: Citation `boni2008vaccination' on page 4 undefined on i
-nput line 173.
+nput line 183.
 
 
 Package natbib Warning: Citation `dos2016influenza' on page 4 undefined on inpu
-t line 173.
+t line 183.
 
 
 Package natbib Warning: Citation `agor2018models' on page 4 undefined on input 
-line 173.
+line 183.
 
 
 Package natbib Warning: Citation `tricco2013comparing' on page 4 undefined on i
-nput line 173.
+nput line 183.
 
 
-Package natbib Warning: Citation `cdceff' on page 4 undefined on input line 173
+Package natbib Warning: Citation `cdceff' on page 4 undefined on input line 183
 .
-
-
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 173.
 
 
 LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 183.
 
+
+LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 193.
+
 (./Figures/tabdata/improvement_qnet.tex)
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 202.
+LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 212.
 
 
-LaTeX Warning: Reference `tabperf' on page 5 undefined on input line 204.
+LaTeX Warning: Reference `tabperf' on page 5 undefined on input line 214.
 
 
-LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 204.
+LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 214.
 
 
 Package natbib Warning: Citation `boni2008vaccination' on page 5 undefined on i
-nput line 204.
+nput line 214.
 
 
-LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 204.
+LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 214.
 
 
-LaTeX Warning: Reference `figirat' on page 5 undefined on input line 206.
+LaTeX Warning: Reference `figirat' on page 5 undefined on input line 216.
 
 The command '\includegraphics [width=0.9\textwidth ]{Figures/External/IRAT_comb
 ined.png}' has been optimized away. Use '/tikz/external/optimize=false' to disa
 ble this.
 
 Package natbib Warning: Citation `posada1998modeltest' on page 5 undefined on i
-nput line 239.
+nput line 249.
 
 
 Package natbib Warning: Citation `goldberger2005genomic' on page 5 undefined on
- input line 239.
+ input line 249.
 
 
 Package natbib Warning: Citation `huelsenbeck1997phylogeny' on page 5 undefined
- on input line 239.
+ on input line 249.
 
 
 Package natbib Warning: Citation `neher2014predicting' on page 5 undefined on i
-nput line 239.
+nput line 249.
 
 
 Package natbib Warning: Citation `VanderMeer2010' on page 5 undefined on input 
-line 239.
+line 249.
 
 
 Package natbib Warning: Citation `Smith2009' on page 5 undefined on input line 
-239.
+249.
 
 
 Package natbib Warning: Citation `mollentze2021identifying' on page 6 undefined
- on input line 244.
+ on input line 254.
 
 
 Package natbib Warning: Citation `maher2021predicting' on page 6 undefined on i
-nput line 244.
+nput line 254.
 
 
-LaTeX Warning: Reference `figseq' on page 6 undefined on input line 253.
+Package natbib Warning: Citation `rulli2017nexus' on page 6 undefined on input 
+line 261.
 
 
-LaTeX Warning: Reference `figseq' on page 6 undefined on input line 253.
+Package natbib Warning: Citation `chua2002anthropogenic' on page 6 undefined on
+ input line 261.
+
+
+Package natbib Warning: Citation `childs2004zoonotic' on page 6 undefined on in
+put line 261.
+
+
+Package natbib Warning: Citation `fair2019viral' on page 6 undefined on input l
+ine 261.
+
+
+Package natbib Warning: Citation `agor2018models' on page 6 undefined on input 
+line 264.
+
+
+Package natbib Warning: Citation `tricco2013comparing' on page 6 undefined on i
+nput line 264.
+
+
+Package natbib Warning: Citation `cdceff' on page 6 undefined on input line 264
+.
+
+
+Package natbib Warning: Citation `Influenz24:online' on page 6 undefined on inp
+ut line 264.
+
+
+LaTeX Warning: Reference `figseq' on page 6 undefined on input line 270.
+
+
+LaTeX Warning: Reference `figseq' on page 6 undefined on input line 270.
 
 
 Package natbib Warning: Citation `carugo2001normalized' on page 6 undefined on 
-input line 255.
+input line 272.
 
 
 Package natbib Warning: Citation `righetto2014comparative' on page 6 undefined 
-on input line 255.
+on input line 272.
 
 
 Package natbib Warning: Citation `lee1971interpretation' on page 6 undefined on
- input line 255.
+ input line 272.
 
 
 Package natbib Warning: Citation `shrake1973environment' on page 6 undefined on
- input line 255.
+ input line 272.
 
 
 Package natbib Warning: Citation `momen2008impact' on page 6 undefined on input
- line 255.
+ line 272.
 
 
 Package natbib Warning: Citation `adamczak2005combining' on page 6 undefined on
- input line 255.
+ input line 272.
 
 
-LaTeX Warning: Reference `figseq' on page 6 undefined on input line 257.
+LaTeX Warning: Reference `figseq' on page 7 undefined on input line 274.
 
 
-Package natbib Warning: Citation `tzarum2015structure' on page 6 undefined on i
-nput line 257.
+Package natbib Warning: Citation `tzarum2015structure' on page 7 undefined on i
+nput line 274.
 
 
-Package natbib Warning: Citation `lazniewski2018structural' on page 6 undefined
- on input line 257.
+Package natbib Warning: Citation `lazniewski2018structural' on page 7 undefined
+ on input line 274.
 
 
-Package natbib Warning: Citation `garcia2015dynamic' on page 6 undefined on inp
-ut line 257.
+Package natbib Warning: Citation `garcia2015dynamic' on page 7 undefined on inp
+ut line 274.
 
 (./method.tex
 
@@ -3145,27 +3153,24 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.6749> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 35.
 
-Package natbib Warning: Citation `manning1999foundations' on page 7 undefined o
+Package natbib Warning: Citation `manning1999foundations' on page 8 undefined o
 n input line 35.
 
 
-Package natbib Warning: Citation `cover' on page 7 undefined on input line 37.
-
-
-LaTeX Warning: Reference `figseasonal' on page 8 undefined on input line 66.
+Package natbib Warning: Citation `cover' on page 8 undefined on input line 37.
 
 )
 
-Package natbib Warning: Citation `mcauley2019influenza' on page 8 undefined on 
-input line 290.
+Package natbib Warning: Citation `mcauley2019influenza' on page 9 undefined on 
+input line 307.
 
 
-Package natbib Warning: Citation `hatcher2017virus' on page 8 undefined on inpu
-t line 290.
+Package natbib Warning: Citation `hatcher2017virus' on page 9 undefined on inpu
+t line 307.
 
 
-Package natbib Warning: Citation `bogner2006global' on page 8 undefined on inpu
-t line 290.
+Package natbib Warning: Citation `bogner2006global' on page 9 undefined on inpu
+t line 307.
 
 (./Figures/seasonalpred_both.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -3175,11 +3180,11 @@ The command '\includegraphics [width=0.87\textwidth ]{Figures/External/sequence
 .pdf}' has been optimized away. Use '/tikz/external/optimize=false' to disable 
 this.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 340.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 357.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 340.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 357.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <5> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 340.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 357.
 No file ./Figures/External/scheme.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -3189,21 +3194,21 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 51811 strings out of 478862
- 1137370 string characters out of 5858945
- 1910900 words of memory out of 8000000
- 68446 multiletter control sequences out of 15000+600000
- 502741 words of font info for 273 fonts, out of 8000000 for 9000
+ 51817 strings out of 478862
+ 1137411 string characters out of 5858945
+ 1912444 words of memory out of 8000000
+ 68452 multiletter control sequences out of 15000+600000
+ 503883 words of font info for 275 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 115i,13n,111p,2425b,1471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,13n,111p,2357b,1471s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/x
 ccsy8.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/sh
 are/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on ./Figures/External/scheme.pdf (1 page, 554525 bytes).
+Output written on ./Figures/External/scheme.pdf (1 page, 557633 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
+ 178 PDF objects out of 1000 (max. 8388607)
  90 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)

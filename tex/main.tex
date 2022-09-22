@@ -76,7 +76,7 @@ To mitigate such risk we must preemptively identify specific strains in animal h
 CDC's current, somewhat subjective, solution to this problem is the Influenza Risk Assessment Tool (IRAT), which  uses a combination of ten weighted risk elements, aiming to factor in the   1) properties of the virus, 2) attributes of the population, and 3) ecology and epidemiological characteristics of the virus~\cite{Influenz24:online} that are largely  expert-selected. The IRAT score assigns  a grade between 1-10 for emergence risk and public health impact to Influenza A viruses not currently circulating among humans. However, evaluating the IRAT risk elemenst  involve multiple experimental assays for each strain, possibly taking  weeks to return the final   score for a single strain. Thus, we have a scalability problem: while  the current global biosurveillance efforts are collecting tens of thousands of sequences every year, most of these sequences will never be analyzed in time. IRAT assessment protocols are  not fast enough to leverage the full capacity of current surveillance output, and thus have low odds of  preempting a pandemic.
 
 
-In this study, we introduce a new machine learning algorithm to automatically parse out emergent evolutionary constraints operating on viral sequences in the wild, via analyzing sequence variations recorded in publicly available databases, such as the GISAID and NCBI. Uncovering these dependecies enables us  to rapidly rank-order strains isolated in animal hosts according to their pandemic potential. At the core of our algorithmic framework, referred to as the \enet, is a recursive forest of  cross-predicting conditional inference trees, that allows us to  predict the likelihood of specific future  mutations, and  consequently, the numerical likelihood of specific  strains emerging through natural evolutionary processes.
+In this study, we introduce a new machine learning algorithm to automatically parse out emergent evolutionary constraints operating in the wild, via analyzing sequence variations recorded in publicly available databases, such as the GISAID and NCBI. Uncovering these dependecies enables us  to rapidly rank-order strains isolated in animal hosts according to their pandemic potential. At the core of our algorithmic framework, referred to as the \enet, is a recursive forest of  cross-predicting conditional inference trees, that allows us to  predict the likelihood of specific future  mutations, and  consequently, the numerical likelihood of specific  strains emerging through natural evolutionary processes.
 Evolutionary trajectories in the wild are shaped by complex hard-to-model selection pressures, and the \enet maximally incorporates the impact of these effects by  learning emergent patterns from sequence databases.
 As our first result, we predict dominant strain(s) for the seasonal flu, outperforming  WHO/CDC recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres. This  validates our framework, and  outlines an approach to improve the effectiveness of the flu shot, outperforming  recent proposals using computational and/or experimental frameworks~\cite{huddleston2020integrating,neher2014predicting}.
 Importantly, we use only sequence information, but sophisticated pattern recognition allows us to get better predictive performance to what has been reliazed by the state of the art, even with the use of more detailed phenotypic information on past strains.
@@ -86,15 +86,24 @@ Our key outcome, however,  is a validated risk score  to estimate the pandemic p
 {\color{Green1}
 
   Next we would have brief methods, followed by detailed results.
-  Then Discussion, and finally Methods.
+  Then Discussion, and finally Methods.}
+
+
+  {\color{magenta}
+    Result requirements:
+    0) Check if changes happen on incorporating the additional term from eqn 9
+    
+    1) percent improvement data table augnment with comparison against literature data (in number of average mutational deviation)
+    
+    2) table for fig 2
+    
+    3) table/figure for risk scores of all h3n2/h1n1 strains in swine collected in 2021/2022
+    
+    4) How many sequences were used from which databases. Where is this info described (need this to appear in teh abstract as well)
+    
+    5) all qnets should be submitted to zenodo
+    }
  
-
-{\color{Red1}
-\section*{Discussion}
-In the aftermath of the COVID-19 pandemic that caused one of the most devastating disasters of the past century, a looming question is whether we can prepare for, preempt and mitigate such events in the future. Evolving viruses, whether currently circulating in the human population, or in animal reservoirs that might spillover and attain human-to-human transmission capability, pose an ever-present epidemic risk.  Current surveillance paradigms, while crucial for mapping disease ecosystems, are limited in their ability to address this challenge. Habitat encroachment, climate change, and other ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic} unquestionably drive up the odds of zoonotic spill-overs. Nevertheless, current efforts at tracking these effects have not improved our ability to quantify future risk of emergence~\cite{fair2019viral}. Tracking viral diversity in animal hosts, while important, often does not transparently map to emergence risk.  This is particularly true for \infl, which partly on account of its segmented genome, can easily incorporate genes from multiple strains and emerge as novel human pathogens, and thus harbor a high pandemic potential. While large antigenic shifts in \infl are relatively rare, even the smaller seasonal sequence alterations in cause sufficient variation in the surface proteins to evade existing immunity, and require yearly reformulation of the flu vaccine.
-
-However, for the  vaccine to be effective, we need to  predict the dominant circulating strain of the upcoming season with sufficient accuracy.
-Currently, the composition of the flu shot is decided at least six months in advance of the seasonal infection peak, and targets three to four  historical strains as recommended by the CDC/WHO, who identify these specific strains by  sampling the current circulation~\cite{agor2018models}, hoping to match the  dominant strain(s) in the upcoming season. A variety of hard-to-model effects hinder this prediction, which, despite observed cross-reactive effects~\cite{tricco2013comparing}, have had  limited vaccine effectiveness in recent years~\cite{cdceff}. Rank-ordering strains which do not yet circulate in humans according to either their spillover risk or their pandemic potential, has proven to be even more difficult [REF]. CDC's current, somewhat subjective, solution to this problem is the Influenza Risk Assessment Tool (IRAT), which  uses a combination of ten weighted risk elements, including  1) properties of the virus, 2) attributes of the population, and 3) ecology and epidemiological characteristics of the virus~\cite{Influenz24:online} that are expert-selected. Evaluating these factors involve several experimental assay for each strain, taking possibly weeks to return the final IRAT  score for a single strain. Thus, we have a scalability problem: with  the current global biosurveillance efforts  collecting tens of thousands of sequences every year, IRAT assessment is simply not fast enough to  preempt a pandemic. }
 
 
 \section*{Brief Methods}
@@ -235,7 +244,7 @@ Given the efficiency of the q-distance computations, we can track how risk of em
 
 
 
-\section*{\qnet Advantages and Related Literature}
+\section*{\enet Advantages and Related Literature}
 
 Numerous tools exist for ad hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, which are not inherently biologically meaningful -- a smaller edit distance between two strains does not necessarily imply that a feasible trajectory exists from one to the other in the wild. These measures tend to be  variations of distances between symbolic sequences, and are not aware of selection pressures and evolutionary dynamics. Despite the diverse techniques and concepts explored in these domains, the key missing piece is effectively learning which changes are likely in the wild, conditioned on possibly the entire sequence of the current strain. Our algorithm is the first of its kind to learn an appropriate metric of comparison from data, without assuming any model of DNA or amino acid substitution, or a genealogical tree a priori, and is  designed to be aware of the impact of the  host environment and background epidemiology.
 
@@ -247,7 +256,14 @@ Very recently, two articles have explored the possibility of predicting  pathoge
 
 
 
+{\color{Red1}
+\section*{Discussion}
+In the aftermath of the COVID-19 pandemic that caused one of the most devastating disasters of the past century, a looming question is whether we can prepare for, preempt and mitigate such events in the future. Evolving viruses, whether currently circulating in the human population, or in animal reservoirs that might spillover and attain human-to-human transmission capability, pose an ever-present epidemic risk.  Current surveillance paradigms, while crucial for mapping disease ecosystems, are limited in their ability to address this challenge. Habitat encroachment, climate change, and other ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic} unquestionably drive up the odds of zoonotic spill-overs. Nevertheless, current efforts at tracking these effects have not improved our ability to quantify future risk of emergence~\cite{fair2019viral}. Tracking viral diversity in animal hosts, while important, often does not transparently map to emergence risk.  This is particularly true for \infl, which partly on account of its segmented genome, can easily incorporate genes from multiple strains and emerge as novel human pathogens, and thus harbor a high pandemic potential. While large antigenic shifts in \infl are relatively rare, even the smaller seasonal sequence alterations in cause sufficient variation in the surface proteins to evade existing immunity, and require yearly reformulation of the flu vaccine.
 
+However, for the  vaccine to be effective, we need to  predict the dominant circulating strain of the upcoming season with sufficient accuracy.
+Currently, the composition of the flu shot is decided at least six months in advance of the seasonal infection peak, and targets three to four  historical strains as recommended by the CDC/WHO, who identify these specific strains by  sampling the current circulation~\cite{agor2018models}, hoping to match the  dominant strain(s) in the upcoming season. A variety of hard-to-model effects hinder this prediction, which, despite observed cross-reactive effects~\cite{tricco2013comparing}, have had  limited vaccine effectiveness in recent years~\cite{cdceff}. Rank-ordering strains which do not yet circulate in humans according to either their spillover risk or their pandemic potential, has proven to be even more difficult [REF]. CDC's current, somewhat subjective, solution to this problem is the Influenza Risk Assessment Tool (IRAT), which  uses a combination of ten weighted risk elements, including  1) properties of the virus, 2) attributes of the population, and 3) ecology and epidemiological characteristics of the virus~\cite{Influenz24:online} that are expert-selected. Evaluating these factors involve several experimental assay for each strain, taking possibly weeks to return the final IRAT  score for a single strain. Thus, we have a scalability problem: with  the current global biosurveillance efforts  collecting tens of thousands of sequences every year, IRAT assessment is simply not fast enough to  preempt a pandemic. }
+
+ 
 
 \section*{Discussion \& Sequence Comparisons}
 
@@ -279,7 +295,7 @@ In conclusion, we introduce a data-driven distance metric to track subtle deviat
 
 \section*{Data Sharing} 
 
-Working software is publicly available at \href{https://pypi.org/project/quasinet/}{https://pypi.org/project/quasinet/}.
+Working software is publicly available at \href{https://pypi.org/project/quasinet/}{https://pypi.org/project/emergenet/}.
 Accession numbers of all sequences used, and acknowledgement documentation for GISAID sequences is available as supplementary information.
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 17:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 18:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -3073,10 +3073,10 @@ Package rerunfilecheck Info: File `SI.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 51627 strings out of 478862
- 1134385 string characters out of 5858945
- 2248572 words of memory out of 8000000
- 68140 multiletter control sequences out of 15000+600000
+ 51628 strings out of 478862
+ 1134390 string characters out of 5858945
+ 2248629 words of memory out of 8000000
+ 68141 multiletter control sequences out of 15000+600000
  490223 words of font info for 196 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  111i,14n,108p,2048b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
