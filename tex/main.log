@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  22 SEP 2022 17:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1667,13 +1667,8 @@ Package: sistyle 2008/07/16 v2.3a SI units and numbers (DNJ Els)
 \ttoks@A=\toks83
 \ttoks@B=\toks84
 )) (./customdef.tex)
-
-Package xr Warning: 
-No file SI.aux
-LABELS NOT IMPORTED.
- on input line 7.
-
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+Package xr Info: IMPORTING LABELS FROM SI.aux on input line 7.
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count455
 \l__pdf_internal_box=\box111
@@ -2978,65 +2973,19 @@ dmap/pdftex.map): invalid entry for `rtxptmro': SlantFont/ExtendFont can be use
 d only with embedded Type1 fonts
 }] [2 <./Figures/External/scheme.pdf>] [3]
 
-LaTeX Warning: Reference `SI-tabseq' on page 4 undefined on input line 139.
+LaTeX Warning: Reference `fig0' on page 4 undefined on input line 144.
 
 
-LaTeX Warning: Reference `fig0' on page 4 undefined on input line 139.
+LaTeX Warning: Reference `fig0' on page 4 undefined on input line 168.
 
-
-LaTeX Warning: Reference `fig0' on page 4 undefined on input line 163.
-
-
-LaTeX Warning: Reference `SI-tabex' on page 4 undefined on input line 167.
-
-
-LaTeX Warning: Reference `SI-tabcor' on page 4 undefined on input line 167.
-
-[4]
-
-LaTeX Warning: Reference `SI-irattab' on page 5 undefined on input line 171.
-
-(./Figures/tabdata/improvement_qnet.tex)
-
-LaTeX Warning: Reference `SI-tabrec8' on page 5 undefined on input line 198.
-
-
-LaTeX Warning: Reference `SI-tabrec11' on page 5 undefined on input line 198.
-
-
-LaTeX Warning: Reference `SI-tabrec0' on page 5 undefined on input line 200.
-
-
-LaTeX Warning: Reference `SI-tabrec11' on page 5 undefined on input line 200.
-
-[5]
-
-LaTeX Warning: Reference `SI-irat' on page 6 undefined on input line 204.
-
-
-LaTeX Warning: Reference `SI-irattab' on page 6 undefined on input line 206.
-
-<Figures/External/IRAT_combined.png, id=253, 899.7615pt x 665.8476pt>
+[4] (./Figures/tabdata/improvement_qnet.tex) [5]
+<Figures/External/IRAT_combined.png, id=266, 899.7615pt x 665.8476pt>
 File: Figures/External/IRAT_combined.png Graphic file (type png)
 <use Figures/External/IRAT_combined.png>
 Package pdftex.def Info: Figures/External/IRAT_combined.png  used on input line
- 220.
+ 225.
 (pdftex.def)             Requested size: 446.69426pt x 330.56586pt.
-[6
-
-pdfTeX warning: pdflatex: pop empty color page stack 0
- <./Figures/External/irat_combined.png>]
-
-LaTeX Warning: Reference `SI-figdom' on page 7 undefined on input line 249.
-
-[7]
-
-LaTeX Warning: Reference `SI-tabnum' on page 8 undefined on input line 253.
-
-
-LaTeX Warning: Reference `SI-tabreg' on page 8 undefined on input line 261.
-
-(./method.tex
+ [6 <./Figures/External/irat_combined.png>] [7] (./method.tex
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9.53561> not available
 (Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6.6749> not available
@@ -3045,41 +2994,28 @@ LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <4.7678> not available
 (Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 34.
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 3
 4.
- (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-[8]
+) [8]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.6749> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 35.
-
-
-LaTeX Warning: Reference `SI-thmbnd' on page 9 undefined on input line 47.
-
-
-LaTeX Warning: Reference `SI-thmbnd' on page 9 undefined on input line 76.
-
-
-LaTeX Warning: Reference `SI-thmbnd' on page 9 undefined on input line 97.
-
-[9])
-
-LaTeX Warning: Reference `SI-tabseq' on page 10 undefined on input line 286.
-
+ [9])
 (./Figures/seasonalpred_both.tex
 ===== Image './Figures/External/seasonalpred_both' is up-to-date. ======
 )
-<Figures/External/sequence.pdf, id=346, 491.435pt x 672.11098pt>
+<Figures/External/sequence.pdf, id=373, 491.435pt x 672.11098pt>
 File: Figures/External/sequence.pdf Graphic file (type pdf)
 <use Figures/External/sequence.pdf>
-Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 331.
+Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 336.
 
 (pdftex.def)             Requested size: 431.80496pt x 590.58775pt.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 336.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 341.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 336.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 341.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <5> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 336.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 341.
  (./main.bbl [10]
 
 LaTeX Warning: Text page 11 contains only floats.
@@ -3096,45 +3032,76 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 86 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 51700 strings out of 478862
- 1136088 string characters out of 5858945
- 1925087 words of memory out of 8000000
- 68233 multiletter control sequences out of 15000+600000
+ 51726 strings out of 478862
+ 1136366 string characters out of 5858945
+ 1927744 words of memory out of 8000000
+ 68250 multiletter control sequences out of 15000+600000
  503329 words of font info for 242 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  111i,13n,108p,2323b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr9.60
-0pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts
-/xccsy9.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/conc
-math-fonts/xccmi5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/p
-ublic/concmath-fonts/xccsy5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/p
-k/ljfour/public/concrete/ccr5.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dv
-ips/lm/lm-rep-cmrm.enc} </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/pu
-blic/concmath-fonts/xccsy7.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk
-/ljfour/public/concmath-fonts/xccex10.600pk> </home/ishanu/.texlive2020/texmf-v
-ar/fonts/pk/ljfour/public/concmath-fonts/xccsy10.600pk> </home/ishanu/.texlive2
-020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk> </home/ishan
-u/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.600pk>{/usr/shar
-e/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/ishanu/.texlive2020/te
-xmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi9.600pk> </home/ishanu/.texl
-ive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi7.600pk> </home/is
-hanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr7.600pk></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/txfonts/txexa.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
-fonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/zapfding/uzdr.pfb>
-Output written on main.pdf (13 pages, 6193995 bytes).
+pdfTeX warning (dest): name{thm.1} has been referenced but does
+ not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.17} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{table.18} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{table.4} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{table.15} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{table.12} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{table.16} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{table.2} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{table.3} has been referenced but does not exist, re
+placed by a fixed one
+
+ </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr9.600p
+k> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/x
+ccsy9.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concma
+th-fonts/xccmi5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/pub
+lic/concmath-fonts/xccsy5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/
+ljfour/public/concrete/ccr5.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvip
+s/lm/lm-rep-cmrm.enc} </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/publ
+ic/concmath-fonts/xccsy7.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/l
+jfour/public/concmath-fonts/xccex10.600pk> </home/ishanu/.texlive2020/texmf-var
+/fonts/pk/ljfour/public/concmath-fonts/xccsy10.600pk> </home/ishanu/.texlive202
+0/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk> </home/ishanu/
+.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.600pk>{/usr/share/
+texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/ishanu/.texlive2020/texm
+f-var/fonts/pk/ljfour/public/concmath-fonts/xccmi9.600pk> </home/ishanu/.texliv
+e2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi7.600pk> </home/isha
+nu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr7.600pk></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/txfonts/txexa.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
+nts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/zapfding/uzdr.pfb>
+Output written on main.pdf (13 pages, 6195529 bytes).
 PDF statistics:
- 707 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 735 PDF objects out of 1000 (max. 8388607)
+ 476 compressed objects within 5 object streams
+ 99 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
