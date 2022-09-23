@@ -61,6 +61,13 @@
   \textbf{\bibinfo{volume}{285}}, \bibinfo{pages}{28403--28409}
   (\bibinfo{year}{2010}).
 
+\bibitem{posada1998modeltest}
+\bibinfo{author}{Posada, D.} \& \bibinfo{author}{Crandall, K.~A.}
+\newblock \bibinfo{title}{Modeltest: testing the model of dna substitution.}
+\newblock \emph{\bibinfo{journal}{Bioinformatics (Oxford, England)}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{817--818}
+  (\bibinfo{year}{1998}).
+
 \bibitem{cover}
 \bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}
 \newblock \emph{\bibinfo{title}{Elements of Information Theory (Wiley Series in
@@ -95,13 +102,6 @@
 \bibinfo{title}{Cdc vaccine effectiveness studies} (\bibinfo{year}{2020}).
 \newblock
   \urlprefix\url{https://www.cdc.gov/flu/vaccines-work/effectiveness-studies.htm}.
-
-\bibitem{posada1998modeltest}
-\bibinfo{author}{Posada, D.} \& \bibinfo{author}{Crandall, K.~A.}
-\newblock \bibinfo{title}{Modeltest: testing the model of dna substitution.}
-\newblock \emph{\bibinfo{journal}{Bioinformatics (Oxford, England)}}
-  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{817--818}
-  (\bibinfo{year}{1998}).
 
 \bibitem{goldberger2005genomic}
 \bibinfo{author}{Goldberger, A.~L.} \& \bibinfo{author}{Peng, C.-K.}
