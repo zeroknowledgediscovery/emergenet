@@ -73,7 +73,7 @@ Analyzing the distribution of sequences observed to circulate in the human popul
 
 Let $\dst$ be a dominant strain in the upcoming flu season at time $t+\delta$,
 where $H^t$ is the set of observed strains presently in circulation in the human population (at time $t$). We will assume that the \enet  remains unchanged upto $t+\delta$.
-From the RHS bound established in Theorem~\ref{SI-thmbnd} in the supplementary text, we have:
+From the RHS bound established in Theorem~\ref{SI-thmbnd} (See Eq.~\eqref{fundeq} above) in the supplementary text, we have:
 
 \calign{
   &\ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}} \geqq  -\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,\dsta)\\
@@ -91,10 +91,10 @@ From the RHS bound established in Theorem~\ref{SI-thmbnd} in the supplementary t
 \def\hst{x_h^{t+\delta}}
 We measure the potential of an animal strain $\ast$ to spillover and become HH capable as a human strain $\hst$, as follows:
 \cgather{
-\rho(\ast) \triangleq \frac{1}{\abs{H^t}} \sum_{x \in H^t} \theta(\ast,x)
+\rho(\ast) \triangleq -\frac{1}{\abs{H^t}} \sum_{x \in H^t} \theta(\ast,x)
 }
 
-The intuition here is that a lower bound of $\rho(\ast)$ scales as average log-likelihood of the $\ast$ giving rise to a human strains in circulation at time $t$. Since the strains in $H^t$ are already HH capable, a high average likelihood of producing a similar strain has a high potential of being a HH cabale novel variant, which is a necessary condition of a pandemic strain. To establish the lower bound, we note that from  Theorem~\ref{SI-thmbnd} in the supplementary text, we have:
+The intuition here is that a lower bound of $\rho(\ast)$ scales as average log-likelihood of the $\ast$ giving rise to a human strains in circulation at time $t$. Since the strains in $H^t$ are already HH capable, a high average likelihood of producing a similar strain has a high potential of being a HH cabale novel variant, which is a necessary condition of a pandemic strain. To establish the lower bound, we note that from  Theorem~\ref{SI-thmbnd} (See Eq.~\eqref{fundeq} above) in the supplementary text, we have:
 %
 \cgather{
   \sum_{y \in H^t}\ln \abs{\frac{Pr(\ast \rightarrow y)}{\mem{y}}} \leqq -\frac{\sqrt{8}N^2}{1-\alpha} \abs{H^t}  \rho(\ast) \intertext{Denoting, $A =\frac{1-\alpha}{\sqrt{8}N^2} $,  $A\ln(\prod_{y \in H^t}\mem{y}) = C$, and $\langle \cdot \rangle$ as the geometric mean function, we have:}
