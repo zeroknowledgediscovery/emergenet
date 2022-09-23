@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1663946623 "main.aux" "main.bbl" "main" 1663947023
+["bibtex main"] 1663958110 "main.aux" "main.bbl" "main" 1663958515
   "/usr/share/texlive/texmf-dist/bibtex/bst/nature/naturemag.bst" 1480098435 34867 ae05936b307e5838449d1bb5fdbb2c19 ""
   "allbib.bib" 1663090077 317190 fe754a66cd4332ccf149bf42b95baa68 ""
-  "main.aux" 1663947019 13373 4b7333ebfb4a47ed5d160af488396f2c "pdflatex"
+  "main.aux" 1663958402 13431 73bcd6ac3cab2996d44a8120cc2e21c4 "pdflatex"
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1663947016 "main.tex" "main.pdf" "main" 1663947023
+  "main.bbl"
+["pdflatex"] 1663958399 "main.tex" "main.pdf" "main" 1663958515
   "/home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccex10.600pk" 1549563000 13872 3445730e5506a4c2091ac11b7417de69 ""
   "/home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk" 1549563003 13828 49608e91a8a4c34cc268efa3d7fed677 ""
   "/home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi5.600pk" 1549562997 6856 b6a2db07958c732dd34ca6a5399dbb39 ""
@@ -390,16 +390,16 @@
   "Figures/seasonalpred_both.tex" 1663946565 632 7e264c9df4bec3004f8247ab3d3481b4 ""
   "Figures/tabdata/improvement_qnet.tex" 1663946570 697 b57666eea91e648db64937215617add7 ""
   "SI.aux" 1663946613 11506 0f29fe4f0b39d7e17eff5ca685bbc2c2 ""
-  "customdef.tex" 1663946600 2390 5067300772e04a2d932c0dc60cf83254 ""
-  "main.aux" 1663947019 13373 4b7333ebfb4a47ed5d160af488396f2c "pdflatex"
-  "main.bbl" 1663946623 13881 6c7b543023240743d963bccb3afc1a71 "bibtex main"
-  "main.out" 1663947017 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1663947013 48374 abfcfc0b498207539a478e7eb6dba2bb ""
+  "customdef.tex" 1663957017 2421 0ab27bda7cd4a012171a1da742eda7c6 ""
+  "main.aux" 1663958402 13431 73bcd6ac3cab2996d44a8120cc2e21c4 "pdflatex"
+  "main.bbl" 1663958110 13881 6c7b543023240743d963bccb3afc1a71 "bibtex main"
+  "main.out" 1663958400 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1663958399 51606 282bef3ea5fa78453f0920aa8fe6343c ""
   "method.tex" 1663946769 9756 21e993d5566d6311636f11276efd59af ""
   "preamble.tex" 1663770433 16001 e7e4ef7943df08a254d320dbd244c3db ""
   (generated)
+  "main.auxlock"
+  "main.log"
+  "main.out"
   "main.aux"
   "main.pdf"
-  "main.out"
-  "main.log"
-  "main.auxlock"
