@@ -19,7 +19,7 @@ class Enet(object):
         (Sequences used to train Qnet and compute q-distance must be of same length)
 
     seq_metadata : str
-        Describes the sequence; added automatically if 'seq' is a fasta file path
+        Describes the sequence; added automatically if 'seq' is fasta file path
 
     random_state : int
         Sets seed for random number generator
