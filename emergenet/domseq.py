@@ -47,13 +47,16 @@ def parse_fasta(filepath, seq_trunc_length, seq_array=False):
     return seq_df
     
     
-def dominant_seq_ldist(seq_df):
+def dominant_seq(seq_df, metric):
     """Finds the dominant sequence, computed as the centroid in the edit distance metric.
 
     Parameters
     ----------
     seq_df : pd.DataFrame
         DataFrame containing sequences
+        
+    metric : str
+        Either `qdistance` or `levenshtein`
     
     Returns
     -------
@@ -66,47 +69,18 @@ def dominant_seq_ldist(seq_df):
     if len(seq_df) < 1:
         raise ValueError('The DataFrame contains no sequences!')
     if 'sequence' not in seq_df.columns:
-        return ValueError('The DataFrame must store sequences in `sequence` column!')
+        raise ValueError('The DataFrame must store sequences in `sequence` column!')
     if 'id' not in seq_df.columns:
-        return ValueError('The DataFrame must metadata in `id` column!')
+        raise ValueError('The DataFrame must metadata in `id` column!')
     
     seqs = np.array(seq_df['sequence'].values).reshape(-1,1)
-    dist_matrix = squareform(pdist(seqs, lambda x,y: levdistance(x[0],y[0])))
-    edit_dists = sum(dist_matrix)
-    ind_min = np.argmin(edit_dists)
+    if metric == 'qdistance':
+        dist_matrix = squareform(pdist(seqs, lambda x,y: qdistance(x[0],y[0])))
+    elif metric == 'levenshtein':
+        dist_matrix = squareform(pdist(seqs, lambda x,y: levdistance(x[0],y[0])))
+    else:
+        raise ValueError('The distance function must be either `qdistance` or `levenshtein`')
+    ind_min = np.argmin(sum(dist_matrix))
     dom_id = seq_df.iloc[ind_min]['id']
     dom_seq = seq_df.iloc[ind_min]['sequence']
     return dom_id, dom_seq
-
-
-def dominant_seq(seq_df):
-    """Finds the dominant sequence, computed as the centroid in the edit distance metric.
-
-    Parameters
-    ----------
-    seq_df : pd.DataFrame
-        DataFrame containing sequences
-    
-    Returns
-    -------
-    dom_id : str
-        Metadata of dominant sequence
-    
-    dom_seq : str
-        Dominant sequence
-    """
-    if len(seq_df) < 1:
-        raise ValueError('The DataFrame contains no sequences!')
-    if 'sequence' not in seq_df.columns:
-        return ValueError('The DataFrame must store sequences in `sequence` column!')
-    if 'id' not in seq_df.columns:
-        return ValueError('The DataFrame must metadata in `id` column!')
-    
-    seqs = np.array(seq_df['sequence'].values).reshape(-1,1)
-    dist_matrix = squareform(pdist(seqs, lambda x,y: qdistance(x[0],y[0])))
-    edit_dists = sum(dist_matrix)
-    ind_min = np.argmin(edit_dists)
-    dom_id = seq_df.iloc[ind_min]['id']
-    dom_seq = seq_df.iloc[ind_min]['sequence']
-    return dom_id, dom_seq
-    

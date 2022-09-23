@@ -117,7 +117,7 @@ class Enet(object):
             Array of sequence arrays
         """
         if 'sequence' not in seq_df.columns:
-            return ValueError('The DataFrame must store sequences in `sequence` column!')
+            raise ValueError('The DataFrame must store sequences in `sequence` column!')
         if sample_size is None or sample_size > len(seq_df):
             sample_size = len(seq_df)
         seqs = seq_df['sequence']
@@ -202,7 +202,7 @@ class Enet(object):
         if len(seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
         if 'sequence' not in seq_df.columns:
-            return ValueError('The DataFrame must store sequences in `sequence` column!')
+            raise ValueError('The DataFrame must store sequences in `sequence` column!')
         if sample_size is None or sample_size > len(seq_df):
             sample_size = len(seq_df)
         seqs = seq_df['sequence']
