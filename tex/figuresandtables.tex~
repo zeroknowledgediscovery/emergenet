@@ -1,0 +1,128 @@
+\def\MXCOL{black}
+\def\FXCOL{Orchid3}
+\def\MNCOL{SeaGreen4}
+\def\FNCOL{SeaGreen4}
+\def\NCOL{SeaGreen4}
+\def\XCOL{Tomato}
+\def\WCOL{Tomato}
+\def\YCOL{DodgerBlue4}
+\def\TEXTCOL{gray}
+\def\AXISCOL{white}
+%###################################                                            
+%###################################                                            
+\ifFIGS
+\begin{figure*}[t]
+  \tikzexternalenable
+  \tikzsetnextfilename{scheme}
+  \centering
+ %\tikzXtrue
+  \iftikzX  
+  \def\EPATH{e2}
+  \input{Figures/scheme}
+ \else
+  \includegraphics[width=\textwidth]{Figures/External/scheme}
+  \fi
+  \vspace{-20pt}
+  
+ \captionN{\textbf{\enet inference and applications}. \textbf{a}, Variations of
+   genomes for identical subgroups of \infl are analyzed to infer a recursive forest of decision trees (conditional inference trees~\cite{Hothorn06unbiasedrecursive}), the \enet,   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations, deletions and insertions. With these inferred dependencies we can    estimate the numerical odds of specific mutations, and by extension, the numerical value of
+   the probability of one strain giving rise to another in the wild, under  complex selection pressures from the background. b, Snapshot of decision trees  from the
+   \enet constructed for H1N1 haemagglutinnin 2018 sequences. Note that the decision tree predicting the bases at index 1274   uses the bases at 1064, 1445, 197 as features. These features are automatically selected, as being maximally predictive  of the bases be at 1274. Then, we compute predictors for each of these  feature indices, $e.g.$   trees for  index 1064, which involves index 1314 and 339 as features. Continuing, we find that the trees for index 1314 involves indices 1263, 636 and 21, and that for 1263 involves 1314, 667 and 313. The predictor for 1263  depends on 1314, and that for 1314 depends on 1263, revealing the recursive structure of \enet. c, First application: With \enet induced ability to quantify mutation probabilities,  we forecast  dominant strain(s) for the next flu season, using only  sequences collected in the previous season (and the inferred \enet, using data from the past year). d, Second application: estimation of the risk of a global pandemic posed by individual animal strains that are still not known to circulate in humans.}\label{figscheme}.
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figschemea}
+\fi  
+%#############################################                                  
+%#############################################                                  
+%#############################################
+%#############################################
+\ifFIGS
+\begin{table*}[!ht]\centering
+\captionN{Out-performance of \qnet recommendations over WHO 
+for Influenza A vaccine composition}\label{tabperf}\centering
+
+\sffamily\fontsize{9}{9}\selectfont
+
+\input{Figures/tabdata/improvement_qnet}
+\end{table*}
+\else
+\refstepcounter{table}\label{tabperf}
+\fi
+%#############################################
+%#############################################
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  %\tikzexternalenable
+  %\tikzsetnextfilename{scheme}
+  \centering 
+  % \iftikzX
+  % \input{Figures/External/irat_combined.png}  
+  % \vspace{0pt}   
+  
+  % \else 
+  \includegraphics[width=0.9\textwidth]{Figures/External/IRAT_combined.png}
+ % \fi
+  \captionN{\textbf{IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained.
+  }\label{figirat}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figirat}
+\fi
+%#############################################
+%#############################################
+
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \centering
+  \tikzexternalenable
+   \tikzsetnextfilename{seasonalpred_both}
+
+  \tikzXtrue 
+  \iftikzX
+  \hspace{-20pt}\resizebox{.975\linewidth}{!}{\input{Figures/seasonalpred_both}}
+   \else  \hspace{-10pt}\includegraphics[width=0.975\textwidth]{Figures/seasonalpred_both.tex}
+   \fi
+   \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figseasonal}
+\fi
+%#############################################
+%#############################################
+
+
+ 
+
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \centering
+  \tikzexternalenable
+    \tikzsetnextfilename{sequence}
+\vspace{-5pt}
+ 
+  \iftikzX
+  \input{Figures/sequence_}  
+  \vspace{0pt}   
+  
+  \else
+  \includegraphics[width=0.87\textwidth]{Figures/External/sequence.pdf}  \vspace{-5pt}   
+
+  \fi
+\vspace{0pt}
+
+\captionN{\textbf{Sequence comparisons.} The observed dominant strain, we note that the correct \qnet  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix.}\label{figseq}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figseq}
+\fi
+%#############################################
+%#############################################
+

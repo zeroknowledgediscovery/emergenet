@@ -105,6 +105,21 @@
   \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{817--818}
   (\bibinfo{year}{1998}).
 
+\bibitem{ahlquist2002rna}
+\bibinfo{author}{Ahlquist, P.}
+\newblock \bibinfo{title}{Rna-dependent rna polymerases, viruses, and rna
+  silencing}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{296}},
+  \bibinfo{pages}{1270--1273} (\bibinfo{year}{2002}).
+
+\bibitem{chen2006avian}
+\bibinfo{author}{Chen, R.} \& \bibinfo{author}{Holmes, E.~C.}
+\newblock \bibinfo{title}{Avian influenza virus exhibits rapid evolutionary
+  dynamics}.
+\newblock \emph{\bibinfo{journal}{Molecular biology and evolution}}
+  \textbf{\bibinfo{volume}{23}}, \bibinfo{pages}{2336--2341}
+  (\bibinfo{year}{2006}).
+
 \bibitem{woolthuis2016long}
 \bibinfo{author}{Woolthuis, R.~G.}, \bibinfo{author}{van Dorp, C.~H.},
   \bibinfo{author}{Ke{\c{s}}mir, C.}, \bibinfo{author}{de~Boer, R.~J.} \&
@@ -149,6 +164,23 @@
   adaptive immune responses}.
 \newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{4}},
   \bibinfo{pages}{1438--1476} (\bibinfo{year}{2012}).
+
+\bibitem{gouma2020antigenic}
+\bibinfo{author}{Gouma, S.}, \bibinfo{author}{Weirick, M.} \&
+  \bibinfo{author}{Hensley, S.~E.}
+\newblock \bibinfo{title}{Antigenic assessment of the h3n2 component of the
+  2019-2020 northern hemisphere influenza vaccine}.
+\newblock \emph{\bibinfo{journal}{Nature communications}}
+  \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{1--5} (\bibinfo{year}{2020}).
+
+\bibitem{cobey2018poor}
+\bibinfo{author}{Cobey, S.} \emph{et~al.}
+\newblock \bibinfo{title}{Poor immunogenicity, not vaccine strain egg
+  adaptation, may explain the low h3n2 influenza vaccine effectiveness in
+  2012--2013}.
+\newblock \emph{\bibinfo{journal}{Clinical Infectious Diseases}}
+  \textbf{\bibinfo{volume}{67}}, \bibinfo{pages}{327--333}
+  (\bibinfo{year}{2018}).
 
 \bibitem{cover}
 \bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}

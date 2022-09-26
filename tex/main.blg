@@ -1,51 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2021)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
 Database file #1: allbib.bib
-Repeated entry---line 3700 of file allbib.bib
+Repeated entry---line 3743 of file allbib.bib
  : @article{   neher2014predicting
  :                                ,
 I'm skipping whatever remains of this entry
-You've used 48 entries,
+You've used 52 entries,
             2348 wiz_defined-function locations,
-            1291 strings with 19593 characters,
-and the built_in function-call counts, 19420 in all, are:
-= -- 1388
-> -- 497
+            1315 strings with 20503 characters,
+and the built_in function-call counts, 21010 in all, are:
+= -- 1510
+> -- 529
 < -- 0
-+ -- 249
-- -- 124
-* -- 2421
-:= -- 2114
-add.period$ -- 141
-call.type$ -- 48
-change.case$ -- 50
++ -- 265
+- -- 132
+* -- 2619
+:= -- 2292
+add.period$ -- 153
+call.type$ -- 52
+change.case$ -- 54
 chr.to.int$ -- 0
-cite$ -- 48
-duplicate$ -- 1711
-empty$ -- 1806
-format.name$ -- 166
-if$ -- 3887
+cite$ -- 52
+duplicate$ -- 1851
+empty$ -- 1955
+format.name$ -- 177
+if$ -- 4202
 int.to.chr$ -- 0
-int.to.str$ -- 48
-missing$ -- 404
-newline$ -- 245
-num.names$ -- 47
-pop$ -- 308
+int.to.str$ -- 52
+missing$ -- 436
+newline$ -- 265
+num.names$ -- 51
+pop$ -- 326
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 315
+skip$ -- 335
 stack$ -- 0
-substring$ -- 973
-swap$ -- 1731
+substring$ -- 1073
+swap$ -- 1870
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 125
-width$ -- 50
-write$ -- 523
+while$ -- 137
+width$ -- 54
+write$ -- 567
 (There was 1 error message)
