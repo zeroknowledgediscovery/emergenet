@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  24 SEP 2022 02:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  26 SEP 2022 00:41
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1952,7 +1952,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 28.
-<Figures/External/scheme.pdf, id=41, 522.61649pt x 528.19029pt>
+<Figures/External/scheme.pdf, id=43, 522.61649pt x 528.19029pt>
 File: Figures/External/scheme.pdf Graphic file (type pdf)
 <use Figures/External/scheme.pdf>
 Package pdftex.def Info: Figures/External/scheme.pdf  used on input line 48.
@@ -2978,30 +2978,30 @@ Overfull \hbox (18.87766pt too wide) in paragraph at lines 88--88
 [][] 
  []
 
-[3]
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 119--119
+[3] [4] [5]
+Overfull \hbox (18.87766pt too wide) in paragraph at lines 155--155
 [][] 
  []
 
 
-LaTeX Warning: Reference `fig0' on page 4 undefined on input line 163.
+LaTeX Warning: Reference `fig0' on page 6 undefined on input line 199.
 
 
-LaTeX Warning: Reference `fig0' on page 4 undefined on input line 187.
+LaTeX Warning: Reference `fig0' on page 6 undefined on input line 223.
 
-[4
+[6
 
-] (./Figures/tabdata/improvement_qnet.tex) [5]
-<Figures/External/IRAT_combined.png, id=266, 899.7615pt x 665.8476pt>
+] (./Figures/tabdata/improvement_qnet.tex) [7]
+<Figures/External/IRAT_combined.png, id=291, 899.7615pt x 665.8476pt>
 File: Figures/External/IRAT_combined.png Graphic file (type png)
 <use Figures/External/IRAT_combined.png>
 Package pdftex.def Info: Figures/External/IRAT_combined.png  used on input line
- 244.
+ 280.
 (pdftex.def)             Requested size: 446.69426pt x 330.56586pt.
- [6] [7
+ [8] [9
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
- <./Figures/External/irat_combined.png>] [8] (./method.tex
+ <./Figures/External/irat_combined.png>] [10] (./method.tex
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9.53561> not available
 (Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6.6749> not available
@@ -3016,33 +3016,33 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.6749> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 35.
- [9] [10])
+ [11] [12])
 (./Figures/seasonalpred_both.tex
 ===== Image './Figures/External/seasonalpred_both' is up-to-date. ======
 )
-<Figures/External/sequence.pdf, id=392, 491.435pt x 672.11098pt>
+<Figures/External/sequence.pdf, id=414, 491.435pt x 672.11098pt>
 File: Figures/External/sequence.pdf Graphic file (type pdf)
 <use Figures/External/sequence.pdf>
-Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 362.
+Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 398.
 
 (pdftex.def)             Requested size: 431.80496pt x 590.58775pt.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 367.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 403.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 367.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 403.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <5> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 367.
- (./main.bbl [11]
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 403.
+ (./main.bbl [13]
 
-LaTeX Warning: Text page 12 contains only floats.
+LaTeX Warning: Text page 14 contains only floats.
 
-[12
-
-pdfTeX warning: pdflatex: pop empty color page stack 0
- <./Figures/External/seasonalpred_both.pdf>] [13
+[14
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
- <./Figures/External/sequence.pdf>]) [14] (./main.aux)
+ <./Figures/External/seasonalpred_both.pdf>] [15
+
+pdfTeX warning: pdflatex: pop empty color page stack 0
+ <./Figures/External/sequence.pdf>]) [16] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -3050,13 +3050,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 51734 strings out of 478862
- 1136439 string characters out of 5858945
- 1932093 words of memory out of 8000000
- 68255 multiletter control sequences out of 15000+600000
+ 51777 strings out of 478862
+ 1137411 string characters out of 5858945
+ 1931603 words of memory out of 8000000
+ 68286 multiletter control sequences out of 15000+600000
  506975 words of font info for 246 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 111i,13n,108p,2323b,757s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,13n,108p,2648b,757s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{thm.1} has been referenced but does not exist, re
 placed by a fixed one
 
@@ -3091,12 +3091,12 @@ th-fonts/xccmi5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/pub
 lic/concmath-fonts/xccsy5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/
 ljfour/public/concrete/ccr5.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvip
 s/lm/lm-rep-cmrm.enc} </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/publ
-ic/concmath-fonts/xccsy7.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/l
-jfour/public/concmath-fonts/xccex10.600pk> </home/ishanu/.texlive2020/texmf-var
-/fonts/pk/ljfour/public/concmath-fonts/xccsy10.600pk> </home/ishanu/.texlive202
-0/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk> </home/ishanu/
-.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.600pk> </home/isha
-nu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi9.600pk>{/
+ic/concmath-fonts/xccex10.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/
+ljfour/public/concmath-fonts/xccsy10.600pk> </home/ishanu/.texlive2020/texmf-va
+r/fonts/pk/ljfour/public/concmath-fonts/xccsy7.600pk> </home/ishanu/.texlive202
+0/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi9.600pk> </home/ishanu/.
+texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk> </ho
+me/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.600pk>{/
 usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/ishanu/.texliv
 e2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi7.600pk> </home/isha
 nu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr7.600pk></usr/shar
@@ -3110,10 +3110,10 @@ e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/zapfding/uzdr.pfb>
-Output written on main.pdf (14 pages, 6202434 bytes).
+Output written on main.pdf (16 pages, 6213760 bytes).
 PDF statistics:
- 751 PDF objects out of 1000 (max. 8388607)
- 491 compressed objects within 5 object streams
- 100 named destinations out of 1000 (max. 500000)
+ 782 PDF objects out of 1000 (max. 8388607)
+ 518 compressed objects within 6 object streams
+ 112 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

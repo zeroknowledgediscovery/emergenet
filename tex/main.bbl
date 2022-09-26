@@ -21,6 +21,36 @@
 \newblock \emph{\bibinfo{journal}{BMC medicine}} \textbf{\bibinfo{volume}{11}},
   \bibinfo{pages}{153} (\bibinfo{year}{2013}).
 
+\bibitem{shao2017evolution}
+\bibinfo{author}{Shao, W.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Goraya,
+  M.~U.}, \bibinfo{author}{Wang, S.} \& \bibinfo{author}{Chen, J.-L.}
+\newblock \bibinfo{title}{Evolution of influenza a virus by mutation and
+  re-assortment}.
+\newblock \emph{\bibinfo{journal}{International journal of molecular sciences}}
+  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{1650} (\bibinfo{year}{2017}).
+
+\bibitem{mills2004transmissibility}
+\bibinfo{author}{Mills, C.~E.}, \bibinfo{author}{Robins, J.~M.} \&
+  \bibinfo{author}{Lipsitch, M.}
+\newblock \bibinfo{title}{Transmissibility of 1918 pandemic influenza}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{432}},
+  \bibinfo{pages}{904--906} (\bibinfo{year}{2004}).
+
+\bibitem{reid2003origin}
+\bibinfo{author}{Reid, A.~H.} \& \bibinfo{author}{Taubenberger, J.~K.}
+\newblock \bibinfo{title}{The origin of the 1918 pandemic influenza virus: a
+  continuing enigma}.
+\newblock \emph{\bibinfo{journal}{Journal of general virology}}
+  \textbf{\bibinfo{volume}{84}}, \bibinfo{pages}{2285--2292}
+  (\bibinfo{year}{2003}).
+
+\bibitem{landolt2007up}
+\bibinfo{author}{Landolt, G.~A.} \& \bibinfo{author}{Olsen, C.~W.}
+\newblock \bibinfo{title}{Up to new tricks--a review of cross-species
+  transmission of influenza a viruses}.
+\newblock \emph{\bibinfo{journal}{Animal Health Research Reviews}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{1--21} (\bibinfo{year}{2007}).
+
 \bibitem{huddleston2020integrating}
 \bibinfo{author}{Huddleston, J.} \emph{et~al.}
 \newblock \bibinfo{title}{Integrating genotypes and phenotypes improves
@@ -45,6 +75,13 @@
   STATISTICS}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{651--674}
   (\bibinfo{year}{2006}).
 
+\bibitem{vergara2014ns}
+\bibinfo{author}{Vergara-Alert, J.} \emph{et~al.}
+\newblock \bibinfo{title}{The ns segment of h5n1 avian influenza viruses (aiv)
+  enhances the virulence of an h7n1 aiv in chickens}.
+\newblock \emph{\bibinfo{journal}{Veterinary research}}
+  \textbf{\bibinfo{volume}{45}}, \bibinfo{pages}{1--11} (\bibinfo{year}{2014}).
+
 \bibitem{Influenz24:online}
 \bibinfo{author}{CDC}.
 \newblock \bibinfo{title}{Influenza risk assessment tool (irat) | pandemic
@@ -67,6 +104,51 @@
 \newblock \emph{\bibinfo{journal}{Bioinformatics (Oxford, England)}}
   \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{817--818}
   (\bibinfo{year}{1998}).
+
+\bibitem{woolthuis2016long}
+\bibinfo{author}{Woolthuis, R.~G.}, \bibinfo{author}{van Dorp, C.~H.},
+  \bibinfo{author}{Ke{\c{s}}mir, C.}, \bibinfo{author}{de~Boer, R.~J.} \&
+  \bibinfo{author}{van Boven, M.}
+\newblock \bibinfo{title}{Long-term adaptation of the influenza a virus by
+  escaping cytotoxic t-cell recognition}.
+\newblock \emph{\bibinfo{journal}{Scientific reports}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{1--8} (\bibinfo{year}{2016}).
+
+\bibitem{fan2012role}
+\bibinfo{author}{Fan, K.} \emph{et~al.}
+\newblock \bibinfo{title}{Role of itk signalling in the interaction between
+  influenza a virus and t-cells}.
+\newblock \emph{\bibinfo{journal}{Journal of general virology}}
+  \textbf{\bibinfo{volume}{93}}, \bibinfo{pages}{987--997}
+  (\bibinfo{year}{2012}).
+
+\bibitem{van2016differential}
+\bibinfo{author}{van~de Sandt, C.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{Differential recognition of influenza a viruses by
+  m158--66 epitope-specific cd8+ t cells is determined by extraepitopic amino
+  acid residues}.
+\newblock \emph{\bibinfo{journal}{Journal of virology}}
+  \textbf{\bibinfo{volume}{90}}, \bibinfo{pages}{1009--1022}
+  (\bibinfo{year}{2016}).
+
+\bibitem{berkhoff2007assessment}
+\bibinfo{author}{Berkhoff, E.}, \bibinfo{author}{Geelhoed-Mieras, M.},
+  \bibinfo{author}{Fouchier, R.}, \bibinfo{author}{Osterhaus, A.} \&
+  \bibinfo{author}{Rimmelzwaan, G.}
+\newblock \bibinfo{title}{Assessment of the extent of variation in influenza a
+  virus cytotoxic t-lymphocyte epitopes by using virus-specific cd8+ t-cell
+  clones}.
+\newblock \emph{\bibinfo{journal}{Journal of General Virology}}
+  \textbf{\bibinfo{volume}{88}}, \bibinfo{pages}{530--535}
+  (\bibinfo{year}{2007}).
+
+\bibitem{van2012evasion}
+\bibinfo{author}{Van~de Sandt, C.~E.}, \bibinfo{author}{Kreijtz, J.~H.} \&
+  \bibinfo{author}{Rimmelzwaan, G.~F.}
+\newblock \bibinfo{title}{Evasion of influenza a viruses from innate and
+  adaptive immune responses}.
+\newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{1438--1476} (\bibinfo{year}{2012}).
 
 \bibitem{cover}
 \bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}

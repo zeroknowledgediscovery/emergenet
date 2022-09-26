@@ -3,49 +3,49 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
 Database file #1: allbib.bib
-Repeated entry---line 3595 of file allbib.bib
+Repeated entry---line 3700 of file allbib.bib
  : @article{   neher2014predicting
  :                                ,
 I'm skipping whatever remains of this entry
-You've used 38 entries,
+You've used 48 entries,
             2348 wiz_defined-function locations,
-            1231 strings with 17171 characters,
-and the built_in function-call counts, 15120 in all, are:
-= -- 1078
-> -- 373
+            1291 strings with 19593 characters,
+and the built_in function-call counts, 19420 in all, are:
+= -- 1388
+> -- 497
 < -- 0
-+ -- 187
-- -- 93
-* -- 1863
-:= -- 1643
-add.period$ -- 111
-call.type$ -- 38
-change.case$ -- 40
++ -- 249
+- -- 124
+* -- 2421
+:= -- 2114
+add.period$ -- 141
+call.type$ -- 48
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 1336
-empty$ -- 1429
-format.name$ -- 125
-if$ -- 3044
+cite$ -- 48
+duplicate$ -- 1711
+empty$ -- 1806
+format.name$ -- 166
+if$ -- 3887
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 313
-newline$ -- 195
-num.names$ -- 37
-pop$ -- 250
+int.to.str$ -- 48
+missing$ -- 404
+newline$ -- 245
+num.names$ -- 47
+pop$ -- 308
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 254
+skip$ -- 315
 stack$ -- 0
-substring$ -- 748
-swap$ -- 1337
+substring$ -- 973
+swap$ -- 1731
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 96
-width$ -- 40
-write$ -- 413
+while$ -- 125
+width$ -- 50
+write$ -- 523
 (There was 1 error message)
