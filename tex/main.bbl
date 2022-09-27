@@ -165,14 +165,6 @@
 \newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{4}},
   \bibinfo{pages}{1438--1476} (\bibinfo{year}{2012}).
 
-\bibitem{gouma2020antigenic}
-\bibinfo{author}{Gouma, S.}, \bibinfo{author}{Weirick, M.} \&
-  \bibinfo{author}{Hensley, S.~E.}
-\newblock \bibinfo{title}{Antigenic assessment of the h3n2 component of the
-  2019-2020 northern hemisphere influenza vaccine}.
-\newblock \emph{\bibinfo{journal}{Nature communications}}
-  \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{1--5} (\bibinfo{year}{2020}).
-
 \bibitem{cobey2018poor}
 \bibinfo{author}{Cobey, S.} \emph{et~al.}
 \newblock \bibinfo{title}{Poor immunogenicity, not vaccine strain egg
@@ -181,6 +173,14 @@
 \newblock \emph{\bibinfo{journal}{Clinical Infectious Diseases}}
   \textbf{\bibinfo{volume}{67}}, \bibinfo{pages}{327--333}
   (\bibinfo{year}{2018}).
+
+\bibitem{gouma2020antigenic}
+\bibinfo{author}{Gouma, S.}, \bibinfo{author}{Weirick, M.} \&
+  \bibinfo{author}{Hensley, S.~E.}
+\newblock \bibinfo{title}{Antigenic assessment of the h3n2 component of the
+  2019-2020 northern hemisphere influenza vaccine}.
+\newblock \emph{\bibinfo{journal}{Nature communications}}
+  \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{1--5} (\bibinfo{year}{2020}).
 
 \bibitem{cover}
 \bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}
