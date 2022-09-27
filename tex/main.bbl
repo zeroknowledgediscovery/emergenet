@@ -189,15 +189,6 @@
   (\bibinfo{publisher}{Wiley-Interscience}, \bibinfo{address}{New York, NY,
   USA}, \bibinfo{year}{2006}).
 
-\bibitem{varadhan2010large}
-\bibinfo{author}{Varadhan, S.~S.}
-\newblock \bibinfo{title}{Large deviations}.
-\newblock In \emph{\bibinfo{booktitle}{Proceedings of the International
-  Congress of Mathematicians 2010 (ICM 2010) (In 4 Volumes) Vol. I: Plenary
-  Lectures and Ceremonies Vols. II--IV: Invited Lectures}},
-  \bibinfo{pages}{622--639} (\bibinfo{organization}{World Scientific},
-  \bibinfo{year}{2010}).
-
 \bibitem{boni2008vaccination}
 \bibinfo{author}{Boni, M.~F.}
 \newblock \bibinfo{title}{Vaccination and antigenic drift in influenza}.
