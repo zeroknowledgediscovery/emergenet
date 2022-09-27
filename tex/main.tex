@@ -51,22 +51,20 @@ may be identified as one which maximizes the joint probability of simultaneosly 
 And, a pandemic risk score of a novel strain may be estimated by the probability of it giving rise to a well-adapted human strain.  We validate  our proposed solutions for these problems in out-of-sample data.
 
 \DQS{Add details replacing XXX}
-We infer our models using the AA sequences of HA and NA proteins from all available unique \infl strains in the NCBI and GISAID databases between the years XXX to present time (2022 April), which leads to a set of 98XXX strains in total. We only consider strains for which both HA and NA sequences are available, and construct \enet{s} separately for H1N1 and H3N2 subtypes, and for each flu season. Thus, in total, we construct XXX models. We construct year specific models, construction a distinct \enet for each year's sequences collected from all over the world, whereas forecasts of next season's dominant strains are made for each flu season for each hemisphere separately.
-
-
+We infer our models using the AA sequences of HA and NA proteins from all available unique \infl strains in the NCBI and GISAID databases between the years XXX to present time (2022 April), which leads to a set of 98XXX strains in total. We only consider strains for which both HA and NA sequences are available, and construct \enet{s} separately for H1N1 and H3N2 subtypes, and for each flu season, constructing in total XXX \enet{s}. %Forecasts of the upcoming  season's dominant strains are made for each flu season for each hemisphere separately.
+%
 \DQS{add details and example of structure, fixing fig 1 to AA from ATGC}
-Structurally, the \enet comprises a recursive forest of  cross-dependent predictors: each component predictor aims to model the observed amino acid ``outcome'' at a specific positional index of the protein of interest, using as features   the bases  at other  locations of the protein sequence (Fig.~\ref{figscheme}b). The algorithm automatically identifies the set of features (AA positions) that influence the outcome at a specific position, yielding atmost as many such predictors as the sequence length of the protein.  For example, XXX. Thus, the \enet comprises a  recursive collection of decision trees, which in our current implementation are  conditional inference trees~\cite{Hothorn06unbiasedrecursive}, that make sure via significance tests at each potential data split that the inferred model has a minimum level of statistical significance.  %that are%inferred 
+Structurally, an \enet comprises an interdependent forest of  local predictors: each such predictor aims to model the observed amino acid ``outcome'' at a specific positional index of the protein of interest, using as features   the bases appearing  at other  locations of the protein sequence (Fig.~\ref{figscheme}b). The algorithm automatically identifies the set of features (AA positions) that influence the outcome at a prticular position, implying that an \enet comprises atmost as many such position-specific predictors as the sequence length of the protein. Currently, the component predictors of an \enet are implemented as conditional inference trees~\cite{Hothorn06unbiasedrecursive},% . The inter-dependency between these trees implies that we realize a  recursive collection of decision trees, which in our current implementation are  conditional inference trees~\cite{Hothorn06unbiasedrecursive}
+that make sure  each node split during the tree construction has a minimum level of statistical significance in differentiating the resulting child nodes.  %that are%inferred 
 % At the core of our algorithmic framework is a recursive forest of  cross-predicting conditional inference trees, which we refer to as the \enet,  
 \DQS{WHy dont we use phenotypic information}
-Importantly, the \enet component models are inferred purely from the amino acid sequences of the proteins of interest with no additional phenotypic annotation, other than identifying the host animal. Despite limiting ourselves to only genotypic information, our approach to probing for deep emergent interdependencies   uncovers a rich structure of fitness-preserving constraints that enable good prediction of future dominant strains. Thus, our modeling approach is a fundamental departure from the state of the art; we do not assume models of mutation a priori, and we make use of little information that is specific to \infl genomic sequences, or its life cycle, beyond focusing on HA and NA which are known to be the main targets of neutralizing antibodies~\cite{shao2017evolution}.
+Importantly, the \enet component models are inferred purely from the amino acid sequences of the proteins of interest with no additional phenotypic annotation, other than identifying the host animal (and time and place of collection). Despite limiting ourselves to only genotypic information, our approach to probing for deep emergent interdependencies   uncovers a rich structure of fitness-preserving constraints that enable good prediction of future dominant strains. Thus, our modeling approach is a substantial departure from the state of the art; we do not assume models of mutation a priori, and we make use of little information that is specific to \infl genomic sequences, or its life cycle, beyond focusing on HA and NA which are known to be the main targets of neutralizing antibodies~\cite{shao2017evolution}.
 
 
 % that allows us to  predict the likelihood of specific future  mutations, and  consequently, the numerical likelihood of specific  strains emerging through natural evolutionary processes. Evolutionary trajectories in the wild are shaped by complex hard-to-model selection pressures, and the \enet maximally incorporates the impact of these effects by  learning emergent patterns from public sequence databases.
 
-To validate our approach, we investigate two problems: 1)  forecast dominant strain(s) for the next flu season, and 2)  identify high risk strains amongst those collected in non-human hosts in the wild. Our \enet-informed forecasts outperform  WHO/CDC recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres. While it is recognized that 
-even well-matched strains can 
-fail to induce a strong immune response due to previous infection history of vaccine recipients~\cite{cobey2018poor}, strain-matching is a crucial component to realizing high vaccine effectiveness~\cite{gouma2020antigenic}. Our results outline a new approach to improve the effectiveness of the flu shot via sophisticated  pattern-recognition, outperforming current practice (WHO/CDC) as well as  recently reported prediction strategies  using more standard computational and/or experimental frameworks~\cite{huddleston2020integrating,neher2014predicting}.
-Importantly, our results indicate that \enet-informed forecast algorithm is able to leverage purely sequence information of specific strains, and without   using more detailed phenotypic information such deep mutational scanning data~\cite{huddleston2020integrating,neher2014predicting},  improve  predictive performance.
+Our results consist of improved solution to  two important problems described above: 1)  forecast dominant strain(s) for the next flu season, and 2)  identify high risk strains amongst those collected in non-human hosts in the wild. Our \enet-informed forecasts outperform  WHO/CDC recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres. While it is recognized that even well-matched strains can fail to induce a strong immune response due to previous infection history of vaccine recipients~\cite{cobey2018poor}, strain-matching is a crucial component to realizing high vaccine effectiveness~\cite{gouma2020antigenic}. Our results outline a new approach to improve the effectiveness of the flu shot via sophisticated  pattern-recognition, outperforming current practice (WHO/CDC) as well as  recently reported prediction strategies  using more standard computational and/or experimental frameworks~\cite{huddleston2020integrating,neher2014predicting}.
+Importantly, our results indicate that \enet-informed forecast algorithm is able to leverage purely sequence information of specific strains, and without using more detailed phenotypic information such deep mutational scanning data~\cite{huddleston2020integrating,neher2014predicting},  improve  predictive performance.
 
 %\DQS{What phenotypic information is used by others}
 
@@ -93,18 +91,15 @@ Our primary claim, however,  is the ability to estimate the pandemic potential o
 
     Target results:
 
-    1. HA NA recommendations, northern outhern hemispheres, with qnet constructed using 2 yeears of data (that is what we used last time)
+    1. HA NA recommendations, northern outhern hemispheres (earlier we used 2 years of data, and chose the time over which we consider last season sequences as different for north vs the south, we did not use separate qnets over north/south)
 
-    2. check if recommendations match
+    2. check if recommendations match or errors match at least
+    3. check similar approach for latest years
+    4. must complete IRAT prediction table (using geometric mean between ha and na estimates seems to do better. try)
 
 
   }
 
-
-
- 
-
-    
 
 \section*{Results}
 
