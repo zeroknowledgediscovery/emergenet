@@ -165,6 +165,14 @@
 \newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{4}},
   \bibinfo{pages}{1438--1476} (\bibinfo{year}{2012}).
 
+\bibitem{wood2012reproducibility}
+\bibinfo{author}{Wood, J.~M.} \emph{et~al.}
+\newblock \bibinfo{title}{Reproducibility of serology assays for pandemic
+  influenza h1n1: collaborative study to evaluate a candidate who international
+  standard}.
+\newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{210--217} (\bibinfo{year}{2012}).
+
 \bibitem{cobey2018poor}
 \bibinfo{author}{Cobey, S.} \emph{et~al.}
 \newblock \bibinfo{title}{Poor immunogenicity, not vaccine strain egg
