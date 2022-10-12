@@ -1,0 +1,38 @@
+graph Tree {
+node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
+graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=black] ;
+0 [label="V
+Prob: 1.0
+Frac: 0.013", fillcolor="#c155ff"] ;
+1 [label="x123", fillcolor="#5cfabd"] ;
+2 [label="T
+Prob: 1.0
+Frac: 0.017", fillcolor="#55ffc1"] ;
+3 [label="x177", fillcolor="#57fdbf"] ;
+4 [label="T
+Prob: 1.0
+Frac: 0.008", fillcolor="#55ffc1"] ;
+5 [label="x144", fillcolor="#57fdbf"] ;
+6 [label="T
+Prob: 0.987
+Frac: 0.933", fillcolor="#57febf"] ;
+7 [label="x240", fillcolor="#58fdbf"] ;
+8 [label="A
+Prob: 0.5
+Frac: 0.008", fillcolor="#aae08b"] ;
+9 [label="x211", fillcolor="#5bfcbc"] ;
+10 [label="A
+Prob: 1.0
+Frac: 0.021", fillcolor="#ffc155"] ;
+1 -- 0 [label=" A",penwidth=3] ;
+1 -- 9 [label=" S\n T",penwidth=3] ;
+3 -- 2 [label=" I",penwidth=3] ;
+3 -- 5 [label=" L\n V",penwidth=3] ;
+5 -- 4 [label=" L",penwidth=3] ;
+5 -- 7 [label=" S\n T",penwidth=3] ;
+7 -- 6 [label=" E",penwidth=3] ;
+7 -- 8 [label=" D\n S",penwidth=3] ;
+9 -- 3 [label=" A\n E",penwidth=3] ;
+9 -- 10 [label=" N",penwidth=3] ;
+{rank = same;}}

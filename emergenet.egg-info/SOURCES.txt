@@ -5,6 +5,7 @@ README.rst
 setup.py
 version.py
 emergenet/__init__.py
+emergenet/domseq.py
 emergenet/emergenet.py
 emergenet.egg-info/PKG-INFO
 emergenet.egg-info/SOURCES.txt
