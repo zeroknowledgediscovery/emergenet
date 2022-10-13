@@ -25,8 +25,103 @@
 \maketitle
  
   {\bf \sffamily \fontsize{10}{12}\selectfont \noindent   
-    {\normalfont \itshape Abstract:} Influenza viruses can produce  small sequence alterations~\cite{dos2016influenza}  that sufficiently perturb surface protein structures to evade host immunity. Failing to closely predict the dominant strain in an upcoming season  dramatically reduces  the  effectiveness of the flu shot~\cite{tricco2013comparing}, yet such prediction still remains imperfect. Furthermore, novel strains emerging into humans from animal reservoirs, has  historically   posed the possibly graver threat of a global  pandemic~\cite{shao2017evolution,mills2004transmissibility,reid2003origin,landolt2007up}, and our current ability to  scalably  evaluate the pandemic potential of   individual strains  is severely limited. In this study, we introduce a computational approach to  parse out emergent evolutionary constraints using only genomic sequence data. A representation of these  inferred dependencies along with the associated computational framework is referred to as the \enet.   Analyzing    Hemaglutinnin (HA) and Neuraminidase (NA) amino acid sequences from nearly 100,000 unique \infl  strains from public  databases, our proposed computational tools  estimate the likelihood of a specific future  mutation, ultimately  yielding the  numerical odds of one parent strain giving rise to a specific descendant via natural evolutionary processes. Applied  to the problem of forecasting the dominant strain(s) of the upcoming flu season, we show that \enet-based forecasts  outperform World Health Organization (WHO) recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the Northern and the Southern hemispheres ($\% $ improvement). Furthermore we replicate the state-of-the-art  assessment of the pandemic potential  of novel animal  strains. While the gold standard Influenza Risk Assessment Tool (IRAT) from the Center for Disease Control (CDC) comprises several time-consuming experimental assays, our proposed \erisk score can be evaluated in seconds for each new strain, while strongly correlating with the published IRAT scores ($R^2=$). This  substantial speedup (weeks vs seconds) in  identifying risky strains is potentially key to fully exploiting the  current biosurvellinace capacity via scalably analyzing tens of thousands of strains collected every year, thus  enabling  meaningful preemptive pandemic mitigation strategies. 
+    {\normalfont \itshape Abstract:} % Influenza viruses can produce  small sequence alterations~\cite{dos2016influenza}  that sufficiently perturb surface protein structures to evade host immunity.
+    % Failing to closely predict the dominant strain in an upcoming season  dramatically reduces  the  effectiveness of the flu shot~\cite{tricco2013comparing}, yet such prediction still remains imperfect.
+    %Furthermore,
+    Novel \infl  strains emerging into humans from animal reservoirs can have large antigenic shifts, and is thought to  have precipitated devastating  pandemics in the past~\cite{shao2017evolution,mills2004transmissibility,reid2003origin,landolt2007up}. Yet, our current ability to  scalably  evaluate the pandemic potential of   individual strains  remains severely limited. In this study, we introduce a computational approach to  parse out emergent evolutionary constraints using only genomic sequence data. A representation of these  inferred dependencies along with the associated computational framework is referred to as the \enet.   Analyzing    Hemaglutinnin (HA) and Neuraminidase (NA) amino acid sequences from nearly 100,000 unique \infl  strains from NCBI and GISAID public  databases, our proposed computational tools  estimate the likelihood of a specific future  mutation, ultimately  yielding the  numerical odds of one parent strain giving rise to a specific descendant via natural evolutionary processes.
+After validating our model on the problem of forecasting the dominant strain(s) of the upcoming flu season, with \enet-based forecasts  outperforming World Health Organization (WHO) recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the Northern and the Southern hemispheres ($\% $ improvement), we assess  the pandemic potential  of novel animal  strains that do not yet circulate in humans. While the state of the art  Influenza Risk Assessment Tool (IRAT) from the Center for Disease Control (CDC) comprises several time-consuming experimental assays, our proposed \erisk score can be evaluated in seconds for each new strain, while strongly correlating with the published IRAT scores ($R^2=$). This  substantial speedup (weeks vs seconds) in  identifying risky strains is potentially key to fully exploiting the  current biosurvellinace capacity via scalably analyzing tens of thousands of strains collected every year, thus  enabling  meaningful preemptive pandemic mitigation strategies, the relevance of which cannot be overstated in the aftermath of \hcov emergence.
 }
+
+
+  
+% \begin{figure}
+%   %\def\DCOL{Red1}
+%   %\def\DCOLx{Red1}
+%   \def\DCOLS{black}
+%   \def\ECOLA{black!5}
+%   \def\ECOLB{black!5}
+%   \def\ECOLC{Green4!5}
+%   \def\ECOLD{Green4!5}
+%   \def\LWD{2pt}
+%   \def\LWDA{6pt}
+%   \def\ACOL{black}
+%   \def\OPC{.8}
+%   \def\OPCA{.95}
+%   \def\OPCB{.15}
+%   \def\CIRC{circle}
+%   \def\SCALE{.80}
+%   \def\LCOL{black!50}
+%    \tikzexternalenable
+%   \tikzsetnextfilename{tmp}
+
+%  \begin{tikzpicture}[anchor=center,font=\bf\sffamily\fontsize{8}{8}\selectfont]
+% \def\DCOL{MediumBlue!40!black}
+%   \def\DCOLx{MediumBlue!40!black}
+%  %\clip (.75in,-0.27in) rectangle (-2.45in,-7.15in);
+%   \tikzset{xcirc/.style={circle,inner sep=-25pt,dashed,fill=\ECOLB,opacity=\OPC,rounded corners=5pt,draw=\DCOL,line width=\LWD,scale=\SCALE}}
+%     \def\WDT{2.5in}
+%     \def\WDTA{2.25in}
+%     \def\WDTB{2in}
+%     \def\WDTC{2.4in}
+%     \coordinate (Z) at (0,0);
+
+% \node[anchor=north west,xcirc,inner sep=-35pt,label={[yshift=.9in,xshift=-.5in,align=center,\LCOL]-90:index\\63}] (P63) at ([xshift=-2.7in,yshift=-.75in]Z) {\includegraphics[width=\WDTB]{../qnet_predictions/qnet_models/trees/proc63}}; 
+
+    
+% \node[anchor=north,xcirc,inner sep=-20pt,label={[xshift=-.6in,yshift=.7in,align=center,\LCOL]-90:index\\155}] (P155) at (Z) {\includegraphics[width=\WDTC]{../qnet_predictions/qnet_models/trees/proc155}};
+
+%     \node[anchor=north,xcirc,inner sep=-25pt,label={[yshift=.65in,xshift=-.45in,align=center,\LCOL]-90:index\\14}] (P14) at ([xshift=-2.2in,yshift=-0.8in]P155.south) {\includegraphics[width=\WDTB]{../qnet_predictions/qnet_models/trees/proc14}}; 
+    
+%     \node[anchor=north,xcirc,inner sep=-28pt,label={[yshift=.6in,xshift=-.5in,align=center,\LCOL]-90:index\\223}] (P223) at ([xshift=-0in,yshift=-0.10in]P155.south) {\includegraphics[width=\WDT]{../qnet_predictions/qnet_models/trees/proc223}};
+
+
+%     \node[circle,inner sep=11pt,opacity=.25,draw=black] (X1) at ([yshift=.79in,xshift=.12in]P63) {};
+%  \draw [line width=4pt,\DCOLx,-latex,] (X1)  to [out=75,in=140,looseness=1.55]  (P155);
+
+% \node[circle,inner sep=11pt,opacity=.5,draw=black] (X2) at ([yshift=.8in,xshift=-.335in]P155) {};
+%  \draw [line width=4pt,\DCOLx,-latex,] (X2)  to [out=0,in=55,looseness=1.2]  (P223);
+
+%  \node[circle,inner sep=11pt,opacity=.5,draw=black] (X3) at ([yshift=.01in,xshift=.1in]P14) {};
+%  \draw [line width=4pt,\DCOLx,-latex,] (X3)  to [out=155,in=-130,looseness=1.1]  (P63);
+
+%  \node[circle,inner sep=11pt,opacity=.5,draw=black] (X4) at ([yshift=.83in,xshift=-.35in]P223) {};
+% \draw [line width=4pt,\DCOLx,-latex,] (X4)  to [out=210,in=35,looseness=1.2]  (P14);
+
+% %  \node[anchor=north,align=left,font=\bf\tt\footnotesize] (N3) at ([yshift=-6.1in,xshift=-1.85in]Z.south) {\bf\sffamily\fontsize{7}{8}\selectfont H1N1 2018\\\bf\sffamily\fontsize{7}{8}\selectfont Haemagglutinin Sequences\\GGAAAACAAAAGCAACAAAA$\cdots$TGA{\large\color{Red1} A}AAAAGA$\cdots$\\AGCAAAAGCAGGGGAAAACA$\cdots $GTT{\large\color{Red1}C}AACCAC$\cdots$\\AGCAAAAGCAGGGGAAAACA$\cdots$GTT{\large\color{Red1}T}AACCAC$\cdots$\\ATGAAGACTATCATTGCTTT$\cdots$ACC{\large\color{Red1}T}TGAGAA$\cdots$};
+
+% % \node[anchor=west,align=left,font=\bf\sffamily\fontsize{8}{10}\selectfont,label={[font=\normalfont\itshape\sffamily,align=left,xshift=-.2in]90:$\bigstar$ mixed colors\\represent distributions}] (N4) at ([xshift=.2in,yshift=.05in]N3.east) {A/Italy/7366/2018\\
+% % A/Baltimore/P0264/2018\\
+% % A/Baltimore/P0278/2018\\  
+% % A/Florida/61/2018};
+
+% % \draw [ultra thick] ([yshift=.25in,xshift=.01in]N4.west) --++ (-.23in,-.190in);
+% % \draw [ultra thick] ([yshift=.1in,xshift=.01in]N4.west) --++ (-.23in,-.2in);
+% %  \draw [ultra thick] ([yshift=-0.05in,xshift=.01in]N4.west) --++ (-.23in,-.2in);
+% %  \draw [ultra thick] ([yshift=-.2in,xshift=.01in]N4.west) --++ (-.23in,-.2in);
+
+% % \draw [-{Latex[length=4mm]},ultra thick,line width=\LWD,Red1] ([xshift=0.55in,yshift=-.2in]N3.north) --++(0,.4in) node [yshift=-.95in,below,align=center,text=IndianRed2] {residue\\at index 1274};
+
+% % \node[anchor=east,rounded corners=3pt,align=center] (I1) at ([yshift=-.4in,xshift=3.8in]P1274.west) {Color key$^\bigstar$};
+
+% % \node[font=\bf\sffamily,anchor=north,rounded corners=3pt,text width=.1in,text height=.1in,fill=Purple1,align=center,opacity=\OPC] (I1) at ([yshift=-.05in]I1.south) {T};
+
+% % \node[font=\bf\sffamily,anchor=north,rounded corners=3pt,text width=.1in,text height=.1in,fill=DarkOrange3!70,align=center,opacity=\OPC] (I1) at ([yshift=-.05in]I1.south) {A};
+
+% % \node[font=\bf\sffamily,anchor=north,rounded corners=3pt,text width=.1in,text height=.1in,fill=SeaGreen2,align=center,opacity=\OPC] (I1) at ([yshift=-.05in]I1.south) {C};
+
+% % \node[font=\bf\sffamily,anchor=north,rounded corners=3pt,text width=.1in,text height=.1in,fill=DodgerBlue2!80,align=center,opacity=\OPC] (I1) at ([yshift=-.050in]I1.south) {G};
+% \end{tikzpicture}
+
+% \end{figure}
+
+
+
+% \end{document}
+
+
+
+
+
 
 \vspace{10pt}
 \section*{Introduction}

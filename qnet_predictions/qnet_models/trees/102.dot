@@ -1,22 +1,22 @@
 graph Tree {
 node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
 graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
-edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=black] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=lightgray] ;
 0 [label="K
 Prob: 0.875
-Frac: 0.033", fillcolor="#55edf7"] ;
-1 [label="x476", fillcolor="#77e4d6"] ;
+Frac: 0.033", fillcolor="#55fff1"] ;
+1 [label="x476", fillcolor="#77ffd2"] ;
 2 [label="D
 Prob: 1.0
-Frac: 0.008", fillcolor="#ffc155"] ;
-3 [label="x299", fillcolor="#f8c15b"] ;
+Frac: 0.008", fillcolor="#ffff55"] ;
+3 [label="x299", fillcolor="#f8fe5b"] ;
 4 [label="D
 Prob: 0.996
-Frac: 0.95", fillcolor="#ffc055"] ;
-5 [label="x274", fillcolor="#fec056"] ;
+Frac: 0.95", fillcolor="#fffe55"] ;
+5 [label="x274", fillcolor="#fefe56"] ;
 6 [label="E
 Prob: 0.5
-Frac: 0.008", fillcolor="#d6aaaa"] ;
+Frac: 0.008", fillcolor="#aaf5aa"] ;
 1 -- 0 [label=" I",penwidth=3] ;
 1 -- 2 [label=" V",penwidth=3] ;
 3 -- 1 [label=" H\n K",penwidth=3] ;

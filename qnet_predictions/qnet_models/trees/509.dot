@@ -1,19 +1,19 @@
 graph Tree {
 node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
 graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
-edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=black] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=lightgray] ;
 0 [label="A
 Prob: 1.0
 Frac: 0.008", fillcolor="#ffc155"] ;
-1 [label="x292", fillcolor="#f9c25a"] ;
+1 [label="x292", fillcolor="#febd5a"] ;
 2 [label="A
 Prob: 1.0
 Frac: 0.096", fillcolor="#ffc155"] ;
-3 [label="x252", fillcolor="#f9c25a"] ;
+3 [label="x252", fillcolor="#febd5a"] ;
 4 [label="S
 Prob: 1.0
-Frac: 0.033", fillcolor="#55ebff"] ;
-5 [label="x524", fillcolor="#f8c25b"] ;
+Frac: 0.033", fillcolor="#e755ff"] ;
+5 [label="x524", fillcolor="#febc5b"] ;
 6 [label="A
 Prob: 1.0
 Frac: 0.863", fillcolor="#ffc155"] ;

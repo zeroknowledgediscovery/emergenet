@@ -1,14 +1,14 @@
 graph Tree {
 node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
 graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
-edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=black] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=lightgray] ;
 0 [label="S
 Prob: 1.0
-Frac: 0.967", fillcolor="#55ebff"] ;
-1 [label="x123", fillcolor="#5ae9f9"] ;
+Frac: 0.967", fillcolor="#e755ff"] ;
+1 [label="x123", fillcolor="#e25aff"] ;
 2 [label="N
 Prob: 1.0
-Frac: 0.033", fillcolor="#ffc155"] ;
+Frac: 0.033", fillcolor="#55ebff"] ;
 1 -- 0 [label=" S",penwidth=3] ;
 1 -- 2 [label=" A\n T",penwidth=3] ;
 {rank = same;}}

@@ -5,22 +5,6 @@
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem{dos2016influenza}
-\bibinfo{author}{Dos~Santos, G.}, \bibinfo{author}{Neumeier, E.} \&
-  \bibinfo{author}{Bekkat-Berkani, R.}
-\newblock \bibinfo{title}{Influenza: Can we cope better with the
-  unpredictable?}
-\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
-  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{699--708}
-  (\bibinfo{year}{2016}).
-
-\bibitem{tricco2013comparing}
-\bibinfo{author}{Tricco, A.~C.} \emph{et~al.}
-\newblock \bibinfo{title}{Comparing influenza vaccine efficacy against
-  mismatched and matched strains: a systematic review and meta-analysis}.
-\newblock \emph{\bibinfo{journal}{BMC medicine}} \textbf{\bibinfo{volume}{11}},
-  \bibinfo{pages}{153} (\bibinfo{year}{2013}).
-
 \bibitem{shao2017evolution}
 \bibinfo{author}{Shao, W.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Goraya,
   M.~U.}, \bibinfo{author}{Wang, S.} \& \bibinfo{author}{Chen, J.-L.}
@@ -51,12 +35,28 @@
 \newblock \emph{\bibinfo{journal}{Animal Health Research Reviews}}
   \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{1--21} (\bibinfo{year}{2007}).
 
+\bibitem{dos2016influenza}
+\bibinfo{author}{Dos~Santos, G.}, \bibinfo{author}{Neumeier, E.} \&
+  \bibinfo{author}{Bekkat-Berkani, R.}
+\newblock \bibinfo{title}{Influenza: Can we cope better with the
+  unpredictable?}
+\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{699--708}
+  (\bibinfo{year}{2016}).
+
 \bibitem{huddleston2020integrating}
 \bibinfo{author}{Huddleston, J.} \emph{et~al.}
 \newblock \bibinfo{title}{Integrating genotypes and phenotypes improves
   long-term forecasts of seasonal influenza a/h3n2 evolution}.
 \newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{9}},
   \bibinfo{pages}{e60067} (\bibinfo{year}{2020}).
+
+\bibitem{tricco2013comparing}
+\bibinfo{author}{Tricco, A.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{Comparing influenza vaccine efficacy against
+  mismatched and matched strains: a systematic review and meta-analysis}.
+\newblock \emph{\bibinfo{journal}{BMC medicine}} \textbf{\bibinfo{volume}{11}},
+  \bibinfo{pages}{153} (\bibinfo{year}{2013}).
 
 \bibitem{neher2014predicting}
 \bibinfo{author}{Neher, R.~A.}, \bibinfo{author}{Russell, C.~A.} \&

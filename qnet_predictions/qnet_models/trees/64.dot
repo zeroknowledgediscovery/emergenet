@@ -1,15 +1,15 @@
 graph Tree {
 node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
 graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
-edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=black] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=lightgray] ;
 0 [label="T
 Prob: 1.0
-Frac: 0.008", fillcolor="#55ebff"] ;
-1 [label="x525", fillcolor="#fbc157"] ;
+Frac: 0.008", fillcolor="#ff55ff"] ;
+1 [label="x525", fillcolor="#fcc057"] ;
 2 [label="I
 Prob: 1.0
-Frac: 0.017", fillcolor="#6aff55"] ;
-3 [label="x118", fillcolor="#fcc155"] ;
+Frac: 0.017", fillcolor="#55ff96"] ;
+3 [label="x118", fillcolor="#fcc156"] ;
 4 [label="A
 Prob: 0.996
 Frac: 0.975", fillcolor="#ffc055"] ;

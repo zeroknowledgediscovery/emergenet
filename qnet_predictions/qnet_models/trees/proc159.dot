@@ -1,0 +1,12 @@
+graph Tree {
+node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
+graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=lightgray] ;
+0 [label="S
+ 0.992", fillcolor="#e755ff"] ;
+1 [label="289", fillcolor="#e655fe"] ;
+2 [label="G
+ 0.008", fillcolor="#b7aaaa"] ;
+1 -- 0 [label=" H",penwidth=3] ;
+1 -- 2 [label=" Q\n Y",penwidth=3] ;
+{rank = same;}}

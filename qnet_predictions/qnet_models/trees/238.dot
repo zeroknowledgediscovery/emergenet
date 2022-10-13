@@ -1,26 +1,26 @@
 graph Tree {
 node [shape=box, style="filled, rounded",color="black",penwidth="3",fontcolor="black",                 fontname=helvetica] ;
 graph [ranksep="0 equally", splines=straight,                 bgcolor=transparent, dpi=200] ;
-edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=black] ;
+edge [fontname=helvetica, fontweight=bold,fontcolor=grey14,color=lightgray] ;
 0 [label="E
 Prob: 1.0
-Frac: 0.033", fillcolor="#55ffc1"] ;
-1 [label="x294", fillcolor="#77f2ab"] ;
+Frac: 0.033", fillcolor="#ffff55"] ;
+1 [label="x294", fillcolor="#ffff55"] ;
 2 [label="D
 Prob: 1.0
-Frac: 0.008", fillcolor="#ffc155"] ;
-3 [label="x227", fillcolor="#f8c15a"] ;
+Frac: 0.008", fillcolor="#ffff55"] ;
+3 [label="x227", fillcolor="#fcfe57"] ;
 4 [label="N
 Prob: 1.0
-Frac: 0.008", fillcolor="#c155ff"] ;
-5 [label="x179", fillcolor="#febf57"] ;
+Frac: 0.008", fillcolor="#55ebff"] ;
+5 [label="x179", fillcolor="#fcfe57"] ;
 6 [label="D
 Prob: 1.0
-Frac: 0.942", fillcolor="#ffc155"] ;
-7 [label="x178", fillcolor="#fec055"] ;
+Frac: 0.942", fillcolor="#ffff55"] ;
+7 [label="x178", fillcolor="#fefe55"] ;
 8 [label="D
 Prob: 0.5
-Frac: 0.008", fillcolor="#e08baa"] ;
+Frac: 0.008", fillcolor="#aaf5aa"] ;
 1 -- 0 [label=" K",penwidth=3] ;
 1 -- 2 [label=" I\n T",penwidth=3] ;
 3 -- 1 [label=" E\n T",penwidth=3] ;
