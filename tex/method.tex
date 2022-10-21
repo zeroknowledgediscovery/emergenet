@@ -1,5 +1,6 @@
 \allowdisplaybreaks{
-Next, we briefly describe the  details of the computational framework.
+Next, we briefly describe the  details of the computational framework. 
+
 
 \section*{\enet Framework}
 
@@ -80,9 +81,7 @@ From the RHS bound established in Theorem~\ref{SI-thmbnd} (See Eq.~\eqref{fundeq
 \Rightarrow &\sum_{x \in H^t} \ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}}  \sum_{x \in H^t}
 \geqq  -\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,\dsta)\\
 \Rightarrow  &\sum_{x\in H^t}  \theta(x,\dsta) - \abs{H^t}A \ln \mem{\dsta} \geqq  A \ln \frac{1}{\prod_{x \in H^t} Pr(x \rightarrow \dsta)} \intertext{where $A =\frac{1-\alpha}{\sqrt{8}N^2} $, where $N$ is the sequence length considered, and $\alpha$ is a fixed significance level. Since minimizing the LHS maximizes the lower bound on the probability of the observed strains simultaneously giving rise to $\dsta$, a dominant strain  $\dst$ may be estimated as a solution to the optimization problem:}
-&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y) - \abs{H^t}A \ln \mem{y}
-\intertext{Further noting that the second term on the right is at least an order of magnitude smaller compared to the first term, a good approximation for the optimization may be stated as:}
-&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y)
+\label{dompred}&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta(x,y) - \abs{H^t}A \ln \mem{y}
 }
 
 
