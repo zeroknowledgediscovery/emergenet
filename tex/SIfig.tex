@@ -361,7 +361,9 @@ $^\star$ Converted IRAT Score computed using regression generated from the IRAT 
 \flushleft
 
 \fontsize{8}{8}\selectfont
-$^\star$ -1 indicates missing data, either from lack of human sequence data available for that virus sub-type (less than 30 strains) or missing IRAT sequence data (in the case of A/duck/New York/1996)
+$^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
+$^{\star\star}$ Could not construct a \qnet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \qnet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
+$^{\star\star\star}$ These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
 \end{table}
 
 %#############################################
@@ -409,6 +411,30 @@ $^\star$This table contains \qnet scores for IRAT computed using current sequenc
 \mnp{6.5in}{
   \fontsize{8}{8}\selectfont
 \verbatiminput{Figures/tabdata/model2.txt}
+}
+\end{table}
+%#############################################
+%#############################################
+
+
+
+
+
+%#############################################
+%#############################################
+\begin{table}\centering
+\captionN{General linear model evaluating \qnet emergence risk predictions against IRAT estimates}\label{tabreg}\centering
+
+\mnp{6.5in}{
+  \fontsize{8}{8}\selectfont
+\verbatiminput{Figures/tabdata/model_simple.txt}
+}
+\vskip 2em
+
+
+\mnp{6.5in}{
+  \fontsize{8}{8}\selectfont
+\verbatiminput{Figures/tabdata/model_complex.txt}
 }
 \end{table}
 %#############################################

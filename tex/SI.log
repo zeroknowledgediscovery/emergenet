@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  12 OCT 2022 12:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  23 OCT 2022 11:43
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1665,14 +1665,31 @@ Package: sistyle 2008/07/16 v2.3a SI units and numbers (DNJ Els)
 \ttoks@B=\toks84
 ))
 Package xr Info: IMPORTING LABELS FROM SI.aux on input line 11.
+
+
+LaTeX Warning: Label `SI-tabrec11' multiply defined.
+
+
+LaTeX Warning: Label `SI-irattab' multiply defined.
+
 Package xr Info: IMPORTING LABELS FROM main.aux on input line 12.
- (./customdef.tex) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend
--pdftex.def
+
+LaTeX Warning: Label `main-dompred' multiply defined.
+
+(./customdef.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count455
 \l__pdf_internal_box=\box111
 )
-(./SI.aux)
+(./SI.aux
+
+LaTeX Warning: Label `tabrec11' multiply defined.
+
+
+LaTeX Warning: Label `irattab' multiply defined.
+
+)
 \openout1 = `SI.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 21.
@@ -2994,68 +3011,67 @@ Overfull \hbox (5.62097pt too wide) in paragraph at lines 1--294
  [][] 
  []
 
+(./Figures/tabdata/swine_combined.tex)
 <Figures/External/IRAT_split.png, id=243, 1228.59pt x 481.8pt>
 File: Figures/External/IRAT_split.png Graphic file (type png)
 <use Figures/External/IRAT_split.png>
-Package pdftex.def Info: Figures/External/IRAT_split.png  used on input line 31
+Package pdftex.def Info: Figures/External/IRAT_split.png  used on input line 33
 7.
 (pdftex.def)             Requested size: 446.69426pt x 175.1755pt.
-(./Figures/tabdata/irat_average_qdistances.tex)
-Overfull \hbox (7.41154pt too wide) in paragraph at lines 1--341
- [][] 
- []
 
+(./Figures/tabdata/irat_average_qdistances.tex)
+(./Figures/tabdata/irat_average_qdistances_current.tex)
 File: "Figures/tabdata/model1.txt"  (verbatim)
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 ==============================================================
 ====================================[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []                                     \OT1/pcr/m/n/8 coef    std err          
 z      P>|z|      [0.025      0.975][] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 --------------------------------------------------------------
 ------------------------------------[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 Intercept                         -0.1116      1.090     -0.10
 2      0.918      -2.248       2.025[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 qnet_complexity                    0.0005      0.000      1.07
 5      0.282      -0.000       0.001[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 data_diversity                     0.3197      0.126      2.53
 1      0.011       0.072       0.567[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 qnet_complexity:data_diversity -6.932e-05   5.01e-05     -1.38
 3      0.167      -0.000    2.89e-05[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 ldistance_WHO                     -0.0348      0.035     -1.00
 7      0.314      -0.102       0.033[] 
  []
 
 
-Overfull \hbox (0.64531pt too wide) in paragraph at lines 370--370
+Overfull \hbox (0.64531pt too wide) in paragraph at lines 407--407
 []\OT1/pcr/m/n/8 ==============================================================
 ====================================[] 
  []
@@ -3068,18 +3084,21 @@ File: "Figures/tabdata/model2.txt"  (verbatim)
 [12
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
- <./Figures/External/irat_split.png>] [13] [14] (./SI.aux)
+ <./Figures/External/irat_split.png>] [13] [14] [15] [16] (./SI.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `SI.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 51643 strings out of 478862
- 1134723 string characters out of 5858945
- 2250903 words of memory out of 8000000
- 68156 multiletter control sequences out of 15000+600000
+ 51667 strings out of 478862
+ 1135433 string characters out of 5858945
+ 2300791 words of memory out of 8000000
+ 68170 multiletter control sequences out of 15000+600000
  490223 words of font info for 196 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 111i,14n,108p,2048b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,14n,108p,1488b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/x
 ccmi6.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concre
 te/ccr5.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/conc
@@ -3099,10 +3118,10 @@ t/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
 c/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pf
 b>
-Output written on SI.pdf (14 pages, 582605 bytes).
+Output written on SI.pdf (16 pages, 589445 bytes).
 PDF statistics:
- 445 PDF objects out of 1000 (max. 8388607)
- 272 compressed objects within 3 object streams
- 68 named destinations out of 1000 (max. 500000)
+ 455 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

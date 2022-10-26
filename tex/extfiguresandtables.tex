@@ -1,0 +1,44 @@
+%#############################################
+%#############################################
+\ifFIGS
+\begin{table*}[!ht]\centering
+\captionN{Out-performance of \qnet recommendations over WHO 
+for Influenza A vaccine composition}\label{tabperf}\centering
+
+\sffamily\fontsize{9}{9}\selectfont
+
+\input{Figures/tabdata/improvement_qnet}
+\end{table*}
+\else
+\refstepcounter{table}\label{tabperf}
+\fi
+%#############################################
+%#############################################
+
+
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \centering
+  \tikzexternalenable
+    \tikzsetnextfilename{sequence}
+\vspace{-5pt}
+ 
+  \iftikzX
+  \input{Figures/sequence_}  
+  \vspace{0pt}   
+  
+  \else
+  \includegraphics[width=0.87\textwidth]{Figures/External/sequence.pdf}  \vspace{-5pt}   
+
+  \fi
+\vspace{0pt}
+
+\captionN{\textbf{Sequence comparisons.} The observed dominant strain, we note that the correct \qnet  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix.}\label{figseq}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figseq}
+\fi
+%#############################################
+%#############################################

@@ -1,4 +1,4 @@
-PWD /home/ishanu/ZED/Research/emergenet/tex
+PWD /home/ishanu/ZED/Research/emergenet/tex/overleaf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /home/ishanu/.texlive2020/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -2102,6 +2102,13 @@ INPUT ./Figures/tabdata/south_h3n2_na_3cluster.tex
 INPUT Figures/tabdata/south_h3n2_na_3cluster.tex
 INPUT ./Figures/tabdata/south_h3n2_na_3cluster.tex
 INPUT Figures/tabdata/south_h3n2_na_3cluster.tex
+INPUT ./Figures/tabdata/swine_combined.tex
+INPUT ./Figures/tabdata/swine_combined.tex
+INPUT ./Figures/tabdata/swine_combined.tex
+INPUT Figures/tabdata/swine_combined.tex
+INPUT ./Figures/tabdata/swine_combined.tex
+INPUT ./Figures/tabdata/swine_combined.tex
+INPUT Figures/tabdata/swine_combined.tex
 INPUT ./Figures/External/irat_split.png
 INPUT ./Figures/External/irat_split.png
 INPUT Figures/External/irat_split.png
@@ -2114,6 +2121,13 @@ INPUT Figures/tabdata/irat_average_qdistances.tex
 INPUT ./Figures/tabdata/irat_average_qdistances.tex
 INPUT ./Figures/tabdata/irat_average_qdistances.tex
 INPUT Figures/tabdata/irat_average_qdistances.tex
+INPUT ./Figures/tabdata/irat_average_qdistances_current.tex
+INPUT ./Figures/tabdata/irat_average_qdistances_current.tex
+INPUT ./Figures/tabdata/irat_average_qdistances_current.tex
+INPUT Figures/tabdata/irat_average_qdistances_current.tex
+INPUT ./Figures/tabdata/irat_average_qdistances_current.tex
+INPUT ./Figures/tabdata/irat_average_qdistances_current.tex
+INPUT Figures/tabdata/irat_average_qdistances_current.tex
 INPUT ./Figures/tabdata/model1.txt
 INPUT Figures/tabdata/model1.txt
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm
