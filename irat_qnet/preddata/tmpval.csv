@@ -1,0 +1,2 @@
+,organism,mol_type,strain,serotype,isolation_source,host,db_xref,segment,country,collection_date,gene,codon_start,product,protein_id,translation
+2289156410,"""Influenza A virus""","""viral cRNA""","""A/swine/Minnesota/A02711856/2022""","""H1N1""","""lung""","""swine""","""IRD:IRD-A02711856.6""","""6""","""USA: Minnesota""","""27-Jul-2022""","""NA""",1,"""neuraminidase""","""UVI57945.1""","""MNTNQRIITIGTVCLIVGIISLLLQIGNIVSLWVSHSIQTRWEN"

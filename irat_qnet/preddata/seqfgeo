@@ -1,0 +1,284 @@
+,formatted_address,latitude,longitude,accuracy,google_place_id,type,postcode,input_string,number_of_results,status
+0,Denmark,56.26392,9.501785,APPROXIMATE,ChIJ-1-U7rYnS0YRzZLgw9BDh1I,"country,political",,Denmark,1,OK
+1,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+2,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+3,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+4,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+5,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+6,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+7,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+8,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+9,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+10,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+11,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+12,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+13,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+14,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+15,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+16,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+17,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+18,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+19,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+20,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+21,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+22,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+23,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+24,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+25,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+26,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+27,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+28,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+29,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+30,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+31,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+32,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+33,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+34,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+35,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+36,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+37,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+38,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+39,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+40,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+41,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+42,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+43,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+44,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+45,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+46,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+47,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+48,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+49,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+50,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+51,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+52,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+53,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+54,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+55,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+56,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+57,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+58,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+59,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+60,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+61,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+62,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+63,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+64,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+65,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+66,"Tennessee, USA",35.5174913,-86.5804473,APPROXIMATE,ChIJA8-XniNLYYgRVpGBpcEgPgM,"administrative_area_level_1,political",,Tennessee,1,OK
+67,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+68,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+69,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+70,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+71,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+72,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+73,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+74,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+75,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+76,"Virginia, USA",37.4315734,-78.6568942,APPROXIMATE,ChIJzbK8vXDWTIgRlaZGt0lBTsA,"administrative_area_level_1,political",,Virginia,1,OK
+77,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+78,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+79,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+80,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+81,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+82,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+83,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+84,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+85,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+86,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+87,"Arizona, USA",34.0489281,-111.0937311,APPROXIMATE,ChIJaxhMy-sIK4cRcc3Bf7EnOUI,"administrative_area_level_1,political",,Arizona,1,OK
+88,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+89,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+90,"Colorado, USA",39.5500507,-105.7820674,APPROXIMATE,ChIJt1YYm3QUQIcR_6eQSTGDVMc,"administrative_area_level_1,political",,Colorado,1,OK
+91,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+92,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+93,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+94,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+95,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+96,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+97,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+98,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+99,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+100,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+101,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+102,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+103,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+104,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+105,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+106,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+107,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+108,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+109,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+110,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+111,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+112,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+113,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+114,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+115,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+116,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+117,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+118,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+119,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+120,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+121,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+122,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+123,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+124,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+125,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+126,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+127,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+128,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+129,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+130,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+131,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+132,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+133,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+134,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+135,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+136,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+137,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+138,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+139,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+140,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+141,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+142,"Wyoming, USA",43.0759678,-107.2902839,APPROXIMATE,ChIJaS7hSDTiXocRLzh90nkisCY,"administrative_area_level_1,political",,Wyoming,1,OK
+143,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+144,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+145,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+146,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+147,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+148,"Colorado, USA",39.5500507,-105.7820674,APPROXIMATE,ChIJt1YYm3QUQIcR_6eQSTGDVMc,"administrative_area_level_1,political",,Colorado,1,OK
+149,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+150,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+151,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+152,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+153,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+154,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+155,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+156,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+157,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+158,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+159,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+160,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+161,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+162,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+163,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+164,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+165,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+166,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+167,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+168,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+169,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+170,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+171,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+172,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+173,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+174,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+175,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+176,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+177,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+178,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+179,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+180,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+181,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+182,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+183,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+184,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+185,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+186,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+187,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+188,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+189,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+190,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+191,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+192,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+193,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+194,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+195,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+196,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+197,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+198,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+199,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+200,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+201,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+202,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+203,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+204,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+205,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+206,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+207,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+208,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+209,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+210,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+211,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+212,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+213,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+214,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+215,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+216,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+217,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+218,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+219,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+220,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+221,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+222,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+223,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+224,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+225,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+226,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+227,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+228,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+229,"Kentucky, USA",37.8393332,-84.2700179,APPROXIMATE,ChIJyVMZi0xzQogR_N_MxU5vH3c,"administrative_area_level_1,political",,Kentucky,1,OK
+230,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+231,"Kentucky, USA",37.8393332,-84.2700179,APPROXIMATE,ChIJyVMZi0xzQogR_N_MxU5vH3c,"administrative_area_level_1,political",,Kentucky,1,OK
+232,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+233,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+234,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+235,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+236,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+237,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+238,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+239,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+240,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+241,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+242,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+243,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+244,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+245,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+246,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+247,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+248,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+249,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+250,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+251,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+252,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+253,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+254,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+255,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+256,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+257,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+258,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+259,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+260,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+261,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+262,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+263,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+264,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+265,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+266,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+267,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+268,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+269,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+270,"Michigan, USA",44.3148443,-85.60236429999999,APPROXIMATE,ChIJEQTKxz2qTE0Rs8liellI3Zc,"administrative_area_level_1,political",,Michigan,1,OK
+271,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+272,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+273,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+274,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+275,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+276,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+277,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+278,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+279,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+280,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+281,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+282,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
