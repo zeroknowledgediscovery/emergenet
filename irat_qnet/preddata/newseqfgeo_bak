@@ -1,0 +1,501 @@
+,formatted_address,latitude,longitude,accuracy,google_place_id,type,postcode,input_string,number_of_results,status
+0,Denmark,56.26392,9.501785,APPROXIMATE,ChIJ-1-U7rYnS0YRzZLgw9BDh1I,"country,political",,Denmark,1,OK
+1,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+2,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+3,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+4,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+5,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+6,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+7,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+8,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+9,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+10,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+11,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+12,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+13,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+14,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+15,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+16,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+17,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+18,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+19,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+20,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+21,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+22,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+23,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+24,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+25,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+26,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+27,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+28,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+29,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+30,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+31,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+32,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+33,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+34,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+35,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+36,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+37,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+38,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+39,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+40,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+41,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+42,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+43,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+44,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+45,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+46,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+47,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+48,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+49,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+50,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+51,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+52,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+53,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+54,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+55,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+56,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+57,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+58,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+59,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+60,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+61,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+62,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+63,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+64,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+65,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+66,"Tennessee, USA",35.5174913,-86.5804473,APPROXIMATE,ChIJA8-XniNLYYgRVpGBpcEgPgM,"administrative_area_level_1,political",,Tennessee,1,OK
+67,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+68,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+69,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+70,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+71,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+72,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+73,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+74,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+75,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+76,"Virginia, USA",37.4315734,-78.6568942,APPROXIMATE,ChIJzbK8vXDWTIgRlaZGt0lBTsA,"administrative_area_level_1,political",,Virginia,1,OK
+77,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+78,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+79,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+80,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+81,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+82,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+83,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+84,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+85,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+86,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+87,"Arizona, USA",34.0489281,-111.0937311,APPROXIMATE,ChIJaxhMy-sIK4cRcc3Bf7EnOUI,"administrative_area_level_1,political",,Arizona,1,OK
+88,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+89,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+90,"Colorado, USA",39.5500507,-105.7820674,APPROXIMATE,ChIJt1YYm3QUQIcR_6eQSTGDVMc,"administrative_area_level_1,political",,Colorado,1,OK
+91,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+92,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+93,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+94,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+95,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+96,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+97,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+98,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+99,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+100,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+101,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+102,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+103,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+104,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+105,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+106,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+107,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+108,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+109,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+110,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+111,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+112,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+113,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+114,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+115,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+116,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+117,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+118,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+119,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+120,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+121,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+122,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+123,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+124,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+125,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+126,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+127,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+128,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+129,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+130,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+131,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+132,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+133,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+134,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+135,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+136,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+137,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+138,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+139,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+140,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+141,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+142,"Wyoming, USA",43.0759678,-107.2902839,APPROXIMATE,ChIJaS7hSDTiXocRLzh90nkisCY,"administrative_area_level_1,political",,Wyoming,1,OK
+143,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+144,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+145,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+146,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+147,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+148,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+149,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+150,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+151,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+152,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+153,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+154,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+155,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+156,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+157,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+158,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+159,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+160,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+161,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+162,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+163,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+164,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+165,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+166,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+167,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+168,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+169,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+170,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+171,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+172,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+173,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+174,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+175,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+176,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+177,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+178,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+179,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+180,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+181,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+182,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+183,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+184,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+185,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+186,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+187,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+188,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+189,Senegal,14.497401,-14.452362,APPROXIMATE,ChIJcbvFs_VywQ4RQFlhmVClRlo,"country,political",,Senegal,1,OK
+190,Senegal,14.497401,-14.452362,APPROXIMATE,ChIJcbvFs_VywQ4RQFlhmVClRlo,"country,political",,Senegal,1,OK
+191,Senegal,14.497401,-14.452362,APPROXIMATE,ChIJcbvFs_VywQ4RQFlhmVClRlo,"country,political",,Senegal,1,OK
+192,Senegal,14.497401,-14.452362,APPROXIMATE,ChIJcbvFs_VywQ4RQFlhmVClRlo,"country,political",,Senegal,1,OK
+193,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+194,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+195,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+196,Hungary,47.162494,19.503304,APPROXIMATE,ChIJw-Q333uDQUcREBAeDCnEAAA,"country,political",,Hungary,1,OK
+197,Nigeria,9.081999,8.675277,APPROXIMATE,ChIJDY2kfa8LThARyAvFaEH-qJk,"country,political",,Nigeria,1,OK
+198,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+199,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+200,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+201,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+202,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+203,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+204,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+205,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+206,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+207,Denmark,56.26392,9.501785,APPROXIMATE,ChIJ-1-U7rYnS0YRzZLgw9BDh1I,"country,political",,Denmark,1,OK
+208,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+209,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+210,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+211,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+212,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+213,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+214,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+215,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+216,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+217,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+218,"Saratov, Saratov Oblast, Russia",51.5461754,46.0154123,APPROXIMATE,ChIJQbybBQnHFEER9jWQQ1ZRaBw,"locality,political",,Saratov,1,OK
+219,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+220,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+221,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+222,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+223,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+224,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+225,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+226,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+227,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+228,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+229,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+230,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+231,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+232,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+233,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+234,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+235,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+236,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+237,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+238,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+239,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+240,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+241,Croatia,45.1,15.2,APPROXIMATE,ChIJ7ZXdCghBNBMRfxtm4STA86A,"country,political",,Croatia,1,OK
+242,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+243,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+244,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+245,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+246,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+247,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+248,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+249,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+250,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+251,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+252,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+253,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+254,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+255,"Kagoshima, Japan",31.5968539,130.5571392,APPROXIMATE,ChIJPcXjAFJhPjURhVhcXa393Jo,"locality,political",,Kagoshima,1,OK
+256,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+257,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+258,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+259,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+260,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+261,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+262,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+263,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+264,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+265,South Korea,35.907757,127.766922,APPROXIMATE,ChIJm7oRy-tVZDURS9uIugCbJJE,"country,political",,Korea,2,OK
+266,South Korea,35.907757,127.766922,APPROXIMATE,ChIJm7oRy-tVZDURS9uIugCbJJE,"country,political",,Korea,2,OK
+267,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+268,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+269,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+270,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+271,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+272,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+273,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+274,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+275,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+276,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+277,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+278,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+279,Croatia,45.1,15.2,APPROXIMATE,ChIJ7ZXdCghBNBMRfxtm4STA86A,"country,political",,Croatia,1,OK
+280,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+281,Croatia,45.1,15.2,APPROXIMATE,ChIJ7ZXdCghBNBMRfxtm4STA86A,"country,political",,Croatia,1,OK
+282,Croatia,45.1,15.2,APPROXIMATE,ChIJ7ZXdCghBNBMRfxtm4STA86A,"country,political",,Croatia,1,OK
+283,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+284,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+285,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+286,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+287,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+288,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+289,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+290,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+291,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+292,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+293,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+294,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+295,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+296,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+297,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+298,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+299,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+300,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+301,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+302,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+303,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+304,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+305,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+306,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+307,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+308,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+309,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+310,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+311,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+312,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+313,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+314,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+315,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+316,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+317,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+318,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+319,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+320,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+321,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+322,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+323,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+324,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+325,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+326,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+327,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+328,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+329,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+330,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+331,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+332,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+333,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+334,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+335,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+336,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+337,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+338,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+339,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+340,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+341,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+342,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+343,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+344,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+345,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+346,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+347,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+348,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+349,"Mecklenburg-Vorpommern, Germany",53.6126505,12.4295953,APPROXIMATE,ChIJNzjcO6xQrEcRsuXdZ-Tc2MY,"administrative_area_level_1,political",,Germany-MV,1,OK
+350,"Mecklenburg-Vorpommern, Germany",53.6126505,12.4295953,APPROXIMATE,ChIJNzjcO6xQrEcRsuXdZ-Tc2MY,"administrative_area_level_1,political",,Germany-MV,1,OK
+351,"Mecklenburg-Vorpommern, Germany",53.6126505,12.4295953,APPROXIMATE,ChIJNzjcO6xQrEcRsuXdZ-Tc2MY,"administrative_area_level_1,political",,Germany-MV,1,OK
+352,"Mecklenburg-Vorpommern, Germany",53.6126505,12.4295953,APPROXIMATE,ChIJNzjcO6xQrEcRsuXdZ-Tc2MY,"administrative_area_level_1,political",,Germany-MV,1,OK
+353,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-BY,1,OK
+354,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+355,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+356,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+357,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+358,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+359,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+360,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+361,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+362,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+363,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+364,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+365,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+366,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+367,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+368,Estonia,58.595272,25.013607,APPROXIMATE,ChIJ_UuggpyUkkYRwyW0T7qf6kA,"country,political",,Estonia,1,OK
+369,Estonia,58.595272,25.013607,APPROXIMATE,ChIJ_UuggpyUkkYRwyW0T7qf6kA,"country,political",,Estonia,1,OK
+370,Finland,61.92410999999999,25.748151,APPROXIMATE,ChIJ3fYyS9_KgUYREKh1PNZGAQA,"country,political",,Finland,1,OK
+371,Finland,61.92410999999999,25.748151,APPROXIMATE,ChIJ3fYyS9_KgUYREKh1PNZGAQA,"country,political",,Finland,1,OK
+372,Finland,61.92410999999999,25.748151,APPROXIMATE,ChIJ3fYyS9_KgUYREKh1PNZGAQA,"country,political",,Finland,1,OK
+373,Finland,61.92410999999999,25.748151,APPROXIMATE,ChIJ3fYyS9_KgUYREKh1PNZGAQA,"country,political",,Finland,1,OK
+374,Finland,61.92410999999999,25.748151,APPROXIMATE,ChIJ3fYyS9_KgUYREKh1PNZGAQA,"country,political",,Finland,1,OK
+375,Estonia,58.595272,25.013607,APPROXIMATE,ChIJ_UuggpyUkkYRwyW0T7qf6kA,"country,political",,Estonia,1,OK
+376,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+377,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+378,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+379,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+380,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+381,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+382,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+383,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+384,"Tibet, China",29.6472399,91.11744999999999,APPROXIMATE,ChIJwSxKnH4xYTcRmdoThGIswR8,"administrative_area_level_1,political",,Tibet,1,OK
+385,"Tibet, China",29.6472399,91.11744999999999,APPROXIMATE,ChIJwSxKnH4xYTcRmdoThGIswR8,"administrative_area_level_1,political",,Tibet,1,OK
+386,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+387,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+388,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+389,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+390,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+391,"Lisbon, Portugal",38.7222524,-9.1393366,APPROXIMATE,ChIJO_PkYRozGQ0R0DaQ5L3rAAQ,"locality,political",,Lisbon,1,OK
+392,Romania,45.943161,24.96676,APPROXIMATE,ChIJw3aJlSb_sUARlLEEqJJP74Q,"country,political",,Romania,1,OK
+393,Romania,45.943161,24.96676,APPROXIMATE,ChIJw3aJlSb_sUARlLEEqJJP74Q,"country,political",,Romania,1,OK
+394,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+395,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+396,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+397,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+398,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+399,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+400,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+401,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+402,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+403,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+404,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+405,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+406,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+407,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+408,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+409,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+410,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+411,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+412,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+413,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+414,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+415,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+416,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+417,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+418,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+419,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+420,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+421,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+422,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+423,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+424,"Wales, UK",52.1306607,-3.7837117,APPROXIMATE,ChIJ7Q8cbLY0ZEgRouilirxxux4,"administrative_area_level_1,political",,Wales,1,OK
+425,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+426,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+427,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+428,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+429,"Wales, UK",52.1306607,-3.7837117,APPROXIMATE,ChIJ7Q8cbLY0ZEgRouilirxxux4,"administrative_area_level_1,political",,Wales,1,OK
+430,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+431,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+432,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+433,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+434,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+435,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+436,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+437,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+438,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+439,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+440,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+441,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+442,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+443,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+444,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+445,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+446,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+447,,,,,,,,1,0,ZERO_RESULTS
+448,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+449,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+450,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+451,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+452,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+453,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+454,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+455,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+456,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+457,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+458,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+459,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+460,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+461,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+462,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+463,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+464,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+465,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+466,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+467,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+468,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+469,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+470,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+471,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+472,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+473,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+474,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+475,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+476,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+477,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+478,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+479,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+480,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+481,"South Carolina, USA",33.836081,-81.1637245,APPROXIMATE,ChIJ49ExeWml-IgRnhcF9TKh_7k,"administrative_area_level_1,political",,South_Carolina,1,OK
+482,"South Carolina, USA",33.836081,-81.1637245,APPROXIMATE,ChIJ49ExeWml-IgRnhcF9TKh_7k,"administrative_area_level_1,political",,South_Carolina,1,OK
+483,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+484,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+485,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+486,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+487,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+488,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+489,"Indiana, USA",40.2671941,-86.1349019,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+490,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+491,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+492,"North Rhine-Westphalia, Germany",51.43323669999999,7.661593799999999,APPROXIMATE,ChIJoUhCjnwWuUcRX4_XT34yTC8,"administrative_area_level_1,political",,Germany-NW,1,OK
+493,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+494,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+495,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+496,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-NI,1,OK
+497,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+498,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-BB,1,OK
+499,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
