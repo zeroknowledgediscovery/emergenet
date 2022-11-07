@@ -1,0 +1,137 @@
+\def\MXCOL{black}
+\def\FXCOL{Orchid3}
+\def\MNCOL{SeaGreen4}
+\def\FNCOL{SeaGreen4}
+\def\NCOL{SeaGreen4}
+\def\XCOL{Tomato}
+\def\WCOL{Tomato}
+\def\YCOL{DodgerBlue4}
+\def\TEXTCOL{gray}
+\def\AXISCOL{white}
+%###################################                                            
+%###################################                                            
+\ifFIGS
+\begin{figure*}[!ht]
+  \tikzexternalenable
+  \tikzsetnextfilename{scheme}
+  \centering
+ %\tikzXtrue
+  \iftikzX  
+  \def\EPATH{e2}
+  \input{Figures/scheme}
+ \else
+  \includegraphics[width=\textwidth]{Figures/External/scheme}
+  \fi
+  \vspace{-20pt}
+  
+ \captionN{\textbf{\enet inference and applications}. \textbf{a}, Variations of
+   genomes for identical subgroups of \infl are analyzed to infer a recursive forest of conditional inference trees~\cite{Hothorn06unbiasedrecursive} -- the \enet --   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations, deletions and insertions. With these inferred dependencies we can    estimate the numerical odds of specific mutations, and by extension, the numerical value of
+   the probability of one strain giving rise to another in the wild, under  complex selection pressures from the background. b, Snapshot of decision trees  from the
+   \enet constructed for H1N1 haemagglutinnin 2018 sequences. Note that the decision tree predicting the bases at index 1274   uses the bases at 1064, 1445, 197 as features. These features are automatically selected, as being maximally predictive  of the bases be at 1274. Then, we compute predictors for each of these  feature indices, $e.g.$   trees for  index 1064, which involves index 1314 and 339 as features. Continuing, we find that the trees for index 1314 involves indices 1263, 636 and 21, and that for 1263 involves 1314, 667 and 313. The predictor for 1263  depends on 1314, and that for 1314 depends on 1263, revealing the recursive structure of \enet. c, First application: With \enet induced ability to quantify mutation probabilities,  we forecast  dominant strain(s) for the next flu season, using only  sequences collected in the previous season (and the inferred \enet, using data from the past year). d, Second application: estimation of the risk of a global pandemic posed by individual animal strains that are still not known to circulate in humans.}\label{figscheme}.
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figscheme}
+\fi  
+%#############################################                                  
+%#############################################                                  
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  \centering
+  \tikzexternalenable
+   \tikzsetnextfilename{seasonalpred_both}
+
+  \tikzXtrue 
+  \iftikzX
+  \hspace{-20pt}\resizebox{.975\linewidth}{!}{\input{Figures/seasonalpred_both}}
+   \else  \hspace{-10pt}\includegraphics[width=0.975\textwidth]{Figures/seasonalpred_both.tex}
+   \fi
+   \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figseasonal}
+\fi
+%#############################################
+%#############################################
+%#############################################
+%#############################################
+\ifFIGS
+\begin{figure*}[!ht]
+  %\tikzexternalenable
+  %\tikzsetnextfilename{scheme}
+  \centering 
+  % \iftikzX
+  % \input{Figures/External/irat_combined.png}  
+  % \vspace{0pt}   
+  
+  % \else 
+  \includegraphics[width=\textwidth]{Figures/External/IRAT_combined.png}
+ % \fi
+  \captionN{\textbf{IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained.
+  }\label{figirat}
+\end{figure*}
+\else
+\refstepcounter{figure}\label{figirat}
+\fi
+%#############################################
+%#############################################
+\ifFIGS
+
+\begin{table}[!ht]\centering
+\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{irattab}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/irat_predictions}
+\flushleft
+
+\fontsize{8}{8}\selectfont
+$^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
+$^{\star\star}$ Could not construct a \qnet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \qnet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
+$^{\star\star\star}$ These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
+\end{table}
+\else
+\refstepcounter{table}\label{irattab}
+\fi
+% #############################################
+%#############################################
+\ifFIGS
+
+\begin{table}[!ht]\centering
+\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{irattab}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/irat_predictions_current}
+\flushleft
+
+\fontsize{8}{8}\selectfont
+$^\star$ -1 indicates missing data, either from lack of human sequence data available for that virus sub-type (less than 30 strains) or missing IRAT sequence data (in the case of A/duck/New York/1996)
+\end{table}
+\else
+\refstepcounter{table}\label{irattab}
+\fi
+% #############################################
+
+
+\ifFIGS
+
+\begin{figure}[t]
+  \tikzexternalenable
+  \tikzsetnextfilename{bionorad}
+  \centering
+  %\tikzXtrue
+
+  
+  \iftikzX  
+  \input{Figures/figbionorad}
+ \else
+  \includegraphics[width=\textwidth]{Figures/External/bionorad}
+  \fi 
+  \vspace{0pt}
+\captionN{Emergence risk evaluation at scale on all 2021-2022 strains collected around the world. 6,254 sequences, total evaluation time: $<$ 15hrs. Size of the markers scale with risk}\label{figbionorad}
+\end{figure}
+\else
+\refstepcounter{figure}\label{figbionorad}
+\fi

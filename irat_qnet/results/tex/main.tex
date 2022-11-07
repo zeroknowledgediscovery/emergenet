@@ -1,0 +1,163 @@
+\documentclass[onecolumn, compsoc,10pt]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\input{preamble.tex}  
+% \input{customdef}
+\usepackage{flushend}
+\externaldocument[SI-]{SI}
+% \externaldocument[EXT-]{exfig}
+\newif\iftikzX
+\tikzXtrue
+\tikzXfalse
+\def\Extended{}
+\newif\ifFIGS
+\FIGSfalse  
+\FIGStrue
+
+% \authorcontributions{%Please provide details of author contributions here.
+% JL and TL implemented the algorithm, AE and IC interpreted results and worked on mathematical modeling and IC wrote the paper
+% }
+
+\tikzexternalenable   
+% \pgfplotsset{compat=1.18}
+\begin{document}
+
+
+
+\begin{figure}
+  \tikzexternaldisable
+  \tikzsetnextfilename{corrq}
+  \centering
+  \def\FCOL{Red1}
+  \def\AXISCOL{black!10}
+  \def\WDT{4in}
+  \def\HGT{4in}
+  \def\OPC{.2}
+
+
+
+\pgfplotsset{
+  discard if/.style 2 args={
+    x filter/.append code={
+      \edef\tempa{\thisrow{#1}}
+      \edef\tempb{#2}
+      \ifx\tempa\tempb
+      \def\pgfmathresult{inf}
+      \fi
+    }
+  },
+  discard if not/.style 2 args={
+    x filter/.append code={
+      \edef\tempa{\thisrow{#1}}
+      \edef\tempb{#2}
+      \ifx\tempa\tempb
+      \else
+      \def\pgfmathresult{inf}
+      \fi
+    }
+  },
+        % define the style of the `nodes near coords' that should be shown
+        % above the point
+        nodes near coords above style/.style={
+            nodes near coords style={
+                anchor=south,
+            },
+        },
+        % define the style of the `nodes near coords' that should be shown
+        % below the point
+        nodes near coords below style/.style={
+            nodes near coords style={
+                anchor=north, yshift=-.05in,
+            },
+        },
+        % define the style of the `nodes near coords' that should be shown
+        % below the point
+        nodes near coords right style/.style={
+            nodes near coords style={
+                anchor=west,
+            },
+        },
+        % define the style of the `nodes near coords' that should be shown
+        % below the point
+        nodes near coords null style/.style={
+            nodes near coords style={
+                anchor=west,text opacity=0,
+            },
+        },
+    }
+
+  
+  \begin{tikzpicture}[font=\bf\sffamily\fontsize{5}{5}\selectfont]
+    \def\RFILE{Figures/plotdata/fulldataframe.csv}
+      \pgfplotstableread[col sep=comma]{\RFILE}\RFILEr;
+
+    \begin{axis}[enlargelimits=false,scale only axis=true,    axis line style={\AXISCOL, opacity=1,ultra  thick, rounded corners=0pt},
+      axis on top=false,
+      grid style={dashed, thick,gray!40},
+      grid=both,
+      grid style={dashed, thick,gray!40},
+      enlargelimits=0.02, 
+      width=\WDT, 
+      height=\HGT,
+      scaled ticks = false,
+      x tick label style={yshift=-.05in,/pgf/number format/fixed,
+        /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
+      },yticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},,xticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},
+      major tick length=0pt,
+      yticklabel style={xshift=-.015in}, nodes near coords,
+            point meta=explicit symbolic,
+            table/meta=strain,
+      ]
+
+
+
+      \addplot[smooth, ultra thick, opacity=.5,mark=none, nodes near coords null style, ] table[col sep=comma,x=geometric mean of Edistances,y=pred_GM] \RFILE;
+
+      \addplot[nodes near coords null style,forget plot, name path=UB,smooth, ultra thick, mark=none,draw=none ] table[col sep=comma,x=geometric mean of Edistances,y=ub_GM] \RFILE;
+      \addplot[nodes near coords null style,forget plot, name path=LB,smooth, ultra thick, mark=none,draw=none ] table[col sep=comma,x=geometric mean of Edistances,y=lb_GM] \RFILE;
+      
+      \addplot[nodes near coords null style,forget plot,\FCOL,opacity=\OPC] fill between[of=LB and UB];
+      
+      
+      \addplot[only marks, mark=*,mark options={fill=black,scale=1.5},nodes near coords below style, discard if={strain}{A/Ohio/13/2017},discard if={strain}{A/Yunnan/14564/2015},
+                discard if={strain}{A/Hong Kong/125/2017},discard if={strain}{A/Netherlands/219/2003} ] table[x=geometric mean of Edistances,y=IRAT Emergence Estimate,col sep=comma] \RFILE;
+
+
+\pgfplotsinvokeforeach {
+                A/Ohio/13/2017,
+                A/Netherlands/219/2003,
+                A/Yunnan/14564/2015%
+            } {
+                \addplot+ [only marks, mark=*,mark options={fill=black,scale=1.5},nodes near coords below style,
+                    forget plot,
+                    nodes near coords above style,
+                    discard if not={strain}{#1},
+                ] table[x=geometric mean of Edistances,y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+            }
+\pgfplotsinvokeforeach {
+                A/Hong Kong/125/2017%
+            } {
+                \addplot+ [only marks, mark=*,mark options={fill=black,scale=1.5},nodes near coords below style,
+                    forget plot,
+                    nodes near coords right style,
+                    discard if not={strain}{#1},
+                ] table[x=geometric mean of Edistances,y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+            }
+
+
+      
+    \end{axis}
+  \end{tikzpicture}
+  
+\captionN{gm corr}\label{figpred0}
+\end{figure}
+
+
+
+
+
+
+\end{document}
+% LocalWords:  Neuraminidase subtype
