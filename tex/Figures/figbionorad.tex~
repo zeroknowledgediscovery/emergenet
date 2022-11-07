@@ -1,3 +1,0 @@
-\begin{tikzpicture}
-\node[anchor=center] (A) at (0,0) {\includegraphics[width=\textwidth]{Figures/bionorad_wcol}};
-\end{tikzpicture}
