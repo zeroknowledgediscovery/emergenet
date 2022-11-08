@@ -1,0 +1,387 @@
+\begin{tikzpicture}[font=\sffamily\fontsize{10}{9}\selectfont]
+    \def\RFILE{Figures/plotdata/fulldataframe.csv}
+  \def\WDT{4.1in}
+  \def\HGT{4.35in}
+  \def\WDTs{1.6in}
+  \def\HGTs{1.6in}
+  \def\OPC{.2}
+  \def\XFT{-.765in}
+\def\TEXTCOLA{black!50}
+\def\MCOL{DodgerBlue1!60}
+\def\DCOL{black}
+\def\TXTSZ{6}
+\def\GGCOL{black!15}
+      \def\FCOL{DarkOrange1!50}
+      \def\FCOLA{DarkOrange2!50}
+  \def\AXISCOL{black!15}
+
+  \coordinate (Z) at (0,0);
+    \node[] (A) at (Z) {
+  \begin{tikzpicture}[anchor=center]
+
+  \pgfplotsset{
+    discard if/.style 2 args={
+      x filter/.append code={
+        \edef\tempa{\thisrow{#1}}
+        \edef\tempb{#2}
+        \ifx\tempa\tempb
+        \def\pgfmathresult{inf}
+        \fi
+      }
+    },
+    discard if not/.style 2 args={
+      x filter/.append code={
+        \edef\tempa{\thisrow{#1}}
+        \edef\tempb{#2}
+        \ifx\tempa\tempb
+        \else
+        \def\pgfmathresult{inf}
+        \fi
+      }
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % above the point
+    nodes near coords above style/.style={
+      font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+      nodes near coords style={
+        anchor=south west,yshift=.07in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % above the point
+    nodes near coords axove style/.style={
+      font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+      nodes near coords style={
+        anchor=south east,yshift=.02in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % above the point
+    nodes near coords belox style/.style={
+      font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+      nodes near coords style={
+        anchor=north west,yshift=.0in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % above the point
+    nodes near coords beloxx style/.style={
+      font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+      nodes near coords style={
+        anchor=north west,yshift=.02in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % below the point
+    nodes near coords below style/.style={
+       font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+     nodes near coords style={
+        anchor=north, yshift=-.05in, xshift=-.1in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % below the point
+    nodes near coords right style/.style={
+        font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+    nodes near coords style={
+        anchor=west,xshift=.02in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % below the point
+    nodes near coords left style/.style={
+       font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+       text=\TEXTCOLA,
+    nodes near coords style={
+        anchor=east,
+        xshift=-.02in,yshift=-.04in,
+      },
+    },
+    % define the style of the `nodes near coords' that should be shown
+    % below the point
+    nodes near coords null style/.style={
+         font=\bf\fontsize{\TXTSZ}{5}\selectfont,
+      text=\TEXTCOLA,
+   nodes near coords style={
+        anchor=west,text opacity=0,
+      },
+    },
+  }
+
+
+
+    \begin{axis}[enlargelimits=false,scale only axis=true,
+      axis line style={\AXISCOL, opacity=1,thin, rounded corners=0pt},
+      grid style={thin,\GGCOL},
+      grid=both,
+      enlargelimits=0.01, 
+      width=\WDT, 
+      height=\HGT,
+      scaled ticks = false,
+      x tick label style={yshift=-.05in,/pgf/number format/fixed,
+        /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
+      },yticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},,xticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},
+      major tick length=0pt,
+      yticklabel style={xshift=-.015in}, nodes near coords,
+      point meta=explicit symbolic,
+      table/meta=strain,      axis on top=false,
+      ymax=7.6,      xlabel={geometric mean of HA and NA \qdist },ylabel={IRAT emergence score},xlabel style={yshift=-.1in},ylabel style={yshift=-.15in},
+%axis x line=bottom,
+%axis y line=left,
+ymin=2.65,
+ymax=7.7,
+      ]
+
+
+
+      \addplot[smooth, ultra thick,draw=white, opacity=1,mark=none,
+      nodes near coords null style, ] table[col sep=comma,
+      x=geometric mean of Edistances,y=pred_GM] \RFILE;
+
+      \addplot[nodes near coords null style,forget plot,
+      name path=UB,smooth, ultra thick,
+      mark=none,draw=none ] table[col sep=comma,
+      x=geometric mean of Edistances,y=ub_GM] \RFILE;
+      
+      \addplot[nodes near coords null style,
+      forget plot, name path=LB,smooth,
+      ultra thick, mark=none,draw=none ] table[col sep=comma,
+      x=geometric mean of Edistances,y=lb_GM] \RFILE;
+      
+      \addplot[nodes near coords null style,
+      forget plot,\FCOLA,opacity=1] fill between[of=LB and UB];
+      
+      
+      \addplot[only marks, mark=*,
+      mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.5},
+      nodes near coords below style,      
+      discard if={strain}{A/Shanghai/02/2013},
+      discard if={strain}{A/Indiana/08/2011},
+      discard if={strain}{A/Ohio/13/2017},
+      discard if={strain}{A/Hong Kong/125/2017},
+      discard if={strain}{A/Sichuan/06681/2021},
+      discard if={strain}{A/California/62/2018},
+      discard if={strain}{A/Bangladesh/0994/2011},
+      discard if={strain}{A/Anhui-Lujiang/39/2018},
+      discard if={strain}{A/chicken/Tennessee/17-007431-3/2017},
+      discard if={strain}{A/chicken/Tennessee/17-007147-2/2017},
+      discard if={strain}{A/Yunnan/14564/2015},
+      discard if={strain}{A/Astrakhan/3212/2020},
+      discard if={strain}{A/canine/Illinois/12191/2015},
+      discard if={strain}{A/gyrfalcon/Washington/41088/2014},
+      discard if={strain}{A/turkey/Indiana/1573-2/2016},
+      discard if={strain}{A/American wigeon/South Carolina/AH0195145/2021},
+      discard if={strain}{A/Jiangxi-Donghu/346/2013},
+      %discard if={strain}{A/swine/Shandong/1207/2016},
+      discard if={strain}{A/American green-winged teal/Washington/1957050/2014},
+      discard if={strain}{A/Northern pintail/Washington/40964/2014},
+      discard if={strain}{A/Netherlands/219/2003} ]
+      table[x=geometric mean of Edistances,
+      y=IRAT Emergence Estimate,col sep=comma] \RFILE;
+
+
+      \pgfplotsinvokeforeach {
+        A/canine/Illinois/12191/2015,
+        A/Netherlands/219/2003%
+      } {
+        \addplot+ [only marks,
+        mark=*,
+        mark options={fill=\MCOL,draw=\DCOL,scale=1.5},
+        nodes near coords below style,
+        forget plot,text=black,
+        nodes near coords above style,
+        discard if not={strain}{#1},
+        ] table[x=geometric mean of Edistances,
+        y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+      }
+
+
+      \pgfplotsinvokeforeach {
+        A/turkey/Indiana/1573-2/2016,
+        A/American green-winged teal/Washington/1957050/2014,
+        A/chicken/Tennessee/17-007147-2/2017,
+        A/Northern pintail/Washington/40964/2014,
+        A/American wigeon/South Carolina/AH0195145/2021,
+        A/chicken/Tennessee/17-007431-3/2017,A/Astrakhan/3212/2020,
+        A/Yunnan/14564/2015%
+      } {
+        \addplot+ [only marks,
+        mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.5},
+        forget plot,
+        nodes near coords right style,
+        discard if not={strain}{#1},
+        ] table[x=geometric mean of Edistances,
+        y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+      }
+
+      \pgfplotsinvokeforeach {
+       % A/swine/Shandong/1207/2016,
+        A/Indiana/08/2011,
+        A/Shanghai/02/2013,
+        A/Hong Kong/125/2017,
+        A/Sichuan/06681/2021,
+        A/Bangladesh/0994/2011,
+        A/Anhui-Lujiang/39/2018,
+        A/California/62/2018% 
+      } {
+        \addplot+ [only marks,
+        mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.50},
+        forget plot,
+        nodes near coords left style,
+        discard if not={strain}{#1},
+        ] table[x=geometric mean of Edistances,
+        y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+      }
+
+      \pgfplotsinvokeforeach {
+        A/Ohio/13/2017,
+      } {
+        \addplot+ [only marks,
+        mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.50},
+        forget plot,
+        nodes near coords axove style,
+        discard if not={strain}{#1},
+        ] table[x=geometric mean of Edistances,
+        y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+      }
+
+     \pgfplotsinvokeforeach {
+ A/gyrfalcon/Washington/41088/2014,
+      } {
+        \addplot+ [only marks,
+        mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.50},
+        forget plot,
+        nodes near coords belox style,
+        discard if not={strain}{#1},
+        ] table[x=geometric mean of Edistances,
+        y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+      }
+     \pgfplotsinvokeforeach {A/Jiangxi-Donghu/346/2013,
+      } {
+        \addplot+ [only marks,
+        mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.50},
+        forget plot,
+        nodes near coords beloxx style,
+        discard if not={strain}{#1},
+        ] table[x=geometric mean of Edistances,
+        y=IRAT Emergence Estimate,col sep=comma]\RFILE;
+      }
+
+
+      
+    \end{axis}
+  \end{tikzpicture}};
+\node[anchor=north west] (B) at ([xshift=\XFT]A.north east) {
+      \def\RFILE{Figures/plotdata/fulldataframe_sortE.csv}
+
+  \begin{tikzpicture}[anchor=center]
+\begin{axis}[enlargelimits=false,scale only axis=true,
+      axis line style={\AXISCOL, opacity=1,thin, rounded corners=0pt},
+      grid style={thin,\GGCOL},
+      grid=both,
+      enlargelimits=0.015, 
+      width=\WDTs, 
+      height=\HGTs,
+      scaled ticks = false,
+      x tick label style={yshift=-.05in,/pgf/number format/fixed,
+        /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
+      },yticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},,xticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},
+      major tick length=0pt,
+      yticklabel style={xshift=-.015in}, %nodes near coords,
+      %point meta=explicit symbolic,
+      %table/meta=strain,
+      axis on top=false,
+      ymax=7.6,
+      xmin=3.25,xmax=6.8,      xlabel={\enet emergence estimate},
+      ylabel={IRAT emergence score},,xlabel style={yshift=-.05in,xshift=-.2in},ylabel style={yshift=-.225in},
+      ]
+
+        \addplot[smooth, only marks, mark=*, mark options={fill=white,scale=.8},, opacity=1,mark=none, ] table[col sep=comma,
+      y=IRAT Emergence Estimate,x=Emergenet emergence estimate] \RFILE;
+
+      \addplot[smooth, ultra thick,draw=white, opacity=1,mark=none, ] table[col sep=comma,
+      y=pred_E,x=Emergenet emergence estimate] \RFILE;
+
+      \addplot[forget plot,
+      name path=UB,smooth, ultra thick,
+      mark=none,draw=none ] table[col sep=comma,
+      y=ub_E,x=Emergenet emergence estimate] \RFILE;
+      
+      \addplot[forget plot, name path=LB,smooth,
+      ultra thick, mark=none,draw=none ] table[col sep=comma,
+      y=lb_E,x=Emergenet emergence estimate] \RFILE;
+      
+      \addplot[forget plot,\FCOL,opacity=1] fill between[of=LB and UB];
+      
+    
+\end{axis}
+  \end{tikzpicture}
+  };
+
+
+\node[anchor=south west] (C) at ([xshift=\XFT]A.south east) {
+      \def\RFILE{Figures/plotdata/fulldataframe_sortI.csv}
+
+  \begin{tikzpicture}[anchor=center]
+\begin{axis}[enlargelimits=false,scale only axis=true,
+      axis line style={\AXISCOL, opacity=1,thin, rounded corners=0pt},
+      grid style={thin,\GGCOL},
+      grid=both,
+      enlargelimits=0.015, 
+      width=\WDTs, 
+      height=\HGTs,
+      scaled ticks = false,
+      x tick label style={yshift=-.05in,/pgf/number format/fixed,
+        /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
+      },yticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},,xticklabel style={/pgf/number format/fixed,
+        /pgf/number format/precision=2},
+      major tick length=0pt,
+      yticklabel style={xshift=-.015in}, %nodes near coords,
+      %point meta=explicit symbolic,
+      %table/meta=strain,
+      axis on top=false,
+      ymax=7.6,      xmin=3.75,xmax=6.8,
+      xlabel={\enet impact estimate},
+      ylabel={IRAT impact score},,xlabel style={yshift=-.05in,xshift=-.2in},ylabel style={yshift=-.225in},
+      ]
+
+      
+      \addplot[smooth, only marks, mark=*, mark options={fill=white,scale=.8},, opacity=1,mark=none, ] table[col sep=comma,
+      y=IRAT Impact Estimate,x=Emergenet impact estimate] \RFILE;
+
+      \addplot[smooth, ultra thick,draw=white, opacity=1,mark=none, ] table[col sep=comma,
+      y=pred_I,x=Emergenet impact estimate] \RFILE;
+
+      \addplot[forget plot,
+      name path=UB,smooth, ultra thick,
+      mark=none,draw=none ] table[col sep=comma,
+      y=ub_I,x=Emergenet impact estimate] \RFILE;
+      
+      \addplot[forget plot, name path=LB,smooth,
+      ultra thick, mark=none,draw=none ] table[col sep=comma,
+      y=lb_I,x=Emergenet impact estimate] \RFILE;
+      
+      \addplot[forget plot,\FCOL,opacity=1] fill between[of=LB and UB];
+      
+    
+\end{axis}
+  \end{tikzpicture}
+  };
+
+\node[anchor=south west] (LA) at (A.north west) {{\Large a.} \bf predicted emergence risk vs published IRAT scores};
+\node[anchor=south west,align=left] (LB) at ([xshift=.1in]B.north west) {{\Large b.} \bf estimating emergence scores};
+\node[anchor=south west] (LC) at ([xshift=.1in]C.north west) {{\Large c.} \bf estimating  impact scores};
+  
+\end{tikzpicture}
+  

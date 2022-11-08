@@ -1,0 +1,42 @@
+\documentclass[onecolumn, compsoc,10pt]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\input{preamble.tex}  
+ \input{customdef}
+\usepackage{flushend}
+\externaldocument[SI-]{SI}
+% \externaldocument[EXT-]{exfig}
+\newif\iftikzX
+\tikzXtrue
+\tikzXfalse
+\def\Extended{}
+\newif\ifFIGS
+\FIGSfalse  
+\FIGStrue
+
+% \authorcontributions{%Please provide details of author contributions here.
+% JL and TL implemented the algorithm, AE and IC interpreted results and worked on mathematical modeling and IC wrote the paper
+% }
+
+\tikzexternalenable   
+% \pgfplotsset{compat=1.18}
+\begin{document}
+
+
+
+\begin{figure}[!ht]
+  \tikzexternaldisable
+  \tikzsetnextfilename{corrq}
+  \centering
+  
+  
+  \captionN{gm corr}\label{figpred0}
+\end{figure}
+
+\vfill
+
+
+
+
+\end{document}
+% LocalWords:  Neuraminidase subtype
