@@ -509,7 +509,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/SIstyle/sistyle.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/SIstyle/sistyle.sty
 INPUT customdef.tex
 INPUT customdef.tex
-INPUT SI.aux
 INPUT main.aux
 INPUT main.aux
 OUTPUT main.aux
