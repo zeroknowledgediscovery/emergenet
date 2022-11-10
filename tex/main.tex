@@ -2,7 +2,7 @@
 \let\labelindent\relax
 \usepackage{enumitem}
 \input{preamble.tex}  
-\input{customdef}
+\input{customdef} 
 \usepackage{flushend}
 \externaldocument[SI-]{SI}
 % \externaldocument[EXT-]{exfig}
@@ -12,12 +12,9 @@
 \def\Extended{}
 \newif\ifFIGS
 \FIGSfalse  
-\FIGStrue
+\FIGStrue 
 
-% \authorcontributions{%Please provide details of author contributions here.
-% JL and TL implemented the algorithm, AE and IC interpreted results and worked on mathematical modeling and IC wrote the paper
-% }
- 
+
 \tikzexternalenable   
 % \pgfplotsset{compat=1.18}
 \begin{document}  
@@ -96,7 +93,7 @@ Our analysis shows that this risk scales as the average log-likelihood of jumpin
 %We hypothesize that a lower average q-distance between the strain in question and circulating human strains should correspond to a higher emergence risk. Hence, we expect to see a high negative correlation between q-distance and IRAT grade, which assigns 1 to be the lowest risk and 10 to be the highest risk.
 Importantly, each \erisk score  is  computable in approximately $8-12$ seconds as opposed to potentially weeks taken by IRAT experimental assays, and this dramatic reduction in time and cost  opens the door to fully exploiting the  current surveillance capacity.
 
-Salient points to be noted about our IRAT approximation scheme are: 1) \erisk is a function of time; the background distribution of strains matters, and
+Salient points  about our IRAT approximation scheme are: 1) \erisk is a function of time; the background distribution of strains matters, and
 we show that recomputing the risks for a different time changes (worsens) the correlation with the IRAT estimate. We also show how the risks evolve over time according to our model (See Table~\ref{tabwwXXXX}  and SI-Fig.~\ref{SI-irat}) 2) We  train a linear model to estimate the IRAT emergence score from the \erisk values. Also, since the IRAT impact score is strongly correlated with the emergence score (correlation of $0.8015$), we  trained a linear model to estimate the impact score as well from the  \erisk. We show these results in Table~\ref{tabXXXX}. 3) 
 The available IRAT scores are well approximated within our framework, albeit with  four outliers. For three of these, the approximation would be better if IRAT had actually  underestimated their risk, which include one H3N2 CIV and two H7N9. While the zoonotic potential of H3 CIV is unknown~\cite{martinez2020characterizing}, susceptibility to infection with at least three different \infl subtypes (H3N8, H3N2 and H1N1)~\cite{chang1976influenza,houser1980evidence,chen2018emergence} and diverse human influenza viruses implies the potential to produce novel human-adapted reassortment viruses~\cite{lowen2017constraints}.% Compared to strains in which the full genome has evolved in a non-human host, such
 % reassortant viruses may more easily overcome the species barrier to cause an outbreak in humans~\cite{lowen2017constraints}.
@@ -271,7 +268,20 @@ In this study, we use sequences for the Hemaglutinnin (HA)  and Neuraminidase (N
 \bibliographystyle{naturemag}
 \bibliography{allbib}
 
+
+\clearpage                                                                      
+\setcounter{figure}{0}                                    \renewcommand{\figurename}{Extended Data Figure}                               
+\setcounter{table}{0}                                     
+\renewcommand{\tablename}{Extended Data Table}                                 
+\input{extfiguresandtables.tex}
+
+
 \clearpage
+empty
+
+
+\clearpage
+
 
 
 {\color{magenta}
@@ -349,14 +359,6 @@ We also show that this new metric allows us to  assess the risk posed by novel s
 {\color{Red1} Discussion? 
   Thus, the tool proposed in this study  can  profoundly impact  bio-surveillance strategies. The ability to rank newly collected strains by risk at scale, allows actionable estimates of  pandemic risks via  quantifying the odds of a particular strain spilling into to the human population. Additionally,  for strains already circulating in humans, our tools can estimate the odds  of specific  new mutan varaints emerging, and their ability to  escape current vaccines. %This study potentially represents an important step forward in modeling emerging pathogens, with uncharted impact on science and health, particularly as we prepare for the aftermath of \cov.
 }
-
-
-\clearpage                                                                      
-\setcounter{figure}{0}                                    \renewcommand{\figurename}{Extended Data Figure}                               
-\setcounter{table}{0}                                     
-\renewcommand{\tablename}{Extended Data Table}                                 
-\input{extfiguresandtables.tex}
-
 
 \end{document}
 % LocalWords:  Neuraminidase subtype

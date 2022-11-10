@@ -1,4 +1,4 @@
-%#############################################
+
 %#############################################
 \ifFIGS
 \begin{table*}[!ht]\centering
@@ -12,6 +12,112 @@ for Influenza A vaccine composition}\label{tabperf}\centering
 \else
 \refstepcounter{table}\label{tabperf}
 \fi
+%#############################################
+%#############################################
+
+
+%#############################################
+%#############################################
+\begin{table*}[!ht]
+\def\ACOL{teal!30}
+\def\BCOL{Red1!30}
+\def\CCOL{gray!30}
+\captionN{Examples: \qnet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large q-distance, and the converse (rows 6-9)}\label{tabex}
+\input{Figures/tabdata/example_qdistance}
+\flushleft
+$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in q-distance from sequence B, arising only from a change in the background population.
+\end{table*}
+%#############################################
+%#############################################
+
+
+
+
+
+%#############################################
+%#############################################
+\begin{table*}[!ht]
+ \mnp{2.75in}{ \centering
+ \captionN{Correlation between q-distance and edit distance between sequence pairs}\label{tabcor}
+\sffamily\fontsize{8}{8}\selectfont
+\begin{tabular}{L{1.35in}|L{.65in}}\hline
+Phenotypes & Correlation \\\hline
+ Influenza H1N1 HA  &0.76\\\hline
+ Influenza H1N1 NA &0.74\\\hline
+ Influenza H3N2 HA &0.85\\\hline
+ Influenza H3N2 NA &0.79\\\hline
+% \hcov &0.52\\\hline
+\end{tabular}
+}\hfill
+\mnp{3.75in}{  \centering
+ \captionN{Number of sequences collected from public databases}\label{tabseq}
+\sffamily\fontsize{8}{8}\selectfont
+\input{Figures/tabdata/total_seqs}
+}
+\end{table*}
+%#############################################
+%#############################################
+
+%#############################################
+%#############################################
+\begin{table}\centering
+\captionN{H1N1 HA Northern Hemisphere}\label{tabrec0}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/north_h1n1_ha.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+
+%#############################################
+%#############################################
+
+\begin{table}[!ht]\centering
+\captionN{H1N1 HA Southern Hemisphere}\label{tabrec1}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/south_h1n1_ha.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+
+%#############################################
+%#############################################
+%#############################################
+%#############################################
+
+\begin{table}[!ht]\centering
+\captionN{H3N2 HA Northern Hemisphere}\label{tabrec4}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/north_h3n2_ha.tex}
+\flushleft
+
+\fontsize{8}{8}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+
+%#############################################
+%#############################################
+
+\begin{table}[!ht]\centering
+\captionN{H3N2 HA Southern Hemisphere}\label{tabrec5}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/south_h3n2_ha.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
 %#############################################
 %#############################################
 
@@ -42,3 +148,25 @@ for Influenza A vaccine composition}\label{tabperf}\centering
 \fi
 %#############################################
 %#############################################
+
+
+%#############################################
+%#############################################
+
+\begin{table}\centering
+\captionN{Riskiest Strains Currently Circulating in Swine}\label{tabrec11}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/swine_combined}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Converted IRAT Score computed using regression generated from the IRAT vs. Qnet comparison
+\end{table}
+%#############################################
+%#############################################
+
+
+
+

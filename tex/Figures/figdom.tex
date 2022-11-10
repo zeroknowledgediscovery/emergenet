@@ -1,0 +1,72 @@
+
+\begin{tikzpicture}[font=\bf\sffamily\fontsize{8}{8}\selectfont]
+\def\DATAA{Figures/plotdata/h1n1humanHA_dom_ldist.dat}
+\def\DATAB{Figures/plotdata/h1n1humanNA_dom_ldist.dat}
+\def\DATAC{Figures/plotdata/h3n2humanHA_dom_ldist.dat}
+\def\DATAD{Figures/plotdata/h3n2humanNA_dom_ldist.dat}
+
+\node[] (A) at (0,0) {
+\begin{tikzpicture}
+\begin{groupplot}[group style={
+        group size=2 by 2,
+        xlabels at=edge bottom,
+        xticklabels at=edge bottom,
+        vertical sep=0.2in, horizontal sep=.35in,
+    },height=2in,width=2in]
+
+\nextgroupplot[ylabel=probability,ylabel style={xshift=-.8in,yshift=-.1in}]
+\addplot [
+    hist={
+        bins=50,
+        data min=0,
+        data max=30,
+density=true
+    }  , fill=black!50
+] table [y index=0] {\DATAA};
+\addlegendentry{HA H1N1}
+
+
+\nextgroupplot[]
+\addplot [
+    hist={
+        bins=50,
+        data min=0,
+        data max=30,
+density=true
+    }    , fill=black!50
+] table [y index=0] {\DATAB};
+\addlegendentry{NA H1N1}
+
+
+\nextgroupplot[xlabel=Edit Distance from Dominant Strain,xlabel style={xshift=.8in}]
+\addplot [
+    hist={
+        bins=50,
+        data min=0,
+        data max=30,
+density=true
+    }    , fill=black!50
+] table [y index=0] {\DATAC};
+\addlegendentry{HA H3N2}
+
+
+\nextgroupplot[]
+\addplot [
+    hist={
+        bins=50,
+        data min=0,
+        data max=30,
+density=true
+    }    , fill=black!50
+] table [y index=0] {\DATAD};
+\addlegendentry{NA H3N2}
+
+
+\end{groupplot}
+\end{tikzpicture}
+};
+
+\node [anchor=south west] (L1) at (A.north west) {{\large a.} Distribution around dominant strain};
+
+\end{tikzpicture}
+

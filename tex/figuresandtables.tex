@@ -58,17 +58,16 @@
 %#############################################
 \ifFIGS
 \begin{figure*}[!ht]
-  %\tikzexternalenable
-  %\tikzsetnextfilename{scheme}
-  \centering 
-  % \iftikzX
-  % \input{Figures/External/irat_combined.png}  
-  % \vspace{0pt}   
-  
-  % \else 
-  \includegraphics[width=\textwidth]{Figures/External/IRAT_combined.png}
- % \fi
-  \captionN{\textbf{IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained.
+  \tikzexternalenable
+  \tikzsetnextfilename{figpred}
+  \centering
+% \tikzXtrue
+  \iftikzX 
+   \input{Figures/figpred}  
+   \else 
+   \includegraphics[width=\textwidth]{Figures/External/figpred}
+   \fi
+  \captionN{\textbf{IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. % Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained.
   }\label{figirat}
 \end{figure*}
 \else
@@ -95,43 +94,25 @@ $^{\star\star\star}$ These strains did not have enough human sequence data to ge
 \refstepcounter{table}\label{irattab}
 \fi
 % #############################################
-%#############################################
-\ifFIGS
-
-\begin{table}[!ht]\centering
-\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{irattab}
-
-\sffamily\fontsize{7}{8}\selectfont
-
-\input{Figures/tabdata/irat_predictions_current}
-\flushleft
-
-\fontsize{8}{8}\selectfont
-$^\star$ -1 indicates missing data, either from lack of human sequence data available for that virus sub-type (less than 30 strains) or missing IRAT sequence data (in the case of A/duck/New York/1996)
-\end{table}
-\else
-\refstepcounter{table}\label{irattab}
-\fi
-% #############################################
 
 
-\ifFIGS
+% \ifFIGS
 
-\begin{figure}[t]
-  \tikzexternalenable
-  \tikzsetnextfilename{bionorad}
-  \centering
-  %\tikzXtrue
+% \begin{figure}[t]
+%   \tikzexternalenable
+%   \tikzsetnextfilename{bionorad}
+%   \centering
+%   \tikzXtrue
 
   
-  \iftikzX  
-  \input{Figures/figbionorad}
- \else
-  \includegraphics[width=\textwidth]{Figures/External/bionorad}
-  \fi 
-  \vspace{0pt}
-\captionN{Emergence risk evaluation at scale on all 2021-2022 strains collected around the world. 6,254 sequences, total evaluation time: $<$ 15hrs. Size of the markers scale with risk}\label{figbionorad}
-\end{figure}
-\else
-\refstepcounter{figure}\label{figbionorad}
-\fi
+%   \iftikzX  
+%   \input{Figures/figbionorad}
+%  \else
+%   \includegraphics[width=\textwidth]{Figures/External/bionorad}
+%   \fi 
+%   \vspace{0pt}
+% \captionN{Emergence risk evaluation at scale on all 2021-2022 strains collected around the world. 6,254 sequences, total evaluation time: $<$ 15hrs. Size of the markers scale with risk}\label{figbionorad}
+% \end{figure}
+% \else
+% \refstepcounter{figure}\label{figbionorad}
+% \fi
