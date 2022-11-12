@@ -257,43 +257,6 @@
 \newblock \emph{\bibinfo{journal}{Nature communications}}
   \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{1--5} (\bibinfo{year}{2020}).
 
-\bibitem{martinez2020characterizing}
-\bibinfo{author}{Martinez-Sobrido, L.} \emph{et~al.}
-\newblock \bibinfo{title}{Characterizing emerging canine h3 influenza viruses}.
-\newblock \emph{\bibinfo{journal}{PLoS pathogens}}
-  \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{e1008409}
-  (\bibinfo{year}{2020}).
-
-\bibitem{chang1976influenza}
-\bibinfo{author}{Chang, C.}, \bibinfo{author}{New, A.},
-  \bibinfo{author}{Taylor, J.} \& \bibinfo{author}{Chiang, H.}
-\newblock \bibinfo{title}{Influenza virus isolations from dogs during a human
-  epidemic in taiwan}.
-\newblock \bibinfo{type}{Tech. Rep.}, \bibinfo{institution}{NAVAL MEDICAL
-  RESEARCH UNIT NO 2 MANILA (PHILIPPINES)} (\bibinfo{year}{1976}).
-
-\bibitem{houser1980evidence}
-\bibinfo{author}{Houser, R.} \& \bibinfo{author}{Heuschele, W.}
-\newblock \bibinfo{title}{Evidence of prior infection with influenza a/texas/77
-  (h3n2 (virus in dogs with clinical parainfluenza.}
-\newblock \emph{\bibinfo{journal}{Canadian Journal of Comparative Medicine}}
-  \textbf{\bibinfo{volume}{44}}, \bibinfo{pages}{396} (\bibinfo{year}{1980}).
-
-\bibitem{chen2018emergence}
-\bibinfo{author}{Chen, Y.} \emph{et~al.}
-\newblock \bibinfo{title}{Emergence and evolution of novel reassortant
-  influenza a viruses in canines in southern china}.
-\newblock \emph{\bibinfo{journal}{MBio}} \textbf{\bibinfo{volume}{9}},
-  \bibinfo{pages}{e00909--18} (\bibinfo{year}{2018}).
-
-\bibitem{lowen2017constraints}
-\bibinfo{author}{Lowen, A.~C.}
-\newblock \bibinfo{title}{Constraints, drivers, and implications of influenza a
-  virus reassortment}.
-\newblock \emph{\bibinfo{journal}{Annual review of virology}}
-  \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{105--121}
-  (\bibinfo{year}{2017}).
-
 \bibitem{goldberger2005genomic}
 \bibinfo{author}{Goldberger, A.~L.} \& \bibinfo{author}{Peng, C.-K.}
 \newblock \bibinfo{title}{Genomic classification using an information-based
