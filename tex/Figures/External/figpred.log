@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  9 NOV 2022 20:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  15 NOV 2022 23:03
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1542,12 +1542,6 @@ Package: sistyle 2008/07/16 v2.3a SI units and numbers (DNJ Els)
 )) (./customdef.tex)
 Package xr Info: IMPORTING LABELS FROM SI.aux on input line 7.
 
-LaTeX Warning: Label `SI-tabrec11' multiply defined.
-
-
-LaTeX Warning: Label `SI-irattab' multiply defined.
-
-
 LaTeX Warning: Label `SI-tabreg' multiply defined.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -1556,84 +1550,84 @@ File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box111
 )
 No file ./Figures/External/figpred.aux.
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 20.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 58.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 58.
 LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 58.
 LaTeX Font Info:    Trying to load font information for OMX+txex on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 20.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 2
-0.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <5.01874> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <5.01874> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <7.02625> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <7.02625> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8.03> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8.03> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.03374> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <9.03374> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12.045> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12.045> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <17.06374> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <17.06374> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <20.075> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <20.075> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <24.09> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <24.09> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 58.
 -- Lines per column: 64 (approximate, difference = 2.54019pt).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1656,7 +1650,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 20.
+Package hyperref Info: Link coloring ON on input line 58.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1666,14 +1660,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count462
 )
-LaTeX Info: Redefining \ref on input line 20.
-LaTeX Info: Redefining \pageref on input line 20.
-LaTeX Info: Redefining \nameref on input line 20.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 20.
+ on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1712,154 +1706,154 @@ your preamble.
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
 )
-LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 20.
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 58.
 
-LaTeX Font Info:    Trying to load font information for OT1+ccr on input line 2
-0.
+LaTeX Font Info:    Trying to load font information for OT1+ccr on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/concmath/ot1ccr.fd
 File: ot1ccr.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
 )
-LaTeX Font Info:    Trying to load font information for OML+ccm on input line 2
-0.
+LaTeX Font Info:    Trying to load font information for OML+ccm on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/concmath/omlccm.fd
 File: omlccm.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
 )
 LaTeX Font Info:    Trying to load font information for OMS+ccsy on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/concmath/omsccsy.fd
 File: omsccsy.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
 )
 LaTeX Font Info:    Trying to load font information for OMX+ccex on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/concmath/omxccex.fd
 File: omxccex.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
 )
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <9.53561> on input line 20.
+(Font)              <9.53561> on input line 58.
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <6.6749> on input line 20.
+(Font)              <6.6749> on input line 58.
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <4.7678> on input line 20.
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 2
-0.
+(Font)              <4.7678> on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 2
-0.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 20
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 58
 .
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 2
-0.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 2
-0.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 2
-0.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 5
+8.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for OT1+txss on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txss.fd
 File: ot1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 9.05879pt on input line 20.
+(Font)              scaled to size 9.05879pt on input line 58.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 6.34113pt on input line 20.
+(Font)              scaled to size 6.34113pt on input line 58.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 4.52939pt on input line 20.
+(Font)              scaled to size 4.52939pt on input line 58.
 LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
-20.
+58.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <10> on input line 23.
+(Font)              <10> on input line 61.
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <7> on input line 23.
+(Font)              <7> on input line 61.
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <5> on input line 23.
+(Font)              <5> on input line 61.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 23.
+(Font)              scaled to size 9.49997pt on input line 61.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 23.
+(Font)              scaled to size 6.64998pt on input line 61.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 23.
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
-3.
+(Font)              scaled to size 4.74998pt on input line 61.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 6
+1.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 25.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 63.
 
 Package natbib Warning: Citation `shao2017evolution' on page 1 undefined on inp
-ut line 25.
+ut line 63.
 
 
 Package natbib Warning: Citation `mills2004transmissibility' on page 1 undefine
-d on input line 25.
+d on input line 63.
 
 
 Package natbib Warning: Citation `reid2003origin' on page 1 undefined on input 
-line 25.
+line 63.
 
 
 Package natbib Warning: Citation `landolt2007up' on page 1 undefined on input l
-ine 25.
+ine 63.
 
 
 Package natbib Warning: Citation `dos2016influenza' on page 1 undefined on inpu
-t line 30.
+t line 68.
 
 
 Package natbib Warning: Citation `huddleston2020integrating' on page 1 undefine
-d on input line 30.
+d on input line 68.
 
 
 Package natbib Warning: Citation `boni2008vaccination' on page 1 undefined on i
-nput line 30.
+nput line 68.
 
 
 Package natbib Warning: Citation `dos2016influenza' on page 1 undefined on inpu
-t line 30.
+t line 68.
 
 
 Package natbib Warning: Citation `tricco2013comparing' on page 1 undefined on i
-nput line 30.
+nput line 68.
 
 
 Package natbib Warning: Citation `neher2014predicting' on page 1 undefined on i
-nput line 30.
+nput line 68.
 
 
 Package natbib Warning: Citation `huddleston2020integrating' on page 1 undefine
-d on input line 30.
+d on input line 68.
 
 
 Package natbib Warning: Citation `shao2017evolution' on page 1 undefined on inp
-ut line 30.
+ut line 68.
 
 
 Package natbib Warning: Citation `reid2003origin' on page 1 undefined on input 
-line 30.
+line 68.
 
 
 Package natbib Warning: Citation `vergara2014ns' on page 1 undefined on input l
-ine 30.
+ine 68.
 
 (./figuresandtables.tex
 The command '\includegraphics [width=\textwidth ]{Figures/External/scheme}' has
@@ -4181,286 +4175,313 @@ Overfull \hbox (5.4742pt too wide) in paragraph at lines 1--86
  [][] 
  []
 
+(./Figures/tabdata/highrisk.tex)
+The command '\includegraphics [width=.9\textwidth ]{Figures/riskyphylo6_collaps
+ed_19}' has been optimized away. Use '/tikz/external/optimize=false' to disable
+ this.
 )
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 36--36
-[][] 
- []
+
+Package natbib Warning: Citation `wille2021accurately' on page 1 undefined on i
+nput line 72.
+
+
+Package natbib Warning: Citation `pulliam2009ability' on page 1 undefined on in
+put line 72.
+
+
+Package natbib Warning: Citation `grewelle2020larger' on page 1 undefined on in
+put line 72.
+
+
+Package natbib Warning: Citation `grange2021ranking' on page 1 undefined on inp
+ut line 72.
 
 
 Package natbib Warning: Citation `Influenz24:online' on page 2 undefined on inp
-ut line 37.
-
-
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 39--39
-[][] 
- []
+ut line 75.
 
 
 Package natbib Warning: Citation `gamblin2010influenza' on page 2 undefined on 
-input line 39.
+input line 94.
+
+
+Package natbib Warning: Citation `shao2017evolution' on page 2 undefined on inp
+ut line 94.
 
 
 Package natbib Warning: Citation `posada1998modeltest' on page 2 undefined on i
-nput line 39.
+nput line 94.
 
 
-Package natbib Warning: Citation `ahlquist2002rna' on page 2 undefined on input
- line 41.
+Package natbib Warning: Citation `eng2014predicting' on page 2 undefined on inp
+ut line 94.
 
 
-Package natbib Warning: Citation `chen2006avian' on page 2 undefined on input l
-ine 41.
+Package natbib Warning: Citation `grange2021ranking' on page 2 undefined on inp
+ut line 94.
 
 
-Package natbib Warning: Citation `woolthuis2016long' on page 2 undefined on inp
-ut line 41.
+Package natbib Warning: Citation `ahlquist2002rna' on page 3 undefined on input
+ line 96.
 
 
-Package natbib Warning: Citation `fan2012role' on page 2 undefined on input lin
-e 41.
+Package natbib Warning: Citation `chen2006avian' on page 3 undefined on input l
+ine 96.
 
 
-Package natbib Warning: Citation `van2016differential' on page 2 undefined on i
-nput line 41.
+Package natbib Warning: Citation `woolthuis2016long' on page 3 undefined on inp
+ut line 96.
 
 
-Package natbib Warning: Citation `berkhoff2007assessment' on page 2 undefined o
-n input line 41.
+Package natbib Warning: Citation `fan2012role' on page 3 undefined on input lin
+e 96.
 
 
-Package natbib Warning: Citation `van2012evasion' on page 2 undefined on input 
-line 41.
+Package natbib Warning: Citation `van2016differential' on page 3 undefined on i
+nput line 96.
 
 
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 44--44
-[][] 
- []
+Package natbib Warning: Citation `berkhoff2007assessment' on page 3 undefined o
+n input line 96.
 
 
-LaTeX Warning: Reference `figscheme' on page 2 undefined on input line 46.
+Package natbib Warning: Citation `van2012evasion' on page 3 undefined on input 
+line 96.
 
 
-Package natbib Warning: Citation `Hothorn06unbiasedrecursive' on page 2 undefin
-ed on input line 46.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 99.
 
 
-LaTeX Warning: Reference `figscheme' on page 2 undefined on input line 46.
+Package natbib Warning: Citation `Hothorn06unbiasedrecursive' on page 3 undefin
+ed on input line 99.
 
 
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 49--49
-[][] 
- []
-
-
-LaTeX Warning: Marginpar on page 4 moved.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 99.
 
 
 Package natbib Warning: Citation `wood2012reproducibility' on page 4 undefined 
-on input line 50.
+on input line 103.
 
 
 Package natbib Warning: Citation `huddleston2020integrating' on page 4 undefine
-d on input line 50.
+d on input line 103.
 
 
-LaTeX Warning: Reference `q-distance' on page 4 undefined on input line 55.
+LaTeX Warning: Reference `q-distance' on page 4 undefined on input line 106.
 
 
-Package natbib Warning: Citation `cover' on page 4 undefined on input line 55.
+Package natbib Warning: Citation `cover' on page 4 undefined on input line 106.
+
+
+
+LaTeX Warning: Reference `thmbnd' on page 4 undefined on input line 106.
 
 
 Package natbib Warning: Citation `varadhan2010large' on page 4 undefined on inp
-ut line 57.
+ut line 106.
 
 
-LaTeX Warning: Reference `figscheme' on page 4 undefined on input line 64.
+LaTeX Warning: Reference `SI-tabex' on page 4 undefined on input line 106.
 
 
-LaTeX Warning: Reference `figscheme' on page 4 undefined on input line 64.
+LaTeX Warning: Reference `figscheme' on page 5 undefined on input line 112.
 
 
-LaTeX Warning: Reference `figscheme' on page 4 undefined on input line 64.
+LaTeX Warning: Reference `figscheme' on page 5 undefined on input line 112.
 
 
-Package natbib Warning: Citation `agor2018models' on page 4 undefined on input 
-line 74.
+LaTeX Warning: Reference `figscheme' on page 5 undefined on input line 112.
 
 
-LaTeX Warning: Reference `dompred' on page 4 undefined on input line 75.
+Package natbib Warning: Citation `agor2018models' on page 5 undefined on input 
+line 123.
 
 
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 78--78
-[][] 
- []
+LaTeX Warning: Reference `dompred' on page 5 undefined on input line 124.
 
 
-LaTeX Warning: Reference `tabperf' on page 4 undefined on input line 79.
+LaTeX Warning: Reference `tabperf' on page 5 undefined on input line 128.
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 79.
+LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 128.
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 80.
+LaTeX Warning: Reference `figseasonal' on page 5 undefined on input line 129.
 
 
-Package natbib Warning: Citation `cobey2018poor' on page 4 undefined on input l
-ine 80.
+LaTeX Warning: Reference `SI-tabrec0' on page 5 undefined on input line 129.
 
 
-Package natbib Warning: Citation `gouma2020antigenic' on page 4 undefined on in
-put line 80.
+Package natbib Warning: Citation `cobey2018poor' on page 5 undefined on input l
+ine 129.
 
 
-Package natbib Warning: Citation `huddleston2020integrating' on page 4 undefine
-d on input line 80.
+Package natbib Warning: Citation `gouma2020antigenic' on page 5 undefined on in
+put line 129.
 
 
-Package natbib Warning: Citation `neher2014predicting' on page 4 undefined on i
-nput line 80.
-
-
-Package natbib Warning: Citation `huddleston2020integrating' on page 4 undefine
-d on input line 80.
-
-
-Package natbib Warning: Citation `neher2014predicting' on page 4 undefined on i
-nput line 80.
-
-
-LaTeX Warning: Reference `eqrho' on page 5 undefined on input line 91.
-
-
-LaTeX Warning: Reference `figirat' on page 5 undefined on input line 92.
-
-
-LaTeX Warning: Reference `tabwwXXXX' on page 5 undefined on input line 97.
-
-
-LaTeX Warning: Reference `tabXXXX' on page 5 undefined on input line 97.
-
-
-Package natbib Warning: Citation `martinez2020characterizing' on page 5 undefin
-ed on input line 98.
-
-
-Package natbib Warning: Citation `chang1976influenza' on page 5 undefined on in
-put line 98.
-
-
-Package natbib Warning: Citation `houser1980evidence' on page 5 undefined on in
-put line 98.
-
-
-Package natbib Warning: Citation `chen2018emergence' on page 5 undefined on inp
-ut line 98.
-
-
-Package natbib Warning: Citation `lowen2017constraints' on page 5 undefined on 
-input line 98.
-
-
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 113--113
-[][] 
- []
-
-
-LaTeX Warning: Reference `tabeeeXXXX' on page 5 undefined on input line 115.
-
-
-LaTeX Warning: Reference `figXXXXXeee' on page 5 undefined on input line 115.
-
-
-Package natbib Warning: Citation `posada1998modeltest' on page 5 undefined on i
-nput line 216.
-
-
-Package natbib Warning: Citation `goldberger2005genomic' on page 5 undefined on
- input line 216.
-
-
-Package natbib Warning: Citation `huelsenbeck1997phylogeny' on page 5 undefined
- on input line 216.
+Package natbib Warning: Citation `huddleston2020integrating' on page 5 undefine
+d on input line 129.
 
 
 Package natbib Warning: Citation `neher2014predicting' on page 5 undefined on i
-nput line 216.
+nput line 129.
 
 
-Package natbib Warning: Citation `VanderMeer2010' on page 5 undefined on input 
-line 216.
+Package natbib Warning: Citation `huddleston2020integrating' on page 5 undefine
+d on input line 129.
 
 
-Package natbib Warning: Citation `Smith2009' on page 5 undefined on input line 
-216.
+Package natbib Warning: Citation `neher2014predicting' on page 5 undefined on i
+nput line 129.
 
 
-Package natbib Warning: Citation `mollentze2021identifying' on page 5 undefined
- on input line 217.
+LaTeX Warning: Reference `eqrho' on page 6 undefined on input line 139.
 
 
-Package natbib Warning: Citation `maher2021predicting' on page 5 undefined on i
-nput line 217.
+LaTeX Warning: Reference `figirat' on page 6 undefined on input line 139.
+
+
+LaTeX Warning: Reference `tabwwXXXX' on page 6 undefined on input line 142.
+
+
+LaTeX Warning: Reference `tabXXXX' on page 6 undefined on input line 144.
+
+
+LaTeX Warning: Reference `tabeeeXXXX' on page 6 undefined on input line 144.
+
+
+LaTeX Warning: Reference `figXXXXXeee' on page 6 undefined on input line 144.
+
+
+Overfull \hbox (18.87766pt too wide) in paragraph at lines 147--147
+[][] 
+ []
+
+
+Package natbib Warning: Citation `posada1998modeltest' on page 6 undefined on i
+nput line 149.
+
+
+Package natbib Warning: Citation `goldberger2005genomic' on page 6 undefined on
+ input line 149.
+
+
+Package natbib Warning: Citation `huelsenbeck1997phylogeny' on page 6 undefined
+ on input line 149.
+
+
+Package natbib Warning: Citation `neher2014predicting' on page 6 undefined on i
+nput line 149.
+
+
+Package natbib Warning: Citation `VanderMeer2010' on page 6 undefined on input 
+line 149.
+
+
+Package natbib Warning: Citation `Smith2009' on page 6 undefined on input line 
+149.
+
+
+Package natbib Warning: Citation `mollentze2021identifying' on page 6 undefined
+ on input line 150.
+
+
+Package natbib Warning: Citation `maher2021predicting' on page 6 undefined on i
+nput line 150.
 
 (./method.tex
 
-LaTeX Warning: Reference `figscheme' on page 5 undefined on input line 7.
+LaTeX Warning: Reference `figscheme' on page 6 undefined on input line 6.
 
 
-Package natbib Warning: Citation `hernandez2018algorithmically' on page 5 undef
-ined on input line 7.
+Package natbib Warning: Citation `hernandez2018algorithmically' on page 6 undef
+ined on input line 6.
 
 
-Package natbib Warning: Citation `cover' on page 5 undefined on input line 7.
+Package natbib Warning: Citation `vanmarcke2010random' on page 7 undefined on i
+nput line 18.
 
 
-LaTeX Warning: Reference `fundeq' on page 5 undefined on input line 7.
+Package natbib Warning: Citation `Hothorn06unbiasedrecursive' on page 7 undefin
+ed on input line 26.
 
 
-Package natbib Warning: Citation `vanmarcke2010random' on page 6 undefined on i
-nput line 15.
+Package natbib Warning: Citation `cover' on page 7 undefined on input line 33.
 
 
-Package natbib Warning: Citation `Hothorn06unbiasedrecursive' on page 6 undefin
-ed on input line 23.
+LaTeX Warning: Reference `fundeq' on page 7 undefined on input line 33.
 
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9.53561> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 35.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 39.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6.6749> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 35.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 39.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <4.7678> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 35.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 39.
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 3
-5.
+9.
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.6749> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 36.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 40.
 
-Package natbib Warning: Citation `manning1999foundations' on page 6 undefined o
-n input line 36.
-
-
-Package natbib Warning: Citation `cover' on page 6 undefined on input line 38.
+Package natbib Warning: Citation `manning1999foundations' on page 7 undefined o
+n input line 40.
 
 
-LaTeX Warning: Reference `fundeq' on page 7 undefined on input line 72.
+Package natbib Warning: Citation `cover' on page 7 undefined on input line 42.
 
 
-LaTeX Warning: Reference `fundeq' on page 7 undefined on input line 91.
+LaTeX Warning: Reference `thmbnd' on page 8 undefined on input line 77.
+
+
+LaTeX Warning: Reference `thmbnd' on page 8 undefined on input line 91.
+
+
+LaTeX Warning: Reference `fundeq' on page 8 undefined on input line 91.
+
+
+LaTeX Warning: Reference `thmbnd' on page 8 undefined on input line 111.
+
+
+LaTeX Warning: Reference `fundeq' on page 8 undefined on input line 111.
+
+
+LaTeX Warning: Reference `defmem' on page 9 undefined on input line 127.
+
+
+LaTeX Warning: Reference `defqdistance' on page 9 undefined on input line 127.
+
+
+Package natbib Warning: Citation `cover' on page 9 undefined on input line 130.
+
+
+
+Package natbib Warning: Citation `fedotov2003refinements' on page 9 undefined o
+n input line 142.
+
+
+LaTeX Warning: Reference `eqLB' on page 9 undefined on input line 158.
+
+
+LaTeX Warning: Reference `eqUB' on page 9 undefined on input line 158.
 
 )
 
-Package natbib Warning: Citation `mcauley2019influenza' on page 7 undefined on 
-input line 253.
+Package natbib Warning: Citation `mcauley2019influenza' on page 9 undefined on 
+input line 303.
 
 
-Package natbib Warning: Citation `hatcher2017virus' on page 7 undefined on inpu
-t line 253.
+Package natbib Warning: Citation `hatcher2017virus' on page 9 undefined on inpu
+t line 303.
 
 
-Package natbib Warning: Citation `bogner2006global' on page 7 undefined on inpu
-t line 253.
+Package natbib Warning: Citation `bogner2006global' on page 9 undefined on inpu
+t line 303.
+
+
+LaTeX Warning: Reference `SI-tabseq' on page 9 undefined on input line 303.
 
 No file ./Figures/External/figpred.bbl.
 (./extfiguresandtables.tex (./Figures/tabdata/improvement_qnet.tex
@@ -4475,101 +4496,107 @@ Overfull \hbox (2.58057pt too wide) in paragraph at lines 1--11
  [][] 
  []
 
+(./Figures/tabdata/example_qdistance.tex)
+LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 51.
+(./Figures/tabdata/total_seqs.tex) (./Figures/tabdata/north_h1n1_ha.tex
+LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <7> not available
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 1.
+) (./Figures/tabdata/south_h1n1_ha.tex) (./Figures/tabdata/north_h3n2_ha.tex) (
+./Figures/tabdata/south_h3n2_ha.tex)
 The command '\includegraphics [width=0.87\textwidth ]{Figures/External/sequence
 .pdf}' has been optimized away. Use '/tikz/external/optimize=false' to disable 
 this.
-)
+(./Figures/tabdata/swine_combined.tex))
 
-Package natbib Warning: Citation `rulli2017nexus' on page 10 undefined on input
- line 293.
-
-
-Package natbib Warning: Citation `chua2002anthropogenic' on page 10 undefined o
-n input line 293.
+Package natbib Warning: Citation `rulli2017nexus' on page 16 undefined on input
+ line 343.
 
 
-Package natbib Warning: Citation `childs2004zoonotic' on page 10 undefined on i
-nput line 293.
+Package natbib Warning: Citation `chua2002anthropogenic' on page 16 undefined o
+n input line 343.
 
 
-Package natbib Warning: Citation `fair2019viral' on page 10 undefined on input 
-line 293.
+Package natbib Warning: Citation `childs2004zoonotic' on page 16 undefined on i
+nput line 343.
 
 
-Package natbib Warning: Citation `agor2018models' on page 10 undefined on input
- line 296.
+Package natbib Warning: Citation `fair2019viral' on page 16 undefined on input 
+line 343.
 
 
-Package natbib Warning: Citation `tricco2013comparing' on page 10 undefined on 
-input line 296.
+Package natbib Warning: Citation `agor2018models' on page 16 undefined on input
+ line 346.
 
 
-Package natbib Warning: Citation `cdceff' on page 10 undefined on input line 29
+Package natbib Warning: Citation `tricco2013comparing' on page 16 undefined on 
+input line 346.
+
+
+Package natbib Warning: Citation `cdceff' on page 16 undefined on input line 34
 6.
 
 
-Package natbib Warning: Citation `Influenz24:online' on page 10 undefined on in
-put line 296.
+Package natbib Warning: Citation `Influenz24:online' on page 16 undefined on in
+put line 346.
 
 
-LaTeX Warning: Reference `figseq' on page 10 undefined on input line 302.
+LaTeX Warning: Reference `figseq' on page 16 undefined on input line 352.
 
 
-LaTeX Warning: Reference `figseq' on page 10 undefined on input line 302.
+LaTeX Warning: Reference `figseq' on page 16 undefined on input line 352.
 
 
-Package natbib Warning: Citation `carugo2001normalized' on page 10 undefined on
- input line 304.
+Package natbib Warning: Citation `carugo2001normalized' on page 16 undefined on
+ input line 354.
 
 
-Package natbib Warning: Citation `righetto2014comparative' on page 10 undefined
- on input line 304.
+Package natbib Warning: Citation `righetto2014comparative' on page 16 undefined
+ on input line 354.
 
 
-Package natbib Warning: Citation `lee1971interpretation' on page 10 undefined o
-n input line 304.
+Package natbib Warning: Citation `lee1971interpretation' on page 16 undefined o
+n input line 354.
 
 
-Package natbib Warning: Citation `shrake1973environment' on page 10 undefined o
-n input line 304.
+Package natbib Warning: Citation `shrake1973environment' on page 16 undefined o
+n input line 354.
 
 
-Package natbib Warning: Citation `momen2008impact' on page 10 undefined on inpu
-t line 304.
+Package natbib Warning: Citation `momen2008impact' on page 16 undefined on inpu
+t line 354.
 
 
-Package natbib Warning: Citation `adamczak2005combining' on page 10 undefined o
-n input line 304.
+Package natbib Warning: Citation `adamczak2005combining' on page 16 undefined o
+n input line 354.
 
 
-LaTeX Warning: Reference `figseq' on page 10 undefined on input line 306.
+LaTeX Warning: Reference `figseq' on page 16 undefined on input line 356.
 
 
-Package natbib Warning: Citation `tzarum2015structure' on page 10 undefined on 
-input line 306.
+Package natbib Warning: Citation `tzarum2015structure' on page 16 undefined on 
+input line 356.
 
 
-Package natbib Warning: Citation `lazniewski2018structural' on page 10 undefine
-d on input line 306.
+Package natbib Warning: Citation `lazniewski2018structural' on page 16 undefine
+d on input line 356.
 
 
-Package natbib Warning: Citation `garcia2015dynamic' on page 10 undefined on in
-put line 306.
+Package natbib Warning: Citation `garcia2015dynamic' on page 16 undefined on in
+put line 356.
 
-LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <7> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 350.
 
-Overfull \hbox (18.87766pt too wide) in paragraph at lines 350--350
+Overfull \hbox (18.87766pt too wide) in paragraph at lines 400--400
 [][] 
  []
 
 
-Package natbib Warning: Citation `Influenz24:online' on page 12 undefined on in
-put line 357.
+Package natbib Warning: Citation `Influenz24:online' on page 18 undefined on in
+put line 407.
 
 
-Package natbib Warning: Citation `Influenz24:online' on page 12 undefined on in
-put line 357.
+Package natbib Warning: Citation `Influenz24:online' on page 18 undefined on in
+put line 407.
 
 
 Package natbib Warning: There were undefined citations.
@@ -4579,13 +4606,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 52254 strings out of 478862
- 1151553 string characters out of 5858945
- 2104173 words of memory out of 8000000
- 68873 multiletter control sequences out of 15000+600000
- 502145 words of font info for 255 fonts, out of 8000000 for 9000
+ 52300 strings out of 478862
+ 1152958 string characters out of 5858945
+ 2131272 words of memory out of 8000000
+ 68894 multiletter control sequences out of 15000+600000
+ 501944 words of font info for 256 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 115i,13n,111p,2647b,2868s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,14n,111p,2673b,2868s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr6.60
 0pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts
 /xccsy6.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/conc
@@ -4598,10 +4625,10 @@ r/public/concrete/ccr10.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/lj
 four/public/concmath-fonts/xccsy10.600pk></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
 vetic/uhvr8a.pfb>
-Output written on ./Figures/External/figpred.pdf (1 page, 3666285 bytes).
+Output written on ./Figures/External/figpred.pdf (1 page, 3673974 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 125 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
