@@ -432,31 +432,30 @@ ymax=7.7,
 \node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.06in]LL1.south) {$6.7$};
 \node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.03in]LL1.south) {$6.0$};
 
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Red1!60,text width=.25in,anchor=north,xshift=-.05in,yshift=-.351in,label={[font=\bf\sffamily\fontsize{7}{8}\selectfont,xshift=.1in,text=gray]90:subtypes of high-risk strains}] (X1) at (C1.south) {H1N1};
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=Blue1!60,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X2) at (X1.south) {H3N2};
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=Yellow3!70!black,text width=.25in,anchor=west,xshift=0.02in,yshift=0in] (X1) at (X1.east) {H9N2};
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Green4!50,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X1) at (X1.south) {H7N9};
-
-
-% \node [] (LD1) at ([yshift=.5in,xshift=1in]A11.center) {};
-% \draw [] (LD1)node [right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont] {A/chicken/Bulgaria/221\_20VIR1725-1/2020\\(emergence: 6.4, impact: 8.8)}  -- ++(-.4in,0in) -- ++(-.2in,-.19in) ;
-
-
-
+\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Red1!80,text width=.25in,anchor=north,xshift=-0.05in,yshift=-.351in,label={[font=\bf\sffamily\fontsize{7}{8}\selectfont,
+  xshift=.2in,text=gray]90:subtypes}] (X1) at (C1.south) {H1N1};
+\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=Blue1!80,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X2) at (X1.south) {H3N2};
+\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=DarkOrange1,text width=.25in,anchor=west,xshift=0.02in,yshift=0in] (X1) at (X1.east) {H9N2};
+\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Green3!70,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X1) at (X1.south) {H7N9};
 
 \node [text=Red1] (LD2) at ([yshift=-0.25in,xshift=-1.95in]A11.east) {};
-\draw [] (LD2) node [fill=white,fill opacity=.2,text opacity=1,xshift=-0in,right,below,align=right,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/mink/China/chick\_embryo/2020\\(emergence: 6.1, impact: 5.9)}  -- ++(.4in,0in) -- ++(.265in,.24in) ;
+\draw [] (LD2) node [text=DarkOrange3,fill=white,fill opacity=.2,text opacity=1,xshift=-0in,right,below,align=right,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/mink/China/chick\_embryo/2020\\(emergence: 6.1, impact: 5.9)}  -- ++(.4in,0in) -- ++(.265in,.24in) ;
 
 
 \node [text=Red1] (LD3) at ([yshift=.85in,xshift=-2.1in]A11.east) {};
-\draw [] (LD3) node [right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/Camel/Inner\_Mongolia/XL/2020\\(emergence: 6.3, impact: 6.1)}  -- ++(.4in,0in) -- ++(.6in,-.6in) ;
+\draw [] (LD3) node [text=Green3,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/Camel/Inner\_Mongolia/XL/2020\\(emergence: 6.3, impact: 6.1)}  -- ++(.4in,0in) -- ++(.6in,-.6in) ;
 
-\node [text=Red1] (LD3) at ([yshift=1.1in,xshift=-.98in]A11.east) {};
-\draw [] (LD3) node [right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Karaganda/04/2020\\(emergence: 6.27, impact: 6.04)}  -- ++(-.4in,0in) -- ++(-.55in,-.55in) ;
+\node [text=Red1] (LD3) at ([yshift=1.1in,xshift=-1.0in]A11.east) {};
+\draw [] (LD3) node [text=Red1,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Karaganda/04/2020\\(emergence: 6.27, impact: 6.04)}  -- ++(-.4in,0in) -- ++(-.55in,-.55in) ;
 
 	
-\node [text=Red1] (LD4) at ([yshift=-.25in,xshift=.75in]A11.west) {};
-\draw [] (LD4) node [right,above,xshift=.65in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.8, impact: 6.7)}  -- ++(-.4in,0in) -- ++(.3in,.3in) ;
+\node [text=Red1] (LD4) at ([yshift=-.5in,xshift=.48in]A11.west) {};
+\draw [] (LD4) node [text=Red1,right,below,xshift=.45in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.29, impact: 6.06)}  -- ++(-.4in,0in) -- ++(.5in,.5in) ;
+
+	
+\node [text=Red1] (LD4) at ([yshift=.50in,xshift=.8in]A11.west) {};
+\draw [] (LD4) node [text=Blue1,right,above,xshift=.35in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.28, impact: 6.04)}  -- ++(.3in,0in) -- ++(-.25in,-.25in) ;
+
 
 \end{tikzpicture}
     };
