@@ -421,19 +421,19 @@ ymax=7.7,
 %7.5 7.2 6.8 <6
 \def\TEXTCOLA{black!60}
 
-\node[circle,fill=white,inner sep=1pt,text width=.195in,draw=\TEXTCOLA,label={[text=gray,align=center,font=\bf\sffamily\fontsize{7}{8}\selectfont]90:Predicted emergence  score}] (C1) at ([xshift=-1.65in,yshift=.9in]A11.center) {};
-\node [anchor=west,align=left,text=\TEXTCOLA,] (LL1) at ([xshift=.1in]C1.center) {$7.5$};
-\node[circle,fill=white,text width=.175in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
-\node[circle,fill=white,text width=.11in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
-\node[circle,fill=white,text width=.075in,inner sep=1pt,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
-\node[circle,fill=white,inner sep=1pt,text width=.005in,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.12in]C1.south) {};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.15in]LL1.south) {$7.2$};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.11in]LL1.south) {$6.8$};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.06in]LL1.south) {$6.7$};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.03in]LL1.south) {$6.0$};
+\node[circle,fill=white,inner sep=1pt,text width=.175in,draw=\TEXTCOLA,label={[text=gray,xshift=.2in,align=center,font=\bf\sffamily\fontsize{7}{8}\selectfont]90:Predicted emergence  score}] (C1) at ([xshift=-1.65in,yshift=.9in]A11.center) {};
+\node [anchor=west,align=left,text=\TEXTCOLA,] (LL1) at ([xshift=.1in]C1.center) {$6.3$};
+\node[circle,fill=white,text width=.13in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
+\node[circle,fill=white,text width=.07in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
+\node[circle,fill=white,text width=.042in,inner sep=1pt,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
+\node[circle,fill=white,inner sep=1pt,text width=.008in,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.12in]C1.south) {};
+\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.12in]LL1.south) {$6.2$};
+\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.07in]LL1.south) {$6.0$};
+\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.0275in]LL1.south) {$5.5$};
+\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.015in]LL1.south) {$4.5$};
 
 \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Red1!80,text width=.25in,anchor=north,xshift=-0.05in,yshift=-.351in,label={[font=\bf\sffamily\fontsize{7}{8}\selectfont,
-  xshift=.2in,text=gray]90:subtypes}] (X1) at (C1.south) {H1N1};
+  xshift=.2in,text=gray]90:subtypes of risky strains}] (X1) at (C1.south) {H1N1};
 \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=Blue1!80,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X2) at (X1.south) {H3N2};
 \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=DarkOrange1,text width=.25in,anchor=west,xshift=0.02in,yshift=0in] (X1) at (X1.east) {H9N2};
 \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Green3!70,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X1) at (X1.south) {H7N9};
@@ -442,10 +442,10 @@ ymax=7.7,
 \draw [] (LD2) node [text=DarkOrange3,fill=white,fill opacity=.2,text opacity=1,xshift=-0in,right,below,align=right,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/mink/China/chick\_embryo/2020\\(emergence: 6.1, impact: 5.9)}  -- ++(.4in,0in) -- ++(.265in,.24in) ;
 
 
-\node [text=Red1] (LD3) at ([yshift=.85in,xshift=-2.1in]A11.east) {};
+\node [text=Red1] (LD3) at ([yshift=.85in,xshift=-2.10in]A11.east) {};
 \draw [] (LD3) node [text=Green3,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/Camel/Inner\_Mongolia/XL/2020\\(emergence: 6.3, impact: 6.1)}  -- ++(.4in,0in) -- ++(.6in,-.6in) ;
 
-\node [text=Red1] (LD3) at ([yshift=1.1in,xshift=-1.0in]A11.east) {};
+\node [text=Red1] (LD3) at ([yshift=1.15in,xshift=-1.05in]A11.east) {};
 \draw [] (LD3) node [text=Red1,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Karaganda/04/2020\\(emergence: 6.27, impact: 6.04)}  -- ++(-.4in,0in) -- ++(-.55in,-.55in) ;
 
 	

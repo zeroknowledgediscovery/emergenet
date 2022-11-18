@@ -77,6 +77,27 @@
 %#############################################
 \ifFIGS
 
+\begin{figure}[!ht]\centering
+\centering
+ \tikzexternalenable
+  \tikzsetnextfilename{figphylo}
+  \centering
+\tikzXtrue
+  \iftikzX 
+   \input{Figures/figphylo}  
+   \else 
+   \includegraphics[width=.9\textwidth]{Figures/External/figphylo}
+   \fi
+
+\captionN{Phylogenetic tree with high risk \infl strains}\label{figphylo}
+\end{figure}
+\else
+\refstepcounter{table}\label{figphylo}
+\fi
+% #############################################
+%#############################################
+\ifFIGS
+
 \begin{table}[!ht]\centering
 \captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{irattab}
 
@@ -115,25 +136,6 @@ $^{\star\star\star}$ These strains did not have enough human sequence data to ge
 \fi
 % #############################################
 
-%#############################################
-\ifFIGS
-
-\begin{figure}[!ht]\centering
-\centering
-
-\includegraphics[width=.9\textwidth]{Figures/riskyphylo6_collapsed_19}
-% \flushleft
-
-% \fontsize{8}{8}\selectfont
-% $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
-% $^{\star\star}$ Could not construct a \qnet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \qnet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
-% $^{\star\star\star}$ These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
-\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{highrisktab}
-\end{figure}
-\else
-\refstepcounter{table}\label{highrisktab}
-\fi
-% #############################################
 
 % \ifFIGS
 
