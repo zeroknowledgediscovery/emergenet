@@ -1,20 +1,18 @@
-Model: IRAT_Emergence_Score ~ Geometric_Mean + HA_Avg_Qdist*NA_Avg_Qdist                 
+Model: IRAT_Emergence_Score ~ Geometric_Mean + HA_Avg_Qdist:NA_Avg_Qdist
 ================================================================================
-Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   22
+Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   20
 Model:                              GLM   Df Residuals:                       17
-Model Family:                  Gaussian   Df Model:                            4
-Link Function:                 identity   Scale:                         0.69369
-Method:                            IRLS   Log-Likelihood:                -24.357
-Date:                  Fri, 04 Nov 2022   Deviance:                       11.793
-Time:                          16:23:34   Pearson chi2:                     11.8
-No. Iterations:                       3   Pseudo R-squ. (CS):             0.7797
+Model Family:                  Gaussian   Df Model:                            2
+Link Function:                 identity   Scale:                         0.74617
+Method:                            IRLS   Log-Likelihood:                -23.826
+Date:                  Fri, 18 Nov 2022   Deviance:                       12.685
+Time:                          20:18:29   Pearson chi2:                     12.7
+No. Iterations:                       3   Pseudo R-squ. (CS):             0.7678
 Covariance Type:              nonrobust                                         
 =============================================================================================
                                 coef    std err          z      P>|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------------------
-Intercept                     6.8403      0.442     15.459      0.000       5.973       7.708
-Geometric_Mean              -23.7466      9.674     -2.455      0.014     -42.707      -4.786
-HA_Avg_Qdist                  1.9097      3.979      0.480      0.631      -5.889       9.708
-NA_Avg_Qdist                 -1.8133      2.826     -0.642      0.521      -7.353       3.726
-HA_Avg_Qdist:NA_Avg_Qdist    54.2280     21.474      2.525      0.012      12.139      96.317
+Intercept                     6.7809      0.460     14.736      0.000       5.879       7.683
+Geometric_Mean              -19.3647      8.078     -2.397      0.017     -35.198      -3.531
+HA_Avg_Qdist:NA_Avg_Qdist    31.5402     26.392      1.195      0.232     -20.187      83.267
 =============================================================================================

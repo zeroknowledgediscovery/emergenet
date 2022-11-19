@@ -1,17 +1,17 @@
-Model: IRAT_Impact_Score ~ Geometric_Mean               
+Model: IRAT_Impact_Score ~ Geometric_Mean
 ==============================================================================
-Dep. Variable:      IRAT_Impact_Score   No. Observations:                   22
-Model:                            GLM   Df Residuals:                       20
+Dep. Variable:      IRAT_Impact_Score   No. Observations:                   20
+Model:                            GLM   Df Residuals:                       18
 Model Family:                Gaussian   Df Model:                            1
-Link Function:               identity   Scale:                          1.2894
-Method:                          IRLS   Log-Likelihood:                -32.964
-Date:                Fri, 04 Nov 2022   Deviance:                       25.788
-Time:                        16:23:47   Pearson chi2:                     25.8
-No. Iterations:                     3   Pseudo R-squ. (CS):             0.1972
+Link Function:               identity   Scale:                          1.0201
+Method:                          IRLS   Log-Likelihood:                -27.525
+Date:                Fri, 18 Nov 2022   Deviance:                       18.362
+Time:                        20:20:03   Pearson chi2:                     18.4
+No. Iterations:                     3   Pseudo R-squ. (CS):             0.4382
 Covariance Type:            nonrobust                                         
 ==================================================================================
                      coef    std err          z      P>|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------
-Intercept          6.1434      0.434     14.149      0.000       5.292       6.994
-Geometric_Mean    -4.8520      2.230     -2.176      0.030      -9.222      -0.481
+Intercept          6.3736      0.396     16.104      0.000       5.598       7.149
+Geometric_Mean    -7.5193      2.225     -3.380      0.001     -11.879      -3.159
 ==================================================================================

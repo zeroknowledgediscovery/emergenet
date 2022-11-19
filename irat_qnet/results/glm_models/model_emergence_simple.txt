@@ -1,17 +1,17 @@
-Model: IRAT_Emergence_Score ~ Geometric_Mean                
+Model: IRAT_Emergence_Score ~ Geometric_Mean                           
 ================================================================================
-Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   22
-Model:                              GLM   Df Residuals:                       20
+Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   20
+Model:                              GLM   Df Residuals:                       18
 Model Family:                  Gaussian   Df Model:                            1
-Link Function:                 identity   Scale:                         0.86853
-Method:                            IRLS   Log-Likelihood:                -28.618
-Date:                  Fri, 04 Nov 2022   Deviance:                       17.371
-Time:                          16:23:32   Pearson chi2:                     17.4
-No. Iterations:                       3   Pseudo R-squ. (CS):             0.5919
+Link Function:                 identity   Scale:                         0.76392
+Method:                            IRLS   Log-Likelihood:                -24.632
+Date:                  Fri, 18 Nov 2022   Deviance:                       13.751
+Time:                          20:17:29   Pearson chi2:                     13.8
+No. Iterations:                       3   Pseudo R-squ. (CS):             0.7407
 Covariance Type:              nonrobust                                         
 ==================================================================================
                      coef    std err          z      P>|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------
-Intercept          6.2467      0.356     17.529      0.000       5.548       6.945
-Geometric_Mean    -8.1063      1.830     -4.429      0.000     -11.693      -4.519
+Intercept          6.4084      0.342     18.711      0.000       5.737       7.080
+Geometric_Mean    -9.9819      1.925     -5.185      0.000     -13.755      -6.209
 ==================================================================================
