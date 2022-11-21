@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  17 NOV 2022 19:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  21 NOV 2022 09:00
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -4170,16 +4170,15 @@ ed
 pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
 dmap/pdftex.map): invalid entry for `rtxptmro': SlantFont/ExtendFont can be use
 d only with embedded Type1 fonts
-} <./Figures/bionorad.pdf>]) (./Figures/tabdata/irat_predictions.tex)
-Overfull \hbox (5.4742pt too wide) in paragraph at lines 1--86
+} <./Figures/bionorad.pdf>]) (./Figures/figphylo.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+) (./Figures/tabdata/irat_predictions.tex)
+Overfull \hbox (5.4742pt too wide) in paragraph at lines 1--107
  [][] 
  []
 
-(./Figures/tabdata/highrisk.tex)
-The command '\includegraphics [width=.9\textwidth ]{Figures/riskyphylo6_collaps
-ed_19}' has been optimized away. Use '/tikz/external/optimize=false' to disable
- this.
-)
+(./Figures/tabdata/highrisk.tex))
 
 Package natbib Warning: Citation `wille2021accurately' on page 1 undefined on i
 nput line 72.
@@ -4606,10 +4605,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 52302 strings out of 478862
- 1152970 string characters out of 5858945
+ 52310 strings out of 478862
+ 1153132 string characters out of 5858945
  2131272 words of memory out of 8000000
- 68896 multiletter control sequences out of 15000+600000
+ 68901 multiletter control sequences out of 15000+600000
  501944 words of font info for 256 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  115i,14n,111p,2673b,2868s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4625,9 +4624,9 @@ r/public/concrete/ccr10.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/lj
 four/public/concmath-fonts/xccsy10.600pk></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
 vetic/uhvr8a.pfb>
-Output written on ./Figures/External/figpred.pdf (1 page, 3542279 bytes).
+Output written on ./Figures/External/figpred.pdf (1 page, 3542681 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
+ 126 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)

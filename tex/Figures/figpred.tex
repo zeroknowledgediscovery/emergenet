@@ -300,7 +300,7 @@ ymax=7.7,
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.02,5.85) {H3N2};
 
 
-            \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:-.25,6.5) {$R = 0.703$\\p-value\\$0.00026$};
+            \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:-.25,6.5) {$R = 0.704$\\p-value\\$0.00026$};
 
 
     \end{axis}
@@ -349,9 +349,9 @@ ymax=7.7,
       
       \addplot[forget plot,\FCOL,opacity=1] fill between[of=LB and UB];
 
-      \node [text=\COLBLUE,anchor=north west,fill=white] (LLEQ1) at (axis cs:3.30,7) {OLS fit: $y=x$};
+      \node [text=\COLBLUE,anchor=north west,fill=white,align=left] (LLEQ1) at (axis cs:3.30,7.3) {OLS fit:\\$y=.91x+.51$};
 
-        \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:5,4) {$R = 0.81$\\p-value\\$4.7\times 10^{-6}$};
+        \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:5,4) {$R = 0.76$\\p-value\\$3.6\times 10^{-5}$};
 
 \end{axis}
   \end{tikzpicture}
@@ -404,8 +404,8 @@ ymax=7.7,
       \addplot[forget plot,\FCOL,opacity=1] fill between[of=LB and UB];
 
 
-      \node [text=\COLBLUE,anchor=north west,fill=white] (LLEQ1) at (axis cs:3.7,7) {OLS fit: $y=x$};
-        \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:5.25,4.5) {$R = 0.77$\\p-value\\$3.3\times 10^{-5}$};
+      \node [text=\COLBLUE,anchor=north west,fill=white,align=left] (LLEQ1) at (axis cs:3.75,7.3) {OLS fit:\\$y=0.81x+1.15$};
+        \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:5.25,4.5) {$R = 0.53$\\p-value\\$0.01$};
 \end{axis}
   \end{tikzpicture}
   };
@@ -453,7 +453,7 @@ ymax=7.7,
 \draw [] (LD4) node [text=Red1,right,below,xshift=.45in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.29, impact: 6.06)}  -- ++(-.4in,0in) -- ++(.5in,.5in) ;
 
 	
-\node [text=Red1] (LD4) at ([yshift=.50in,xshift=.8in]A11.west) {};
+\node [text=Red1] (LD4) at ([yshift=.5in,xshift=.8in]A11.west) {};
 \draw [] (LD4) node [text=Blue1,right,above,xshift=.35in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.28, impact: 6.04)}  -- ++(.3in,0in) -- ++(-.25in,-.25in) ;
 
 

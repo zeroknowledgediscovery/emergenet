@@ -1,0 +1,185 @@
+\documentclass[onecolumn]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\input{preamble.tex}
+\usepackage{fullpage}
+\usepackage{csvsimple}
+
+\include{pythonlisting}
+
+\usepackage{multirow}
+% \usepackage{geometry}
+% \geometry{a4paper, left=.6in,right=.6in,top=.8in,bottom=0.7in}
+% \usepackage[section]{placeins}
+\usepackage{textcomp}
+\usepackage{colortbl}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage{courier}
+\usepackage{wrapfig}
+\usepackage{pifont}
+\usetikzlibrary{chains,backgrounds}
+\usetikzlibrary{intersections}
+\usetikzlibrary{pgfplots.groupplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplotstable}
+% \usepackage[super]{cite}
+\usepackage[super,compress,sort,comma]{natbib}
+% \setcitestyle{citesep={,}}
+\usepackage{setspace}
+\usetikzlibrary{math}
+\usetikzlibrary{matrix}
+% \renewcommand{\citeform}[1]{x.#1}
+% \renewcommand{\citeright}{}
+% \makeatletter \renewcommand{\@citess}[1]{\raisebox{1pt}{\textsuperscript{#1}}} \makeatother
+\usepackage{xstring}
+\usepackage{xspace}
+\usepackage{flushend}
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {-2ex \@plus -1ex \@minus -.2ex}%
+  {1ex \@plus.1ex}%
+  {\Large\bfseries\scshape}}
+\renewcommand\subsection{\@startsection {section}{1}{\z@}%
+  {-1ex \@plus -.25ex \@minus -.2ex}%
+  {0.1ex \@plus.0ex}%
+  {\fontsize{11}{10}\selectfont\bfseries\sffamily\color{DodgerBlue4}}}
+\renewcommand\subsubsection{\@startsection {section}{1}{\z@}%
+  {0ex \@plus -.5ex \@minus -.2ex}%
+  {0.0ex \@plus.5ex}%
+  {\fontsize{9}{9}\selectfont\bfseries\sffamily\color{Red4}}}
+\renewcommand\paragraph{\@startsection {section}{1}{\z@}%
+  {-1.5ex \@plus -.5ex \@minus -.2ex}%
+  {0.0ex \@plus.5ex}%
+  {\fontsize{9}{9}\selectfont\itshape\sffamily\color{teal!50!black}}}
+
+
+\makeatother
+\makeatletter
+\pgfdeclareradialshading[tikz@ball]{ball}{\pgfqpoint{-10bp}{10bp}}{%
+  color(0bp)=(tikz@ball!30!white);
+  color(9bp)=(tikz@ball!75!white);
+  color(18bp)=(tikz@ball!90!black);
+  color(25bp)=(tikz@ball!70!black);
+  color(50bp)=(black)}
+\makeatother
+\newcommand{\tball}[1][CadetBlue4]{${\color{#1}\Large\boldsymbol{\blacksquare}}$}
+\renewcommand{\baselinestretch}{.96}
+\renewcommand{\captionN}[1]{\caption{\color{CadetBlue4!80!black} \sffamily \fontsize{9}{10}\selectfont #1  }}
+\tikzexternaldisable 
+\parskip=7pt
+\parindent=0pt
+\newcommand{\Mark}[1]{\textsuperscript{#1}}
+\pagestyle{fancy}
+\def\COLA{black}
+% ###################################
+\cfoot{\bf\sffamily \scriptsize \color{Maroon!50} \disclosure }
+\cfoot{}
+\rhead{\scriptsize\bf\sffamily\thepage}
+% ############################################################
+\externaldocument[SI-]{SI}
+\newif\iftikzX
+\tikzXtrue
+% \tikzXfalse
+\def\jobnameX{zero}
+\newif\ifFIGS
+\FIGSfalse 
+\FIGStrue
+% ############################################################
+% ############################################################
+% ###################################
+\title{ \sffamily \fontsize{20}{24}\selectfont  Zero-burden Digital Biomarkers For Autism:  Exploiting  Co-morbidity Patterns
+  To Drive Early Intervention
+} 
+
+% \author{\sffamily  \fontsize{10}{12}\selectfont  Dmytro Onishchenko$^{1}$, Yi Huang$^{1}$,  Andrey Rzhetsky$^{1,2}$ and Ishanu Chattopadhyay,$^{1,\bigstar}$\\ 
+\author{\sffamily  \fontsize{10}{12}\selectfont  Dmytro Onishchenko$^{1}$, Yi Huang$^{1}$,  James van Horne$^{5}$, Peter J. Smith$^{4}$ and Ishanu Chattopadhyay$^{1,2,3\bigstar}$\\ 
+  \vspace{10pt}
+
+  \sffamily  \fontsize{10}{12}\selectfont
+  $^{1}$Institute of Genomics and Systems Biology and\\ Department of Medicine,\\
+  $^{2}$Committee on Genetics, Genomics \& Systems Biology, University of Chicago,\\
+  $^{3}$Committee on Quantitative Methods in Social, Behavioral, and Health Sciences, University of Chicago, \\
+  $^{4}$Department of Pediatrics,
+  University of Chicago, \\
+  $^{5}$Booth School of Business, University of Chicago, Chicago, IL, 60637, USA,\\
+  \vskip 1em
+  $^\bigstar$To whom correspondence should be addressed: e-mail:  \texttt{ishanu@uchicago.edu}.}
+% ###################################
+\pagestyle{fancy} 
+\rhead{\footnotesize\bf\sffamily\thepage}
+\cfoot{}
+% ###################################
+% \makeatletter
+\newcommand{\hil}[1]{{\color{Red1}\itshape #1}}
+% \makeatother
+% ###################################
+% ###################################
+% ###################################
+% ###################################
+% ###################################
+% ###################################
+\def\ROWCOL{lightgray!70}
+\def\CELLCOL{teal!40}
+
+\begin{document}
+% #########################################
+% #########################################
+\def\MXCOL{black}
+\def\FXCOL{Orchid3}
+\def\MNCOL{SeaGreen4}
+\def\FNCOL{SeaGreen4}
+\def\NCOL{SeaGreen4}
+\def\XCOL{Tomato}
+\def\WCOL{Tomato}
+\def\YCOL{DodgerBlue4}
+\def\TEXTCOL{gray}
+\def\AXISCOL{white}
+
+\begin{figure*}
+  \tikzexternalenable
+  \tikzsetnextfilename{perfA}
+
+
+
+\def\DATA{../results/data/}
+
+\input{Figures/figpred1_}
+
+\captionN{1. Compute PPV at 95\% specificity. 2. Succint descript texts for feature names. currently they ar enot undertandable. 3. Also need PRC curves}
+
+\end{figure*}
+
+
+\begin{figure*}
+  \tikzexternalenable
+  \tikzsetnextfilename{perfB}
+
+
+
+\def\DATA{../results/data/}
+
+\input{Figures/figpred2_}
+\captionN{1. Add perturbations. 2. Add confidence bounds to AUC variation}
+
+\end{figure*}
+
+
+\begin{figure*}
+  \tikzexternalenable
+  \tikzsetnextfilename{spectrum}
+
+
+
+\def\DATA{../results/data/}
+
+\input{Figures/figSpectrum}
+\captionN{Add Respiratory, Infectious, Gastro-intentinal spectra}
+
+\end{figure*}
+
+
+
+
+\end{document}

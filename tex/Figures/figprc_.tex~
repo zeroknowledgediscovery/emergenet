@@ -1,0 +1,311 @@
+  \tikzset{
+    hatch distance/.store in=\hatchdistance,
+    hatch distance=20pt,
+    hatch thickness/.store in=\hatchthickness,
+    hatch thickness=2pt
+  }
+  \pgfplotsset{
+    discard if/.style 2 args={
+      x filter/.append code={
+        \edef\tempa{\thisrow{#1}}
+        \edef\tempb{#2}
+        \ifx\tempa\tempb
+        \def\pgfmathresult{inf}
+        \fi
+      }
+    },
+    discard if not/.style 2 args={
+      x filter/.append code={
+        \edef\tempa{\thisrow{#1}}
+        \edef\tempb{#2}
+        \ifx\tempa\tempb
+        \else
+        \def\pgfmathresult{inf}
+        \fi
+      }
+    }
+  }
+  \begin{tikzpicture}[font=\bf\sffamily\fontsize{8}{10}\selectfont ]
+    \def\DATAPATH{../../../revision_results/roc/restricted_neg_len/RAW/}
+    \def\datafile{\DATAPATH/RAWPRCpipeline_BASIC_M_150w.csv}
+    \def\datafileF{\DATAPATH/RAWPRCpipeline_BASIC_F_150w.csv}
+    \def\datafileU{\DATAPATH/RAWPRCvalid_BASIC_M_150w.csv}
+    \def\datafileUF{\DATAPATH/RAWPRCvalid_BASIC_F_150w.csv}
+
+    \def\datafileh{\DATAPATH/RAWPRCpipeline_BASIC_M_112w.csv}
+    \def\datafileFh{\DATAPATH/RAWPRCpipeline_BASIC_F_112w.csv}
+    \def\datafileUh{\DATAPATH/RAWPRCvalid_BASIC_M_112w.csv}
+    \def\datafileUFh{\DATAPATH/RAWPRCvalid_BASIC_F_112w.csv}
+
+    \def\HGT{1.95in}
+    \def\WDT{1.75in}
+    \def\HGTa{1.55in}
+    \def\WDTa{1.6in}
+
+    \def\FXCOL{Orchid3!80!black}
+    \def\MXCOLB{gray}
+    \def\FXCOLB{Fuchsia!90!black}
+    \def\OPC{.75}
+    \def\LWDT{.6mm}
+    \def\SKIP{7}
+
+    \node[anchor=north east] (N) 
+    {
+      \begin{tikzpicture}[text=\TEXTCOL,]
+        \begin{groupplot}
+          [name=Agg,
+          group style={
+            group name=Ag,
+            group size=2 by 1,
+            % xlabels at=edge bottom,
+            % xticklabels at=edge bottom,
+            horizontal sep=1.25in,
+            % horizontal sep=.55in,
+          },        ,legend cell align={left},
+          legend style={anchor=east,at={(-0.25,1.1)},
+            inner sep=3pt,
+            draw=none,
+            fill=white,fill opacity=.850,
+            align=left,anchor=west,
+            text opacity=1,
+            font=\bf\sffamily\fontsize{8}{9}\selectfont,text=black},
+          legend columns=2, 
+          name=K,
+          clip=true,,
+          width=\WDT,
+          height=\HGT,
+          scale only axis=true,
+          enlargelimits=false,
+          axis on top=false,
+          % axis background/.style={
+          % shade,top color=transparent!5,bottom color=transparent!5},
+          axis line style={\AXISCOL, opacity=1,ultra  thick, 
+            rounded corners=0pt}, 
+          grid,
+          grid style={thick,dashed, gray!40},
+          xticklabel style={yshift=-.05in},
+          xlabel style={yshift=-.075in,text=\TEXTCOL},
+          ylabel style={align=center,,text=\TEXTCOL,anchor=center,
+            yshift=-.175in},
+          % tickpos=left,
+          ytick align=outside,
+          xtick align=outside,
+          major tick length=0pt,
+          scaled y ticks = false,
+          y tick label style={/pgf/number format/fixed,
+            /pgf/number format/1000 sep = \thinspace % Optional if you00 separator 
+          },
+          ylabel={PPV},xlabel={sensitivity (TPR)},
+          title style={ yshift=.35in,xshift=-0.5in,anchor=south west,text=\TEXTCOL},
+          % extra x ticks={1},extra x tick labels={1}
+          ]
+
+          \nextgroupplot[ , xmin=0.03, ymax=0.7,
+          title={{ i. } 112 weeks},
+          ]
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\MXCOL, line width=\LWDT,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileh};
+          \addlegendentry{Male Truven}
+
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\FXCOL,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileFh};
+          \addlegendentry{Female Truven}
+
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\MXCOLB,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileUh};
+          \addlegendentry{Male UCM}
+
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\FXCOLB,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileUFh};
+          \addlegendentry{Female UCM}
+
+          \node[] (MC) at (axis cs:.388,.146) {};
+
+
+          \nextgroupplot[ xlabel={sensitivity (TPR)},xmin=0.03,
+          ymax=0.7,
+          ,title={{ ii. } 150 weeks}
+          ]
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\MXCOL,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafile};
+          \addlegendentry{Male Truven}
+
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\FXCOL,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileF};
+          \addlegendentry{Female Truven}
+
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\MXCOLB,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileU};
+          \addlegendentry{Male UCM}
+
+          \addplot [each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,smooth,draw=\FXCOLB,
+          line width=\LWDT,,opacity=\OPC,
+          ]table [col sep=comma,x=tpr,y=p] {\datafileUF};
+          \addlegendentry{Female UCM}
+          \node[] (MC1) at (axis cs:.388,.146) {};
+
+        \end{groupplot}
+          \node[text=Red3,label={[fill=white,font=\bf\sffamily\fontsize{7}{7},text=Red3]-90:M-CHAT/F}] (MC1) at (MC1) {$\oplus$};
+          \node[text=Red3,label={[fill=white,font=\bf\sffamily\fontsize{7}{7},text=Red3]-90:M-CHAT/F}] (MC) at (MC) {$\oplus$};
+
+        
+      \end{tikzpicture}
+    };
+
+    \node[anchor=north west] (N1) at ([yshift=-.45in]N.south west) {
+      \def\datafile{../optcode_/data/spcrho.csv}
+      \begin{tikzpicture}[text=\TEXTCOL, ]
+        \begin{groupplot}
+          [name=Agg,
+          group style={
+            group name=Ag,
+            group size=2 by 1,
+            xlabels at=edge bottom,
+            xticklabels at=edge bottom,
+            vertical sep=.75in,
+            horizontal sep=1.25in,
+          },        ,legend cell align={left},
+          legend style={anchor=east,at={(-0.12,1.1)},
+            inner sep=3pt,
+            draw=none,
+            fill=white,fill opacity=.850,
+            align=left,anchor=west,
+            text opacity=1,
+            font=\bf\sffamily\fontsize{8}{9}\selectfont,text=black},
+          legend columns=2, 
+          name=K,
+          clip=true,,
+          width=\WDTa,
+          height=\HGTa,
+          scale only axis=true,
+          enlargelimits=false,
+          axis on top=false,
+          axis line style={\AXISCOL, opacity=1,ultra  thick, 
+            rounded corners=0pt}, 
+          grid,
+          grid style={thick,dashed, gray!40},
+          % xticklabel style={xshift=0.05in,yshift=-.05in},
+          xlabel style={yshift=.05in,text=\TEXTCOL},
+          ylabel style={align=center,,text=\TEXTCOL,anchor=center,
+            yshift=-.05in},,y tick label style={/pgf/number format/fixed,
+            /pgf/number format/precision=2,/pgf/number format/fixed zerofill,
+            /pgf/number format/1000 sep = %\thinspace % Optional if you want
+          },
+          % tickpos=left,
+          ytick align=outside,
+          xtick align=outside,
+          major tick length=0pt,
+          scaled y ticks = false,
+          y tick label style={/pgf/number format/fixed,
+            /pgf/number format/1000 sep = \thinspace % Optional if you00 separator 
+          },
+          ylabel={PPV},xlabel={sensitivity (TPR)},point meta=explicit,
+          colorbar style={width=.1in,
+            y tick label style={/pgf/number format/fixed,
+              /pgf/number format/precision=2,
+              /pgf/number format/fixed zerofill,
+              /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
+            },}%,x tick label style={yshift=-.2in},xlabel style={yshift=-.2in},
+          % extra x ticks={1},extra x tick labels={1}
+          ]
+
+          \nextgroupplot[%title={{\Large C.} PPV vs. sensitivity},
+          % colorbar horizontal,
+          extra y ticks={0.15},
+          % ymin=0.15,xmin=0.39,
+          % xmin=.98,extra x ticks={1},
+          colorbar style={at={(0,1.1)},title={specificity},title style={yshift=-.1in},
+            height=.1in,scaled x ticks=false,
+            x tick label style={/pgf/number format/fixed,
+              /pgf/number format/precision=3,/pgf/number format/fixed zerofill,
+              /pgf/number format/1000 sep = %\thinspace % Optional to replace comma as the 1000 separator 
+            },
+            xticklabel style={yshift=-.025in},},ylabel={PPV},xlabel={sensitivity}]
+          % \pgfplotsset{
+          % colormap={hot}{color(0cm)=(lightgray!70); color(1cm)=(lightgray!80); color(2cm)=(lightgray!80!Bisque1); color(3cm)=(Bisque1!90!Tomato); color(4cm)=(Tomato); color(5cm)=(Red1)}
+          % } 
+          \pgfplotsset{
+            colormap={hot}{color(0cm)=(MidnightBlue); color(1cm)=(CadetBlue2!90!black); color(2cm)=(CadetBlue1!93!black); color(3cm)=(Bisque1!93!black); color(4cm)=(DarkOrange1); color(5cm)=(Tomato!93!black)}
+          }
+
+          \addplot [mesh, each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,line width=\LWDT]table [col sep=comma,x expr=\thisrow{s},y expr=\thisrow{p},meta=c,
+          % discard if not={gender}{M},
+          restrict expr to domain={\thisrow{c}}{0.95:.977},
+          restrict expr to domain={\thisrow{rho}}{0.017:0.024},
+          % restrict expr to domain={\thisrow{s}}{1:1.5},
+          ] {\datafile};   
+
+          \node[anchor=west] (r1) at (axis cs:.48,0.23) {};
+          \node[anchor=west] (r2) at (axis cs:0.64,0.26) {};
+
+          \nextgroupplot[,y tick label style={/pgf/number format/fixed,
+            /pgf/number format/precision=1,/pgf/number format/fixed zerofill,
+            /pgf/number format/1000 sep = %\thinspace % Optional if you want
+          },point meta max=.98,%title={{\Large D.} Performance relative to M-CHAT/F},title style={yshift=.025in},
+          colorbar,colorbar style={width=.2in,extra y ticks={.98},at={(1.2,.91)},ylabel={specificity},ylabel style={yshift=-.35in}},
+          ylabel={\% positive screens\\relative to M-CHAT/F},xlabel={\% sensitivity relative to M-CHAT/F},ylabel style={yshift=.175in,align=center}]
+          \pgfplotsset{
+            colormap={hot}{color(0cm)=(MidnightBlue); color(1cm)=(CadetBlue2!90!black); color(2cm)=(CadetBlue1!93!black); color(3cm)=(Bisque1!93!black); color(4cm)=(DarkOrange1); color(5cm)=(Tomato!93!black)}
+          }
+          \addplot [mesh, each nth point=\SKIP, filter discard warning=false, 
+          unbounded coords=discard,line width=\LWDT]table [col sep=comma,x expr=\thisrow{s}/0.00388,y expr=14.6/\thisrow{p},meta=c,
+          restrict expr to domain={\thisrow{c}}{0.95:.977},
+          restrict expr to domain={\thisrow{rho}}{0.017:0.024},
+          % restrict expr to domain={\thisrow{s}}{1:1.5},
+          ] {\datafile};   
+
+          \node[anchor=west] (r3) at (axis cs:125,65) {};
+          \node[anchor=west] (r4) at (axis cs:168,57) {};
+          \node[anchor=west] (r5) at (axis cs:140,52) {};
+          \node[anchor=west] (r6) at (axis cs:189,73) {};
+        \end{groupplot}
+
+        \node[anchor=west,fill=Yellow1,inner sep=1.5pt,text=black,font=\bf\sffamily\fontsize{7}{8}\selectfont,anchor=center,align=center,label={[font=\bf\sffamily\fontsize{8}{8}\selectfont]-90:CHOP}] (r1) at (r1) {\\[.0005ex] 2.3\%};
+        \node[anchor=west,fill=Yellow1,inner sep=1.5pt,text=black,font=\bf\sffamily\fontsize{7}{8}\selectfont,anchor=center,align=center,label={[font=\bf\sffamily\fontsize{8}{8}\selectfont]90:CDC}] (r2) at (r2) {\\[.0005ex] 1.7\%};
+        \draw[-{Latex},dashed,semithick] (r2) -- (r1);
+
+        \node[anchor=west,fill=Yellow1,inner sep=1.5pt,text=black,font=\bf\sffamily\fontsize{7}{8}\selectfont,anchor=center,align=center,label={[font=\bf\sffamily\fontsize{8}{8}\selectfont]-90:CHOP}] (r3) at (r3) {\\[.0005ex] 2.3\%};
+        \node[anchor=west,fill=Yellow1,inner sep=1.5pt,text=black,font=\bf\sffamily\fontsize{7}{8}\selectfont,anchor=center,align=center,label={[font=\bf\sffamily\fontsize{8}{8}\selectfont]-90:CDC}] (r4) at (r4) {\\[.0005ex] 1.7\%};
+        \draw[-{Latex},dashed,semithick] (r4) -- (r3);
+
+        \draw[draw=none,postaction={
+          pattern=flexible hatch,
+          hatch distance=7pt,
+          hatch thickness=2pt,
+          draw=none,
+          opacity=.3,
+          pattern color=gray, %ultra thick,
+        }] (r5) -- ++(-.6in,0) -- ++(0,-.275in)  -- ++(.6in,0) -- ++(0,.275in) -- cycle;
+        \node[,font=\bf\sffamily\fontsize{8}{8}\selectfont,text=Red1,fill=white] (r5) at ([yshift=-.05in,xshift=-0in]r5) {HP};
+        \draw[draw=none,postaction={
+          pattern=flexible hatch,
+          hatch distance=7pt,
+          hatch thickness=2pt,
+          draw=none,
+          opacity=.3,
+          pattern color=Blue1, %ultra thick,
+        }] (r6) -- ++(-1in,0) -- ++(0,-.35in)  -- ++(1in,0) -- ++(0,.35in) -- cycle;
+        \node[,font=\bf\sffamily\fontsize{8}{8}\selectfont,text=Blue1,fill=white] (r6) at ([yshift=-0.1in,xshift=-1.3in]r6) {HR};
+
+      \end{tikzpicture}
+    };
+
+    \node [anchor=south west] at (N.north west) (L1) {{\Large A.} Standalone PPV vs Sensitivity or Precision Recall Curves};
+    \node [anchor=south west,align=left] at ($(L1.north west)!(N1.north west)!(L1.south west)$) (L2) {{\Large B.} M-CHAT/F Conditioned PPV vs Sensitivity\\(Prevalence range 1.7\% to 2.3\%)};
+       \node [anchor=north west,align=left] at ([xshift=2.75in]L2.north west) {{\Large C.} Reduced \# of Flags  vs Boosted Sensitivity\\Relative To Standalone M-CHAT/F}; 
+  \end{tikzpicture}

@@ -1,0 +1,98 @@
+AUC state of art: 74%
+
+Now with both V22.0 and V22.1 as precursors, pregnancy-target gap filtered to be within (0; 52]
+mode : BASIC (no offset, predicting at V22.0/1)
+whole dataset
+0    509398
+1     28966
+AUC 0.9449563
+
+without obvious patients (to these I include those with obesity, diabetes, glycemia within 52 weeks before V22.0/1)
+0    493040
+1     28699
+AUC  0.9458477
+
+obvious patients only
+0    16358
+1      267
+AUC  0.9133004
+
+patients with endocrine codes in inference period
+0    43191
+1     4097
+AUC  0.9176007
+
+https://readymag.com/zed/gestational-diabetes/2/
+
+
+Gestational diabetes mellitus (GDM) is a unique clinical entity
+that juxtaposes the health interests of mothers, babies, and
+communities. The American Diabetes Association (ADA) de-
+fines gestational diabetes as diabetes first diagnosed in the
+second or first trimester of pregnancy that is not clearly pre-existing  type 1 or 2 diabetes [1••]. With dramatic increases in
+type 2 diabetes and obesity, identification of women with pre-
+existing type 2 diabetes by first trimester screening is impor-
+tant. In the second trimester of pregnancy, screening for GDM
+should be completed for all women. The foundation of GDM
+treatment is lifestyle interventions; medications, primarily in-
+sulin, are indicated if lifestyle measures are insufficient.
+
+Treatment of GDM reduces risk of pregnancy complications
+and adverse neonatal outcomes including macrosomia and
+shoulder dystocia [2]. After pregnancy, maternal risk for
+type 2 diabetes and cardiovascular disease is increased
+and continued follow-up and early intervention for im-
+paired glucose intolerance are crucial.
+
+Prevalence
+
+In 2017, it was estimated that 21.3 million births (16.2%)
+worldwide were affected by hyperglycemia in pregnancy,
+and of these, 86.4% were due to GDM. There is a notable
+regional variation with age-adjusted prevalence ranging from
+9.5% in Africa to 26.6% in Southeast Asia [4]. In the USA,
+according to 2016 data from the Centers for Disease Control
+and Prevention (CDC), the crude national prevalence of GDM
+was 6.0% and pre-existing diabetes in pregnancy was 0.9%.
+
+From 2012 to 2016, standardized prevalence increased for
+gestational diabetes (5.2 to 5.6%) and was stable for pre-
+existing diabetes (0.8%). Accounting for race/ethnicity, the
+prevalence of GDM was highest among non-Hispanic Asian
+women (11.1%).
+
+Risk Modifiers
+
+Accounting for BMI, prevalence of gestational diabetes ranged from 3.6% for normal-weight women (pre-pregnancy BMI 18.5–24.9) to 13.9% with class III obesity (BMI ≥ 40.0) [5•]. 
+
+GDM prevalence also increases with
+advancing maternal age. A retrospective cohort including over
+1.7 million births in women aged 40–54 between 1998 and
+2014 showed that gestational diabetes increased in all racial/
+ethnic groups throughout the study period with the largest
+increases in Asian or Pacific Islander (from 13.7 to 22.4%)
+and Hispanic women (11.2 to 19.3%) [6].
+
+Causal Indicators
+
+Studies continue to identify candidate
+genes for GDM including a recent finding that PAX8, a gene
+important in thyroid development and function, may play a
+role in islet survival during the stress of pregnancy [11].
+
+The available data suggests that type 2 diabetes suscepti-
+bility genes are also linked to GDM including variants in
+TCF7L2, MTNR1B, KCNJ11, IGF2BP2, CDKAL1, GCK,
+and KCNQ1 [10].
+
+Pre-pregnancy indicators
+
+Recent research has examined the use of pre-pregnancy biomarkers to identify women at high risk for gestational diabetes. A case control study of 256 GDM cases found that sex hormone binding globulin, glucose, adiponectin, and homeostasis model assessment-estimated insulin resistance (HOMA-IR) were independently associated with odds for GDM.
+
+Using these biomarkers, a risk score was composed which showed a
+better predictive value for GDM than traditional risk factors of
+age, ethnicity, BMI, family history of DM, and personal his-
+tory of GDM (AUC 0.74 versus 0.67)
+
+-------------------
+
