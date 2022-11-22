@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  22 NOV 2022 14:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  22 NOV 2022 14:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2346,11 +2346,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
 Here is how much of TeX's memory you used:
  47785 strings out of 492678
  1069902 string characters out of 6133536
- 1768675 words of memory out of 11000000
+ 1768615 words of memory out of 11000000
  50525 multiletter control sequences out of 15000+600000
  113572 words of font info for 251 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 64i,14n,96p,2639b,703s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,96p,2578b,703s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{table.13} has been referenced but does not exist,
  replaced by a fixed one
 
@@ -2385,7 +2385,7 @@ courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (26 pages, 9952396 bytes).
+Output written on main.pdf (26 pages, 9952331 bytes).
 PDF statistics:
  1033 PDF objects out of 1200 (max. 8388607)
  679 compressed objects within 7 object streams
