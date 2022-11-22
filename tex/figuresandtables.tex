@@ -61,13 +61,15 @@
   \tikzexternalenable
   \tikzsetnextfilename{figpred}
   \centering
- \tikzXtrue
+ %\tikzXtrue
   \iftikzX 
    \input{Figures/figpred}  
    \else 
    \includegraphics[width=\textwidth]{Figures/External/figpred}
    \fi
-  \captionN{\textbf{IRAT emergence risk vs. q-distance}. There is an approximate linear relationship between average q-distance from human circulating strains (averaged across both HA and NA) and IRAT emergence risk grade. % Note that IRAT has released results for 23 strains to date, but only 15 are plotted on the graph. This is because the strains not pictured have less than 30 human strains of the same sub-type, so a sufficiently representative \qnet could not be trained.
+   \vspace{-20pt}
+   
+  \captionN{\textbf{\enet based estimation of IRAT score}. Panel a. There is an approximate linear relationship between average q-distance from human circulating strains (geometric mean of the \qdist for  HA and NA sequences) and the published IRAT emergence score calculated by CDC. Panel b. Estimation of the IRAT emergence score via fitting a  GLM model to  the \qdist{es} estimated from the \enet.  Panel c. Estimation of IRAT impact scores via fitting a separate GLM model to the the \qdist{es} estimated from the \enet. Panel d. Identifying risky \infl strains amongst those collected between 2020 and 2022 April, via  our IRAT emergence score estimation framework.
   }\label{figirat}
 \end{figure*}
 \else
@@ -82,14 +84,15 @@
  \tikzexternalenable
   \tikzsetnextfilename{figphylo}
   \centering
-\tikzXtrue
+%\tikzXtrue
   \iftikzX 
    \input{Figures/figphylo}  
    \else 
    \includegraphics[width=.9\textwidth]{Figures/External/figphylo}
    \fi
+   \vspace{-10pt}
 
-\captionN{Phylogenetic tree with high risk \infl strains}\label{figphylo}
+\captionN{Standard phylogenetic tree constructed with edit distances,  with all  \infl strains collected between 2020 and 2022 April, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 15 edits in the HA, leaving the most risky strains in the leaves. The most risky strains are marted with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
 \end{figure}
 \else
 \refstepcounter{table}\label{figphylo}
@@ -106,10 +109,10 @@
 \input{Figures/tabdata/irat_predictions}
 \flushleft
 
-\fontsize{8}{8}\selectfont
-$^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
-$^{\star\star}$ Could not construct a \qnet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \qnet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
-$^{\star\star\star}$ These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
+ \fontsize{8}{8}\selectfont
+% $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
+ $^{\star\star}$  \enet constructed using all human strains that match the HA sub-type, $e.g.$, H5Nx for H5N6.\\
+ $^{\star\star\star}$ distance estaimated averaging over those obtained by considering all \enet{s} from other subtypes.% These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
 \end{table}
 \else
 \refstepcounter{table}\label{irattab}
@@ -137,23 +140,40 @@ $^{\star\star\star}$ These strains did not have enough human sequence data to ge
 % #############################################
 
 
-% \ifFIGS
+\ifFIGS
 
-% \begin{figure}[t]
-%   \tikzexternalenable
-%   \tikzsetnextfilename{bionorad}
-%   \centering
-%   \tikzXtrue
+\begin{figure}[!ht]
+  \tikzexternalenable
+  \tikzsetnextfilename{riskyseq}
+  \centering
+  %\tikzXtrue
 
   
-%   \iftikzX  
-%   \input{Figures/figbionorad}
-%  \else
-%   \includegraphics[width=\textwidth]{Figures/External/bionorad}
-%   \fi 
-%   \vspace{0pt}
-% \captionN{Emergence risk evaluation at scale on all 2021-2022 strains collected around the world. 6,254 sequences, total evaluation time: $<$ 15hrs. Size of the markers scale with risk}\label{figbionorad}
-% \end{figure}
-% \else
-% \refstepcounter{figure}\label{figbionorad}
-% \fi
+  \iftikzX  
+  \input{Figures/sequence_risky}
+ \else
+  \includegraphics[width=\textwidth]{Figures/External/riskyseq}
+  \fi 
+  \vspace{-30pt}
+  
+\captionN{HA sequence comparison  with dominant human strains (H1N1, H3N2)  with \enet estimated top risky strains (2020-2022 April), showing substantial differences from the circulating strains both in and out of the RBD. }\label{figriskyseq}
+\end{figure}
+\else
+\refstepcounter{figure}\label{figriskyseq}
+\fi
+
+
+
+\ifFIGS
+
+\begin{table}[!ht]\centering
+\captionN{Count of identified strains above estimated emergence risk threshold}\label{riskytab}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/riskycount}
+\end{table}
+\else
+\refstepcounter{table}\label{riskytab}
+\fi
+% #############################################

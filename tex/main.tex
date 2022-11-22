@@ -22,10 +22,12 @@
 % corr of irat pred to irat emergence
 % number of qnets inferred in different cases
 % number of sequences used
-% length of time used to infer qnets
-% outperformance of dom starin prediction
-% how many high risk strains identified from 2020 to current
-% how long it takes to compute risk score
+% length of time used to infer qnets 1yr
+% outperformance of dom strain prediction
+% how many high risk strains identified from 2020 to current: 6066
+% how long it takes to compute risk score: 6 sec
+% risky strain greater than 6.0 emergence score: 68
+% how many top strains: 3-4
 %#----------------------
 
 
@@ -141,10 +143,21 @@ To validate our score against CDC-estimated IRAT emergence scores, we construct 
 Importantly, our \erisk is a function of time, and
 we show that recomputing the risks for a different time changes (worsens) the correlation with the IRAT estimate. We also show how the estimated  risk of emergence evolve over time (See Table~\ref{tabwwXXXX}  and SI-Fig.~\ref{SI-irat})
 
-To map the \enet distances to more recognizable IRAT scores, we  train a linear model to estimate the IRAT emergence score from the \erisk values. Also, since the CDC-estimated IRAT impact score is strongly correlated with their IRAT emergence scores (correlation of $0.8015$), we  trained a linear model to estimate the impact score as well from the  \erisk. We show these results in Table~\ref{tabXXXX}. With our linear models trained, we compute a simulated IRAT analysis of all \infl strains collected over past two years (6,254 sequences in total). (Table~\ref{tabeeeXXXX} shows the top 5 strains of each available subtype). The geolocation of the strains, along with risk information is shown in Fig.~\ref{figXXXXXeee}.
+To map the \enet distances to more recognizable IRAT scores, we  train a linear model to estimate the IRAT emergence score from the \erisk values. Also, since the CDC-estimated IRAT impact score is strongly correlated with their IRAT emergence scores (correlation of $0.8015$), we  trained a linear model to estimate the impact score as well from the  \erisk. We show these results in Table~\ref{tabXXXX}. With our linear models trained, we compute a simulated IRAT analysis of all \infl strains collected over past two years (6,066 sequences in total). (Table~\ref{tabeeeXXXX} shows the top 5 strains of each available subtype). The geolocation of the strains, along with risk information is shown in Fig.~\ref{figXXXXXeee}.
 
 
 \DQS{discuss world prediction results}
+
+Of these 6066 strains 1,773 strains had a predicted emergence score greater than 6.0. However, many of these strains are highly similar, differing by only a few edits. To identify the phylogenetically distinct risky strains, we constructed the standrad phylogeny from the sequences with estimated emergence score $>6$ (See FigphyloXXX), and collapsed all leaves within 15 edits, showing only the most risky strain within a collapsed group. This leaves 75 sequences as shown in FigphyloXXX (68 with emergence risk $>6.25$, and 6 with emergence risk above 6.5, see table riskytableXXX, and Table 2). We find a substaintial number of these distinct, moderatley risky strains are H1N1, followed by H3N2, with a much smaller number of H7N9 and H9N2. However, finally four strains emerge as posing the most risk, namely the top three: 
+A/swine/Missouri/A02524711/2020 (H1N1), A/Camel/Inner\_Mongolia/XL/2020 (H7N9), A/swine/Indiana/A02524710/2020 (H3N2), and also A/mink/China/chick embryo/2020 (H9N2), which while with a lower estimated emergence score is still interesting as the most risky H9N2 strain in our analysis. We compare the HA sequences along with the estimated dominant human strains in 2021-2022 season (See FigriskyseqXXX), which shows substatial residue replacements amongst these strains, in and out of the receptor binding domain (RBD). 
+
+H9N2: minks are probable mixing vessels https://www.ncbi.nlm.nih.gov/nuccore/ON870694.1 https://www.tandfonline.com/doi/full/10.1080/22221751.2021.1899058 Pandemic influenza, typically caused by the reassortment of human and avian influenza viruses, can result in severe or fatal infections in humans. Timely identification of potential pandemic viruses must be a priority in influenza virus surveillance. However, the range of host species responsible for the generation of novel pandemic influenza viruses remains unclear. In this study, we conducted serological surveys for avian and human influenza virus infections in farmed mink and determined the susceptibility of mink to prevailing avian and human virus subtypes. The results showed that farmed mink were commonly infected with human (H3N2 and H1N1/pdm) and avian (H7N9, H5N6, and H9N2) influenza A viruses. Correlational analysis indicated that transmission of human influenza viruses occurred from humans to mink, and that feed source was a probable route of avian influenza virus transmission to farmed mink. Animal experiments showed that mink were susceptible and permissive to circulating avian and human influenza viruses, and that human influenza viruses (H3N2 and H1N1/pdm), but not avian viruses, were capable of aerosol transmission among mink. These results indicate that farmed mink could be highly permissive “mixing vessels” for the reassortment of circulating human and avian influenza viruses.
+
+H7N9 https://www.bmj.com/content/347/bmj.f4752?tab=responses HH transmission has been suspected Asian lineage H7N9 virus is rated by the Influenza Risk Assessment Tool as having the greatest potential to cause a pandemic, as well as potentially posing the greatest risk to severely impact public health if it were to achieve sustained human-to-human transmission.
+
+H3N2 swine https://www.cdc.gov/flu/swineflu/spotlights/first-human-infection-2022.htm Human infection detected in US this Aug
+
+H1N1 Submitted (03-NOV-2020) USDA Swine Surveillance, USDA Swine Surveillance, 1920 Dayton, Ames, IA 50010, USA COMMENT Method: conceptual translation.
 
 In conclusion, while numerous tools exist for ad hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, a smaller  distance $i.e.$ a higher similarity of two strains in  these frameworks is not sufficient to imply a high likelihood of a jump. % These measures tend to be  variations of the edit distance between  sequences, and their connection to selection pressures is at best qualitative, with the  missing piece being effectively learning which changes are likely in the wild, conditioned on possibly the entire sequence of the current strain.
 To the best of our knowledge, the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or amino acid substitution, or a genealogical tree a priori. While the effect of the environment and selection cannot be inferred from a single sequence, an entire database of observed strains, processed through the right lens, can parse out useful predictive models of these complex interactions. Our results are  aligned with recent studies demonstrating effective  predictability of  future mutations  for different organisms~\cite{mollentze2021identifying,maher2021predicting}.
