@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  18 NOV 2022 00:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  21 NOV 2022 23:45
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1880,24 +1880,15 @@ isable this.
 ) (./Figures/figpred.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
-) (./Figures/tabdata/irat_predictions.tex)
-Overfull \hbox (5.4742pt too wide) in paragraph at lines 1--86
- [][] 
- []
-
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <8> on input line 89.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 89.
-(./Figures/tabdata/highrisk.tex) (./Figures/figphylo.tex
+) (./Figures/figphylo.tex
 \openout8 = `./Figures/External/figphylo.dpth'.
 
-<Figures/riskyphylo6_collapsed_19.pdf, id=34, 81.30376pt x 120.45pt>
+<Figures/riskyphylo6_collapsed_19.pdf, id=34, 120.45pt x 183.68625pt>
 File: Figures/riskyphylo6_collapsed_19.pdf Graphic file (type pdf)
 <use Figures/riskyphylo6_collapsed_19.pdf>
 Package pdftex.def Info: Figures/riskyphylo6_collapsed_19.pdf  used on input li
 ne 4.
-(pdftex.def)             Requested size: 446.69426pt x 661.9495pt.
+(pdftex.def)             Requested size: 446.69426pt x 681.27646pt.
 <Figures/animalicons/pig.png, id=35, 468.38278pt x 468.38278pt>
 File: Figures/animalicons/pig.png Graphic file (type png)
 <use Figures/animalicons/pig.png>
@@ -2954,7 +2945,16 @@ d only with embedded Type1 fonts
 } <./Figures/riskyphylo6_collapsed_19.pdf> <./Figures/animalicons/pig.png> <./F
 igures/animalicons/camel.png> <./Figures/animalicons/mink.png> <./Figures/anima
 licons/chicken.png> <./Figures/animalicons/dog.png> <./Figures/animalicons/duck
-2.png>]))
+2.png>]) (./Figures/tabdata/irat_predictions.tex)
+Overfull \hbox (5.4742pt too wide) in paragraph at lines 1--107
+ [][] 
+ []
+
+LaTeX Font Info:    External font `xccex10' loaded for size
+(Font)              <8> on input line 110.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 7.59998pt on input line 110.
+(./Figures/tabdata/highrisk.tex))
 
 Package natbib Warning: Citation `wille2021accurately' on page 1 undefined on i
 nput line 72.
@@ -3383,14 +3383,14 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  51838 strings out of 478862
  1139300 string characters out of 5858945
- 2047925 words of memory out of 8000000
+ 2048035 words of memory out of 8000000
  68437 multiletter control sequences out of 15000+600000
  493022 words of font info for 247 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  115i,14n,111p,2673b,883s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on ./Figures/External/figphylo.pdf (1 page, 688953 bytes).
+Output written on ./Figures/External/figphylo.pdf (1 page, 689941 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream
