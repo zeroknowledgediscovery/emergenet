@@ -1,46 +1,58 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
+Illegal, another \bibstyle command---line 163 of file main.aux
+ : \bibstyle
+ :          {vancouver}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 164 of file main.aux
+ : \bibdata
+ :         {allbib}
+I'm skipping whatever remains of this command
 Database file #1: allbib.bib
-You've used 59 entries,
+Warning--I didn't find a database entry for "nelson2018origins"
+Warning--empty journal in Baumann
+Warning--empty year in Baumann
+You've used 49 entries,
             2348 wiz_defined-function locations,
-            1354 strings with 22061 characters,
-and the built_in function-call counts, 23756 in all, are:
-= -- 1709
-> -- 593
+            1297 strings with 20443 characters,
+and the built_in function-call counts, 19495 in all, are:
+= -- 1388
+> -- 492
 < -- 0
-+ -- 297
-- -- 148
-* -- 2961
-:= -- 2601
-add.period$ -- 174
-call.type$ -- 59
-change.case$ -- 61
++ -- 246
+- -- 123
+* -- 2438
+:= -- 2150
+add.period$ -- 144
+call.type$ -- 49
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 2096
-empty$ -- 2211
-format.name$ -- 199
-if$ -- 4746
+cite$ -- 51
+duplicate$ -- 1729
+empty$ -- 1813
+format.name$ -- 166
+if$ -- 3878
 int.to.chr$ -- 0
-int.to.str$ -- 59
-missing$ -- 492
-newline$ -- 300
-num.names$ -- 58
-pop$ -- 364
+int.to.str$ -- 49
+missing$ -- 408
+newline$ -- 250
+num.names$ -- 49
+pop$ -- 302
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 372
+skip$ -- 295
 stack$ -- 0
-substring$ -- 1227
-swap$ -- 2111
+substring$ -- 985
+swap$ -- 1732
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 154
-width$ -- 61
-write$ -- 643
+warning$ -- 2
+while$ -- 123
+width$ -- 51
+write$ -- 532
+(There were 2 error messages)
