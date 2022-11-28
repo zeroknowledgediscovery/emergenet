@@ -14,15 +14,15 @@
 %#############################################
 %#############################################
 \ifFIGS
-\begin{figure*}[!t]
+\begin{figure*}[!ht]
   \centering    
   \tikzexternalenable  
   \tikzsetnextfilename{blastvalid}
   \iftikzX 
-  %\input{Figures/sonet}   
+  \input{Figures/sonet}   
   \vspace{-5pt}    
   
-  %\else 
+  \else 
   \includegraphics[width=0.85\textwidth]{Figures/External/blastvalid.pdf}
   \fi
 
@@ -31,6 +31,48 @@
 \else
 \refstepcounter{figure}\label{figsoa}
 \fi
+%#############################################
+%#############################################
+
+
+%#############################################
+%#############################################
+\begin{table*}[!ht]
+\def\ACOL{teal!30}
+\def\BCOL{Red1!30}
+\def\CCOL{gray!30}
+\captionN{Examples: \enet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large q-distance, and the converse (rows 6-9)}\label{tabex}
+\input{Figures/tabdata/example_qdistance}
+\flushleft
+$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in q-distance from sequence B, arising only from a change in the background population.
+\end{table*}
+%#############################################
+%#############################################
+
+
+
+
+%#############################################
+%#############################################
+\begin{table*}[!ht]
+ \mnp{2.75in}{ \centering
+ \captionN{Correlation between \qdist and edit distance between sequence pairs}\label{tabcor}
+\sffamily\fontsize{8}{8}\selectfont
+\begin{tabular}{L{1.35in}|L{.65in}}\hline
+Phenotypes & Correlation \\\hline
+ Influenza H1N1 HA  &0.76\\\hline
+ Influenza H1N1 NA &0.74\\\hline
+ Influenza H3N2 HA &0.85\\\hline
+ Influenza H3N2 NA &0.79\\\hline
+% \hcov &0.52\\\hline
+\end{tabular}
+}\hfill
+\mnp{3.75in}{  \centering
+ \captionN{Number of sequences collected from public databases}\label{tabseq}
+\sffamily\fontsize{8}{8}\selectfont
+\input{Figures/tabdata/total_seqs}
+}
+\end{table*}
 %#############################################
 %#############################################
 
@@ -64,61 +106,61 @@
 
 
 
-\begin{table}[!ht]\centering
-\captionN{H1N1 NA Northern Hemisphere}\label{tabrec2}
+% \begin{table}[!ht]\centering
+% \captionN{H1N1 NA Northern Hemisphere}\label{tabrec2}
 
-\sffamily\fontsize{7}{8}\selectfont
+% \sffamily\fontsize{7}{8}\selectfont
 
-\input{Figures/tabdata/north_h1n1_na.tex}
-\flushleft
+% \input{Figures/tabdata/north_h1n1_na.tex}
+% \flushleft
 
-\fontsize{7}{7}\selectfont
-$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
-\end{table}
-%#############################################
-%#############################################
+% \fontsize{7}{7}\selectfont
+% $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+% \end{table}
+% %#############################################
+% %#############################################
 
-\begin{table}[!ht]\centering
-\captionN{H1N1 NA Southern Hemisphere}\label{tabrec3}
+% \begin{table}[!ht]\centering
+% \captionN{H1N1 NA Southern Hemisphere}\label{tabrec3}
 
-\sffamily\fontsize{7}{8}\selectfont
+% \sffamily\fontsize{7}{8}\selectfont
 
-\input{Figures/tabdata/south_h1n1_na.tex}
-\flushleft
+% \input{Figures/tabdata/south_h1n1_na.tex}
+% \flushleft
 
-\fontsize{7}{7}\selectfont
-$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
-\end{table}
+% \fontsize{7}{7}\selectfont
+% $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+% \end{table}
 
 
-\begin{table}[!ht]\centering
-\captionN{H3N2 NA Northern Hemisphere}\label{tabrec6}
+% \begin{table}[!ht]\centering
+% \captionN{H3N2 NA Northern Hemisphere}\label{tabrec6}
 
-\sffamily\fontsize{7}{8}\selectfont
+% \sffamily\fontsize{7}{8}\selectfont
 
-\input{Figures/tabdata/north_h3n2_na.tex}
-\flushleft
+% \input{Figures/tabdata/north_h3n2_na.tex}
+% \flushleft
 
-\fontsize{8}{8}\selectfont
-$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
-\end{table}
-\vspace{100pt}
-%#############################################
-%#############################################
+% \fontsize{8}{8}\selectfont
+% $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+% \end{table}
+% \vspace{100pt}
+% %#############################################
+% %#############################################
 
-\begin{table}[!ht]\centering
-\captionN{H3N2 NA Southern Hemisphere}\label{tabrec7}
+% \begin{table}[!ht]\centering
+% \captionN{H3N2 NA Southern Hemisphere}\label{tabrec7}
 
-\sffamily\fontsize{7}{8}\selectfont
+% \sffamily\fontsize{7}{8}\selectfont
 
-\input{Figures/tabdata/south_h3n2_na.tex}
-\flushleft
+% \input{Figures/tabdata/south_h3n2_na.tex}
+% \flushleft
 
-\fontsize{7}{7}\selectfont
-$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
-\end{table}
-%#############################################
-%#############################################
+% \fontsize{7}{7}\selectfont
+% $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+% \end{table}
+% %#############################################
+% %#############################################
 
 
 
@@ -184,33 +226,27 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
 \end{table}
 %#############################################
-%#############################################
-
-
-
-
-
-%#############################################
-%#############################################
-\ifFIGS
-\begin{figure*}[!t]
-  \centering    
-  \tikzexternalenable  
-  \tikzsetnextfilename{IRAT_split.png}
-  \iftikzX 
-  \vspace{-5pt}    
+% %#############################################
+% %#############################################
+% \ifFIGS
+% \begin{figure*}[!t]
+%   \centering    
+%   %\tikzexternalenable  
+%   %\tikzsetnextfilename{IRAT_split.png}
+%   %\iftikzX 
+%   %\vspace{-5pt}    
   
-  %\else 
-  \includegraphics[width=0.9\textwidth]{Figures/External/IRAT_split.png}
-  \fi
+%   %\else 
+%   \includegraphics[width=0.9\textwidth]{Figures/External/IRAT_split.png}
+%   %\fi
 
-  \captionN{\textbf{IRAT vs. Q-distance relationship for H1- and H3- sub-types, using past year data vs. using all data.} On the result when computing average q-distance between the target strain and the circulating human strains from the past year, and on the right is the result when using all available human strains of that sub-type. Evidently, the former has a much higher correlation, since a strain being ``close" to humans at some point does not necessarily mean being close now.}\label{irat}
-\end{figure*}
-\else
-\refstepcounter{figure}\label{irat}
-\fi
-%#############################################
-%#############################################
+%   \captionN{\textbf{IRAT vs. Q-distance relationship for H1- and H3- sub-types, using past year data vs. using all data.} On the result when computing average q-distance between the target strain and the circulating human strains from the past year, and on the right is the result when using all available human strains of that sub-type. Evidently, the former has a much higher correlation, since a strain being ``close" to humans at some point does not necessarily mean being close now.}\label{irat}
+% \end{figure*}
+% \else
+% \refstepcounter{figure}\label{irat}
+% \fi
+% %#############################################
+% %#############################################
 
 
 
@@ -315,17 +351,17 @@ $^\star$This table contains \qnet scores for IRAT computed using current sequenc
 
 
 
-%#############################################
-%#############################################
-\begin{table}
-  \centering
-\captionN{Numbering Conversion to pdm09 and H3 Schemes}\label{tabnum}
+% %#############################################
+% %#############################################
+% \begin{table}
+%   \centering
+% \captionN{Numbering Conversion to pdm09 and H3 Schemes}\label{tabnum}
   
-  \fontsize{5}{5}\selectfont
+%   \fontsize{5}{5}\selectfont
 
-  \mnp{1.5in}{\input{Figures/tabdata/col1.tex}}
-  \mnp{1.5in}{\input{Figures/tabdata/col2.tex}}
-  \mnp{1.5in}{\input{Figures/tabdata/col3.tex}}
-  \mnp{1.5in}{\input{Figures/tabdata/col4.tex}}
+%   \mnp{1.5in}{\input{Figures/tabdata/col1.tex}}
+%   \mnp{1.5in}{\input{Figures/tabdata/col2.tex}}
+%   \mnp{1.5in}{\input{Figures/tabdata/col3.tex}}
+%   \mnp{1.5in}{\input{Figures/tabdata/col4.tex}}
 
-\end{table}
+% \end{table}

@@ -1,67 +1,33 @@
-
+%
 %#############################################
 \ifFIGS
-\begin{table*}[!ht]\centering
-\captionN{Out-performance of \qnet recommendations over WHO 
-for Influenza A vaccine composition}\label{tabperf}\centering
+\begin{table}[t]\centering
 
-\sffamily\fontsize{9}{9}\selectfont
+  \mnp{\textwidth}{
+\captionN{Out-performance of \enet recommendations over WHO 
+for Influenza A vaccine composition}\label{tabperf}\centering
+\vspace{-10pt}
+
+\sffamily\fontsize{7}{8}\selectfont
 
 \input{Figures/tabdata/improvement_qnet}
-\end{table*}
-\else
-\refstepcounter{table}\label{tabperf}
-\fi
-%#############################################
-%#############################################
+% \end{table*}
+% \else
+% \refstepcounter{table}\label{tabperf}
+% \fi
+% %#############################################
+% %#############################################
 
 
-%#############################################
-%#############################################
-\begin{table*}[!ht]
-\def\ACOL{teal!30}
-\def\BCOL{Red1!30}
-\def\CCOL{gray!30}
-\captionN{Examples: \qnet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large q-distance, and the converse (rows 6-9)}\label{tabex}
-\input{Figures/tabdata/example_qdistance}
-\flushleft
-$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in q-distance from sequence B, arising only from a change in the background population.
-\end{table*}
-%#############################################
-%#############################################
-
-
-
-
-
-%#############################################
-%#############################################
-\begin{table*}[!ht]
- \mnp{2.75in}{ \centering
- \captionN{Correlation between q-distance and edit distance between sequence pairs}\label{tabcor}
-\sffamily\fontsize{8}{8}\selectfont
-\begin{tabular}{L{1.35in}|L{.65in}}\hline
-Phenotypes & Correlation \\\hline
- Influenza H1N1 HA  &0.76\\\hline
- Influenza H1N1 NA &0.74\\\hline
- Influenza H3N2 HA &0.85\\\hline
- Influenza H3N2 NA &0.79\\\hline
-% \hcov &0.52\\\hline
-\end{tabular}
-}\hfill
-\mnp{3.75in}{  \centering
- \captionN{Number of sequences collected from public databases}\label{tabseq}
-\sffamily\fontsize{8}{8}\selectfont
-\input{Figures/tabdata/total_seqs}
+% %#############################################
+% %#############################################
+% \begin{table}[!hb]\centering
 }
-\end{table*}
-%#############################################
-%#############################################
+\vskip .5em
 
-%#############################################
-%#############################################
-\begin{table}\centering
+  \mnp{\textwidth}{
 \captionN{H1N1 HA Northern Hemisphere}\label{tabrec0}
+\vspace{-10pt}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -70,13 +36,20 @@ Phenotypes & Correlation \\\hline
 
 \fontsize{7}{7}\selectfont
 $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
-\end{table}
 
-%#############################################
-%#############################################
+% \end{table}
 
-\begin{table}[!ht]\centering
+% %#############################################
+% %#############################################
+
+% \begin{table}[!hb]\centering
+
+}
+\vskip .5em
+\mnp{\textwidth}{
+  
 \captionN{H1N1 HA Southern Hemisphere}\label{tabrec1}
+\vspace{-10pt}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -85,6 +58,8 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 
 \fontsize{7}{7}\selectfont
 $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+
+}
 \end{table}
 
 %#############################################
@@ -102,6 +77,8 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 
 \fontsize{8}{8}\selectfont
 $^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+
+
 \end{table}
 
 %#############################################
@@ -121,6 +98,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 %#############################################
 %#############################################
 
+\clearpage
 
 %#############################################
 %#############################################
@@ -141,31 +119,115 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
   \fi
 \vspace{0pt}
 
-\captionN{\textbf{Sequence comparisons.} The observed dominant strain, we note that the correct \qnet  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix.}\label{figseq}
+\captionN{\textbf{Sequence comparisons.} The observed dominant strain, we note that the correct \enet  deviations tend to be within the RBD, both for H1N1 and H3N2 for HA (panel a shows one example). Additionally, by comparing the type, side chain area, and the accessible side chain area, we note that the changes often have very different properties (panel b-f). Panels g-i show the localization of the deviations in the molecular structure of HA, where we note that the changes are most frequent in the HA1 sub-unit (the globular head), and around residues and structures that have been commonly implicated in receptor binding interactions $e.g$ the $\approx 200$ loop, the $\approx 220$ loop and the $\approx 180$-helix.}\label{figseq}
 \end{figure*}
 \else
 \refstepcounter{figure}\label{figseq}
 \fi
 %#############################################
 %#############################################
-
-
 %#############################################
-%#############################################
+\ifFIGS
 
-\begin{table}\centering
-\captionN{Riskiest Strains Currently Circulating in Swine}\label{tabrec11}
+\begin{table}[!ht]\centering
+\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \enet Computed Risk Scores}\label{irattab}
 
 \sffamily\fontsize{7}{8}\selectfont
 
-\input{Figures/tabdata/swine_combined}
+\input{Figures/tabdata/irat_predictions}
 \flushleft
 
-\fontsize{7}{7}\selectfont
-$^\star$ Converted IRAT Score computed using regression generated from the IRAT vs. Qnet comparison
+ \fontsize{8}{8}\selectfont
+% $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
+ $^{\star\star}$  \enet constructed using all human strains that match the HA sub-type, $e.g.$, H5Nx for H5N6.\\
+ $^{\star\star\star}$ distance estaimated averaging over those obtained by considering all \enet{s} from other subtypes.% These strains did not have enough human sequence data to generate a \enet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \enet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
 \end{table}
+\else
+\refstepcounter{table}\label{irattab}
+\fi
+% #############################################
+
 %#############################################
+
+
+
+\ifFIGS
+
+\begin{table}[!ht]\centering
+\captionN{Count of identified strains above estimated emergence risk threshold}\label{riskytab}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/riskycount}
+\end{table}
+\else
+\refstepcounter{table}\label{riskytab}
+\fi
+% #############################################
 %#############################################
+\ifFIGS
+
+\begin{table}[!ht]\centering
+\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \enet Computed Risk Scores}\label{highrisktab}
+
+\bf\sffamily\fontsize{7}{7}\selectfont
+
+\input{Figures/tabdata/highrisk35}
+% \flushleft
+
+% \fontsize{8}{8}\selectfont
+% $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
+% $^{\star\star}$ Could not construct a \enet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \enet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
+% $^{\star\star\star}$ These strains did not have enough human sequence data to generate a \enet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \enet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
+\end{table}
+\else
+\refstepcounter{table}\label{highrisktab}
+\fi
+% #############################################
+
+
+
+\ifFIGS
+
+\begin{figure}[!ht]
+  \tikzexternalenable
+  \tikzsetnextfilename{riskyseq}
+  \centering
+ %\tikzXtrue
+ 
+  
+  \iftikzX  
+  \input{Figures/sequence_risky}
+ \else
+  \includegraphics[width=.95\textwidth]{Figures/External/riskyseq}
+  \fi 
+  \vspace{-18pt}
+  
+\captionN{HA sequence comparison  with dominant human strains (DOM\_HUMAN H1N1, H3N2)  with \enet estimated top 5 risky strains (2020-2022 April) along with the teh most risky H9N2 strain (A/mink/China/chick embryo/2020), showing substantial differences from the circulating strains both in and out of the RBD. }\label{figriskyseq}
+\end{figure}
+\else
+\refstepcounter{figure}\label{figriskyseq}
+\fi
+
+
+
+
+% %#############################################
+% %#############################################
+
+% \begin{table}\centering
+% \captionN{Riskiest Strains Currently Circulating in Swine}\label{tabrec11}
+
+% \sffamily\fontsize{7}{8}\selectfont
+
+% \input{Figures/tabdata/swine_combined}
+% \flushleft
+
+% \fontsize{7}{7}\selectfont
+% $^\star$ Converted IRAT Score computed using regression generated from the IRAT vs. Qnet comparison
+% \end{table}
+% %#############################################
+% %#############################################
 
 
 

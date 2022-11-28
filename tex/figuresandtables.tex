@@ -42,10 +42,12 @@
   \tikzexternalenable
    \tikzsetnextfilename{seasonalpred_both}
 
-  \tikzXtrue 
+  %\tikzXtrue 
   \iftikzX
-  \hspace{-20pt}\resizebox{.975\linewidth}{!}{\input{Figures/seasonalpred_both}}
-   \else  \hspace{-10pt}\includegraphics[width=0.975\textwidth]{Figures/seasonalpred_both.tex}
+  %\hspace{-20pt}\resizebox{.975\linewidth}{!}{
+    \input{Figures/seasonalpred_both}
+  %}
+   \else  \hspace{-10pt}\includegraphics[width=0.98\textwidth]{Figures/External/seasonalpred_both}
    \fi
    \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}
 \end{figure*}
@@ -96,84 +98,5 @@
 \end{figure}
 \else
 \refstepcounter{table}\label{figphylo}
-\fi
-% #############################################
-%#############################################
-\ifFIGS
-
-\begin{table}[!ht]\centering
-\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{irattab}
-
-\sffamily\fontsize{7}{8}\selectfont
-
-\input{Figures/tabdata/irat_predictions}
-\flushleft
-
- \fontsize{8}{8}\selectfont
-% $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
- $^{\star\star}$  \enet constructed using all human strains that match the HA sub-type, $e.g.$, H5Nx for H5N6.\\
- $^{\star\star\star}$ distance estaimated averaging over those obtained by considering all \enet{s} from other subtypes.% These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
-\end{table}
-\else
-\refstepcounter{table}\label{irattab}
-\fi
-% #############################################
-%#############################################
-\ifFIGS
-
-\begin{table}[!ht]\centering
-\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{highrisktab}
-
-\bf\sffamily\fontsize{7}{7}\selectfont
-
-\input{Figures/tabdata/highrisk35}
-% \flushleft
-
-% \fontsize{8}{8}\selectfont
-% $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
-% $^{\star\star}$ Could not construct a \qnet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \qnet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
-% $^{\star\star\star}$ These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
-\end{table}
-\else
-\refstepcounter{table}\label{highrisktab}
-\fi
-% #############################################
-
-
-\ifFIGS
-
-\begin{figure}[!ht]
-  \tikzexternalenable
-  \tikzsetnextfilename{riskyseq}
-  \centering
- %\tikzXtrue
- 
-  
-  \iftikzX  
-  \input{Figures/sequence_risky}
- \else
-  \includegraphics[width=.95\textwidth]{Figures/External/riskyseq}
-  \fi 
-  \vspace{-18pt}
-  
-\captionN{HA sequence comparison  with dominant human strains (DOM\_HUMAN H1N1, H3N2)  with \enet estimated top 5 risky strains (2020-2022 April) along with the teh most risky H9N2 strain (A/mink/China/chick embryo/2020), showing substantial differences from the circulating strains both in and out of the RBD. }\label{figriskyseq}
-\end{figure}
-\else
-\refstepcounter{figure}\label{figriskyseq}
-\fi
-
-
-
-\ifFIGS
-
-\begin{table}[!ht]\centering
-\captionN{Count of identified strains above estimated emergence risk threshold}\label{riskytab}
-
-\sffamily\fontsize{7}{8}\selectfont
-
-\input{Figures/tabdata/riskycount}
-\end{table}
-\else
-\refstepcounter{table}\label{riskytab}
 \fi
 % #############################################
