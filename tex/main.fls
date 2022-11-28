@@ -855,8 +855,6 @@ INPUT Figures/tabdata/north_h3n2_na_3cluster.tex
 INPUT Figures/tabdata/north_h3n2_na_3cluster.tex
 INPUT Figures/tabdata/south_h3n2_na_3cluster.tex
 INPUT Figures/tabdata/south_h3n2_na_3cluster.tex
-INPUT Figures/tabdata/irat_predictions.tex
-INPUT Figures/tabdata/irat_predictions.tex
 INPUT Figures/tabdata/irat_predictions_current.tex
 INPUT Figures/tabdata/irat_predictions_current.tex
 INPUT Figures/tabdata/model1.txt
