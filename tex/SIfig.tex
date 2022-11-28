@@ -18,15 +18,16 @@
   \centering    
   \tikzexternalenable  
   \tikzsetnextfilename{blastvalid}
+  %\tikzXtrue
   \iftikzX 
   \input{Figures/sonet}   
   \vspace{-5pt}    
   
   \else 
-  \includegraphics[width=0.85\textwidth]{Figures/External/blastvalid.pdf}
+  \includegraphics[width=0.9\textwidth]{Figures/External/blastvalid.pdf}
   \fi
 
-  \captionN{\textbf{Q-distance validation in-silico using Influenza A sequences from NCBI database. Panel a} illustrates that the \qnet induced modeling of evolutionary trajectories initiated from known haemagglutinnin (HA)  sequences  are distinct from random paths in the strain space. In particular, random trajectories have more variance, and more importantly, diverge to different regions of the landscape compared to \qnet predictions. \textbf{Panels b-e} show that unconstrained Q-sampling  produces sequences maintain a higher degree of similarity to known sequences, as verified by blasting against known HA sequences, have a smaller rate of growth of variance, and produce matches in closer time frames to the initial sequence. \textbf{Panel c} shows that this is not due to simply restricting the  mutational variations, which increases rapidly in both the \qnet and the classical metric.}\label{figsoa}
+  \captionN{\textbf{\qdist validation in-silico using Influenza A sequences from NCBI database. Panel a} illustrates that the \enet induced modeling of evolutionary trajectories initiated from known haemagglutinnin (HA)  sequences  are distinct from random paths in the strain space. In particular, random trajectories have more variance, and more importantly, diverge to different regions of the landscape compared to \enet predictions. \textbf{Panels b-e} show that unconstrained Q-sampling  produces sequences maintain a higher degree of similarity to known sequences, as verified by blasting against known HA sequences, have a smaller rate of growth of variance, and produce matches in closer time frames to the initial sequence. \textbf{Panel c} shows that this is not due to simply restricting the  mutational variations, which increases rapidly in both the \enet and the classical metric.}\label{figsoa}
 \end{figure*}
 \else
 \refstepcounter{figure}\label{figsoa}
@@ -256,7 +257,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 %#############################################
 
 \begin{table}[!ht]\centering
-\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Risk Scores}\label{irattab}
+\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \enet Computed Risk Scores}\label{irattab}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -265,8 +266,8 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 
 \fontsize{8}{8}\selectfont
 $^\star$ HA strain is not available for A/duck/New York/1996, so this strain is omitted.\\
-$^{\star\star}$ Could not construct a \qnet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \qnet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
-$^{\star\star\star}$ These strains did not have enough human sequence data to generate a \qnet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \qnet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
+$^{\star\star}$ Could not construct a \enet of human sequence data available for that virus sub-type (less than 30 strains), so we constructed a \enet using all human strains that match the HA sub-type, i.e. H5NX for H5N6.\\
+$^{\star\star\star}$ These strains did not have enough human sequence data to generate a \enet, even when only considering the HA sub-type. Thus, we estimated the risk score using every \enet from the other IRAT strains, and took the average among NA and HA. Finally, we took the geometric mean of the resulting NA and HA averages.
 \end{table}
 
 %#############################################
@@ -277,7 +278,7 @@ $^{\star\star\star}$ These strains did not have enough human sequence data to ge
 %#############################################
 
 \begin{table}[!ht]\centering
-\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \qnet Computed Current Risk Scores}\label{irattab_current}
+\captionN{Influenza A Strains Evaluated by IRAT and Corresponding \enet Computed Current Risk Scores}\label{irattab_current}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -285,7 +286,7 @@ $^{\star\star\star}$ These strains did not have enough human sequence data to ge
 \flushleft
 
 \fontsize{8}{8}\selectfont
-$^\star$This table contains \qnet scores for IRAT computed using current sequence data, thereby computing the current risk of these strains.  -1 indicates missing data, either from lack of human sequence data available for that virus sub-type (less than 30 strains) or missing IRAT sequence data (in the case of A/duck/New York/1996)
+$^\star$This table contains \enet scores for IRAT computed using current sequence data, thereby computing the current risk of these strains.  -1 indicates missing data, either from lack of human sequence data available for that virus sub-type (less than 30 strains) or missing IRAT sequence data (in the case of A/duck/New York/1996)
 \end{table}
 \else
 \refstepcounter{table}\label{irattab_current}
@@ -298,11 +299,11 @@ $^\star$This table contains \qnet scores for IRAT computed using current sequenc
 %#############################################
 %#############################################
 \begin{table}\centering
-\captionN{General linear model for evaluating effect of data diversity on \qnet performance}\label{tabreg}\centering
+\captionN{General linear model for evaluating effect of data diversity on \enet performance}\label{tabreg}\centering
 
 \begin{tabular}{L{1.5in}|L{2in}}\hline
   Variable Name & Description \\\hline
-  qnet\_complexity & Cumulative number of nodes in all predictors in the corresponding \qnet \\\hline
+  qnet\_complexity & Cumulative number of nodes in all predictors in the corresponding \enet \\\hline
   data\_diversity &  Number of clusters in set of input sequence where each sequence in a specific cluster is separated by at least $5$ mutations from sequences not in the cluster\\\hline
   ldistance\_WHO & Deviation of WHO predicted strain from the dominant strain\\\hline
 \end{tabular}
@@ -330,7 +331,7 @@ $^\star$This table contains \qnet scores for IRAT computed using current sequenc
 %#############################################
 %#############################################
 \begin{table}\centering
-\captionN{General linear model evaluating \qnet emergence risk predictions against IRAT estimates}\label{tabreg}\centering
+\captionN{General linear model evaluating \enet emergence risk predictions against IRAT estimates}\label{tabreg}\centering
 
 \mnp{6.5in}{
   \fontsize{8}{8}\selectfont

@@ -1,0 +1,565 @@
+\def\QCLR{Cyan3}
+\def\QCLRB{Cyan3}
+\def\RCLR{Tomato}
+\def\TEXTCOL{black}
+\begin{tikzpicture}[font=\sffamily\fontsize{8}{9}\selectfont]
+\clip (-1.5in,2.875in) rectangle (5.75in,-1.75in);
+% all text in the axes and labels
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+  \tikzset{slabel/.style={font=\sffamily\fontsize{11}{5}\selectfont,text=gray}}
+  \tikzset{ldr/.style={very thin,Purple3,opacity=.9}}
+  \def\LWDT{3pt}
+  \def\XST{2.75in}
+  \def\INSP{7pt}
+  \node[] (A) {
+\SetCoordinates[xAngle=-10,yAngle=25]
+% ,yLength=1.2,xLength=.8]
+\begin{tikzpicture}[scale=.6,multilayer=3d,font=\fontsize{18}{8}\selectfont]
+ \def\COLA{Bisque4!80}
+\def\COLB{Bisque4!80}
+\def\COLC{Bisque4!80}
+\def\COLD{Bisque4!80}
+ \def\COLA{SlateGray!60}
+\def\COLB{SlateGray!60}
+\def\COLC{SlateGray!50}
+\def\COLD{SlateGray!40}
+
+%\def\TEXTCOL{black}
+\def\PWDT{6}
+\def\PHGT{7}
+ \SetLayerDistance{3.25}
+\Plane[x=-.50,y=-.5,width=\PWDT,height=\PHGT,image=Figures/8filename, color=\COLA, ImageAndFill,layer=1,NoBorder]
+\Plane[x=-.5,y=-.5,width=\PWDT,height=\PHGT,style={},NoBorder,layer=2,color=\COLB,image=Figures/9filename,ImageAndFill]
+\Plane[x=-.5,y=-.5,width=\PWDT,height=\PHGT,NoBorder,layer=3,color=\COLC,image=Figures/10filename,ImageAndFill]
+\Plane[x=-.5,y=-.5,width=\PWDT,height=\PHGT,NoBorder,layer=4,color=\COLD,image=Figures/11filename,ImageAndFill]
+
+
+
+\begin{Layer}[layer=1]
+  \node[,text=black,inner sep=\INSP] (N1) at (3.5,4.25) {};
+ \end{Layer}
+\begin{Layer}[layer=2]
+  \node[,text=black,inner sep=\INSP] (N2) at (1.5,4.5) {};
+\end{Layer}
+\begin{Layer}[layer=3]
+  \node[,text=black,inner sep=\INSP] (N3) at (2.25,4.75) {};
+\end{Layer}
+\begin{Layer}[layer=4]
+  \node[,text=black,inner sep=\INSP] (N4) at (.6,.25) {};
+\end{Layer}
+\node[slabel,inner sep=6pt] (S0)  at ([yshift=-1.25in,xshift=-.75in]N1.south) {A/swine/Iowa/A02271327/2018};
+\node[slabel,inner sep=6pt] (S1)  at ([yshift=-.55in,xshift=1in]N1.south) {A/swine/Iowa/A02157799/2018};
+\node[slabel,inner sep=6pt] (S2)  at ([yshift=-.8in,xshift=1.7in]N2.south) {A/swine/Iowa/A02268335/2018};
+\node[slabel,inner sep=6pt] (S3)  at ([yshift=-.75in,xshift=1.35in]N3.south) {A/swine/Iowa/A02270007/2018};
+\node[slabel,inner sep=6pt] (S4)  at ([yshift=.65in,xshift=1.35in]N4.south) {A/swine/Iowa/A02429801/2019};
+
+\draw [opacity=.3,dashed,very thick] (S0.north) -- (N1) -- (N2) -- (N3) -- (N4);
+\draw [ldr,] (S1) -- (N1);
+\draw [ldr,] (S2) -- (N2);
+\draw [ldr,] (S3) -- (N3);
+\draw [ldr,] (S4) -- (N4);
+
+\end{tikzpicture}};
+\node[circle,draw=IndianRed3,fill=IndianRed3,path fading=fade out,ultra thick,inner sep=6pt,,font=\rm\sffamily\fontsize{6}{8}\selectfont,label={[font=\rm\sffamily\fontsize{8}{8}\selectfont]0:Random Mutations}] (L) at ([xshift=0.5in,yshift=.42in]A.north west) { };
+\node[anchor=west,circle,font=\rm\sffamily\fontsize{8}{8}\selectfont,,draw=Cyan1,fill=Cyan1,ultra thick,inner sep=5pt,label={[font=\rm\sffamily\fontsize{8}{8}\selectfont]0:Q-Sampled Mutations}] (L1) at ([xshift=1.1in]L.east) { };
+\node[anchor=north west,circle,font=\rm\sffamily\fontsize{8}{8}\selectfont,text width=.15in,,label={[font=\rm\sffamily\fontsize{8}{8}\selectfont]0:Possible Evolutionary Trajectory}] (L1111) at ([xshift=0in,yshift=-.05in]L.south west) { };
+\draw [dashed, ultra thick,lightgray] (L1111.west) -- (L1111.east);
+\node[anchor=center,circle,draw=none,path fading=fade out,,fill=Purple1,ultra thick,inner sep=6pt,opacity=.8] (L11) at (L1) { };
+\draw[-{Latex[length=4mm]},ultra thick,opacity=.5,Bisque4!70,text opacity=1] ([xshift=.6in,yshift=.6in]A.south west) -- ([xshift=.6in]$(A.south west)!.75!(A.north west)$) node [midway,sloped,above] {Iterations};
+    \def\WDT{1in} % width 
+    \def\HGT{1.125in} % height
+
+\node[anchor=north west] (A1) at ([yshift=.6in,xshift=0.1in]A.north east) {
+  \begin{tikzpicture}[anchor=center,%font=\bf\sffamily\fontsize{8}{8}\selectfont
+    ]
+    \def\DATAQNET{Figures/plotdata/qnet_mean.csv}
+    \def\DATARANDOM{Figures/plotdata/random_mean.csv}%define datafile
+
+    \begin{axis}[\TEXTCOL, legend columns=2,legend style={text=black,anchor=west,at={(-.5,1.2)},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+                column sep=5pt,
+            },},
+      name=X0,
+      % at=(F.south west),
+      %xshift=0in,
+      %yshift=-0.1in,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=false,
+      enlarge y limits=0.1,
+      enlarge x limits=0.04,
+      axis on top=false,
+      axis line style={black!2, very thick},
+      grid,
+      xmax=4, 
+      ymin=1500,
+      grid style={opacity=.95,dashed,very thick,black!10},
+      major tick length=0pt,
+      ytick style={draw=none},
+      scaled y ticks = false,
+      y tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % \thinspace optional
+      },
+      x tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \empty % Optional
+      },
+      ylabel={p-blast score},xlabel={iteration step},ylabel style={yshift=-.1in},xlabel style={yshift=.05in},]
+      
+      \addplot [smooth,ultra thick,
+      draw=\QCLRB,mark=*,mark options={scale=2.5,draw=white, fill=\QCLR}]
+      table [col sep=comma,x=step,y=mean] {\DATAQNET};
+      \addlegendentry{Q-sampled}
+      
+      \addplot [smooth,ultra thick,
+      draw=\RCLR,mark=*,mark options={scale=2.5,draw=white, fill=\RCLR}]
+      table [col sep=comma,x=step,y=mean] {\DATARANDOM};
+      \addlegendentry{Random}
+     
+    \end{axis}
+  \end{tikzpicture}};
+
+
+\node[anchor=south west] (A2) at ($(A.south west)!(A1.west)!(A.south east)$) {
+\begin{tikzpicture}[anchor=center]
+\def\QCLR{Cyan3}
+\def\QCLRB{Cyan3}
+\def\RCLR{Tomato}
+\def\TEXTCOL{black}
+    \def\WDT{1in} % width 
+    \def\HGT{1.25in} % height
+\def\DATAVAR{Figures/plotdata/variances.csv}
+\begin{axis}[\TEXTCOL, legend columns=2,legend style={text=black,anchor=west,at={(-.5,1.2)},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+                column sep=5pt,
+            },},name=X1,
+      % at=(F.south west),
+      %xshift=0in,
+      %yshift=-0.1in,
+      xmax=4,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=true,
+      enlarge y limits=0.1,
+      enlarge x limits=0.04,
+      axis on top=false,
+      axis line style={black!2, very thick},
+      grid,
+      grid style={opacity=.95,dashed,ultra thick,black!10},
+      major tick length=0pt,
+      ytick style={draw=none},
+      scaled y ticks = true,
+      %y tick label style={/pgf/number format/fixed,
+      %  /pgf/number format/1000 sep = \empty % \thinspace optional
+      %},
+      %x tick label style={/pgf/number format/fixed,
+      %  /pgf/number format/1000 sep = \empty % Optional
+      %},
+      ylabel={variance},xlabel={iteration step},ylabel style={yshift=-.1in},xlabel style={yshift=.05in}]
+      \addplot [smooth,ultra thick,
+      draw=\QCLRB,mark=*,mark options={scale=2.5,draw=white, fill=\QCLR}]
+      table [col sep=comma,x=step,y=qnetvariance] {\DATAVAR};
+      \addlegendentry{Q-sampled}
+      \addplot [smooth,ultra thick,
+      draw=\RCLR,mark=*,mark options={scale=2.5,draw=white, fill=\RCLR}]
+      table [col sep=comma,x=step,y=randomvariance] {\DATAVAR};
+      \addlegendentry{Random}
+\end{axis}
+\end{tikzpicture}
+};
+
+
+\node[anchor=north west] (A3) at  ([xshift=.1in]A1.north east) {
+\begin{tikzpicture}[anchor=center]
+\def\QCLR{teal}
+\def\QCLRB{teal}
+\def\LCLR{black}
+\def\TEXTCOL{black}
+    \def\WDT{1.25in} % width 
+    \def\HGT{1.125in} % height
+\def\DATADIS{Figures/plotdata/dist_between_centers.csv}
+\begin{axis}[\TEXTCOL, legend columns=2,legend style={text=black,anchor=west,at={(-.275,1.2),},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+                column sep=5pt,
+            },},name=X1,
+      % at=(F.south west),
+      %xshift=0in,
+      %yshift=-0.1in,
+      xmax=4,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=true,
+      enlarge y limits=0.08,
+      enlarge x limits=0.04,
+      axis on top=false,
+      axis line style={black!2, very thick},
+      grid,
+      grid style={opacity=.95,dashed,ultra thick,black!10},
+      major tick length=0pt,
+      ytick style={draw=none},
+      scaled y ticks = true,
+      %y tick label style={/pgf/number format/fixed,
+      %  /pgf/number format/1000 sep = \empty % \thinspace optional
+      %},
+      %x tick label style={/pgf/number format/fixed,
+      %  /pgf/number format/1000 sep = \empty % Optional
+      %},
+      ylabel={distance [\% increase]},xlabel={iteration step},ylabel style={yshift=-.1in},xlabel style={yshift=.05in}]
+      \addplot [smooth,ultra thick,
+      draw=\QCLRB,mark=*,mark options={scale=2.5,draw=white, fill=\QCLR}]
+      table [col sep=comma,x=step,y expr={100*(\thisrow{qdistance}*625 -1) }] {\DATADIS};
+      \addlegendentry{q-distance}
+      \addplot [smooth,ultra thick,
+      draw=\LCLR,mark=*,mark options={scale=2.5,draw=white, fill=\LCLR}]
+      table [col sep=comma,x=step,y expr={100*(\thisrow{ldistance}*0.015 - 1)}] {\DATADIS};
+      \addlegendentry{Edit metric}
+\end{axis}
+\end{tikzpicture}};
+
+\node[anchor=south west] (A4) at ($(A.south west)!(A3.west)!(A.south east)$) {\begin{tikzpicture}[anchor=center]
+\def\DATA{Figures/plotdata/year.csv}
+    \def\WDT{1in} % width 
+    \def\HGT{1.35in} % height
+\begin{axis}[, legend columns=2,legend style={text=black,anchor=west,at={(-.2,1.125)},
+        inner sep=1pt,draw=none,fill=black!5,fill opacity=.75,align=right,
+        text opacity=1,/tikz/column 2/.style={
+                column sep=5pt,
+            },},
+      name=X3,
+      xshift=0in,
+      yshift=-0.1in,
+      anchor=center,
+      width=\WDT,
+      height=\HGT,
+      scale only axis=true,
+      enlargelimits=false,
+      enlarge y limits=0.150,
+      axis on top=false,
+      axis line style={black!2, ultra thick},
+      grid,
+      %xmin=2001,
+      %ymax=2019.5,
+      grid style={opacity=.95,dashed,ultra thick,black!10},
+      % xticklabel style={xshift=0.05in,yshift=-.05in},
+      xlabel style={yshift=.05in,text=\TEXTCOL},
+      ylabel style={align=center,,text=\TEXTCOL,anchor=center,
+        yshift=-.05in},
+      % tickpos=left,
+      ytick align=outside,
+      xtick align=outside,
+      major tick length=0pt,
+      scaled y ticks = false,
+      y tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \thinspace % Optional 
+      },
+      x tick label style={/pgf/number format/fixed,
+        /pgf/number format/1000 sep = \thinspace % Optional  
+      },
+      ylabel={year}, xlabel={probability},xbar,bar width=6pt]
+      \addplot [fill=\QCLR,draw=none]table [col sep=comma,y=year,x=qnet] {\DATA};
+      \addlegendentry{Q-sampled}
+
+      \addplot [fill=\RCLR,draw=none]table [col sep=comma,y=year,x=random] {\DATA};
+      \addlegendentry{Random}
+
+
+\end{axis}
+
+\end{tikzpicture}
+};
+
+% \node [anchor=north west] (A5) at ([xshift=.1in,yshift=-.3in]A.south west) {
+% \def\COLX{lightgray}
+%   \begin{tikzpicture}[anchor=center,square/.style={regular polygon,regular polygon sides=4}]
+%   \def\HGT{.3in}
+%   \def\WDT{1in}
+%   \def\DATAFIRST{Figures/plotdata/first.csv}
+% \def\DATASECOND{Figures/plotdata/second.csv}
+% \def\DATATHIRD{Figures/plotdata/third.csv}
+%   \tikzset{barst/.style={thick,fill=\COLX,ybar,bar width=6pt}}
+
+%   \pgfplotsset{axm/.style={axis line style={draw=none},
+%     xlabel={},
+%     xticklabel style={rotate=0,xshift=-0.25cm},
+%     ylabel={},
+%     ylabel style={},
+%     ymax=1,
+%     yticklabel style={rotate=0,xshift = -0.25cm},
+%     height = \HGT,
+%     width = \WDT,      scale only axis=true,
+%     enlargelimits=false,
+%     enlarge y limits=0.02,
+%       enlarge x limits=0.150,
+%       axis on top=false,
+%       axis line style={black!2, ultra thick},
+%       %grid,
+%        grid style={opacity=.95,dashed,ultra thick,black!10},
+%       % xticklabel style={xshift=0.05in,yshift=-.05in},
+%       xlabel style={yshift=-0.05in,text=\TEXTCOL},
+%       ylabel style={align=center,,text=\TEXTCOL,anchor=center,
+%         yshift=-.05in},
+%       % tickpos=left,
+%       ytick align=outside,
+%       xtick align=outside,
+%       major tick length=0pt,
+%       scaled y ticks = false,
+%       y tick label style={/pgf/number format/fixed,
+%         /pgf/number format/1000 sep = \thinspace % Optional 
+%       },
+%       x tick label style={anchor=north, xshift=7pt,yshift=-.02in },
+%       ytick={0,0.5,1}}}
+
+%     \node[font=\bf\Large] at (-1,-.15) {$\ldots$};
+%     \node at (0,0) [square,draw,label=above:P161] (v161) {X};
+%     \node at (1,0) [square,draw,label=above:P162,fill=IndianRed1] (v162) {E};
+%     \node at (2,0) [square,draw,label=above:P163] (v163) {N};
+%     \node[font=\bf\Large] at (3,-.15) {$\ldots$};
+%     \node at (4,0) [square,draw,label=above:P220] (v220) {R};
+%     \node at (5,0) [square,draw,label=above:P221,fill=IndianRed1] (v221) {S};
+%     \node at (6,0) [square,draw,label=above:P222] (v222) {Y};
+%     \node[font=\bf\Large] at (7,-.15) {$\ldots$};
+%     \node at (8,0) [square,draw,label=above:P286] (v286) {T};
+%     \node at (9,0) [square,draw,label=above:P287] (v287) {S};
+%     \node at (10,0) [square,draw,label=above:P288] (v288) {V};
+%     \node[font=\bf\Large] at (11,-.15) {$\ldots$};
+
+%     \draw [-{Latex},thick] (v162) -- ++(0,-.275in) node[below,text=Red1] (e162) {K};
+%     \draw [-{Latex},thick] (v221) -- ++(0,-.275in) node[below,text=Red1] (e221) {R};
+%     \draw [-{Latex},thick,opacity=0] (v287) -- ++(0,-.275in) node[below] (e287) {S};
+    
+%     \begin{axis}[at={(e162.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={K,R,E,L,N},
+%     xtick = {K,R,E,L,N},
+%     axm
+%      ]
+%     \addplot [barst,fill=IndianRed1]table [col sep=comma,x=classes,y=step3] {\DATAFIRST};
+%     \end{axis}
+    
+%     \begin{axis}[at={(e221.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={Y,X,K,R,S},
+%     xtick = {Y,X,K,R,S},axm
+%     ]
+%     \addplot [barst,fill=IndianRed1]table [col sep=comma,x=classes,y=step3] {\DATASECOND};
+%     \end{axis}
+    
+%     \begin{axis}[at={(e287.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={H,L,Q,P,S,V},
+%     xtick = {H,L,Q,P,S,V},
+%     axm,      enlarge x limits=0.1250,]
+%     \addplot [barst]table [col sep=comma,x=classes,y=step3] {\DATATHIRD};
+%     \end{axis}
+% \end{tikzpicture}
+% };
+
+
+
+% \node [anchor=north west] (A6) at ([xshift=0in,yshift=-.1in]A5.south west) {
+% \def\COLX{lightgray}
+%   \begin{tikzpicture}[anchor=center,square/.style={regular polygon,regular polygon sides=4}]
+%   \def\HGT{.3in}
+%   \def\WDT{1in}
+%   \def\DATAFIRST{Figures/plotdata/first.csv}
+% \def\DATASECOND{Figures/plotdata/second.csv}
+% \def\DATATHIRD{Figures/plotdata/third.csv}
+%   \tikzset{barst/.style={thick,fill=\COLX,ybar,bar width=6pt}}
+
+%   \pgfplotsset{axm/.style={axis line style={draw=none},
+%     xlabel={},
+%     xticklabel style={rotate=0,xshift=-0.25cm},
+%     ylabel={},
+%     ylabel style={},
+%     ymax=1,
+%     yticklabel style={rotate=0,xshift = -0.25cm},
+%     height = \HGT,
+%     width = \WDT,      scale only axis=true,
+%     enlargelimits=false,
+%     enlarge y limits=0.02,
+%       enlarge x limits=0.150,
+%       axis on top=false,
+%       axis line style={black!2, ultra thick},
+%       %grid,
+%        grid style={opacity=.95,dashed,ultra thick,black!10},
+%       % xticklabel style={xshift=0.05in,yshift=-.05in},
+%       xlabel style={yshift=-0.05in,text=\TEXTCOL},
+%       ylabel style={align=center,,text=\TEXTCOL,anchor=center,
+%         yshift=-.05in},
+%       % tickpos=left,
+%       ytick align=outside,
+%       xtick align=outside,
+%       major tick length=0pt,
+%       scaled y ticks = false,
+%       y tick label style={/pgf/number format/fixed,
+%         /pgf/number format/1000 sep = \thinspace % Optional 
+%       },
+%       x tick label style={anchor=north, xshift=7pt,yshift=-.02in },
+%       ytick={0,0.5,1}}}
+
+%     \node[font=\bf\Large] at (-1,-.15) {$\ldots$};
+%     \node at (0,0) [square,draw,label=above:P161] (v161) {X};
+%     \node at (1,0) [square,draw,label=above:P162,fill=IndianRed1] (v162) {R};
+%     \node at (2,0) [square,draw,label=above:P163] (v163) {N};
+%     \node[font=\bf\Large] at (3,-.15) {$\ldots$};
+%     \node at (4,0) [square,draw,label=above:P220] (v220) {R};
+%     \node at (5,0) [square,draw,label=above:P221] (v221) {R};
+%     \node at (6,0) [square,draw,label=above:P222] (v222) {S};
+%     \node[font=\bf\Large] at (7,-.15) {$\ldots$};
+%     \node at (8,0) [square,draw,label=above:P286] (v286) {I};
+%     \node at (9,0) [square,draw,label=above:P287] (v287) {S};
+%     \node at (10,0) [square,draw,label=above:P288] (v288) {V};
+%     \node[font=\bf\Large] at (11,-.15) {$\ldots$};
+
+%     \draw [-{Latex},thick] (v162) -- ++(0,-.275in) node[below,text=Red1] (e162) {K};
+%     \draw [-{Latex},thick,opacity=0] (v221) -- ++(0,-.275in) node[below] (e221) {R};
+%     \draw [-{Latex},thick,opacity=0] (v287) -- ++(0,-.275in) node[below] (e287) {S};
+    
+%     \begin{axis}[at={(e162.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={K,R,E,L,N},
+%     xtick = {K,R,E,L,N},
+%     axm
+%      ]
+%     \addplot [barst,fill=IndianRed1]table [col sep=comma,x=classes,y=step4] {\DATAFIRST};
+%     \end{axis}
+    
+%     \begin{axis}[at={(e221.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={Y,X,K,R,S},
+%     xtick = {Y,X,K,R,S},axm
+%     ]
+%     \addplot [barst]table [col sep=comma,x=classes,y=step4] {\DATASECOND};
+%     \end{axis}
+    
+%     \begin{axis}[at={(e287.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={H,L,Q,P,S,V},
+%     xtick = {H,L,Q,P,S,V},
+%     axm,      enlarge x limits=0.1250,]
+%     \addplot [barst]table [col sep=comma,x=classes,y=step4] {\DATATHIRD};
+%     \end{axis}
+% \end{tikzpicture}
+% };
+
+
+% \node [anchor=north west] (A7) at ([xshift=0in,yshift=-.1in]A6.south west) {
+% \def\COLX{lightgray}
+%   \begin{tikzpicture}[anchor=center,square/.style={regular polygon,regular polygon sides=4}]
+%   \def\HGT{.3in}
+%   \def\WDT{1in}
+%   \def\DATAFIRST{Figures/plotdata/first.csv}
+% \def\DATASECOND{Figures/plotdata/second.csv}
+% \def\DATATHIRD{Figures/plotdata/third.csv}
+%   \tikzset{barst/.style={thick,fill=\COLX,ybar,bar width=6pt}}
+
+%   \pgfplotsset{axm/.style={axis line style={draw=none},
+%     xlabel={},
+%     xticklabel style={rotate=0,xshift=-0.25cm},
+%     ylabel={},
+%     ylabel style={},
+%     ymax=1,
+%     yticklabel style={rotate=0,xshift = -0.25cm},
+%     height = \HGT,
+%     width = \WDT,      scale only axis=true,
+%     enlargelimits=false,
+%     enlarge y limits=0.02,
+%       enlarge x limits=0.150,
+%       axis on top=false,
+%       axis line style={black!2, ultra thick},
+%       %grid,
+%        grid style={opacity=.95,dashed,ultra thick,black!10},
+%       % xticklabel style={xshift=0.05in,yshift=-.05in},
+%       xlabel style={yshift=-0.05in,text=\TEXTCOL},
+%       ylabel style={align=center,,text=\TEXTCOL,anchor=center,
+%         yshift=-.05in},
+%       % tickpos=left,
+%       ytick align=outside,
+%       xtick align=outside,
+%       major tick length=0pt,
+%       scaled y ticks = false,
+%       y tick label style={/pgf/number format/fixed,
+%         /pgf/number format/1000 sep = \thinspace % Optional 
+%       },
+%       x tick label style={anchor=north, xshift=7pt,yshift=-.02in },
+%       ytick={0,0.5,1}}}
+
+%     \node[font=\bf\Large] at (-1,-.15) {$\ldots$};
+%     \node at (0,0) [square,draw,label=above:P161] (v161) {Y};
+%     \node at (1,0) [square,draw,label=above:P162,fill=IndianRed1] (v162) {K};
+%     \node at (2,0) [square,draw,label=above:P163] (v163) {N};
+%     \node[font=\bf\Large] at (3,-.15) {$\ldots$};
+%     \node at (4,0) [square,draw,label=above:P220] (v220) {S};
+%     \node at (5,0) [square,draw,label=above:P221] (v221) {R};
+%     \node at (6,0) [square,draw,label=above:P222] (v222) {Y};
+%     \node[font=\bf\Large] at (7,-.15) {$\ldots$};
+%     \node at (8,0) [square,draw,label=above:P286] (v286) {T};
+%     \node at (9,0) [square,draw,label=above:P287] (v287) {S};
+%     \node at (10,0) [square,draw,label=above:P288] (v288) {V};
+%     \node[font=\bf\Large] at (11,-.15) {$\ldots$};
+
+%     \draw [-{Latex},thick] (v162) -- ++(0,-.275in) node[below,text=Red1] (e162) {R};
+%     \draw [-{Latex},thick,opacity=0] (v221) -- ++(0,-.275in) node[below] (e221) {R};
+%     \draw [-{Latex},thick,opacity=0] (v287) -- ++(0,-.275in) node[below] (e287) {P};
+    
+%     \begin{axis}[at={(e162.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={K,R,E,L,N},
+%     xtick = {K,R,E,L,N},
+%     axm
+%      ]
+%     \addplot [barst,fill=IndianRed1]table [col sep=comma,x=classes,y=step6] {\DATAFIRST};
+%     \end{axis}
+    
+%     \begin{axis}[at={(e221.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={Y,X,K,R,S},
+%     xtick = {Y,X,K,R,S},axm
+%     ]
+%     \addplot [barst]table [col sep=comma,x=classes,y=step6] {\DATASECOND};
+%     \end{axis}
+    
+%     \begin{axis}[at={(e287.south)},anchor=north,
+%       yshift=0.15in,
+%     symbolic x coords={H,L,Q,P,S,V},
+%     xtick = {H,L,Q,P,S,V},
+%     axm,      enlarge x limits=0.1250,]
+%     \addplot [barst]table [col sep=comma,x=classes,y=step6] {\DATATHIRD};
+%     \end{axis}
+% \end{tikzpicture}
+% };
+
+
+
+\node[anchor=south west,align=left] (LA) at ([yshift=.7in,xshift=.35in]A.north west) {{\Large a.} Relative Distribution of Mutants\\ Measured in q-distance Over In-silico Evolution};
+
+\node[anchor=south west,align=left] (LA1) at ($(LA.south west) !(A1.west)!(LA.south east)$) {{\Large b.} p-Blast Scores of Mutants\\Against current NCBI Database};
+
+\node[anchor=south west,align=left] (LA2) at ([yshift=0.1in]$(LA1.south west) !(A2.north)!(LA1.north west)$) {{\Large d.} Variance of Pairwise Distances};
+
+
+\node[anchor=south west,align=left] (LA3) at ($(LA1.south west) !(A3.west)!(LA1.south east)$) {{\Large c.} Distance Between Mutant\\Quasi-species};
+
+\node[anchor=south west,align=left] (LA4) at ([yshift=0in]$(LA2.south east) !(A4.west)!(LA2.south west)$) {{\Large e.} Year of Blast Match};
+
+
+% \node[anchor=south west,align=left] (LA5) at ([yshift=0in]$(LA.south west) !(A5.north)!(LA.north west)$) {{\Large F.} Dynamic Changes in Q-Selected Mutational Outcome Probabilities};
+
+
+\end{tikzpicture}
+
+
+
+
+
+
