@@ -1,8 +1,0 @@
-\begin{tikzpicture}[font=\bf\sffamily\fontsize{8}{8}\selectfont]
-
-  
-\node[] (A) at (0,0) {\includegraphics[width=.9\textwidth]{Figures/riskyphylo6_collapsed_19}};
-
-
-
-\end{tikzpicture}
