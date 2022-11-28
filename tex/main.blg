@@ -2,11 +2,11 @@ This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
-Illegal, another \bibstyle command---line 163 of file main.aux
+Illegal, another \bibstyle command---line 151 of file main.aux
  : \bibstyle
  :          {vancouver}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 164 of file main.aux
+Illegal, another \bibdata command---line 152 of file main.aux
  : \bibdata
  :         {allbib}
 I'm skipping whatever remains of this command
