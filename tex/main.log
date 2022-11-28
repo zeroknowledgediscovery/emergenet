@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  28 NOV 2022 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  28 NOV 2022 12:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2360,9 +2360,6 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.6749> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 40.
  [9] [10])
-
-LaTeX Warning: Reference `SI-tabseq' on page 11 undefined on input line 152.
-
 (./main.bbl [11] [12]) [13] (./extfiguresandtables.tex
 (./Figures/tabdata/improvement_qnet.tex
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <7> not available
@@ -2389,7 +2386,7 @@ LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
 (Font)              scaled to size 7.59998pt on input line 79.
  (./Figures/tabdata/south_h3n2_ha.tex)
 [14] [15]
-<Figures/External/sequence.pdf, id=579, 491.435pt x 672.11098pt>
+<Figures/External/sequence.pdf, id=580, 491.435pt x 672.11098pt>
 File: Figures/External/sequence.pdf Graphic file (type pdf)
 <use Figures/External/sequence.pdf>
 Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 117.
@@ -2425,7 +2422,7 @@ Overfull \hbox (2.84526pt too wide) in paragraph at lines 3--3
  []
 
 ) (./Figures/tabdata/riskycount.tex) (./Figures/tabdata/highrisk35.tex)
-<Figures/External/riskyseq.pdf, id=580, 508.01997pt x 748.30365pt>
+<Figures/External/riskyseq.pdf, id=581, 508.01997pt x 748.30365pt>
 File: Figures/External/riskyseq.pdf Graphic file (type pdf)
 <use Figures/External/riskyseq.pdf>
 Package pdftex.def Info: Figures/External/riskyseq.pdf  used on input line 202.
@@ -2968,48 +2965,46 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 240.
  )
 (\end occurred when \iftrue on line 3 was incomplete) 
 Here is how much of TeX's memory you used:
- 47788 strings out of 492678
- 1069953 string characters out of 6133536
- 1834868 words of memory out of 11000000
- 50508 multiletter control sequences out of 15000+600000
+ 47786 strings out of 492678
+ 1069934 string characters out of 6133536
+ 1834867 words of memory out of 11000000
+ 50507 multiletter control sequences out of 15000+600000
  115720 words of font info for 255 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  64i,14n,96p,2429b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): nam
-e{table.12} has been referenced but does not exist, replaced by a fixed one
-
- </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xcc
-mi8.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath
--fonts/xccsy9.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/publi
-c/concmath-fonts/xccmi6.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/lj
-four/public/concmath-fonts/xccsy5.600pk> </home/ishanu/.texlive2018/texmf-var/f
-onts/pk/ljfour/public/concrete/ccr5.600pk> </home/ishanu/.texlive2018/texmf-var
-/fonts/pk/ljfour/public/concmath-fonts/xccex10.600pk> </home/ishanu/.texlive201
-8/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi5.600pk> </home/ishanu/.
-texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccsy7.600pk> </hom
-e/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concrete/ccr9.600pk> </h
-ome/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi9.
-600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fon
-ts/xccsy10.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/c
-oncmath-fonts/xccmi10.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfo
-ur/public/concrete/ccr10.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/b
-ase/8r.enc} </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmat
-h-fonts/xccmi7.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/publ
-ic/concrete/ccr7.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke
-/dsrom8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txexa.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (30 pages, 10025242 bytes).
+ </home/ishanu/.texlive201
+8/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi8.600pk> </home/ishanu/.
+texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccsy9.600pk> </hom
+e/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi6.60
+0pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts
+/xccsy5.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/conc
+rete/ccr5.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/co
+ncmath-fonts/xccex10.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfou
+r/public/concmath-fonts/xccmi5.600pk> </home/ishanu/.texlive2018/texmf-var/font
+s/pk/ljfour/public/concmath-fonts/xccsy7.600pk> </home/ishanu/.texlive2018/texm
+f-var/fonts/pk/ljfour/public/concrete/ccr9.600pk> </home/ishanu/.texlive2018/te
+xmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi9.600pk> </home/ishanu/.texl
+ive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccsy10.600pk> </home/i
+shanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600p
+k> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.6
+00pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/ishanu/
+.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi7.600pk> </ho
+me/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concrete/ccr7.600pk></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/txfonts/txexa.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/zapfding/uzdr.pfb>
+Output written on main.pdf (30 pages, 10025238 bytes).
 PDF statistics:
  1134 PDF objects out of 1200 (max. 8388607)
  741 compressed objects within 8 object streams
- 152 named destinations out of 1000 (max. 500000)
+ 151 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
