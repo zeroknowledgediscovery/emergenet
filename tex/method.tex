@@ -1,5 +1,5 @@
 \allowdisplaybreaks{
-Next, we briefly describe the  details of the proposed computational framework. 
+We briefly describe the proposed computational framework. 
 
 
 \section*{\enet Framework}
@@ -15,7 +15,7 @@ x_{-i} \triangleq x_1, \cdots, x_{i-1},x_{i+1},\cdots,x_N\\
 x^{i,\sigma} \triangleq x_1, \cdots, x_{i-1},\sigma,x_{i+1},\cdots,x_N, \sigma \in \Sigma_i
 }\end{subequations} Also, $\Dx(S)$ denotes the set of probability measures on  a set $S$, $e.g.$,  $\D$ is the set of  distributions on  $\Sigma_i$.
 
-We note that $X$ defines a random field~\cite{vanmarcke2010random} over the index set $\{1, \cdots, N\}$. %To clarify the biological picture, we refer to the sample $x$ as an amino acid or nucleotide sequence, identifying the entry at  each index with the corresponding  protein residue or the  nucleotide base pair.
+We note that $X$ defines a random field~\cite{vanmarcke2010random} over the index set $\{1, \cdots, N\}$. 
 
 \begin{defn}[\enet]
 For a random field $X=\{X_i\}$ indexed by $i \in \{1, \cdots, N\}$, the \enet is defined to be the set of predictors $\Phi=\{\qn\}$, $i.e.$, we have:
@@ -97,7 +97,7 @@ From the RHS bound established in Theorem~\ref{thmbnd} (See Eq.~\eqref{fundeq} a
 \Rightarrow &\sum_{x \in H^t} \ln  \frac{Pr(x \rightarrow \dsta)}{\mem{\dsta}}  
 \geqq  \sum_{x \in H^t}-\frac{\sqrt{8}N^2}{1-\alpha}\theta^{[t]}(x,\dsta)\\
 \Rightarrow  &\sum_{x\in H^t}  \theta^{[t]}(x,\dsta) - \abs{H^t}A \ln \mem{\dsta} \geqq  A \ln \frac{1}{\prod_{x \in H^t} Pr(x \rightarrow \dsta)} \intertext{where $A =\frac{1-\alpha}{\sqrt{8}N^2} $, where $N$ is the sequence length considered, and $\alpha$ is a fixed significance level. Since minimizing the LHS maximizes the lower bound on the probability of the observed strains simultaneously giving rise to $\dsta$, a dominant strain  $\dst$ may be estimated as a solution to the optimization problem:}
-\label{dompred}&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta^{[t]}(x,y) - \abs{H^t}A \ln \mem{y}
+&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta^{[t]}(x,y) - \abs{H^t}A \ln \mem{y}
 }%
 %
 \subsection*{Problem 2: Measure of Pandemic Potential}
@@ -183,11 +183,21 @@ C_1 &= \frac{\sqrt{8} N^2}{1-\alpha}
 \end{rem}
 
 
+\subsection*{In-silico Corroboration of \enet{'s} Capability To Capture Biologically Meaningful Structure}
+We compare the results of simulated mutational perturbations to sequences from our databases (for which we have already constructed \enet{s}), and then use NCBI BLAST (\href{https://blast.ncbi.nlm.nih.gov/Blast.cgi}{https://blast.ncbi.nlm.nih.gov/Blast.cgi}) to identify  if  our perturbed sequences match with existing sequences in the databases (\SUPPLEMENTARY Fig.~S-\ref{figsoa}). We find that in contrast to random variations, which rapidly diverge the trajectories, the \enet constraints tend to produce smaller variance in the trajectories, maintain a high degree of match as we extend our trajectories, and produces matches closer in time to the collection time of the  initial sequence, suggesting that the \enet  does indeed capture realistic constraints.
 
 
+\subsection*{Multivariate Regression to Understand Data Characteristics Necessary For \enet Modeling}
+
+We investigate the key factors that contribute to modeling a set of strains well within the \enet framework. We carry out a multivariate regression with data diversity , the complexity of inferred \enet and the edit distance of the WHO recommendation from the dominant strain as independent variables (See \SUPPLEMENTARY Table~S-\ref{tabreg} for definitions). Here we define data diversity as the number of clusters we have in the input set of sequences, such that any two sequences five or less mutations apart are in the same cluster. \enet complexity is measured by the number of decision nodes in the component decision trees of the recursive forest.
+
+We select several plausible structures of the regression equation, and in each case conclude that  data diversity has the most important and statistically significant contribution (\SUPPLEMENTARY Table~S-\ref{tabreg}).
+
+\subsection*{Multivariate Regression to Identify Map from \qdist to Estimated IRAT scores}
+We train separate General Linear Models (GLM) to estimate IRAT scores (emergence and impact) with average \qdist of a sequence of interest from a set of human strains, considering HA and NA sequences separately, using the CDC computed IRAT scores as the dependent variables. We also  include the geometric mean of the HA and NA based \qdist{es} as a potential explanatory variables. We use a standard Gaussian model family with identity link function to keep our model that maps \qdist{es}  to the IRAT scores as simple as possible (See \SUPPLEMENTARY Table~S-\ref{tabregGLM}).
 
 
-
+ 
 
 
 

@@ -25,9 +25,9 @@
   \vspace{-20pt}
   
  \captionN{\textbf{\enet inference and applications}. \textbf{a}, Variations of
-   genomes for identical subgroups of \infl are analyzed to infer a recursive forest of conditional inference trees~\cite{Hothorn06unbiasedrecursive} -- the \enet --   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations, deletions and insertions. With these inferred dependencies we can    estimate the numerical odds of specific mutations, and by extension, the numerical value of
+   genomes for identical subtypes of \infl are analyzed to infer a recursive forest of conditional inference trees~\cite{Hothorn06unbiasedrecursive} -- the \enet --   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations. With these inferred dependencies we can    estimate the numerical odds of specific mutations, and by extension, the numerical value of
    the probability of one strain giving rise to another in the wild, under  complex selection pressures from the background. b, Snapshot of decision trees  from the
-   \enet constructed for H1N1 haemagglutinnin 2018 sequences. Note that the decision tree predicting the bases at index 1274   uses the bases at 1064, 1445, 197 as features. These features are automatically selected, as being maximally predictive  of the bases be at 1274. Then, we compute predictors for each of these  feature indices, $e.g.$   trees for  index 1064, which involves index 1314 and 339 as features. Continuing, we find that the trees for index 1314 involves indices 1263, 636 and 21, and that for 1263 involves 1314, 667 and 313. The predictor for 1263  depends on 1314, and that for 1314 depends on 1263, revealing the recursive structure of \enet. c, First application: With \enet induced ability to quantify mutation probabilities,  we forecast  dominant strain(s) for the next flu season, using only  sequences collected in the previous season (and the inferred \enet, using data from the past year). d, Second application: estimation of the risk of a global pandemic posed by individual animal strains that are still not known to circulate in humans.}\label{figscheme}.
+   \enet inferred for H1N1 HA sequences collected in 2020-2021, which reveals a cyclic dependency. In general, every internal node of a component tree can be ``expanded'' into its own tree, underscoring the recursive structure of the \enet. c, First application: forecast  dominant strain(s) for the next flu season, using only  sequences collected upto six months prior and the inferred \enet, using data from the past year. d, Second application: estimation of the pandemic risk posed by individual animal strains that are still not known to circulate in humans.}\label{figscheme}.
 \end{figure*}
 \else
 \refstepcounter{figure}\label{figscheme}
@@ -69,7 +69,7 @@
    \fi
    \vspace{-20pt}
    
-  \captionN{\textbf{\enet based estimation of IRAT score}. Panel a. There is an approximate linear relationship between average q-distance from human circulating strains (geometric mean of the \qdist for  HA and NA sequences) and the published IRAT emergence score calculated by CDC. Panel b. Estimation of the IRAT emergence score via fitting a  GLM model to  the \qdist{es} estimated from the \enet.  Panel c. Estimation of IRAT impact scores via fitting a separate GLM model to the the \qdist{es} estimated from the \enet. Panel d. Identifying risky \infl strains amongst those collected between 2020 and 2022 April, via  our IRAT emergence score estimation framework.
+  \captionN{\textbf{\enet based estimation of IRAT score}. a, We find  an approximate linear relationship between average q-distance from human circulating strains (geometric mean of the \qdist for  HA and NA sequences) and the published IRAT emergence scores calculated by the CDC. b, Estimation of the IRAT emergence score via fitting a  GLM model to  the \qdist{es} estimated from the \enet.  c, Estimation of IRAT impact scores via fitting a separate GLM model to the the \qdist{es}. d, Identifying risky \infl strains amongst those collected between 01/2020-04/2022 using our approach.
   }\label{figirat}
 \end{figure*}
 \else
@@ -92,7 +92,7 @@
    \fi
    \vspace{-10pt}
 
-\captionN{Standard phylogenetic tree constructed with edit distances,  with all  \infl strains collected between 2020 and 2022 April, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 15 edits in the HA, leaving the most risky strains in the leaves. The most risky strains are marted with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
+\captionN{Standard phylogeny constructed with edit distances,  with all  \infl strains collected between 01/2020-04/2022, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 15 edits in the HA, displaying the most risky strains in the collapsed group. The top risky strains are marked with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
 \end{figure}
 \else
 \refstepcounter{table}\label{figphylo}
