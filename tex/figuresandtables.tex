@@ -44,9 +44,7 @@
 
   %\tikzXtrue 
   \iftikzX
-  %\hspace{-20pt}\resizebox{.975\linewidth}{!}{
     \input{Figures/seasonalpred_both}
-  %}
    \else  \hspace{-10pt}\includegraphics[width=0.98\textwidth]{Figures/External/seasonalpred_both}
    \fi
    \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}

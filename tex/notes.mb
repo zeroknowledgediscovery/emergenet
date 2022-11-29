@@ -1,0 +1,44 @@
+% #### Result val
+% corr of geometric mean to IRAT mergence
+% corr of IRAT pred to irat impact
+% corr of IRAT pred to irat emergence
+% number of qnets inferred in different cases
+% number of sequences used
+% length of time used to infer qnets 1yr
+% outperformance of dom strain prediction
+% how many high risk strains identified from 2020 to current: 6066
+% how long it takes to compute risk score: 6 sec
+% risky strain greater than 6.0 emergence score: 68
+% how many top strains: 3-4
+% ----------------------
+
+% blast_valid fig
+% We carry out in-silico experiments to corroborate that the constraints represented within an inferred \qnet are indeed reflective of the  biology in play. To that effect, we compare the results of simulated mutational perturbations to sequences from our databases (for which we have already constructed \qnet{s}), and then use NCBI BLAST (\href{https://blast.ncbi.nlm.nih.gov/Blast.cgi}{https://blast.ncbi.nlm.nih.gov/Blast.cgi}) to identify  if  our perturbed sequences match with existing sequences in the databases (and if so, then where and how many matches they produce). The objective here is to compare such \qnet constrained perturbations against random variations. The results are shown in Fig.~\ref{figsoa}, where we find that in contrast to random variations, which rapidly diverge the trajectories, the \qnet constraints tend to produce smaller variance in the trajectories, maintain a high degree of match as we extend our trajectories, and produces matches closer in time to the collection time of the  initial sequence | suggesting that the \qnet  does indeed capture realistic constraints.
+
+
+% sequence_ fig and figdom_
+% High season-to-season genomic variation in the key  Influenza capsidic proteins is driven by two opposing influences: 1) the need to conserve function  limiting random mutations, and 2) hyper-variability to escape recognition by neutralizing antibodies. Even a  single residue change in the surface proteins might dramatically alter recognition characteristics, brought about by unpredictable~\cite{carugo2001normalized,righetto2014comparative} changes in   local or regional properties  such as charge, hydropathy, side chain solvent accessibility~\cite{lee1971interpretation,shrake1973environment,momen2008impact,adamczak2005combining}. Comparing the \qnet inferred strain (QNT) against the one recommended by the WHO, three important observations come forward: 1) the high likelihood of QNT being closer to the dominant strain (DOM) over the part two decades, and almost consistently over the last decade (See Tab.~\ref{tabperf} and Fig.~\ref{figseasonal}), 2) the residues that only the  QNT matches correctly with DOM (while the WHO fails) are largely localized within the receptor binding domain (RBD), with $>57\%$ occurring within  the RBD on average (see Fig.~\ref{figseq}a for a specific example), and 3) when the WHO strain deviates from  the QNT/DOM   matched residue, the ``correct'' residue is often replaced  in the WHO recommendation with one that has very different side chain, hydropathy  and/or chemical properties (See Fig.~\ref{figseq}b-f), suggesting deviations in recognition characteristics. Combined with the fact that we find circulating strains are almost always within a few edits of the DOM (See SI-Fig.~\ref{SI-figdom}), these observations suggest that  hosts vaccinated with the QNT recommendation is more likely to have season-specific antibodies that are more likely to recognize a larger cross-section of the circulating strains.
+
+
+% Zoonotic risk technology
+% FluLeap~\cite{eng2014predicting} is a machine-learning algorithm
+% that uses sequence data to identify host tropism: classify influenza
+% viruses as either avian or human.
+% PREDICT,  a US\$200-million project funded by the
+% US Agency for International Development
+% (USAID), spent around a decade looking for
+% animal viruses. By the time it ended in 2020, it
+% had identified 949 new viruses in samples from
+% wildlife, livestock and people, in 34 countries
+
+% Zoonotic Risk Technology Enters the Viral Emergence Toolkit
+% Grange $\etal$~\cite{grange2021ranking} look for diverse factors,
+% but are not strain specific assessments, and identify species
+% level risk.
+
+% ~\cite{wille2021accurately} How accurately can we assess zoonotic risk? underscore the
+% inherent challanges in assessing  risk from viruses that have not been studied
+% well enough.
+% genome size may be a useful surrogate in screening for potential zoonotic viruses~\cite{grewelle2020larger}
+%
+% Among these traits-genomic material, genome segmentation, and replication without nuclear entry-the last is the strongest predictor of cross-species transmission. This finding highlights nuclear entry as a barrier to transmission and suggests that the ability to complete replication in the cytoplasm may prove to be a useful indicator of the threat of cross-species transmission. ~\cite{pulliam2009ability}

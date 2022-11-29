@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2021)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
 Illegal, another \bibstyle command---line 144 of file main.aux
@@ -14,45 +14,45 @@ Database file #1: allbib.bib
 Warning--I didn't find a database entry for "nelson2018origins"
 Warning--empty journal in Baumann
 Warning--empty year in Baumann
-You've used 48 entries,
+You've used 49 entries,
             2348 wiz_defined-function locations,
-            1291 strings with 20203 characters,
-and the built_in function-call counts, 19021 in all, are:
-= -- 1348
-> -- 488
+            1297 strings with 20277 characters,
+and the built_in function-call counts, 19530 in all, are:
+= -- 1387
+> -- 496
 < -- 0
-+ -- 244
-- -- 122
-* -- 2395
-:= -- 2103
-add.period$ -- 141
-call.type$ -- 48
-change.case$ -- 46
++ -- 248
+- -- 124
+* -- 2445
+:= -- 2152
+add.period$ -- 144
+call.type$ -- 49
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 1689
-empty$ -- 1760
-format.name$ -- 165
-if$ -- 3767
+cite$ -- 51
+duplicate$ -- 1730
+empty$ -- 1815
+format.name$ -- 167
+if$ -- 3885
 int.to.chr$ -- 0
-int.to.str$ -- 48
-missing$ -- 401
-newline$ -- 245
-num.names$ -- 48
-pop$ -- 293
+int.to.str$ -- 49
+missing$ -- 409
+newline$ -- 250
+num.names$ -- 49
+pop$ -- 304
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 276
+skip$ -- 296
 stack$ -- 0
-substring$ -- 953
-swap$ -- 1698
+substring$ -- 987
+swap$ -- 1736
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 119
-width$ -- 50
-write$ -- 521
+while$ -- 122
+width$ -- 51
+write$ -- 532
 (There were 2 error messages)

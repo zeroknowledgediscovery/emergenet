@@ -231,22 +231,21 @@
   \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{678--683}
   (\bibinfo{year}{2018}).
 
-\bibitem{cobey2018poor}
-\bibinfo{author}{Cobey, S.} \emph{et~al.}
-\newblock \bibinfo{title}{Poor immunogenicity, not vaccine strain egg
-  adaptation, may explain the low h3n2 influenza vaccine effectiveness in
-  2012--2013}.
-\newblock \emph{\bibinfo{journal}{Clinical Infectious Diseases}}
-  \textbf{\bibinfo{volume}{67}}, \bibinfo{pages}{327--333}
-  (\bibinfo{year}{2018}).
+\bibitem{carugo2001normalized}
+\bibinfo{author}{Carugo, O.} \& \bibinfo{author}{Pongor, S.}
+\newblock \bibinfo{title}{A normalized root-mean-spuare distance for comparing
+  protein three-dimensional structures}.
+\newblock \emph{\bibinfo{journal}{Protein science}}
+  \textbf{\bibinfo{volume}{10}}, \bibinfo{pages}{1470--1473}
+  (\bibinfo{year}{2001}).
 
-\bibitem{gouma2020antigenic}
-\bibinfo{author}{Gouma, S.}, \bibinfo{author}{Weirick, M.} \&
-  \bibinfo{author}{Hensley, S.~E.}
-\newblock \bibinfo{title}{Antigenic assessment of the h3n2 component of the
-  2019-2020 northern hemisphere influenza vaccine}.
-\newblock \emph{\bibinfo{journal}{Nature communications}}
-  \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{1--5} (\bibinfo{year}{2020}).
+\bibitem{righetto2014comparative}
+\bibinfo{author}{Righetto, I.}, \bibinfo{author}{Milani, A.},
+  \bibinfo{author}{Cattoli, G.} \& \bibinfo{author}{Filippini, F.}
+\newblock \bibinfo{title}{Comparative structural analysis of haemagglutinin
+  proteins from type a influenza viruses: conserved and variable features}.
+\newblock \emph{\bibinfo{journal}{BMC bioinformatics}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{363} (\bibinfo{year}{2014}).
 
 \bibitem{ma2009pig}
 \bibinfo{author}{Ma, W.}, \bibinfo{author}{Kahn, R.~E.} \&
@@ -346,6 +345,15 @@
   \bibinfo{author}{Sch{\"u}tze, H.}
 \newblock \emph{\bibinfo{title}{Foundations of statistical natural language
   processing}} (\bibinfo{publisher}{MIT press}, \bibinfo{year}{1999}).
+
+\bibitem{varadhan2010large}
+\bibinfo{author}{Varadhan, S.~S.}
+\newblock \bibinfo{title}{Large deviations}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the International
+  Congress of Mathematicians 2010 (ICM 2010) (In 4 Volumes) Vol. I: Plenary
+  Lectures and Ceremonies Vols. II--IV: Invited Lectures}},
+  \bibinfo{pages}{622--639} (\bibinfo{organization}{World Scientific},
+  \bibinfo{year}{2010}).
 
 \bibitem{fedotov2003refinements}
 \bibinfo{author}{Fedotov, A.~A.}, \bibinfo{author}{Harremo{\"e}s, P.} \&

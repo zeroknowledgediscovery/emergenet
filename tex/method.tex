@@ -62,11 +62,7 @@ Let $X$ be a random field representing a population $P$, $ie.$. $X=x$ is a rando
 \M^P(X)  \triangleq  \prod_{j=1}^N \left ( \Phi^P_j(X_{-j}) \vert_{X_j} \right )
 }Note that $\M^P$ takes values in the unit interval $[0,1]$, and the probability  $x$ is a member of the population $P$ is $\M^P(X=x)$, denoted briefly as $\mem{x}^P$ or $\mem{x}$ if $P$ is clear from context.
 \end{defn}
-Since $\M^P(X)$ is a random variable, we can now compute sets of sequences that better represent the population $P$, and ones that are on the fringe. We can also evaluate using a pre-specified significance-level if a particular sequence is not from the population $P$.%, thus identifying if  we need to recompute the predictors $\Phi$, or split the base population. We can set up a hypothesis testing scenario to determine if sequences are indeed from a test population, as follows:
-%
-%Given a population P, inducing a \enet $\Phi^P$, and a sequence $x$, we assume the null hypothesis is $x \notin P$. We reject the null hypothesis at a pre-specified significance  $\alpha$, if 
-%\cgather{ Pr(\M^P(X) \geqq \M^P(X=x)) \leqq \alpha
-%}The fraction of newly observed  sequences that do not reject the null hypothesis can then be used as an estimate of the species-specific divergence  in  population characteristics.
+Since $\M^P(X)$ is a random variable, we can now compute sets of sequences that better represent the population $P$, and ones that are on the fringe. We can also evaluate using a pre-specified significance-level if a particular sequence is not from the population $P$.
 
 
 
@@ -74,12 +70,18 @@ Since $\M^P(X)$ is a random variable, we can now compute sets of sequences that 
 
 The \enet framework  allows us to rigorously compute bounds on the probability of a spontaneous change of one strain to another, brought about by chance mutations. While any sequence of mutations is equally likely, the ``fitness'' of the resultant strain, or the probability that it will even result in a viable strain, or not. Thus the necessity of preserving  function  dictates that not all random changes  are viable, and the probability of observing some trajectories through the sequence space  are far greater  than others. The \enet framework allows us to explore this constrained dynamics, as revealed by a sufficiently large set of genomic sequences.
 
+
+
+The mathematical intuition  relating  \qdist  to the loglikelihood of spontaneous change  is similar to quantifying the  odds of  a rare biased outcome when we  toss a fair coin.
+While for an unbiased coin, the odds of roughly 50\% heads is overwhelmingly likely, large deviations do happen rarely, and it turns out that the probability of such rare deviations can be explicitly quantified with existing statistical theory~\cite{varadhan2010large}.
+ Generalizing to non-uniform conditional distributions inferred by the \enet, the likelihood of a spontaneous transition  by random chance may also be similarly bounded.
+
+
 We show in Theorem~\ref{thmbnd} in the supplementary text that at a significance level $\alpha$, with a sequence length $N$, the probability of spontaneous jump of sequence $x$ from population $P$ to sequence $y$ in population $Q$, $Pr(x \rightarrow y)$, is bounded by:
 \cgather{\label{fundeq}
 \mem{y}^Q e^{ \frac{\sqrt{8}N^2}{1-\alpha}\theta(x,y)} \geqq Pr(x \rightarrow y) \geqq \mem{y}^Q e^{-\frac{\sqrt{8}N^2}{1-\alpha}\theta(x,y)}}
 where $\mem{y}^Q$ is the membership probability of strain $y$ in the target population, $N$ is the sequence length, and $\alpha$ is the statistical signifacnce level.
 
-%The ability to estimate the probability of spontaneous jump between sequences in terms of $\theta$  allows us to 1) construct  a new  phylogeny that directly relates the probability of jumps rather than the number of mutations  between descendants. 2) simulate realistic trajectories in the sequence space from any given initial strain, and 3) estimate drift in the sequence space  by analyzing the statistical characteristics of the diffusion occurring in the strain space.
 
 \subsection*{Problem 1: Predicting Dominant Seasonal Strains} 
 
