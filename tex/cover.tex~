@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%% LaTeX Resume Template %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%  Ishanu Chattopadhyay  ixc128@psu.edu%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[10pt]{article}
+\documentclass[9pt,onecolumn,compsoc]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\usepackage[letterpaper, top=.5cm, left=2.5cm, right=3.0cm, bottom=2.0cm, includehead, includefoot]{geometry}
+%
+\input{preamble.tex} 
+%\usepackage[printwatermark]{xwatermark}
+\usepackage{wallpaper}
+\usepackage{wasysym}
+\usepackage[misc]{ifsym}
+%\usepackage{applicationN}
+\usepackage[normalem]{ulem}
+\usepackage{epigraph} 
+%\usepackage{pifont}
+%\usepackage{fancyhdr}
+\newcommand{\Space}{\vspace{10pt}}
+\newcommand{\SpaceS}{\vspace{4pt}}
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzexternalize[prefix=./Figures/ExtApp/]% activate externalization!
+\tikzexternaldisable
+\newcommand{\ColorA}{\color{black!70}}
+\newcommand{\ColorB}{\color{Red4!10!black}}
+\newcommand{\ColorD}{\color{darkgray}}
+\newcommand{\ColorBb}{\ColorB}
+\newcommand{\ColorE}{\color{darkgray}}
+\newcommand{\ColorX}{\color{Blue3}}
+\def\Me#1{\def\me{#1}}
+\Me{\sffamily\ColorA {\bf \fontsize{10}{10}\selectfont\color{IndianRed4}Ishanu Chattopadhyay}\\
+Assistant Professor\\
+ Section of Hospital Medicine\\
+Department of Medicine\\
+%Institute for Genomics \& Systems Biology\\
+%Computation Institute\\
+%University of Chicago\\
+900 E 57th Street\\
+KCBD 10152\\
+Chicago IL 60637\\
+\phone: 814 5315312\\
+\Letter: ishanu@uchicago.edu\\{\fontsize{7}{7}\selectfont\sffamily\color{Red3}
+\href{zed.uchicago.edu}{zed.uchicago.edu}}}
+
+\setlength{\headsep}{1.65in}
+\addtolength{\textheight}{-1.25in}
+\renewcommand{\baselinestretch}{1.1}
+\lhead{}
+\chead{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.1pt}
+\lhead{
+\includegraphics[width=3.1in]{/home/ishanu/Dropbox/Apps/ShareLaTeX/letterhead/Figures/RGBPNG/maroon}
+\vskip  1.95em
+%
+\bf \sffamily \fontsize{7}{8}\selectfont \ColorA
+Department of Medicine\\
+5841 South Maryland Avenue\\
+Chicago, IL 60637\\
+\phone: 773 7021234\\
+}
+\rhead{
+\ColorA
+  \footnotesize \me \\
+}
+\rfoot{\scriptsize\bf\sffamily\ColorA  \thepage}
+\cfoot{\scriptsize\bf\sffamily \ColorA Chattopadhyay}
+\lfoot{\scriptsize\bf\sffamily \ColorA \today}
+\CenterWallPaper{.5}{/home/ishanu/Dropbox/Apps/ShareLaTeX/letterhead/Figures/phoenix/lightgray}
+% #######################################################################
+\input{customdef}
+\def\EDITOR{Editor}
+\def\BEDITOR{Editor\xspace}
+\def\JNAME{Proceedings of the National Academy of Sciences \xspace}
+\def\JADDR{}
+% #######################################################################
+
+\begin{document}
+\parskip=12pt
+\parindent=0pt
+\Space
+\Space
+% #######################################################################
+% #######################################################################
+\fontsize{11}{12}\selectfont
+\Space
+\Space
+
+% \EDITOR\\
+% \JNAME\\
+% \JADDR
+
+Dear \BEDITOR  
+
+Please find enclosed the  manuscript entitled ``\textbf{\TITLE}'' for your consideration for publication in \JNAME as an original research article. In this study we develop a rigorous computational approach to learn from viral sequence databases to \textbf{forecast future mutations, predict future strains, and map evolutionary trajectories}.
+Our results are particularly important in the context of COVID-19, which is continuing to demonstrate the potential for devastation from global pandemics. In this study we develop tools that will make us better prepared for the inevitable future pandemic; ability to rank-order  strains currently in the animal reservoirs by their quantitative emergence risk will help focus mitigation efforts and perhaps develop preemptive countermeasures.
+
+We demonstrate the forecasting capability of our approach by  outperforming WHO's flu vaccine recommendations nearly consistently over the past two decades. We also analyze the  \hcov origin problem, and produce a ranked list of animal species, ordered according to the quantitative likelihood of hosting an immediate progenitor. 
+
+We note that current surveillance paradigms do not address this problem, and do not quantitatively assess jump risk. Existence of  viral diversity in  bats or swines or wild ducks, while important, might not transparently map to  emergence risk. Here, we show that a  precise  calculation is possible: provided  sequence similarity  is evaluated via a new biology-aware metric, which we call the q-distance. Using novel machine learning algorithms to learn from tens of thousands of sequences, we explicitly relate this new distance  to the likelihood of spontaneous jumps. 
+
+We are led by a multi-disciplinary team  of experts in  machine learning (Chattopadhyay), and vaccine design (Esser-Kahn), and is a collaboration between the Department of Medicine and the Pritzker School of Molecular Engineering, at the University of Chicago.
+ 
+We believe that  the potential  clinical importance   of our results in predicting emergence, ranking risky pathogens and the design of escape resistant vaccines,   merits consideration  for  publication in \JNAME. We look forward to, and humbly hope for, your positive  response.
+\Space
+\vspace{-14pt}
+
+Sincerely,
+\vspace{-24pt}
+
+% 
+\begin{flushleft}
+\tikz{\node[]{    \includegraphics[scale=0.7]{/home/ishanu/Dropbox/Apps/ShareLaTeX/letterhead/Figures/sign2}};}
+\vspace{-30pt}
+
+\rule{2.5in}{1pt}\\
+{\fontsize{10}{10}\selectfont Ishanu Chattopadhyay}
+\hfill \today\\
+Chicago, IL
+\end{flushleft}
+
+% #######################################################################
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

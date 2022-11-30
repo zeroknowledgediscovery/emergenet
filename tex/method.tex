@@ -2,7 +2,7 @@
 We briefly describe the proposed computational framework. 
 
 
-\section*{\enet Framework}
+\subsection*{\enet Framework}
 We do not assume that the mutational  variations at the individual indices of a genomic sequence are independent (See Fig~\ref{figscheme}a). Irrespective of whether mutations are truly random~\cite{hernandez2018algorithmically}, since only certain combinations of individual mutations are viable, individual mutations across a genomic sequence replicating in the wild  appear  constrained, which is what is explicitly  modeled in our approach.
 
 % 
@@ -83,7 +83,7 @@ We show in Theorem~\ref{thmbnd} in the supplementary text that at a significance
 where $\mem{y}^Q$ is the membership probability of strain $y$ in the target population, $N$ is the sequence length, and $\alpha$ is the statistical signifacnce level.
 
 
-\subsection*{Problem 1: Predicting Dominant Seasonal Strains} 
+\subsection*{Predicting Dominant Seasonal Strains} 
 
 Analyzing the distribution of sequences observed to circulate in the human population at the present time allows us to forecast dominant strain(s) in the next flu season as follows:
 
@@ -100,7 +100,7 @@ From the RHS bound established in Theorem~\ref{thmbnd} (See Eq.~\eqref{fundeq} a
 &\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau} \sum_{x\in H^t}  \theta^{[t]}(x,y) - \abs{H^t}A \ln \mem{y}
 }%
 %
-\subsection*{Problem 2: Measure of Pandemic Potential}
+\subsection*{Measure of Pandemic Potential}
 \def\ast{x_a^t}
 \def\hst{x_h^{t+\delta}}
 
@@ -194,7 +194,7 @@ We investigate the key factors that contribute to modeling a set of strains well
 We select several plausible structures of the regression equation, and in each case conclude that  data diversity has the most important and statistically significant contribution (\SUPPLEMENTARY Table~S-\ref{tabreg}).
 
 \subsection*{Multivariate Regression to Identify Map from \qdist to Estimated IRAT scores}
-We train separate General Linear Models (GLM) to estimate IRAT scores (emergence and impact) with average \qdist of a sequence of interest from a set of human strains, considering HA and NA sequences separately, using the CDC computed IRAT scores as the dependent variables. We also  include the geometric mean of the HA and NA based \qdist{es} as a potential explanatory variables. We use a standard Gaussian model family with identity link function to keep our model that maps \qdist{es}  to the IRAT scores as simple as possible (See \SUPPLEMENTARY Table~S-\ref{tabregGLM}).
+We train separate General Linear Models (GLM) to estimate IRAT scores (emergence and impact) with average \qdist of a sequence of interest from a set of human strains, considering HA and NA sequences separately, using the CDC computed IRAT scores as the dependent variables. We also  include the geometric mean of the HA and NA based \qdist{es} as a potential explanatory variables. We use a standard Gaussian model family with identity link function to keep our model that maps \qdist{es}  to the IRAT scores as simple as possible (See \SUPPLEMENTARY Table~S-\ref{tabregGLMemergence}).
 
 
  

@@ -1,0 +1,17 @@
+Model: IRAT_Emergence_Score ~ Geometric_Mean                           
+================================================================================
+Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   20
+Model:                              GLM   Df Residuals:                       18
+Model Family:                  Gaussian   Df Model:                            1
+Link Function:                 identity   Scale:                         0.76392
+Method:                            IRLS   Log-Likelihood:                -24.632
+Date:                  Fri, 18 Nov 2022   Deviance:                       13.751
+Time:                          20:17:29   Pearson chi2:                     13.8
+No. Iterations:                       3   Pseudo R-squ. (CS):             0.7407
+Covariance Type:              nonrobust                                         
+==================================================================================
+                     coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------
+Intercept          6.4084      0.342     18.711      0.000       5.737       7.080
+Geometric_Mean    -9.9819      1.925     -5.185      0.000     -13.755      -6.209
+==================================================================================

@@ -256,6 +256,14 @@
   international journal of biomedical research}} \textbf{\bibinfo{volume}{3}},
   \bibinfo{pages}{158} (\bibinfo{year}{2009}).
 
+\bibitem{nelson2018origins}
+\bibinfo{author}{Nelson, M.~I.} \& \bibinfo{author}{Worobey, M.}
+\newblock \bibinfo{title}{Origins of the 1918 pandemic: revisiting the swine
+  “mixing vessel” hypothesis}.
+\newblock \emph{\bibinfo{journal}{American journal of epidemiology}}
+  \textbf{\bibinfo{volume}{187}}, \bibinfo{pages}{2498--2502}
+  (\bibinfo{year}{2018}).
+
 \bibitem{Baumann}
 \bibinfo{author}{Baumann, J.}, \bibinfo{author}{Kouassi, N.~M.},
   \bibinfo{author}{Foni, E.}, \bibinfo{author}{Klenk, H.-D.} \&
@@ -386,5 +394,30 @@
 \newblock \bibinfo{title}{A global initiative on sharing avian flu data}.
 \newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{442}},
   \bibinfo{pages}{981--981} (\bibinfo{year}{2006}).
+
+\bibitem{tzarum2015structure}
+\bibinfo{author}{Tzarum, N.} \emph{et~al.}
+\newblock \bibinfo{title}{Structure and receptor binding of the hemagglutinin
+  from a human h6n1 influenza virus}.
+\newblock \emph{\bibinfo{journal}{Cell host \& microbe}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{369--376}
+  (\bibinfo{year}{2015}).
+
+\bibitem{lazniewski2018structural}
+\bibinfo{author}{Lazniewski, M.}, \bibinfo{author}{Dawson, W.~K.},
+  \bibinfo{author}{Szczepi{\'n}ska, T.} \& \bibinfo{author}{Plewczynski, D.}
+\newblock \bibinfo{title}{The structural variability of the influenza a
+  hemagglutinin receptor-binding site}.
+\newblock \emph{\bibinfo{journal}{Briefings in functional genomics}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{415--427}
+  (\bibinfo{year}{2018}).
+
+\bibitem{garcia2015dynamic}
+\bibinfo{author}{Garcia, N.~K.}, \bibinfo{author}{Guttman, M.},
+  \bibinfo{author}{Ebner, J.~L.} \& \bibinfo{author}{Lee, K.~K.}
+\newblock \bibinfo{title}{Dynamic changes during acid-induced activation of
+  influenza hemagglutinin}.
+\newblock \emph{\bibinfo{journal}{Structure}} \textbf{\bibinfo{volume}{23}},
+  \bibinfo{pages}{665--676} (\bibinfo{year}{2015}).
 
 \end{thebibliography}

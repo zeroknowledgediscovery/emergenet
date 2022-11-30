@@ -1,0 +1,20 @@
+model:dev ~ qnet_complexity + data_diversity + qnet_complexity * data_diversity + ldistance_WHO 
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                    dev   No. Observations:                  235
+Model:                            GLM   Df Residuals:                      230
+Model Family:                Gaussian   Df Model:                            4
+Link Function:               identity   Scale:                          23.214
+Method:                          IRLS   Log-Likelihood:                -700.43
+Date:                Thu, 11 Jun 2020   Deviance:                       5339.2
+Time:                        16:45:46   Pearson chi2:                 5.34e+03
+No. Iterations:                     3   Covariance Type:             nonrobust
+==================================================================================================
+                                     coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------
+Intercept                         -0.1116      1.090     -0.102      0.918      -2.248       2.025
+qnet_complexity                    0.0005      0.000      1.075      0.282      -0.000       0.001
+data_diversity                     0.3197      0.126      2.531      0.011       0.072       0.567
+qnet_complexity:data_diversity -6.932e-05   5.01e-05     -1.383      0.167      -0.000    2.89e-05
+ldistance_WHO                     -0.0348      0.035     -1.007      0.314      -0.102       0.033
+==================================================================================================

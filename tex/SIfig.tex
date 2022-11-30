@@ -92,6 +92,74 @@ Phenotypes & Correlation \\\hline
 %#############################################
 %#############################################
 
+
+
+
+ \begin{table}[!hb]\centering
+\captionN{H1N1 NA Northern Hemisphere}\label{tabrec1}
+\vspace{-10pt}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/north_h1n1_na.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+
+
+\begin{table}[!ht]\centering
+\captionN{H1N1 NA Southern Hemisphere}\label{tabrec3}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/south_h1n1_na.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+%#############################################
+%#############################################
+
+
+%#############################################
+
+\begin{table}[!ht]\centering
+\captionN{H3N2 NA Northern Hemisphere}\label{tabrec5}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/north_h3n2_na.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+%#############################################
+
+%#############################################
+
+\begin{table}[!ht]\centering
+\captionN{H3N2 NA Southern Hemisphere}\label{tabrec7}
+
+\sffamily\fontsize{7}{8}\selectfont
+
+\input{Figures/tabdata/south_h3n2_na.tex}
+\flushleft
+
+\fontsize{7}{7}\selectfont
+$^\star$ Dominant strain is calculated as the one closest to the centroid in the strain space that year in the edit distance metric
+\end{table}
+%#############################################
+
+
+
+
+
+
+
 %#############################################
 %#############################################
 
@@ -205,18 +273,35 @@ $^\star$This table contains \enet scores for IRAT computed using current sequenc
 %#############################################
 %#############################################
 \begin{table}\centering
-\captionN{General linear model evaluating \enet emergence risk predictions against IRAT estimates}\label{tabregGLM}\centering
+\captionN{General linear model evaluating \enet emergence risk predictions against IRAT estimates}\label{tabregGLMemergence}\centering
 
 \mnp{6.5in}{
   \fontsize{8}{8}\selectfont
-\verbatiminput{Figures/tabdata/model_simple.txt}
+\verbatiminput{Figures/tabdata/model_emergence_simple.txt}
 }
 \vskip 2em
 
 
 \mnp{6.5in}{
   \fontsize{8}{8}\selectfont
-\verbatiminput{Figures/tabdata/model_complex.txt}
+\verbatiminput{Figures/tabdata/model_emergence_complex.txt}
+}
+\end{table}
+%#############################################
+%#############################################
+\begin{table}\centering
+\captionN{General linear model evaluating \enet impact risk predictions against IRAT estimates}\label{tabregGLMimpact}\centering
+
+\mnp{6.5in}{
+  \fontsize{8}{8}\selectfont
+\verbatiminput{Figures/tabdata/model_impact_simple.txt}
+}
+\vskip 2em
+
+
+\mnp{6.5in}{
+  \fontsize{8}{8}\selectfont
+\verbatiminput{Figures/tabdata/model_impact_complex.txt}
 }
 \end{table}
 %#############################################
