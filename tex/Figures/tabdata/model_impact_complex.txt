@@ -1,4 +1,4 @@
-Model: IRAT_Impact_Score ~ Geometric_Mean + HA_Avg_Qdist:NA_Avg_Qdist      
+Model: IRAT_Impact_Score ~ Geometric_Mean + HA_E-risk:NA_E-risk      
 ==============================================================================
 Dep. Variable:      IRAT_Impact_Score   No. Observations:                   20
 Model:                            GLM   Df Residuals:                       17
@@ -14,5 +14,5 @@ Covariance Type:            nonrobust
 ---------------------------------------------------------------------------------------------
 Intercept                     6.6913      0.542     12.350      0.000       5.629       7.753
 Geometric_Mean              -15.5210      9.512     -1.632      0.103     -34.165       3.123
-HA_Avg_Qdist:NA_Avg_Qdist    26.8979     31.076      0.866      0.387     -34.010      87.806
+HA_E-risk:NA_E-risk          26.8979     31.076      0.866      0.387     -34.010      87.806
 =============================================================================================

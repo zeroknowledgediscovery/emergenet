@@ -1,4 +1,4 @@
-Model: IRAT_Emergence_Score ~ Geometric_Mean + HA_Avg_Qdist:NA_Avg_Qdist
+Model: IRAT_Emergence_Score ~ Geometric_Mean + HA_E-risk:NA_E-risk
 ================================================================================
 Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   20
 Model:                              GLM   Df Residuals:                       17
@@ -14,5 +14,5 @@ Covariance Type:              nonrobust
 ---------------------------------------------------------------------------------------------
 Intercept                     6.7809      0.460     14.736      0.000       5.879       7.683
 Geometric_Mean              -19.3647      8.078     -2.397      0.017     -35.198      -3.531
-HA_Avg_Qdist:NA_Avg_Qdist    31.5402     26.392      1.195      0.232     -20.187      83.267
+HA_E-risk:NA_E-risk          31.5402     26.392      1.195      0.232     -20.187      83.267
 =============================================================================================

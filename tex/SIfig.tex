@@ -2,6 +2,7 @@
 \renewcommand{\figurename}{S-Fig.}
 \setcounter{table}{0}
 \renewcommand{\tablename}{S-Tab.}
+\input{customdef}
 %\setcounter{table}{0}
 %\renewcommand{\tablename}{SI Tab.}
 
@@ -23,10 +24,10 @@
 \def\ACOL{teal!30}
 \def\BCOL{Red1!30}
 \def\CCOL{gray!30}
-\captionN{Examples: \enet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large q-distance, and the converse (rows 6-9)}\label{tabex}
+\captionN{Examples: \enet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large \qdist, and the converse (rows 6-9)}\label{tabex}
 \input{Figures/tabdata/example_qdistance}
 \flushleft
-$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in q-distance from sequence B, arising only from a change in the background population.
+$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in \qdist from sequence B, arising only from a change in the background population.
 \end{table*}
 %#############################################
 %#############################################
@@ -107,7 +108,7 @@ Phenotypes & Correlation \\\hline
 
 
  \begin{table}\centering
-\captionN{H1N1 NA Northern Hemisphere}\label{tabrec1}
+\captionN{H1N1 NA Northern Hemisphere}\label{tabrec4}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -120,7 +121,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 
 
 \begin{table}\centering
-\captionN{H1N1 NA Southern Hemisphere}\label{tabrec3}
+\captionN{H1N1 NA Southern Hemisphere}\label{tabrec5}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -137,7 +138,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 %#############################################
 
 \begin{table}\centering
-\captionN{H3N2 NA Northern Hemisphere}\label{tabrec5}
+\captionN{H3N2 NA Northern Hemisphere}\label{tabrec6}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -298,7 +299,7 @@ $^\star$This table contains \enet scores for IRAT computed using current sequenc
 
 \begin{tabular}{L{1.5in}|L{2in}}\hline
   Variable Name & Description \\\hline
-  qnet\_complexity & Cumulative number of nodes in all predictors in the corresponding \enet \\\hline
+  enet\_complexity & Cumulative number of nodes in all predictors in the corresponding \enet \\\hline
   data\_diversity &  Number of clusters in set of input sequence where each sequence in a specific cluster is separated by at least $5$ mutations from sequences not in the cluster\\\hline
   ldistance\_WHO & Deviation of WHO predicted strain from the dominant strain\\\hline
 \end{tabular}

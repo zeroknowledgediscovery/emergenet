@@ -27,7 +27,7 @@
  \captionN{\textbf{\enet inference and applications}. \textbf{a}, Variations of
    genomes for identical subtypes of \infl are analyzed to infer a recursive forest of conditional inference trees~\cite{Hothorn06unbiasedrecursive} -- the \enet --   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations. With these inferred dependencies we can    estimate the numerical odds of specific mutations, and by extension, the numerical value of
    the probability of one strain giving rise to another in the wild, under  complex selection pressures from the background. b, Snapshot of decision trees  from the
-   \enet inferred for H1N1 HA sequences collected in 2020-2021, which reveals a cyclic dependency. In general, every internal node of a component tree can be ``expanded'' into its own tree, underscoring the recursive structure of the \enet. c, First application: forecast  dominant strain(s) for the next flu season, using only  sequences collected upto six months prior and the inferred \enet, using data from the past year. d, Second application: estimation of the pandemic risk posed by individual animal strains that are still not known to circulate in humans.}\label{figscheme}.
+   \enet inferred for H1N1 HA sequences collected in 2020-2021, which reveals a cyclic dependency. In general, every internal node of a component tree can be ``expanded'' into its own tree, underscoring the recursive structure of the \enet. c, First application: forecast  dominant strain(s) for the next flu season, using only  sequences collected up to six months prior and the inferred \enet, using data from the past year. d, Second application: estimation of the pandemic risk posed by individual animal strains that are still not known to circulate in humans (see Eq.~\eqref{erisk} in \METHODS).}\label{figscheme}.
 \end{figure*}
 \else
 \refstepcounter{figure}\label{figscheme}
@@ -42,12 +42,12 @@
   \tikzexternalenable
    \tikzsetnextfilename{seasonalpred_both}
 
-  %\tikzXtrue 
+ % \tikzXtrue  
   \iftikzX
     \input{Figures/seasonalpred_both}
    \else  \hspace{-10pt}\includegraphics[width=0.98\textwidth]{Figures/External/seasonalpred_both}
    \fi
-   \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \qnet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}
+   \captionN{\textbf{Seasonal predictions for Influenza A.} Relative out-performance of \enet predictions against WHO recommendations for H1N1 and H3N2 sub-types for the HA and NA coding sequences over the both hemispheres. The negative bars (red) indicate the reduced edit distance between the predicted sequence and the actual dominant strain that emerged that year. Note that the recommendations for the north are given in February, while that for the south are given at the previous December, keeping in mind that the flu season in the south begins a few months early (e.g. for the 2021-2022 flu season, southern data in the table is labelled `2021' and northern is labelled `2022'). \textbf{Panels e, f, k, l} show further possible improvement in NA predictions if we return three recommendations instead of one each year.}\label{figseasonal}
 \end{figure*}
 \else
 \refstepcounter{figure}\label{figseasonal}
@@ -69,7 +69,7 @@
    \fi
    \vspace{-20pt}
    
-  \captionN{\textbf{\enet based estimation of IRAT score}. a, We find  an approximate linear relationship between average q-distance from human circulating strains (geometric mean of the \qdist for  HA and NA sequences) and the published IRAT emergence scores calculated by the CDC. b, Estimation of the IRAT emergence score via fitting a  GLM model to  the \qdist{es} estimated from the \enet.  c, Estimation of IRAT impact scores via fitting a separate GLM model to the the \qdist{es}. d, Identifying risky \infl strains amongst those collected between 01/2020-04/2022 using our approach.
+  \captionN{\textbf{\enet based estimation of IRAT score}. a, We find  an approximate linear relationship between average E-distance from human circulating strains (negative geometric mean of the \qdist for  HA and NA sequences) and the published IRAT emergence scores calculated by the CDC. b, Estimation of the IRAT emergence score via fitting a  GLM model to  the \qdist{es} estimated from the \enet.  c, Estimation of IRAT impact scores via fitting a separate GLM model to the the \qdist{es}. d, Identifying risky \infl strains amongst those collected between 01/2020-09/2022 using our approach.
   }\label{figirat}
 \end{figure*}
 \else
@@ -92,7 +92,7 @@
    \fi
    \vspace{-10pt}
 
-\captionN{Standard phylogeny constructed with edit distances,  with all  \infl strains collected between 01/2020-04/2022, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 15 edits in the HA, displaying the most risky strains in the collapsed group. The top risky strains are marked with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
+\captionN{Standard phylogeny constructed with edit distances,  with all  \infl strains collected between 01/2020-09/2022, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 15 edits in the HA, displaying the most risky strains in the collapsed group. The top risky strains are marked with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
 \end{figure}
 \else
 \refstepcounter{table}\label{figphylo}

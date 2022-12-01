@@ -72,7 +72,7 @@ The \enet framework  allows us to rigorously compute bounds on the probability o
 
 
 
-The mathematical intuition  relating  \qdist  to the loglikelihood of spontaneous change  is similar to quantifying the  odds of  a rare biased outcome when we  toss a fair coin.
+The mathematical intuition  relating  \qdist  to the log-likelihood of spontaneous change  is similar to quantifying the  odds of  a rare biased outcome when we  toss a fair coin.
 While for an unbiased coin, the odds of roughly 50\% heads is overwhelmingly likely, large deviations do happen rarely, and it turns out that the probability of such rare deviations can be explicitly quantified with existing statistical theory~\cite{varadhan2010large}.
  Generalizing to non-uniform conditional distributions inferred by the \enet, the likelihood of a spontaneous transition  by random chance may also be similarly bounded.
 
@@ -105,10 +105,10 @@ From the RHS bound established in Theorem~\ref{thmbnd} (See Eq.~\eqref{fundeq} a
 \def\hst{x_h^{t+\delta}}
 
 We measure the potential of an animal strain $\ast$ to spillover and become HH capable as a human strain $\hst$, via the proposed \erisk defined as follows:
-\cgather{
+\cgather{\label{erisk}
 \rho(\ast) \triangleq -\frac{1}{\abs{H^t}} \sum_{x \in H^t} \theta^{[t]}(\ast,x)
 }%
-where as before $H^t$ is the set of human strains observed recently (we take this as strains collected within the past year), and $\theta^{[t]}$ is teh \qdist induced by the \enet computed from the sequences in $H^t$.
+where as before $H^t$ is the set of human strains observed recently (we take this as strains collected within the past year), and $\theta^{[t]}$ is the \qdist induced by the \enet computed from the sequences in $H^t$.
 
 The intuition here is that a lower bound of $\rho(\ast)$ scales as average log-likelihood of the $\ast$ giving rise to a human strains in circulation at time $t$. Since the strains in $H^t$ are already HH capable, a high average likelihood of producing a similar strain has a high potential of being a HH cabale novel variant, which is a necessary condition of a pandemic strain. To establish the lower bound, we note that from  Theorem~\ref{thmbnd} (See Eq.~\eqref{fundeq} above) in the supplementary text, we have:
 %
@@ -189,12 +189,12 @@ We compare the results of simulated mutational perturbations to sequences from o
 
 \subsection*{Multivariate Regression to Understand Data Characteristics Necessary For \enet Modeling}
 
-We investigate the key factors that contribute to modeling a set of strains well within the \enet framework. We carry out a multivariate regression with data diversity , the complexity of inferred \enet and the edit distance of the WHO recommendation from the dominant strain as independent variables (See \SUPPLEMENTARY Table~S-\ref{tabreg} for definitions). Here we define data diversity as the number of clusters we have in the input set of sequences, such that any two sequences five or less mutations apart are in the same cluster. \enet complexity is measured by the number of decision nodes in the component decision trees of the recursive forest.
+We investigate the key factors that contribute to modeling a set of strains well within the \enet framework. We carry out a multivariate regression with data diversity, the complexity of inferred \enet and the edit distance of the WHO recommendation from the dominant strain as independent variables (See \SUPPLEMENTARY Table~S-\ref{tabreg} for definitions). Here we define data diversity as the number of clusters we have in the input set of sequences, such that any two sequences five or less mutations apart are in the same cluster. \enet complexity is measured by the number of decision nodes in the component decision trees of the recursive forest.
 
 We select several plausible structures of the regression equation, and in each case conclude that  data diversity has the most important and statistically significant contribution (\SUPPLEMENTARY Table~S-\ref{tabreg}).
 
 \subsection*{Multivariate Regression to Identify Map from \qdist to Estimated IRAT scores}
-We train separate General Linear Models (GLM) to estimate IRAT scores (emergence and impact) with average \qdist of a sequence of interest from a set of human strains, considering HA and NA sequences separately, using the CDC computed IRAT scores as the dependent variables. We also  include the geometric mean of the HA and NA based \qdist{es} as a potential explanatory variables. We use a standard Gaussian model family with identity link function to keep our model that maps \qdist{es}  to the IRAT scores as simple as possible (See \SUPPLEMENTARY Table~S-\ref{tabregGLMemergence}).
+We train separate General Linear Models (GLM) to estimate IRAT scores (emergence and impact) with average \qdist of a sequence of interest from a set of human strains, considering HA and NA sequences separately, using the CDC computed IRAT scores as the dependent variables. We also  include the geometric mean of the HA and NA based \qdist{s} as a potential explanatory variables. We use a standard Gaussian model family with identity link function to keep our model that maps \qdist{s}  to the IRAT scores as simple as possible (see \SUPPLEMENTARY Table~S-\ref{tabregGLMemergence}).
 
 
  
