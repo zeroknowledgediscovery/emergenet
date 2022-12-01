@@ -7,6 +7,51 @@
 
 %#############################################
 %#############################################
+\begin{table}[!ht]
+\mnp{\textwidth}{  \centering
+ \captionN{Number of sequences collected from public databases}\label{tabseq}
+\sffamily\fontsize{8}{8}\selectfont
+\input{Figures/tabdata/total_seqs}
+}
+\end{table}
+% #############################################
+
+
+%#############################################
+%#############################################
+\begin{table*}[!ht]
+\def\ACOL{teal!30}
+\def\BCOL{Red1!30}
+\def\CCOL{gray!30}
+\captionN{Examples: \enet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large q-distance, and the converse (rows 6-9)}\label{tabex}
+\input{Figures/tabdata/example_qdistance}
+\flushleft
+$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in q-distance from sequence B, arising only from a change in the background population.
+\end{table*}
+%#############################################
+%#############################################
+
+%#############################################
+%#############################################
+\begin{table}[!ht]
+ \mnp{\textwidth}{ \centering
+ \captionN{Correlation between \qdist and edit distance between sequence pairs}\label{tabcor}
+\sffamily\fontsize{8}{8}\selectfont
+\begin{tabular}{L{1.35in}|L{.65in}}\hline
+Phenotypes & Correlation \\\hline
+ Influenza H1N1 HA  &0.76\\\hline
+ Influenza H1N1 NA &0.74\\\hline
+ Influenza H3N2 HA &0.85\\\hline
+ Influenza H3N2 NA &0.79\\\hline
+% \hcov &0.52\\\hline
+\end{tabular}
+}
+\end{table}
+% #############################################
+
+
+
+%#############################################
 \ifFIGS
 \begin{figure*}[!ht]
   \centering    
@@ -30,42 +75,6 @@
 %#############################################
 
 
-%#############################################
-%#############################################
-\begin{table*}[!ht]
-\def\ACOL{teal!30}
-\def\BCOL{Red1!30}
-\def\CCOL{gray!30}
-\captionN{Examples: \enet induced distance varying for fixed sequence pair when background population changes (rows 1 -5), sequences with small edit distance and large q-distance, and the converse (rows 6-9)}\label{tabex}
-\input{Figures/tabdata/example_qdistance}
-\flushleft
-$^\star$Year A and year B correspond to the assumed collection years for sequences A and B respectively for the purpose of this example. Sequence A in row 1 is collected in 2007, but is assumed to be from different years in rows 2-4 to demonstrate the change in q-distance from sequence B, arising only from a change in the background population.
-\end{table*}
-%#############################################
-%#############################################
-
-%#############################################
-%#############################################
-\begin{table*}[!ht]
- \mnp{2.75in}{ \centering
- \captionN{Correlation between \qdist and edit distance between sequence pairs}\label{tabcor}
-\sffamily\fontsize{8}{8}\selectfont
-\begin{tabular}{L{1.35in}|L{.65in}}\hline
-Phenotypes & Correlation \\\hline
- Influenza H1N1 HA  &0.76\\\hline
- Influenza H1N1 NA &0.74\\\hline
- Influenza H3N2 HA &0.85\\\hline
- Influenza H3N2 NA &0.79\\\hline
-% \hcov &0.52\\\hline
-\end{tabular}
-}\hfill
-\mnp{3.75in}{  \centering
- \captionN{Number of sequences collected from public databases}\label{tabseq}
-\sffamily\fontsize{8}{8}\selectfont
-\input{Figures/tabdata/total_seqs}
-}
-\end{table*}
-%#############################################
 %#############################################
 %#############################################
 %#############################################
@@ -93,11 +102,12 @@ Phenotypes & Correlation \\\hline
 %#############################################
 
 
+\clearpage
 
 
- \begin{table}[!hb]\centering
+
+ \begin{table}\centering
 \captionN{H1N1 NA Northern Hemisphere}\label{tabrec1}
-\vspace{-10pt}
 
 \sffamily\fontsize{7}{8}\selectfont
 
@@ -109,7 +119,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 \end{table}
 
 
-\begin{table}[!ht]\centering
+\begin{table}\centering
 \captionN{H1N1 NA Southern Hemisphere}\label{tabrec3}
 
 \sffamily\fontsize{7}{8}\selectfont
@@ -126,7 +136,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 
 %#############################################
 
-\begin{table}[!ht]\centering
+\begin{table}\centering
 \captionN{H3N2 NA Northern Hemisphere}\label{tabrec5}
 
 \sffamily\fontsize{7}{8}\selectfont
@@ -141,7 +151,7 @@ $^\star$ Dominant strain is calculated as the one closest to the centroid in the
 
 %#############################################
 
-\begin{table}[!ht]\centering
+\begin{table}\centering
 \captionN{H3N2 NA Southern Hemisphere}\label{tabrec7}
 
 \sffamily\fontsize{7}{8}\selectfont
@@ -245,32 +255,6 @@ $^\star$This table contains \enet scores for IRAT computed using current sequenc
 
 %#############################################
 %#############################################
-\begin{table}\centering
-\captionN{General linear model for evaluating effect of data diversity on \enet performance}\label{tabreg}\centering
-
-\begin{tabular}{L{1.5in}|L{2in}}\hline
-  Variable Name & Description \\\hline
-  qnet\_complexity & Cumulative number of nodes in all predictors in the corresponding \enet \\\hline
-  data\_diversity &  Number of clusters in set of input sequence where each sequence in a specific cluster is separated by at least $5$ mutations from sequences not in the cluster\\\hline
-  ldistance\_WHO & Deviation of WHO predicted strain from the dominant strain\\\hline
-\end{tabular}
-\vskip 2em 
-
-\mnp{6.5in}{
-  \fontsize{8}{8}\selectfont
-\verbatiminput{Figures/tabdata/model1.txt}
-}
-\vskip 2em
-
-
-\mnp{6.5in}{
-  \fontsize{8}{8}\selectfont
-\verbatiminput{Figures/tabdata/model2.txt}
-}
-\end{table}
-%#############################################
-%#############################################
-%#############################################
 %#############################################
 \begin{table}\centering
 \captionN{General linear model evaluating \enet emergence risk predictions against IRAT estimates}\label{tabregGLMemergence}\centering
@@ -305,4 +289,31 @@ $^\star$This table contains \enet scores for IRAT computed using current sequenc
 }
 \end{table}
 %#############################################
+%#############################################
+
+%#############################################
+%#############################################
+\begin{table}\centering
+\captionN{General linear model for evaluating effect of data diversity on \enet performance}\label{tabreg}\centering
+
+\begin{tabular}{L{1.5in}|L{2in}}\hline
+  Variable Name & Description \\\hline
+  qnet\_complexity & Cumulative number of nodes in all predictors in the corresponding \enet \\\hline
+  data\_diversity &  Number of clusters in set of input sequence where each sequence in a specific cluster is separated by at least $5$ mutations from sequences not in the cluster\\\hline
+  ldistance\_WHO & Deviation of WHO predicted strain from the dominant strain\\\hline
+\end{tabular}
+\vskip 2em 
+
+\mnp{6.5in}{
+  \fontsize{8}{8}\selectfont
+\verbatiminput{Figures/tabdata/model1.txt}
+}
+\vskip 2em
+
+
+\mnp{6.5in}{
+  \fontsize{8}{8}\selectfont
+\verbatiminput{Figures/tabdata/model2.txt}
+}
+\end{table}
 %#############################################
