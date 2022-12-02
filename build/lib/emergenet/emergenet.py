@@ -211,7 +211,7 @@ class Enet(object):
         membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], qnet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, qnet, sample_size=None):
+    def emergence_risk(self, seq_df, qnet, sample_size=None, ignore_nan=False):
         """Computes emergence risk score.
 
         Parameters
@@ -224,6 +224,9 @@ class Enet(object):
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
+        
+        ignore_nan : bool
+            Whether to show number of ignored nan value in qdistance
 
         Returns
         -------
@@ -238,8 +241,15 @@ class Enet(object):
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         qdist_list = []
+        num_nan = 0
         for i in range(len(seq_arr)):
-            qdist_list.append(qdistance(target_seq, seq_arr[i], qnet, qnet))
+            qdist = qdistance(target_seq, seq_arr[i], qnet, qnet)
+            if np.isnan(qdist):
+                num_nan += 1
+                continue
+            qdist_list.append(qdist)
+        if ignore_nan:
+            print('Number of strains with null qdistance:', num_nan, 'out of', len(seq_arr))
         emergence_risk_score = np.average(qdist_list)
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
