@@ -15,8 +15,8 @@ class Enet(object):
         Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')
 
     seq_trunc_length : int
-        Length to truncate sequences in Qnet analysis
-        (Sequences used to train Qnet and compute q-distance must be of same length)
+        Length to truncate sequences in Emergenet analysis
+        (Sequences used to train Emergenet and compute E-distance must be of same length)
 
     seq_metadata : str
         Describes the sequence; added automatically if 'seq' is a fasta file path
@@ -120,9 +120,9 @@ class Enet(object):
             raise ValueError('The DataFrame must store sequences in `sequence` column!')
         if sample_size is None or sample_size > len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df['sequence']
         if sample_size < len(seq_df):
-            seqs = seqs.sample(sample_size, random_state=self.random_state).values
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df['sequence'].values
         seq_lst = []
         for seq in seqs:
             seq_lst.append(seq)
@@ -154,7 +154,7 @@ class Enet(object):
         return seq_df
 
     def train(self, seq_df, sample_size=None, n_jobs=1):
-        """Trains a Qnet model.
+        """Trains an Emergenet model.
 
         Parameters
         ----------
@@ -162,25 +162,25 @@ class Enet(object):
             DataFrame of sequences
 
         sample_size : int
-            Number of strains to train Qnet on, sampled randomly
+            Number of strains to train Emergenet on, sampled randomly
 
         n_jobs : int
             Number of CPUs to use when training
 
         Returns
         -------
-        qnet : Qnet
-            Trained Qnet
+        enet : Qnet
+            Trained Emergenet
         """
         if len(seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
         seq_arr = self._sequence_array(seq_df, sample_size)
-        qnet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)],
+        enet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)],
                     random_state=self.random_state, n_jobs=n_jobs)
-        qnet.fit(seq_arr)
-        return qnet
+        enet.fit(seq_arr)
+        return enet
 
-    def sequence_membership(self, seq_df, qnet, sample_size=None):
+    def sequence_membership(self, seq_df, enet, sample_size=None):
         """Computes membership degree (see Quasinet documentation) of each sequence
 
         Parameters
@@ -188,8 +188,8 @@ class Enet(object):
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -205,13 +205,13 @@ class Enet(object):
             raise ValueError('The DataFrame must store sequences in `sequence` column!')
         if sample_size is None or sample_size > len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df['sequence']
         if sample_size < len(seq_df):
-            seqs = seqs.sample(sample_size, random_state=self.random_state).values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], qnet) for seq in seqs])
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df['sequence'].values
+        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, qnet, sample_size=None, ignore_nan=False):
+    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
         """Computes emergence risk score.
 
         Parameters
@@ -219,8 +219,8 @@ class Enet(object):
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -243,7 +243,7 @@ class Enet(object):
         qdist_list = []
         num_nan = 0
         for i in range(len(seq_arr)):
-            qdist = qdistance(target_seq, seq_arr[i], qnet, qnet)
+            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
                 num_nan += 1
                 continue
@@ -254,7 +254,7 @@ class Enet(object):
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
 
-    def emergence_risk_qsampling(self, seq_df, qnet, sample_size=None, qsamples=None, steps=None):
+    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
         """Computes emergence risk score using qsampling.
 
         Parameters
@@ -262,8 +262,8 @@ class Enet(object):
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -291,7 +291,6 @@ class Enet(object):
             raise ValueError('Number of qsamples must be positive!')
         if steps < 1:
             raise ValueError('Number of steps must be positive!')
-
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         avg_qdist_list = []
@@ -302,8 +301,8 @@ class Enet(object):
             cur_min_qdist = 1
             cur_max_qdist = 0
             for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], qnet, steps)
-                qdist = qdistance(target_seq, qs_seq, qnet, qnet)
+                qs_seq = qs.qsample(seq_arr[i], enet, steps)
+                qdist = qdistance(target_seq, qs_seq, enet, enet)
                 cur_avg_qdist += qdist
                 cur_min_qdist = min(qdist, cur_min_qdist)
                 cur_max_qdist = max(qdist, cur_max_qdist)
@@ -317,29 +316,29 @@ class Enet(object):
         return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
 
 
-def save_model(qnet, outfile, low_mem=False):
-    """Saves a Qnet model.
+def save_model(enet, outfile, low_mem=False):
+    """Saves an Emergenet model.
 
     Parameters
     ----------
-    qnet : Qnet
-        A Qnet instance
+    enet : Qnet
+        An Emergenet instance
 
     outfile : str
         File name to save to ('.joblib')
 
     low_mem : bool
-        If True, save the Qnet with low memory by deleting all data attributes except the tree structure
+        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
 
     Returns
     -------
     None
     """
-    save_qnet(qnet, outfile, low_mem)
+    save_qnet(enet, outfile, low_mem)
 
 
 def load_model(filepath):
-    """Loads a Qnet model.
+    """Loads an Emergenet model.
 
     Parameters
     ----------
@@ -348,8 +347,8 @@ def load_model(filepath):
 
     Returns
     -------
-    qnet : Qnet
-        A Qnet instance
+    enet : Qnet
+        An Emergenet instance
     """
-    qnet = load_qnet(filepath)
-    return qnet
+    enet = load_qnet(filepath)
+    return enet
