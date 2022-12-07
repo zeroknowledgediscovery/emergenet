@@ -22,6 +22,8 @@ To install with pip:
 
 ```
 pip install emergenet
+# to update
+pip install emergenet --upgrade
 ```
 
 ### Dependencies
