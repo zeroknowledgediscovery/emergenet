@@ -1,0 +1,162 @@
+\documentclass[onecolumn, compsoc,10pt]{IEEEtran}
+\let\labelindent\relax
+\usepackage{enumitem}
+\input{preamble.tex}  
+\input{customdef_grant} 
+\usepackage{flushend}
+%\externaldocument[SI-]{SI}
+% \externaldocument[EXT-]{exfig}
+\newif\iftikzX
+\tikzXtrue
+\tikzXfalse
+\def\EXTENDED{Extended Data\xspace}
+\def\SUPPLEMENTARY{Supplementary\xspace}
+\newif\ifFIGS
+\FIGSfalse  
+\FIGStrue 
+
+\def\METHODS{Online Methods\xspace}
+
+  
+\tikzexternalenable    
+%\pgfplotsset{compat=1.18}
+
+\begin{document}
+\pagestyle{empty}
+
+\section*{Letter of Intent }
+{\bf \itshape Infectious Diseases: (Topic: proteomics) Strategic Goals: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict
+outbreaks or epidemics}
+
+{\bf  \TITLE}
+
+Animal influenza  viruses emerging into humans % are suspected to
+have triggered devastating  pandemics in the past. Yet, our ability to evaluate the pandemic potential of individual strains that do not yet circulate in humans, remains limited. Here we propose to develop an experimentally  validated platform called the \enet (Enet), to predict in near-real-time where and when  new variants of concern would emerge,  using only observed  sequences  of key viral proteins, procured in ongoing global surveillance of \infl viruses. We bring together new machine learning algorithms customized to the problem at hand, key insights from information theory, evolutionary theory, epidemiology and precise statistical  uncertainty quantification to develop a rigorous framework, to  track evolutionary trajectories of pathogens through a complex, poorly characterized, and dynamically changing fitness landscape. Our deliverable is best described as the foundations for creating a platform akin to bio-NORAD,  \textit{identifying when and where an imminent zoonotic emergence event is likely, and if such novel strains are likely to achieve human-to-human transmission capability.}
+
+
+%Analyzing Haemagglutinnin (HA) and Neuraminidase (NA) sequences from $>400,000$ sequenced strains, we estimate the likelihood of specific future mutations, and the numerical odds of  specific descendants arising via natural processes.
+
+% After validating our model to forecast the dominant strain(s) for seasonal flu, with \enet-based forecasts significantly outperforming WHO recommendations almost consistently over the past two decades for H1N1/H3N2 subtypes, individually in the Northern/Southern hemispheres (average match-improvement $32.25\% $ over two decades, $69.07\%$ over the last decade, and $81.13\%$ over the pre-\cov five year period for H1N1 HA), we assess the pandemic potential of animal strains not yet known to transmit in humans. While the state-of-the-art Influenza Risk Assessment Tool (IRAT) from the CDC to assess such risk includes time-consuming experimental assays, our calculations take $\approx 6s/$strain, yet strongly correlating with published IRAT scores (correlation$: 0.703$, p-value$: 0.00026$). This six orders of magnitude speedup is  necessary to exploit  current surveillance capacity via scalably analyzing thousands of strains collected annually. Considering $6,066$ wild \infl viruses sequenced post-2020, we identify risky strains of diverse subtypes, hosts and geo-locations, with six having estimated emergence scores $> 6.5$. Such scalable risk-ranking can enable preemptive pandemic mitigation, including the targeted inoculation of animal hosts before the first human infection, and outline new public health measures that are potentially effective notwithstanding possible vaccine hesitancy in humans.
+
+  
+Influenza viruses constantly evolve~\cite{dos2016influenza}, sufficiently altering surface protein structures to evade the prevailing host immunity, and cause the recurring seasonal  epidemic. These periodic  infection peaks claim a quarter to half a million lives~\cite{huddleston2020integrating} globally. Additionally, \infl, partly on account of its segmented genome and its wide prevalence in animal hosts, can easily incorporate genes from multiple strains and (re)emerge as novel human pathogens~\cite{reid2003origin}, thus harboring  a high pandemic potential. Strains spilling over into humans from animal reservoirs is thought to have triggered  pandemics  at least four times (1918 Spanish flu/H1N1, 1957 Asian flu/H2N2, 1968 Hong Kong flu/H3N2, 2009 swine flu/H1N1) in the past 100 years~\cite{shao2017evolution}. One  approach to mitigating such risk is to identify  animal strains  that do not yet circulate in humans, but is likely to spill-over and quickly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our  ability to objectively, reliably and scalably  risk-rank individual strains remains limited~\cite{wille2021accurately}. The Center for Disease Control's (CDC) current solution to this problem is the Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}, which relies on time-consuming proteomics and transmission assays and potentially subjective evaluations by subject matter experts, taking  weeks to months to compile for each strain of concern. With tens of   thousands of strains being sequenced annually, this results in  a scalability bottleneck. 
+
+Here we plan to develop a platform powered by novel pattern discovery and recognition algorithms to automatically parse out emergent evolutionary constraints operating on \infl viruses in the wild, to provide a less-heuristic theory-backed scalable solution to emergence prediction. % Our approach is centred around numerically estimating the probability $Pr(x \rightarrow y)$ of a strain $x$ spontaneously giving rise to  $y$.
+We plan to show   that this capability enables preempting  strains which are expected to be in future human circulation, and  approximate IRAT scores of non-human strains without  experimental assays or SME scoring, in second as opposed to weeks or months. Our approach automatically takes into account the time-sensitive variations in selection pressures as the background strain circulation changes over time, and will potentially be able to rank-order strains adapatively. Additionally, we plan to validate our ability to predict future variations of viral proteins by showing that predicted variants of HA and NA fold correctly, and are functional, binding to the relevant human receptors in in-vivo laboratory experiments. Thus, bringing together rigorous data-driven modeling, and validation via tools from reverse genetics we plan to deliver an actionable and deployable platform that optimally exploits the current biosurvellance capacity.
+
+The BioNORAD platform will enable proactive and actionable global surveillance for emerging pandemic threats from \infl. This importance of the ability to preempt pandemic risk to the national interest of the United States cannot be overstated, especially in the context of protecting  DoD assest and personnel deployed in potentially high risk centers of emergence. Additionally, the BioNORAD will enable preemptive action including the inoculation of  animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to  trigger.
+
+PIs for the proposed effort are Ishanu Chattopadhyay (lead, machine learning, UChicago) and Balaji Manicassamy (virology, Iowa State), and will be conducted over 2 years with a direct cost of 200K USD. 
+% #############################################
+% #############################################
+
+% Bibliography
+\small
+\bibliographystyle{naturemag}
+\bibliography{allbib}
+
+\end{document}
+\input{figuresandtables.tex}
+
+One possible approach to mitigating such risk is to identify  animal strains  that do not yet circulate in humans, but is likely to spill-over and quickly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our  ability to objectively, reliably and scalably  risk-rank individual strains remains limited~\cite{wille2021accurately}, despite some recent progress~\cite{pulliam2009ability,grewelle2020larger,grange2021ranking}.
+ 
+The Center for Disease Control's (CDC) current solution to this problem is the Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}.  Subject matter experts (SME) 
+  score strains based on  the number of  human infections, infection and transmission in laboratory animals, receptor binding characteristics, population immunity, genomic analysis, antigenic relatedness, global prevalence,  pathogenesis, and  treatment options, which are averaged to obtain two scores (between 1 and 10) that  estimate 1) the emergence  risk and 2) the potential public health impact on sustained transmission. IRAT scores  are potentially subjective, and  depend on multiple experimental assays, possibly taking  weeks to compile for a single strain. This results in  a scalability bottleneck, particularly with    thousands of strains being sequenced annually.
+
+Here we introduce a pattern recognition algorithm to automatically parse out emergent evolutionary constraints operating on \infl viruses in the wild, to provide a less-heuristic theory-backed scalable solution to emergence prediction. Our approach is centred around numerically estimating the probability $Pr(x \rightarrow y)$ of a strain $x$ spontaneously giving rise to  $y$. We show that this capability is key to preempting  strains which are expected to be in future circulation, and  1) reliably forecast dominant strains of seasonal epidemics, and 2) approximate IRAT scores of non-human strains without  experimental assays or SME scoring.
+
+\subsection*{\enet Inference}
+
+To uncover relevant evolutionary constraints, we analyzed  variations (point substitutions and indels) of the  residue  sequences  of key proteins implicated  in cellular entry and exit~\cite{gamblin2010influenza,shao2017evolution}, namely HA and NA respectively. By representing these constraints within a predictive framework -- the \enet (Enet) -- we estimated the  odds of a specific mutation to arise in future, and consequently the probability of a specific strain spontaneously  evolving into another (Fig.~\ref{figscheme}a).  Such explicit calculations are difficult  without first inferring the variation of mutational probabilities and the potential residue replacements from one positional index to the next along the protein sequence. The many well-known classical  DNA  substitution models~\cite{posada1998modeltest} or standard phylogeny inference tools which assume a constant species-wise mutational characteristics,  are not applicable here. Similarly, newer algorithms such  as FluLeap~\cite{eng2014predicting}  which identifies host tropism from sequence data, or estimation of species-level risk~\cite{grange2021ranking} do not allow for strain-specific assessment.
+
+The dependencies we uncover are shaped by  a  functional necessity of conserving/augmenting  fitness. Strains must be sufficiently common  to be recorded, implying that the sequences from public databases that we train  with have  high replicative fitness. Lacking kinetic proofreading, \infl integrates  faulty nucleotides   at a relatively high rate ($10^{-3}-10^{-4}$) during  replication~\cite{ahlquist2002rna,chen2006avian}. However, few variations are actually viable, leading to emergent dependencies between such mutations. Furthermore, these fitness constraints are not time-invariant. The background strain distribution, and selection pressure from the evolution of cytotoxic T lymphocyte  epitopes~\cite{woolthuis2016long,fan2012role,van2016differential,berkhoff2007assessment,van2012evasion} in humans can change quickly. With a sufficient number of unique samples to train on for each flu season, the \enet (recomputed for each time-period) is expected to automatically factor in the evolving host immunity, and the current background environment.  
+
+Structurally, an \enet comprises an interdependent collection of  local predictors, each aiming to predict the  residue at a particular index  using as features  the residues   at other  indices  (Fig.~\ref{figscheme}b). Thus,  an \enet comprises almost as many such  position-specific predictors as the length of the sequence. These individual predictors are implemented as conditional inference trees~\cite{Hothorn06unbiasedrecursive}, in which  nodal splits  have  a minimum pre-specified significance in differentiating the  child nodes. Thus, each predictor yields an estimated conditional residue distribution  at each index. The set of residues acting as features in each predictor are automatically identified, $e.g.$, in the fragment of the  H1N1 HA \enet (2020-2021, Fig~\ref{figscheme}b), the predictor for residue 63 is dependent on   residue  155, and the predictor for  155 is dependent on  223, the predictor for  223 is dependent on  14, and the residue at  14 is again dependent on  63, revealing a cyclic dependency. The complete \enet harbors a vast number of such  relationships, wherein each internal node of a tree may be  ``expanded'' to its own tree. Owing to this recursive expansion,  a complete \enet substantially captures the complexity of the rules guiding evolutionary change as evidenced by our out-of-sample validation.
+
+In our first application (predicting future dominant strains) we used  H1N1 and H3N2 HA and NA  sequences from \infl strains in the public NCBI and GISAID databases recorded between 2000-2022 ($153,802$ in total, \SUPPLEMENTARY Table~S-\ref{tabseq}). We  construct \enet{s} separately for H1N1 and H3N2 subtypes, and for each flu season, yielding $85$ models in total for predicting seasonal dominance. Using only sequence data is advantageous since deeper antigenic characterization  tend to be substantially  low-throughput compared to genome sequencing~\cite{wood2012reproducibility}. However,   deep mutational scanning (DMS) assays  have been shown to improve seasonal prediction~\cite{huddleston2020integrating}. Despite limiting ourselves to only genotypic  information (and subtypes), our approach  distills  emergent  fitness-preserving constraints   that outperform reported DMS-augmented strategies.
+
+Inference of the \enet predictors is our first step, which then induces  an intrinsic distance metric between strains. The \qdist (i.e. \enet distance) (Eq.~\eqref{q-distance} in \METHODS) is defined as the square-root of the Jensen-Shannon (JS) divergence~\cite{cover} of the conditional residue distributions, averaged over the sequence. Unlike the classical approach of measuring the number of edits between sequences, the \qdist is informed by the \enet-inferred  dependencies, and adapts to the specific subtype, allele frequencies, and environmental variations. Central to our approach is the theoretical result (Theorem~\ref{thmbnd} in \METHODS) that the \qdist  approximates the log-likelihood of spontaneous change $i.e.$ $\log Pr(x \rightarrow y )$. Note that despite general correlation between \qdist and edit-distance, the \qdist between fixed strains can change if only the background environment changes (\SUPPLEMENTARY Table~S-\ref{tabex},S-\ref{tabcor}).  In in-silico experiments, We find that while random mutations to genomic sequences produce rapidly diverging sets, \enet-constrained replacements produce sequences that are verifiably meaningful (\METHODS and \SUPPLEMENTARY Fig.~S-\ref{figsoa}).
+
+
+%We carry out in-silico experiments to test if our inferred  constraints  are indeed reflective of organismal  (\METHODS and \SUPPLEMENTARY Fig.~S-\ref{figsoa}). We find that while random mutations to genomic sequences produce rapidly diverging sets, \enet-constrained replacements produce sequences that are verifiably meaningful.
+
+
+Determining the numerical odds of a spontaneous jump $ Pr(x \rightarrow y)$ (Fig.~\ref{figscheme}) allows us to frame the problem of forecasting  dominant strain(s), and that of estimating the  pandemic potential of an animal strain as  mathematical propositions (albeit with some simplifying assumptions), with  approximate solutions (Fig.~\ref{figscheme}c-d). Thus,  a dominant strain for an upcoming  season may be identified as one which maximizes the joint probability of simultaneously arising from each (or most)  of the currently circulating strains (Fig.~\ref{figscheme}c).  This does not deterministically specify the dominant strain, but a strain satisfying this criterion  has  high odds of acquiring dominance. And, a pandemic risk score of a novel strain may be estimated by the probability of it giving rise to a well-adapted human strain. In the context of  forecasting  future dominant strain(s),  we derive a search criteria (see \METHODS) from the above proposition, to identify  historical strain(s) that are  expected to be close to the next dominant strain(s):
+%
+\calign{
+\label{dompred}&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau}  \left ( \sum_{x\in H^t}  \theta^{[t]}(x,y) - \abs{H^t}A \ln \mem{y}  \right )
+}%
+where $\dst$ is a predicted dominant strain  at time $t+\delta$, $H^t$ is the set of currently circulating human strains at time $t$  observed over the past year, $\theta^{[t]}$ is the \qdist informed by the inferred \enet using sequences in $H^t$, $\mem{y}$ is the estimated probability of strain $y$ being generated by the \enet, and $A$ is a constant dependent on the sequence length and significance threshold used (see \METHODS). The first term gets the solution close to the centroid of the current strain distribution (in the \qdist metric, and not the standard edit distance), and the second term relates to how common the genomic patterns are amongst recent human strains. 
+
+\subsection*{Predicting Future Dominant Strains}
+Prediction of the future dominant strain as  a close match to a historical strain  allows out-of-sample validation against past World Health Organization (WHO) recommendations for the flu shot, which  is  reformulated about six months in advance based on a  cocktail of historical strains determined via global surveillance~\cite{agor2018models}. For each year of the past two decades, we calculated strain forecasts using  Eq.~\eqref{dompred} with data available six months before the target season. We  measured forecast performance by the number of mutations by which the predicted HA/NA  sequences deviated from the  dominant strain. Our \enet-informed forecasts outperform  WHO/CDC recommended flu vaccine compositions almost consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the northern and the southern hemispheres (which have distinct recommendations~\cite{boni2008vaccination}). For H1N1 HA, the \enet  recommendation outperforms  WHO  by $32.25\%$ on average over the last two decades, and $69.07\%$ on average in the last decade, and by $81.13\%$ in the period 2015-2019 (5 years pre-\cov). The gains for H1N1 NA over the same time periods are $12.5\%$, $55.28\%$, and $70.46\%$ respectively. For H3N2 HA, the \enet  recommendation outperforms  WHO  by $37.44\%$ on average over the last two decades, and $40.24\%$ on average in the last decade, and by $50.0\%$ in the period 2015-2019. The gains for H3N2 NA over the same time periods are $12.5\%$, $17.7\%$, and $72.0\%$ respectively (\EXTENDED Table~\ref{tabperf}). Detailed predictions, along with historical strains closes to the observed dominant one are tabulated in \EXTENDED Tables~\ref{tabrec0} through ~\ref{tabrec3} (HA predictions), and \SUPPLEMENTARY Tables~S-\ref{tabrec4} through S-\ref{tabrec11} (NA predictions). Visually, Fig.~\ref{figseasonal} illustrates the relative gains computed for different subtypes and hemispheres. Additional improvement is possible if we recommend multiple strains every season for the vaccine cocktail (Fig.~\ref{figseasonal}e, f, k, l), and  \SUPPLEMENTARY  Tables~S-\ref{tabrec8} through  Table~S-\ref{tabrec11}.  %
+
+Comparing the \enet inferred strain (ENT) against the one recommended by the WHO, we find that the residues that only the  \enet recommendation matches correctly with dominant strain (DOM), while the WHO recommendation fails,  are largely localized within the RBD, with $>57\%$ occurring within  the RBD on average (\EXTENDED Fig.~\ref{figseq}a), and 3) when the WHO strain deviates from  the ENT/DOM   matched residue, the ``correct'' residue is often replaced  in the WHO recommendation with one that has very different side chain, hydropathy  and/or chemical properties (\EXTENDED Fig.-\ref{figseq}b-f), suggesting deviations in recognition characteristics~\cite{carugo2001normalized,righetto2014comparative}. Combined with the fact that we find circulating strains are almost always within a few edits of the DOM (\SUPPLEMENTARY Fig.~S-\ref{figdom}), these observations suggest that  hosts vaccinated with the ENT recommendation is can have season-specific antibodies that recognize a larger cross-section of the circulating strains.
+
+\subsection*{Estimating Pandemic Risk of Non-human Strains}
+Our primary claim, however,  is the ability to estimate the pandemic potential of novel animal strains, via a  time-varying \erisk score $\rho_t(x)$ for a strain $x$ not yet found to circulate in human hosts. We show that (see \METHODS):%
+\cgather{\label{eqrho}
+\rho_t(x) \triangleq -\frac{1}{\abs{H^t}} \sum_{y \in H^t} \theta^{[t]}(x,y)
+}%
+scales as the average log-likelihood of $Pr(x \rightarrow y)$ where $y$ is any human strain of a similar subtype to $x$, and  $\theta^{[t]}$ is the \qdist informed by the \enet computed from recent human strains $H_t$ at time $t$ of the same subtype as $x$, observed over the past year. As before, the \enet inference makes it possible to estimate $\rho_t(x)$ explicitly. 
+
+To validate our score against CDC-estimated IRAT emergence scores, we construct \enet models for HA and NA sequences using subtype-specific human strains, typically collected within the  year prior to the assessment date, $e.g.$,  the  assessment date for A/swine/Shandong/1207/2016 is 06/2020, and  we  use human H1N1 strains collected  between 01/07/2019 and 06/30/2020 for the \enet inference. For sub-types with very few recorded human strains (H1N2, H5N1, H5N6, H7N7, H9N2), we consider all subtype-specific human strains collected upto the  assessment date  to infer our \enet. We then compute the \erisk for both HA and NA sequences (using Eq.~\eqref{eqrho}),  finally reporting their geometric mean as our estimated risk for the strain. Considering IRAT emergence scores of $22$ strains published by the CDC, we find strong out-of-sample support  (correlation of $0.704$, pvalue $<0.00026$, Fig.~\ref{figirat}, see \METHODS) for this claim. Importantly, each \erisk score  is  computable in approximately $6$ seconds as opposed to potentially weeks taken by IRAT experimental assays and SME evaluation. Additionally,  using a  subtype-specific \enet modulates the  metric of comparison of genomic sequences, adapting it to the specific subtype of the virus.
+
+
+The time-dependence of the \erisk reflects the impact of the changing background, and recomputing the risk estimates using \enet{s} constructed from the recent circulating strains instead of using those from when the IRAT assessments took place at the  CDC,  worsens the correlation ($0.597$, p-value $0.003$, see \SUPPLEMENTARY Table~S-\ref{irattab_current}).
+
+To map the \enet distances to  more recognizable IRAT scores, we  train a general linear model (GLM)  from the  the HA/NA-based \erisk values (\SUPPLEMENTARY Table~S-\ref{tabregGLMemergence}). Since the CDC-estimated IRAT impact scores are strongly correlated with their IRAT emergence scores (correlation of $0.8015$), we also trained a separate GLM to estimate the impact score from the \erisk values ((\SUPPLEMENTARY Table~S-\ref{tabregGLMimpact})).  Finally,  we estimate the  IRAT scores of all  $6,066$  \infl strains sequenced globally between 2020 through 04/2022, and identify the ones posing maximal risk (Fig.~\ref{figirat}c). $1,773$ strains turn out to have a predicted emergence score $>6.0$. However, many of these strains are highly similar, differing by only a few edits. To identify the sufficiently distinct risky strains, we constructed the standard phylogeny from  HA sequences with score $>6$ (Fig.~\ref{figphylo}), and collapsed all leaves within $15$ edits, showing only the most risky strain within a collapsed group. This leaves $75$ strains (Fig.~\ref{figphylo}), with $68$ having emergence risk $>6.25$, and $6$ with  risk above $6.5$ (\EXTENDED Table~\ref{highrisktab}). Subtypes of the   risky strains are overwhelmingly H1N1, followed by H3N2, with a  small number of H7N9 and H9N2. Five maximally risky strains with emergence score $>6.58$ are identified to be: 
+A/swine/Missouri/A02524711/2020 (H1N1), A/Camel/Inner\_Mongolia/XL/2020 (H7N9), A/swine/Indiana/A02524710/2020 (H3N2), A/swine/North Carolina/ A02479173/2020 (H1N1), and A/swine/Tennessee/ A02524414/2022 (H1N1).  Additionally,  A/mink/China/chick embryo/2020 (H9N2),  with a lower estimated emergence score ($6.26$) is also important, as the most risky H9N2 strain in our analysis. We compare the HA sequences along with two dominant human strains in 2021-2022 season (\EXTENDED Fig.~\ref{figriskyseq}), which shows substantial residue replacements, in and out of the receptor binding domain (RBD).
+
+% compare the sequences properly.. there aer considerrable matches withn the human h3n2 and the risky h3n2
+
+Swines are known to be efficient mixing vessels~\cite{ma2009pig,nelson2018origins,reid2003origin,Baumann}, and hence unsurprisingly host a large fraction of the risky strains ($>80\%$ over 6.0, to over $50\%$ over 6.5). Also, as  expected, most of these swine strains are of  H1N1 subtype, with the other subtypes  having emerged into humans more recently. Our finding that a H7N9 poses substantial risk is likewise not surprising:
+HH transmission has been suspected in Asian-lineage H7N9 strains, and are rated by IRAT as having the greatest potential to cause a pandemic~\cite{qi2013probable}. The finding of  the most risky H9N2 strain in a mink is also unsurprising, in the light of these hosts  been recently suggested as efficient mixing vessels to breed human-compatible strains~\cite{sun2021mink}. Thus,  qualitatively our results  are well aligned with the current expectations; nevertheless the ability to quantitatively rank  specific strains which pose maximal risk is a crucial new capability enabling proactive pandemic mitigation efforts.
+
+\subsection*{Conclusion}
+While numerous tools exist for ad hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, higher similarity between strains in  these frameworks is not sufficient to imply a high likelihood of a jump. To the best of our knowledge, the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or amino acid substitution, or a genealogical tree a priori. While the effect of the environment and selection cannot be inferred from a single sequence, an entire database of observed strains, processed through the right lens, can parse out useful predictive models of these complex interactions. Our results are  aligned with recent studies demonstrating effective  predictability of  future mutations  for different organisms~\cite{mollentze2021identifying,maher2021predicting}.
+
+The \qdist calculation is currently limited to analogous sequences (such as point variations of the same protein from different viral subtypes), and the \enet inference requires a  sufficient diversity of observed strains. A multi-variate regression analysis indicates  that the most important factor for our approach to succeed is  the diversity of the sequence dataset (\METHODS and \SUPPLEMENTARY  Table~S-\ref{tabreg}), which would exclude applicability to completely novel pathogens with no related human variants, and ones that evolve very slowly. Nevertheless, the tools reported here can improve effectiveness of the annual flu shot, and perhaps allow for the development of preemptive vaccines to  target risky animal strains  before the first human infection in the next pandemic.
+Apart from outlining new precision public health measures to avert pandemics, such strategies might also help to non-controversially counter the impact of vaccine hesitancy which has interfered with optimal pandemic response in recent times.
+
+\section*{\METHODS}
+\input{method}
+
+
+\section*{Data Sharing} 
+
+Working open-source software is publicly available at \href{https://pypi.org/project/quasinet/}{https://pypi.org/project/emergenet/}.
+Accession numbers of all sequences used, and acknowledgment documentation for GISAID sequences is available as supplementary information.
+
+
+\subsection*{Data Source}
+
+In this study, we use sequences for the Haemagglutinnin (HA)  and Neuraminidase (NA) for Influenza A (for subtypes H1N1 and H3N2), which are key enablers of cellular entry and exit mechanisms respectively~\cite{mcauley2019influenza}. We use two sequences databases: 1) National Center for Biotechnology Information (NCBI) virus~\cite{hatcher2017virus} and 2) GISAID~\cite{bogner2006global} databases. The former is a community portal for viral sequence data, aiming to increase the usability of data archived in various NCBI repositories. GISAID has a somewhat more restricted user agreement, and use of GISAID data in an analysis requires acknowledgment of the contributions of both the submitting and the originating laboratories (Corresponding acknowledgment tables are included as supplementary information). We collected a total of $159,865$ sequences in our analysis, although not all were used due to some being duplicates (see \SUPPLEMENTARY Table~S-\ref{tabseq}).
+
+
+
+% #############################################
+% #############################################
+
+% Bibliography
+\bibliographystyle{naturemag}
+\bibliography{allbib}
+
+
+\clearpage                                                                      
+\setcounter{figure}{0}
+\renewcommand{\figurename}{Extended Data Figure}                               
+\setcounter{table}{0}                                     
+\renewcommand{\tablename}{Extended Data Table}                                 
+\input{extfiguresandtables.tex}
+
+\clearpage
+
+
+
+\section*{Supplementary Figures \& Tables}
+
+\input{SIfig.tex}
+
+\end{document}
+% LocalWords:  Neuraminidase subtype

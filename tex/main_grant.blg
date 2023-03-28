@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main_grant.aux
+The style file: naturemag.bst
+Database file #1: allbib.bib
+Warning--empty journal in Baumann
+Warning--empty year in Baumann
+You've used 53 entries,
+            2348 wiz_defined-function locations,
+            1319 strings with 21132 characters,
+and the built_in function-call counts, 21284 in all, are:
+= -- 1517
+> -- 544
+< -- 0
++ -- 272
+- -- 136
+* -- 2671
+:= -- 2344
+add.period$ -- 156
+call.type$ -- 53
+change.case$ -- 53
+chr.to.int$ -- 0
+cite$ -- 55
+duplicate$ -- 1879
+empty$ -- 1970
+format.name$ -- 183
+if$ -- 4230
+int.to.chr$ -- 0
+int.to.str$ -- 53
+missing$ -- 445
+newline$ -- 270
+num.names$ -- 53
+pop$ -- 327
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 320
+stack$ -- 0
+substring$ -- 1093
+swap$ -- 1892
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 134
+width$ -- 55
+write$ -- 576
+(There were 2 warnings)
