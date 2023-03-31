@@ -1,0 +1,17 @@
+Model: IRAT_Impact_Score ~ Geometric_Mean           
+==============================================================================
+Dep. Variable:      IRAT_Impact_Score   No. Observations:                   20
+Model:                            GLM   Df Residuals:                       18
+Model Family:                Gaussian   Df Model:                            1
+Link Function:               identity   Scale:                         0.99916
+Method:                          IRLS   Log-Likelihood:                -27.317
+Date:                Tue, 14 Mar 2023   Deviance:                       17.985
+Time:                        16:37:50   Pearson chi2:                     18.0
+No. Iterations:                     3   Pseudo R-squ. (CS):             0.4553
+Covariance Type:            nonrobust                                         
+==================================================================================
+                     coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------
+Intercept          6.3748      0.388     16.438      0.000       5.615       7.135
+Geometric_Mean    -7.6703      2.210     -3.470      0.001     -12.002      -3.338
+==================================================================================

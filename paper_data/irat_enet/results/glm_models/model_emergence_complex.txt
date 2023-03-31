@@ -1,0 +1,18 @@
+Model: IRAT_Emergence_Score ~ Geometric_Mean + HA_Avg_Qdist:NA_Avg_Qdist              
+================================================================================
+Dep. Variable:     IRAT_Emergence_Score   No. Observations:                   20
+Model:                              GLM   Df Residuals:                       17
+Model Family:                  Gaussian   Df Model:                            2
+Link Function:                 identity   Scale:                         0.70699
+Method:                            IRLS   Log-Likelihood:                -23.286
+Date:                  Tue, 14 Mar 2023   Deviance:                       12.019
+Time:                          16:37:50   Pearson chi2:                     12.0
+No. Iterations:                       3   Pseudo R-squ. (CS):             0.7956
+Covariance Type:              nonrobust                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                     6.8626      0.452     15.166      0.000       5.976       7.749
+Geometric_Mean              -22.3009      8.365     -2.666      0.008     -38.695      -5.907
+HA_Avg_Qdist:NA_Avg_Qdist    40.9355     27.261      1.502      0.133     -12.495      94.366
+=============================================================================================

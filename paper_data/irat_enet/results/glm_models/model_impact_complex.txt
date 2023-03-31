@@ -1,0 +1,18 @@
+Model: IRAT_Impact_Score ~ Geometric_Mean + HA_Avg_Qdist:NA_Avg_Qdist               
+==============================================================================
+Dep. Variable:      IRAT_Impact_Score   No. Observations:                   20
+Model:                            GLM   Df Residuals:                       17
+Model Family:                Gaussian   Df Model:                            2
+Link Function:               identity   Scale:                         0.96709
+Method:                          IRLS   Log-Likelihood:                -26.419
+Date:                Tue, 14 Mar 2023   Deviance:                       16.441
+Time:                        16:37:50   Pearson chi2:                     16.4
+No. Iterations:                     3   Pseudo R-squ. (CS):             0.5105
+Covariance Type:            nonrobust                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                     6.8383      0.529     12.921      0.000       5.801       7.876
+Geometric_Mean              -19.7235      9.783     -2.016      0.044     -38.898      -0.549
+HA_Avg_Qdist:NA_Avg_Qdist    40.2905     31.884      1.264      0.206     -22.201     102.782
+=============================================================================================
