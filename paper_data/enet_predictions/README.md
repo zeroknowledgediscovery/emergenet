@@ -4,7 +4,7 @@
 
 ```
 enet_predictions
-├── enet_models: all HA enet models trained
+├── enet_models: all HA Enet models trained
 │   ├── north_h1n1_ha
 │   ├── north_h3n2_ha
 │   ├── south_h1n1_ha
