@@ -1,4 +1,4 @@
-# All Data
+# Database of Used NCBI and GISAID Sequences
 
 ### Directory Structure
 
