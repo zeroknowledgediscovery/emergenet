@@ -4,8 +4,8 @@
 
 ```
 Emergenet
-├── emergenet: files for Emergenet package
-├── examples: examples using the Emergenet package
+├── emergenet : files for Emergenet package
+├── examples : examples using the Emergenet package
 ├── paper_data : results for current version of the paper
 ├── paper_data_old : results for older versions of the paper, not used in current version
 └── tex : contains LaTeX and PDF files for paper
