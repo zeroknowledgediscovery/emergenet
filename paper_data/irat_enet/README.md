@@ -1,85 +1,29 @@
-# Emergenet
+# CDC IRAT Risk vs. Emergenet
 
 ### Directory Structure
 
 ```
-Emergenet
-├── emergenet: files for Emergenet package
-├── examples: examples using the Emergenet package
-├── paper_data : results for current version of the paper
-├── paper_data_old : results for older versions of the paper, not used in current version
-└── tex : contains LaTeX and PDF files for paper
+irat_qnet
+├── enet_models : all Enet models trained
+│   ├── current_enets : trained on current data for each subtype
+│   └── irat_enets : trained on data available at time of IRAT analysis
+├── figures
+├── raw_data
+│   ├── gisaid : GISAID amino acid fasta data to compute qnet, named each IRAT strain
+│   ├── gisaid_animal : GISAID current animal sequence data
+│   ├── gisaid_current : GISAID current human sequence data
+│   └── irat_sequences : sequence of IRAT strain
+├── results
+│   ├── irat_average_qdistances.csv : compares risk assesment from IRAT and Qnet q-distance
+│   ├── irat_average_qdistances.tex : SI Tab. 16
+│   ├── irat_average_qdistances_all_sequences.csv : comparison for H1- and H3- using all data of same subtype
+│   ├── irat_average_qdistances_all_sequences.tex : LaTeX file for irat_average_qdistances_all_sequences.csv
+│   ├── irat_data.csv : replicated CDC IRAT table
+│   └── irat_data_all_sequences.csv : CDC IRAT table with only H1- and H3- strains
+├── irat_data_collection.ipynb : create irat_data.csv
+├── irat_data_collection_all_sequences.ipynb : create irat_data_all_sequences.csv
+├── irat_figures.ipynb : create figures with irat_data.csv
+├── irat_figures_all_sequences.ipynb : create figures with irat_data_all_sequences.csv
+├── irat_qnet_comparison.ipynb : compares risk assesment from IRAT and Qnet q-distance
+└── irat_qnet_comparison_all_sequences.ipynb : comparison for H1- and H3- using all data of same subtype
 ```
-
-## Description
-- Computing predicting dominant strains
-- Superfast risk assessment of emerging pathogens
-
-
-## Installation
-
-To install with pip:
-
-```
-pip install emergenet
-
-# to update
-pip install emergenet --upgrade
-```
-
-### Dependencies
-
-* [quasinet](https://github.com/zeroknowledgediscovery/quasinet/)
-* numpy 
-* pandas 
-* Levenshtein 
-* biopython
-
-## Usage
-
-### Predicting Dominant Sequences
-
-```
-from emergenet.domseq import DomSeq, save_model, load_model
-
-# initialize DomSeq
-domseq = DomSeq(seq_trunc_length=566, random_state=42)
-
-# load data
-df = domseq.load_data(filepath='sequences.fasta')
-
-# compute dominant sequence for current time period
-dom_id, dom_seq = domseq.compute_domseq(seq_df=df, sample_size=1000)
-
-# train enet
-enet = domseq.train(seq_df=df, sample_size=1000)
-
-# compute prediction sequence for next time period
-pred_id, pred_seq = domseq.predict_domseq(seq_df=df, enet=enet, sample_size=1000)
-```
-
-### Evaluating Sequence Risk
-
-```
-from emergenet.emergenet import Enet, save_model, load_model
-
-# initialize enet
-enet = Enet(seq='target_sequence.fasta', seq_trunc_length=550, random_state=42)
-
-# load data
-df = enet.load_data(filepath='sequences.fasta')
-
-# train enet
-enet = enet.train(seq_df=df, sample_size=1000)
-
-# compute emergence risk score
-erisk, var = enet.emergence_risk(seq_df=df, enet=enet, sample_size=1000)
-```
- 
-### Examples
-
-Examples are located [here](https://github.com/zeroknowledgediscovery/emergenet/tree/main/examples).
-
-## Documentation
-
-For more documentation, see [here](https://zeroknowledgediscovery.github.io/emergenet/).
