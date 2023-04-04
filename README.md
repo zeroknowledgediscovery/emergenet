@@ -6,8 +6,8 @@
 Emergenet
 ├── emergenet: files for Emergenet package
 ├── examples: examples using the Emergenet package
-├── irat_qnet : IRAT Emergence Risk vs. Qnet q-distance comparison
-├── qnet_predictions : compute dominant strains and Qnet predictions
+├── paper_data : results for current version of the paper
+├── paper_data_old : results for older versions of the paper, not used in current version
 └── tex : contains LaTeX and PDF files for paper
 ```
 
