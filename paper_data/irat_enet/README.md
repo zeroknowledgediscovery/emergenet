@@ -14,16 +14,22 @@ irat_qnet
 │   ├── gisaid_current : GISAID current human sequence data
 │   └── irat_sequences : sequence of IRAT strain
 ├── results
-│   ├── irat_average_qdistances.csv : compares risk assesment from IRAT and Qnet q-distance
-│   ├── irat_average_qdistances.tex : SI Tab. 16
-│   ├── irat_average_qdistances_all_sequences.csv : comparison for H1- and H3- using all data of same subtype
-│   ├── irat_average_qdistances_all_sequences.tex : LaTeX file for irat_average_qdistances_all_sequences.csv
+│   ├── animal_predictions: uses GLM models to predict risk of current circulating animal Influenza strains
+│   ├── glm_models: GLM models fit on Emergenet E-distance
+│   ├── predict_linear_bounds: linear bounds for Fig. 3 in paper
+│   ├── irat_average_qdistances.csv : Emergenet E-distance scores added to IRAT table, using data available at time of IRAT analysis
+│   ├── irat_average_qdistances_current.csv : Emergenet E-distance scores added to IRAT table, using data available currently
 │   ├── irat_data.csv : replicated CDC IRAT table
-│   └── irat_data_all_sequences.csv : CDC IRAT table with only H1- and H3- strains
+│   ├── irat_predictions.csv : predicted IRAT scores from irat_average_qdistances.csv using GLM models
+│   └── irat_predictions_current.csv : predicted IRAT scores from irat_average_qdistances_current.csv using GLM models
+├── animal_predictions.ipynb : evaluate results of running animal_predictions.py
+├── animal_predictions.py : script to predict risk scores of current circulating animal Influenza strains
+├── emergenet.py : local version of Emergenet module of the Emergnet package, which predicts risk of a strain
 ├── irat_data_collection.ipynb : create irat_data.csv
-├── irat_data_collection_all_sequences.ipynb : create irat_data_all_sequences.csv
-├── irat_figures.ipynb : create figures with irat_data.csv
-├── irat_figures_all_sequences.ipynb : create figures with irat_data_all_sequences.csv
-├── irat_qnet_comparison.ipynb : compares risk assesment from IRAT and Qnet q-distance
-└── irat_qnet_comparison_all_sequences.ipynb : comparison for H1- and H3- using all data of same subtype
+├── irat_enet_comparison.ipynb : compares risk assesment from IRAT and Emergenet E-distance
+├── irat_enet_current.ipynb : same as irat_enet_comparison.ipynb but using current data
+├── irat_figures.ipynb : create figures for paper
+├── linear_models.ipynb : create GLM models and makes irat_predictions.csv and irat_predictions_current.csv
+├── predict_linear_bounds.ipynb : linear bounds for Fig. 3 in paper
+└── run_animal_predictions.sh : shell script to run animal_predictions.py
 ```
