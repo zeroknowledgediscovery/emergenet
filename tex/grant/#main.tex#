@@ -1,0 +1,311 @@
+\documentclass[onecolumn, compsoc,12pt]{IEEEtran}
+\usepackage{enumitem}
+\input{preamble.tex}
+\input{customdef_grant} 
+\usepackage{pgfgantt}
+\usepackage{textcomp}
+\usepackage{colortbl}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage{courier}
+\usepackage{setspace} 
+\usepackage{wrapfig} 
+\usepackage{calligra}
+%\usepackage{ulem}
+\usepackage{multirow}
+
+
+
+\usetikzlibrary{chains,backgrounds}
+\usetikzlibrary{intersections}
+\usepackage{xstring}
+\usepackage{wasysym}
+\usepackage[misc]{ifsym}
+\tikzexternaldisable 
+\parskip=4pt
+\parindent=0pt
+\lhead{}
+\pagestyle{fancy}
+\lfoot{\thepage}
+%\pagestyle{empty}
+\def\COLA{black}
+% ###################################
+\cfoot{\bf\sffamily \scriptsize \color{Maroon!50} I. Chattopadhyay, Department of Medicine, University of Chicago}
+\cfoot{}
+\rhead{}
+\newcommand{\partxt}{\bf\sffamily\itshape}
+% ############################################################
+\newif\iftikzX
+\tikzXtrue
+\tikzXfalse
+
+\newcommand\guline{\bgroup\markoverwith
+  {\textcolor{black!30}{\rule[-0.45ex]{2pt}{0.4pt}}}\ULon}
+\newcommand\hilit[1]{\textcolor{Red1}{#1}}
+\newcommand\hilitx[1]{\guline{#1}}
+% ############################################################
+\addtolength{\voffset}{.1in}
+\addtolength{\textwidth}{-.085in}
+\addtolength{\hoffset}{.0425in}
+\def\PROG{Mallinckrodt\xspace}
+\def\ZERO{ACoR\xspace}
+\def\COLWA{\XCOLA!40}
+\def\COLWB{\XCOLD!20}
+\def\COLWC{\XCOLA!40}
+\def\COLWD{\XCOLD!20}
+\def\COLWE{\XCOLA!40}
+\def\COLWF{\XCOLD!20}
+% ############################################################
+\def\treatment{positive\xspace}
+\input{customdefs}
+
+\begin{document} 
+
+\limitpages{5}
+%\HDR
+
+\section*{Project Narrative}
+% – Rationale: Clearly articulate the scientific rationale for the proposed research
+% project. Cite relevant literature. The presentation of preliminary and/or published
+% data is allowed but not required.
+% – Hypothesis: State concisely the new insights, paradigms, technologies, or
+% applications that address one of the FY23 PRMRP Topic Areas and one of the
+% associated FY23 PRMRP Strategic Goals.
+% – Specific Aims: Concisely explain the project’s specific aims and the objective(s) to
+% be reached. These aims should agree with the primary aims and associated tasks
+% described in the Statement of Work (SOW). If the proposed work is part of a larger
+% study, present only aims that this DOD award would fund.
+% – Research Strategy and Feasibility: Describe the experimental design, methods, and
+% analyses, including appropriate controls, in sufficient detail for scientific evaluation.
+% Address potential problem areas and present alternative methods or approaches. If
+% cell lines or animals are to be used, justify why the proposed cell line(s) or animal
+% model(s) were chosen. Describe how the proposed project will be completed within
+% the proposed performance period.
+
+\textbf{Rationale:}
+Animal influenza  viruses emerging into humans % are suspected to
+have triggered devastating  pandemics in the past. Yet, our ability to evaluate the pandemic potential of individual strains that do not yet circulate in humans, remains limited. Here we propose to develop an experimentally  validated platform called the \enet (Enet), to predict in near-real-time where and when  new variants of concern would emerge,  using only observed  sequences  of key viral proteins, procured in ongoing global surveillance of \infl viruses. We bring together new machine learning algorithms customized to the problem at hand, key insights from information theory, evolutionary theory, epidemiology and precise statistical  uncertainty quantification to develop a rigorous framework, to  track evolutionary trajectories of pathogens through a complex, poorly characterized, and dynamically changing fitness landscape. Our deliverable is best described as the foundations for creating a platform akin to bio-NORAD,  \textit{identifying when and where an imminent zoonotic emergence event is likely, and if such novel strains are likely to achieve human-to-human transmission capability.}
+
+  
+Influenza viruses constantly evolve~\cite{dos2016influenza}, sufficiently altering surface protein structures to evade the prevailing host immunity, and cause the recurring seasonal  epidemic. These periodic  infection peaks claim a quarter to half a million lives~\cite{huddleston2020integrating} globally. Additionally, \infl, partly on account of its segmented genome and its wide prevalence in animal hosts, can easily incorporate genes from multiple strains and (re)emerge as novel human pathogens~\cite{reid2003origin}, thus harboring  a high pandemic potential. Strains spilling over into humans from animal reservoirs is thought to have triggered  pandemics  at least four times (1918 Spanish flu/H1N1, 1957 Asian flu/H2N2, 1968 Hong Kong flu/H3N2, 2009 swine flu/H1N1) in the past 100 years~\cite{shao2017evolution}. One  approach to mitigating such risk is to identify  animal strains  that do not yet circulate in humans, but is likely to spill-over and quickly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our  ability to objectively, reliably and scalably  risk-rank individual strains remains limited~\cite{wille2021accurately}. The Center for Disease Control's (CDC) current solution to this problem is the Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}, which relies on time-consuming proteomics and transmission assays and potentially subjective evaluations by subject matter experts, taking  weeks to months to compile for each strain of concern. With tens of   thousands of strains being sequenced annually, this results in  a scalability bottleneck. 
+
+Here we plan to develop a platform powered by novel pattern discovery and recognition algorithms to automatically parse out emergent evolutionary constraints operating on \infl viruses in the wild, to provide a less-heuristic theory-backed scalable solution to emergence prediction. % Our approach is centred around numerically estimating the probability $Pr(x \rightarrow y)$ of a strain $x$ spontaneously giving rise to  $y$.
+We plan to show   that this capability enables preempting  strains which are expected to be in future human circulation, and  approximate IRAT scores of non-human strains without  experimental assays or SME scoring, in second as opposed to weeks or months. Our approach automatically takes into account the time-sensitive variations in selection pressures as the background strain circulation changes over time, and will potentially be able to rank-order strains adapatively. Additionally, we plan to validate our ability to predict future variations of viral proteins by showing that predicted variants of HA and NA fold correctly, and are functional, binding to the relevant human receptors in in-vivo laboratory experiments. Thus, bringing together rigorous data-driven modeling, and validation via tools from reverse genetics we plan to deliver an actionable and deployable platform that optimally exploits the current biosurvellance capacity.
+
+The BioNORAD platform will enable proactive and actionable global surveillance for emerging pandemic threats from \infl. This importance of the ability to preempt pandemic risk to the national interest of the United States cannot be overstated, especially in the context of protecting  DoD assest and personnel deployed in potentially high risk centers of emergence. Additionally, the BioNORAD will enable preemptive action including the inoculation of  animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to  trigger.
+
+\textbf{Hypotheses:} %State concisely the new insights, paradigms, technologies, or
+% applications that address one of the FY23 PRMRP Topic Areas and one of the
+% associated FY23 PRMRP Strategic Goals.
+
+{\bf \itshape FY23 PRMRP Portfolio Category: Infectious Diseases $\vert$ FY23 PRMRP Topic: proteomics $\vert$  FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics}
+
+1) Learning patterns of cross-dependency between mutations and genomic change reveals enough of the underlying rules of organization to meaningfully and actionably constrain the evolutionary trajectories of emerging pathogens, and in our context, that of \infl viruses in the wild.
+
+2) Such patterns can be learned from biosurveillance data that is being collected now globally to ultimately develop a next-generation pro-active surveillance platform that acts as an early warning system for pandemic threats, and serves a similar function to the strategic goal of NORAD in the context of defending our airspace from adversarial intrusion.
+
+\textbf{Specific Aims:} % – Specific Aims: Concisely explain the project’s specific aims and the objective(s) to
+% be reached. These aims should agree with the primary aims and associated tasks
+% described in the Statement of Work (SOW). If the proposed work is part of a larger
+% study, present only aims that this DOD award would fund.
+
+
+
+\textbf{Research Strategy and Feasibility:} % – Research Strategy and Feasibility: Describe the experimental design, methods, and
+% analyses, including appropriate controls, in sufficient detail for scientific evaluation.
+% Address potential problem areas and present alternative methods or approaches. If
+% cell lines or animals are to be used, justify why the proposed cell line(s) or animal
+% model(s) were chosen. Describe how the proposed project will be completed within
+% the proposed performance period.
+
+\textbf{Innovation:} %Innovation: Describe how the proposed research is innovative, including how it will
+%provide new insights, paradigms, technologies, or applications to the research field
+%and/or patient care. Investigating the next logical step of an existing line of research
+%or providing an incremental advance on published data is not considered innovative.
+While numerous tools exist for ad hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, higher similarity between strains in  these frameworks is not sufficient to imply a high likelihood of a jump. To the best of our knowledge, the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or amino acid substitution, or a genealogical tree a priori. While the effect of the environment and selection cannot be inferred from a single sequence, an entire database of observed strains, processed through the right lens, can parse out useful predictive models of these complex interactions. Our results are  aligned with recent studies demonstrating effective  predictability of  future mutations  for different organisms~\cite{mollentze2021identifying,maher2021predicting}.
+
+\input{pagecontrol}
+
+\clearpage
+\limitpages{4}
+%\HDR 
+
+
+ 
+
+\input{pagecontrol}
+
+\clearpage
+
+\limitpages{35}
+
+
+% \ganttset{group/.append style={orange},
+% milestone/.append style={red},
+% progress label node anchor/.append style={text=red}}
+% \begin{figure}[!hb]
+%   \centering
+%   \begin{ganttchart}[%Specs
+%     expand chart=.85\textwidth,
+%      y unit title=0.5cm,
+%      y unit chart=0.7cm,
+%      vgrid,hgrid,
+%      title height=1,
+% %     title/.style={fill=none},
+%      title label font=\bfseries\footnotesize,
+%      bar/.style={fill=blue},
+%      bar height=0.7,
+% %   progress label text={},
+%      group right shift=0,
+%      group top shift=0.7,
+%      group height=.3,
+%      group peaks width={0.2},
+%      inline]{1}{24}
+%     %labels
+%     \gantttitle{A two-years project}{24}\\  % title 1
+%     \gantttitle[]{Year 1}{12}                 % title 2
+%     \gantttitle[]{Year 2}{12} \\              
+%     \gantttitle{Q1}{3}                      % title 3
+%     \gantttitle{Q2}{3}
+%     \gantttitle{Q3}{3}
+%     \gantttitle{Q4}{3}
+%     \gantttitle{Q1}{3}
+%     \gantttitle{Q2}{3}
+%     \gantttitle{Q3}{3} 
+%     \gantttitle{Q4}{3}\\
+%     % Setting group if any
+%     \ganttgroup[inline=false]{UCM Data Acquisition}{1}{3}\\ 
+%     \ganttmilestone[inline=false]{IRB Approval}{2} \\
+%     \ganttgroup[inline=false]{SSC Biosample Acquisition}{1}{4}\\ 
+%     \ganttbar[progress=50,inline=false]{Biosample sequencing}{4}{18}\\
+%  \ganttbar[progress=75,inline=false]{UCM Data Analysis}{3}{12}\\
+%     \ganttmilestone[inline=false]{UCM analysis complete}{12} \\
+%     \ganttmilestone[inline=false]{Year 1 Report}{12} \\
+%     \ganttbar[progress=100,inline=false]{Biosample sequencing}{4}{18}\\
+%       \ganttmilestone[inline=false]{Biosample sequencing complete}{18} \\
+%    \ganttbar[progress=75,inline=false]{FInal analysis}{12}{24}\\
+%      \ganttbar[progress=100,inline=false]{FInal analysis}{12}{24}\\
+%     \ganttmilestone[inline=false]{Final Report}{24} \\
+%   \end{ganttchart}
+%   \captionN{Timeline and milestones}\label{figtimeline}
+% \end{figure}
+
+
+
+\clearpage
+
+\section*{List of Abbreviations, Acronyms, and Symbols}
+
+\clearpage
+
+\limitpages{8}
+
+\section*{Data Management Plan}
+% 2 page limit
+
+
+
+
+
+\input{pagecontrol}
+\clearpage
+\limitpages{23}
+
+\section*{Technical Abstract}
+% 1 page limit
+
+\clearpage
+
+\section*{Lay Abstract}
+% 1 page limit
+
+
+
+\clearpage
+\limitpages{13}
+
+\section*{Statement of Work}
+% 3 page limit
+
+\input{pagecontrol}
+
+\clearpage
+\limitpages{14}
+\section*{Impact Statement}
+% 1 page limit
+% Explain why the proposed research project is important and relevant to the FY23 PRMRP
+% Topic Area addressed. Describe the FY23 PRMRP Strategic Goal that is addressed in the
+% proposed research. Outline the potential impact, either short-term or long-term, of the
+% proposed research on the field of study and/or patient care. Describe how the research 
+% DOD FY23 Peer Reviewed Medical Discovery Award 26
+% has the potential to generate preliminary data that can be used as a foundation for future
+% research projects. 
+\clearpage
+
+\limitpages{15}
+\section*{Relevance to Military Health Statement}
+% 1 page limit
+
+\clearpage
+\limitpages{100}
+\section*{Facilities, Existing Equipment, and Other Resources}
+
+\input{Collab_eq.tex}
+\input{compute.tex}
+
+
+\clearpage
+
+\section*{Publications and/or Patents}
+
+\clearpage
+
+\section*{Letters of Organizational Support}
+
+\clearpage
+
+\section*{Letters of Collaboration}
+\clearpage
+
+\section*{Intellectual Property}
+
+% Intellectual and Material Property Plan (if applicable): Provide a plan for
+% resolving intellectual and material property issues among participating
+% organizations.
+%  Commercialization Strategy (if applicable): Describe the commercialization
+% plan. The plan should include intellectual property, market size, financial
+% analysis, strengths and weaknesses, barriers to the market, competitors, and
+% management team. Discuss the significance of this development effort, when it
+% can be anticipated, and the potential commercial use for the technology being
+% developed.
+
+
+
+\clearpage
+
+\section*{Data and Research Resources Sharing Plan}
+
+\clearpage
+
+%\clearpage
+%\section*{Public Health Service (PHS) Inclusion Enrollment Report}
+
+
+
+
+%\clearpage
+%\section*{Representations}
+
+
+
+
+\clearpage
+
+%\bibliographystyle{plainnat}
+%\bibliography{asdgenenew}
+\bibliographystyle{naturemag}
+\bibliography{allbib}
+
+
+\end{document}
+

@@ -1,0 +1,118 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{dos2016influenza}
+\bibinfo{author}{Dos~Santos, G.}, \bibinfo{author}{Neumeier, E.} \&
+  \bibinfo{author}{Bekkat-Berkani, R.}
+\newblock \bibinfo{title}{Influenza: Can we cope better with the
+  unpredictable?}
+\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{699--708}
+  (\bibinfo{year}{2016}).
+
+\bibitem{huddleston2020integrating}
+\bibinfo{author}{Huddleston, J.} \emph{et~al.}
+\newblock \bibinfo{title}{Integrating genotypes and phenotypes improves
+  long-term forecasts of seasonal influenza a/h3n2 evolution}.
+\newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{e60067} (\bibinfo{year}{2020}).
+
+\bibitem{reid2003origin}
+\bibinfo{author}{Reid, A.~H.} \& \bibinfo{author}{Taubenberger, J.~K.}
+\newblock \bibinfo{title}{The origin of the 1918 pandemic influenza virus: a
+  continuing enigma}.
+\newblock \emph{\bibinfo{journal}{Journal of general virology}}
+  \textbf{\bibinfo{volume}{84}}, \bibinfo{pages}{2285--2292}
+  (\bibinfo{year}{2003}).
+
+\bibitem{shao2017evolution}
+\bibinfo{author}{Shao, W.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Goraya,
+  M.~U.}, \bibinfo{author}{Wang, S.} \& \bibinfo{author}{Chen, J.-L.}
+\newblock \bibinfo{title}{Evolution of influenza a virus by mutation and
+  re-assortment}.
+\newblock \emph{\bibinfo{journal}{International journal of molecular sciences}}
+  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{1650} (\bibinfo{year}{2017}).
+
+\bibitem{wille2021accurately}
+\bibinfo{author}{Wille, M.}, \bibinfo{author}{Geoghegan, J.~L.} \&
+  \bibinfo{author}{Holmes, E.~C.}
+\newblock \bibinfo{title}{How accurately can we assess zoonotic risk?}
+\newblock \emph{\bibinfo{journal}{PLoS biology}} \textbf{\bibinfo{volume}{19}},
+  \bibinfo{pages}{e3001135} (\bibinfo{year}{2021}).
+
+\bibitem{Influenz24:online}
+\bibinfo{author}{CDC}.
+\newblock \bibinfo{title}{Influenza risk assessment tool (irat) | pandemic
+  influenza (flu) | cdc}.
+\newblock
+  \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
+\newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
+
+\bibitem{posada1998modeltest}
+\bibinfo{author}{Posada, D.} \& \bibinfo{author}{Crandall, K.~A.}
+\newblock \bibinfo{title}{Modeltest: testing the model of dna substitution.}
+\newblock \emph{\bibinfo{journal}{Bioinformatics (Oxford, England)}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{817--818}
+  (\bibinfo{year}{1998}).
+
+\bibitem{goldberger2005genomic}
+\bibinfo{author}{Goldberger, A.~L.} \& \bibinfo{author}{Peng, C.-K.}
+\newblock \bibinfo{title}{Genomic classification using an information-based
+  similarity index: application to the sars coronavirus}.
+\newblock \emph{\bibinfo{journal}{Journal of Computational Biology}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{1103--1116}
+  (\bibinfo{year}{2005}).
+
+\bibitem{huelsenbeck1997phylogeny}
+\bibinfo{author}{Huelsenbeck, J.~P.} \& \bibinfo{author}{Crandall, K.~A.}
+\newblock \bibinfo{title}{Phylogeny estimation and hypothesis testing using
+  maximum likelihood}.
+\newblock \emph{\bibinfo{journal}{Annual Review of Ecology and systematics}}
+  \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{437--466}
+  (\bibinfo{year}{1997}).
+
+\bibitem{neher2014predicting}
+\bibinfo{author}{Neher, R.~A.}, \bibinfo{author}{Russell, C.~A.} \&
+  \bibinfo{author}{Shraiman, B.~I.}
+\newblock \bibinfo{title}{Predicting evolution from the shape of genealogical
+  trees}.
+\newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{3}},
+  \bibinfo{pages}{e03568} (\bibinfo{year}{2014}).
+
+\bibitem{VanderMeer2010}
+\bibinfo{author}{van~der Meer, F. J. U.~M.}, \bibinfo{author}{Orsel, K.} \&
+  \bibinfo{author}{Barkema, H.~W.}
+\newblock \bibinfo{title}{{The new influenza A H1N1 virus: balancing on the
+  interface of humans and animals.}}
+\newblock \emph{\bibinfo{journal}{The Canadian veterinary journal = La revue
+  veterinaire canadienne}} \textbf{\bibinfo{volume}{51}},
+  \bibinfo{pages}{56--62} (\bibinfo{year}{2010}).
+
+\bibitem{Smith2009}
+\bibinfo{author}{Smith, G. J.~D.} \emph{et~al.}
+\newblock \bibinfo{title}{{Origins and evolutionary genomics of the 2009
+  swine-origin H1N1 influenza A epidemic}}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{459}},
+  \bibinfo{pages}{1122--1125} (\bibinfo{year}{2009}).
+
+\bibitem{mollentze2021identifying}
+\bibinfo{author}{Mollentze, N.}, \bibinfo{author}{Babayan, S.~A.} \&
+  \bibinfo{author}{Streicker, D.~G.}
+\newblock \bibinfo{title}{Identifying and prioritizing potential
+  human-infecting viruses from their genome sequences}.
+\newblock \emph{\bibinfo{journal}{PLoS biology}} \textbf{\bibinfo{volume}{19}},
+  \bibinfo{pages}{e3001390} (\bibinfo{year}{2021}).
+
+\bibitem{maher2021predicting}
+\bibinfo{author}{Maher, M.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{Predicting the mutational drivers of future
+  sars-cov-2 variants of concern}.
+\newblock \emph{\bibinfo{journal}{Science Translational Medicine}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{eabk3445}
+  (\bibinfo{year}{2022}).
+
+\end{thebibliography}
