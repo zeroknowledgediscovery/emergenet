@@ -1,0 +1,69 @@
+\def\V{\mathds{V}}
+\def\Appendix{Appendix}
+%###################################
+
+\newif\iftikzX
+\tikzXtrue
+\tikzXfalse
+%--------------
+\def\jobnameX{zero}
+%--------------
+\newif\ifFIGS
+\FIGSfalse 
+\FIGStrue
+%--------------
+\newif\ifdraftQ
+\draftQtrue
+%\draftQfalse
+%--------------
+%###################################
+\def\TITLE{\enet: Fast Scalable Pandemic Risk Assessment of \infl Strains Circulating In Non-human Hosts}
+%\def\TITLE{\LARGE A Biologically Meaningful Sequence Metric\\For Analyzing Evolutionary Changes\\In Novel Pathogens}
+%\def\TITLE{Learning  Mutational Patterns At Scale For\\Analysis Of Sequence Divergence\\In Novel Pathogens}
+%\def\TITLE{Learning Mutational Patterns at Scale to Analyze Sequence Divergence in Novel Pathogens}
+
+\def\authore{Kevin Wu}
+\def\authora{ Jin Li}
+\def\authorc{Aaron Esser-Kahn}
+\def\authord{Ishanu Chattopadhyay}
+
+\def\addressa{Department of Medicine, University of Chicago, IL, USA}
+\def\addressb{Committee on Genetics, Genomics \& Systems Biology, University of Chicago, IL, USA}
+\def\addressc{Committee on Quantitative Methods in Social, Behavioral, and Health Sciences, University of Chicago, IL, USA}
+\def\addressd{Pritzker School of Molecular Engineering, University of Chicago, Chicago, IL, USA}
+\def\addresse{Committee on Immunology, University of Chicago, Chicago, IL, USA}
+\newif\ifdraftQ
+\draftQtrue
+\draftQfalse
+
+
+%###################################
+
+\title{\LARGE \TITLE}
+\author{\sffamily  \fontsize{10}{12}\selectfont   \authore$^{1}$,\authora$^{1}$,  \authorc$^{2,3}$, and \authord$^{1,4,5\bigstar}$\\                                                                
+\vspace{10pt}                                                                   
+
+\sffamily  \fontsize{10}{12}\selectfont                                         
+$^{1}$\addressa\\   
+$^{2}$\addressd\\
+$^{3}$\addresse\\
+$^{5}$\addressc                                                                 
+\vskip 1em                                                                      
+$^\bigstar$To whom correspondence should be addressed: e-mail: \texttt{ishanu@uchicago.edu}.}
+
+
+\def\hcov{SARS-CoV-2\xspace}
+\def\RATG13{RaTG13\xspace}
+\def\Appendix{Appendix}
+\def\qnet{Enet\xspace}
+\def\enet{Emergenet\xspace}
+\def\erisk{E-risk\xspace}
+\def\qdist{E-distance\xspace}
+\def\cov{COVID-19\xspace}
+\def\infl{Influenza A\xspace}
+%\def\infl{IAV\xspace}
+
+
+\def\E{\mathcal{E}}
+\def\dst{x_\star^{t+\delta}}
+\def\dsta{x^{t+\delta}}

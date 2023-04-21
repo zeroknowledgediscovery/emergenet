@@ -52,12 +52,164 @@
   \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
 \newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
 
+\bibitem{pulliam2009ability}
+\bibinfo{author}{Pulliam, J.~R.} \& \bibinfo{author}{Dushoff, J.}
+\newblock \bibinfo{title}{Ability to replicate in the cytoplasm predicts
+  zoonotic transmission of livestock viruses}.
+\newblock \emph{\bibinfo{journal}{The Journal of infectious diseases}}
+  \textbf{\bibinfo{volume}{199}}, \bibinfo{pages}{565--568}
+  (\bibinfo{year}{2009}).
+
+\bibitem{grewelle2020larger}
+\bibinfo{author}{Grewelle, R.~E.}
+\newblock \bibinfo{title}{Larger viral genome size facilitates emergence of
+  zoonotic diseases}.
+\newblock \emph{\bibinfo{journal}{bioRxiv}}  (\bibinfo{year}{2020}).
+
+\bibitem{grange2021ranking}
+\bibinfo{author}{Grange, Z.~L.} \emph{et~al.}
+\newblock \bibinfo{title}{Ranking the risk of animal-to-human spillover for
+  newly discovered viruses}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences}} \textbf{\bibinfo{volume}{118}}, \bibinfo{pages}{e2002324118}
+  (\bibinfo{year}{2021}).
+
+\bibitem{gamblin2010influenza}
+\bibinfo{author}{Gamblin, S.~J.} \& \bibinfo{author}{Skehel, J.~J.}
+\newblock \bibinfo{title}{Influenza hemagglutinin and neuraminidase membrane
+  glycoproteins}.
+\newblock \emph{\bibinfo{journal}{Journal of Biological Chemistry}}
+  \textbf{\bibinfo{volume}{285}}, \bibinfo{pages}{28403--28409}
+  (\bibinfo{year}{2010}).
+
 \bibitem{posada1998modeltest}
 \bibinfo{author}{Posada, D.} \& \bibinfo{author}{Crandall, K.~A.}
 \newblock \bibinfo{title}{Modeltest: testing the model of dna substitution.}
 \newblock \emph{\bibinfo{journal}{Bioinformatics (Oxford, England)}}
   \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{817--818}
   (\bibinfo{year}{1998}).
+
+\bibitem{eng2014predicting}
+\bibinfo{author}{Eng, C.~L.}, \bibinfo{author}{Tong, J.~C.} \&
+  \bibinfo{author}{Tan, T.~W.}
+\newblock \bibinfo{title}{Predicting host tropism of influenza a virus proteins
+  using random forest}.
+\newblock \emph{\bibinfo{journal}{BMC medical genomics}}
+  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{1--11} (\bibinfo{year}{2014}).
+
+\bibitem{ahlquist2002rna}
+\bibinfo{author}{Ahlquist, P.}
+\newblock \bibinfo{title}{Rna-dependent rna polymerases, viruses, and rna
+  silencing}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{296}},
+  \bibinfo{pages}{1270--1273} (\bibinfo{year}{2002}).
+
+\bibitem{chen2006avian}
+\bibinfo{author}{Chen, R.} \& \bibinfo{author}{Holmes, E.~C.}
+\newblock \bibinfo{title}{Avian influenza virus exhibits rapid evolutionary
+  dynamics}.
+\newblock \emph{\bibinfo{journal}{Molecular biology and evolution}}
+  \textbf{\bibinfo{volume}{23}}, \bibinfo{pages}{2336--2341}
+  (\bibinfo{year}{2006}).
+
+\bibitem{woolthuis2016long}
+\bibinfo{author}{Woolthuis, R.~G.}, \bibinfo{author}{van Dorp, C.~H.},
+  \bibinfo{author}{Ke{\c{s}}mir, C.}, \bibinfo{author}{de~Boer, R.~J.} \&
+  \bibinfo{author}{van Boven, M.}
+\newblock \bibinfo{title}{Long-term adaptation of the influenza a virus by
+  escaping cytotoxic t-cell recognition}.
+\newblock \emph{\bibinfo{journal}{Scientific reports}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{1--8} (\bibinfo{year}{2016}).
+
+\bibitem{fan2012role}
+\bibinfo{author}{Fan, K.} \emph{et~al.}
+\newblock \bibinfo{title}{Role of itk signalling in the interaction between
+  influenza a virus and t-cells}.
+\newblock \emph{\bibinfo{journal}{Journal of general virology}}
+  \textbf{\bibinfo{volume}{93}}, \bibinfo{pages}{987--997}
+  (\bibinfo{year}{2012}).
+
+\bibitem{van2016differential}
+\bibinfo{author}{van~de Sandt, C.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{Differential recognition of influenza a viruses by
+  m158--66 epitope-specific cd8+ t cells is determined by extraepitopic amino
+  acid residues}.
+\newblock \emph{\bibinfo{journal}{Journal of virology}}
+  \textbf{\bibinfo{volume}{90}}, \bibinfo{pages}{1009--1022}
+  (\bibinfo{year}{2016}).
+
+\bibitem{berkhoff2007assessment}
+\bibinfo{author}{Berkhoff, E.}, \bibinfo{author}{Geelhoed-Mieras, M.},
+  \bibinfo{author}{Fouchier, R.}, \bibinfo{author}{Osterhaus, A.} \&
+  \bibinfo{author}{Rimmelzwaan, G.}
+\newblock \bibinfo{title}{Assessment of the extent of variation in influenza a
+  virus cytotoxic t-lymphocyte epitopes by using virus-specific cd8+ t-cell
+  clones}.
+\newblock \emph{\bibinfo{journal}{Journal of General Virology}}
+  \textbf{\bibinfo{volume}{88}}, \bibinfo{pages}{530--535}
+  (\bibinfo{year}{2007}).
+
+\bibitem{van2012evasion}
+\bibinfo{author}{Van~de Sandt, C.~E.}, \bibinfo{author}{Kreijtz, J.~H.} \&
+  \bibinfo{author}{Rimmelzwaan, G.~F.}
+\newblock \bibinfo{title}{Evasion of influenza a viruses from innate and
+  adaptive immune responses}.
+\newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{4}},
+  \bibinfo{pages}{1438--1476} (\bibinfo{year}{2012}).
+
+\bibitem{Hothorn06unbiasedrecursive}
+\bibinfo{author}{Hothorn, T.}, \bibinfo{author}{Hornik, K.} \&
+  \bibinfo{author}{Zeileis, A.}
+\newblock \bibinfo{title}{Unbiased recursive partitioning: A conditional
+  inference framework}.
+\newblock \emph{\bibinfo{journal}{JOURNAL OF COMPUTATIONAL AND GRAPHICAL
+  STATISTICS}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{651--674}
+  (\bibinfo{year}{2006}).
+
+\bibitem{wood2012reproducibility}
+\bibinfo{author}{Wood, J.~M.} \emph{et~al.}
+\newblock \bibinfo{title}{Reproducibility of serology assays for pandemic
+  influenza h1n1: collaborative study to evaluate a candidate who international
+  standard}.
+\newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{210--217} (\bibinfo{year}{2012}).
+
+\bibitem{cover}
+\bibinfo{author}{Cover, T.~M.} \& \bibinfo{author}{Thomas, J.~A.}
+\newblock \emph{\bibinfo{title}{Elements of Information Theory (Wiley Series in
+  Telecommunications and Signal Processing)}}
+  (\bibinfo{publisher}{Wiley-Interscience}, \bibinfo{address}{New York, NY,
+  USA}, \bibinfo{year}{2006}).
+
+\bibitem{agor2018models}
+\bibinfo{author}{Agor, J.~K.} \& \bibinfo{author}{{\"O}zalt{\i}n, O.~Y.}
+\newblock \bibinfo{title}{Models for predicting the evolution of influenza to
+  inform vaccine strain selection}.
+\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{678--683}
+  (\bibinfo{year}{2018}).
+
+\bibitem{boni2008vaccination}
+\bibinfo{author}{Boni, M.~F.}
+\newblock \bibinfo{title}{Vaccination and antigenic drift in influenza}.
+\newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{26}},
+  \bibinfo{pages}{C8--C14} (\bibinfo{year}{2008}).
+
+\bibitem{carugo2001normalized}
+\bibinfo{author}{Carugo, O.} \& \bibinfo{author}{Pongor, S.}
+\newblock \bibinfo{title}{A normalized root-mean-spuare distance for comparing
+  protein three-dimensional structures}.
+\newblock \emph{\bibinfo{journal}{Protein science}}
+  \textbf{\bibinfo{volume}{10}}, \bibinfo{pages}{1470--1473}
+  (\bibinfo{year}{2001}).
+
+\bibitem{righetto2014comparative}
+\bibinfo{author}{Righetto, I.}, \bibinfo{author}{Milani, A.},
+  \bibinfo{author}{Cattoli, G.} \& \bibinfo{author}{Filippini, F.}
+\newblock \bibinfo{title}{Comparative structural analysis of haemagglutinin
+  proteins from type a influenza viruses: conserved and variable features}.
+\newblock \emph{\bibinfo{journal}{BMC bioinformatics}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{363} (\bibinfo{year}{2014}).
 
 \bibitem{goldberger2005genomic}
 \bibinfo{author}{Goldberger, A.~L.} \& \bibinfo{author}{Peng, C.-K.}
