@@ -72,19 +72,6 @@
 % – Rationale: Clearly articulate the scientific rationale for the proposed research
 % project. Cite relevant literature. The presentation of preliminary and/or published
 % data is allowed but not required.
-% – Hypothesis: State concisely the new insights, paradigms, technologies, or
-% applications that address one of the FY23 PRMRP Topic Areas and one of the
-% associated FY23 PRMRP Strategic Goals.
-% – Specific Aims: Concisely explain the project’s specific aims and the objective(s) to
-% be reached. These aims should agree with the primary aims and associated tasks
-% described in the Statement of Work (SOW). If the proposed work is part of a larger
-% study, present only aims that this DOD award would fund.
-% – Research Strategy and Feasibility: Describe the experimental design, methods, and
-% analyses, including appropriate controls, in sufficient detail for scientific evaluation.
-% Address potential problem areas and present alternative methods or approaches. If
-% cell lines or animals are to be used, justify why the proposed cell line(s) or animal
-% model(s) were chosen. Describe how the proposed project will be completed within
-% the proposed performance period.
 \def\bnd{BioNORAD\xspace}
 \subsubsection*{Rationale}
 \begin{wrapfigure}[24]{r}{2.5in}
@@ -143,12 +130,6 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
   \end{enumerate}
 
 
-% One possible approach to mitigating pandemic risk is to identify  animal strains  that do not yet circulate in humans, but is likely to spill-over and quickly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our  ability to objectively, reliably and scalably  risk-rank individual strains remains limited~\cite{wille2021accurately}, despite some recent progress~\cite{pulliam2009ability,grewelle2020larger,grange2021ranking}.
- 
-% The Center for Disease Control's (CDC) current solution to this problem is the Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}.  Subject matter experts (SME) 
-%   score strains based on  the number of  human infections, infection and transmission in laboratory animals, receptor binding characteristics, population immunity, genomic analysis, antigenic relatedness, global prevalence,  pathogenesis, and  treatment options, which are averaged to obtain two scores (between 1 and 10) that  estimate 1) the emergence  risk and 2) the potential public health impact on sustained transmission. IRAT scores  are potentially subjective, and  depend on multiple experimental assays, possibly taking  weeks to compile for a single strain. This results in  a scalability bottleneck, particularly with    thousands of strains being sequenced annually.
-
-%   Here we introduce a pattern recognition algorithm to automatically parse out emergent evolutionary constraints operating on \infl viruses in the wild, to provide a less-heuristic theory-backed scalable solution to emergence prediction.
 
 \begin{figure}[t]  
   \begin{tikzpicture}
@@ -173,17 +154,16 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 % cell lines or animals are to be used, justify why the proposed cell line(s) or animal
 % model(s) were chosen. Describe how the proposed project will be completed within
 % the proposed performance period.
+
 Our approach aims  to reliably   estimate the non-heuristic numerical probability $Pr(x \rightarrow y)$ of a strain $x$ spontaneously giving rise to  $y$ in the wild, thus preempting  strains  expected to be in future circulation, and approximating IRAT scores of non-human strains without detailed  experimental assays or SME scoring. We plan to accomplish this by learning the complex cross-dependencies that constrain what a ``valid alteration'' of a AA sequence is, by first  analyzing  variations (point substitutions, indels) of   residue  sequences  of key proteins implicated  in cellular entry/exit~\cite{gamblin2010influenza,shao2017evolution}, namely HA and NA, and then expanding the analysis to the complete viral genome. By representing these constraints within a predictive framework -- the \enet (Enet) -- we will  estimate the  odds of a specific mutation to arise in future, and consequently the probability of a specific strain spontaneously  evolving into another (Fig.~\ref{fig0}). For such explicit calculations we must first infer the variation of mutational probabilities and  potential residue replacements from one positional index to the next along the AA sequence. The many well-known classical  DNA  substitution models~\cite{posada1998modeltest} or  phylogeny inference tools  assuming constant species-wise mutational characteristics,  are not applicable here. Similarly, newer algorithms such  as FluLeap~\cite{eng2014predicting}  which identifies host tropism and  species-level jump-risk~\cite{grange2021ranking} do not allow for strain-specific assessment.
 
-The dependencies we expect to uncover are shaped by  a  functional necessity of conserving replicative  fitness. Strains must be sufficiently common  to be recorded in surveillance, implying that the sequences from public databases that we train  with have  high  fitness. Lacking kinetic proofreading, \infl integrates  faulty nucleotides   at a relatively high rate ($10^{-3}-10^{-4}$) during  replication~\cite{ahlquist2002rna,chen2006avian}. However, few variations are actually viable, leading to emergent dependencies between such mutations. Furthermore, these fitness constraints are  time-varying. The background strain distribution, and selection pressure from the evolution of cytotoxic T lymphocyte  epitopes~\cite{woolthuis2016long,fan2012role,van2016differential,berkhoff2007assessment,van2012evasion} in humans can change quickly. Our preliminary studies [REF] suggest that we now have enough number of curated sequences in public databases to learn models that  % With a sufficient number of unique samples to train on for each flu season, the \enet (recomputed for each time-period) is expected to
-  automatically factor in the evolving host immunity, and the current background environment.  
+The dependencies we expect to uncover are shaped by  a  functional necessity of conserving replicative  fitness. Strains must be sufficiently common  to be recorded in surveillance, implying that the sequences from public databases that we train  with have  high  fitness. Lacking kinetic proofreading, \infl integrates  faulty nucleotides   at a relatively high rate ($10^{-3}-10^{-4}$) during  replication~\cite{ahlquist2002rna,chen2006avian}. However, few variations are actually viable, leading to emergent dependencies between such mutations. Furthermore, these fitness constraints are  time-varying. The background strain distribution, and selection pressure from the evolution of cytotoxic T lymphocyte  epitopes~\cite{woolthuis2016long,fan2012role,van2016differential,berkhoff2007assessment,van2012evasion} in humans can change quickly. Our preliminary studies [REF] suggest that we now have enough number of curated sequences in public databases to learn models that    automatically factor in the evolving host immunity, and the current background environment.  
 
-Structurally, our model structure (an \enet) comprises an interdependent collection of  local predictors, each aiming to predict the  residue at a particular index  using as features  the residues   at other  indices  (Fig.~\ref{fig1}a). These individual predictors are implemented as conditional inference trees~\cite{Hothorn06unbiasedrecursive}, in which  nodal splits  occur with  a minimum pre-specified significance in differentiating the  downstream child nodes. % Thus, each index-specific predictor yields an estimated conditional residue distribution.
-The set of residues acting as features in each such predictor is automatically identified, $e.g.$, in the fragment of the  H1N1 HA \enet (2020-2021, Fig~\ref{fig1}a), the predictor for residue 63 is dependent on   residue  155, and the predictor for  155 is dependent on  223, the predictor for  223 is dependent on  14, and the residue at  14 is again dependent on  63, revealing a cyclic dependency. The complete \enet harbors a vast number of such  relationships, and each internal node of a tree may be  ``expanded'' to its own tree (since each index is ``explained'' by residues in other indices, which in turn have their own predictors). Owing to this recursive expansion,  a complete \enet  captures the intricate rules guiding evolutionary change as evidenced by our preliminary validations. Our research strategy comprises the following sequential steps:
+Structurally, our model structure (an \enet) comprises an interdependent collection of  local predictors, each aiming to predict the  residue at a particular index  using as features  the residues   at other  indices  (Fig.~\ref{fig1}a). These individual predictors are implemented as conditional inference trees~\cite{Hothorn06unbiasedrecursive}, in which  nodal splits  occur with  a minimum pre-specified significance in differentiating the  downstream child nodes. The set of residues acting as features in each such predictor is automatically identified, $e.g.$, in the fragment of the  H1N1 HA \enet (2020-2021, Fig~\ref{fig1}a), the predictor for residue 63 is dependent on   residue  155, and the predictor for  155 is dependent on  223, the predictor for  223 is dependent on  14, and the residue at  14 is again dependent on  63, revealing a cyclic dependency. The complete \enet harbors a vast number of such  relationships, and each internal node of a tree may be  ``expanded'' to its own tree (since each index is ``explained'' by residues in other indices, which in turn have their own predictors). Owing to this recursive expansion,  a complete \enet  captures the intricate rules guiding evolutionary change as evidenced by our preliminary validations. Our research strategy comprises the following sequential steps:
 
 \textit{(Step 1: Data and \enet Models)} We will collect AA sequences for the key genes of all available strains from NCBI and GISAID databases, and construct \enet{s} for each year,  each gene and each chosen geographical region. Different spatial and temporal resolutions will be considered in the course of the project, and we will consider all 8 genes in the \infl genome: PB2, PB1, PA, HA, NP, NA, M and NS. With about two decades worth of data comprising nearly $>380,000$ strains in NCBI and GISAID combined, when constructing models for each year, and the two hemeispheres at a minimum, and the two subtypes H1N1 and H3N2, we end up with  $ 8 \times 20 \times 2 \times 2 = 640$ \enet models. With new emerging subtypes, the number of inferred models will be higher, and these models together capture the totality of observable statistically significant patterns constraining \infl evolution. 
 
-\textit{(Step 2: \qdist metric calculation)} Each  \enet induces  an intrinsic distance metric (\qdist) between strains, collected at the time and space associated with the model, defined as the square-root of JS  divergence~\cite{cover} of the conditional residue distributions, averaged over the sequence. Unlike the classical approach of measuring the number of edits between sequences, the \qdist is informed by the \enet-inferred  dependencies, and adapts to the specific subtype, allele frequencies, and environmental variations. By our recent theoretical result [REF],  \qdist  approximates the log-likelihood of spontaneous change $i.e.$ $\log Pr(x \rightarrow y )$, and despite general correlation between \qdist and edit-distance, the \qdist between fixed strains can change if only the background environment changes.  % In in-silico experiments, we find that while random mutations to genomic sequences produce rapidly diverging sets, \enet-constrained replacements produce sequences that are verifiably meaningful (In-silico Corroboration of Emergenet’s Capability To Capture Biologically Meaningful Structure, \METHODS and \SUPPLEMENTARY Fig.~S-\ref{figsoa}).
+\textit{(Step 2: \qdist metric calculation)} Each  \enet induces  an intrinsic distance metric (\qdist) between strains, collected at the time and space associated with the model, defined as the square-root of JS  divergence~\cite{cover} of the conditional residue distributions, averaged over the sequence. Unlike the classical approach of measuring the number of edits between sequences, the \qdist is informed by the \enet-inferred  dependencies, and adapts to the specific subtype, allele frequencies, and environmental variations. By our recent theoretical result [REF],  \qdist  approximates the log-likelihood of spontaneous change $i.e.$ $\log Pr(x \rightarrow y )$, and despite general correlation between \qdist and edit-distance, the \qdist between fixed strains can change if only the background environment changes. 
 
 \textit{(Step 3: Validation)} We aim to validate the predictive ability of the \enet framework in two ways: a) predict dominant strains in seasonal epidemics and compare against historical WHO vaccine recommendations in how well we can preempt the actual circulation in future seasons in the two hemispheres, and b) carry out in-vitro experimental assays to demonstrate that a perturbed strain is functional if the \qdist betwen the original and perturbed strain is small. 
 
@@ -194,41 +174,12 @@ In  preliminary studies, our \enet-informed forecasts using only the HA gene out
 blotting. Next, we will generate recombinant viruses carrying mutant HA using an established reverse genetics system~\cite{pmid35926068,pmid34473799,pmid33970958,pmid32075925,pmid29899269,pmid28282445,pmid23686828,pmid20534532,pmid20126449} by the Manicassamy lab at UIowa, and validate the recombinant viruses by performing NGS sequencing. To assess the replication fitness of recombinant viruses, we will perform single cycle and multicycle replication assays human lung epithelial cell line (A549) and primary human lung cells~\cite{pmid23720581} (sourced from third-party vendors). In addition, we will assess the fitness of individual mutants by fitness competition assay with parental virus (1:1) and determine the relative ratio
 by high resolution melting (HRM) analysis~\cite{ganti2021rab11a,wittwer2003high,marshall2013influenza} . These studies will help us determine the accuracy of \enet framework in predicting pandemic potential variants with enhanced fitness.  \textit{Choice of Cell-lines:} A549 cells and primary human lung cells are frequently used in in-vitro IAV experiments  due to their relevance to human infection, susceptibility to IAV, reproducibility, ease of cultivation, and compatibility with various molecular and cellular techniques~\cite{matrosovich1997avian}. These cells, derived from human lung carcinoma and lung tissue respectively, serve as appropriate models for studying IAV  pathogenesis, and host interactions, as they express key host factors~\cite{shinya2006influenza,chan2010tropism}, and are compatible with molecular and cellular techniques~\cite{neumann1999generation}. Dr. Manicassamy has $>15$ years of experience in working with human and zoonotic influenza viruses, and safely handling various human pathogens under enhanced BSL2 and BSL3 conditions.
 
-
-% In our first application (predicting future dominant strains) we used  H1N1 and H3N2 HA and NA  sequences from \infl strains in the public NCBI and GISAID databases recorded between 2000-2022 (\textcolor{red}{$387,067$} in total, \SUPPLEMENTARY Table~S-\ref{tabseq}). We  construct \enet{s} separately for H1N1 and H3N2 subtypes, and for each flu season \textcolor{red}{using HA sequences}, yielding \textcolor{red}{$84$} models in total for predicting seasonal dominance. Using only sequence data is advantageous since deeper antigenic characterization  tend to be substantially  low-throughput compared to genome sequencing~\cite{wood2012reproducibility}. However,   deep mutational scanning (DMS) assays  have been shown to improve seasonal prediction~\cite{huddleston2020integrating}. Despite limiting ourselves to only genotypic  information (and subtypes), our approach  distills  emergent  fitness-preserving constraints   that outperform reported DMS-augmented strategies.
-
-\textit{(Step 4: \bnd Development)} Determining the numerical odds of a spontaneous jump $ Pr(x \rightarrow y)$  allows us to frame the problem of forecasting  dominant strain(s), and that of estimating the  pandemic potential of an animal strain as  mathematical propositions (albeit with some simplifying assumptions), with  approximate solutions (Fig.~\ref{fig0}). % Thus,  a dominant strain for an upcoming  season may be identified as one which maximizes the joint probability of simultaneously arising from each (or most)  of the currently circulating strains (Fig.~\ref{figscheme}c).  This does not deterministically specify the dominant strain, but a strain satisfying this criterion  has  high odds of acquiring dominance.
-We will demonstrate that a pandemic risk score of a novel strain may be estimated by the probability of it giving rise to a well-adapted human strain. % In the context of  forecasting  future dominant strain(s),  we derive a search criteria (Predicting Dominant Seasonal Strains, \METHODS) from the above proposition, to identify  historical strain(s) that are  expected to be close to the next dominant strain(s):
-% %
-% \calign{
-% \label{dompred}&\dst = \argmin_{y \in \cup_{\tau \leqq t} H^\tau}  \left ( \sum_{x\in H^t}  \theta^{[t]}(x,y) - \abs{H^t}A \ln \mem{y}  \right )
-% }%
-% where $\dst$ is a predicted dominant strain  at time $t+\delta$, $H^t$ is the set of currently circulating human strains at time $t$  observed over the past year, $\theta^{[t]}$ is the \qdist informed by the inferred \enet using sequences in $H^t$, $\mem{y}$ is the estimated probability of strain $y$ being generated by the \enet, and $A$ is a constant dependent on the sequence length and significance threshold used. The first term gets the solution close to the centroid of the current strain distribution (in the \qdist metric, and not the standard edit distance), and the second term relates to how common the genomic patterns are amongst recent human strains. 
-% \clearpage
-%
-%\paragraph*{Predicting Future Dominant Strains}
-%
-%
-%
-%
-%
-% Comparing the \enet inferred strain (ENT) against the one recommended by the WHO, we find that the residues that only the  \enet recommendation matches correctly with dominant strain (DOM), while the WHO recommendation fails,  are largely localized within the RBD, with $>57\%$ occurring within  the RBD on average (\EXTENDED Fig.~\ref{figseq}a), and 3) when the WHO strain deviates from  the ENT/DOM   matched residue, the ``correct'' residue is often replaced  in the WHO recommendation with one that has very different side chain, hydropathy  and/or chemical properties (\EXTENDED Fig.-\ref{figseq}b-f), suggesting deviations in recognition characteristics~\cite{carugo2001normalized,righetto2014comparative}. Combined with the fact that we find circulating strains are almost always within a few edits of the DOM (\SUPPLEMENTARY Fig.~S-\ref{figdom}), these observations suggest that  hosts vaccinated with the ENT recommendation is can have season-specific antibodies that recognize a larger cross-section of the circulating strains.
-%
-% \paragraph*{Estimating Pandemic Risk of Non-human Strains}
+\textit{(Step 4: \bnd Development)} Determining the numerical odds of a spontaneous jump $ Pr(x \rightarrow y)$  allows us to frame the problem of forecasting  dominant strain(s), and that of estimating the  pandemic potential of an animal strain as  mathematical propositions (albeit with some simplifying assumptions), with  approximate solutions (Fig.~\ref{fig0}). We will demonstrate that a pandemic risk score of a novel strain may be estimated by the probability of it giving rise to a well-adapted human strain. 
 Our preliminary results [REF] enable our ability to estimate the pandemic potential of novel animal strains, via a  time-varying \erisk score $\rho_t(x)$ for a strain $x$ not yet found to circulate in human hosts. We show that: $
 \rho_t(x) \triangleq -\frac{1}{\abs{H^t}} \sum_{y \in H^t} \theta^{[t]}(x,y)
 $ scales as the average log-likelihood of $Pr(x \rightarrow y)$ where $y$ is any human strain of a similar subtype to $x$, and  $\theta^{[t]}$ is the \qdist informed by the \enet computed from recent human strains $H_t$ at time $t$ of the same subtype as $x$, observed over the past year. The structure of dependencies revealed by the \enet inference makes it possible to estimate $\rho_t(x)$ explicitly. In the course of the project we will expand this risk score analytics to estimate the time to emergence in addition to spatial localization of such risk.
  
 \textit{Preliminary Validation of \bnd.} We construct \enet models for HA and NA sequences using subtype-specific human strains, typically collected within the  year prior to the assessment date, $e.g.$,   for A/swine/Shandong/1207/2016 assessed on 06/2020 we  use human H1N1 strains collected  between 01/07/2019-06/30/2020 for  \enet inference. For sub-types with few  recorded human strains (H1N2, H7N7), we consider all subtype-specific human strains collected up to the  assessment date  to infer our \enet. For subtypes with very few or no recorded human strains even without a lower date bound (H5N2, H5N6, H5N8, H7N8, H9N2, H10N8), we construct the \enet using all human strains that match the HA subtype, \textit{e.g.} H5Nx for H5N2, H5N6, and H5N8. This addresses the general concern of ``unknown unknowns'': allowing  \enet to assess  threats posed by rare or not-yet-human strains. We  compute the \erisk for both HA and NA sequences (using the above relationship),  finally reporting their geometric mean as our estimated risk for the strain. Considering IRAT emergence scores of $22$ strains published by the CDC, we find strong out-of-sample support  (correlation of $0.704$, pvalue $<0.00026$, Fig.~\ref{fig1}b). Importantly, each \erisk score  is  computable in approximately $6$ seconds as opposed to potentially weeks taken by IRAT experimental assays and SME evaluation, suggesting a \textit{six order of magnitude speedup}. In the proposed study we will expand our anayis to the complete IAV genome, incorporating all 8 genes, and quantify the modeling uncertainties, and the statistical association of our score with the ten individual scoring elements of IRAT. We show a preliminary implementation of the \bnd in Fig.~\ref{fig1}c for all 6,066 strains retrieved in 2021/22, showing the localization of potential near-term threat events.
-
-% The time-dependence of the \erisk reflects the impact of the changing background, and recomputing the risk estimates using \enet{s} constructed from the recent circulating strains instead of using those from when the IRAT assessments took place at the  CDC,  worsens the correlation ($0.597$, p-value $0.003$, see \SUPPLEMENTARY Table~S-\ref{irattab_current}).
-
-% To map the \enet distances to  more recognizable IRAT scores, we  train a general linear model (GLM)  from the  the HA/NA-based \erisk values (Multivariate Regression to Identify Map from E-distance to Estimated IRAT scores). % Since the CDC-estimated IRAT impact scores are strongly correlated with their IRAT emergence scores (correlation of $0.8015$), we also trained a separate GLM to estimate the impact score from the \erisk values (\SUPPLEMENTARY Table~S-\ref{tabregGLMimpact}).
-% Finally,  we estimate the  IRAT scores of all  $6,066$  \infl strains sequenced globally between 2020 through 04/2022, and identify the ones posing maximal risk (Fig.~\ref{figirat}c). $1,773$ strains turn out to have a predicted emergence score $>6.0$. However, many of these strains are highly similar, differing by only a few edits. To identify the sufficiently distinct risky strains, we constructed the standard phylogeny from  HA sequences with score $>6$ (Fig.~\ref{figphylo}), and collapsed all leaves within $15$ edits, showing only the most risky strain within a collapsed group. This leaves $75$ strains (Fig.~\ref{figphylo}), with $68$ having emergence risk $>6.25$, and $6$ with  risk above $6.5$ (\EXTENDED Table~\ref{highrisktab}). Subtypes of the   risky strains are overwhelmingly H1N1, followed by H3N2, with a  small number of H7N9 and H9N2. Five maximally risky strains with emergence score $>6.58$ are identified to be: 
-% A/swine/Missouri/A02524711/2020 (H1N1), A/Camel/Inner\_Mongolia/XL/2020 (H7N9), A/swine/Indiana/A02524710/2020 (H3N2), A/swine/North Carolina/ A02479173/2020 (H1N1), and A/swine/Tennessee/ A02524414/2022 (H1N1).  Additionally,  A/mink/China/chick embryo/2020 (H9N2),  with a lower estimated emergence score ($6.26$) is also important, as the most risky H9N2 strain in our analysis. We compare the HA sequences along with two dominant human strains in 2021-2022 season (\EXTENDED Fig.~\ref{figriskyseq}), which shows substantial residue replacements, in and out of the receptor binding domain (RBD).
-
-% Swines are known to be efficient mixing vessels~\cite{ma2009pig,nelson2018origins,reid2003origin,Baumann}, and hence unsurprisingly host a large fraction of the risky strains ($>80\%$ over 6.0, to over $50\%$ over 6.5). Also, as  expected, most of these swine strains are of  H1N1 subtype, with the other subtypes  having emerged into humans more recently. Our finding that a H7N9 poses substantial risk is likewise not surprising:
-% HH transmission has been suspected in Asian-lineage H7N9 strains, and are rated by IRAT as having the greatest potential to cause a pandemic~\cite{qi2013probable}. The finding of  the most risky H9N2 strain in a mink is also unsurprising, in the light of these hosts  been recently suggested as efficient mixing vessels to breed human-compatible strains~\cite{sun2021mink}. Thus,  qualitatively our results  are well aligned with the current expectations; nevertheless the ability to quantitatively rank  specific strains which pose maximal risk is a crucial new capability enabling proactive pandemic mitigation efforts.
 
 \subsubsection*{Innovation} %Innovation: Describe how the proposed research is innovative, including how it will
 %provide new insights, paradigms, technologies, or applications to the research field
@@ -236,13 +187,7 @@ $ scales as the average log-likelihood of $Pr(x \rightarrow y)$ where $y$ is any
 %or providing an incremental advance on published data is not considered innovative.
 
 While  tools exist for ad-hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, higher edit-similarity between strains do not imply a high likelihood of a jump.
-Current surveillance paradigms, while crucial for mapping  disease ecosystems,  fail  to address this challenge. Habitat encroachment, climate change, and other  ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic} unquestionably  drive up the odds of zoonotic spill-over. Nevertheless, efforts at tracking and modeling these effects till date have not improved our ability to quantify future  risk of emergence of a specific strain from a specific host~\cite{fair2019viral}. Recent advances in predicting seasonal epidemic strains~\cite{huddleston2020integrating} do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art: the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori,% . Our preliminary results indicate that while the effect of the environment and selection cannot be inferred from a single sequence, an entire database of observed strains, processed through the right lens, can parse out useful predictive models of these complex interactions
- enabling an actionable pandemic early warning system. % Our results are  aligned with recent studies demonstrating effective  predictability of  future mutations  for different organisms~\cite{mollentze2021identifying,maher2021predicting}.
-
-
-%No animal work. Primary cells will be purchased from Lonza. So no IRB.
-
-
+Current surveillance paradigms, while crucial for mapping  disease ecosystems,  fail  to address this challenge. Habitat encroachment, climate change, and other  ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic} unquestionably  drive up the odds of zoonotic spill-over. Nevertheless, efforts at tracking and modeling these effects till date have not improved our ability to quantify future  risk of emergence of a specific strain from a specific host~\cite{fair2019viral}. Recent advances in predicting seasonal epidemic strains~\cite{huddleston2020integrating} do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art: the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
 \input{pagecontrol}
 
 \clearpage
@@ -321,7 +266,7 @@ Current surveillance paradigms, while crucial for mapping  disease ecosystems,  
   %\captionN{Abbreviations Used}
  % \vskip .5em
   \hspace{-10pt}
-  \begin{tabular}{R{1.6in}||L{3.55in}}\hline
+  \begin{tabular}{R{2.5in}||L{3.55in}}\hline
       \rowcolor{Tomato!50} BioNORAD  & Proposed early warning system for pandemic risk (this proposal) \\
   \rowcolor{lightgray!50} AA residue  & Amino Acid residue \\
   \rowcolor{lightgray} AI  & Artificial Intelligence \\
@@ -354,12 +299,127 @@ Current surveillance paradigms, while crucial for mapping  disease ecosystems,  
     \rowcolor{lightgray!50} $\rho_t(x)$ &  time-varying \erisk score for emergence risk of strain $x$ \\
       \rowcolor{lightgray} $Pr(x\rightarrow y)$ & Probability of strain $x$ spontaneously mutating to produce strain $y$ in the wild \\
    \rowcolor{lightgray!50} $x_a^t$ & animal strain observed at time $t$ \\
-   \rowcolor{lightgray} $x_h^t$ & human strain observed at time $t$ \\\rowcolor{lightgray!50}&\\
+    \rowcolor{lightgray} $x_h^t$ & human strain observed at time $t$ \\
+    \rowcolor{lightgray!50} H1N1, H3N2, H5N1, H5N2, H9N2, H5N8, H7N8, H5N6, H10N8& \infl strains\\
+    \rowcolor{lightgray}&\\
 \hline
 
   \end{tabular}
   \end{table}
 
+
+
+\clearpage
+
+\limitpages{8}
+
+\section*{Data Management Plan}
+% 2 page limit
+
+
+
+\subsection{Introduction} 
+
+This Data Management Plan outlines the procedures for managing, storing, and sharing data generated during the course of the project on the analysis of hundreds of thousands of genomic sequences of Influenza A of various subtypes from public repositories (NCBI and GISAID). The research products include models and software, as well as example programs demonstrating how to access and read these models and apply them to raw data. An online system will also be developed to pull in new sequences from public databases, compute emergent risk, and display the results publicly. Experimental validation will involve specific protocols, cell lines, and procedures, which can be shared in an appropriate manner.
+
+\subsection{Data Types and Formats}
+
+This project will involve the following types of data:
+
+\begin{itemize}
+  \item Genomic sequences of Influenza A subtypes
+  \item Metadata, including sequence IDs and other relevant information
+  \item Models and software for generating, inferring, and reading the models
+  \item Example programs demonstrating model access and application to raw data
+  \item Experimental validation data, including protocols, cell lines, and procedures
+\end{itemize}
+
+All data will be stored in open and widely used formats, such as FASTA for genomic sequences, JSON or CSV for metadata, and standard programming languages like Python for software and example programs.
+
+\subsection{Data Acquisition and Processing}
+
+Data will be acquired from public repositories, such as NCBI and GISAID, and processed using custom-built software tools. These tools will parse the raw data and metadata, analyze the genomic sequences, and generate models to assess emergent risk. Quality assurance and quality control measures will be in place during data collection, analysis, and processing to ensure the reliability of the results.
+
+\subsection{Data Storage and Preservation}
+
+Data, models, and software will be stored on secure servers with appropriate backup and version control systems. Genomic sequences and metadata will be deposited in public repositories like NCBI and GISAID, while models and other data will be deposited at Zenodo for long-term access with DOI identifiers. Example programs and software tools will be hosted on GitHub repositories, ensuring easy access and collaboration.
+
+\subsection{Data Sharing}
+
+Data sharing will be achieved through a combination of methods:
+
+\begin{itemize}
+  \item Metadata and sequence IDs will be shared publicly, while respecting any restrictions on the genomic sequences themselves
+  \item Models, software, and example programs will be available on GitHub repositories, allowing for easy access, collaboration, and updates
+  \item Tools developed during the project will be easily installed from code registries like PyPI
+  \item Experimental validation data, including protocols, cell lines, and procedures, will be shared in an appropriate and secure manner, ensuring compliance with any legal or ethical requirements
+  \item An online system will provide public access to emergent risk assessment based on new sequences from public databases
+\end{itemize}
+
+\subsection{Handling of Restricted Data}
+
+In cases where genomic sequences cannot be shared publicly due to legal or ethical constraints, the project will ensure that the handling and sharing of such data is in compliance with relevant regulations and guidelines. Sequence IDs and metadata will be shared, allowing other researchers to request access to the restricted sequences through appropriate channels. The project will have provisions in place for using sequences that are not publicly posted if the researchers or laboratories who collected the sequences do not grant permission to share them publicly. In such cases, the project team will collaborate with the data owners to determine the most appropriate way to utilize and share the data, ensuring that all parties' interests are respected and protected.
+
+
+\subsection{Monitoring Adherence to the Data Management Plan}
+
+Adherence to the Data Management Plan will be monitored throughout the project by a dedicated postdoctoral researcher, who will dedicate 5\% of their time to this task. The postdoctoral researcher will work under the supervision of the Principal Investigator, ensuring that the Data Management Plan is properly executed and that all project members are aware of their data management responsibilities.
+
+Monitoring will include periodic reviews of data storage, sharing, and preservation practices, as well as ensuring that data quality assurance and quality control measures are effectively implemented. Any deviations from the plan will be addressed promptly, and the plan will be updated as needed to accommodate new data types, formats, or sharing requirements.
+
+\subsection{Preservation Timeframe}
+
+Data preservation will be maintained for a minimum of 10 years following the completion of the project. This timeframe will ensure that the research products remain accessible and usable by the scientific community for future research and development.
+\subsection{Costs and Administrative Burden}
+
+The Data Management Plan takes into consideration the balance between the value of data preservation and other factors such as associated costs and administrative burden. Data storage, preservation, and sharing costs will be factored into the project budget. A total of 5\% of the project's effort will be allocated to data management, including the postdoctoral researcher's time and any other administrative tasks related to data management.
+
+The justification for any decisions regarding data preservation and sharing will be provided in the plan. This approach ensures that the research products are appropriately managed and shared, while also taking into account the costs and administrative burden associated with data management.
+
+\subsection{Periodic Review of the Data Management Plan}
+
+The Data Management Plan will be reviewed every six months by the Principal Investigator (PI) and co-Principal Investigator (co-PI) to ensure that it remains up-to-date and relevant to the project's needs. During these reviews, the PI and co-PI will assess the current data management practices and identify any necessary updates or changes to the plan.
+
+These periodic reviews will help ensure that the Data Management Plan continues to be effective in guiding the project's data management activities and that it evolves as needed to accommodate new data types, formats, or sharing requirements. Any updates to the plan will be communicated to all project members to ensure that everyone remains informed about the project's data management expectations and responsibilities.
+
+\subsection{Compliance with DoD Instructions}
+
+This Data Management Plan adheres to the guidelines set forth in Section 3.c. Enclosure 3 of the Department of Defense (DoD) Instructions 3200.12. By following these guidelines, the project ensures that all data management practices are in compliance with the requirements of the DoD and that the data generated during the project will be appropriately managed, stored, and shared.
+\begin{figure}[t]
+  \centering
+\definecolor{barblue}{RGB}{91,155,213}
+\definecolor{groupblue}{RGB}{0,0,128}
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=0.5cm,
+    y unit chart=0.8cm,
+    time slot format=isodate,
+    time slot unit=month,
+    bar/.append style={fill=barblue},
+    group/.append style={draw=groupblue, fill=groupblue}
+  ]{2023-10-01}{2025-10-01} % updated project duration
+  \gantttitlecalendar{year, month} \\
+  \ganttgroup{Project Duration}{2023-10-01}{2025-10-01} \\ % updated project duration
+  \ganttbar{Software Deposition 1}{2023-10-01}{2023-10-01} \\
+  \ganttbar{Software Deposition 2}{2024-04-01}{2024-04-01} \\
+  \ganttbar{Software Deposition 3}{2024-10-01}{2024-10-01} \\
+  \ganttbar{Model/Data Submission 1}{2024-04-01}{2024-04-01} \\
+  \ganttbar{Model/Data Submission 2}{2025-04-01}{2025-04-01} \\
+  \ganttbar[bar/.append style={fill=yellow}]{Experimental Protocol Sub.}{2024-04-01}{2024-04-01} \\
+  \ganttbar[]{Final Software Submission}{2025-04-01}{2025-04-01} \\
+  \ganttbar[bar/.append style={fill=orange}]{Data/Models Submission}{2025-10-01}{2025-10-01} \\
+  \ganttlink{elem1}{elem2}
+  \ganttlink{elem2}{elem3}
+  %\ganttlink{elem3}{elem4}
+  \ganttlink{elem4}{elem5}
+  %\ganttlink{elem4}{elem6}
+  \ganttlink{elem3}{elem7}
+  \ganttlink{elem5}{elem8}
+\end{ganttchart}
+
+\captionN{DMP checkpoints. Software is deposited at Github repositories. Models and data are submitted at Zenodo.}
+\end{figure}
 
 \clearpage
 
