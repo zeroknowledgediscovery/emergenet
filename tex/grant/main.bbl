@@ -5,6 +5,14 @@
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
 
+\bibitem{reid2003origin}
+\bibinfo{author}{Reid, A.~H.} \& \bibinfo{author}{Taubenberger, J.~K.}
+\newblock \bibinfo{title}{The origin of the 1918 pandemic influenza virus: a
+  continuing enigma}.
+\newblock \emph{\bibinfo{journal}{Journal of general virology}}
+  \textbf{\bibinfo{volume}{84}}, \bibinfo{pages}{2285--2292}
+  (\bibinfo{year}{2003}).
+
 \bibitem{dos2016influenza}
 \bibinfo{author}{Dos~Santos, G.}, \bibinfo{author}{Neumeier, E.} \&
   \bibinfo{author}{Bekkat-Berkani, R.}
@@ -13,14 +21,6 @@
 \newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
   \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{699--708}
   (\bibinfo{year}{2016}).
-
-\bibitem{reid2003origin}
-\bibinfo{author}{Reid, A.~H.} \& \bibinfo{author}{Taubenberger, J.~K.}
-\newblock \bibinfo{title}{The origin of the 1918 pandemic influenza virus: a
-  continuing enigma}.
-\newblock \emph{\bibinfo{journal}{Journal of general virology}}
-  \textbf{\bibinfo{volume}{84}}, \bibinfo{pages}{2285--2292}
-  (\bibinfo{year}{2003}).
 
 \bibitem{shao2017evolution}
 \bibinfo{author}{Shao, W.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Goraya,
@@ -166,6 +166,152 @@
 \newblock \emph{\bibinfo{journal}{Vaccine}} \textbf{\bibinfo{volume}{26}},
   \bibinfo{pages}{C8--C14} (\bibinfo{year}{2008}).
 
+\bibitem{huddleston2020integrating}
+\bibinfo{author}{Huddleston, J.} \emph{et~al.}
+\newblock \bibinfo{title}{Integrating genotypes and phenotypes improves
+  long-term forecasts of seasonal influenza a/h3n2 evolution}.
+\newblock \emph{\bibinfo{journal}{Elife}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{e60067} (\bibinfo{year}{2020}).
+
+\bibitem{pmid35926068}
+\bibinfo{author}{Zhao, X.} \emph{et~al.}
+\newblock \bibinfo{title}{{{E}xpanding the tolerance of segmented {I}nfluenza
+  {A} {V}irus genome using a balance compensation strategy}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathog}} \textbf{\bibinfo{volume}{18}},
+  \bibinfo{pages}{e1010756} (\bibinfo{year}{2022}).
+
+\bibitem{pmid34473799}
+\bibinfo{author}{Ganti, K.}, \bibinfo{author}{Han, J.},
+  \bibinfo{author}{Manicassamy, B.} \& \bibinfo{author}{Lowen, A.~C.}
+\newblock \bibinfo{title}{{{R}ab11a mediates cell-cell spread and reassortment
+  of influenza {A} virus genomes via tunneling nanotubes}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathog}} \textbf{\bibinfo{volume}{17}},
+  \bibinfo{pages}{e1009321} (\bibinfo{year}{2021}).
+
+\bibitem{pmid33970958}
+\bibinfo{author}{Han, J.} \emph{et~al.}
+\newblock \bibinfo{title}{{{H}ost factor {R}ab11a is critical for efficient
+  assembly of influenza {A} virus genomic segments}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathog}} \textbf{\bibinfo{volume}{17}},
+  \bibinfo{pages}{e1009517} (\bibinfo{year}{2021}).
+
+\bibitem{pmid32075925}
+\bibinfo{author}{Kandasamy, M.}, \bibinfo{author}{Furlong, K.},
+  \bibinfo{author}{Perez, J.~T.}, \bibinfo{author}{Manicassamy, S.} \&
+  \bibinfo{author}{Manicassamy, B.}
+\newblock \bibinfo{title}{{{S}uppression of {C}ytotoxic {T} {C}ell {F}unctions
+  and {D}ecreased {L}evels of {T}issue-{R}esident {M}emory {T} {C}ells during
+  {H}5{N}1 {I}nfection}}.
+\newblock \emph{\bibinfo{journal}{J Virol}} \textbf{\bibinfo{volume}{94}}
+  (\bibinfo{year}{2020}).
+
+\bibitem{pmid29899269}
+\bibinfo{author}{Li, P.} \emph{et~al.}
+\newblock \bibinfo{title}{{{L}uciferase}}.
+\newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{10}}
+  (\bibinfo{year}{2018}).
+
+\bibitem{pmid28282445}
+\bibinfo{author}{Tundup, S.} \emph{et~al.}
+\newblock \bibinfo{title}{{{E}ndothelial cell tropism is a determinant of
+  {H}5{N}1 pathogenesis in mammalian species}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathog}} \textbf{\bibinfo{volume}{13}},
+  \bibinfo{pages}{e1006270} (\bibinfo{year}{2017}).
+
+\bibitem{pmid23686828}
+\bibinfo{author}{Perez, J.~T.}, \bibinfo{author}{a~Sastre, A.} \&
+  \bibinfo{author}{Manicassamy, B.}
+\newblock \bibinfo{title}{{{I}nsertion of a {G}{F}{P} reporter gene in
+  influenza virus}}.
+\newblock \emph{\bibinfo{journal}{Curr Protoc Microbiol}}
+  \textbf{\bibinfo{volume}{Chapter 15}}, \bibinfo{pages}{1--15}
+  (\bibinfo{year}{2013}).
+
+\bibitem{pmid20534532}
+\bibinfo{author}{Manicassamy, B.} \emph{et~al.}
+\newblock \bibinfo{title}{{{A}nalysis of in vivo dynamics of influenza virus
+  infection in mice using a {G}{F}{P} reporter virus}}.
+\newblock \emph{\bibinfo{journal}{Proc Natl Acad Sci U S A}}
+  \textbf{\bibinfo{volume}{107}}, \bibinfo{pages}{11531--11536}
+  (\bibinfo{year}{2010}).
+
+\bibitem{pmid20126449}
+\bibinfo{author}{Manicassamy, B.} \emph{et~al.}
+\newblock \bibinfo{title}{{{P}rotection of mice against lethal challenge with
+  2009 {H}1{N}1 influenza {A} virus by 1918-like and classical swine {H}1{N}1
+  based vaccines}}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathog}} \textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{e1000745} (\bibinfo{year}{2010}).
+
+\bibitem{pmid23720581}
+\bibinfo{author}{Medina, R.~A.} \emph{et~al.}
+\newblock \bibinfo{title}{{{G}lycosylations in the globular head of the
+  hemagglutinin protein modulate the virulence and antigenic properties of the
+  {H}1{N}1 influenza viruses}}.
+\newblock \emph{\bibinfo{journal}{Sci Transl Med}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{187ra70}
+  (\bibinfo{year}{2013}).
+
+\bibitem{ganti2021rab11a}
+\bibinfo{author}{Ganti, K.}, \bibinfo{author}{Han, J.},
+  \bibinfo{author}{Manicassamy, B.} \& \bibinfo{author}{Lowen, A.~C.}
+\newblock \bibinfo{title}{Rab11a mediates cell-cell spread and reassortment of
+  influenza a virus genomes via tunneling nanotubes}.
+\newblock \emph{\bibinfo{journal}{PLoS Pathogens}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{e1009321}
+  (\bibinfo{year}{2021}).
+
+\bibitem{wittwer2003high}
+\bibinfo{author}{Wittwer, C.~T.}, \bibinfo{author}{Reed, G.~H.},
+  \bibinfo{author}{Gundry, C.~N.}, \bibinfo{author}{Vandersteen, J.~G.} \&
+  \bibinfo{author}{Pryor, R.~J.}
+\newblock \bibinfo{title}{High-resolution genotyping by amplicon melting
+  analysis using lcgreen}.
+\newblock \emph{\bibinfo{journal}{Clinical chemistry}}
+  \textbf{\bibinfo{volume}{49}}, \bibinfo{pages}{853--860}
+  (\bibinfo{year}{2003}).
+
+\bibitem{marshall2013influenza}
+\bibinfo{author}{Marshall, N.}, \bibinfo{author}{Priyamvada, L.},
+  \bibinfo{author}{Ende, Z.}, \bibinfo{author}{Steel, J.} \&
+  \bibinfo{author}{Lowen, A.~C.}
+\newblock \bibinfo{title}{Influenza virus reassortment occurs with high
+  frequency in the absence of segment mismatch}.
+\newblock \emph{\bibinfo{journal}{PLoS pathogens}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{e1003421}
+  (\bibinfo{year}{2013}).
+
+\bibitem{matrosovich1997avian}
+\bibinfo{author}{Matrosovich, M.} \emph{et~al.}
+\newblock \bibinfo{title}{Avian influenza a viruses differ from human viruses
+  by recognition of sialyloligosaccharides and gangliosides and by a higher
+  conservation of the ha receptor-binding site}.
+\newblock \emph{\bibinfo{journal}{Virology}} \textbf{\bibinfo{volume}{233}},
+  \bibinfo{pages}{224--234} (\bibinfo{year}{1997}).
+
+\bibitem{shinya2006influenza}
+\bibinfo{author}{Shinya, K.} \emph{et~al.}
+\newblock \bibinfo{title}{Influenza virus receptors in the human airway}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{440}},
+  \bibinfo{pages}{435--436} (\bibinfo{year}{2006}).
+
+\bibitem{chan2010tropism}
+\bibinfo{author}{Chan, M.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{Tropism and innate host responses of the 2009
+  pandemic h1n1 influenza virus in ex vivo and in vitro cultures of human
+  conjunctiva and respiratory tract}.
+\newblock \emph{\bibinfo{journal}{The American journal of pathology}}
+  \textbf{\bibinfo{volume}{176}}, \bibinfo{pages}{1828--1840}
+  (\bibinfo{year}{2010}).
+
+\bibitem{neumann1999generation}
+\bibinfo{author}{Neumann, G.} \emph{et~al.}
+\newblock \bibinfo{title}{Generation of influenza a viruses entirely from
+  cloned cdnas}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences}} \textbf{\bibinfo{volume}{96}}, \bibinfo{pages}{9345--9350}
+  (\bibinfo{year}{1999}).
+
 \bibitem{goldberger2005genomic}
 \bibinfo{author}{Goldberger, A.~L.} \& \bibinfo{author}{Peng, C.-K.}
 \newblock \bibinfo{title}{Genomic classification using an information-based
@@ -206,20 +352,35 @@
 \newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{459}},
   \bibinfo{pages}{1122--1125} (\bibinfo{year}{2009}).
 
-\bibitem{mollentze2021identifying}
-\bibinfo{author}{Mollentze, N.}, \bibinfo{author}{Babayan, S.~A.} \&
-  \bibinfo{author}{Streicker, D.~G.}
-\newblock \bibinfo{title}{Identifying and prioritizing potential
-  human-infecting viruses from their genome sequences}.
-\newblock \emph{\bibinfo{journal}{PLoS biology}} \textbf{\bibinfo{volume}{19}},
-  \bibinfo{pages}{e3001390} (\bibinfo{year}{2021}).
+\bibitem{rulli2017nexus}
+\bibinfo{author}{Rulli, M.~C.}, \bibinfo{author}{Santini, M.},
+  \bibinfo{author}{Hayman, D.~T.} \& \bibinfo{author}{D’Odorico, P.}
+\newblock \bibinfo{title}{The nexus between forest fragmentation in africa and
+  ebola virus disease outbreaks}.
+\newblock \emph{\bibinfo{journal}{Scientific reports}}
+  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{41613} (\bibinfo{year}{2017}).
 
-\bibitem{maher2021predicting}
-\bibinfo{author}{Maher, M.~C.} \emph{et~al.}
-\newblock \bibinfo{title}{Predicting the mutational drivers of future
-  sars-cov-2 variants of concern}.
-\newblock \emph{\bibinfo{journal}{Science Translational Medicine}}
-  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{eabk3445}
-  (\bibinfo{year}{2022}).
+\bibitem{chua2002anthropogenic}
+\bibinfo{author}{Chua, K.~B.}, \bibinfo{author}{Chua, B.~H.} \&
+  \bibinfo{author}{Wang, C.~W.}
+\newblock \bibinfo{title}{Anthropogenic deforestation, el niiio and the
+  emergence of nipah virus in malaysia}.
+\newblock \emph{\bibinfo{journal}{Malaysian Journal of Pathology}}
+  \textbf{\bibinfo{volume}{24}}, \bibinfo{pages}{15--21}
+  (\bibinfo{year}{2002}).
+
+\bibitem{childs2004zoonotic}
+\bibinfo{author}{Childs, J.}
+\newblock \bibinfo{title}{Zoonotic viruses of wildlife: hither from yon}.
+\newblock In \emph{\bibinfo{booktitle}{Emergence and Control of Zoonotic Viral
+  Encephalitides}}, \bibinfo{pages}{1--11} (\bibinfo{publisher}{Springer},
+  \bibinfo{year}{2004}).
+
+\bibitem{fair2019viral}
+\bibinfo{author}{Fair, J.} \& \bibinfo{author}{Fair, J.}
+\newblock \bibinfo{title}{Viral forecasting, pathogen cataloging, and disease
+  ecosystem mapping: Measuring returns on investments}.
+\newblock \emph{\bibinfo{journal}{Current Topics in Microbiology and
+  Immunology}} \bibinfo{pages}{75--83} (\bibinfo{year}{2019}).
 
 \end{thebibliography}

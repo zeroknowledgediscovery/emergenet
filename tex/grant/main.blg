@@ -1,46 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2021)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
 Database file #1: allbib.bib
-You've used 27 entries,
+Warning--I didn't find a database entry for "REF"
+You've used 47 entries,
             2348 wiz_defined-function locations,
-            1168 strings with 14993 characters,
-and the built_in function-call counts, 11078 in all, are:
-= -- 804
-> -- 272
+            1288 strings with 19982 characters,
+and the built_in function-call counts, 19441 in all, are:
+= -- 1398
+> -- 492
 < -- 0
-+ -- 136
-- -- 68
-* -- 1399
-:= -- 1223
-add.period$ -- 81
-call.type$ -- 27
-change.case$ -- 27
++ -- 246
+- -- 123
+* -- 2444
+:= -- 2153
+add.period$ -- 141
+call.type$ -- 47
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 959
-empty$ -- 1022
-format.name$ -- 92
-if$ -- 2193
+cite$ -- 47
+duplicate$ -- 1705
+empty$ -- 1789
+format.name$ -- 166
+if$ -- 3867
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 228
-newline$ -- 143
-num.names$ -- 27
-pop$ -- 156
+int.to.str$ -- 47
+missing$ -- 400
+newline$ -- 243
+num.names$ -- 47
+pop$ -- 272
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 150
+skip$ -- 285
 stack$ -- 0
-substring$ -- 636
-swap$ -- 979
+substring$ -- 1062
+swap$ -- 1726
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 71
-width$ -- 29
-write$ -- 301
+while$ -- 121
+width$ -- 49
+write$ -- 521
+(There was 1 warning)
