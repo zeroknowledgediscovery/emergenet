@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  21 APR 2023 13:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  24 APR 2023 01:45
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1417,159 +1417,6 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box102
 \algocf@algobox=\box103
 )
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/txfonts.sty
-Package: txfonts 2008/01/22 v3.2.1
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
-LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 21.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  T1/ppl/m/n --> OT1/txr/m/n on input line 21.
-LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 21.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  T1/ppl/b/n --> OT1/txr/m/n on input line 21.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/txr/m/n --> OT1/txr/bx/n on input line 22.
-\symitalic=\mathgroup8
-LaTeX Font Info:    Overwriting symbol font `italic' in version `bold'
-(Font)                  OT1/txr/m/it --> OT1/txr/bx/it on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 29.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  T1/ppl/b/n --> OT1/txr/bx/n on input line 29.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/ppl/b/n --> OT1/txr/bx/n on input line 29.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 30.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  T1/ppl/m/it --> OT1/txr/m/it on input line 30.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/ppl/b/it --> OT1/txr/m/it on input line 30.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/txr/m/it --> OT1/txr/bx/it on input line 31.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 40.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  T1/phv/m/n --> OT1/txss/m/n on input line 40.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/phv/b/n --> OT1/txss/m/n on input line 40.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/txss/m/n --> OT1/txss/b/n on input line 41.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 50.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  T1/pcr/m/n --> OT1/txtt/m/n on input line 50.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/pcr/b/n --> OT1/txtt/m/n on input line 50.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/txtt/m/n --> OT1/txtt/b/n on input line 51.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 58.
-LaTeX Font Info:    Encoding `U' has changed to `OML' for symbol font
-(Font)              `letters' in the math version `normal' on input line 58.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  U/zeur/m/n --> OML/txmi/m/it on input line 58.
-LaTeX Font Info:    Encoding `U' has changed to `OML' for symbol font
-(Font)              `letters' in the math version `bold' on input line 58.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  U/zeur/b/n --> OML/txmi/m/it on input line 58.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/txmi/m/it --> OML/txmi/bx/it on input line 59.
-\symlettersA=\mathgroup9
-LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
-(Font)                  U/txmia/m/it --> U/txmia/bx/it on input line 67.
-LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 70.
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 77.
-LaTeX Font Info:    Encoding `U' has changed to `OMS' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 77.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  U/zeus/m/n --> OMS/txsy/m/n on input line 77.
-LaTeX Font Info:    Encoding `U' has changed to `OMS' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 77.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  U/zeus/b/n --> OMS/txsy/m/n on input line 77.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/txsy/m/n --> OMS/txsy/bx/n on input line 78.
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/txsya/m/n on input line 93.
-LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/txsya/m/n on input line 93.
-LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/txsya/m/n --> U/txsya/bx/n on input line 94.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 102.
-LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/txsyb/m/n on input line 102.
-LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/txsyb/m/n on input line 102.
-LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/txsyb/m/n --> U/txsyb/bx/n on input line 103.
-\symsymbolsC=\mathgroup10
-LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
-(Font)                  U/txsyc/m/n --> U/txsyc/bx/n on input line 113.
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 120.
-LaTeX Font Info:    Encoding `U' has changed to `OMX' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 1
-20.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  U/zeuex/m/n --> OMX/txex/m/n on input line 120.
-LaTeX Font Info:    Encoding `U' has changed to `OMX' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 120
-.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  U/zeuex/m/n --> OMX/txex/m/n on input line 120.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/txex/m/n --> OMX/txex/bx/n on input line 121.
-\symlargesymbolsA=\mathgroup11
-LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
-(Font)                  U/txexa/m/n --> U/txexa/bx/n on input line 129.
-LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 164.
-LaTeX Info: Redefining \not on input line 1043.
-LaTeX Info: Redefining \textsquare on input line 1063.
-LaTeX Info: Redefining \openbox on input line 1064.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 1
-12.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
-File: ot1txr.fd 2000/12/15 v3.1
-))
-(/usr/share/texlive/texmf-dist/tex/latex/concmath/concmath.sty
-Package: concmath 1999/03/10 v2.0b LaTeX package for Concrete math fonts
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 43.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/txr/m/n --> OT1/ccr/m/n on input line 43.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/txr/bx/n --> OT1/ccr/m/n on input line 43.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 44.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/txmi/m/it --> OML/ccm/m/it on input line 44.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/txmi/bx/it --> OML/ccm/m/it on input line 44.
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 45.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/txsy/m/n --> OMS/ccsy/m/n on input line 45.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/txsy/bx/n --> OMS/ccsy/m/n on input line 45.
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 46.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/txex/m/n --> OMX/ccex/m/n on input line 46.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/txex/bx/n --> OMX/ccex/m/n on input line 46.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/ccr/m/n --> OT1/ccr/bx/n on input line 47.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/ccm/m/it --> OML/ccm/b/it on input line 48.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/ccsy/m/n --> OMS/ccsy/b/n on input line 49.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 53.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/txr/bx/n --> OT1/ccr/bx/n on input line 53.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/txr/bx/n --> OT1/ccr/bx/n on input line 53.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 54.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/txr/m/it --> OT1/ccr/m/it on input line 54.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/txr/bx/it --> OT1/ccr/m/it on input line 54.
-)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fi
 llbetween.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillb
@@ -1742,7 +1589,7 @@ Package: calligra 2012/04/10 v1.9 LaTeX package calligra
 )
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
-\symwasy=\mathgroup12
+\symwasy=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
 )
@@ -1750,6 +1597,12 @@ LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 Package: ifsym 2000/04/18 I.Kloeckl
 \c@ifsymcnt=\count475
 ) (./customdefs.tex)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
+6.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count476
@@ -1758,20 +1611,9 @@ File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 66.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-66.
- (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
-File: omltxmi.fd 2000/12/15 v3.1
-)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 66.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
-66.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
-File: omstxsy.fd 2000/12/15 v3.1
-)
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
@@ -1779,62 +1621,14 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 66.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 
-66.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
-File: omxtxex.fd 2000/12/15 v3.1
-)
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 66.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 6
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
-File: utxexa.fd 2000/12/15 v3.1
-)
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <6.02249> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <6.02249> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <8.03> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <8.03> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <9.03374> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <9.03374> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <10.03749> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <10.03749> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <12.045> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <12.045> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <14.05249> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <14.05249> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <20.075> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <20.075> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <22.08249> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <22.08249> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <24.09> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 66.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <24.09> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 66.
 
 -- Lines per column: 56 (approximate, difference = 2.17328pt).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1933,47 +1727,29 @@ your preamble.
 File: fc-english.def 2016/01/12
 )
 LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 66.
-LaTeX Font Info:    Trying to load font information for OT1+ccr on input line 6
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 66
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 66
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/eulervm/uzeur.fd
+File: uzeur.fd 2005/01/11 v4.0 (WaS)
+)
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 66
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/eulervm/uzeus.fd
+File: uzeus.fd 2005/01/11 v4.0 (WaS)
+)
+LaTeX Font Info:    Trying to load font information for U+zeuex on input line 6
 6.
 
-(/usr/share/texlive/texmf-dist/tex/latex/concmath/ot1ccr.fd
-File: ot1ccr.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
-)
-LaTeX Font Info:    Trying to load font information for OML+ccm on input line 6
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/concmath/omlccm.fd
-File: omlccm.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
-)
-LaTeX Font Info:    Trying to load font information for OMS+ccsy on input line 
-66.
-
-(/usr/share/texlive/texmf-dist/tex/latex/concmath/omsccsy.fd
-File: omsccsy.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
-)
-LaTeX Font Info:    Trying to load font information for OMX+ccex on input line 
-66.
-
-(/usr/share/texlive/texmf-dist/tex/latex/concmath/omxccex.fd
-File: omxccex.fd 1999/03/10 v2.0b LaTeX font defs for Concrete math fonts
-)
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <12.045> on input line 66.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <8.43146> on input line 66.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <6.02249> on input line 66.
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 6
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
-File: utxsya.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 6
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
-File: utxsyb.fd 2000/12/15 v3.1
+(/usr/share/texlive/texmf-dist/tex/latex/eulervm/uzeuex.fd
+File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 66
 .
@@ -1981,57 +1757,32 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 66
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 6
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
-File: utxmia.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 6
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
-File: utxsyc.fd 2000/12/15 v3.1
-)
 LaTeX Font Info:    Trying to load font information for U+wasy on input line 66
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-Missing character: There is no ¨ in font xccsy10!
-LaTeX Font Info:    Trying to load font information for OT1+txss on input line 
-66.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 66
+.
 
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txss.fd
-File: ot1txss.fd 2000/12/15 v3.1
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 11.4427pt on input line 66.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.00986pt on input line 66.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 5.72134pt on input line 66.
-LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
-66.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 66
+.
 
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txtt.fd
-File: ot1txtt.fd 2000/12/15 v3.1
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-LaTeX Font Info:    Font shape `OT1/txr/b/sc' in size <14.05249> not available
-(Font)              Font shape `OT1/txr/bx/sc' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <9> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 90.
-LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
-(Font)              scaled to size 8.54997pt on input line 90.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <9> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 105.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 9
+0.
 
-LaTeX Font Info:    Font shape `OT1/txss/b/it' in size <9> not available
-(Font)              Font shape `OT1/txss/b/sl' tried instead on input line 105.
-
-LaTeX Font Info:    Font shape `OT1/txss/b/sl' will be
-(Font)              scaled to size 8.54997pt on input line 105.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12.045> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 109.
  [1{/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 
 pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
@@ -3040,159 +2791,72 @@ ed
 pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
 dmap/pdftex.map): invalid entry for `rtxptmro': SlantFont/ExtendFont can be use
 d only with embedded Type1 fonts
-}] [2]
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <11> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 154.
-LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <11> not available
-(Font)              Font shape `OT1/txr/bx/it' tried instead on input line 154.
+}]
 
-LaTeX Font Info:    Font shape `OT1/txss/b/it' in size <11> not available
-(Font)              Font shape `OT1/txss/b/sl' tried instead on input line 154.
+LaTeX Warning: Reference `figscheme' on page 2 undefined on input line 156.
 
-LaTeX Font Info:    Font shape `OT1/txss/b/sl' will be
-(Font)              scaled to size 10.44997pt on input line 154.
+[2]
+
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 161.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 154.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 162.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 158.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 178.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 158.
-
-
-LaTeX Warning: Reference `tabseq' on page 3 undefined on input line 160.
-
-
-LaTeX Warning: Reference `q-distance' on page 3 undefined on input line 162.
-
-
-LaTeX Warning: Reference `thmbnd' on page 3 undefined on input line 162.
-
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-
-LaTeX Warning: Reference `tabex' on page 3 undefined on input line 162.
-
-
-LaTeX Warning: Reference `tabcor' on page 3 undefined on input line 162.
-
-
-LaTeX Warning: Reference `figsoa' on page 3 undefined on input line 162.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 178.
 
 [3]
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 202.
 
 
-LaTeX Warning: Reference `figscheme' on page 4 undefined on input line 164.
+LaTeX Warning: Reference `irattab' on page 4 undefined on input line 202.
 
 
-LaTeX Warning: Reference `figscheme' on page 4 undefined on input line 164.
+LaTeX Warning: Reference `figirat' on page 4 undefined on input line 202.
 
 
-LaTeX Warning: Reference `figscheme' on page 4 undefined on input line 164.
-
-Missing character: There is no « in font xccsy8!
-Missing character: There is no ½ in font xccsy10!
-Missing character: There is no Û in font xccsy8!
-Missing character: There is no Ý in font xccsy8!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no « in font xccsy8!
-Missing character: There is no ½ in font xccsy10!
-Missing character: There is no Û in font xccsy8!
-Missing character: There is no Ý in font xccsy8!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no « in font xccsy8!
-Missing character: There is no « in font xccsy10!
-Missing character: There is no Û in font xccsy8!
-Missing character: There is no Ý in font xccsy8!
-
-LaTeX Warning: Reference `tabperf' on page 4 undefined on input line 172.
+LaTeX Warning: Reference `figirat' on page 4 undefined on input line 202.
 
 
-LaTeX Warning: Reference `tabrec0' on page 4 undefined on input line 172.
+LaTeX Warning: Reference `figirat' on page 4 undefined on input line 208.
 
 
-LaTeX Warning: Reference `tabrec3' on page 4 undefined on input line 172.
+LaTeX Warning: Reference `figphylo' on page 4 undefined on input line 208.
 
 
-LaTeX Warning: Reference `figseasonal' on page 4 undefined on input line 172.
+LaTeX Warning: Reference `figphylo' on page 4 undefined on input line 208.
 
 
-LaTeX Warning: Reference `figseq' on page 4 undefined on input line 178.
+LaTeX Warning: Reference `highrisktab' on page 4 undefined on input line 208.
 
 
-LaTeX Warning: Reference `figseq' on page 4 undefined on input line 178.
+LaTeX Warning: Reference `figriskyseq' on page 4 undefined on input line 209.
 
 
-LaTeX Warning: Reference `figdom' on page 4 undefined on input line 178.
-
-[4]
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no Û in font xccsy8!
-Missing character: There is no Ý in font xccsy8!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no Û in font xccsy8!
-Missing character: There is no Ý in font xccsy8!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-Missing character: There is no Û in font xccsy8!
-Missing character: There is no Ý in font xccsy8!
-Missing character: There is no ¨ in font xccsy10!
-Missing character: There is no © in font xccsy10!
-
-
-LaTeX Warning: Reference `tabregGLMemergence' on page 5 undefined on input line
- 193.
-
-
-LaTeX Warning: Reference `tabregGLMimpact' on page 5 undefined on input line 19
-3.
-
-
-LaTeX Warning: Reference `figirat' on page 5 undefined on input line 193.
-
-
-LaTeX Warning: Reference `figphylo' on page 5 undefined on input line 193.
-
-
-LaTeX Warning: Reference `figphylo' on page 5 undefined on input line 193.
-
-
-LaTeX Warning: Reference `highrisktab' on page 5 undefined on input line 193.
-
-
-LaTeX Warning: Reference `figriskyseq' on page 5 undefined on input line 194.
-
-
-Overfull \hbox (0.35045pt too wide) in paragraph at lines 193--195
-\OT1/txr/m/n/12.045 and A/swine/Tennessee/ A02524414/2022 (H1N1). Ad-di-tion-al
-ly, A/mink/China/chick em-bryo/2020 (H9N2),
+Overfull \hbox (4.1645pt too wide) in paragraph at lines 207--210
+\OT1/ptm/m/n/12.045 A/Camel/Inner[]Mongolia/XL/2020 (H7N9), A/swine/Indiana/A02
+524710/2020 (H3N2), A/swine/North Car-
  []
 
-[5] (./pagecontrol.tex) (./pagecontrol.tex) [6
+
+Overfull \hbox (50.8752pt too wide) in paragraph at lines 207--210
+\OT1/ptm/m/n/12.045 olina/ A02479173/2020 (H1N1), and A/swine/Tennessee/ A02524
+414/2022 (H1N1). Ad-di-tion-ally, A/mink/China/chick
+ []
+
+[4] (./pagecontrol.tex [5]) (./pagecontrol.tex) [6
 
 
 ] (./pagecontrol.tex [7
 
-] [8
+]
+[8
 
-])
-[9
+]) [9
 
 ] [10
 
@@ -3204,92 +2868,74 @@ ly, A/mink/China/chick em-bryo/2020 (H9N2),
 
 ] [15
 
-] (./Collab_eq.tex)
-(./compute.tex [16
+] [16
 
-]
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.58202pt on input line 22.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 22.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <9> on input line 25.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <6> on input line 25.
-LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <5> on input line 25.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 5.69998pt on input line 25.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 25.
-Missing character: There is no ¨ in font xccsy9!
-Missing character: There is no ¨ in font xccsy10!
- [17]) [18]
-LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
-(Font)              scaled to size 10.44997pt on input line 536.
- [19
+] [17] [18]
+Overfull \hbox (11.35498pt too wide) in paragraph at lines 713--714
+[]\OT1/ptm/b/n/12.045 UV-Spectrophotometers: \OT1/ptm/m/n/12.045 Mea-sure light
+ ab-sorbance, de-ter-mine con-cen-tra-tion and pu-rity of biomolecules. 
+ []
 
-] [20
+[19] [20] [21
 
-] [21
+] [22
+
+] [23
 
 ]
 
 pdfTeX warning: pdflatex (file ./Figures/Polsky-Inventor-Pathway.pdf): PDF incl
 usion: found PDF version <1.6>, but at most version <1.5> allowed
-<Figures/Polsky-Inventor-Pathway.pdf, id=265, 794.97pt x 614.295pt>
+<Figures/Polsky-Inventor-Pathway.pdf, id=308, 794.97pt x 614.295pt>
 File: Figures/Polsky-Inventor-Pathway.pdf Graphic file (type pdf)
 <use Figures/Polsky-Inventor-Pathway.pdf>
 Package pdftex.def Info: Figures/Polsky-Inventor-Pathway.pdf  used on input lin
-e 626.
+e 835.
 (pdftex.def)             Requested size: 521.42671pt x 402.93326pt.
-[22
-
-] [23 <./Figures/Polsky-Inventor-Pathway.pdf, page is rotated 90 degrees>]
 [24
 
-] (./main.bbl [25
+] [25 <./Figures/Polsky-Inventor-Pathway.pdf, page is rotated 90 degrees>]
+[26
+
+] (./main.bbl [27
 
 
-]) [26] (./main.aux)
+]) [28] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BBA1B5E1DFFFF47B874F40C74DA9A125;1045.
+(rerunfilecheck)             Checksum: 8BEF6599316DF8DCA92B37D066DEEE48;2221.
  ) 
 Here is how much of TeX's memory you used:
- 52899 strings out of 478862
- 1157357 string characters out of 5858945
- 1938842 words of memory out of 8000000
- 69358 multiletter control sequences out of 15000+600000
- 490123 words of font info for 218 fonts, out of 8000000 for 9000
+ 52021 strings out of 478862
+ 1146026 string characters out of 5858945
+ 1937457 words of memory out of 8000000
+ 68488 multiletter control sequences out of 15000+600000
+ 498628 words of font info for 215 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 111i,12n,108p,2420b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/ishanu/.te
-xlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccex10.600pk> </home
-/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fonts/xccmi6.600
-pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.
-720pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/concmath-fon
-ts/xccmi8.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour/public/co
-ncmath-fonts/xccsy8.600pk> </home/ishanu/.texlive2020/texmf-var/fonts/pk/ljfour
-/public/concmath-fonts/xccmi10.720pk> </home/ishanu/.texlive2020/texmf-var/font
-s/pk/ljfour/public/concmath-fonts/xccsy10.720pk></usr/share/texlive/texmf-dist/
-fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/txfonts/rtxbi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
-nts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxi.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
-b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (26 pages, 305837 bytes).
+ 111i,12n,108p,2020b,702s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/euler/euex10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/euler/eurm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/euler/eurm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/euler/eusm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
+tic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on main.pdf (28 pages, 328724 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 359 compressed objects within 4 object streams
- 127 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 463 PDF objects out of 1000 (max. 8388607)
+ 389 compressed objects within 4 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 214 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -137,24 +137,24 @@
 \usepackage[linesnumbered,ruled,vlined,noend]{algorithm2e}
 \newcommand{\captionN}[1]{\caption{\color{darkgray} \sffamily \fontsize{9}{10}\selectfont #1  }}
 \newcommand{\btl}{\ \textbf{\small\sffamily bits/letter}}
-\usepackage{txfonts}
+%\usepackage{txfonts}
 %%% \usepackage{ccfonts}
 %%% save defaults
 %\renewcommand{\rmdefault}{phv} % Arial
 %\renewcommand{\sfdefault}{phv} % Arial
-\edef\keptrmdefault{\rmdefault}
-\edef\keptsfdefault{\sfdefault}
-\edef\keptttdefault{\ttdefault}
+%\edef\keptrmdefault{\rmdefault}
+%\edef\keptsfdefault{\sfdefault}
+%\edef\keptttdefault{\ttdefault}
 
 % \usepackage{kerkis}
-\usepackage[OT1]{fontenc}
-\usepackage{concmath}
+%\usepackage[OT1]{fontenc}
+%\usepackage{concmath}
 % \usepackage[T1]{eulervm} 
 % \usepackage[OT1]{fontenc}
 %%% restore defaults
-\edef\rmdefault{\keptrmdefault}
-\edef\sfdefault{\keptsfdefault}
-\edef\ttdefault{\keptttdefault}
+%\edef\rmdefault{\keptrmdefault}
+%\edef\sfdefault{\keptsfdefault}
+%\edef\ttdefault{\keptttdefault}
 \tikzexternalenable
 % ##########################################################
 \tikzfading[name=fade out,
@@ -350,7 +350,7 @@ outer color=transparent!100]
 \renewcommand\subsubsection{\@startsection {subsubsection}{1}{\z@}%
   {0ex \@plus -.5ex \@minus -.2ex}%
   {0.0ex \@plus.5ex}%
-  {\fontsize{9}{9}\selectfont\bfseries\itshape\sffamily\color{darkgray}}}
+  {\bfseries\itshape\sffamily\color{darkgray}}}
 \renewcommand\paragraph{\@startsection {paragraph}{1}{\z@}%
   {-.2ex \@plus -.5ex \@minus -.2ex}%
   {0.0ex \@plus.5ex}%
@@ -486,7 +486,7 @@ outer color=transparent!100]
 \renewcommand\subsubsection{\@startsection {section}{1}{\z@}%
   {-1.5ex \@plus -.5ex \@minus -.2ex}%
   {0.0ex \@plus.5ex}%
-  {\fontsize{9}{9}\selectfont\bfseries\sffamily\color{Red4}}}
+  {\bfseries\sffamily\color{Red4}}}
 \renewcommand\paragraph{\@startsection {section}{1}{\z@}%
   {-.1ex \@plus -.5ex \@minus -.2ex}%
   {0.0ex \@plus.5ex}%
