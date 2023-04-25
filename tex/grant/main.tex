@@ -118,13 +118,13 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 %########################
 \item \textbf{Aim 1: Formulate a novel metric of sequence similarity ( \qdist) that reflects potential of spontaneous jump.} Devise a  biologically meaningful metric for comparing two genomic sequences, that scales with the probability of one sequence spontaneously replicating to give rise to the other in the wild, under a) realistic, b) time-dependent, and c) poorly understood selection pressures. Within this aim, we will deliver the implemented  algorithm  identifying the \qdist metric as function of subtype, gene, region and time, which is demonstrably distinct from the classical edit distance. Since the \qdist  reflects the odds of one sequence mutating  to  another, it is a function of not just how many mutations the two sequences are apart (the edit distance), but also how  specific mutations  incrementally affect fitness, and how possibly non-colocated mutations have  emergent dependencies and compensatory epistatic effects. Without these explicit constraints, assessing a strain-specific jump-likelihood  is open to subjective guesswork (current state-of-art). Our aim here is to show that a  precise probabilistic calculation is theoretically possible and practically feasible, enabling an actionable framework for tracking evolutionary change. The major tasks within this aim are as follows:
-  \begin{inparaenum} \item[\bf T1.1 (\enet Development)] consisting of  sub-tasks: (T1.1.1) Precisely formulate the \enet inference platform, that puts together ML algorithms capturing maximally predictive patterns of change and mutational dependencies, and (T1.1.2) provide uncertainty quantification for the inferred patterns. \item[\bf T1.2 (Sample-complexity Estimation]  Investigate  sample complexity of \enet, $i.e.$, how much data is needed to reliably identify  patterns. \item[\bf T1.3 (Event Timeline Estimation)] comprising 2 subtasks: (T1.3.1) Map mutational change dynamics to ``wall-time'', to  forecast \textit{when} future variants will show up, and (T1.3.2)  computationally validate timeline predictions using records of  past emergence events.
+  \begin{inparaenum} \item[\bf T1.1 (\enet Development)] consisting of  sub-tasks: (T1.1.1) Precisely formulate the \enet inference platform, that puts together ML algorithms capturing maximally predictive patterns of change and mutational dependencies, and (T1.1.2) provide uncertainty quantification for the inferred patterns. \item[\bf T1.2 (Sample-complexity Estimation)]  Investigate  sample complexity of \enet, $i.e.$, how much data is needed to reliably identify  patterns. \item[\bf T1.3 (Event Timeline Estimation)] comprising 2 subtasks: (T1.3.1) Map mutational change dynamics to ``wall-time'', to  forecast \textit{when} future variants will show up, and (T1.3.2)  computationally validate timeline predictions using records of  past emergence events.
     \end{inparaenum}
 %########################
   \item \textbf{Aim 2: Validate \qdist as a similarity metric on  strain space that can identify biologically valid sequence variations.} We aim to show that the \qdist may be used to differentiate between random perturbations in genomic organization (most of which would be deleterious, and not code for a viable protein), and perturbations that are biologically viable. This is a crucial capability of the \enet platform, that woudl make it possible to reliably identify possible future mutations, along with their precisely quantified likelihoods.  We will show via in-vitro experiments, that perturbations predicted using this metric leads to viable and functional proteins. The major tasks within this aim are: \begin{inparaenum} \item[\bf T2.1 (Quantify uncertainties in jump-probabilities)] Refine our preliminary result connecting the \qdist to the probability of spontaneous jump from one strain to another, connecting the inference uncertainty arising possibly from sample size limitations to the uncertainty in the jump probability estimates.  \item[\bf T2.2 (Laboratory Experiments)] Laboratory experiments to show that small \qdist leads to vaiable proteins, and that random perturbations, even with a few edits, causes a dramatic fall in fitness.
     \end{inparaenum} 
 %########################
-  \item \textbf{Aim 3:  Develop  a working implementation of \bnd.} We aim to demonstrate a prototype of the \bnd platform for analyzing \infl strains at scale  for emergence and impact risk. Major tasks are : \begin{inparaenum} \item[\bf T3.1 (IRAT score replication)] Replicate the published IRAT scores, along with uncertainty quantification,  within seconds as a validation result. Key subtasks are: (T3.1.1) Investigate how each of the ten dimensions of IRAT comparison map to our \enet based risk, and  (T3.1.2) Evaluate if the IART scores would change if evaluated at different times $e.g.$ now as opposed to when they were published. \item[T3.2 (\bnd Results for Current/Recent Surveillance Data)] which comprises the subtasks: (T3.2.1) demonstrating we can analyze collected sequences at scale, by enumerating the risk profiles of all sequences collected recently within teh last few years, and any new sequences that continue to be submitted to NCBI and GISAID. And (T3.2..2) set up an automated pipeline that pulls in sequence data of for new submissions, and publish a risk score automatically. We will collate this information in our pipleine to map the global risk, visualizing where and when am emergenc event is likely, and for which strain/subtype/animal hosts.
+  \item \textbf{Aim 3:  Develop  a working implementation of \bnd.} We aim to demonstrate a prototype of the \bnd platform for analyzing \infl strains at scale  for emergence and impact risk. Major tasks are : \begin{inparaenum} \item[\bf T3.1 (IRAT score replication)] Replicate the published IRAT scores, along with uncertainty quantification,  within seconds as a validation result. Key subtasks are: (T3.1.1) Investigate how each of the ten dimensions of IRAT comparison map to our \enet based risk, and  (T3.1.2) Evaluate if the IART scores would change if evaluated at different times $e.g.$ now as opposed to when they were published. \item[T3.2 (\bnd Results for Current/Recent Surveillance Data)] which comprises the subtasks: (T3.2.1) demonstrating we can analyze collected sequences at scale, by enumerating the risk profiles of all sequences collected recently within the last few years, and any new sequences that continue to be submitted to NCBI and GISAID. And (T3.2.2) set up an automated pipeline that pulls in sequence data of for new submissions, and publish a risk score automatically. We will collate this information in our pipleine to map the global risk, visualizing where and when am emergenc event is likely, and for which strain/subtype/animal hosts.
     \end{inparaenum} 
 
   \end{enumerate}
@@ -483,7 +483,77 @@ The Data Management Plan takes into consideration the balance between the value 
 \section*{Technical Abstract}
 % 1 page limit
 
-We plan to distill  evolutionary constraints from  rapidly expanding  databases (GISAID \& NCBI) of $> 10,000$  \hcov sequences, to predict  epitopes and sequences of perturbed fusion proteins expected to emerge in future in the wild. Our central idea in this project  is to model the constraints on the variations of the nucleotide sequences as a virus evolves by inferring a set of inter-dependent predictors known as the  Quasinet or the \qnet. The \qnet framework  is  specifically designed for the analysis of biological sequences at scale, with the  objective of modeling and prediction of dynamics unfolding in ultra-high dimensional sequence spaces. The key idea here is surprisingly simple: \textit{we learn models for predicting the mutational variations at each index of the genomic sequence using other indices  as features. Collectively, these predictors represent the emergent constraints that shape evolutionary changes from selection forces in the wild.}
+
+Influenza A viruses, with their segmented genome and prevalence in animal hosts, have a high pandemic potential due to their ability to recombine genes and emerge as novel human pathogens. Pandemics triggered by animal strains spilling over into humans have occurred multiple times in the past century. Mitigating such risk involves identifying animal strains that may spill over into humans and rapidly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens annually, our ability to reliably and scalably risk-rank individual strains remains limited.
+CDC's current solution to this problem is the Influenza Risk Assessment Tool (IRAT), which is based on subject matter experts scoring  strains of concern based on ten different phenotypic aspects  related to transmission and  pathogenicity, on the basis of  multiple experimental assays,  taking  weeks to months to compile for a single strain. With tens of   thousands of strains being collected annually, this results in  a scalability bottleneck.
+
+
+In this project, we propose developing a platform called BioNORAD, powered by novel pattern discovery algorithms, to automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This platform will provide a less-heuristic, theory-backed, and scalable solution to emergence prediction, enabling preempting strains expected in future human circulation and approximating IRAT scores of non-human strains without experimental assays or SME scoring.
+
+We hypothesize that (1) learning patterns of cross-dependencies across point mutations % in key proteins implicated in viral entry and exit (HA and NA) 
+reveals enough underlying rules of organization of their primary structures to actionably forecast evolutionary trajectories, and (2) current global biosurveillance efforts produce sufficient data for sophisticated machine learning to enable the development of a next-generation, proactive surveillance platform.
+
+As its core insight, our approach seeks to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild, thus preempting strains expected to be in future circulation. To accomplish this, we will learn the complex cross-dependencies that constrain what a ``valid alteration'' of an amino acid (AA) sequence is, by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework, the Emergenet (Enet), will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another.
+We will validate our ability to predict future variations of viral proteins by showing that \enet predicted variants of HA are functional, and represent valid and high fitness perturbations of observed strains.
+
+
+% Classical DNA substitution models or phylogeny inference tools assuming constant species-wise mutational characteristics are not applicable here. Similarly, newer algorithms such as FluLeap, which identifies host tropism and species-level jump-risk, do not allow for strain-specific assessment. The dependencies we expect to uncover are shaped by functional necessities of conserving replicative fitness. Strains must be sufficiently common to be recorded in surveillance, implying that the sequences we train with have high fitness. Lacking kinetic proofreading, Influenza A integrates faulty nucleotides at a relatively high rate during replication. However, few variations are viable, leading to emergent dependencies between such mutations. These fitness constraints are time-varying and can change quickly due to the background strain distribution and the evolution of cytotoxic T lymphocyte epitopes in humans.
+
+% The BioNORAD platform will enable proactive and actionable global surveillance for emerging pandemic threats from Influenza A, thereby protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. It will also enable preemptive action, including the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it can trigger. This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
+
+Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump. Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host. Recent advances in predicting seasonal epidemic strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art. The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+
+The BioNORAD platform's importance to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. Additionally, the platform will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.  The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+
+
+Investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern. By enabling early identification and mitigation of emerging pandemic threats, the platform will protect military personnel and assets, enhance military medical response capabilities, strengthen global health security, reduce economic and operational impacts, and promote interdisciplinary collaboration and innovation.
+
+
+%The BioNORAD project aims to develop a groundbreaking platform to proactively identify  the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending against geospatial threats.  Influenza A, with widespread prevalence in animal hosts, often re-emerge as novel human pathogens, causing multiple pandemics in the last century. 
+% At least four times in the past century, \infl strains spilling over into humans from animal reservoirs have triggered pandemics.
+%One approach to mitigating such risks is to identify animal strains that do not yet circulate in humans but are likely to spill over and  achieve human-to-human transmission capability. Although global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our ability to reliably and scalably risk-rank individual strains remains limited. The BioNORAD platform, powered by novel pattern discovery algorithms,  offers a  scalable solution to emergence prediction, serving a similar function to the strategic goal of NORAD in the context of defending against geospatial pandemic threats.
+
+\clearpage
+
+
+
+% The BioNORAD platform aims to provide a proactive and actionable global surveillance system for emerging pandemic threats from Influenza A, offering significant benefits to military health and the Department of Defense. By enabling early identification and mitigation of emerging pandemic threats, the platform will protect military personnel and assets, enhance military medical response capabilities, strengthen global health security, reduce economic and operational impacts, and promote interdisciplinary collaboration and innovation.
+
+Our approach seeks to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild, thus preempting strains expected to be in future circulation and approximating IRAT scores of non-human strains without detailed experimental assays or SME scoring. To accomplish this, we will learn the complex cross-dependencies that constrain what a "valid alteration" of an amino acid (AA) sequence is, by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework, the Emergenet (Enet), will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another.
+
+
+Additionally, our framework induces a 
+
+Classical DNA substitution models or phylogeny inference tools assuming constant species-wise mutational characteristics are not applicable here. Similarly, newer algorithms such as FluLeap, which identifies host tropism and species-level jump-risk, do not allow for strain-specific assessment. The dependencies we expect to uncover are shaped by functional necessities of conserving replicative fitness. Strains must be sufficiently common to be recorded in surveillance, implying that the sequences we train with have high fitness. Lacking kinetic proofreading, Influenza A integrates faulty nucleotides at a relatively high rate during replication. However, few variations are viable, leading to emergent dependencies between such mutations. These fitness constraints are time-varying and can change quickly due to the background strain distribution and the evolution of cytotoxic T lymphocyte epitopes in humans.
+
+% Our model comprises an interdependent collection of local predictors, each aiming to predict the residue at a particular index using residues at other indices as features. These individual predictors are implemented as conditional inference trees which can be trained with sparse noisy data, and resist over-training. The set of residues acting as features in each predictor is automatically identified, revealing complex relationships that capture the intricate rules guiding evolutionary change.
+
+
+
+This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
+
+% The BioNORAD platform offer a novel  approach to preemptively identify and mitigate pandemic risks by leveraging sophisticated machine learning techniques and rigorous data-driven modeling. By bringing together large-scale sequence data from global surveillance efforts and validating predicted variants of viral proteins through in vivo laboratory experiments, we aim to deliver an actionable and deployable platform that optimally exploits the current biosurveillance capacity, identifying when and where an imminent emergence event is likely and if such novel strains are likely to achieve human-to-human transmission capability.
+
+% In conclusion, the BioNORAD platform has the potential to revolutionize pandemic preparedness and response, providing a powerful tool for predicting and mitigating the emergence of novel strains of Influenza A. The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% {\bf \itshape FY23 PRMRP Portfolio Category: Infectious Diseases $\vert$ FY23 PRMRP Topic: proteomics $\vert$  FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics}
+
+% BioNORAD: Fast Scalable Pandemic Risk Assessment of Influenza Strains Circulating in Non-human Hosts
+
+% We plan to distill  evolutionary constraints from  rapidly expanding  databases (GISAID \& NCBI) of $> 10,000$  \hcov sequences, to predict  epitopes and sequences of perturbed fusion proteins expected to emerge in future in the wild. Our central idea in this project  is to model the constraints on the variations of the nucleotide sequences as a virus evolves by inferring a set of inter-dependent predictors known as the  Quasinet or the \qnet. The \qnet framework  is  specifically designed for the analysis of biological sequences at scale, with the  objective of modeling and prediction of dynamics unfolding in ultra-high dimensional sequence spaces. The key idea here is surprisingly simple: \textit{we learn models for predicting the mutational variations at each index of the genomic sequence using other indices  as features. Collectively, these predictors represent the emergent constraints that shape evolutionary changes from selection forces in the wild.}
 
 \clearpage
 
@@ -495,7 +565,7 @@ We plan to distill  evolutionary constraints from  rapidly expanding  databases 
 
 
 \clearpage
-\limitpages{13}
+\limitpages{12}
 
 \section*{Statement of Work - 04/26/2023}
 % 3 page limit
@@ -518,37 +588,37 @@ Iowa City, IA 52242 \\ Site PI: Balaji Manicassamy }
   \vskip 1em
 
   
-
-\begin{tabular}{|L{3.5in}|C{.75in}|C{.5in}|C{.5in}|}\hline
-\bf Specific Aim 1:  Formulate the \qdist& \bf Timeline (Months)  & \bf Site 1 & \bf Site 2 \\\hline
-\rowcolor{lightgray} Major Task 1 &  & & \\\hline
-Subtask T1.1:  Formulate the \enet inference with UQ & 1-3 & & \\\hline
-Subtask T1.2: Estimate sample complexity of the inference algorithm  & 2-4  & & \\\hline
-  Subtask T1.3:  Map mutations to physical time & 3-6 & \\\hline
-  Milestones Achieved:  \enet software beta release, uncertainty and sample complexity quantified,  & & &\\\hline
- \rowcolor{lightgray} Major Task 2 & & & \\\hline
-Subtask 1 &  & & \\\hline
-Subtask 2 &  & & \\\hline
-  Subtask 3 &  & & \\\hline
-  Milestones Achieved & & & \\\hline 
+\gdef\HCOL{Tomato!50}
+\gdef\MCOL{Lavender!50}
+\begin{tabular}{|L{4.75in}|C{.75in}|C{.5in}|C{.5in}|}\hline
+\rowcolor{\HCOL}\bf Specific Aim 1:  Formulate  sequence similarity metric  \qdist& \bf Timeline (Months)  & \bf Site 1 & \bf Site 2 \\\hline
+\rowcolor{lightgray} Major Task 1.1: \ \enet Development &  & & \\\hline
+Subtask T1.1.1: Precisely formulate the \enet inference platform, that puts together ML algorithms capturing maximally predictive patterns of change and mutational dependencies  & 1-3 & \checkmark& \\\hline
+Subtask T1.1.2: Provide uncertainty quantification for the inferred patterns represented in the \enet models & 2-6  & \checkmark& \\\hline
+  \rowcolor{\MCOL} \bf  Milestones Achieved:  M1)~\enet software beta release M2)~Uncertainty quantification of inferred models  & & &\\\hline
+ \rowcolor{lightgray} Major Task 1.2:  Sample-complexity  for \enet inference  & & & \\\hline
+ \rowcolor{\MCOL} \bf  Milestones Achieved: M3)~Sample-complexity estimates complete & & &\\\hline
+  \rowcolor{lightgray} Major Task 1.3: \  Event Timeline Estimation & & & \\\hline
+Subtask T1.3.1: Map mutational change dynamics to ``wall-time'' to  forecast \textit{when} future variants will show up  & 3-9 &\checkmark & \\\hline
+Subtask T1.3.2: Computationally validate timeline predictions using records of  past emergence events  & 9-12  &\checkmark & \\\hline   \rowcolor{\MCOL} \bf Milestones Achieved: M4)~Software update for timeline estimation released  & & & \\\hline
+ 
 \end{tabular}
 \end{center}
 
 
 \begin{center}
 
-\begin{tabular}{|L{3.5in}|C{.75in}|C{.5in}|C{.5in}|}\hline
-\bf Specific Aim 2 & \bf Timeline (Months)  & \bf Site 1 & \bf Site 2 \\\hline
-\rowcolor{lightgray} Major Task 1 &  & & \\\hline
-Subtask 1 &  & & \\\hline
-Subtask 2 &  & & \\\hline
-  Subtask 3 &  & & \\\hline
-  Milestones Achieved & & & \\\hline
- \rowcolor{lightgray} Major Task 2 & & & \\\hline
-Subtask 1 &  & & \\\hline
-Subtask 2 &  & & \\\hline
-  Subtask 3 &  & & \\\hline
-  Milestones Achieved & & & \\\hline 
+\begin{tabular}{|L{4.75in}|C{.75in}|C{.5in}|C{.5in}|}\hline
+\rowcolor{\HCOL}\bf Specific Aim 2: Validate \qdist as a similarity metric on  strain space identifying biologically valid sequence variations & \bf Timeline (Months)  & \bf Site 1 & \bf Site 2 \\\hline
+\rowcolor{lightgray} Major Task 2.1: Quantify asymmetric transition probabilities between strains &   & & \\\hline
+Subtask 2.1.1 Develop analytical framework to identify probabilistic movement direction between strains & 9-12 &\checkmark & \\\hline
+Subtask 2.1.2 Develop analytics to chart multi-step probabilistic trajectories from observed strains & 12-15 & \checkmark& \\\hline
+  \rowcolor{\MCOL} \bf  Milestones Achieved: M5)~Software update for future trajectory calculation& & & \\\hline
+ \rowcolor{lightgray} Major Task 2: Assessment of fitness potential emerging zoonotic IAV variants in vitro cell culture& & & \\\hline
+Subtask 2.2.1 Shortlist HA variants with maximal emergence probability of H3N2 and H1N1 subtypes &  6-9& \checkmark& \checkmark\\\hline
+Subtask 2.2.2 Generate predicted HA variants using reverse genetics in human lung epithelial cell line (A549) and primary human lung cells  &  9-22& &\checkmark \\\hline
+Subtask 2.2.3 Evaluate generated variants for replicative fitness & 15-24 & & \checkmark\\\hline
+  \rowcolor{\MCOL} \bf  Milestones Achieved: M6) \enet experimental validation complete & & & \\\hline 
 \end{tabular}
 \end{center}
 
@@ -556,20 +626,93 @@ Subtask 2 &  & & \\\hline
 
 \begin{center}
 
-\begin{tabular}{|L{3.5in}|C{.75in}|C{.5in}|C{.5in}|}\hline
-\bf Specific Aim 3 & \bf Timeline (Months)  & \bf Site 1 & \bf Site 2 \\\hline
-\rowcolor{lightgray} Major Task 1 &  & & \\\hline
-Subtask 1 &  & & \\\hline
-Subtask 2 &  & & \\\hline
-  Subtask 3 &  & & \\\hline
-  Milestones Achieved & & & \\\hline
- \rowcolor{lightgray} Major Task 2 & & & \\\hline
-Subtask 1 &  & & \\\hline
-Subtask 2 &  & & \\\hline
-  Subtask 3 &  & & \\\hline
-  Milestones Achieved & & & \\\hline 
+\begin{tabular}{|L{4.75in}|C{.75in}|C{.5in}|C{.5in}|}\hline
+\rowcolor{\HCOL}\bf Specific Aim 3: Develop  a working implementation of \bnd & \bf Timeline (Months)  & \bf Site 1 & \bf Site 2 \\\hline
+\rowcolor{lightgray} Major Task 3.1 IRAT score replication &  & & \\\hline
+Subtask T3.1.1 Investigate how each of the ten dimensions of IRAT comparison map to our \enet based risk& 12-18 &\checkmark & \\\hline
+Subtask T3.1.2 Evaluate sensitivity of  IRAT scores  to risk-assessment timepoint&  15-18&\checkmark & \\\hline
+Subtask T3.1.3 Incorporate event timeline estimation in \bnd prototype to predict time to emergence &  18-24&\checkmark & \\\hline
+  \rowcolor{\MCOL} \bf  Milestones Achieved: M7)~IRAT score-based validation of \bnd prototype & & & \\\hline
+ \rowcolor{lightgray} Major Task 2: Results for Current/Recent Surveillance Data & & & \\\hline
+Subtask T3.2.1 Demonstrate we can analyze collected sequences at scale, by enumerating the risk profiles of all sequences collected recently within teh last few years& 18-24 &\checkmark & \\\hline
+Subtask T3.2.2 Set up an automated pipeline that pulls in sequence data of for new submissions, and publish a risk score automatically& 18-24 &\checkmark & \\\hline
+  \rowcolor{\MCOL} \bf  Milestones Achieved: M8)~Working version of \bnd platform demonstrated M9)~Final project report submitted&  & & \\\hline 
 \end{tabular}
 \end{center}
+
+\section*{Deliverables}
+
+\begin{enumerate} 
+[label=$\square$, leftmargin=0pt,
+labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
+\item \enet software
+\item \bnd implementation
+  \item Experimental protocols for fitness assessment of \enet predicted strains
+\end{enumerate}
+
+
+\section*{Timeline}
+
+
+
+\ganttset{group/.append style={orange},
+milestone/.append style={red},
+progress label node anchor/.append style={text=red}}
+\begin{figure}[!hb]
+  \centering
+  \begin{ganttchart}[%Specs
+    expand chart=.85\textwidth,
+     y unit title=0.5cm,
+     y unit chart=0.7cm,
+     vgrid,hgrid,
+     title height=1,
+%     title/.style={fill=none},
+     title label font=\bfseries\footnotesize,
+     bar/.style={fill=blue},
+     bar height=0.7,
+%   progress label text={},
+     group right shift=0,
+     group top shift=0.7,
+     group height=.3,
+     group peaks width={0.2},
+     inline]{1}{24}
+    %labels
+    \gantttitle{A two-years project}{24}\\  % title 1
+    \gantttitle[]{Year 1}{12}                 % title 2
+    \gantttitle[]{Year 2}{12} \\              
+    \gantttitle{Q1}{3}                      % title 3
+    \gantttitle{Q2}{3}
+    \gantttitle{Q3}{3}
+    \gantttitle{Q4}{3}
+    \gantttitle{Q1}{3}
+    \gantttitle{Q2}{3}
+    \gantttitle{Q3}{3} 
+    \gantttitle{Q4}{3}\\
+    % Setting group if any
+    \ganttgroup[inline=false]{UCM Data Acquisition}{1}{3}\\ 
+    \ganttmilestone[inline=false]{IRB Approval}{2} \\
+    \ganttgroup[inline=false]{SSC Biosample Acquisition}{1}{4}\\ 
+    \ganttbar[progress=50,inline=false]{Biosample sequencing}{4}{18}\\
+ \ganttbar[progress=75,inline=false]{UCM Data Analysis}{3}{12}\\
+    \ganttmilestone[inline=false]{UCM analysis complete}{12} \\
+    \ganttmilestone[inline=false]{Year 1 Report}{12} \\
+    \ganttbar[progress=100,inline=false]{Biosample sequencing}{4}{18}\\
+      \ganttmilestone[inline=false]{Biosample sequencing complete}{18} \\
+   \ganttbar[progress=75,inline=false]{FInal analysis}{12}{24}\\
+     \ganttbar[progress=100,inline=false]{FInal analysis}{12}{24}\\
+    \ganttmilestone[inline=false]{Final Report}{24} \\
+  \end{ganttchart}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -863,28 +1006,31 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 
 \clearpage
 
-\section*{Letters of Organizational Support}
+%\section*{Letters of Organizational Support}
+\includepdf[pages=-]{Figures/LOS-chair.pdf}
 
 \clearpage
 
-\section*{Letters of Collaboration}
-\clearpage
+% \section*{Letters of Collaboration}
+\includepdf[pages=-]{Figures/LOS-Manicassamy.pdf}
 
+
+\clearpage
+\setcounter{subsection}{0}
 \section*{Intellectual and Material Property Plan}
 
 \subsection{Intellectual Property (IP) Ownership and Management}
-The IP ownership and management for the BioNORAD project will be governed by a formal agreement signed by all participating organizations. The agreement will specify the following:
-
+IP ownership \& management for the BioNORAD project will be governed by a formal agreement signed by all participating organizations specifying:
+%
 \begin{enumerate}
     \item Ownership of any existing IP (background IP), such as Chattopadhyay, I. (2022). ``Methods and systems for genomic based prediction of virus mutation'' (Patent No. WO2022108965A1). World Intellectual Property Organization. URL: \url{https://patents.google.com/patent/WO2022108965A1}, will be retained by the originating organization.
     \item New IP generated during the course of the project (foreground IP) will be jointly owned by the participating organizations, with the share of ownership determined by the contribution of each party to the development of the IP.
     \item The participating organizations will identify a designated IP representative who will be responsible for managing IP issues and ensuring compliance with the agreement.
-    \item The IP agreement will include provisions for resolving disputes related to IP ownership and management.
+    \item The  agreement will include provisions for resolving disputes related to IP ownership and management.
 \end{enumerate}
 
 \subsection{Licensing and Commercialization}
 The participating organizations will develop a strategy for licensing and commercializing the foreground IP for the BioNORAD platform, considering the following factors:
-
 \begin{enumerate}
     \item Evaluation of potential markets and applications for the platform, primarily focusing on global health organizations, governments, and pharmaceutical companies.
     \item Identification of potential licensees and strategic partners.
@@ -904,12 +1050,20 @@ The participating organizations will develop a strategy for licensing and commer
     \item \textbf{Management Team}: A strong management team will be assembled to lead the commercialization effort. This team will include individuals with experience in technology development, marketing, sales, and operations, as well as industry-specific expertise in pandemic prevention and response.
     \item \textbf{Significance and Timeline}: The commercialization plan will outline the significance of the BioNORAD platform in addressing the challenges of emerging pandemic threats and the need for proactive measures. A timeline for the development and commercialization of the technology will be provided, along with milestones to track progress and measure success.
 \end{enumerate}
-
-
+\subsection{Intellectual Products Expected}
+\begin{enumerate}
+[label=$\square$, leftmargin=0pt,
+labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.25em,itemindent=1em]\item Software implementations of \enet inference algorithm 
+\item Generation of sequence data from the \enet models specying novel strains expected to arise in future
+\item Patents filed by UChicago
+\end{enumerate}
 \subsection{Inventions and IP Rights at The University of Chicago}
 
-\begin{figure}[!ht]
+\begin{figure}[t]
   \includegraphics[width=\textwidth]{Figures/Polsky-Inventor-Pathway}
+
+  \vspace{-35pt}
+  
   \captionN{Inventor pathway to commercialization at the University of Chicago}\label{figPolsky}
 \end{figure}
 
@@ -917,9 +1071,7 @@ The University of Chicago is committed to the open and timely dissemination of r
 
 While the investigators expect that research tools will be freely shared with the research community, opportunities for technology transfer through commercialization will be explored as appropriate. At the University of Chicago, its Polsky Center for Entrepreneurship and Innovation manages intellectual property (IP). The Polsky Center for Entrepreneurship and Innovation manages all technology transfer operations at the University of Chicago (See Figure~\ref{figPolsky}).
 
-Our Polsky Science and Technology group serves as the central resource for transforming groundbreaking ideas and faculty discoveries into new products, services, and ventures. We have a dedicated team of scientists with deep technical expertise who are exclusively focused on managing intellectual property and negotiating partnerships and licenses for technologies developed by faculty, researchers, and staff. The Polsky Center serves faculty, staff and students by commercializing inventions, ideas and software developed at the University to ensure that new knowledge benefits society. 
-
-Revenues from any commercial licenses will be shared with the inventor and reinvested in the research enterprise.
+Our Polsky Science and Technology group serves as the central resource for transforming groundbreaking ideas and faculty discoveries into new products, services, and ventures. We have a dedicated team of scientists with deep technical expertise who are exclusively focused on managing intellectual property and negotiating partnerships and licenses for technologies developed by faculty, researchers, and staff. The Polsky Center serves faculty, staff and students by commercializing inventions, ideas and software developed at the University to ensure that new knowledge benefits society. Revenues from any commercial licenses will be shared with the inventor and reinvested in the research enterprise.
 
 
 
