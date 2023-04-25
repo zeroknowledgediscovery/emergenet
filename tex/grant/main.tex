@@ -389,6 +389,7 @@ This Data Management Plan adheres to the guidelines set forth in Section 3.c. En
   \centering
 \definecolor{barblue}{RGB}{91,155,213}
 \definecolor{groupblue}{RGB}{0,0,128}
+\bf
 \begin{ganttchart}[
     hgrid,
     vgrid,
@@ -408,7 +409,7 @@ This Data Management Plan adheres to the guidelines set forth in Section 3.c. En
   \ganttbar{Model/Data Submission 2}{2025-04-01}{2025-04-01} \\
   \ganttbar[bar/.append style={fill=yellow}]{Experimental Protocol Sub.}{2024-04-01}{2024-04-01} \\
   \ganttbar[]{Final Software Submission}{2025-04-01}{2025-04-01} \\
-  \ganttbar[bar/.append style={fill=orange}]{Data/Models Submission}{2025-10-01}{2025-10-01} \\
+  \ganttbar[bar/.append style={fill=orange}]{Final Data/Models Submission}{2025-10-01}{2025-10-01} \\
   \ganttlink{elem1}{elem2}
   \ganttlink{elem2}{elem3}
   %\ganttlink{elem3}{elem4}
@@ -482,85 +483,96 @@ The Data Management Plan takes into consideration the balance between the value 
 
 \section*{Technical Abstract}
 % 1 page limit
+This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
 
 
 Influenza A viruses, with their segmented genome and prevalence in animal hosts, have a high pandemic potential due to their ability to recombine genes and emerge as novel human pathogens. Pandemics triggered by animal strains spilling over into humans have occurred multiple times in the past century. Mitigating such risk involves identifying animal strains that may spill over into humans and rapidly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens annually, our ability to reliably and scalably risk-rank individual strains remains limited.
 CDC's current solution to this problem is the Influenza Risk Assessment Tool (IRAT), which is based on subject matter experts scoring  strains of concern based on ten different phenotypic aspects  related to transmission and  pathogenicity, on the basis of  multiple experimental assays,  taking  weeks to months to compile for a single strain. With tens of   thousands of strains being collected annually, this results in  a scalability bottleneck.
 
+Here we propose to develop the BioNORAD platform to proactively identify  the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending the North American airspace. Powered by novel pattern discovery algorithms, our proposed algorithms will automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This platform will provide a less-heuristic, theory-backed, experimentally validated, and scalable solution to emergence prediction, enabling preempting strains expected in future human circulation and approximating IRAT scores of non-human strains without experimental assays or SME scoring. We hypothesize that (1) learning patterns of cross-dependencies across point mutations 
+reveals enough underlying rules of organization of their primary structures to actionably forecast evolutionary trajectories, and (2) current global biosurveillance efforts produce sufficient data for  machine learning to realize  next-generation proactive surveillance analytics.
 
-In this project, we propose developing a platform called BioNORAD, powered by novel pattern discovery algorithms, to automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This platform will provide a less-heuristic, theory-backed, and scalable solution to emergence prediction, enabling preempting strains expected in future human circulation and approximating IRAT scores of non-human strains without experimental assays or SME scoring.
+As its core insight, our approach seeks to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild, thus preempting strains expected to be in future circulation. To accomplish this, we will learn the complex cross-dependencies that constrain what a ``valid alteration'' of an amino acid (AA) sequence is, by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework, the Emergenet (Enet), will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another. We will experimentally validate our ability to predict future variations of viral proteins by showing that \enet predicted variants of HA express correctly and are functional verified via demonstrated cell surface expression,   and thus represent valid  high fitness perturbations of observed strains.
 
-We hypothesize that (1) learning patterns of cross-dependencies across point mutations % in key proteins implicated in viral entry and exit (HA and NA) 
-reveals enough underlying rules of organization of their primary structures to actionably forecast evolutionary trajectories, and (2) current global biosurveillance efforts produce sufficient data for sophisticated machine learning to enable the development of a next-generation, proactive surveillance platform.
-
-As its core insight, our approach seeks to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild, thus preempting strains expected to be in future circulation. To accomplish this, we will learn the complex cross-dependencies that constrain what a ``valid alteration'' of an amino acid (AA) sequence is, by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework, the Emergenet (Enet), will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another.
-We will validate our ability to predict future variations of viral proteins by showing that \enet predicted variants of HA are functional, and represent valid and high fitness perturbations of observed strains.
-
-
-% Classical DNA substitution models or phylogeny inference tools assuming constant species-wise mutational characteristics are not applicable here. Similarly, newer algorithms such as FluLeap, which identifies host tropism and species-level jump-risk, do not allow for strain-specific assessment. The dependencies we expect to uncover are shaped by functional necessities of conserving replicative fitness. Strains must be sufficiently common to be recorded in surveillance, implying that the sequences we train with have high fitness. Lacking kinetic proofreading, Influenza A integrates faulty nucleotides at a relatively high rate during replication. However, few variations are viable, leading to emergent dependencies between such mutations. These fitness constraints are time-varying and can change quickly due to the background strain distribution and the evolution of cytotoxic T lymphocyte epitopes in humans.
-
-% The BioNORAD platform will enable proactive and actionable global surveillance for emerging pandemic threats from Influenza A, thereby protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. It will also enable preemptive action, including the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it can trigger. This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
-
-Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump. Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host. Recent advances in predicting seasonal epidemic strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art. The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump.  Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host.
+Recent advances in predicting seasonal epidemic strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art. The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
 
 The BioNORAD platform's importance to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. Additionally, the platform will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.  The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
-
-
-Investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern. By enabling early identification and mitigation of emerging pandemic threats, the platform will protect military personnel and assets, enhance military medical response capabilities, strengthen global health security, reduce economic and operational impacts, and promote interdisciplinary collaboration and innovation.
-
-
-%The BioNORAD project aims to develop a groundbreaking platform to proactively identify  the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending against geospatial threats.  Influenza A, with widespread prevalence in animal hosts, often re-emerge as novel human pathogens, causing multiple pandemics in the last century. 
-% At least four times in the past century, \infl strains spilling over into humans from animal reservoirs have triggered pandemics.
-%One approach to mitigating such risks is to identify animal strains that do not yet circulate in humans but are likely to spill over and  achieve human-to-human transmission capability. Although global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our ability to reliably and scalably risk-rank individual strains remains limited. The BioNORAD platform, powered by novel pattern discovery algorithms,  offers a  scalable solution to emergence prediction, serving a similar function to the strategic goal of NORAD in the context of defending against geospatial pandemic threats.
-
-\clearpage
-
-
-
-% The BioNORAD platform aims to provide a proactive and actionable global surveillance system for emerging pandemic threats from Influenza A, offering significant benefits to military health and the Department of Defense. By enabling early identification and mitigation of emerging pandemic threats, the platform will protect military personnel and assets, enhance military medical response capabilities, strengthen global health security, reduce economic and operational impacts, and promote interdisciplinary collaboration and innovation.
-
-Our approach seeks to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild, thus preempting strains expected to be in future circulation and approximating IRAT scores of non-human strains without detailed experimental assays or SME scoring. To accomplish this, we will learn the complex cross-dependencies that constrain what a "valid alteration" of an amino acid (AA) sequence is, by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework, the Emergenet (Enet), will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another.
-
-
-Additionally, our framework induces a 
-
-Classical DNA substitution models or phylogeny inference tools assuming constant species-wise mutational characteristics are not applicable here. Similarly, newer algorithms such as FluLeap, which identifies host tropism and species-level jump-risk, do not allow for strain-specific assessment. The dependencies we expect to uncover are shaped by functional necessities of conserving replicative fitness. Strains must be sufficiently common to be recorded in surveillance, implying that the sequences we train with have high fitness. Lacking kinetic proofreading, Influenza A integrates faulty nucleotides at a relatively high rate during replication. However, few variations are viable, leading to emergent dependencies between such mutations. These fitness constraints are time-varying and can change quickly due to the background strain distribution and the evolution of cytotoxic T lymphocyte epitopes in humans.
-
-% Our model comprises an interdependent collection of local predictors, each aiming to predict the residue at a particular index using residues at other indices as features. These individual predictors are implemented as conditional inference trees which can be trained with sparse noisy data, and resist over-training. The set of residues acting as features in each predictor is automatically identified, revealing complex relationships that capture the intricate rules guiding evolutionary change.
-
-
-
-This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
-
-% The BioNORAD platform offer a novel  approach to preemptively identify and mitigate pandemic risks by leveraging sophisticated machine learning techniques and rigorous data-driven modeling. By bringing together large-scale sequence data from global surveillance efforts and validating predicted variants of viral proteins through in vivo laboratory experiments, we aim to deliver an actionable and deployable platform that optimally exploits the current biosurveillance capacity, identifying when and where an imminent emergence event is likely and if such novel strains are likely to achieve human-to-human transmission capability.
-
-% In conclusion, the BioNORAD platform has the potential to revolutionize pandemic preparedness and response, providing a powerful tool for predicting and mitigating the emergence of novel strains of Influenza A. The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% {\bf \itshape FY23 PRMRP Portfolio Category: Infectious Diseases $\vert$ FY23 PRMRP Topic: proteomics $\vert$  FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics}
-
-% BioNORAD: Fast Scalable Pandemic Risk Assessment of Influenza Strains Circulating in Non-human Hosts
-
-% We plan to distill  evolutionary constraints from  rapidly expanding  databases (GISAID \& NCBI) of $> 10,000$  \hcov sequences, to predict  epitopes and sequences of perturbed fusion proteins expected to emerge in future in the wild. Our central idea in this project  is to model the constraints on the variations of the nucleotide sequences as a virus evolves by inferring a set of inter-dependent predictors known as the  Quasinet or the \qnet. The \qnet framework  is  specifically designed for the analysis of biological sequences at scale, with the  objective of modeling and prediction of dynamics unfolding in ultra-high dimensional sequence spaces. The key idea here is surprisingly simple: \textit{we learn models for predicting the mutational variations at each index of the genomic sequence using other indices  as features. Collectively, these predictors represent the emergent constraints that shape evolutionary changes from selection forces in the wild.}
 
 \clearpage
 
 \section*{Lay Abstract}
 % 1 page limit
 
-We plan to distill  evolutionary constraints from  rapidly expanding  databases (GISAID \& NCBI) of $> 10,000$  \hcov sequences, to predict  epitopes and sequences of perturbed fusion proteins expected to emerge in future in the wild. Our central idea in this project  is to model the constraints on the variations of the nucleotide sequences as a virus evolves by inferring a set of inter-dependent predictors known as the  Quasinet or the \qnet. The \qnet framework  is  specifically designed for the analysis of biological sequences at scale, with the  objective of modeling and prediction of dynamics unfolding in ultra-high dimensional sequence spaces. The key idea here is surprisingly simple: \textit{we learn models for predicting the mutational variations at each index of the genomic sequence using other indices  as features. Collectively, these predictors represent the emergent constraints that shape evolutionary changes from selection forces in the wild.}
+Influenza A viruses have the potential to cause pandemics, and the current global surveillance efforts are insufficient to reliably identify and rank strains with high pandemic potential. The current solution to this problem, the Influenza Risk Assessment Tool (IRAT), is slow and cannot keep up with the scale of global biosurveillance efforts.
+
+To address this challenge, we propose to develop the \bnd  platform to proactively identify the risks posed by emerging Influenza A strains with high pandemic potential. The platform will use novel pattern discovery algorithms to automatically parse emergent evolutionary constraints on Influenza A viruses in the wild, and provide a less-heuristic, theory-backed, experimentally validated, and scalable solution to emergence prediction.
+
+The Emergenet algorithm, which forms the core of the BioNORAD platform, is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, enabling an actionable pandemic early warning system. By reliably estimating the non-heuristic numerical probability of a strain giving rise to another strain in the wild, the platform can preempt strains expected to be in future circulation and approximate IRAT scores of non-human strains without experimental assays or subject matter expert scoring. The Emergenet algorithm learns patterns of cross-dependencies across point mutations to reveal underlying rules of organization of the primary structures of viral proteins. The predictive framework will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another. Additionally, we will validate our core algorithm by experimentally validating that predicted vraiations of observed strains and specific genes in the wild express correctly on host cell surfaces and are functional.
+
+Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump. Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host. Recent advances in predicting seasonal epidemic strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans.
+
+The BioNORAD platform’s importance to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. Additionally, the platform will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger.
+
+This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD’s mission in a world where pandemic threats are a growing concern. The platform’s ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+
+The Emergenet algorithm and the BioNORAD platform represent a transformative capability, currently well-beyond the state-of-art, to proactively identify the risks posed by emerging Influenza A strains with high pandemic potential. The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+
+
+
+
+\clearpage
+
+
+Influenza A viruses have caused devastating pandemics in the past and pose a significant threat to public health. One of the biggest challenges in mitigating the risk of future pandemics is the ability to identify animal strains that may spill over into humans and rapidly achieve human-to-human transmission capability. While global surveillance efforts collect wild specimens annually, our ability to reliably and scalably risk-rank individual strains remains limited.
+
+To address this problem, we propose the BioNORAD platform, which will provide a less-heuristic, theory-backed, experimentally validated, and scalable solution to emergence prediction. The platform is powered by novel pattern discovery algorithms that automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This will enable preempting strains expected in future human circulation and approximating risk scores of non-human strains without experimental assays or scoring by subject matter experts.
+
+The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or amino acid substitution or a genealogical tree a priori. It will learn the complex cross-dependencies that constrain what a "valid alteration" of an amino acid sequence is by analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another. We will experimentally validate our ability to predict future variations of viral proteins by showing that Emergenet predicted variants of HA express correctly and are functional verified via demonstrated cell surface expression, and thus represent valid high fitness perturbations of observed strains.
+
+The BioNORAD platform will be critical in identifying the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending the North American airspace. It will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger.
+
+The Emergenet algorithm, at the core of the \bnd platform,  is also able to factor in the evolving host immunity and the current background environment, setting it apart from current state-of-the-art methods and making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security. This cpability  is currently well-beyond the state-of-art and represents a significant innovation in the field of pandemic prediction.
+
+The importance of the BioNORAD platform to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.
+
+The platform will also have applications beyond the military, benefiting global health security by providing early warning of emerging pandemic strains. The Emergenet algorithm's ability to learn from data without assuming a priori models or genealogical trees has the potential to revolutionize pandemic prediction and response. The scalability of the BioNORAD platform also means that it can handle the tens of thousands of strains collected annually, providing a more reliable and effective solution to pandemic risk assessment.
+
+
+In addition to the benefits for DoD, the BioNORAD platform has the potential to impact public health globally. By providing early warning and proactive surveillance for potential pandemic strains of influenza, the platform can help prevent pandemics from occurring, or at least limit their severity. The emergence of novel, virulent strains of influenza is a global health threat that has the potential to cause significant harm and death, as seen in the 1918 Spanish flu pandemic. While there have been significant advances in the understanding of influenza and efforts to prevent pandemics, the threat of emergence remains.
+
+By automating the analysis of influenza strains and predicting their risk of pandemic potential, the BioNORAD platform has the potential to revolutionize our ability to prevent pandemics before they emerge. It is a transformative technology that is urgently needed in a world where pandemics are a growing concern. By providing early warning of emerging strains, the platform can help prevent widespread outbreaks and save lives.
+
+Furthermore, the BioNORAD platform has the potential to enable more proactive vaccination efforts. By identifying animal reservoirs of emerging strains before they jump to humans, public health officials could vaccinate these animals and prevent the emergence of pandemic strains. This proactive approach to vaccination could greatly reduce the risk of pandemics and save lives.
+
+The BioNORAD platform is a collaborative effort between experts in computer science, biology, and epidemiology. This interdisciplinary approach is essential for developing a platform that can effectively address the complex problem of predicting pandemic risk. By bringing together experts from different fields, the platform can take advantage of cutting-edge advances in machine learning, bioinformatics, and epidemiology.
+
+Overall, the BioNORAD platform is an exciting new technology that has the potential to revolutionize our ability to predict and prevent pandemics. By automating the analysis of influenza strains and predicting their risk of pandemic potential, the platform can provide early warning of emerging strains and enable more proactive vaccination efforts. With its potential to impact public health globally, the BioNORAD platform is a vital tool in the fight against emerging infectious diseases.
+
+
+
+
+
+
+
+
+
+
+
+% Our team proposes to develop a new platform called BioNORAD to help identify the risks posed by emerging Influenza A strains with high pandemic potential. This platform will use advanced algorithms to predict the evolutionary pathways of these viruses, enabling us to better understand the risks and take proactive steps to mitigate them.
+
+% Current surveillance efforts rely on subject matter experts to score strains of concern based on ten different phenotypic aspects related to transmission and pathogenicity, a process that can take weeks or months to complete. The Emergenet algorithm that we will be using is the first of its kind to learn an appropriate biologically meaningful comparison metric from data without assuming any model of DNA or AA substitution or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+
+% We will be focusing on two key proteins in the virus, the HA and NA proteins, to better understand how mutations in these proteins can change the risk profile of a given virus. We will also expand our analysis to the complete viral genome, allowing us to understand the full range of possible mutations and how they might impact the virus's behavior.
+
+% By analyzing these mutations and their impact on the virus, we hope to better understand the risks of emerging pandemics and develop proactive strategies for mitigating them. The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data without assuming any model of DNA or AA substitution or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+
+% Overall, our project is an innovative and ambitious effort to better understand the risks posed by emerging pandemics and develop proactive strategies for mitigating them. We believe that our approach has the potential to revolutionize our understanding of these risks and help us better protect the health and safety of people around the world. This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic:
+% proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
+
+
+
+% We plan to distill  evolutionary constraints from  rapidly expanding  databases (GISAID \& NCBI) of $> 10,000$  \hcov sequences, to predict  epitopes and sequences of perturbed fusion proteins expected to emerge in future in the wild. Our central idea in this project  is to model the constraints on the variations of the nucleotide sequences as a virus evolves by inferring a set of inter-dependent predictors known as the  Quasinet or the \qnet. The \qnet framework  is  specifically designed for the analysis of biological sequences at scale, with the  objective of modeling and prediction of dynamics unfolding in ultra-high dimensional sequence spaces. The key idea here is surprisingly simple: \textit{we learn models for predicting the mutational variations at each index of the genomic sequence using other indices  as features. Collectively, these predictors represent the emergent constraints that shape evolutionary changes from selection forces in the wild.}
 
 
 
