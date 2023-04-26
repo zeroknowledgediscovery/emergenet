@@ -1,48 +1,52 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: naturemag.bst
 Database file #1: allbib.bib
-Warning--I didn't find a database entry for "REF"
-You've used 47 entries,
+Warning--entry type for "cdc2021" isn't style-file defined
+--line 1 of file allbib.bib
+Warning--entry type for "dod2020" isn't style-file defined
+--line 9 of file allbib.bib
+Warning--empty journal in chattopadhyay2022emergenet
+You've used 51 entries,
             2348 wiz_defined-function locations,
-            1288 strings with 19982 characters,
-and the built_in function-call counts, 19441 in all, are:
-= -- 1398
-> -- 492
+            1307 strings with 20700 characters,
+and the built_in function-call counts, 20663 in all, are:
+= -- 1478
+> -- 528
 < -- 0
-+ -- 246
-- -- 123
-* -- 2444
-:= -- 2153
-add.period$ -- 141
-call.type$ -- 47
-change.case$ -- 49
++ -- 264
+- -- 132
+* -- 2579
+:= -- 2288
+add.period$ -- 154
+call.type$ -- 51
+change.case$ -- 53
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 1705
-empty$ -- 1789
-format.name$ -- 166
-if$ -- 3867
+cite$ -- 52
+duplicate$ -- 1816
+empty$ -- 1908
+format.name$ -- 178
+if$ -- 4112
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 400
-newline$ -- 243
-num.names$ -- 47
-pop$ -- 272
+int.to.str$ -- 51
+missing$ -- 425
+newline$ -- 264
+num.names$ -- 51
+pop$ -- 312
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 285
+skip$ -- 310
 stack$ -- 0
-substring$ -- 1062
-swap$ -- 1726
+substring$ -- 1084
+swap$ -- 1827
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 121
-width$ -- 49
-write$ -- 521
-(There was 1 warning)
+warning$ -- 1
+while$ -- 127
+width$ -- 53
+write$ -- 564
+(There were 3 warnings)

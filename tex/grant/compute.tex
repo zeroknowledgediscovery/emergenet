@@ -1,56 +1,330 @@
-\section*{Computational Facilities}
+\subsection*{Computational Facilities}
 
 
-The principal investigators have access to extensive computational facilities available at the University of Chicago to carry out the tasks described.
-
+The principal investigator has access to extensive computational facilities available at the University of Chicago to carry out the tasks described.
 
 \textbf{Access to Clinical Data for AI-enabled Analytics:} The ZeD lab (overseen by Professor Chattopadhyay) is housed within the Department of Medicine at the University of Chicago, and has access to the full range of high end computing resources offered by the University of Chicago. In addition, Prof. Chattppadyay's laboratory has access to the HIPAA compliant clinical data warehouse maintained by the Biological Sciences Division as detailed below:
 
-\textbf{The Clinical Research Data Warehouse:} (CRDW) within the Biomedical Sciences Division of the University of Chicago is one of the deepest, richest, and most research-ready data repositories of its kind. Containing more than a decade of University of Chicago medical data, it seamlessly brings together multiple internal and external data sources to provide researchers with access to more than 12 million encounters for 2.3 million patients. The associated diagnoses, labs, medications, and procedures number in the tens of millions each. The CRDW is run on IBM Netezza Pure Data System for Analytics servers, a patented Asymmetric Massively Parallel Processing architecture designed to deliver exceptional query performance and modular scalability on highly complex mixed workloads.
 
-In order to meet the acute need for data related to COVID-19, the CRDW team has constructed three data marts (de-identified, limited, and identified) to provide the most commonly requested data elements for this patient population. The initial instance of the COVID-19 data mart includes de-identified structured data on patient demographics, encounters, diagnoses, labs, medications, flow sheets, and procedures. Additional data will be added based on resource availability and urgency.
 
-\textbf{Cohort Discovery Tool:} The purpose of this tool (SEE Cohorts) is to provide a secure web-based tool for the initial exploration of de-identified data. It allows researchers to search available data, build a cohort of patients, and view actual de-identified data within the interface. The data in SEE Cohorts is refreshed weekly.
 
-\textbf{Research Computing Center:} The University of Chicago Research Computing Center (RCC) provides high-end research computing resources to researchers at the University of Chicago, which include high-performance computing and visualization resources; high-capacity storage and backup; software; high-speed networking; and hosted data sets. Resources are centrally managed by RCC staff who ensure the accessibility, reliability, and security of the compute and storage systems. A high-throughput network connects the Midway Compute Cluster to the UChicago campus network and the public internet through a number of high-bandwidth uplinks. To support data-driven research RCC hosts a number of large datasets to be accessed within the RCC compute environment.
 
-RCC maintains three pools of servers for distributed high-performance computing. Ideal for tightly coupled parallel calculations, tightly-coupled nodes are linked by a fully non-blocking FDR-10 Infiniband interconnect. Loosely-coupled nodes are similar to the tightly-coupled nodes, but are connected with GigE rather than Infiniband and are best suited for high-throughput jobs. Finally,  shared memory nodes contain much larger main memories (up to 1 TB) and are ideal for memory-bound computations. The types of CPU architectures RCC maintains are tabulated in Table~\ref{tabcap}.
 
-\begin{table}
-  \centering
+
+\subsubsection*{Research Computing Center (RCC) at the University of Chicago}
+
+
+The Research Computing Center (RCC) at the University of Chicago is a hub for researchers across various fields, offering advanced computing resources, storage systems, and a wide range of software packages to facilitate high-performance computing. This document provides an extensive overview of the RCC's facilities and capabilities, focusing on the Midway2 supercomputing cluster, storage and backup systems, software, and networking infrastructure.
+
+\paragraph*{Midway2 Supercomputing Cluster}
+
+Midway2 is the second-generation high-performance computing cluster at RCC, replacing the first-generation cluster, Midway, which was decommissioned in 2019. Midway2 comprises a large pool of servers, software, and storage that researchers can utilize to enhance the efficiency and scale of their computational science. The RCC provides resources for distributed computing and shared memory computing, as well as emerging technologies like accelerators and big-data systems.
+
+University of Chicago researchers can access RCC resources for free. To extend RCC resources with additional storage and computation, researchers can refer to the Cluster Partnership Program.
+
+\paragraph*{Cluster Computing Resources}
+
+The RCC maintains three pools of servers for parallel and distributed high-performance computing:
+
+\begin{enumerate}
+\item Tightly-coupled nodes: Ideal for tightly coupled parallel computing tasks, these nodes on Midway2 have a fully non-blocking FDR and EDR Infiniband, providing up to 100Gbps interconnect.
+
+\item  Loosely-coupled nodes: Similar to the tightly-coupled nodes but connected with 40Gbps GigE instead of Infiniband, these nodes are best suited for distributed tasks.
+
+\item Shared memory nodes: These nodes contain much larger main memories (up to 1 TB) and are ideal for memory-bound tasks.
+
+\end{enumerate}
+RCC maintains Intel Broadwell (28 cores @ 2.4 GHz with 64 GB memory per node) and Intel Skylake (40 cores @ 2.4 GHz with 96 GB memory per node) CPU architectures.
+
+RCC also maintains specialty nodes, such as large shared memory nodes with up to 1TB of memory per node and 16, 28, or 32 Intel CPU cores. At the time of writing, Midway2 contains a total of 16,016 cores across 572 nodes and 2.2 PB of storage.
+
+\paragraph*{Emerging Technology}
+
+RCC’s emerging technology resources allow researchers to be at the cutting edge of scientific computing. These include:
+
+\begin{enumerate}
+\item  Hadoop: A framework for large-scale data processing based on Google’s paper and initially developed at Yahoo. Researchers can experiment with RCC's Hadoop infrastructure to become familiar with big data techniques.
+
+\item  GPU Computing: Scientific computing on graphics cards can unlock even greater amounts of parallelism from code. GPU nodes on Midway each have four Nvidia K80 accelerator cards and are integrated into the Infiniband network.
+\end{enumerate}
+
+\paragraph*{Storage and Backup}
+
+RCC hosts and maintains various storage systems, including persistent high-capacity storage that can be shared among a research group or remain private to each individual user, and high-performance storage for temporarily staging and quickly accessing data.
+
+\paragraph*{Persistent and High-Capacity Storage}
+\begin{enumerate}
+
+\item  Home Directory: Each RCC user has a home directory for storing small, frequently used items such as source code, binaries, and scripts. The home directory is only accessible by its owner and is suitable for storing files that do not need to be shared with others. Data in the home directory can be accessed from Midway and remotely via different protocols.
+
+\item  Project Space: Principal investigators can request a project space for their research group. These directories are used for longer-term storage of data/files shared by members of a research group/project and are accessible from all RCC compute systems and remotely.
+\end{enumerate}
+
+\paragraph*{High-Performance Scratch Space}
+
+ScratchSpace: Hosted on RCC's high-performance storage system, scratch space is intended for staging data required/generated by computational processes running on the cluster. Unlike home and project directories, scratch space is neither snapshotted nor backed up and may be periodically purged. Users are responsible for ensuring any important data in the scratch space is replicated in a location providing persistent storage, such as project or home directories.
+
+\paragraph*{Backup and Data Recovery}
+\begin{enumerate}
+
+\item  Filesystem Snapshots: Automated snapshots of home, project, and cds directories are available for recovering data in case of accidental file deletion or other problems. Typically, 7 daily and 4 weekly snapshots are available. However, RCC may reduce the number of snapshots during periods of high space usage.
+
+\item  Tape Backup: Nightly backups to a tape machine located in a different data center safeguard against hardware failure or disasters. These backups are intended for disaster recovery only, and users should rely on filesystem snapshots for regular data recovery. Users should also avoid using special characters in filenames, as they are not supported by the backup system.
+\end{enumerate}
+
+\paragraph*{Software}
+
+RCC installs, configures, and maintains hundreds of software packages on the Midway cluster. Some of the key software packages include:
+\begin{enumerate}
+
+\item  Compilers: GNU and Intel C/C++/Fortran compiler suites, Nvidia's CUDA compiler for GPU computing, and compilers for Java, Julia, Go, and Haskell.
+
+\item  Interactive programming environments: Open-source and commercial programming environments like Python, MATLAB, Mathematica, Stata, and R. These environments often include pre-installed libraries and packages.
+
+\item  Data processing tools: Programs for dealing with large-scale data formats (HDF5 and NetCDF), data-movement programs (Globus), and database software (PostgreSQL and Hadoop).
+
+\item  Numerical libraries: Intel's Math Kernel Library (MKL) and OpenBLAS, the GNU Scientific Library (GSL), and FFTW (a Fourier transform library).
+
+\item  Community codes: Commonly-used scientific software such as LAMMPS, Gromacs, YT, lfrit, QIIME, and genetic analysis programs like SAMtools, Bowtie, BLAST, GATK, PLINK, and TopHat.
+\end{enumerate}
+
+RCC can build and install open-source software upon request and help with negotiating licensing agreements, purchasing commercial software, or migrating purchased commercial software to RCC systems.
+
+\paragraph*{Networking}
+
+RCC's Midway supercomputing cluster is connected to the University of Chicago network backbone through a 10 Gbps network uplink. The university network connects to Internet2 at 10 Gbps and has 10 Gbps connections to other commercial networks. All Midway file transfer nodes and login nodes uplink through the Midway switch at 20 Gbps to the University of Chicago campus network backbone.
+
+The research networks at the University of Chicago are deployed at two campus core distribution points, connecting via two 10-Gigabit Ethernet circuits to MREN and the CIC OmniPop. The connectivity provides the university with flexibility and capacity to connect to other institutions and share research data and resources.
+
+The University of Chicago has built a Network infrastructure to establish a Science DMZ, which is distinct from the general-purpose campus network and purpose-built for data-intensive science. The Science DMZ includes support for virtual circuits, software-defined networking, and 100 gigabit Ethernet. RCC compute resources are now connected with a 40 Gbps Ethernet connection to the UChicago Science DMZ, and tests are being performed to ensure proper network traffic segregation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% % \textbf{The Clinical Research Data Warehouse:} (CRDW) within the Biomedical Sciences Division of the University of Chicago is one of the deepest, richest, and most research-ready data repositories of its kind. Containing more than a decade of University of Chicago medical data, it seamlessly brings together multiple internal and external data sources to provide researchers with access to more than 12 million encounters for 2.3 million patients. The associated diagnoses, labs, medications, and procedures number in the tens of millions each. The CRDW is run on IBM Netezza Pure Data System for Analytics servers, a patented Asymmetric Massively Parallel Processing architecture designed to deliver exceptional query performance and modular scalability on highly complex mixed workloads.
+
+% % In order to meet the acute need for data related to COVID-19, the CRDW team has constructed three data marts (de-identified, limited, and identified) to provide the most commonly requested data elements for this patient population. The initial instance of the COVID-19 data mart includes de-identified structured data on patient demographics, encounters, diagnoses, labs, medications, flow sheets, and procedures. Additional data will be added based on resource availability and urgency.
+
+% % \textbf{Cohort Discovery Tool:} The purpose of this tool (SEE Cohorts) is to provide a secure web-based tool for the initial exploration of de-identified data. It allows researchers to search available data, build a cohort of patients, and view actual de-identified data within the interface. The data in SEE Cohorts is refreshed weekly.
+% \section{Research Computing Center (RCC) at the University of Chicago}
+
+
+% \section{Research Computing Center Facilities and Capabilities}
+
+% \subsection{High-Performance Computing Environment}
+
+% Midway2, a professionally-managed high-performance computing cluster, forms the second generation core of the Research Computing Center's (RCC) advanced computational infrastructure. The first generation cluster, Midway, was decommissioned at the beginning of 2019. Midway2 includes a large pool of servers, software, and storage that researchers can utilize to increase the efficiency and scale of their computational science. The RCC provides resources for distributed computing and shared memory computing, as well as emerging technologies including accelerators and big-data systems.
+
+% \subsection{Storage and Backup}
+
+% The RCC hosts and maintains a number of storage systems, providing both persistent high-capacity storage and high-performance storage for temporary data staging and quick access. Storage is available through the allocation request process and can be augmented through the Cluster Partnership Program.
+
+% \subsubsection{Home Directory}
+
+% Each RCC user has a home directory for storing small, frequently used items such as source code, binaries, and scripts. By default, a home directory is only accessible by its owner and is suitable for storing files that do not need to be shared with others.
+
+% \subsubsection{Project Space}
+
+% Principal investigators may request a project space for their research group. These directories are generally used for longer-term storage of data/files which are shared by members of a research group/project and are accessible from all RCC compute systems as well as remotely.
+
+% \subsubsection{Scratch Space}
+
+% Hosted on RCC's high-performance storage system, scratch space is intended for staging data required/generated by computational processes running on the cluster. Unlike home and project directories, scratch space is neither snapshotted nor backed up and may be periodically purged. Users are responsible for ensuring any important data in the scratch space is replicated in a location providing persistent storage, such as project or home directories.
+
+% \subsubsection{Backup and Data Recovery}
+
+% \paragraph{Filesystem Snapshots}
+
+% Automated snapshots of home, project, and cds directories are available for recovering data in case of accidental file deletion or other problems. Typically, 7 daily and 4 weekly snapshots are available. However, RCC may reduce the number of snapshots during periods of high space usage.
+
+% \paragraph{Tape Backup}
+
+% Nightly backups to a tape machine located in a different data center safeguard against hardware failure or disasters. These backups are intended for disaster recovery only, and users should rely on filesystem snapshots for regular data recovery. Users should also avoid using special characters in filenames, as they are not supported by the backup system.
+
+% \subsection{Software}
+
+% RCC installs, configures, and maintains hundreds of software packages on the Midway cluster. Some of the key software packages include:
+
+% \begin{itemize}
+% \item Compilers: GNU and Intel C/C++/Fortran compiler suites, Nvidia's CUDA compiler for GPU computing, and compilers for Java, Julia, Go, and Haskell.
+% \item Interactive programming environments: Open-source and commercial programming environments like Python, MATLAB, Mathematica, Stata, and R. These environments often include pre-installed libraries and packages.
+% \item Data processing tools: Programs for dealing with large-scale data formats (HDF5 and NetCDF), data-movement programs (Globus), and database software (PostgreSQL and Hadoop).
+% \item Numerical libraries: Intel's Math Kernel Library (MKL) and OpenBLAS, the GNU Scientific Library (GSL), and FFTW (a Fourier transform library).
+% \item Community codes: Commonly-used scientific software such as LAMMPS, Gromacs, YT, lfrit, QIIME, and genetic analysis programs like SAMtools, Bowtie, BLAST, GATK, PLINK, and TopHat.
+
+% \end{itemize}
+
+% Upon request, RCC can build and install open-source software. They can also help with negotiating licensing agreements and purchasing commercial software or migrating purchased commercial software to their systems.
+
+% \subsection{HPC Resources}
+
+% \subsubsection{Cluster Computing Resources}
+
+% RCC maintains three pools of servers for parallel and distributed high-performance computing. Tightly coupled nodes on Midway2 have a fully non-blocking FDR and EDR Infiniband, providing up to 100Gbps interconnect, and are ideal for tightly coupled parallel computing tasks. Loosely-coupled nodes are connected with 40Gbps GigE rather than Infiniband and are best suited for distributed tasks. Shared memory nodes contain much larger main memories (up to 1 TB) and are ideal for memory-bound tasks.
+
+% The CPU architectures available at RCC include:
+
+% \begin{itemize}
+% \item Intel Broadwell—28 cores @ 2.4 GHz with 64 GB memory per node
+% \item Intel Skylake—40 cores @ 2.4 GHz with 96 GB memory per node
+% \end{itemize}
+
+% \subsubsection{Specialty Nodes}
+
+% RCC maintains large shared memory nodes with up to 1TB of memory per node and either 16, 28, or 32 Intel CPU cores. Midway2 has a total of 16,016 cores across 572 nodes and 2.2 PB of storage.
+
+% \subsubsection{Emerging Technology}
+
+% RCC's emerging technology resources include Hadoop infrastructure for large-scale data processing and GPU computing. GPU nodes on Midway each have 4 Nvidia K80 accelerator cards and are integrated into the Infiniband network.
+
+% \subsection{Networking}
+
+% Network and inter-network infrastructure is critical for high-performance data-intensive research. RCC continually collaborates with the University of Chicago's IT Services office to ensure the highest levels of network connectivity to its resources.
+
+% \subsubsection{Network Connectivity}
+
+% RCC's Midway supercomputing cluster is connected to the University of Chicago network backbone through a 10 Gbps network uplink. The University of Chicago network connects to Internet2 at 10 Gbps and has 10 Gbps connections to other commercial networks. All Midway file transfer nodes and login nodes are uplinking through the Midway switch at 20 Gb to the University of Chicago campus network backbone.
+
+% \subsubsection{Research Networks}
+
+% The research networks at the University of Chicago are deployed at the two campus core distribution points, connecting via two 10-Gigabit Ethernet circuits to MREN and the CIC OmniPop. This connectivity provides the University with great flexibility and capacity to connect to other institutions and share research data and resources.
+
+% \subsubsection{Science DMZ}
+
+% The University of Chicago has built a Network infrastructure to establish a Science DMZ, which is distinct from the general-purpose campus network and purpose-built for data-intensive science. This Science DMZ includes support for virtual circuits, software-defined networking, and 100 gigabit Ethernet. The RCC compute resources are now connected with a 40 Gbps Ethernet connection to the UChicago Science DMZ, and tests are being performed to ensure proper network traffic segregation. The RCC has seen sustained real-world file transfers to long-distance Internet2 locations exceeding 3 Gb/s.
+
+
+
+
+
+
+
+
+
+
+
+
+% % The Research Computing Center (RCC) at the University of Chicago provides a variety of high-performance computing (HPC) systems for researchers across the university. These systems are used for a wide range of applications, including scientific simulations, data analysis, and machine learning.
+
+% % \subsection{HPC Systems}
+
+% % The RCC's HPC systems are based on the latest technologies and are designed to provide researchers with the performance and scalability they need to conduct their research. The systems are also highly reliable and are available 24/7.
+
+% % The RCC's HPC systems are available to all researchers at the University of Chicago. To access the systems, researchers must create an account and submit a job request. The RCC staff will then review the job request and, if approved, will submit the job to the appropriate system.
+
+% % Here is a more detailed description of the RCC's HPC systems:
+
+% % \begin{table}[h]
+% % \centering
+% % \begin{tabular}{|l|l|l|l|l|}
+% % \hline
+% % \textbf{System} & \textbf{Type} & \textbf{Nodes} & \textbf{Processors per Node} & \textbf{Memory per Node} \\ \hline
+% % Midway2         & Cluster       & 2,000+         & 2 x 16-core Intel Xeon E5-2697 v4 & 64GB                    \\ \hline
+% % Midway3         & Cluster       & 100            & 2 x 12-core Intel Xeon E5-2683 v4 & 64GB                    \\ \hline
+% % Beagle3         & Cluster       & Unknown        & Unknown                          & Unknown                 \\ \hline
+% % DaLI            & Cluster       & Unknown        & Unknown                          & Unknown                 \\ \hline
+% % MidwaySSD       & Storage       & Unknown        & Unknown                          & Unknown                 \\ \hline
+% % \end{tabular}
+% % \caption{RCC's HPC Systems}
+% % \end{table}
+
+% % Midway2 is the RCC's primary HPC system, while Midway3 is the newest system and is designed for researchers who need a more powerful system. In addition to Midway2 and Midway3, the RCC also provides access to other HPC systems such as Beagle3, DaLI, and MidwaySSD.
+
+% % \subsection{Storage Systems}
+
+% % The RCC hosts and maintains a number of storage systems. RCC users have access to both persistent high-capacity storage that can be shared among a research group or remain private to each individual user and to high-performance storage when data needs to be temporarily staged and accessed quickly.
+
+% % Here is a more detailed description of the RCC's storage systems:
+
+% % \begin{table}[h]
+% % \centering
+% % \begin{tabular}{|l|l|l|}
+% % \hline
+% % \textbf{System} & \textbf{Type} & \textbf{Features}                              \\ \hline
+% % Home Directory  & Persistent    & Accessible by owner only                       \\ \hline
+% % Project Space   & Persistent    & Longer-term storage for shared data/files      \\ \hline
+% % Scratch Space   & High-Performance & Used for staging data for computational processes \\ \hline
+% % \end{tabular}
+% % \caption{RCC's Storage Systems}
+% % \end{table}
+
+% % \subsection{Software}
+
+% % Quality software is integral to effective high-performance computing. The Research Computing Center (RCC) installs, configures, and maintains hundreds of software packages on the RCC cluster, Midway.
+
+% % The RCC actively maintains many software packages, including compilers
+
+
+
+% % \textbf{Research Computing Center:} The University of Chicago Research Computing Center (RCC) provides high-end research computing resources to researchers at the University of Chicago, which include high-performance computing and visualization resources; high-capacity storage and backup; software; high-speed networking; and hosted data sets. Resources are centrally managed by RCC staff who ensure the accessibility, reliability, and security of the compute and storage systems. A high-throughput network connects the Midway Compute Cluster to the UChicago campus network and the public internet through a number of high-bandwidth uplinks. To support data-driven research RCC hosts a number of large datasets to be accessed within the RCC compute environment.
+
+% % RCC maintains three pools of servers for distributed high-performance computing. Ideal for tightly coupled parallel calculations, tightly-coupled nodes are linked by a fully non-blocking FDR-10 Infiniband interconnect. Loosely-coupled nodes are similar to the tightly-coupled nodes, but are connected with GigE rather than Infiniband and are best suited for high-throughput jobs. Finally,  shared memory nodes contain much larger main memories (up to 1 TB) and are ideal for memory-bound computations. The types of CPU architectures RCC maintains are tabulated in Table~\ref{tabcap}.
+
+% % \begin{table}[!ht]
+% %   \centering
   
-\captionN{University of Chicago Research Computing Center Capabilities Summary}\label{tabcap}
-\setlength{\arrayrulewidth}{1pt}
-\sffamily\fontsize{9}{9}\selectfont
-\begin{tabular}{||C{.8in}|c|R{1.85in}|R{.5in}|c||}\hline
-\rowcolor{SeaGreen1}Cluster	&Partition&	Compute cores (CPUs)&	Memory	&Other configuration details\\\hline
-midway1	&westmere&	12 x Intel X5675 3.07 GHz&	24 GB	& \\\hline
- 	&sandyb	&16 x Intel E5-2670 2.6GHz&	32 GB	& \\\hline
- &	bigmem&	16 x Intel E5-2670 2.6GHz&	256 GB	& \\\hline
- 	& &	32 x Intel E7-8837 2.67GHz&	1 TB&	 \\\hline
- 	&gpu&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Nvidia M2090 or K20 GPU\\\hline
- &	 &	20 x Intel E5-2680v2 2.8GHz&	64 GB&	2 x Nvidia K40 GPU\\\hline
- &	mic&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Intel Xeon Phi 5100 coprocessor\\\hline
- &	amd&	64 x AMD Opteron 6386 SE&	256 GB&	 \\\hline
- &	ivyb&	20 x Intel E5-2680v2 2.8GHz&	64 GB&	 \\\hline
-midway2&	broadwl&	28 x Intel E5-2680v4 2.4GHz&	64 GB&	 \\\hline
- &	bigmem2&	28 x Intel E5-2680v4 @ 2.4 GHz&	512 GB	 &\\\hline
- 	&gpu2&	28 x Intel E5-2680v4 @ 2.4 GHz&	64 GB&	4 x Nvidia K80 GPU\\\hline
-\end{tabular}
-\end{table}
+% % \captionN{University of Chicago Research Computing Center Capabilities Summary}\label{tabcap}
+% % \setlength{\arrayrulewidth}{1pt}
+% % \sffamily\fontsize{9}{9}\selectfont
+% % \begin{tabular}{||C{.8in}|c|R{1.85in}|R{.5in}|c||}\hline
+% % \rowcolor{SeaGreen1}Cluster	&Partition&	Compute cores (CPUs)&	Memory	&Other configuration details\\\hline
+% % midway1	&westmere&	12 x Intel X5675 3.07 GHz&	24 GB	& \\\hline
+% %  	&sandyb	&16 x Intel E5-2670 2.6GHz&	32 GB	& \\\hline
+% %  &	bigmem&	16 x Intel E5-2670 2.6GHz&	256 GB	& \\\hline
+% %  	& &	32 x Intel E7-8837 2.67GHz&	1 TB&	 \\\hline
+% %  	&gpu&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Nvidia M2090 or K20 GPU\\\hline
+% %  &	 &	20 x Intel E5-2680v2 2.8GHz&	64 GB&	2 x Nvidia K40 GPU\\\hline
+% %  &	mic&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Intel Xeon Phi 5100 coprocessor\\\hline
+% %  &	amd&	64 x AMD Opteron 6386 SE&	256 GB&	 \\\hline
+% %  &	ivyb&	20 x Intel E5-2680v2 2.8GHz&	64 GB&	 \\\hline
+% % midway2&	broadwl&	28 x Intel E5-2680v4 2.4GHz&	64 GB&	 \\\hline
+% %  &	bigmem2&	28 x Intel E5-2680v4 @ 2.4 GHz&	512 GB	 &\\\hline
+% %  	&gpu2&	28 x Intel E5-2680v4 @ 2.4 GHz&	64 GB&	4 x Nvidia K80 GPU\\\hline
+% % \end{tabular}
+% % \end{table}
 
 
-RCC also maintains a number of specialty nodes: 
-\begin{itemize}
-\item \textit{\color{gray} Large shared memory nodes} - up to 1 TB of memory per node with either 16 or 32 Intel CPU cores. Midway is always expanding, but at time of writing RCC contains a total of 13,500 cores across 792 nodes, and 1.5 PB of storage.
-\item  \textit{\color{gray}  Hadoop:} Originally developed at Google, Hadoop is a framework for large-scale data processing.   \item  \textit{\color{gray}  GPU Computing:} Scientific computing on graphics cards can unlock even greater amounts of parallelism from code. RCC GPU nodes each include two Nvidia Tesla-class accelerator cards and are integrated in the Infiniband network. RCC currently provides access to Fermi-generation M2090 GPU devices and Kepler-generation K20 and K40 devices.  \item  \textit{\color{gray}  Xeon Phi:} The Many Integrated-Core architecture (MIC) is Intel's newest approach to manycore computing. Researchers can experiment with these accelerators by using  MIC nodes, each of which have two Xeon Phi cards, and are integrated into the Infiniband network.
-\end{itemize}
+% % RCC also maintains a number of specialty nodes: 
+% % \begin{itemize}
+% % \item \textit{\color{gray} Large shared memory nodes} - up to 1 TB of memory per node with either 16 or 32 Intel CPU cores. Midway is always expanding, but at time of writing RCC contains a total of 13,500 cores across 792 nodes, and 1.5 PB of storage.
+% % \item  \textit{\color{gray}  Hadoop:} Originally developed at Google, Hadoop is a framework for large-scale data processing.   \item  \textit{\color{gray}  GPU Computing:} Scientific computing on graphics cards can unlock even greater amounts of parallelism from code. RCC GPU nodes each include two Nvidia Tesla-class accelerator cards and are integrated in the Infiniband network. RCC currently provides access to Fermi-generation M2090 GPU devices and Kepler-generation K20 and K40 devices.  \item  \textit{\color{gray}  Xeon Phi:} The Many Integrated-Core architecture (MIC) is Intel's newest approach to manycore computing. Researchers can experiment with these accelerators by using  MIC nodes, each of which have two Xeon Phi cards, and are integrated into the Infiniband network.
+% % \end{itemize}
 
-\textbf{Persistent and High-Capacity Storage.} Storage is accessible from all compute nodes on Midway1 and Midway2 as well as outside of the RCC compute environment through various mechanisms, such as mounting directories as network drives on your personal computer or accessing data as a Globus Online endpoint (at the time of this writing, Globus Online is supported on Midway1). RCC takes snapshots of all home directories (users' private storage space) at regular intervals so that if any data is lost or corrupted, it can easily be recovered. RCC maintains GPFS Filesystem Snapshots for quick and easy data recovery.  In the event of catastrophic storage failure, archival tape backups can be used to recover data from persistent storage locations on Midway. Automated snapshots of the home and project directories are available in case of accidental file deletion or other problems. Currently snapshots are available for these time periods: 1) 7 daily snapshots, 2) 4 weekly snapshots.
+% % \textbf{Persistent and High-Capacity Storage.} Storage is accessible from all compute nodes on Midway1 and Midway2 as well as outside of the RCC compute environment through various mechanisms, such as mounting directories as network drives on your personal computer or accessing data as a Globus Online endpoint (at the time of this writing, Globus Online is supported on Midway1). RCC takes snapshots of all home directories (users' private storage space) at regular intervals so that if any data is lost or corrupted, it can easily be recovered. RCC maintains GPFS Filesystem Snapshots for quick and easy data recovery.  In the event of catastrophic storage failure, archival tape backups can be used to recover data from persistent storage locations on Midway. Automated snapshots of the home and project directories are available in case of accidental file deletion or other problems. Currently snapshots are available for these time periods: 1) 7 daily snapshots, 2) 4 weekly snapshots.
 
-\textbf{Tape Backups.} Backups are performed on a nightly basis to a tape machine located in a different data center than the main storage system. These backups are meant to safeguard against events such as hardware failure or disasters that could result in the complete loss of RCC’s primary data center.
+ \textbf{Tape Backups.} Backups are performed on a nightly basis to a tape machine located in a different data center than the main storage system. These backups are meant to safeguard against events such as hardware failure or disasters that could result in the complete loss of RCC’s primary data center.
 
 
-\textbf{Data Sharing.} All data in RCC's storage environment is accessible through a wide range of tools and protocols. Because RCC provides centralized infrastructure, all resources are accessible by multiple users simultaneously, which makes RCC’s storage system ideal for sharing data among your research group members. Additionally, data access and restriction levels can be put in place on an extremely granular level.
+ \textbf{Data Sharing.} All data in RCC's storage environment is accessible through a wide range of tools and protocols. Because RCC provides centralized infrastructure, all resources are accessible by multiple users simultaneously, which makes RCC’s storage system ideal for sharing data among your research group members. Additionally, data access and restriction levels can be put in place on an extremely granular level.
 
 \textbf{Data Security \& Management.} The HIPAA compliant security of the Research Computing Center’s storage infrastructure, protected by two-factor authentication,  gives users peace of mind that their data is stored, managed, and protected by HPC professionals. Midway's file management system allows researchers to control access to their data. RCC has the ability to develop data access portals for different labs and groups.
+
+
+
+% \subsection*{Center for Research Informatics}
+
+
+% \paragraph*{Secure Storage of Collected Patient Data}
+% Collected data will be stored in secure university servers for at least 15 years.
+% Since the collected data in this study is only computer records, deletion will involve simply erasing the relevant files.
+
+% The Center for Research Informatics at the University of Chicago Biological Sciences offers the use of REDCap (Research Electronic Data Capture) as a central location for data processing and management. REDCap was developed by Vanderbilt University, with collaboration from a consortium of institutional partners, as a toolset and workflow methodology for electronic collection and management of research and clinical trial data. REDCap is a secure, web-based application that is flexible enough to be used for a variety of types of research. REDCap provides an intuitive user interface that streamlines project development and improves data entry through real-time validation rules (with automated data type and range checks). REDCap also provides easy data manipulation (with audit trails for reporting, monitoring and querying patient records) and an automated export mechanism to common statistical packages (SPSS, SAS, Stata, R/S-Plus). In addition to traditional data capture functionality, REDCap’s survey capabilities are a powerful tool for building and managing online surveys. The research team can create and design surveys in a web browser and engage potential respondents using a variety of notification methods. All data collection projects rely on a thorough, study-specific data dictionary, defined by all members of the research team in an iterative, self-documenting process. This iterative development and testing process results in a well-planned and individualized data collection strategy.  REDCap was developed specifically around HIPAA-Security guidelines and is recommended to University researchers by both our Privacy Office and Institutional Review Board. Access to the system requires an University of Chicago account (BSDAD or UCHAD) with external users supported using University sponsored accounts. As for data security, all web-based information transmission is encrypted and data is stored on VM servers. The servers are housed in the energy-efficient, state-of-the-art Kenwood Data Center at 6045 S. Kenwood Avenue on the University of Chicago campus. This new, 4600-square-foot data center was designed with redundancy in mind and has been tested to withstand extended power outages without system or service interruption. Servers are physically secure in this continuously staffed (by ITS) and monitored facility and are protected by an enterprise grade firewalls (Palo Alto). The Kenwood datacenter is equipped to house systems that may fall under certain federal guidelines, including the Health Insurance Portability and Accountability Act (HIPAA) and the Federal Information Security Management Act (FISMA), making the CRI’s resources essential for researchers who work with protected health information. Access to the storage system from outside the University of Chicago Campus network is only allowed through the CISCO AnyConnect Secure Mobility Client (VPN software). Access to the data is managed via Active Directory groups using the Biomedical Sciences Division Active Directory (BSDAD). More information about REDCap can be found at \url{https://www.projectredcap.org}.
+% \vskip 1em
+
+% \hrule
+
+% \subsection*{University of Chicago Medicine IT Team}
+
+% UChicago Medicine IT (UCM IT) is responsible for the development, implementation, and support of Clinical Systems and Technologies within the Medical Center in support of the Clinical, Research, and Academic missions of the institution.  UCM IT has experience in implementing complex technology platforms in support of the Research mission, including Investigator-developed real-time algorithms that are intricately connected to the Electronic Medical System (EMR/Epic), integration of third-party applications within the EMR, documenting data from applications into the EMR, initiating alerts and orchestrating actions for providers based on the data, and populating real-time dashboards for time-sensitive research interventions.  In addition, data from the EMR is made available to the Center for Research Informatics (CRI) via direct connections to research data repositories and via direct connection to a Redcap system that is hosted and managed at the CRI.  UCM IT works closely with the CRI in enabling the availability of data for retrospective and prospective study.
+
+% In this initiative, UCM IT will be involved in the purchase, installation, configuration, testing, and validation of the ZCoR App Orchard App from Epic.  Once the App has been installed within the UCM instance of Epic, additional work would include configuration of the Epic environment to document data elements from the App into Epic in the patient chart, developing notifications for providers based on these data elements, developing associated standard reports, and making available this data for analysis within Redcap.  UCM IT is experienced in this life-cycle of EMR-embedded applications for enabling research within the care continuum.

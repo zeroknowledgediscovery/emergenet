@@ -136,6 +136,14 @@
 \newblock \emph{\bibinfo{journal}{Viruses}} \textbf{\bibinfo{volume}{4}},
   \bibinfo{pages}{1438--1476} (\bibinfo{year}{2012}).
 
+\bibitem{chattopadhyay2022emergenet}
+\bibinfo{author}{Chattopadhyay, I.}, \bibinfo{author}{Wu, K.},
+  \bibinfo{author}{Li, J.} \& \bibinfo{author}{et~al.}
+\newblock \bibinfo{title}{Emergenet: Fast scalable pandemic risk assessment of
+  influenza a strains circulating in non-human hosts}  (\bibinfo{year}{2022}).
+\newblock \urlprefix\url{https://doi.org/10.21203/rs.3.rs-2336091/v1}.
+\newblock \eprint{2336091}.
+
 \bibitem{Hothorn06unbiasedrecursive}
 \bibinfo{author}{Hothorn, T.}, \bibinfo{author}{Hornik, K.} \&
   \bibinfo{author}{Zeileis, A.}
@@ -382,5 +390,24 @@
   ecosystem mapping: Measuring returns on investments}.
 \newblock \emph{\bibinfo{journal}{Current Topics in Microbiology and
   Immunology}} \bibinfo{pages}{75--83} (\bibinfo{year}{2019}).
+
+\bibitem{CDC2021}
+\bibinfo{author}{for Disease~Control, C.} \& \bibinfo{author}{Prevention}.
+\newblock \bibinfo{title}{Seasonal influenza} (\bibinfo{year}{2021}).
+\newblock \urlprefix\url{https://www.cdc.gov/flu/about/index.html}.
+
+\bibitem{DoD2020}
+\bibinfo{author}{of~Defense, U.~D.}
+\newblock \bibinfo{title}{Report on effects of a changing climate to the
+  department of defense} (\bibinfo{year}{2020}).
+\newblock
+  \urlprefix\url{https://media.defense.gov/2020/Jul/21/2002462222/-1/-1/1/Report_on_Effects_of_a_Changing_Climate_to_the_Department_of_Defense.PDF}.
+
+\bibitem{Wells2005}
+\bibinfo{author}{Wells, K.~B.} \& \bibinfo{author}{Lewis, M.~J.}
+\newblock \bibinfo{title}{Influenza: Evolution, detection, and response}.
+\newblock \emph{\bibinfo{journal}{Clinical Microbiology Reviews}}
+  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{80--103}
+  (\bibinfo{year}{2005}).
 
 \end{thebibliography}

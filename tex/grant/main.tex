@@ -84,15 +84,15 @@
   
   \captionN{Theoretical foundation of \bnd}\label{fig0}
 \end{wrapfigure}
-\infl, partly on account of its segmented genome and its wide prevalence in animal hosts, can incorporate genes from multiple strains and (re)emerge as novel human pathogens~\cite{reid2003origin,dos2016influenza}, thus harboring  a high pandemic potential. Strains spilling over into humans from animal reservoirs is thought to have triggered  pandemics  at least 4 times (1918 Spanish flu/H1N1, 1957 Asian flu/H2N2, 1968 Hong Kong flu/H3N2, 2009 swine flu/H1N1) in the past century~\cite{shao2017evolution}. One  approach to mitigating such risk is to identify  animal strains  that do not yet circulate in humans, but is likely to spill-over and quickly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens from diverse hosts and geo-locations annually, our  ability to reliably and scalably  risk-rank individual strains remains limited~\cite{wille2021accurately}. CDC's current solution to this problem is the Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}.  SMEs
-  score strains based on  the number of  human infections, infection and transmission in laboratory animals, receptor binding, population immunity, genomic analysis, antigenic relatedness, global prevalence,  pathogenesis, and  treatment options, which are averaged to obtain two scores (between 1 and 10) that  estimate 1) the emergence  risk and 2) the potential public health impact on sustained transmission. IRAT scores  depend on multiple experimental assays,  taking  weeks/months to compile for a single strain. With tens of   thousands of strains being collected annually, this results in  a scalability bottleneck.
+\infl, partly on account of its segmented genome and its wide prevalence in animal hosts, has the ability to incorporate genes from multiple strains and (re)emerge as novel human pathogens~\cite{reid2003origin,dos2016influenza}, thus harboring  a high pandemic potential. Strains spilling over into humans from animal reservoirs is thought to have triggered  mild to devastating pandemics  at least 4 times (1918 Spanish flu/H1N1, 1957 Asian flu/H2N2, 1968 Hong Kong flu/H3N2, 2009 swine flu/H1N1) in the past century~\cite{shao2017evolution}. One  approach to mitigating such risk is to recognize  animal strains  that do not yet circulate in humans, but are likely to spill-over and quickly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect  wild specimens from diverse hosts/locations annually, our  ability to reliably and scalably  risk-rank individual strains remains limited~\cite{wille2021accurately}. CDC's current solution to this problem is the Influenza Risk Assessment Tool (IRAT)~\cite{Influenz24:online}.  SMEs
+  score strains based on  the number of  human infections, transmission in laboratory animals, receptor binding, population immunity, genomic analysis, antigenic relatedness, global prevalence,  pathogenesis, and  treatment options, which are averaged to obtain 2 scores (between 1 and 10) that  estimate 1) the emergence  risk and 2) the potential public health impact on sustained transmission. IRAT scores  depend on multiple experimental assays,  taking  weeks/months to compile for a single strain. With tens of   thousands of strains being collected annually, this results in  a scalability bottleneck.
 
-Here we plan to develop a platform powered by novel pattern discovery  algorithms to automatically parse out emergent evolutionary constraints operating on \infl viruses in the wild, to provide a less-heuristic theory-backed scalable solution to emergence prediction. We plan to show   that this capability enables preempting  strains which are \textit{expected to be in future human circulation}, and  approximate IRAT scores of non-human strains without  experimental assays or SME scoring, in seconds as opposed to weeks or months. Our approach automatically takes into account the time-sensitive variations in selection pressures as the background strain circulation evolves, and will potentially be able to rank-order strains adapatively.
+Here we plan to develop a platform powered by novel pattern discovery  algorithms to automatically parse out emergent evolutionary constraints operating on \infl viruses in the wild, to provide a less-heuristic theory-backed scalable solution to emergence prediction. We plan to show   that this capability enables preempting  strains which are \textit{expected to be in future human circulation}, and  approximate IRAT scores of non-human strains without  experimental assays or SME scoring, in seconds as opposed to weeks or months. Our approach automatically takes into account the time-sensitive variations in selection pressures as the background strain circulation evolves, and will potentially be able to rank-order strains adaptively.
 
-Additionally, we plan to validate our ability to predict future variations of viral proteins by showing that predicted variants of HA and NA fold correctly, and are functional, binding to the relevant human receptors in in-vivo laboratory experiments. Thus, bringing together rigorous data-driven modeling, and validation via tools from reverse genetics we plan to deliver an actionable and deployable platform (the \bnd) that optimally exploits the current biosurvellance capacity,  \textit{identifying when and where an imminent  emergence event is likely, and if such novel strains are likely to achieve human-to-human transmission capability.}
+Additionally, we plan to validate our ability to predict future variations of viral proteins by showing that predicted variants of HA are functional, and maintain replicative fitness in cell cultures.   Thus, bringing together rigorous data-driven modeling, and validation via tools from reverse genetics we plan to deliver an actionable and deployable platform (the \bnd) that optimally exploits the current biosurvellance capacity,  \textit{identifying when and where an imminent  emergence event is likely, and if such novel strains are likely to achieve human-to-human transmission capability.}
 
   
-
+%he proper folding and cell surface expressing of predicted HA variants by flow cytometry as well as evaluate the fitness of recombinant viruses in a 1:1 competition experiments with parental strain.
 
 \subsubsection*{Hypotheses} %State concisely the new insights, paradigms, technologies, or
 % applications that address one of the FY23 PRMRP Topic Areas and one of the
@@ -104,11 +104,11 @@ Our key hypotheses are as follows:
 [label=$\square$, leftmargin=0pt,
 labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 \item 
-1) Learning patterns of cross-dependencies across point mutations in key proteins implicated in viral entry and exit (HA and NA) reveals enough of the underlying rules of organization of their primary structures to actionably forecast evolutionary trajectories, $i.e.$, predict future mutations and likelihood of jump events for wild \infl viruses in animal reservoirs. Importantly, while a single sequence does not encode enough information to predict its future mutations, discovering patterns from large sequence databases is a viable approach to making such forecasts, as observed past variations are indeed functions of fitness and selection.
+1) Learning  cross-dependencies across point mutations in key proteins, $e.g.$ those implicated in viral entry/exit (HA and NA) reveals  the underlying rules of organization of their primary structures to  forecast evolutionary trajectories, $i.e.$, predict future mutations and likelihood of jump events for animal strains. Importantly, while individual  sequences do  not encode enough information to predict its future mutations, discovering patterns from large sequence databases make such forecasts possible.
 \item  
-2) The current global biosurveillance efforts produces sufficient data for sophisticated  machine  learning to carry out meaningful pattern discovery, to enable the development of a next-generation pro-active surveillance platform. Thus,  observed patterns of change can be assembled into an early warning system for pandemic threats, thus serving a similar function to the strategic goal of NORAD in the context of defending against geospatial pandemic threats, as opposed to protecting US airspace from adversarial intrusion.
+2) Current  bio-surveillance  produces sufficient data for meaningful pattern discovery, and  inferred  patterns of change can be assembled into an early warning system for pandemic threats, thus serving a similar function to the strategic goal of NORAD in the context of defending against geospatial pandemic threats, as opposed to protecting US airspace from adversarial intrusion.
 \end{enumerate}
-\subsubsection*{Specific Aims} We have three key aims described below: .% – Specific Aims: Concisely explain the project’s specific aims and the objective(s) to
+\subsubsection*{Specific Aims} We have three key aims described below: % – Specific Aims: Concisely explain the project’s specific aims and the objective(s) to
 % be reached. These aims should agree with the primary aims and associated tasks
 % described in the Statement of Work (SOW). If the proposed work is part of a larger
 % study, present only aims that this DOD award would fund.
@@ -117,14 +117,18 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 [label=$\square$, leftmargin=0pt,
 labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 %########################
-\item \textbf{Aim 1: Formulate a novel metric of sequence similarity ( \qdist) that reflects potential of spontaneous jump.} Devise a  biologically meaningful metric for comparing two genomic sequences, that scales with the probability of one sequence spontaneously replicating to give rise to the other in the wild, under a) realistic, b) time-dependent, and c) poorly understood selection pressures. Within this aim, we will deliver the implemented  algorithm  identifying the \qdist metric as function of subtype, gene, region and time, which is demonstrably distinct from the classical edit distance. Since the \qdist  reflects the odds of one sequence mutating  to  another, it is a function of not just how many mutations the two sequences are apart (the edit distance), but also how  specific mutations  incrementally affect fitness, and how possibly non-colocated mutations have  emergent dependencies and compensatory epistatic effects. Without these explicit constraints, assessing a strain-specific jump-likelihood  is open to subjective guesswork (current state-of-art). Our aim here is to show that a  precise probabilistic calculation is theoretically possible and practically feasible, enabling an actionable framework for tracking evolutionary change. The major tasks within this aim are as follows:
-  \begin{inparaenum} \item[\bf T1.1 (\enet Development)] consisting of  sub-tasks: (T1.1.1) Precisely formulate the \enet inference platform, that puts together ML algorithms capturing maximally predictive patterns of change and mutational dependencies, and (T1.1.2) provide uncertainty quantification for the inferred patterns. \item[\bf T1.2 (Sample-complexity Estimation)]  Investigate  sample complexity of \enet, $i.e.$, how much data is needed to reliably identify  patterns. \item[\bf T1.3 (Event Timeline Estimation)] comprising 2 subtasks: (T1.3.1) Map mutational change dynamics to ``wall-time'', to  forecast \textit{when} future variants will show up, and (T1.3.2)  computationally validate timeline predictions using records of  past emergence events.
+\item \textbf{Aim 1: Formulate a novel metric of sequence similarity (\qdist) that reflects potential of spontaneous jump.} Devise a  biologically meaningful metric for comparing two genomic sequences, that scales with the probability of one sequence spontaneously replicating to give rise to the other in the wild, under a) realistic, b) time-dependent, and c) poorly understood selection pressures. Within this aim, we will deliver the implemented  algorithm  identifying the \qdist metric as function of sub-type, gene, region and time, which is demonstrably distinct from the classical edit distance. Since the \qdist  reflects the odds of one sequence mutating  to  another, it is a function of not just how many mutations the two sequences are apart (the edit distance), but also how  specific mutations  incrementally affect fitness, and how possibly non-colocated mutations have  emergent dependencies and compensatory epistatic effects. Without these explicit constraints, assessing a strain-specific jump-likelihood  is open to subjective guesswork (current state-of-art). Our aim here is to show that a  precise probabilistic calculation is theoretically possible and practically feasible, enabling an actionable framework for tracking evolutionary change. The major tasks within this aim are as follows:
+  \begin{inparaenum} \item[\bf T1.1 (\enet Development)] consisting of  sub-tasks: (T1.1.1) Precisely formulate the \enet inference platform, that puts together ML algorithms capturing maximally predictive patterns of change and mutational dependencies, and (T1.1.2) provide uncertainty quantification for the inferred patterns. \item[\bf T1.2 (Sample-complexity Estimation)]  Investigate  sample complexity of \enet, $i.e.$, how much data is needed to reliably identify  patterns. \item[\bf T1.3 (Event Timeline Estimation)] comprising 2 subtasks: (T1.3.1) Map mutational change dynamics to ``wall-time'', to  forecast \textit{when} future variants will show up, and (T1.3.2)  validate timeline predictions using records of  past emergence events, by assessing the time-delay between \enet predictions observation of predicted mutations in historical strain populations.
     \end{inparaenum}
 %########################
-  \item \textbf{Aim 2: Validate \qdist as a similarity metric on  strain space that can identify biologically valid sequence variations.} We aim to show that the \qdist may be used to differentiate between random perturbations in genomic organization (most of which would be deleterious, and not code for a viable protein), and perturbations that are biologically viable. This is a crucial capability of the \enet platform, that woudl make it possible to reliably identify possible future mutations, along with their precisely quantified likelihoods.  We will show via in-vitro experiments, that perturbations predicted using this metric leads to viable and functional proteins. The major tasks within this aim are: \begin{inparaenum} \item[\bf T2.1 (Quantify uncertainties in jump-probabilities)] Refine our preliminary result connecting the \qdist to the probability of spontaneous jump from one strain to another, connecting the inference uncertainty arising possibly from sample size limitations to the uncertainty in the jump probability estimates.  \item[\bf T2.2 (Laboratory Experiments)] Laboratory experiments to show that small \qdist leads to vaiable proteins, and that random perturbations, even with a few edits, causes a dramatic fall in fitness.
+  \item \textbf{Aim 2: Validate \qdist as a similarity metric  that can identify biologically meaningful sequence variations.} We aim to show that the \qdist may be used to differentiate between random perturbations in the genome  (most of which would be deleterious, and not code for a viable protein), and perturbations that are biologically viable. This is a key distinguishing capability of the \enet platform, that can reliably identify possible future mutations, along with their precisely quantified likelihoods.  We will demonstrate that  perturbations predicted using this metric leads to viable and functional proteins. The major tasks within this aim are: \begin{inparaenum}
+    \item[\bf T2.1 (Quantify asymmetric transition probabilities between strains)] Key subtasks are: (T2.1.1) Infer probabilistic movement direction between strains, delineating the asymmetry of jump likelihood across strains, and (T2.1.2) chart multi-hop probabilistic trajectories from observed strains.    \item[\bf T2.2 (Laboratory Experiments for assessing fitness of predicted variants in cell culture)] consisting of the following subtasks: (T2.2.1) Shortlist HA variants with maximal emergence
+probability of H3N2 and H1N1 subtypes, (T2.2.2) Generate predicted HA variants using reverse genetics in
+human lung epithelial cell line (A549) and primary human lung cells, and (T2.2.3) evaluate generated variants for replicative fitness. These experimental assays will aim to demonstrate that strains with  small \qdist from observed strains leads to viable variants, and that even small random perturbations causes a catastrophic fall in fitness.
     \end{inparaenum} 
 %########################
-  \item \textbf{Aim 3:  Develop  a working implementation of \bnd.} We aim to demonstrate a prototype of the \bnd platform for analyzing \infl strains at scale  for emergence and impact risk. Major tasks are : \begin{inparaenum} \item[\bf T3.1 (IRAT score replication)] Replicate the published IRAT scores, along with uncertainty quantification,  within seconds as a validation result. Key subtasks are: (T3.1.1) Investigate how each of the ten dimensions of IRAT comparison map to our \enet based risk, and  (T3.1.2) Evaluate if the IART scores would change if evaluated at different times $e.g.$ now as opposed to when they were published. \item[T3.2 (\bnd Results for Current/Recent Surveillance Data)] which comprises the subtasks: (T3.2.1) demonstrating we can analyze collected sequences at scale, by enumerating the risk profiles of all sequences collected recently within the last few years, and any new sequences that continue to be submitted to NCBI and GISAID. And (T3.2.2) set up an automated pipeline that pulls in sequence data of for new submissions, and publish a risk score automatically. We will collate this information in our pipleine to map the global risk, visualizing where and when am emergenc event is likely, and for which strain/subtype/animal hosts.
+  \item \textbf{Aim 3:  Develop  a working implementation of \bnd.} We aim to demonstrate a prototype of the \bnd platform for analyzing \infl strains at scale  for emergence and impact risk. Major tasks are : \begin{inparaenum} \item[\bf T3.1 (IRAT score replication)] Replicate the published IRAT scores, along with uncertainty quantification,  within seconds as a validation result. Key subtasks are: (T3.1.1) Investigate how each of the ten IRAT dimensions  map to our \enet based risk,   (T3.1.2) Evaluate if the IRAT scores would change if evaluated at different times, and (T3.1.3) incorporate  timeline estimation in BioNORAD prototype to predict time to emergence.
+\item[T3.2 (\bnd Results for Current/Recent Surveillance Data)] which comprises the subtasks: (T3.2.1) analyze collected sequences at scale, by enumerating the risk profiles of all sequences collected recently within the last few years, and any new sequences that continue to be submitted to NCBI and GISAID. And (T3.2.2) set up an automated pipeline that pulls in sequence data of for new submissions, and publish a risk score automatically. We will collate this information in our pipeline to map the global risk, visualizing where and when an emergence event is likely, and for which strain/subtype/animal hosts.
     \end{inparaenum} 
 
   \end{enumerate}
@@ -142,7 +146,7 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 \end{tikzpicture}
   \vspace{-15pt}
 
-  \captionN{a, a fragment of an example \enet showing the emergent dependencies captured. b, IRAT replication in preliminary analysis with only HA sequence data, c, a preliminary \bnd implementation with sequencesd collected over 2021-2022, showing the emerging threat-centers, subtypes.}\label{fig1}
+  \captionN{a, a fragment of an example \enet showing the emergent dependencies captured. b, IRAT replication in preliminary analysis with only HA sequence data, c, a preliminary \bnd implementation with sequences collected over 2021-2022, showing the emerging threat-centers, subtypes.}\label{fig1}
 
   \vspace{-20pt}
 
@@ -157,37 +161,37 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 
 Our approach aims  to reliably   estimate the non-heuristic numerical probability $Pr(x \rightarrow y)$ of a strain $x$ spontaneously giving rise to  $y$ in the wild, thus preempting  strains  expected to be in future circulation, and approximating IRAT scores of non-human strains without detailed  experimental assays or SME scoring. We plan to accomplish this by learning the complex cross-dependencies that constrain what a ``valid alteration'' of a AA sequence is, by first  analyzing  variations (point substitutions, indels) of   residue  sequences  of key proteins implicated  in cellular entry/exit~\cite{gamblin2010influenza,shao2017evolution}, namely HA and NA, and then expanding the analysis to the complete viral genome. By representing these constraints within a predictive framework -- the \enet (Enet) -- we will  estimate the  odds of a specific mutation to arise in future, and consequently the probability of a specific strain spontaneously  evolving into another (Fig.~\ref{fig0}). For such explicit calculations we must first infer the variation of mutational probabilities and  potential residue replacements from one positional index to the next along the AA sequence. The many well-known classical  DNA  substitution models~\cite{posada1998modeltest} or  phylogeny inference tools  assuming constant species-wise mutational characteristics,  are not applicable here. Similarly, newer algorithms such  as FluLeap~\cite{eng2014predicting}  which identifies host tropism and  species-level jump-risk~\cite{grange2021ranking} do not allow for strain-specific assessment.
 
-The dependencies we expect to uncover are shaped by  a  functional necessity of conserving replicative  fitness. Strains must be sufficiently common  to be recorded in surveillance, implying that the sequences from public databases that we train  with have  high  fitness. Lacking kinetic proofreading, \infl integrates  faulty nucleotides   at a relatively high rate ($10^{-3}-10^{-4}$) during  replication~\cite{ahlquist2002rna,chen2006avian}. However, few variations are actually viable, leading to emergent dependencies between such mutations. Furthermore, these fitness constraints are  time-varying. The background strain distribution, and selection pressure from the evolution of cytotoxic T lymphocyte  epitopes~\cite{woolthuis2016long,fan2012role,van2016differential,berkhoff2007assessment,van2012evasion} in humans can change quickly. Our preliminary studies [REF] suggest that we now have enough number of curated sequences in public databases to learn models that    automatically factor in the evolving host immunity, and the current background environment.  
+The dependencies we expect to uncover are shaped by  a  functional necessity of conserving replicative  fitness. Strains must be sufficiently common  to be recorded in surveillance, implying that the sequences from public databases that we train  with have  high  fitness. Lacking kinetic proofreading, \infl integrates  faulty nucleotides   at a relatively high rate ($10^{-3}-10^{-4}$) during  replication~\cite{ahlquist2002rna,chen2006avian}. However, few variations are actually viable, leading to emergent dependencies between such mutations. Furthermore, these fitness constraints are  time-varying. The background strain distribution, and selection pressure from the evolution of cytotoxic T lymphocyte  epitopes~\cite{woolthuis2016long,fan2012role,van2016differential,berkhoff2007assessment,van2012evasion} in humans can change quickly. Our preliminary studies~\cite{chattopadhyay2022emergenet} suggest that we now have enough number of curated sequences in public databases to learn models that    automatically factor in the evolving host immunity, and the current background environment.  
 
 Structurally, our model structure (an \enet) comprises an interdependent collection of  local predictors, each aiming to predict the  residue at a particular index  using as features  the residues   at other  indices  (Fig.~\ref{fig1}a). These individual predictors are implemented as conditional inference trees~\cite{Hothorn06unbiasedrecursive}, in which  nodal splits  occur with  a minimum pre-specified significance in differentiating the  downstream child nodes. The set of residues acting as features in each such predictor is automatically identified, $e.g.$, in the fragment of the  H1N1 HA \enet (2020-2021, Fig~\ref{fig1}a), the predictor for residue 63 is dependent on   residue  155, and the predictor for  155 is dependent on  223, the predictor for  223 is dependent on  14, and the residue at  14 is again dependent on  63, revealing a cyclic dependency. The complete \enet harbors a vast number of such  relationships, and each internal node of a tree may be  ``expanded'' to its own tree (since each index is ``explained'' by residues in other indices, which in turn have their own predictors). Owing to this recursive expansion,  a complete \enet  captures the intricate rules guiding evolutionary change as evidenced by our preliminary validations. Our research strategy comprises the following sequential steps:
 
-\textit{(Step 1: Data and \enet Models)} We will collect AA sequences for the key genes of all available strains from NCBI and GISAID databases, and construct \enet{s} for each year,  each gene and each chosen geographical region. Different spatial and temporal resolutions will be considered in the course of the project, and we will consider all 8 genes in the \infl genome: PB2, PB1, PA, HA, NP, NA, M and NS. With about two decades worth of data comprising nearly $>380,000$ strains in NCBI and GISAID combined, when constructing models for each year, and the two hemeispheres at a minimum, and the two subtypes H1N1 and H3N2, we end up with  $ 8 \times 20 \times 2 \times 2 = 640$ \enet models. With new emerging subtypes, the number of inferred models will be higher, and these models together capture the totality of observable statistically significant patterns constraining \infl evolution. 
+\textit{(Step 1: Data and \enet Models)} We will collect AA sequences for the key genes of all available strains from NCBI and GISAID databases, and construct \enet{s} for each year,  each gene and each chosen geographical region. Different spatial and temporal resolutions will be considered in the course of the project, and we will consider all 8 genes in the \infl genome: PB2, PB1, PA, HA, NP, NA, M and NS. With about two decades worth of data comprising nearly $>380,000$ strains in NCBI and GISAID combined, when constructing models for each year, and the two hemispheres at a minimum, and the two subtypes H1N1 and H3N2, we end up with  $ 8 \times 20 \times 2 \times 2 = 640$ \enet models. With new emerging subtypes, the number of inferred models will be higher, and these models together capture the totality of observable statistically significant patterns constraining \infl evolution. 
 
-\textit{(Step 2: \qdist metric calculation)} Each  \enet induces  an intrinsic distance metric (\qdist) between strains, collected at the time and space associated with the model, defined as the square-root of JS  divergence~\cite{cover} of the conditional residue distributions, averaged over the sequence. Unlike the classical approach of measuring the number of edits between sequences, the \qdist is informed by the \enet-inferred  dependencies, and adapts to the specific subtype, allele frequencies, and environmental variations. By our recent theoretical result [REF],  \qdist  approximates the log-likelihood of spontaneous change $i.e.$ $\log Pr(x \rightarrow y )$, and despite general correlation between \qdist and edit-distance, the \qdist between fixed strains can change if only the background environment changes. 
+\textit{(Step 2: \qdist metric calculation)} Each  \enet induces  an intrinsic distance metric (\qdist) between strains, collected at the time and space associated with the model, defined as the square-root of JS  divergence~\cite{cover} of the conditional residue distributions, averaged over the sequence. Unlike the classical approach of measuring the number of edits between sequences, the \qdist is informed by the \enet-inferred  dependencies, and adapts to the specific subtype, allele frequencies, and environmental variations. By our recent theoretical result~\cite{chattopadhyay2022emergenet},  \qdist  approximates the log-likelihood of spontaneous change $i.e.$ $\log Pr(x \rightarrow y )$, and despite general correlation between \qdist and edit-distance, the \qdist between fixed strains can change if only the background environment changes. 
 
-\textit{(Step 3: Validation)} We aim to validate the predictive ability of the \enet framework in two ways: a) predict dominant strains in seasonal epidemics and compare against historical WHO vaccine recommendations in how well we can preempt the actual circulation in future seasons in the two hemispheres, and b) carry out in-vitro experimental assays to demonstrate that a perturbed strain is functional if the \qdist betwen the original and perturbed strain is small. 
+\textit{(Step 3: Validation)} We aim to validate the predictive ability of the \enet framework in two ways: a) predict dominant strains in seasonal epidemics and compare against historical WHO vaccine recommendations in how well we can preempt the actual circulation in future seasons in the two hemispheres, and b) carry out  experimental assays in cell cultures to demonstrate that a perturbed strain is functional if the \qdist between the original and perturbed strain is small. 
 
-\textit{Seasonal strain-forecat validation.} WHO  recommendations for the flu shot  is  formulated about 6-7 months in advance based on global circulation~\cite{agor2018models}. 
-In  preliminary studies, our \enet-informed forecasts using only the HA gene outperform  WHO/CDC recommended flu vaccine compositions consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the two hemispheres (which have distinct recommendations~\cite{boni2008vaccination}). For H1N1 HA, the \enet  recommendation outperforms  WHO  by $52.07\%$ on average over the last two decades, and $59.83\%$ on average in the last decade, and by $65.79\%$ in the period 2015-2019 (5 years pre-\cov). For H3N2 HA, the \enet  recommendation outperforms  WHO  by $42.39\%$ on average over the last two decades, and $35.00\%$ on average in the last decade, and by $41.85\%$ in the period 2015-2019. Despite limiting ourselves to only genotypic  information, our approach  distills  emergent  fitness-preserving constraints   that outperform or match reported DMS-augmented strategies~\cite{huddleston2020integrating,REF}.
+\textit{Seasonal strain-forecast validation.} WHO  recommendations for the flu shot  is  formulated about 6-7 months in advance based on global circulation~\cite{agor2018models}. 
+In  preliminary studies, our \enet-informed forecasts using only the HA gene outperform  WHO/CDC recommended flu vaccine compositions consistently over the past two decades, for both H1N1 and H3N2 subtypes, individually in the two hemispheres (which have distinct recommendations~\cite{boni2008vaccination}). For H1N1 HA, the \enet  recommendation outperforms  WHO  by $52.07\%$ on average over the last two decades, and $59.83\%$ on average in the last decade, and by $65.79\%$ in the period 2015-2019 (5 years pre-\cov). For H3N2 HA, the \enet  recommendation outperforms  WHO  by $42.39\%$ on average over the last two decades, and $35.00\%$ on average in the last decade, and by $41.85\%$ in the period 2015-2019. Despite limiting ourselves to only genotypic  information, our approach  distills  emergent  fitness-preserving constraints   that outperform or match reported DMS-augmented strategies~\cite{huddleston2020integrating,chattopadhyay2022emergenet}.
 
-\textit{Assessment of fitness potential emerging zoonotic IAV variants in vitro cell culture.} Potential HA variants predicted by the \enet models will be generated using the reverse genetics system and evaluated for fitness against parental strains. Briefly, HA segments with potential mutations will be obtained through synthetic gene synthesis. We will assess the relative cell surface expression of parental HA and variants by flow cytometry and western
+\textit{Assessment of fitness potential emerging zoonotic IAV variants in  cell culture.} Potential HA variants predicted by the \enet models will be generated using the reverse genetics system and evaluated for fitness against parental strains. Briefly, HA segments with potential mutations will be obtained through synthetic gene synthesis. We will assess the relative cell surface expression of parental HA and variants by flow cytometry and western
 blotting. Next, we will generate recombinant viruses carrying mutant HA using an established reverse genetics system~\cite{pmid35926068,pmid34473799,pmid33970958,pmid32075925,pmid29899269,pmid28282445,pmid23686828,pmid20534532,pmid20126449} by the Manicassamy lab at UIowa, and validate the recombinant viruses by performing NGS sequencing. To assess the replication fitness of recombinant viruses, we will perform single cycle and multicycle replication assays human lung epithelial cell line (A549) and primary human lung cells~\cite{pmid23720581} (sourced from third-party vendors). In addition, we will assess the fitness of individual mutants by fitness competition assay with parental virus (1:1) and determine the relative ratio
-by high resolution melting (HRM) analysis~\cite{ganti2021rab11a,wittwer2003high,marshall2013influenza} . These studies will help us determine the accuracy of \enet framework in predicting pandemic potential variants with enhanced fitness.  \textit{Choice of Cell-lines:} A549 cells and primary human lung cells are frequently used in in-vitro IAV experiments  due to their relevance to human infection, susceptibility to IAV, reproducibility, ease of cultivation, and compatibility with various molecular and cellular techniques~\cite{matrosovich1997avian}. These cells, derived from human lung carcinoma and lung tissue respectively, serve as appropriate models for studying IAV  pathogenesis, and host interactions, as they express key host factors~\cite{shinya2006influenza,chan2010tropism}, and are compatible with molecular and cellular techniques~\cite{neumann1999generation}. Dr. Manicassamy has $>15$ years of experience in working with human and zoonotic influenza viruses, and safely handling various human pathogens under enhanced BSL2 and BSL3 conditions.
+by high resolution melting (HRM) analysis~\cite{ganti2021rab11a,wittwer2003high,marshall2013influenza} . These studies will help us determine the accuracy of \enet framework in predicting pandemic potential variants with enhanced fitness.  \textit{Choice of Cell-lines:} A549 cells and primary human lung cells are frequently used in  IAV experiments  due to their relevance to human infection, susceptibility to IAV, reproducibility, ease of cultivation, and compatibility with various molecular and cellular techniques~\cite{matrosovich1997avian}. These cells, derived from human lung carcinoma and lung tissue respectively, serve as appropriate models for studying IAV  pathogenesis, and host interactions, as they express key host factors~\cite{shinya2006influenza,chan2010tropism}, and are compatible with molecular and cellular techniques~\cite{neumann1999generation}. Dr. Manicassamy has $>15$ years of experience in working with human and zoonotic influenza viruses, and safely handling various human pathogens under enhanced BSL2 and BSL3 conditions.
 
 \textit{(Step 4: \bnd Development)} Determining the numerical odds of a spontaneous jump $ Pr(x \rightarrow y)$  allows us to frame the problem of forecasting  dominant strain(s), and that of estimating the  pandemic potential of an animal strain as  mathematical propositions (albeit with some simplifying assumptions), with  approximate solutions (Fig.~\ref{fig0}). We will demonstrate that a pandemic risk score of a novel strain may be estimated by the probability of it giving rise to a well-adapted human strain. 
-Our preliminary results [REF] enable our ability to estimate the pandemic potential of novel animal strains, via a  time-varying \erisk score $\rho_t(x)$ for a strain $x$ not yet found to circulate in human hosts. We show that: $
+Our preliminary results~\cite{chattopadhyay2022emergenet} enable our ability to estimate the pandemic potential of novel animal strains, via a  time-varying \erisk score $\rho_t(x)$ for a strain $x$ not yet found to circulate in human hosts. We show that: $
 \rho_t(x) \triangleq -\frac{1}{\abs{H^t}} \sum_{y \in H^t} \theta^{[t]}(x,y)
 $ scales as the average log-likelihood of $Pr(x \rightarrow y)$ where $y$ is any human strain of a similar subtype to $x$, and  $\theta^{[t]}$ is the \qdist informed by the \enet computed from recent human strains $H_t$ at time $t$ of the same subtype as $x$, observed over the past year. The structure of dependencies revealed by the \enet inference makes it possible to estimate $\rho_t(x)$ explicitly. In the course of the project we will expand this risk score analytics to estimate the time to emergence in addition to spatial localization of such risk.
  
-\textit{Preliminary Validation of \bnd.} We construct \enet models for HA and NA sequences using subtype-specific human strains, typically collected within the  year prior to the assessment date, $e.g.$,   for A/swine/Shandong/1207/2016 assessed on 06/2020 we  use human H1N1 strains collected  between 01/07/2019-06/30/2020 for  \enet inference. For sub-types with few  recorded human strains (H1N2, H7N7), we consider all subtype-specific human strains collected up to the  assessment date  to infer our \enet. For subtypes with very few or no recorded human strains even without a lower date bound (H5N2, H5N6, H5N8, H7N8, H9N2, H10N8), we construct the \enet using all human strains that match the HA subtype, \textit{e.g.} H5Nx for H5N2, H5N6, and H5N8. This addresses the general concern of ``unknown unknowns'': allowing  \enet to assess  threats posed by rare or not-yet-human strains. We  compute the \erisk for both HA and NA sequences (using the above relationship),  finally reporting their geometric mean as our estimated risk for the strain. Considering IRAT emergence scores of $22$ strains published by the CDC, we find strong out-of-sample support  (correlation of $0.704$, pvalue $<0.00026$, Fig.~\ref{fig1}b). Importantly, each \erisk score  is  computable in approximately $6$ seconds as opposed to potentially weeks taken by IRAT experimental assays and SME evaluation, suggesting a \textit{six order of magnitude speedup}. In the proposed study we will expand our anayis to the complete IAV genome, incorporating all 8 genes, and quantify the modeling uncertainties, and the statistical association of our score with the ten individual scoring elements of IRAT. We show a preliminary implementation of the \bnd in Fig.~\ref{fig1}c for all 6,066 strains retrieved in 2021/22, showing the localization of potential near-term threat events.
+\textit{Preliminary Validation of \bnd.} We constructed \enet models for HA and NA sequences using subtype-specific human strains, typically collected within the  year prior to the assessment date. For rare human sub-types (H1N2, H7N7), we considered all subtype-specific human strains collected up to the  assessment date  to infer our \enet. For subtypes with little or no recorded human strains  (H5N2, H5N6, H5N8, H7N8, H9N2, H10N8), we constructed the \enet using all human strains that match the HA subtype alone. This addresses the issue of ``unknown unknowns'': allowing  \enet to assess  threats posed by not-yet-human strains. We  compute the \erisk for both HA and NA sequences (using the above relationship),  finally reporting their geometric mean as our estimated risk. Considering IRAT emergence scores of $22$ strains published by the CDC, we found strong out-of-sample support  (correlation: $0.704$, pvalue $<0.00026$, Fig.~\ref{fig1}b). Importantly, each \erisk score  is  computable in approximately $6$ seconds as opposed to weeks/months, suggesting a \textit{six order of magnitude speedup}. In the proposed study we will expand our analyis to incorporate all 8 genes. We show a preliminary implementation of the \bnd in Fig.~\ref{fig1}c for all 6,066 strains retrieved in 2021/22, showing the localization of  near-term threat events.
 
 \subsubsection*{Innovation} %Innovation: Describe how the proposed research is innovative, including how it will
 %provide new insights, paradigms, technologies, or applications to the research field
 %and/or patient care. Investigating the next logical step of an existing line of research
 %or providing an incremental advance on published data is not considered innovative.
 
-While  tools exist for ad-hoc quantification of genomic similarity~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009}, higher edit-similarity between strains do not imply a high likelihood of a jump.
-Current surveillance paradigms, while crucial for mapping  disease ecosystems,  fail  to address this challenge. Habitat encroachment, climate change, and other  ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic} unquestionably  drive up the odds of zoonotic spill-over. Nevertheless, efforts at tracking and modeling these effects till date have not improved our ability to quantify future  risk of emergence of a specific strain from a specific host~\cite{fair2019viral}. Recent advances in predicting seasonal epidemic strains~\cite{huddleston2020integrating} do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art: the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+Reported approaches to ``predicting'' mutations assume various models of DNA or AA substitution~\cite{posada1998modeltest,goldberger2005genomic,huelsenbeck1997phylogeny,neher2014predicting,VanderMeer2010,Smith2009} ignoring the impact of  a varying background and selection pressures. Importantly, a  higher edit-similarity between strains do not imply a high likelihood of a jump.
+Current surveillance paradigms, and studies on habitat encroachment, climate change, and other  ecological factors~\cite{rulli2017nexus,chua2002anthropogenic,childs2004zoonotic}  have not improved our ability to actionably quantify future  risk of emergence of a specific strain from a specific host at a specific place~\cite{fair2019viral}. Recent advances in predicting seasonal  strains~\cite{huddleston2020integrating} also do not generalize to predicting emergence events, especially for strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art: the \enet algorithm is  the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system. However, the potential impact of this work is not limited to pandemic preparedness, and can foster a more nuanced understanding of how viruses evolve and adapt over time. This could lead to the development of new therapeutic strategies that specifically target the evolutionary pathways of viruses, potentially revolutionizing the treatment of viral infections.
 \input{pagecontrol}
 
 \clearpage
@@ -483,101 +487,59 @@ The Data Management Plan takes into consideration the balance between the value 
 
 \section*{Technical Abstract}
 % 1 page limit
-This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
+Our project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
 
 
-Influenza A viruses, with their segmented genome and prevalence in animal hosts, have a high pandemic potential due to their ability to recombine genes and emerge as novel human pathogens. Pandemics triggered by animal strains spilling over into humans have occurred multiple times in the past century. Mitigating such risk involves identifying animal strains that may spill over into humans and rapidly achieve human-to-human (HH) transmission capability. While global surveillance efforts collect wild specimens annually, our ability to reliably and scalably risk-rank individual strains remains limited.
-CDC's current solution to this problem is the Influenza Risk Assessment Tool (IRAT), which is based on subject matter experts scoring  strains of concern based on ten different phenotypic aspects  related to transmission and  pathogenicity, on the basis of  multiple experimental assays,  taking  weeks to months to compile for a single strain. With tens of   thousands of strains being collected annually, this results in  a scalability bottleneck.
+Influenza A viruses, with their segmented genome and high prevalence in animal hosts, can  recombine genes from animal strains and (re)emerge as novel human pathogens. Pandemics triggered by animal \infl  strains spilling over into humans have occurred multiple times in the past century. Mitigating such risk involves identifying animal strains that have high odds of spilling over into humans and rapidly achieving human-to-human  transmission capability. While global surveillance efforts collect wild specimens annually, our ability to reliably and scalably risk-rank individual strains according their pandemic potential remains limited.
+CDC's current solution to this problem is the Influenza Risk Assessment Tool (IRAT), which is based on subject matter experts scoring  strains-of-concern  on ten different phenotypic aspects  related to transmission and  pathogenicity on the basis of  multiple experimental assays. Thus scoring each strain can take  weeks to months. With tens of   thousands of strains being collected annually, this presents  a scalability bottleneck.
 
-Here we propose to develop the BioNORAD platform to proactively identify  the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending the North American airspace. Powered by novel pattern discovery algorithms, our proposed algorithms will automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This platform will provide a less-heuristic, theory-backed, experimentally validated, and scalable solution to emergence prediction, enabling preempting strains expected in future human circulation and approximating IRAT scores of non-human strains without experimental assays or SME scoring. We hypothesize that (1) learning patterns of cross-dependencies across point mutations 
-reveals enough underlying rules of organization of their primary structures to actionably forecast evolutionary trajectories, and (2) current global biosurveillance efforts produce sufficient data for  machine learning to realize  next-generation proactive surveillance analytics.
+Here we propose to develop the BioNORAD platform to proactively identify  the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending the North American airspace. Powered by novel pattern discovery algorithms, our proposed algorithms will automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This platform will provide a less-heuristic, theory-backed, experimentally validated,  scalable solution to emergence prediction,  preempting strains expected in future human circulation and approximating IRAT scores of non-human strains a million times faster (seconds as opposed to weeks/months) without experimental assays or SME scoring. %We hypothesize that  learning patterns of cross-dependencies across point mutations from current sequence databases reveals enough of the  underlying rules of organization of their primary structures to actionably forecast evolutionary trajectories.
 
-As its core insight, our approach seeks to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild, thus preempting strains expected to be in future circulation. To accomplish this, we will learn the complex cross-dependencies that constrain what a ``valid alteration'' of an amino acid (AA) sequence is, by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework, the Emergenet (Enet), will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another. We will experimentally validate our ability to predict future variations of viral proteins by showing that \enet predicted variants of HA express correctly and are functional verified via demonstrated cell surface expression,   and thus represent valid  high fitness perturbations of observed strains.
+Our central insight here is that to preempt strains expected to be in future circulation, we need to reliably estimate the non-heuristic numerical probability of a strain x spontaneously giving rise to strain y in the wild. To accomplish this, we aim to  learn the complex cross-dependencies that constrain what a ``valid alteration'' of an amino acid (AA) sequence looks like (random perturbations are expected to be large deleterious), by first analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our core algorithm, the \enet, leverages the inferred cross-dependencies to estimate the odds of a specific mutation arising in the future, and consequently the probability of a specific strain spontaneously evolving into another.
 
-Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump.  Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host.
-Recent advances in predicting seasonal epidemic strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans. This project innovates and envisions a path to acquiring this transformative capability, which is currently well-beyond the state-of-art. The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+We will  validate our ability to predict future mutations by showing that \enet predicted HA variants express correctly, are functional, and maintain fitness unlike random modifications, via demonstrating proper folding, cell surface expression of  variants by flow cytometry as well as evaluate the fitness of recombinant viruses in  1:1 competition experiments with the unperturbed parental strain.
 
-The BioNORAD platform's importance to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. Additionally, the platform will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.  The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+Finally these models will be assembled into a integrated platform (the \bnd) that  shows global near-time pandemic threat events as they emerge (from observation of new animal strains, as they are uploaded to the platform), along with estimates of the threat severity and estimated time to emergence.
+
+Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge that a  higher edit-similarity between strains does not not imply a high likelihood of  jump.  % Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host.
+Also, recent advances in predicting seasonal  strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans, underscoring the problem of unknown unknowns. This project innovates and envisions a path to acquiring this transformative capability well-beyond the state-of-art. % The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution, or a genealogical tree a priori, enabling an actionable pandemic early warning system.
+
+The BioNORAD platform is crucial to US national interest, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. Additionally, the platform will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger. The investment in the BioNORAD platform is thus a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.  The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
 
 \clearpage
 
 \section*{Lay Abstract}
 % 1 page limit
+Our project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
 
-Influenza A viruses have the potential to cause pandemics, and the current global surveillance efforts are insufficient to reliably identify and rank strains with high pandemic potential. The current solution to this problem, the Influenza Risk Assessment Tool (IRAT) by the CDC, is subjective and slow requiring multiple experimental assays,  and cannot keep up with the scale of current global biosurveillance efforts.
+Influenza A viruses have the potential to cause devastating pandemics, and  ongoing surveillance efforts are insufficient to reliably identify and rank strains with high pandemic potential. The current solution to this problem, the Influenza Risk Assessment Tool (IRAT) by the CDC, is subjective and slow requiring multiple experimental assays,  and thus cannot keep up with the scale of current global biosurveillance efforts.
 
-To address this challenge, we propose to develop the \bnd  platform to proactively identify the risks posed by emerging Influenza A strains with high pandemic potential. The platform will use novel pattern discovery algorithms to automatically parse emergent evolutionary constraints on Influenza A viruses in the wild, and provide a less-heuristic, theory-backed, experimentally validated, and scalable solution to emergence prediction.
+To address this challenge, we propose to develop the \bnd  platform to proactively identify the risks posed by emerging Influenza A strains with high pandemic potential. The platform will use novel pattern discovery algorithms to automatically parse evolutionary constraints operating on Influenza A viruses in the wild, and provide an experimentally validated scalable solution to emergence prediction.
 
-The Emergenet algorithm, which forms the core of the BioNORAD platform, is the first of its kind to learn an adaptive  biologically meaningful comparison metric from data, enabling an actionable pandemic early warning system. By reliably estimating the non-heuristic numerical probability of a strain giving rise to another strain in the wild, the platform can preempt strains expected to be in future circulation, and approximate IRAT scores of non-human strains without experimental assays or subject matter expert scoring. The Emergenet algorithm learns patterns of cross-dependencies across point mutations to reveal underlying rules of organization of the primary structures of viral proteins. The predictive framework will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another. Additionally, we will validate our core algorithm by experimentally validating that predicted vraiations of observed strains and specific genes in the wild express correctly on host cell surfaces and are functional.
+The Emergenet algorithm, at the core of the BioNORAD platform, is the first of its kind to learn an adaptive  biologically meaningful comparison metric from data, enabling an actionable pandemic early warning system. By reliably estimating the  numerical probability of a strain giving rise to another strain in the wild, the platform can preempt strains expected to be in future circulation, and approximate IRAT scores of non-human strains without experimental assays or subject matter expert scoring.
 
-Current surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump. Efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over have not improved our ability to quantify future risk of emergence of a specific strain from a specific host. Recent advances in predicting seasonal epidemic strains do not generalize to predicting emergence events, especially strains that do not yet circulate in humans.
+We will validate this core algorithm by  demonstrating that \enet predicted variations of genes from strains observed in the wild express correctly on host cell surfaces,  are functional, and do not lose replicative fitness, and hence  present potential future variants.
 
-The BioNORAD platform’s importance to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. Additionally, the platform will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger.
+Ultimately the inferred models will be used to power the  \bnd platform that can track global threats from potential near-time emergence events as new strains are uploaded to the platform, along with  estimates of the threat severity and estimated time to emergence.
 
-This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD’s mission in a world where pandemic threats are a growing concern. The platform’s ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+This represents a transformative capability, addressing the problem of unknown unknowns in the field of emergence modeling: state of the art tools are severely limited in their ability to predict or track emergence of novel strains. This knowledge gap renders the current substantial bio-surveillance efforts largely ineffective for precise actionable prediction of emergence events. These surveillance paradigms, while crucial for mapping disease ecosystems, fail to address the challenge of higher edit-similarity between strains not implying a high likelihood of a jump. Ongoing efforts at tracking and modeling ecological factors driving up the odds of zoonotic spill-over, while expensive,  have not improved our ability to quantify future risk of emergence of a specific strain from a specific host. Recent reported advances in predicting seasonal epidemic strain distributions  do not generalize to predicting emergence events as well, especially for novel subtypes  that do not yet circulate in humans.
 
-The Emergenet algorithm and the BioNORAD platform represent a transformative capability, currently well-beyond the state-of-art, to proactively identify the risks posed by emerging Influenza A strains with high pandemic potential. The platform's ability to automatically factor in the evolving host immunity and the current background environment sets it apart from current state-of-the-art methods, making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security.
+By automating the analysis of influenza strains, the BioNORAD platform has the potential to revolutionize our ability to prevent pandemics before they emerge. It is a transformative technology that is urgently needed in a world where pandemics are a growing concern. By providing early warning of emerging strains, the platform can help prevent widespread outbreaks and save lives.
+
+Furthermore, the BioNORAD platform has the potential to enable more proactive vaccination efforts. By identifying animal reservoirs of emerging strains before they jump to humans, public health officials could vaccinate these animals and prevent the emergence of pandemic strains, saving countless lives.
+
+The BioNORAD platform can play a crucial role in protecting DoD assets and personnel deployed in potentially high-risk centers of emergence, and may make prophylactic inoculation possible against future strains.  Thus, the investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD’s mission in a world where pandemic threats are a growing concern. 
+
+Our project is a collaborative effort between experts in computer science, biology, and epidemiology, and all tools, software and data generated will be shared in accordance with DoD mandates.  This interdisciplinary approach is essential for developing a platform that can effectively address the complex problem of predicting pandemic risk. By bringing together experts from different fields, the platform can take advantage of cutting-edge advances in machine learning, bioinformatics, and epidemiology.
+
+\clearpage
+
 
 
 
 
 \clearpage
-
-
-Influenza A viruses have caused devastating pandemics in the past and pose a significant threat to public health. One of the biggest challenges in mitigating the risk of future pandemics is the ability to identify animal strains that may spill over into humans and rapidly achieve human-to-human transmission capability. While global surveillance efforts collect wild specimens annually, our ability to reliably and scalably risk-rank individual strains remains limited.
-
-To address this problem, we propose the BioNORAD platform, which will provide a less-heuristic, theory-backed, experimentally validated, and scalable solution to emergence prediction. The platform is powered by novel pattern discovery algorithms that automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. This will enable preempting strains expected in future human circulation and approximating risk scores of non-human strains without experimental assays or scoring by subject matter experts.
-
-The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or amino acid substitution or a genealogical tree a priori. It will learn the complex cross-dependencies that constrain what a "valid alteration" of an amino acid sequence is by analyzing variations of residue sequences of key proteins implicated in cellular entry/exit, namely HA and NA, and then expanding the analysis to the complete viral genome. Our predictive framework will estimate the odds of a specific mutation arising in the future and consequently the probability of a specific strain spontaneously evolving into another. We will experimentally validate our ability to predict future variations of viral proteins by showing that Emergenet predicted variants of HA express correctly and are functional verified via demonstrated cell surface expression, and thus represent valid high fitness perturbations of observed strains.
-
-The BioNORAD platform will be critical in identifying the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending the North American airspace. It will enable preemptive action, such as the inoculation of animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to trigger.
-
-The Emergenet algorithm, at the core of the \bnd platform,  is also able to factor in the evolving host immunity and the current background environment, setting it apart from current state-of-the-art methods and making it a vital asset in the fight against pandemic threats and safeguarding military personnel, assets, and global health security. This cpability  is currently well-beyond the state-of-art and represents a significant innovation in the field of pandemic prediction.
-
-The importance of the BioNORAD platform to the national interest of the United States cannot be overstated, particularly in the context of protecting DoD assets and personnel deployed in potentially high-risk centers of emergence. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.
-
-The platform will also have applications beyond the military, benefiting global health security by providing early warning of emerging pandemic strains. The Emergenet algorithm's ability to learn from data without assuming a priori models or genealogical trees has the potential to revolutionize pandemic prediction and response. The scalability of the BioNORAD platform also means that it can handle the tens of thousands of strains collected annually, providing a more reliable and effective solution to pandemic risk assessment.
-
-
-In addition to the benefits for DoD, the BioNORAD platform has the potential to impact public health globally. By providing early warning and proactive surveillance for potential pandemic strains of influenza, the platform can help prevent pandemics from occurring, or at least limit their severity. The emergence of novel, virulent strains of influenza is a global health threat that has the potential to cause significant harm and death, as seen in the 1918 Spanish flu pandemic. While there have been significant advances in the understanding of influenza and efforts to prevent pandemics, the threat of emergence remains.
-
-By automating the analysis of influenza strains and predicting their risk of pandemic potential, the BioNORAD platform has the potential to revolutionize our ability to prevent pandemics before they emerge. It is a transformative technology that is urgently needed in a world where pandemics are a growing concern. By providing early warning of emerging strains, the platform can help prevent widespread outbreaks and save lives.
-
-Furthermore, the BioNORAD platform has the potential to enable more proactive vaccination efforts. By identifying animal reservoirs of emerging strains before they jump to humans, public health officials could vaccinate these animals and prevent the emergence of pandemic strains. This proactive approach to vaccination could greatly reduce the risk of pandemics and save lives.
-
-The BioNORAD platform is a collaborative effort between experts in computer science, biology, and epidemiology. This interdisciplinary approach is essential for developing a platform that can effectively address the complex problem of predicting pandemic risk. By bringing together experts from different fields, the platform can take advantage of cutting-edge advances in machine learning, bioinformatics, and epidemiology.
-
-Overall, the BioNORAD platform is an exciting new technology that has the potential to revolutionize our ability to predict and prevent pandemics. By automating the analysis of influenza strains and predicting their risk of pandemic potential, the platform can provide early warning of emerging strains and enable more proactive vaccination efforts. With its potential to impact public health globally, the BioNORAD platform is a vital tool in the fight against emerging infectious diseases.
-
-
-
-
-
-
-
-
-
-
-
-% Our team proposes to develop a new platform called BioNORAD to help identify the risks posed by emerging Influenza A strains with high pandemic potential. This platform will use advanced algorithms to predict the evolutionary pathways of these viruses, enabling us to better understand the risks and take proactive steps to mitigate them.
-
-% Current surveillance efforts rely on subject matter experts to score strains of concern based on ten different phenotypic aspects related to transmission and pathogenicity, a process that can take weeks or months to complete. The Emergenet algorithm that we will be using is the first of its kind to learn an appropriate biologically meaningful comparison metric from data without assuming any model of DNA or AA substitution or a genealogical tree a priori, enabling an actionable pandemic early warning system.
-
-% We will be focusing on two key proteins in the virus, the HA and NA proteins, to better understand how mutations in these proteins can change the risk profile of a given virus. We will also expand our analysis to the complete viral genome, allowing us to understand the full range of possible mutations and how they might impact the virus's behavior.
-
-% By analyzing these mutations and their impact on the virus, we hope to better understand the risks of emerging pandemics and develop proactive strategies for mitigating them. The Emergenet algorithm is the first of its kind to learn an appropriate biologically meaningful comparison metric from data without assuming any model of DNA or AA substitution or a genealogical tree a priori, enabling an actionable pandemic early warning system.
-
-% Overall, our project is an innovative and ambitious effort to better understand the risks posed by emerging pandemics and develop proactive strategies for mitigating them. We believe that our approach has the potential to revolutionize our understanding of these risks and help us better protect the health and safety of people around the world. This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic:
-% proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics.
-
-
-
-% We plan to distill  evolutionary constraints from  rapidly expanding  databases (GISAID \& NCBI) of $> 10,000$  \hcov sequences, to predict  epitopes and sequences of perturbed fusion proteins expected to emerge in future in the wild. Our central idea in this project  is to model the constraints on the variations of the nucleotide sequences as a virus evolves by inferring a set of inter-dependent predictors known as the  Quasinet or the \qnet. The \qnet framework  is  specifically designed for the analysis of biological sequences at scale, with the  objective of modeling and prediction of dynamics unfolding in ultra-high dimensional sequence spaces. The key idea here is surprisingly simple: \textit{we learn models for predicting the mutational variations at each index of the genomic sequence using other indices  as features. Collectively, these predictors represent the emergent constraints that shape evolutionary changes from selection forces in the wild.}
-
-
-
-\clearpage
-\limitpages{12}
+\limitpages{13}
 
 \section*{Statement of Work - 04/26/2023}
 % 3 page limit
@@ -626,7 +588,7 @@ Subtask T1.3.2: Computationally validate timeline predictions using records of  
 Subtask 2.1.1 Develop analytical framework to identify probabilistic movement direction between strains & 9-12 &\checkmark & \\\hline
 Subtask 2.1.2 Develop analytics to chart multi-step probabilistic trajectories from observed strains & 12-15 & \checkmark& \\\hline
   \rowcolor{\MCOL} \bf  Milestones Achieved: M5)~Software update for future trajectory calculation& & & \\\hline
- \rowcolor{lightgray} Major Task 2: Assessment of fitness potential emerging zoonotic IAV variants in vitro cell culture& & & \\\hline
+ \rowcolor{lightgray} Major Task 2: Assessment of fitness of  potential emerging zoonotic IAV variants in cell cultures& & & \\\hline
 Subtask 2.2.1 Shortlist HA variants with maximal emergence probability of H3N2 and H1N1 subtypes &  6-9& \checkmark& \checkmark\\\hline
 Subtask 2.2.2 Generate predicted HA variants using reverse genetics in human lung epithelial cell line (A549) and primary human lung cells  &  9-22& &\checkmark \\\hline
 Subtask 2.2.3 Evaluate generated variants for replicative fitness & 15-24 & & \checkmark\\\hline
@@ -664,7 +626,7 @@ labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 
 
 \section*{Timeline}
-
+The project timeline, indicating various milestones and tasks is illustrated in Fig.~\ref{figgantt}
 
 
 \ganttset{group/.append style={orange},
@@ -701,19 +663,33 @@ progress label node anchor/.append style={text=red}}
     \gantttitle{Q3}{3} 
     \gantttitle{Q4}{3}\\
     % Setting group if any
-    \ganttgroup[inline=false]{UCM Data Acquisition}{1}{3}\\ 
-    \ganttmilestone[inline=false]{IRB Approval}{2} \\
-    \ganttgroup[inline=false]{SSC Biosample Acquisition}{1}{4}\\ 
-    \ganttbar[progress=50,inline=false]{Biosample sequencing}{4}{18}\\
- \ganttbar[progress=75,inline=false]{UCM Data Analysis}{3}{12}\\
-    \ganttmilestone[inline=false]{UCM analysis complete}{12} \\
-    \ganttmilestone[inline=false]{Year 1 Report}{12} \\
-    \ganttbar[progress=100,inline=false]{Biosample sequencing}{4}{18}\\
-      \ganttmilestone[inline=false]{Biosample sequencing complete}{18} \\
-   \ganttbar[progress=75,inline=false]{FInal analysis}{12}{24}\\
-     \ganttbar[progress=100,inline=false]{FInal analysis}{12}{24}\\
-    \ganttmilestone[inline=false]{Final Report}{24} \\
+    \ganttgroup[inline=false]{Sequence Data Acquisition Pipeline}{1}{24}\\ 
+    \ganttgroup[inline=false]{T1.1.1}{1}{3}\\ 
+    \ganttgroup[inline=false]{T1.1.2}{2}{6}\\ 
+    \ganttmilestone[inline=false]{Software beta release}{3} \\
+    \ganttmilestone[inline=false]{Uncertainty quantification of  models}{6} \\
+    \ganttgroup[inline=false]{T1.2}{3}{6}\\ 
+    \ganttmilestone[inline=false]{Sample complexity estimated}{6} \\
+    \ganttgroup[inline=false]{T1.3.1}{3}{9}\\ 
+    \ganttgroup[inline=false]{T1.3.2}{9}{12}\\ 
+    \ganttmilestone[inline=false]{Software update timeline estimation}{12} \\
+    \ganttgroup[inline=false]{T2.1.1}{9}{12}\\ 
+    \ganttgroup[inline=false]{T2.1.2}{12}{15}\\ 
+    \ganttmilestone[inline=false]{Software update trajectory calculation}{15} \\
+    \ganttgroup[inline=false]{T2.2.1}{6}{9}\\ 
+    \ganttgroup[inline=false]{T2.2.2}{9}{22}\\ 
+    \ganttgroup[inline=false]{T2.2.3}{15}{24}\\ 
+    \ganttmilestone[inline=false]{Experimental validation complete}{15} \\
+    \ganttgroup[inline=false]{T3.1.1}{12}{18}\\ 
+    \ganttgroup[inline=false]{T3.1.2}{15}{18}\\ 
+    \ganttgroup[inline=false]{T3.1.3}{18}{24}\\ 
+    \ganttmilestone[inline=false]{IRAT score replication}{15} \\
+    \ganttgroup[inline=false]{T3.2.1}{18}{24}\\ 
+    \ganttgroup[inline=false]{T3.2.2}{18}{24}\\ 
+    \ganttmilestone[inline=false]{\bnd working prototype}{15} \\
+    \ganttmilestone[inline=false]{Final Report}{24} 
   \end{ganttchart}
+  \captionN{Gantt chart of project timeline}\label{figgantt}
 \end{figure}
 
 
@@ -741,128 +717,148 @@ progress label node anchor/.append style={text=red}}
 % DOD FY23 Peer Reviewed Medical Discovery Award 26
 % has the potential to generate preliminary data that can be used as a foundation for future
 % research projects.
+\subsubsection*{Relevance to FY23 PRMRP Topic Area}
+The proposed research project is highly relevant to the proteomics topic area, specifically as it applies to infectious diseases caused by zoonotic emergence. The \enet algorithm can distill the emergent rules of organization of key viral proteins, uncovering how proteins respond to dynamic fitness landscapes and adapt to new hosts while evading host immune defenses. These investigations can provide key insights into protein evolution and reveal novel patterns that can aid in the discovery of vaccines and prevent the emergence of new virus strains.
+% \subsubsection*{Relevance to  FY23 PRMRP Topic Area}
+% The proposed research project is highly relevant to proteomics, specifically as it applies to the area of infectious diseases caused by zoonotic emergence. While we know that arbitrary variations in genomic sequences are deleterious, and mutations that allow animal viruses to adapt to human hosts must preserve function, the exact mechanisms that drive this balance between genotypic variation while producing functional proteins is unclear. Our \enet algorithm can distill the emergent rules of organization of the key viral proteins, and lay the foundation to uncovering how such proteins can respond to dynamic fitness landscapes, and  can vary enough to evade host immune defenses while preserving function and  adapting to new hosts. Ability to carry out these investigations at scale has the potential to reveal key insights in protein evolution. 
 
-The proposed research project is important and relevant to the FY23 PRMRP Topic Area of Infectious Diseases, as it aims to develop the BioNORAD platform to predict and identify the emergence of new strains of influenza viruses. This platform has the potential to significantly improve global surveillance and response capabilities for emerging pandemic threats, which is a growing concern in today's interconnected world.
+% Influenza A viruses are a major concern due to their pandemic potential, with past pandemics being triggered by animal strains spilling over into humans. The proposed research project aims to develop a platform that can proactively identify the risks posed by emerging Influenza A strains with high pandemic potential, akin to the strategic function of NORAD in defending the North American airspace.
 
-The FY23 PRMRP Strategic Goal addressed in the proposed research is Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics. The BioNORAD platform aligns with this strategic goal by employing advanced machine learning algorithms and interdisciplinary insights to create an early warning system for pandemic threats. This system will enable proactive measures to protect both military and civilian populations, strengthening global health security.
+% The development of the BioNORAD platform would represent a major advance in our ability to predict pandemics caused by Influenza A viruses, and would have significant implications for public health, biosurveillance efforts, and national security. The ability to rapidly and accurately risk-rank individual strains would be transformative in terms of our preparedness for potential pandemics, allowing us to take preemptive action and potentially eliminate pandemics before they have a chance to take hold.
+\subsubsection*{Relevance to FY23 PRMRP Strategic Goal}
+The proposed research project addresses the strategic goal of epidemiology, with a focus on identifying strategies for surveillance or developing modeling tools and/or biomarkers to predict outbreaks or epidemics. The BioNORAD platform provides a theory-backed, experimentally validated, and scalable solution to emergence prediction, preempting strains expected in future human circulation and approximating Influenza Risk Assessment Tool (IRAT) scores of non-human strains without experimental assays or subject matter expert scoring% . This represents a significant improvement in our ability to predict pandemics caused by Influenza A viruses.
+%
+% \subsubsection*{Relevance to  FY23 PRMRP Strategic Goal}
+%
+% The proposed research project addresses the FY23 PRMRP strategic goal of epidemiology, specifically the goal of identifying strategies for surveillance or developing modeling tools and/or biomarkers to predict outbreaks or epidemics. The current solution for assessing the risk posed by Influenza A strains, the Influenza Risk Assessment Tool (IRAT), is based on subject matter experts scoring strains of concern based on ten different phenotypic aspects related to transmission and pathogenicity, and takes weeks to months to compile for a single strain. With tens of thousands of strains being collected annually, this results in a scalability bottleneck.
+%
+% The BioNORAD platform represents a major step forward in terms of our ability to predict pandemics caused by Influenza A viruses. The platform is based on novel pattern discovery algorithms that automatically parse emergent evolutionary constraints on Influenza A viruses in the wild. It provides a less-heuristic, theory-backed, experimentally validated,  scalable solution to emergence prediction,  preempting strains expected in future human circulation and approximating IRAT scores of non-human strains without experimental assays or SME scoring
+a million times faster. As a comparison, while 22 strains have been scored by the IRAT since 2013, we can analyze and score the entire GISAID and NCBI database in under a week with a moderately powerful computing cluster. This represents a significant improvement in our ability to predict pandemics caused by Influenza A viruses.
 
-The potential short-term impact of the proposed research includes the development of a robust, scalable, and actionable platform to predict and identify emerging influenza strains. This will enable more efficient allocation of resources for vaccine development, antiviral treatments, and other medical countermeasures, ultimately improving patient care and health outcomes.
+\subsubsection*{Potential impact, either short-term or long-term on the field of study and/or patient care}
+The potential impact of the proposed research on the field of study and patient care is immense. Currently, pandemic preparedness and response is reactive and slow, often leading to significant loss of life and economic damage. The ability to accurately predict the emergence of high-risk pandemic strains before they have the opportunity to trigger a pandemic would revolutionize our approach to pandemic preparedness and response,  allowing us to rapidly develop and produce vaccines tailored to the specific strain before the pandemic even begins, potentially saving countless lives.
 
-In the long-term, the BioNORAD platform has the potential to revolutionize the field of infectious disease surveillance and response, leading to better preparedness for future pandemics. Moreover, the interdisciplinary nature of this project could foster innovations and breakthroughs in machine learning, information theory, evolutionary theory, epidemiology, and proteomics, with broad applications beyond influenza.
+Furthermore, by understanding the evolutionary constraints and cross-dependencies that give rise to high-risk strains, we can begin to develop targeted interventions to prevent these strains from emerging in the first place. This could involve inoculating animal reservoirs with vaccines tailored to these high-risk strains or developing targeted surveillance efforts  in animals before they have the opportunity to jump to humans.
 
-The proposed research has the potential to generate preliminary data that can be used as a foundation for future research projects. As the BioNORAD platform is developed and validated, the insights gained will inform the design of new surveillance strategies, modeling tools, and biomarkers for predicting outbreaks or epidemics. This will enable researchers to explore novel approaches to combating infectious diseases, ultimately contributing to improved global health security.
+The potential impact of this work is not limited to pandemic preparedness, and can foster a more nuanced understanding of how viruses evolve and adapt over time. This could lead to the development of new therapeutic strategies that specifically target the evolutionary pathways of viruses, potentially revolutionizing the treatment of viral infections. In addition, the development of the BioNORAD platform has implications beyond Influenza A viruses. The methods developed as part of this work can be applied to other viruses with pandemic potential, such as coronaviruses and other respiratory viruses.
 
-In summary, the proposed research project is highly relevant to the FY23 PRMRP Topic Area of Infectious Diseases and addresses the FY23 PRMRP Strategic Goal of Epidemiology. The development of the BioNORAD platform has the potential to make significant short-term and long-term impacts on the field of study and patient care, while also laying the foundation for future research projects in the areas of infectious disease surveillance, modeling, and prediction.
+Overall, the potential impact of this work is significant, both in the short-term and long-term. By developing a better understanding of the evolutionary forces that give rise to high-risk pandemic strains and by providing an early warning system to identify emerging strains before they have the opportunity to trigger a pandemic, we can revolutionize our approach to pandemic preparedness and response, making this research project a critical investment in the future of our society.
+
+\subsubsection*{Potential to generate preliminary data that can be used as a foundation for future research projects}
+The BioNORAD platform's ability to predict the emergence of novel Influenza A strains with high pandemic potential, as well as estimate their evolutionary trajectories, will generate a wealth of data that can be used as a foundation for future research projects. The knowledge and insights gained from this research will facilitate the development of more effective and efficient biosurveillance methods and tools, as well as the design of new therapeutics and vaccines that target specific viral strains. Furthermore, this work will provide a framework for future studies aimed at predicting the emergence of other infectious diseases with pandemic potential.
+
+In addition, the Emergenet algorithm's ability to learn an appropriate biologically meaningful comparison metric from data, without assuming any model of DNA or AA substitution or a genealogical tree a priori, represents a significant advance in the field of machine learning. This has the potential to impact a wide range of research areas beyond infectious disease epidemiology, such as protein structure prediction and drug design. The proposed research will not only advance our understanding of Influenza A evolution and pandemic risk assessment but also contribute to the broader scientific community's knowledge of machine learning and artificial intelligence.
 
 
 \clearpage
 
 \limitpages{15}
 \section*{Relevance to Military Health Statement}
-% 1 page limit
+The proposed research project is highly responsive to the healthcare needs of military service members, veterans, and beneficiaries, specifically in regards to pandemic preparedness and response. The emergence of new strains of influenza viruses with the potential to cause pandemics is a global threat with significant implications for the health and safety of military personnel. Here we briefly discuss the incidence and/or prevalence of influenza in the general population as well as in military service members, veterans, and beneficiaries, describe the population(s)/dataset(s) to  be used in the proposed research project, and provide a description of how the knowledge, information, products, technologies, or applications gained from the research could be implemented in a dual-use capacity to benefit both military and civilian populations.
 
-The \bnd platform will enable proactive and actionable global surveillance for emerging pandemic threats from \infl. This importance of the ability to preempt pandemic risk to the national interest of the United States cannot be overstated, especially in the context of protecting  DoD assest and personnel deployed in potentially high risk centers of emergence. Additionally, the BioNORAD will enable preemptive action including the inoculation of  animal reservoirs before the first human infection, potentially eliminating the pandemic before it has a chance to  trigger.
+\subsection*{Incidence and Prevalence of Influenza}
+
+Influenza is a highly infectious respiratory illness caused by the influenza virus. It affects millions of people worldwide each year and is responsible for a significant number of hospitalizations and deaths. According to the Centers for Disease Control and Prevention (CDC), in the United States alone, the estimated number of influenza-associated illnesses ranges from 9 million to 45 million annually, resulting in between 140,000 and 810,000 hospitalizations and between 12,000 and 61,000 deaths in a typical flu season \cite{CDC2021}. Military service members, veterans, and beneficiaries are not immune to the effects of influenza, and the Department of Defense (DoD) reports that influenza-like illness is one of the top five reasons for medical encounters among service members \cite{DoD2020}. In addition, influenza can have a significant impact on military readiness, with outbreaks resulting in decreased personnel availability and decreased mission effectiveness \cite{Wells2005}.
+
+\subsection*{Population and Dataset}
+The proposed research project will utilize a combination of publicly available genetic sequence data and epidemiological data from influenza surveillance programs. Specifically, the Global Initiative on Sharing All Influenza Data (GISAID) and the National Center for Biotechnology Information (NCBI) databases will be used to collect genetic sequence data on influenza viruses collected from human and animal hosts. Epidemiological data will be obtained from the World Health Organization (WHO) and the Centers for Disease Control and Prevention (CDC), including information on the geographic distribution of influenza strains and the incidence and prevalence of disease.
+
+The use of these datasets is highly appropriate for the proposed research project. The GISAID and NCBI databases contain a wealth of genetic sequence data on influenza viruses collected from around the world. These databases are regularly updated and publicly available, ensuring that the research can be replicated and extended by other researchers. Additionally, the epidemiological data obtained from WHO and CDC are widely recognized as authoritative sources of information on influenza surveillance and are used by public health agencies around the world to track the spread of influenza.
+
+Accessing these datasets is feasible, as they are publicly available and regularly updated. The use of these datasets also enables the research to be conducted at scale, allowing for the identification of emerging strains and the analysis of their evolutionary trajectories in a timely and efficient manner.
+
+\subsection*{Dual-Use Capacity}
+% Dual-use capacity
+The knowledge and technologies gained from this research could be implemented in a dual-use capacity to benefit both military and civilian populations. The ability to predict and preempt the emergence of pandemic strains of influenza viruses has significant implications for global public health and biosurveillance efforts. By developing the BioNORAD platform, we can not only protect military personnel but also contribute to global efforts to prevent and respond to emerging infectious diseases.
+
+The knowledge gained from this research project could also be applied to other infectious diseases with pandemic potential, such as coronaviruses and other respiratory viruses. The methods and algorithms developed as part of this work can be applied to other viruses with pandemic potential, potentially improving our ability to predict and respond to future pandemics, enabling us to act quickly and decisively to prevent the spread of the virus and save lives.
+
+In conclusion, the proposed research project is highly responsive to the health care needs of military Service Members, Veterans, and/or beneficiaries. Influenza viruses are a major threat to military personnel deployed overseas, and the ability to predict and preempt pandemic strains of influenza viruses has significant implications for the health and safety of military personnel. The use of publicly available datasets and the interdisciplinary collaboration involved in this research project make it a highly feasible and appropriate approach to the problem. Finally, the dual-use potential of the research has significant implications for global public health and biosurveillance efforts, making it a critical investment in the future of both military and civilian populations.
 
 
-The emergence of new strains of influenza viruses with the potential to cause pandemics is a global threat with significant implications for the health and safety of military personnel. The proposed BioNORAD platform is designed to predict and identify the emergence of new strains of influenza viruses, providing vital information for the Department of Defense (DoD) to take proactive measures to protect its personnel and assets. In this statement, we highlight the relevance of this grant to military health and why it is of interest to the DoD.
-
-\begin{enumerate}
-    \item \textbf{Protecting Military Personnel and Assets:} Military personnel are often deployed in diverse geographical locations and close proximity to animal reservoirs, increasing their risk of exposure to novel influenza strains. The ability to preemptively identify and mitigate these threats is essential to safeguard the health of the deployed personnel and ensure the readiness and effectiveness of the military. The BioNORAD platform will enable the DoD to take proactive measures to protect its personnel and assets from emerging pandemic threats.
-
-    \item \textbf{Enhancing Military Medical Response Capabilities:} The development of the BioNORAD platform will provide the military with an advanced tool to better anticipate and respond to pandemic threats. Early identification of potential strains enables the development of targeted vaccines, antiviral treatments, and other medical countermeasures. This will significantly enhance the military's medical response capabilities, ensuring the health and well-being of its personnel.
-
-    \item \textbf{Strengthening Global Health Security:} The ability to predict and mitigate the spread of pandemic threats is a vital aspect of global health security. By developing the BioNORAD platform, the DoD will contribute to global efforts to prevent and respond to emerging infectious diseases. This will not only protect military personnel but also support civilian populations worldwide, strengthening international partnerships and cooperation.
-
-    \item \textbf{Reducing Economic and Operational Impacts:} Pandemics can have severe economic and operational consequences for the military. By enabling early detection and mitigation, the BioNORAD platform will help reduce the financial and operational burdens associated with major outbreaks. This will ensure that the DoD can continue to carry out its mission effectively during times of crisis.
-
-    \item \textbf{Promoting Interdisciplinary Collaboration and Innovation:} The development of the BioNORAD platform will bring together experts from various fields, including machine learning, information theory, evolutionary theory, epidemiology, and proteomics. This interdisciplinary collaboration will foster innovation and advance our understanding of the complex interactions between pathogens and their hosts. The knowledge and technologies generated by this project will have broad applications beyond influenza, with potential benefits for military health and biodefense efforts.
-\end{enumerate}
-
-In summary, the development of the BioNORAD platform is highly relevant to military health and of significant interest to the Department of Defense. By enabling early identification and mitigation of emerging pandemic threats, the platform will protect military personnel and assets, enhance military medical response capabilities, strengthen global health security, reduce economic and operational impacts, and promote interdisciplinary collaboration and innovation. This project aligns with the FY23 PRMRP Portfolio Category: Infectious Diseases, FY23 PRMRP Topic: proteomics, and FY23 PRMRP Strategic Goal: Epidemiology: Identify strategies for surveillance or develop modeling tools and/or biomarkers to predict outbreaks or epidemics. The investment in the BioNORAD platform is a strategic step towards ensuring the health and safety of military personnel and the success of the DoD's mission in a world where pandemic threats are a growing concern.
 
 
 \clearpage
 \limitpages{100}
 \section*{Facilities, Existing Equipment, and Other Resources}
+\textbf{The University of Chicago} is a private non-profit institution located on the ethnically-diverse South Side of Chicago that has been a center of advanced learning and research since its inception in 1892. The University of Chicago is comprised of four graduate Divisions (Biological Sciences, Physical Sciences, Social Sciences, and Humanities), six professional schools (Chicago Booth School of Business, Divinity School, Harris School of Public Policy Studies, Law School, Pritzker School of Medicine, and School of Social Service Administration), the Graham School of General Studies, and the undergraduate College. The University has a unique history of organizing around research questions that cross disciplines rather than operating within  disciplinary boundaries. The extent to which this strategy reflects University of Chicago is illustrated by its numerous interdisciplinary Committees, Centers and Institutes (described below). The University of Chicago maintains its commitment to scholarship, teaching, and research through its more than 2100 faculty members and a student population of approximately 15,600 with nearly 2/3 engaged in advanced research and professional study. Through the years, 86 Nobel Laureates (8 are current faculty),  44 members of the National Academy of Sciences, 169 members of the American Academy of Arts and Sciences, and 14 recipients of the National Medal of Science have been associated with the University as students, teachers or research investigators. The University of Chicago is ranked among the world’s top universities by a number of criteria, including the amount of federal research funding received (despite a size much smaller than many of its academic peers). This spirit of discovery, innovation and public service provides a robust foundation for success.
 
 % \input{Collab_eq.tex}
-% \input{compute.tex}
-
-
-% \subsection*{Facilities \& Equipment}
-
-The principal investigators have access to extensive computational and experimental  facilities available at the University of Chicago and the University of Iowa to carry out the projects outlined.
+ \input{compute.tex}
 
 
 
 
+%\clearpage
 
-\subsubsection*{University of Chicago facilities, equipment, and other resources}
+% The principal investigators have access to extensive computational and experimental  facilities available at the University of Chicago and the University of Iowa to carry out the proposed project.
 
-\textbf{Argonne Leadership Computing Facility (ALCF).}
+% \subsubsection*{University of Chicago facilities, equipment, and other resources}
 
-In partnership with Rick Stevens and Argonne National Lab, we will also have access to Argonne’s suite of high-performance machines, including ThetaGPU with 28 NVIDIA DGX-3 state-of-the-art AI systems, Polaris, which will be installed in spring, 2021 with 1024 NVIDIA A100 GPUs able to support ~7,000 simultaneous training sessions at once for problems that need hyper parameter optimization or for exploring properties of models. Aurora will be installed Summer 2022 and will host 60,000 Intel PVC-XT, performing AI inference at something like 64x faster at over 100 EFs per second, able to train up to 480K models in parallel and some very large models, supporting training models as high as 100 trillion parameters. Human brains have on order 100 trillion synapses (1011 neurons and 1.8-3.2 x 1014 synapses) and so this machine is, in some sense, a brain scale computer, likely the fastest on the planet when installed, and by far the fastest devoted to AI. Finally, we will have access to the National AI Accelerator Assessment Testbed (N3AT) Facility, designed to assess the usefulness of novel hardware designs from dozens of startups for advancing key research problems in AI. These include computers from Cerebras, SambaNova, Graphcore, Groq and many others. These models have the demonstrative ability to training transformer models, famously large in parameters, much more efficiently than within standard computing arrays (see Data and Computation). We will use Globus (www.globus.org) as a platform for data management, which provides managed data transfer solutions for high-speed, reliable, secure file transfer and replication among any variety of storage systems, including on-premise file systems and object stores, desktops and laptops, and cloud storage.
+% \textbf{Argonne Leadership Computing Facility (ALCF).}
 
-
-ALCF also houses a range of other 
-high performance computing capabilities spearheaded by its 
-10-petaflop IBM Blue Gene/Q system, Mira. 
-Mira is comprised of 48 racks, with 1,024 nodes per rack; 768 terabytes of RAM; 35 PB of storage; and 384 I/O nodes. 
-
-ALCF also hosts large storage systems. Mira data systems consist of 384 I/O nodes
-that connect to 16 storage area networks (SANs) that control 8,960 disk drives with 
-a total capacity of 28.8 PB of raw storage and a maximum aggregate transfer 
-speed of 240 GB/s. 
-ALCF computing resources share two 10,000-slot libraries using LTO4 tape technology. 
-The LTO tape drives have built-in hardware compression with compression ratios typically 
-between 1.25:1 and 2:1, depending on the data, giving an effective capacity of 16-24 PB.
-Two parallel file systems---PVFS and GPFS---are used to access the storage. 
-
-ALCF also operates a Globus-based data management and sharing pilot service called Petrel. 
-Petrel provides 1PB of storage that can be used by Argonne researchers and users of Argonne facilities to store and 
-share data with collaborators without the need for local account management. 
+% In partnership with Rick Stevens and Argonne National Lab, we will also have access to Argonne’s suite of high-performance machines, including ThetaGPU with 28 NVIDIA DGX-3 state-of-the-art AI systems, Polaris, which will be installed in spring, 2021 with 1024 NVIDIA A100 GPUs able to support ~7,000 simultaneous training sessions at once for problems that need hyper parameter optimization or for exploring properties of models. Aurora will be installed Summer 2022 and will host 60,000 Intel PVC-XT, performing AI inference at something like 64x faster at over 100 EFs per second, able to train up to 480K models in parallel and some very large models, supporting training models as high as 100 trillion parameters. Human brains have on order 100 trillion synapses (1011 neurons and 1.8-3.2 x 1014 synapses) and so this machine is, in some sense, a brain scale computer, likely the fastest on the planet when installed, and by far the fastest devoted to AI. Finally, we will have access to the National AI Accelerator Assessment Testbed (N3AT) Facility, designed to assess the usefulness of novel hardware designs from dozens of startups for advancing key research problems in AI. These include computers from Cerebras, SambaNova, Graphcore, Groq and many others. These models have the demonstrative ability to training transformer models, famously large in parameters, much more efficiently than within standard computing arrays (see Data and Computation). We will use Globus (www.globus.org) as a platform for data management, which provides managed data transfer solutions for high-speed, reliable, secure file transfer and replication among any variety of storage systems, including on-premise file systems and object stores, desktops and laptops, and cloud storage.
 
 
-\textbf{Research Computing Center:} The University of Chicago Research Computing Center (RCC) provides high-end research computing resources to researchers at the University of Chicago, which include high-performance computing and visualization resources; high-capacity storage and backup; software; high-speed networking; and hosted data sets. Resources are centrally managed by RCC staff who ensure the accessibility, reliability, and security of the compute and storage systems. A high-throughput network connects the Midway Compute Cluster to the UChicago campus network and the public internet through a number of high-bandwidth uplinks. To support data-driven research RCC hosts a number of large datasets to be accessed within the RCC compute environment.
+% ALCF also houses a range of other 
+% high performance computing capabilities spearheaded by its 
+% 10-petaflop IBM Blue Gene/Q system, Mira. 
+% Mira is comprised of 48 racks, with 1,024 nodes per rack; 768 terabytes of RAM; 35 PB of storage; and 384 I/O nodes. 
 
-\textbf{Compute Infrastructure.} RCC maintains three pools of servers for distributed high-performance computing. Ideal for tightly coupled parallel calculations, tightly-coupled nodes are linked by a fully non-blocking FDR-10 Infiniband interconnect. Loosely-coupled nodes are similar to the tightly-coupled nodes, but are connected with GigE rather than Infiniband and are best suited for high-throughput jobs. Finally,  shared memory nodes contain much larger main memories (up to 1 TB) and are ideal for memory-bound computations. The types of CPU architectures RCC maintains are tabulated in Table~\ref{tabcap}.
+% ALCF also hosts large storage systems. Mira data systems consist of 384 I/O nodes
+% that connect to 16 storage area networks (SANs) that control 8,960 disk drives with 
+% a total capacity of 28.8 PB of raw storage and a maximum aggregate transfer 
+% speed of 240 GB/s. 
+% ALCF computing resources share two 10,000-slot libraries using LTO4 tape technology. 
+% The LTO tape drives have built-in hardware compression with compression ratios typically 
+% between 1.25:1 and 2:1, depending on the data, giving an effective capacity of 16-24 PB.
+% Two parallel file systems---PVFS and GPFS---are used to access the storage. 
 
-\begin{table}[!ht]
-\captionN{University of Chicago Research Computing Center Capabilities Summary}\label{tabcap}
-\setlength{\arrayrulewidth}{1pt}
-\bf\sffamily\fontsize{9}{10}\selectfont
-\begin{tabular}{||C{.8in}|c|R{1.85in}|R{.5in}|c||}\hline
-\rowcolor{SeaGreen1}Cluster	&Partition&	Compute cores (CPUs)&	Memory	&Other configuration details\\\hline
-midway1	&westmere&	12 x Intel X5675 3.07 GHz&	24 GB	& \\\hline
- 	&sandyb	&16 x Intel E5-2670 2.6GHz&	32 GB	& \\\hline
- &	bigmem&	16 x Intel E5-2670 2.6GHz&	256 GB	& \\\hline
- 	& &	32 x Intel E7-8837 2.67GHz&	1 TB&	 \\\hline
- 	&gpu&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Nvidia M2090 or K20 GPU\\\hline
- &	 &	20 x Intel E5-2680v2 2.8GHz&	64 GB&	2 x Nvidia K40 GPU\\\hline
- &	mic&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Intel Xeon Phi 5100 coprocessor\\\hline
- &	amd&	64 x AMD Opteron 6386 SE&	256 GB&	 \\\hline
- &	ivyb&	20 x Intel E5-2680v2 2.8GHz&	64 GB&	 \\\hline
-midway2&	broadwl&	28 x Intel E5-2680v4 2.4GHz&	64 GB&	 \\\hline
- &	bigmem2&	28 x Intel E5-2680v4 @ 2.4 GHz&	512 GB	 &\\\hline
- 	&gpu2&	28 x Intel E5-2680v4 @ 2.4 GHz&	64 GB&	4 x Nvidia K80 GPU\\\hline
-\end{tabular}
-\end{table}
+% ALCF also operates a Globus-based data management and sharing pilot service called Petrel. 
+% Petrel provides 1PB of storage that can be used by Argonne researchers and users of Argonne facilities to store and 
+% share data with collaborators without the need for local account management. 
 
 
-RCC also maintains a number of specialty nodes: 
-\begin{itemize}
-\item \textit{\color{gray} Large shared memory nodes} - up to 1 TB of memory per node with either 16 or 32 Intel CPU cores. Midway is always expanding, but at time of writing RCC contains a total of 13,500 cores across 792 nodes, and 1.5 PB of storage.
-\item  \textit{\color{gray}  Hadoop:} Originally developed at Google, Hadoop is a framework for large-scale data processing.   \item  \textit{\color{gray}  GPU Computing:} Scientific computing on graphics cards can unlock even greater amounts of parallelism from code. RCC GPU nodes each include two Nvidia Tesla-class accelerator cards and are integrated in the Infiniband network. RCC currently provides access to Fermi-generation M2090 GPU devices and Kepler-generation K20 and K40 devices.  \item  \textit{\color{gray}  Xeon Phi:} The Many Integrated-Core architecture (MIC) is Intel's newest approach to manycore computing. Researchers can experiment with these accelerators by using  MIC nodes, each of which have two Xeon Phi cards, and are integrated into the Infiniband network.
-\end{itemize}
+% \textbf{Research Computing Center:} The University of Chicago Research Computing Center (RCC) provides high-end research computing resources to researchers at the University of Chicago, which include high-performance computing and visualization resources; high-capacity storage and backup; software; high-speed networking; and hosted data sets. Resources are centrally managed by RCC staff who ensure the accessibility, reliability, and security of the compute and storage systems. A high-throughput network connects the Midway Compute Cluster to the UChicago campus network and the public internet through a number of high-bandwidth uplinks. To support data-driven research RCC hosts a number of large datasets to be accessed within the RCC compute environment.
 
-\textbf{Persistent and High-Capacity Storage.} Storage is accessible from all compute nodes on Midway1 and Midway2 as well as outside of the RCC compute environment through various mechanisms, such as mounting directories as network drives on your personal computer or accessing data as a Globus Online endpoint (at the time of this writing, Globus Online is supported on Midway1). RCC takes snapshots of all home directories (users' private storage space) at regular intervals so that if any data is lost or corrupted, it can easily be recovered. RCC maintains GPFS Filesystem Snapshots for quick and easy data recovery.  In the event of catastrophic storage failure, archival tape backups can be used to recover data from persistent storage locations on Midway. Automated snapshots of the home and project directories are available in case of accidental file deletion or other problems. Currently snapshots are available for these time periods: 1) 7 daily snapshots, 2) 4 weekly snapshots.
+% \textbf{Compute Infrastructure.} RCC maintains three pools of servers for distributed high-performance computing. Ideal for tightly coupled parallel calculations, tightly-coupled nodes are linked by a fully non-blocking FDR-10 Infiniband interconnect. Loosely-coupled nodes are similar to the tightly-coupled nodes, but are connected with GigE rather than Infiniband and are best suited for high-throughput jobs. Finally,  shared memory nodes contain much larger main memories (up to 1 TB) and are ideal for memory-bound computations. The types of CPU architectures RCC maintains are tabulated in Table~\ref{tabcap}.
 
-\textbf{Tape Backups.} Backups are performed on a nightly basis to a tape machine located in a different data center than the main storage system. These backups are meant to safeguard against events such as hardware failure or disasters that could result in the complete loss of RCC’s primary data center.
+% \begin{table}[!ht]
+% \captionN{University of Chicago Research Computing Center Capabilities Summary}\label{tabcap}
+% \setlength{\arrayrulewidth}{1pt}
+% \bf\sffamily\fontsize{9}{10}\selectfont
+% \begin{tabular}{||C{.8in}|c|R{1.85in}|R{.5in}|c||}\hline
+% \rowcolor{SeaGreen1}Cluster	&Partition&	Compute cores (CPUs)&	Memory	&Other configuration details\\\hline
+% midway1	&westmere&	12 x Intel X5675 3.07 GHz&	24 GB	& \\\hline
+%  	&sandyb	&16 x Intel E5-2670 2.6GHz&	32 GB	& \\\hline
+%  &	bigmem&	16 x Intel E5-2670 2.6GHz&	256 GB	& \\\hline
+%  	& &	32 x Intel E7-8837 2.67GHz&	1 TB&	 \\\hline
+%  	&gpu&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Nvidia M2090 or K20 GPU\\\hline
+%  &	 &	20 x Intel E5-2680v2 2.8GHz&	64 GB&	2 x Nvidia K40 GPU\\\hline
+%  &	mic&	16 x Intel E5-2670 2.6GHz&	32 GB&	2 x Intel Xeon Phi 5100 coprocessor\\\hline
+%  &	amd&	64 x AMD Opteron 6386 SE&	256 GB&	 \\\hline
+%  &	ivyb&	20 x Intel E5-2680v2 2.8GHz&	64 GB&	 \\\hline
+% midway2&	broadwl&	28 x Intel E5-2680v4 2.4GHz&	64 GB&	 \\\hline
+%  &	bigmem2&	28 x Intel E5-2680v4 @ 2.4 GHz&	512 GB	 &\\\hline
+%  	&gpu2&	28 x Intel E5-2680v4 @ 2.4 GHz&	64 GB&	4 x Nvidia K80 GPU\\\hline
+% \end{tabular}
+% \end{table}
 
 
-\textbf{Data Sharing.} All data in RCC’s storage environment is accessible through a wide range of tools and protocols. Because RCC provides centralized infrastructure, all resources are accessible by multiple users simultaneously, which makes RCC’s storage system ideal for sharing data among your research group members. Additionally, data access and restriction levels can be put in place on an extremely granular level.
+% RCC also maintains a number of specialty nodes: 
+% \begin{itemize}
+% \item \textit{\color{gray} Large shared memory nodes} - up to 1 TB of memory per node with either 16 or 32 Intel CPU cores. Midway is always expanding, but at time of writing RCC contains a total of 13,500 cores across 792 nodes, and 1.5 PB of storage.
+% \item  \textit{\color{gray}  Hadoop:} Originally developed at Google, Hadoop is a framework for large-scale data processing.   \item  \textit{\color{gray}  GPU Computing:} Scientific computing on graphics cards can unlock even greater amounts of parallelism from code. RCC GPU nodes each include two Nvidia Tesla-class accelerator cards and are integrated in the Infiniband network. RCC currently provides access to Fermi-generation M2090 GPU devices and Kepler-generation K20 and K40 devices.  \item  \textit{\color{gray}  Xeon Phi:} The Many Integrated-Core architecture (MIC) is Intel's newest approach to manycore computing. Researchers can experiment with these accelerators by using  MIC nodes, each of which have two Xeon Phi cards, and are integrated into the Infiniband network.
+% \end{itemize}
 
-\textbf{Data Security \& Management.} The security of the Research Computing Center’s storage infrastructure gives users peace of mind that their data is stored, managed, and protected by HPC professionals. Midway’s file management system allows researchers to control access to their data. RCC has the ability to develop data access portals for different labs and groups.
+% \textbf{Persistent and High-Capacity Storage.} Storage is accessible from all compute nodes on Midway1 and Midway2 as well as outside of the RCC compute environment through various mechanisms, such as mounting directories as network drives on your personal computer or accessing data as a Globus Online endpoint (at the time of this writing, Globus Online is supported on Midway1). RCC takes snapshots of all home directories (users' private storage space) at regular intervals so that if any data is lost or corrupted, it can easily be recovered. RCC maintains GPFS Filesystem Snapshots for quick and easy data recovery.  In the event of catastrophic storage failure, archival tape backups can be used to recover data from persistent storage locations on Midway. Automated snapshots of the home and project directories are available in case of accidental file deletion or other problems. Currently snapshots are available for these time periods: 1) 7 daily snapshots, 2) 4 weekly snapshots.
+
+% \textbf{Tape Backups.} Backups are performed on a nightly basis to a tape machine located in a different data center than the main storage system. These backups are meant to safeguard against events such as hardware failure or disasters that could result in the complete loss of RCC’s primary data center.
+
+
+% \textbf{Data Sharing.} All data in RCC’s storage environment is accessible through a wide range of tools and protocols. Because RCC provides centralized infrastructure, all resources are accessible by multiple users simultaneously, which makes RCC’s storage system ideal for sharing data among your research group members. Additionally, data access and restriction levels can be put in place on an extremely granular level.
+
+% \textbf{Data Security \& Management.} The security of the Research Computing Center’s storage infrastructure gives users peace of mind that their data is stored, managed, and protected by HPC professionals. Midway’s file management system allows researchers to control access to their data. RCC has the ability to develop data access portals for different labs and groups.
 
 
 
@@ -875,14 +871,74 @@ RCC also maintains a number of specialty nodes:
 
 \textbf{Translational and collaborative research:} The University of Chicago's strong physical sciences division, including my home department of Chemistry, is located in direct proximity to the medical school and hospital system. Indeed, I chose to start my independent career here at UChicago specifically so that I could develop a group whose work could impact human health. I have now witnessed firsthand the benefits of this proximity and have developed several strategic collaborations with clinicians and clinical researchers to develop new technologies. The University devotes substantial resources to translational research, which provides a clear path to move from the bench to the clinic. This includes the University of Chicago Innovation Exchange (https://innovation.uchicago.edu), which provides seed money and expertise to translate basic science discoveries into commercial ventures and to foster collaborations between the basic science divisions, medical school, and national labs. Therefore, the University of Chicago is an exceptional location to pioneer paradigm-shifting biomedical technologies.
 
-\textbf{University of Chicago Core Facilities} The University of Chicago offers extensive access to cutting-edge research technologies and expertise needed for my work via a well-funded and expertly staffed set of core facilities:
-\begin{itemize}
-\item The Microscopy Core – Maintains an extensive array of microscopes that our group can access, including a variety of confocal and 2-photon fluorescence scopes. The primary microscope we currently use is a Nikon Confocal featuring multiple laser excitation sources, a 2-photon light source, an automated stage, and a heated chamber. This will be very useful for the time course, live cell imaging experiments associated with the proposed research when our group’s microscope is insufficient. 
-\item The Biophysics Core - Provides access and training to state-of-the-art biophysics equipment, such as a Biacore, Plate Readers, and a ProteOn XPR36 protein interaction array system.
-\item  Transgenic/ES Cell Technology Mouse Core Facility - Provides genetically manipulated mice through transgenic technology or embryonic stem (ES) cell manipulation. The facility provides a comprehensive set of technical services and a fully operational construction and gene targeting service.
+% \textbf{University of Chicago Core Facilities} The University of Chicago offers extensive access to cutting-edge research technologies and expertise needed for my work via a well-funded and expertly staffed set of core facilities:
+% \begin{itemize}
+% \item The Microscopy Core – Maintains an extensive array of microscopes that our group can access, including a variety of confocal and 2-photon fluorescence scopes. The primary microscope we currently use is a Nikon Confocal featuring multiple laser excitation sources, a 2-photon light source, an automated stage, and a heated chamber. This will be very useful for the time course, live cell imaging experiments associated with the proposed research when our group’s microscope is insufficient. 
+% \item The Biophysics Core - Provides access and training to state-of-the-art biophysics equipment, such as a Biacore, Plate Readers, and a ProteOn XPR36 protein interaction array system.
+% \item  Transgenic/ES Cell Technology Mouse Core Facility - Provides genetically manipulated mice through transgenic technology or embryonic stem (ES) cell manipulation. The facility provides a comprehensive set of technical services and a fully operational construction and gene targeting service.
 
-\end{itemize}
+% \end{itemize}
+% \section{Research Computing Center (RCC) at University of Chicago}
 
+% The Research Computing Center (RCC) at the University of Chicago provides a variety of high-performance computing (HPC) systems for researchers across the university. These systems are used for a wide range of applications, including scientific simulations, data analysis, and machine learning.
+
+% \subsection{HPC Systems}
+
+% The RCC's HPC systems are based on the latest technologies and are designed to provide researchers with the performance and scalability they need to conduct their research. The systems are also highly reliable and are available 24/7.
+
+% The RCC's HPC systems are available to all researchers at the University of Chicago. To access the systems, researchers must create an account and submit a job request. The RCC staff will then review the job request and, if approved, will submit the job to the appropriate system.
+
+% The RCC's HPC systems are a valuable resource for researchers at the University of Chicago. These systems provide researchers with the performance and scalability they need to conduct their research and to make new discoveries.
+
+% \subsubsection{Midway2}
+
+% Midway2 is the RCC's primary HPC system. It is a large-scale cluster that consists of over 2,000 nodes. Each node contains two 16-core Intel Xeon E5-2697 v4 processors and 64GB of memory. Midway2 is connected by a high-speed InfiniBand network.
+
+% Midway2 is a powerful system that can be used for a wide range of applications. It is particularly well-suited for scientific simulations, data analysis, and machine learning.
+
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|l|l|}
+%         \hline
+%         Processor & 2 x 16-core Intel Xeon E5-2697 v4\\
+%         \hline
+%         Memory & 64GB per node\\
+%         \hline
+%         Network & High-speed InfiniBand\\
+%         \hline
+%     \end{tabular}
+%     \caption{Midway2 specifications}
+% \end{table}
+
+% \subsubsection{Midway3}
+
+% Midway3 is the RCC's newest HPC system. It is a smaller-scale cluster that consists of 100 nodes. Each node contains two 12-core Intel Xeon E5-2683 v4 processors and 64GB of memory. Midway3 is connected by a high-speed InfiniBand network.
+
+% Midway3 is a high-performance system that is designed for researchers who need a more powerful system than what is available on Midway2. It is particularly well-suited for scientific simulations and data analysis.
+
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|l|l|}
+%         \hline
+%         Processor & 2 x 12-core Intel Xeon E5-2683 v4\\
+%         \hline
+%         Memory & 64GB per node\\
+%         \hline
+%         Network & High-speed InfiniBand\\
+%         \hline
+%     \end{tabular}
+%     \caption{Midway3 specifications}
+% \end{table}
+
+% \subsubsection{Other Systems}
+
+% In addition to Midway2 and Midway3, the RCC also provides access to a number of other HPC systems. These systems include:
+
+% \begin{itemize}
+%     \item Beagle3: A small cluster that is designed for teaching and research.
+%     \item DaLI: A GPU-accelerated cluster that is designed for machine learning.
+%     \item MidwaySSD
+% \end{itemize}
 
 \subsubsection*{University of Iowa, Facilities and Other Resources}
 
@@ -947,7 +1003,7 @@ BSL3 suite with one class IIb biosafety cabinet and one Animal BSL3 suite availa
 \item \textbf{Gel doc unit:} Capture and document images of DNA, RNA, and protein samples in gel electrophoresis experiments.
 \end{enumerate}
 
-\textbf{UI Department of Microbiology and Immunology Resources:}
+\textbf{University of Iowa Department of Microbiology and Immunology Resources:}
 
 \begin{enumerate}
 \item \textbf{3 flow cytometers:} Measure and analyze physical and chemical properties of cells or particles in fluid.
@@ -977,42 +1033,46 @@ BSL3 suite with one class IIb biosafety cabinet and one Animal BSL3 suite availa
 labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
 \item Chattopadhyay, I. (2022). ``Methods and systems for genomic based prediction of virus mutation'' (Patent No. WO2022108965A1). World Intellectual Property Organization. URL: \url{https://patents.google.com/patent/WO2022108965A1}
 \end{enumerate}
+
+\textbf{Abstract:} 
+A method includes receiving a first plurality of aligned genomic sequences of a virus from a database. The aligned genomic sequences have a first common background. The method includes calculating a Qnet for each genomic sequence of the first plurality of aligned genomic sequences. The Qnet for each sequence is calculated by calculating a conditional inference tree for each index of the aligned genomic sequences using other indices in the aligned genomic sequences as predictive features, and calculating predictors for indices that were used as predictive features when calculating the conditional inference tree for each index.
+
 \vskip 1em
 
 
 
-\begin{table}[!ht]
-  \captionN{Pending Patent on Core Algorithm}\label{tabpatent}
-  \begin{tabular}{R{1.5in}L{5in}}
-Title&  METHOD OF CREATING ZERO-BURDEN DIGITAL BIOMARKERS FOR DISORDERS AND EXPLOITING CO-MORBIDITY PATTERNS TO DRIVE EARLY INTERVENTION \\
-Patent Application Type & International\\
-International Filing Date & 09/23/2020 \\
-International Application No.& PCT/US2020/052112 \\
-Publication Number &  WO/2021/061702 \\
-Applicant & The University of Chicago\\
-Priority Data &  62/904,220, 09/23/2019 US
+% \begin{table}[!ht]
+%   \captionN{Pending Patent on Core Algorithm}\label{tabpatent}
+%   \begin{tabular}{R{1.5in}L{5in}}
+% Title&  METHOD OF CREATING ZERO-BURDEN DIGITAL BIOMARKERS FOR DISORDERS AND EXPLOITING CO-MORBIDITY PATTERNS TO DRIVE EARLY INTERVENTION \\
+% Patent Application Type & International\\
+% International Filing Date & 09/23/2020 \\
+% International Application No.& PCT/US2020/052112 \\
+% Publication Number &  WO/2021/061702 \\
+% Applicant & The University of Chicago\\
+% Priority Data &  62/904,220, 09/23/2019 US
 
-                            62/937,604, 11/19/2019 US \\
-    WIPO IP Portal Link & \url{https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2021061702}\\
-IP Filing Plans & File non-provisional patent application in the United States and foreign jurisdictions by nationalization date 03/23/2022\\\hline
-  \end{tabular}
-  \end{table}
+%                             62/937,604, 11/19/2019 US \\
+%     WIPO IP Portal Link & \url{https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2021061702}\\
+% IP Filing Plans & File non-provisional patent application in the United States and foreign jurisdictions by nationalization date 03/23/2022\\\hline
+%   \end{tabular}
+%   \end{table}
 
 
-\subsection*{Publications}
+\subsection*{Relevant Publications}
 
 \begin{enumerate} 
 [label=$\square$, leftmargin=0pt,
 labelindent=0em, topsep=0.1em, labelsep=*, itemsep=.5em,itemindent=1em]
-\item Huang, Yi, and Ishanu Chattopadhyay. ``Universal risk phenotype of US counties for flu-like transmission to improve county-specific COVID-19 incidence forecasts.'' PLoS computational biology 17, no. 10 (2021): e1009363.
+\item Huang, Yi, and Ishanu Chattopadhyay. ``Universal risk phenotype of US counties for flu-like transmission to improve county-specific COVID-19 incidence forecasts.'' PLoS computational biology 17, no. 10 (2021): e1009363. DOI: \url{https://doi.org/10.1371/journal.pcbi.1009363}
 
-\item Dhanoa, J., Manicassamy, B. and Chattopadhyay, I., 2018. ``Algorithmic Bio-surveillance For Precise Spatio-temporal Prediction of Zoonotic Emergence.'' arXiv preprint arXiv:1801.07807.
+\item Dhanoa, J., Manicassamy, B. and Chattopadhyay, I., 2018. ``Algorithmic Bio-surveillance For Precise Spatio-temporal Prediction of Zoonotic Emergence.'' arXiv preprint arXiv:1801.07807. Preprint DOI: \url{https://arxiv.org/abs/1801.07807} 
 
-\item Chattopadhyay, Ishanu, Emre Kiciman, Joshua W. Elliott, Jeffrey L. Shaman, and Andrey Rzhetsky. ``Conjunction of factors triggering waves of seasonal influenza.'' Elife 7 (2018): e30756.
+\item Chattopadhyay, Ishanu, Emre Kiciman, Joshua W. Elliott, Jeffrey L. Shaman, and Andrey Rzhetsky. ``Conjunction of factors triggering waves of seasonal influenza.'' Elife 7 (2018): e30756. DOI: \url{https://doi.org/10.7554/eLife.30756}
 
-\item Li, Jin, Timmy Li, and Ishanu Chattopadhyay. ``Preparing For the Next Pandemic: Learning Wild Mutational Patterns At Scale For For Analyzing Sequence Divergence In Novel Pathogens.'' medRxiv (2020): 2020-07.
+\item Li, Jin, Timmy Li, and Ishanu Chattopadhyay. ``Preparing For the Next Pandemic: Learning Wild Mutational Patterns At Scale For For Analyzing Sequence Divergence In Novel Pathogens.'' medRxiv (2020): 2020-07. Preprint DOI: \url{https://doi.org/10.1101/2020.07.17.20156364}
 
-  \item Chattopadhyay, Ishanu, Kevin Wu, Jin Li, and Aaron Esser-Kahn. ``Emergenet: Fast Scalable Pandemic Risk Assessment of Influenza A Strains Circulating In Non-human Hosts.'' (2022).
+  \item Chattopadhyay, Ishanu, Kevin Wu, Jin Li, and Aaron Esser-Kahn. ``Emergenet: Fast Scalable Pandemic Risk Assessment of Influenza A Strains Circulating In Non-human Hosts.'' (2022). Preprint DOI: \url{https://doi.org/10.21203/rs.3.rs-2336091/v1}
 
 \end{enumerate}
 
@@ -1090,37 +1150,51 @@ Our Polsky Science and Technology group serves as the central resource for trans
 \clearpage
 
 \section*{Data and Research Resources Sharing Plan}
-        Data sharing plan
-
-              Computing Environment: The UChicago computing environment provided by the Center for Research Informatics (CRI) will be sandboxed from the internet as well as other servers and data sources at UChicago. It will accessible only to the PI, research assistant(s), software developer(s), and/or system administrator(s) who require access during the course of the project.
-Box: Research data will be stored and preserved for the duration of the grant using Box, which uses AES 256-bit encryption and is also FedRamp authorized and HIPAA compliant (https://www.box.com/security). Box provides file versioning, which helps mitigate issues such as file corruption. UChicago is committed to using Box as the institutional cloud storage tool. If the university were to switch cloud storage solutions, we will meet the security needs of this and all other grant work supported by Box.
 
 
-              Data and research resources generated in this project research will be made available to the research community, which includes both scientific and consumer advocacy communities, and to the public. This includes all data and research resources generated during the project’s period of performance, including:
+The BioNORAD project aims to develop a platform for early identification and mitigation of emerging pandemic threats, particularly those caused by novel strains of influenza viruses. The project will generate several types of data and research resources that can be valuable to the scientific community. In this section, we describe how we plan to share these data and research resources  with the research community.
 
-Unique Data, defined as data that cannot be readily replicated. For this project, examples of unique data include curated models of genomic change for different sub-types of Influenza A, for different geographical locations.
-Final Research Data defined as recorded factual material commonly accepted in the scientific community as necessary to document and support research findings. In our context, examples are sequence ids of strains we use for our modeling, and the particulars of validations experiments, including the metadata needed to replicate those experiments in the laboratory.
-Research Resources include, but are not limited to, the full range of tools that we would develop and use in the laboratory. In this project, such resources include all developed software for modeling and prediction.
+\subsection*{Types of Data and Research Resources}
 
+The BioNORAD project will generate several types of data and research resources, including:
 
+\begin{itemize}
+    \item \textbf{Genomic data:} The project will generate predicted genomic sequences of key viral proteins of \infl.
+    \item \textbf{Machine learning models:} The project will develop machine learning models for predicting the emergence and spread of novel strains of influenza viruses. These models will be based on the genomic  data acquired during the project from public sequence databases.
+    \item \textbf{Software tools:} The project will develop software tools for analyzing genomic and clinical data, as well as for visualizing and interpreting the results of machine learning models. These tools will be valuable for researchers working on influenza viruses and other emerging infectious diseases.
+\end{itemize}
 
-              We will deposit software in Github repositories, allowing easy installation of such software in compatible systems. We will also deposit models, metadata and software copy at Zenodo for long-term citable access to the research resources and products.
+\subsection*{Sharing Plan}
 
+We plan to share the data and research resources generated by the BioNORAD project with the research community as widely as possible, while safeguarding the privacy of participants and protecting confidential and proprietary data and third-party intellectual property.
 
-              No data sharing agreement is required for this project, since the underlying data on which we will learn our models are publicly accessible with minor restrictions.
+\subsubsection*{Data sharing}
 
+We plan to deposit the genomic  data generated by the project in publicly accessible repositories with long-term DOI access. These repositories will provide a persistent and citable location for the data and ensure that they are discoverable and accessible to the research community. We will use the Zenodo platform to deposit the data, which will provide long-term archiving and DOI access. We will also ensure that the data are compliant with data sharing policies of funding agencies such as the National Institutes of Health and the Department of Defense. Genomic sequence data will be also deposited to NCBI. 
 
-              Complete enumeration of sequence ids as obtained from NCBI and GISAID will be submitted, which is sufficient to replicate the results if using our developed software. Also descriptions of inferred and curated models will be made available. Example software programs based on our open-source library will be provided as well.
+\subsubsection*{Model sharing}
 
+We plan to deposit the machine learning models developed during the project in public repositories such as GitHub, with open-source licenses, making them freely available to the research community. We will provide documentation and instructions for running the models, as well as sample data for testing and validation. We will also encourage the research community to contribute to the development of the models by providing feedback and suggesting improvements.
 
-              No specialized file format is necessary for this project. All files will be shared as text files, csv files or compressed versions of those.
+\subsubsection*{Software sharing}
 
+We plan to deposit the software tools developed during the project in public repositories such as GitHub, with open-source licenses, making them freely available to the research community. We will provide documentation and instructions for using the tools, as well as sample data for testing and validation. We will also encourage the research community to contribute to the development of the tools by providing feedback and suggesting improvements.
 
-              No specialized transformation is necessary.
+\subsection*{Feasibility and Appropriateness}
 
+The data generated from this project will be shared through various channels to ensure maximum accessibility to the research community. In addition to depositing the software in a GitHub repository, models and data will be deposited in Zenodo, an open-access repository for scientific data, with a long-term DOI access. The datasets generated will be organized and labeled appropriately to enable easy retrieval, interpretation, and reuse by other researchers. The datasets will be accompanied by comprehensive documentation, including descriptions of the methods and procedures used to generate the data, as well as any relevant metadata.
 
-              The effort of the postdoctoral associate funded on this project will carry out the requirements of this plan, and his salary will be partially covered under the proposed budget.
+To further facilitate the sharing of data and resources, the project team will follow best practices for data management, including adhering to FAIR (Findable, Accessible, Interoperable, Reusable) data principles. These practices include using standardized data formats and metadata, creating clear documentation for data and code, and ensuring that data and code are appropriately versioned and stored in secure and reliable repositories.
 
+The project team recognizes that data sharing carries certain risks, particularly regarding the protection of sensitive information. However such risk is minimal in this project, which will not involve any clinical information or human participants.
+
+In summary, the BIONORAD project is committed to promoting data and research resource sharing to enhance collaboration and accelerate the translation of research results into practical applications. The project team will ensure that data and resources generated during the project's period of performance are made widely available while safeguarding the any  proprietary information that we may use (including sequence data that do not carry permission to be posted publicly). By sharing and leveraging data and resources, this project will contribute to a more expeditious translation of research results into knowledge, products, and procedures to improve military health and global health security.
+
+ \subsection*{Implementation in a Dual-Use Capacity}
+
+ The knowledge, information, products, technologies, or applications gained from the proposed research could be implemented in a dual-use capacity to benefit the civilian population that also addresses a need related to military health. The research findings will be published in peer-reviewed journals, presented at scientific conferences, and disseminated to the research community. The findings will also be communicated to the wider community through various media, such as press releases, newsletters, and social media platforms. The knowledge generated by this research will have broad applications beyond the military, with potential benefits for the civilian population, including the development of vaccines, diagnostic tools, and treatments for infectious diseases.
+
+ In summary, we will make every effort to ensure that all data and research resources generated during the project's period of performance will be made publicly available while safeguarding the privacy of participants and protecting confidential and proprietary data and third-party intellectual property. We recognize that the unique data generated by our project will be valuable to the research community, and we will make every effort to share this data with the research community. The research resources generated during the project will also be made publicly available. The knowledge, information, products, technologies, or applications gained from the research could be implemented in a dual-use capacity to benefit the civilian population that also addresses a need related to military health.
 
 \clearpage
 
