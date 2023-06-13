@@ -44,8 +44,8 @@ class Enet(object):
         Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
 
     seq_trunc_length : int
-        Length to truncate sequences in Qnet analysis
-        (Sequences used to train Qnet and compute q-distance must be of same length)
+        Length to truncate sequences in Emergenet analysis
+        (Sequences used to train Emergenet and compute E-distance must be of same length)
 
     seq_metadata : str
         Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
@@ -149,9 +149,9 @@ class Enet(object):
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is None or sample_size &gt; len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df[&#39;sequence&#39;]
         if sample_size &lt; len(seq_df):
-            seqs = seqs.sample(sample_size, random_state=self.random_state).values
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df[&#39;sequence&#39;].values
         seq_lst = []
         for seq in seqs:
             seq_lst.append(seq)
@@ -183,7 +183,7 @@ class Enet(object):
         return seq_df
 
     def train(self, seq_df, sample_size=None, n_jobs=1):
-        &#34;&#34;&#34;Trains a Qnet model.
+        &#34;&#34;&#34;Trains an Emergenet model.
 
         Parameters
         ----------
@@ -191,25 +191,25 @@ class Enet(object):
             DataFrame of sequences
 
         sample_size : int
-            Number of strains to train Qnet on, sampled randomly
+            Number of strains to train Emergenet on, sampled randomly
 
         n_jobs : int
             Number of CPUs to use when training
 
         Returns
         -------
-        qnet : Qnet
-            Trained Qnet
+        enet : Qnet
+            Trained Emergenet
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
         seq_arr = self._sequence_array(seq_df, sample_size)
-        qnet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+        enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
                     random_state=self.random_state, n_jobs=n_jobs)
-        qnet.fit(seq_arr)
-        return qnet
+        enet.fit(seq_arr)
+        return enet
 
-    def sequence_membership(self, seq_df, qnet, sample_size=None):
+    def sequence_membership(self, seq_df, enet, sample_size=None):
         &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
 
         Parameters
@@ -217,8 +217,8 @@ class Enet(object):
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -234,13 +234,13 @@ class Enet(object):
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is None or sample_size &gt; len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df[&#39;sequence&#39;]
         if sample_size &lt; len(seq_df):
-            seqs = seqs.sample(sample_size, random_state=self.random_state).values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], qnet) for seq in seqs])
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df[&#39;sequence&#39;].values
+        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, qnet, sample_size=None, ignore_nan=False):
+    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
         &#34;&#34;&#34;Computes emergence risk score.
 
         Parameters
@@ -248,8 +248,8 @@ class Enet(object):
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -272,7 +272,7 @@ class Enet(object):
         qdist_list = []
         num_nan = 0
         for i in range(len(seq_arr)):
-            qdist = qdistance(target_seq, seq_arr[i], qnet, qnet)
+            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
                 num_nan += 1
                 continue
@@ -283,7 +283,7 @@ class Enet(object):
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
 
-    def emergence_risk_qsampling(self, seq_df, qnet, sample_size=None, qsamples=None, steps=None):
+    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
         &#34;&#34;&#34;Computes emergence risk score using qsampling.
 
         Parameters
@@ -291,8 +291,8 @@ class Enet(object):
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -320,7 +320,6 @@ class Enet(object):
             raise ValueError(&#39;Number of qsamples must be positive!&#39;)
         if steps &lt; 1:
             raise ValueError(&#39;Number of steps must be positive!&#39;)
-
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         avg_qdist_list = []
@@ -331,8 +330,8 @@ class Enet(object):
             cur_min_qdist = 1
             cur_max_qdist = 0
             for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], qnet, steps)
-                qdist = qdistance(target_seq, qs_seq, qnet, qnet)
+                qs_seq = qs.qsample(seq_arr[i], enet, steps)
+                qdist = qdistance(target_seq, qs_seq, enet, enet)
                 cur_avg_qdist += qdist
                 cur_min_qdist = min(qdist, cur_min_qdist)
                 cur_max_qdist = max(qdist, cur_max_qdist)
@@ -346,29 +345,29 @@ class Enet(object):
         return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
 
 
-def save_model(qnet, outfile, low_mem=False):
-    &#34;&#34;&#34;Saves a Qnet model.
+def save_model(enet, outfile, low_mem=False):
+    &#34;&#34;&#34;Saves an Emergenet model.
 
     Parameters
     ----------
-    qnet : Qnet
-        A Qnet instance
+    enet : Qnet
+        An Emergenet instance
 
     outfile : str
         File name to save to (&#39;.joblib&#39;)
 
     low_mem : bool
-        If True, save the Qnet with low memory by deleting all data attributes except the tree structure
+        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
 
     Returns
     -------
     None
     &#34;&#34;&#34;
-    save_qnet(qnet, outfile, low_mem)
+    save_qnet(enet, outfile, low_mem)
 
 
 def load_model(filepath):
-    &#34;&#34;&#34;Loads a Qnet model.
+    &#34;&#34;&#34;Loads an Emergenet model.
 
     Parameters
     ----------
@@ -377,11 +376,11 @@ def load_model(filepath):
 
     Returns
     -------
-    qnet : Qnet
-        A Qnet instance
+    enet : Qnet
+        An Emergenet instance
     &#34;&#34;&#34;
-    qnet = load_qnet(filepath)
-    return qnet</code></pre>
+    enet = load_qnet(filepath)
+    return enet</code></pre>
 </details>
 </section>
 <section>
@@ -395,7 +394,7 @@ def load_model(filepath):
 <span>def <span class="ident">load_model</span></span>(<span>filepath)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Loads a Qnet model.</p>
+<div class="desc"><p>Loads an Emergenet model.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
@@ -403,15 +402,15 @@ def load_model(filepath):
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>A Qnet instance</dd>
+<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>An Emergenet instance</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def load_model(filepath):
-    &#34;&#34;&#34;Loads a Qnet model.
+    &#34;&#34;&#34;Loads an Emergenet model.
 
     Parameters
     ----------
@@ -420,26 +419,26 @@ def load_model(filepath):
 
     Returns
     -------
-    qnet : Qnet
-        A Qnet instance
+    enet : Qnet
+        An Emergenet instance
     &#34;&#34;&#34;
-    qnet = load_qnet(filepath)
-    return qnet</code></pre>
+    enet = load_qnet(filepath)
+    return enet</code></pre>
 </details>
 </dd>
 <dt id="emergenet.emergenet.save_model"><code class="name flex">
-<span>def <span class="ident">save_model</span></span>(<span>qnet, outfile, low_mem=False)</span>
+<span>def <span class="ident">save_model</span></span>(<span>enet, outfile, low_mem=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Saves a Qnet model.</p>
+<div class="desc"><p>Saves an Emergenet model.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>A Qnet instance</dd>
+<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>An Emergenet instance</dd>
 <dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
 <dd>File name to save to ('.joblib')</dd>
 <dt><strong><code>low_mem</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True, save the Qnet with low memory by deleting all data attributes except the tree structure</dd>
+<dd>If True, save the Emergenet with low memory by deleting all data attributes except the tree structure</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -450,25 +449,25 @@ def load_model(filepath):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def save_model(qnet, outfile, low_mem=False):
-    &#34;&#34;&#34;Saves a Qnet model.
+<pre><code class="python">def save_model(enet, outfile, low_mem=False):
+    &#34;&#34;&#34;Saves an Emergenet model.
 
     Parameters
     ----------
-    qnet : Qnet
-        A Qnet instance
+    enet : Qnet
+        An Emergenet instance
 
     outfile : str
         File name to save to (&#39;.joblib&#39;)
 
     low_mem : bool
-        If True, save the Qnet with low memory by deleting all data attributes except the tree structure
+        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
 
     Returns
     -------
     None
     &#34;&#34;&#34;
-    save_qnet(qnet, outfile, low_mem)</code></pre>
+    save_qnet(enet, outfile, low_mem)</code></pre>
 </details>
 </dd>
 </dl>
@@ -488,8 +487,8 @@ def load_model(filepath):
 <dd>The target sequence to be analysed by Emergenet
 Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</dd>
 <dt><strong><code>seq_trunc_length</code></strong> :&ensp;<code>int</code></dt>
-<dd>Length to truncate sequences in Qnet analysis
-(Sequences used to train Qnet and compute q-distance must be of same length)</dd>
+<dd>Length to truncate sequences in Emergenet analysis
+(Sequences used to train Emergenet and compute E-distance must be of same length)</dd>
 <dt><strong><code>seq_metadata</code></strong> :&ensp;<code>str</code></dt>
 <dd>Describes the sequence; added automatically if 'seq' is a fasta file path</dd>
 <dt><strong><code>random_state</code></strong> :&ensp;<code>int</code></dt>
@@ -509,8 +508,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
 
     seq_trunc_length : int
-        Length to truncate sequences in Qnet analysis
-        (Sequences used to train Qnet and compute q-distance must be of same length)
+        Length to truncate sequences in Emergenet analysis
+        (Sequences used to train Emergenet and compute E-distance must be of same length)
 
     seq_metadata : str
         Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
@@ -614,9 +613,9 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is None or sample_size &gt; len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df[&#39;sequence&#39;]
         if sample_size &lt; len(seq_df):
-            seqs = seqs.sample(sample_size, random_state=self.random_state).values
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df[&#39;sequence&#39;].values
         seq_lst = []
         for seq in seqs:
             seq_lst.append(seq)
@@ -648,7 +647,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         return seq_df
 
     def train(self, seq_df, sample_size=None, n_jobs=1):
-        &#34;&#34;&#34;Trains a Qnet model.
+        &#34;&#34;&#34;Trains an Emergenet model.
 
         Parameters
         ----------
@@ -656,25 +655,25 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             DataFrame of sequences
 
         sample_size : int
-            Number of strains to train Qnet on, sampled randomly
+            Number of strains to train Emergenet on, sampled randomly
 
         n_jobs : int
             Number of CPUs to use when training
 
         Returns
         -------
-        qnet : Qnet
-            Trained Qnet
+        enet : Qnet
+            Trained Emergenet
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
         seq_arr = self._sequence_array(seq_df, sample_size)
-        qnet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+        enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
                     random_state=self.random_state, n_jobs=n_jobs)
-        qnet.fit(seq_arr)
-        return qnet
+        enet.fit(seq_arr)
+        return enet
 
-    def sequence_membership(self, seq_df, qnet, sample_size=None):
+    def sequence_membership(self, seq_df, enet, sample_size=None):
         &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
 
         Parameters
@@ -682,8 +681,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -699,13 +698,13 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is None or sample_size &gt; len(seq_df):
             sample_size = len(seq_df)
-        seqs = seq_df[&#39;sequence&#39;]
         if sample_size &lt; len(seq_df):
-            seqs = seqs.sample(sample_size, random_state=self.random_state).values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], qnet) for seq in seqs])
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df[&#39;sequence&#39;].values
+        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, qnet, sample_size=None, ignore_nan=False):
+    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
         &#34;&#34;&#34;Computes emergence risk score.
 
         Parameters
@@ -713,8 +712,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -737,7 +736,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         qdist_list = []
         num_nan = 0
         for i in range(len(seq_arr)):
-            qdist = qdistance(target_seq, seq_arr[i], qnet, qnet)
+            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
                 num_nan += 1
                 continue
@@ -748,7 +747,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
 
-    def emergence_risk_qsampling(self, seq_df, qnet, sample_size=None, qsamples=None, steps=None):
+    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
         &#34;&#34;&#34;Computes emergence risk score using qsampling.
 
         Parameters
@@ -756,8 +755,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        qnet : Qnet
-            Qnet that sequences in seq_df belong to
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
@@ -785,7 +784,6 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             raise ValueError(&#39;Number of qsamples must be positive!&#39;)
         if steps &lt; 1:
             raise ValueError(&#39;Number of steps must be positive!&#39;)
-
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         avg_qdist_list = []
@@ -796,8 +794,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             cur_min_qdist = 1
             cur_max_qdist = 0
             for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], qnet, steps)
-                qdist = qdistance(target_seq, qs_seq, qnet, qnet)
+                qs_seq = qs.qsample(seq_arr[i], enet, steps)
+                qdist = qdistance(target_seq, qs_seq, enet, enet)
                 cur_avg_qdist += qdist
                 cur_min_qdist = min(qdist, cur_min_qdist)
                 cur_max_qdist = max(qdist, cur_max_qdist)
@@ -813,7 +811,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <h3>Methods</h3>
 <dl>
 <dt id="emergenet.emergenet.Enet.emergence_risk"><code class="name flex">
-<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, qnet, sample_size=None, ignore_nan=False)</span>
+<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, enet, sample_size=None, ignore_nan=False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Computes emergence risk score.</p>
@@ -821,8 +819,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
 <dd>DataFrame of sequences</dd>
-<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Qnet that sequences in seq_df belong to</dd>
+<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>Emergenet that sequences in seq_df belong to</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
 <dd>Number of strains to compute emergence risk with, sampled randomly</dd>
 <dt><strong><code>ignore_nan</code></strong> :&ensp;<code>bool</code></dt>
@@ -839,7 +837,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def emergence_risk(self, seq_df, qnet, sample_size=None, ignore_nan=False):
+<pre><code class="python">def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
     &#34;&#34;&#34;Computes emergence risk score.
 
     Parameters
@@ -847,8 +845,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     seq_df : pd.DataFrame
         DataFrame of sequences
 
-    qnet : Qnet
-        Qnet that sequences in seq_df belong to
+    enet : Qnet
+        Emergenet that sequences in seq_df belong to
 
     sample_size : int
         Number of strains to compute emergence risk with, sampled randomly
@@ -871,7 +869,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     qdist_list = []
     num_nan = 0
     for i in range(len(seq_arr)):
-        qdist = qdistance(target_seq, seq_arr[i], qnet, qnet)
+        qdist = qdistance(target_seq, seq_arr[i], enet, enet)
         if np.isnan(qdist):
             num_nan += 1
             continue
@@ -884,7 +882,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 </details>
 </dd>
 <dt id="emergenet.emergenet.Enet.emergence_risk_qsampling"><code class="name flex">
-<span>def <span class="ident">emergence_risk_qsampling</span></span>(<span>self, seq_df, qnet, sample_size=None, qsamples=None, steps=None)</span>
+<span>def <span class="ident">emergence_risk_qsampling</span></span>(<span>self, seq_df, enet, sample_size=None, qsamples=None, steps=None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Computes emergence risk score using qsampling.</p>
@@ -892,8 +890,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
 <dd>DataFrame of sequences</dd>
-<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Qnet that sequences in seq_df belong to</dd>
+<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>Emergenet that sequences in seq_df belong to</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
 <dd>Number of strains to compute emergence risk with, sampled randomly</dd>
 <dt><strong><code>qsamples</code></strong> :&ensp;<code>int</code></dt>
@@ -914,7 +912,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def emergence_risk_qsampling(self, seq_df, qnet, sample_size=None, qsamples=None, steps=None):
+<pre><code class="python">def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
     &#34;&#34;&#34;Computes emergence risk score using qsampling.
 
     Parameters
@@ -922,8 +920,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     seq_df : pd.DataFrame
         DataFrame of sequences
 
-    qnet : Qnet
-        Qnet that sequences in seq_df belong to
+    enet : Qnet
+        Emergenet that sequences in seq_df belong to
 
     sample_size : int
         Number of strains to compute emergence risk with, sampled randomly
@@ -951,7 +949,6 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         raise ValueError(&#39;Number of qsamples must be positive!&#39;)
     if steps &lt; 1:
         raise ValueError(&#39;Number of steps must be positive!&#39;)
-
     seq_arr = self._sequence_array(seq_df, sample_size)
     target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
     avg_qdist_list = []
@@ -962,8 +959,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         cur_min_qdist = 1
         cur_max_qdist = 0
         for j in range(qsamples):
-            qs_seq = qs.qsample(seq_arr[i], qnet, steps)
-            qdist = qdistance(target_seq, qs_seq, qnet, qnet)
+            qs_seq = qs.qsample(seq_arr[i], enet, steps)
+            qdist = qdistance(target_seq, qs_seq, enet, enet)
             cur_avg_qdist += qdist
             cur_min_qdist = min(qdist, cur_min_qdist)
             cur_max_qdist = max(qdist, cur_max_qdist)
@@ -1023,7 +1020,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 </details>
 </dd>
 <dt id="emergenet.emergenet.Enet.sequence_membership"><code class="name flex">
-<span>def <span class="ident">sequence_membership</span></span>(<span>self, seq_df, qnet, sample_size=None)</span>
+<span>def <span class="ident">sequence_membership</span></span>(<span>self, seq_df, enet, sample_size=None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Computes membership degree (see Quasinet documentation) of each sequence</p>
@@ -1031,8 +1028,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
 <dd>DataFrame of sequences</dd>
-<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Qnet that sequences in seq_df belong to</dd>
+<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>Emergenet that sequences in seq_df belong to</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
 <dd>Number of strains to compute emergence risk with, sampled randomly</dd>
 </dl>
@@ -1045,7 +1042,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def sequence_membership(self, seq_df, qnet, sample_size=None):
+<pre><code class="python">def sequence_membership(self, seq_df, enet, sample_size=None):
     &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
 
     Parameters
@@ -1053,8 +1050,8 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     seq_df : pd.DataFrame
         DataFrame of sequences
 
-    qnet : Qnet
-        Qnet that sequences in seq_df belong to
+    enet : Qnet
+        Emergenet that sequences in seq_df belong to
 
     sample_size : int
         Number of strains to compute emergence risk with, sampled randomly
@@ -1070,10 +1067,10 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
     if sample_size is None or sample_size &gt; len(seq_df):
         sample_size = len(seq_df)
-    seqs = seq_df[&#39;sequence&#39;]
     if sample_size &lt; len(seq_df):
-        seqs = seqs.sample(sample_size, random_state=self.random_state).values
-    membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], qnet) for seq in seqs])
+        seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+    seqs = seq_df[&#39;sequence&#39;].values
+    membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
     return membership_degrees</code></pre>
 </details>
 </dd>
@@ -1081,27 +1078,27 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <span>def <span class="ident">train</span></span>(<span>self, seq_df, sample_size=None, n_jobs=1)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Trains a Qnet model.</p>
+<div class="desc"><p>Trains an Emergenet model.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
 <dd>DataFrame of sequences</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to train Qnet on, sampled randomly</dd>
+<dd>Number of strains to train Emergenet on, sampled randomly</dd>
 <dt><strong><code>n_jobs</code></strong> :&ensp;<code>int</code></dt>
 <dd>Number of CPUs to use when training</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>qnet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Trained Qnet</dd>
+<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
+<dd>Trained Emergenet</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def train(self, seq_df, sample_size=None, n_jobs=1):
-    &#34;&#34;&#34;Trains a Qnet model.
+    &#34;&#34;&#34;Trains an Emergenet model.
 
     Parameters
     ----------
@@ -1109,23 +1106,23 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         DataFrame of sequences
 
     sample_size : int
-        Number of strains to train Qnet on, sampled randomly
+        Number of strains to train Emergenet on, sampled randomly
 
     n_jobs : int
         Number of CPUs to use when training
 
     Returns
     -------
-    qnet : Qnet
-        Trained Qnet
+    enet : Qnet
+        Trained Emergenet
     &#34;&#34;&#34;
     if len(seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
     seq_arr = self._sequence_array(seq_df, sample_size)
-    qnet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+    enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
                 random_state=self.random_state, n_jobs=n_jobs)
-    qnet.fit(seq_arr)
-    return qnet</code></pre>
+    enet.fit(seq_arr)
+    return enet</code></pre>
 </details>
 </dd>
 </dl>

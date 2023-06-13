@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>emergenet.emergenet API documentation</title>
+<title>emergenet.domseq API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -20,7 +20,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>emergenet.emergenet</code></h1>
+<h1 class="title">Module <code>emergenet.domseq</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -30,43 +30,26 @@
 <pre><code class="python">import numpy as np
 import pandas as pd
 from Bio import SeqIO
-from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet, membership_degree
-from quasinet import qsampling as qs
+from Levenshtein import distance
+from quasinet.qnet import Qnet, qdistance, qdistance_matrix, save_qnet, load_qnet, membership_degree
 
 
-class Enet(object):
-    &#34;&#34;&#34;Emergenet architecture.
+class DomSeq(object):
+    &#34;&#34;&#34;Find and predict dominant sequences.
 
     Parameters
     ----------
-    seq : str
-        The target sequence to be analysed by Emergenet
-        Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
-
     seq_trunc_length : int
         Length to truncate sequences in Emergenet analysis
         (Sequences used to train Emergenet and compute E-distance must be of same length)
-
-    seq_metadata : str
-        Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
 
     random_state : int
         Sets seed for random number generator
     &#34;&#34;&#34;
 
-    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
-        if seq.endswith(&#39;.fasta&#39;):
-            if self._count_seqs(seq) != 1:
-                raise ValueError(&#39;The file must contain exactly 1 sequence!&#39;)
-            for record in SeqIO.parse(seq, &#39;fasta&#39;):
-                self.seq = str(record.seq.upper())
-                self.seq_metadata = str(record.description)
-        else:
-            self.seq = seq.upper()
-            self.seq_metadata = seq_metadata
-
-        if seq_trunc_length &gt; len(self.seq):
-            raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+    def __init__(self, seq_trunc_length, random_state=None):
+        if seq_trunc_length &lt;= 0:
+            raise ValueError(&#39;Length to truncate sequences must be positive!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
         if random_state &lt; 0:
@@ -74,11 +57,11 @@ class Enet(object):
         self.random_state = random_state
 
     def __repr__(self):
-        return &#34;emergenet.Emergenet&#34;
+        return &#34;emergenet.DomSeq&#34;
 
     def __str__(self):
         return self.__repr__()
-
+    
     @staticmethod
     def _count_seqs(filepath):
         &#34;&#34;&#34;Returns number of sequences in a fasta file.
@@ -101,11 +84,11 @@ class Enet(object):
             lines = f.read()
         num_sequences = lines.count(&#39;&gt;&#39;)
         return num_sequences
-
+    
     def _parse_fasta(self, filepath):
         &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
         `id` contains fasta metadata.
-        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+        `sequence` contains sequences truncated to `seq_trunc_length`.
 
         Parameters
         ----------
@@ -125,7 +108,7 @@ class Enet(object):
             if len(record.seq) &lt; self.seq_trunc_length:
                 continue
             ids.append(str(record.id))
-            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
+            seqs.append(&#39;&#39;.join(record.seq[:self.seq_trunc_length].upper()))
         seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
         return seq_df
 
@@ -151,11 +134,10 @@ class Enet(object):
             sample_size = len(seq_df)
         if sample_size &lt; len(seq_df):
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        seqs = seq_df[&#39;sequence&#39;].values
+        seqs = seq_df[&#39;sequence&#39;].apply(lambda x: np.array(list(x[:self.seq_trunc_length])))
         seq_lst = []
         for seq in seqs:
             seq_lst.append(seq)
-        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
         seq_lst = np.array(seq_lst)
         return seq_lst
 
@@ -208,83 +190,47 @@ class Enet(object):
                     random_state=self.random_state, n_jobs=n_jobs)
         enet.fit(seq_arr)
         return enet
-
-    def sequence_membership(self, seq_df, enet, sample_size=None):
-        &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
+    
+    def compute_domseq(self, seq_df, sample_size=None):
+        &#34;&#34;&#34;Computes the dominant sequence in the edit (Levenshtein) distance metric.
 
         Parameters
         ----------
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
         sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
+            Number of strains to compute dominant strain with, sampled randomly
 
         Returns
         -------
-        membership_degrees : np.ndarray
-            Array of membership degrees
+        dom_id : str
+            Dominant sequence metadata
+
+        dom_seq : str
+            Dominant sequence
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if &#39;sequence&#39; not in seq_df.columns:
-            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is None or sample_size &gt; len(seq_df):
             sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
-            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        if sample_size &lt; len(seq_df):   
+            seq_df = seq_df.sample(sample_size, random_state = self.random_state)
         seqs = seq_df[&#39;sequence&#39;].values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
-        return membership_degrees
+        edit_dists = []
+        for seq in seqs:
+            edit_dist = 0
+            for seq1 in seqs:
+                edit_dist += distance(seq, seq1)
+            edit_dists.append(edit_dist)
+        ind_min = np.argmin(edit_dists)
+        dom_id = seq_df.iloc[ind_min].values[0]
+        dom_seq = seq_df.iloc[ind_min].values[1]
+        return dom_id, dom_seq
 
-    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
-        &#34;&#34;&#34;Computes emergence risk score.
 
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-        
-        ignore_nan : bool
-            Whether to show number of ignored nan value in qdistance
-
-        Returns
-        -------
-        emergence_risk_score : int
-            Emergence risk score
-
-        variance : int
-            Variance of emergence risk score
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        qdist_list = []
-        num_nan = 0
-        for i in range(len(seq_arr)):
-            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
-            if np.isnan(qdist):
-                num_nan += 1
-                continue
-            qdist_list.append(qdist)
-        if ignore_nan:
-            print(&#39;Number of strains with null qdistance:&#39;, num_nan, &#39;out of&#39;, len(seq_arr))
-        emergence_risk_score = np.average(qdist_list)
-        variance = np.var(qdist_list)
-        return emergence_risk_score, variance
-
-    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
-        &#34;&#34;&#34;Computes emergence risk score using qsampling.
+    def predict_domseq(self, seq_df, enet, sample_size=None):
+        &#34;&#34;&#34;Predicts the future dominant sequence.
 
         Parameters
         ----------
@@ -295,54 +241,34 @@ class Enet(object):
             Emergenet that sequences in seq_df belong to
 
         sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-
-        qsamples : int
-            Number of qsamples to draw from each strain
-
-        steps : int
-            Number of steps to run q-sampling
+            Number of strains to compute dominant strain with, sampled randomly
 
         Returns
         -------
-        avg_emergence_risk_score : int
-            Average emergence risk score among all qsampled sequences
+        pred_id : str
+            Emergenet recommended sequence metadata
 
-        min_emergence_risk_score : int
-            Lower bound on emergence risk score
-
-        max_emergence_risk_score : int
-            Upper bound on emergence risk score
+        pred_seq : str
+            Emergenet recommended sequence
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if qsamples &lt; 1:
-            raise ValueError(&#39;Number of qsamples must be positive!&#39;)
-        if steps &lt; 1:
-            raise ValueError(&#39;Number of steps must be positive!&#39;)
+        if sample_size is None or sample_size &gt; len(seq_df):
+            sample_size = len(seq_df)
+        H = min(sample_size, len(seq_df))
+        if sample_size &lt; len(seq_df):   
+            seq_df = seq_df.sample(H, random_state = self.random_state)
         seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        avg_qdist_list = []
-        min_qdist_list = []
-        max_qdist_list = []
+        dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
+        first_term = sum(dist_matrix)
+        A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
+        second_term = np.ones(len(seq_arr)) * H * A
         for i in range(len(seq_arr)):
-            cur_avg_qdist = 0
-            cur_min_qdist = 1
-            cur_max_qdist = 0
-            for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], enet, steps)
-                qdist = qdistance(target_seq, qs_seq, enet, enet)
-                cur_avg_qdist += qdist
-                cur_min_qdist = min(qdist, cur_min_qdist)
-                cur_max_qdist = max(qdist, cur_max_qdist)
-            avg_qdist_list.append(cur_avg_qdist / qsamples)
-            min_qdist_list.append(cur_min_qdist)
-            max_qdist_list.append(cur_max_qdist)
-        avg_emergence_risk_score = np.average(avg_qdist_list)
-        min_emergence_risk_score = np.average(min_qdist_list)
-        max_emergence_risk_score = np.average(max_qdist_list)
-        variance = np.var(avg_qdist_list)
-        return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
+            second_term[i] *= membership_degree(seq_arr[i], enet)
+        sums = first_term - second_term
+        pred_id = seq_df.iloc[np.argmin(sums)].values[0]
+        pred_seq = seq_df.iloc[np.argmin(sums)].values[1]
+        return pred_id, pred_seq
 
 
 def save_model(enet, outfile, low_mem=False):
@@ -365,7 +291,7 @@ def save_model(enet, outfile, low_mem=False):
     &#34;&#34;&#34;
     save_qnet(enet, outfile, low_mem)
 
-
+    
 def load_model(filepath):
     &#34;&#34;&#34;Loads an Emergenet model.
 
@@ -390,7 +316,7 @@ def load_model(filepath):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="emergenet.emergenet.load_model"><code class="name flex">
+<dt id="emergenet.domseq.load_model"><code class="name flex">
 <span>def <span class="ident">load_model</span></span>(<span>filepath)</span>
 </code></dt>
 <dd>
@@ -426,7 +352,7 @@ def load_model(filepath):
     return enet</code></pre>
 </details>
 </dd>
-<dt id="emergenet.emergenet.save_model"><code class="name flex">
+<dt id="emergenet.domseq.save_model"><code class="name flex">
 <span>def <span class="ident">save_model</span></span>(<span>enet, outfile, low_mem=False)</span>
 </code></dt>
 <dd>
@@ -475,22 +401,17 @@ def load_model(filepath):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="emergenet.emergenet.Enet"><code class="flex name class">
-<span>class <span class="ident">Enet</span></span>
-<span>(</span><span>seq, seq_trunc_length, seq_metadata=None, random_state=None)</span>
+<dt id="emergenet.domseq.DomSeq"><code class="flex name class">
+<span>class <span class="ident">DomSeq</span></span>
+<span>(</span><span>seq_trunc_length, random_state=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Emergenet architecture.</p>
+<div class="desc"><p>Find and predict dominant sequences.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>seq</code></strong> :&ensp;<code>str</code></dt>
-<dd>The target sequence to be analysed by Emergenet
-Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</dd>
 <dt><strong><code>seq_trunc_length</code></strong> :&ensp;<code>int</code></dt>
 <dd>Length to truncate sequences in Emergenet analysis
 (Sequences used to train Emergenet and compute E-distance must be of same length)</dd>
-<dt><strong><code>seq_metadata</code></strong> :&ensp;<code>str</code></dt>
-<dd>Describes the sequence; added automatically if 'seq' is a fasta file path</dd>
 <dt><strong><code>random_state</code></strong> :&ensp;<code>int</code></dt>
 <dd>Sets seed for random number generator</dd>
 </dl></div>
@@ -498,39 +419,22 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Enet(object):
-    &#34;&#34;&#34;Emergenet architecture.
+<pre><code class="python">class DomSeq(object):
+    &#34;&#34;&#34;Find and predict dominant sequences.
 
     Parameters
     ----------
-    seq : str
-        The target sequence to be analysed by Emergenet
-        Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
-
     seq_trunc_length : int
         Length to truncate sequences in Emergenet analysis
         (Sequences used to train Emergenet and compute E-distance must be of same length)
-
-    seq_metadata : str
-        Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
 
     random_state : int
         Sets seed for random number generator
     &#34;&#34;&#34;
 
-    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
-        if seq.endswith(&#39;.fasta&#39;):
-            if self._count_seqs(seq) != 1:
-                raise ValueError(&#39;The file must contain exactly 1 sequence!&#39;)
-            for record in SeqIO.parse(seq, &#39;fasta&#39;):
-                self.seq = str(record.seq.upper())
-                self.seq_metadata = str(record.description)
-        else:
-            self.seq = seq.upper()
-            self.seq_metadata = seq_metadata
-
-        if seq_trunc_length &gt; len(self.seq):
-            raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+    def __init__(self, seq_trunc_length, random_state=None):
+        if seq_trunc_length &lt;= 0:
+            raise ValueError(&#39;Length to truncate sequences must be positive!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
         if random_state &lt; 0:
@@ -538,11 +442,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         self.random_state = random_state
 
     def __repr__(self):
-        return &#34;emergenet.Emergenet&#34;
+        return &#34;emergenet.DomSeq&#34;
 
     def __str__(self):
         return self.__repr__()
-
+    
     @staticmethod
     def _count_seqs(filepath):
         &#34;&#34;&#34;Returns number of sequences in a fasta file.
@@ -565,11 +469,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             lines = f.read()
         num_sequences = lines.count(&#39;&gt;&#39;)
         return num_sequences
-
+    
     def _parse_fasta(self, filepath):
         &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
         `id` contains fasta metadata.
-        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+        `sequence` contains sequences truncated to `seq_trunc_length`.
 
         Parameters
         ----------
@@ -589,7 +493,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             if len(record.seq) &lt; self.seq_trunc_length:
                 continue
             ids.append(str(record.id))
-            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
+            seqs.append(&#39;&#39;.join(record.seq[:self.seq_trunc_length].upper()))
         seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
         return seq_df
 
@@ -615,11 +519,10 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             sample_size = len(seq_df)
         if sample_size &lt; len(seq_df):
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        seqs = seq_df[&#39;sequence&#39;].values
+        seqs = seq_df[&#39;sequence&#39;].apply(lambda x: np.array(list(x[:self.seq_trunc_length])))
         seq_lst = []
         for seq in seqs:
             seq_lst.append(seq)
-        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
         seq_lst = np.array(seq_lst)
         return seq_lst
 
@@ -672,83 +575,47 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
                     random_state=self.random_state, n_jobs=n_jobs)
         enet.fit(seq_arr)
         return enet
-
-    def sequence_membership(self, seq_df, enet, sample_size=None):
-        &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
+    
+    def compute_domseq(self, seq_df, sample_size=None):
+        &#34;&#34;&#34;Computes the dominant sequence in the edit (Levenshtein) distance metric.
 
         Parameters
         ----------
         seq_df : pd.DataFrame
             DataFrame of sequences
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
         sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
+            Number of strains to compute dominant strain with, sampled randomly
 
         Returns
         -------
-        membership_degrees : np.ndarray
-            Array of membership degrees
+        dom_id : str
+            Dominant sequence metadata
+
+        dom_seq : str
+            Dominant sequence
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if &#39;sequence&#39; not in seq_df.columns:
-            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is None or sample_size &gt; len(seq_df):
             sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
-            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        if sample_size &lt; len(seq_df):   
+            seq_df = seq_df.sample(sample_size, random_state = self.random_state)
         seqs = seq_df[&#39;sequence&#39;].values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
-        return membership_degrees
+        edit_dists = []
+        for seq in seqs:
+            edit_dist = 0
+            for seq1 in seqs:
+                edit_dist += distance(seq, seq1)
+            edit_dists.append(edit_dist)
+        ind_min = np.argmin(edit_dists)
+        dom_id = seq_df.iloc[ind_min].values[0]
+        dom_seq = seq_df.iloc[ind_min].values[1]
+        return dom_id, dom_seq
 
-    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
-        &#34;&#34;&#34;Computes emergence risk score.
 
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-        
-        ignore_nan : bool
-            Whether to show number of ignored nan value in qdistance
-
-        Returns
-        -------
-        emergence_risk_score : int
-            Emergence risk score
-
-        variance : int
-            Variance of emergence risk score
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        qdist_list = []
-        num_nan = 0
-        for i in range(len(seq_arr)):
-            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
-            if np.isnan(qdist):
-                num_nan += 1
-                continue
-            qdist_list.append(qdist)
-        if ignore_nan:
-            print(&#39;Number of strains with null qdistance:&#39;, num_nan, &#39;out of&#39;, len(seq_arr))
-        emergence_risk_score = np.average(qdist_list)
-        variance = np.var(qdist_list)
-        return emergence_risk_score, variance
-
-    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
-        &#34;&#34;&#34;Computes emergence risk score using qsampling.
+    def predict_domseq(self, seq_df, enet, sample_size=None):
+        &#34;&#34;&#34;Predicts the future dominant sequence.
 
         Parameters
         ----------
@@ -759,222 +626,99 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             Emergenet that sequences in seq_df belong to
 
         sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-
-        qsamples : int
-            Number of qsamples to draw from each strain
-
-        steps : int
-            Number of steps to run q-sampling
+            Number of strains to compute dominant strain with, sampled randomly
 
         Returns
         -------
-        avg_emergence_risk_score : int
-            Average emergence risk score among all qsampled sequences
+        pred_id : str
+            Emergenet recommended sequence metadata
 
-        min_emergence_risk_score : int
-            Lower bound on emergence risk score
-
-        max_emergence_risk_score : int
-            Upper bound on emergence risk score
+        pred_seq : str
+            Emergenet recommended sequence
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if qsamples &lt; 1:
-            raise ValueError(&#39;Number of qsamples must be positive!&#39;)
-        if steps &lt; 1:
-            raise ValueError(&#39;Number of steps must be positive!&#39;)
+        if sample_size is None or sample_size &gt; len(seq_df):
+            sample_size = len(seq_df)
+        H = min(sample_size, len(seq_df))
+        if sample_size &lt; len(seq_df):   
+            seq_df = seq_df.sample(H, random_state = self.random_state)
         seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        avg_qdist_list = []
-        min_qdist_list = []
-        max_qdist_list = []
+        dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
+        first_term = sum(dist_matrix)
+        A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
+        second_term = np.ones(len(seq_arr)) * H * A
         for i in range(len(seq_arr)):
-            cur_avg_qdist = 0
-            cur_min_qdist = 1
-            cur_max_qdist = 0
-            for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], enet, steps)
-                qdist = qdistance(target_seq, qs_seq, enet, enet)
-                cur_avg_qdist += qdist
-                cur_min_qdist = min(qdist, cur_min_qdist)
-                cur_max_qdist = max(qdist, cur_max_qdist)
-            avg_qdist_list.append(cur_avg_qdist / qsamples)
-            min_qdist_list.append(cur_min_qdist)
-            max_qdist_list.append(cur_max_qdist)
-        avg_emergence_risk_score = np.average(avg_qdist_list)
-        min_emergence_risk_score = np.average(min_qdist_list)
-        max_emergence_risk_score = np.average(max_qdist_list)
-        variance = np.var(avg_qdist_list)
-        return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance</code></pre>
+            second_term[i] *= membership_degree(seq_arr[i], enet)
+        sums = first_term - second_term
+        pred_id = seq_df.iloc[np.argmin(sums)].values[0]
+        pred_seq = seq_df.iloc[np.argmin(sums)].values[1]
+        return pred_id, pred_seq</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="emergenet.emergenet.Enet.emergence_risk"><code class="name flex">
-<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, enet, sample_size=None, ignore_nan=False)</span>
+<dt id="emergenet.domseq.DomSeq.compute_domseq"><code class="name flex">
+<span>def <span class="ident">compute_domseq</span></span>(<span>self, seq_df, sample_size=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Computes emergence risk score.</p>
+<div class="desc"><p>Computes the dominant sequence in the edit (Levenshtein) distance metric.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
 <dd>DataFrame of sequences</dd>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Emergenet that sequences in seq_df belong to</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute emergence risk with, sampled randomly</dd>
-<dt><strong><code>ignore_nan</code></strong> :&ensp;<code>bool</code></dt>
-<dd>Whether to show number of ignored nan value in qdistance</dd>
+<dd>Number of strains to compute dominant strain with, sampled randomly</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
-<dd>Emergence risk score</dd>
-<dt><strong><code>variance</code></strong> :&ensp;<code>int</code></dt>
-<dd>Variance of emergence risk score</dd>
+<dt><strong><code>dom_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>Dominant sequence metadata</dd>
+<dt><strong><code>dom_seq</code></strong> :&ensp;<code>str</code></dt>
+<dd>Dominant sequence</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
-    &#34;&#34;&#34;Computes emergence risk score.
+<pre><code class="python">def compute_domseq(self, seq_df, sample_size=None):
+    &#34;&#34;&#34;Computes the dominant sequence in the edit (Levenshtein) distance metric.
 
     Parameters
     ----------
     seq_df : pd.DataFrame
         DataFrame of sequences
 
-    enet : Qnet
-        Emergenet that sequences in seq_df belong to
-
     sample_size : int
-        Number of strains to compute emergence risk with, sampled randomly
-    
-    ignore_nan : bool
-        Whether to show number of ignored nan value in qdistance
+        Number of strains to compute dominant strain with, sampled randomly
 
     Returns
     -------
-    emergence_risk_score : int
-        Emergence risk score
+    dom_id : str
+        Dominant sequence metadata
 
-    variance : int
-        Variance of emergence risk score
+    dom_seq : str
+        Dominant sequence
     &#34;&#34;&#34;
     if len(seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    seq_arr = self._sequence_array(seq_df, sample_size)
-    target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-    qdist_list = []
-    num_nan = 0
-    for i in range(len(seq_arr)):
-        qdist = qdistance(target_seq, seq_arr[i], enet, enet)
-        if np.isnan(qdist):
-            num_nan += 1
-            continue
-        qdist_list.append(qdist)
-    if ignore_nan:
-        print(&#39;Number of strains with null qdistance:&#39;, num_nan, &#39;out of&#39;, len(seq_arr))
-    emergence_risk_score = np.average(qdist_list)
-    variance = np.var(qdist_list)
-    return emergence_risk_score, variance</code></pre>
+    if sample_size is None or sample_size &gt; len(seq_df):
+        sample_size = len(seq_df)
+    if sample_size &lt; len(seq_df):   
+        seq_df = seq_df.sample(sample_size, random_state = self.random_state)
+    seqs = seq_df[&#39;sequence&#39;].values
+    edit_dists = []
+    for seq in seqs:
+        edit_dist = 0
+        for seq1 in seqs:
+            edit_dist += distance(seq, seq1)
+        edit_dists.append(edit_dist)
+    ind_min = np.argmin(edit_dists)
+    dom_id = seq_df.iloc[ind_min].values[0]
+    dom_seq = seq_df.iloc[ind_min].values[1]
+    return dom_id, dom_seq</code></pre>
 </details>
 </dd>
-<dt id="emergenet.emergenet.Enet.emergence_risk_qsampling"><code class="name flex">
-<span>def <span class="ident">emergence_risk_qsampling</span></span>(<span>self, seq_df, enet, sample_size=None, qsamples=None, steps=None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Computes emergence risk score using qsampling.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Emergenet that sequences in seq_df belong to</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute emergence risk with, sampled randomly</dd>
-<dt><strong><code>qsamples</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of qsamples to draw from each strain</dd>
-<dt><strong><code>steps</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of steps to run q-sampling</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>avg_emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
-<dd>Average emergence risk score among all qsampled sequences</dd>
-<dt><strong><code>min_emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
-<dd>Lower bound on emergence risk score</dd>
-<dt><strong><code>max_emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
-<dd>Upper bound on emergence risk score</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
-    &#34;&#34;&#34;Computes emergence risk score using qsampling.
-
-    Parameters
-    ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-
-    enet : Qnet
-        Emergenet that sequences in seq_df belong to
-
-    sample_size : int
-        Number of strains to compute emergence risk with, sampled randomly
-
-    qsamples : int
-        Number of qsamples to draw from each strain
-
-    steps : int
-        Number of steps to run q-sampling
-
-    Returns
-    -------
-    avg_emergence_risk_score : int
-        Average emergence risk score among all qsampled sequences
-
-    min_emergence_risk_score : int
-        Lower bound on emergence risk score
-
-    max_emergence_risk_score : int
-        Upper bound on emergence risk score
-    &#34;&#34;&#34;
-    if len(seq_df) &lt; 1:
-        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if qsamples &lt; 1:
-        raise ValueError(&#39;Number of qsamples must be positive!&#39;)
-    if steps &lt; 1:
-        raise ValueError(&#39;Number of steps must be positive!&#39;)
-    seq_arr = self._sequence_array(seq_df, sample_size)
-    target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-    avg_qdist_list = []
-    min_qdist_list = []
-    max_qdist_list = []
-    for i in range(len(seq_arr)):
-        cur_avg_qdist = 0
-        cur_min_qdist = 1
-        cur_max_qdist = 0
-        for j in range(qsamples):
-            qs_seq = qs.qsample(seq_arr[i], enet, steps)
-            qdist = qdistance(target_seq, qs_seq, enet, enet)
-            cur_avg_qdist += qdist
-            cur_min_qdist = min(qdist, cur_min_qdist)
-            cur_max_qdist = max(qdist, cur_max_qdist)
-        avg_qdist_list.append(cur_avg_qdist / qsamples)
-        min_qdist_list.append(cur_min_qdist)
-        max_qdist_list.append(cur_max_qdist)
-    avg_emergence_risk_score = np.average(avg_qdist_list)
-    min_emergence_risk_score = np.average(min_qdist_list)
-    max_emergence_risk_score = np.average(max_qdist_list)
-    variance = np.var(avg_qdist_list)
-    return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.Enet.load_data"><code class="name flex">
+<dt id="emergenet.domseq.DomSeq.load_data"><code class="name flex">
 <span>def <span class="ident">load_data</span></span>(<span>self, filepath, outfile=None)</span>
 </code></dt>
 <dd>
@@ -1019,11 +763,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     return seq_df</code></pre>
 </details>
 </dd>
-<dt id="emergenet.emergenet.Enet.sequence_membership"><code class="name flex">
-<span>def <span class="ident">sequence_membership</span></span>(<span>self, seq_df, enet, sample_size=None)</span>
+<dt id="emergenet.domseq.DomSeq.predict_domseq"><code class="name flex">
+<span>def <span class="ident">predict_domseq</span></span>(<span>self, seq_df, enet, sample_size=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Computes membership degree (see Quasinet documentation) of each sequence</p>
+<div class="desc"><p>Predicts the future dominant sequence.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
@@ -1031,19 +775,21 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
 <dd>Emergenet that sequences in seq_df belong to</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute emergence risk with, sampled randomly</dd>
+<dd>Number of strains to compute dominant strain with, sampled randomly</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>membership_degrees</code></strong> :&ensp;<code>np.ndarray</code></dt>
-<dd>Array of membership degrees</dd>
+<dt><strong><code>pred_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>Emergenet recommended sequence metadata</dd>
+<dt><strong><code>pred_seq</code></strong> :&ensp;<code>str</code></dt>
+<dd>Emergenet recommended sequence</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def sequence_membership(self, seq_df, enet, sample_size=None):
-    &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
+<pre><code class="python">def predict_domseq(self, seq_df, enet, sample_size=None):
+    &#34;&#34;&#34;Predicts the future dominant sequence.
 
     Parameters
     ----------
@@ -1054,27 +800,37 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         Emergenet that sequences in seq_df belong to
 
     sample_size : int
-        Number of strains to compute emergence risk with, sampled randomly
+        Number of strains to compute dominant strain with, sampled randomly
 
     Returns
     -------
-    membership_degrees : np.ndarray
-        Array of membership degrees
+    pred_id : str
+        Emergenet recommended sequence metadata
+
+    pred_seq : str
+        Emergenet recommended sequence
     &#34;&#34;&#34;
     if len(seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if &#39;sequence&#39; not in seq_df.columns:
-        raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
     if sample_size is None or sample_size &gt; len(seq_df):
         sample_size = len(seq_df)
-    if sample_size &lt; len(seq_df):
-        seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-    seqs = seq_df[&#39;sequence&#39;].values
-    membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
-    return membership_degrees</code></pre>
+    H = min(sample_size, len(seq_df))
+    if sample_size &lt; len(seq_df):   
+        seq_df = seq_df.sample(H, random_state = self.random_state)
+    seq_arr = self._sequence_array(seq_df, sample_size)
+    dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
+    first_term = sum(dist_matrix)
+    A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
+    second_term = np.ones(len(seq_arr)) * H * A
+    for i in range(len(seq_arr)):
+        second_term[i] *= membership_degree(seq_arr[i], enet)
+    sums = first_term - second_term
+    pred_id = seq_df.iloc[np.argmin(sums)].values[0]
+    pred_seq = seq_df.iloc[np.argmin(sums)].values[1]
+    return pred_id, pred_seq</code></pre>
 </details>
 </dd>
-<dt id="emergenet.emergenet.Enet.train"><code class="name flex">
+<dt id="emergenet.domseq.DomSeq.train"><code class="name flex">
 <span>def <span class="ident">train</span></span>(<span>self, seq_df, sample_size=None, n_jobs=1)</span>
 </code></dt>
 <dd>
@@ -1144,20 +900,19 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="emergenet.emergenet.load_model" href="#emergenet.emergenet.load_model">load_model</a></code></li>
-<li><code><a title="emergenet.emergenet.save_model" href="#emergenet.emergenet.save_model">save_model</a></code></li>
+<li><code><a title="emergenet.domseq.load_model" href="#emergenet.domseq.load_model">load_model</a></code></li>
+<li><code><a title="emergenet.domseq.save_model" href="#emergenet.domseq.save_model">save_model</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="emergenet.emergenet.Enet" href="#emergenet.emergenet.Enet">Enet</a></code></h4>
+<h4><code><a title="emergenet.domseq.DomSeq" href="#emergenet.domseq.DomSeq">DomSeq</a></code></h4>
 <ul class="">
-<li><code><a title="emergenet.emergenet.Enet.emergence_risk" href="#emergenet.emergenet.Enet.emergence_risk">emergence_risk</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.emergence_risk_qsampling" href="#emergenet.emergenet.Enet.emergence_risk_qsampling">emergence_risk_qsampling</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.load_data" href="#emergenet.emergenet.Enet.load_data">load_data</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.sequence_membership" href="#emergenet.emergenet.Enet.sequence_membership">sequence_membership</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.train" href="#emergenet.emergenet.Enet.train">train</a></code></li>
+<li><code><a title="emergenet.domseq.DomSeq.compute_domseq" href="#emergenet.domseq.DomSeq.compute_domseq">compute_domseq</a></code></li>
+<li><code><a title="emergenet.domseq.DomSeq.load_data" href="#emergenet.domseq.DomSeq.load_data">load_data</a></code></li>
+<li><code><a title="emergenet.domseq.DomSeq.predict_domseq" href="#emergenet.domseq.DomSeq.predict_domseq">predict_domseq</a></code></li>
+<li><code><a title="emergenet.domseq.DomSeq.train" href="#emergenet.domseq.DomSeq.train">train</a></code></li>
 </ul>
 </li>
 </ul>
