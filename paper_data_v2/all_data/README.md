@@ -4,7 +4,6 @@
 
 ```
 all_data
-├── README.md
 ├── gisaid_data : sequence data from GISAID database
 ├── ncbi_data : sequence data from NCBI database
 ├── gisaid_metadata_ha.csv : name, subtype, accession number for GISAID HA sequences
