@@ -19,6 +19,7 @@ Emergenet
 
 ## Installation
 [PyPI](https://pypi.org/project/emergenet/)
+
 To install with pip:
 
 ```
