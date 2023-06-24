@@ -13,7 +13,7 @@ Emergenet
 ```
 
 ## Description
-- Computing predicting dominant strains
+- Computing and predicting dominant viral strains
 - Superfast risk assessment of emerging pathogens
 
 
@@ -35,6 +35,7 @@ pip install emergenet --upgrade
 * pandas 
 * Levenshtein 
 * biopython
+* scikit-learn
 
 ## Usage
 
@@ -71,10 +72,10 @@ enet = Enet(seq='target_sequence.fasta', seq_trunc_length=550, random_state=42)
 df = enet.load_data(filepath='sequences.fasta')
 
 # train enet
-enet = enet.train(seq_df=df, sample_size=1000)
+enet = enet.train(seq_df=df, sample_size=3000)
 
 # compute emergence risk score
-erisk, var = enet.emergence_risk(seq_df=df, enet=enet, sample_size=1000)
+erisk, var = enet.emergence_risk(seq_df=df, enet=enet, sample_size=3000)
 ```
  
 ### Examples
