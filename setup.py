@@ -53,5 +53,6 @@ setup(
         "Topic :: Scientific/Engineering :: Information Analysis",
         "Topic :: Software Development :: Libraries",
         "Programming Language :: Python :: 3.6"],
+    package_data = [('emergenet', ['models/*'])],
     include_package_data=True,
     )
