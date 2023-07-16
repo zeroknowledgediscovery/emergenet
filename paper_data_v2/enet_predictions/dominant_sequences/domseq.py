@@ -290,6 +290,8 @@ class DomSeq(object):
         dm : pd.DataFrame
             Distance Matrix
         """
+        if 'sequence' not in seq_df.columns:
+            raise ValueError('The DataFrame must store sequences in `sequence` column!')
         seqs = seq_df['sequence'].values
         n = len(seqs)
         dist_matrix = np.zeros((n, n))
