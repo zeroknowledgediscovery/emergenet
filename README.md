@@ -37,6 +37,7 @@ pip install emergenet --upgrade
 * Levenshtein 
 * biopython
 * scikit-learn
+* statsmodels
 
 ## Usage
 
