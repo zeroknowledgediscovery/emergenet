@@ -12,3 +12,5 @@ emergenet.egg-info/SOURCES.txt
 emergenet.egg-info/dependency_links.txt
 emergenet.egg-info/requires.txt
 emergenet.egg-info/top_level.txt
+emergenet/models/irat_emergence.pickle
+emergenet/models/irat_impact.pickle
