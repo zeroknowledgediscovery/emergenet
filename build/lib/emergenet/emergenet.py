@@ -1,3 +1,5 @@
+import os
+import sys
 import numpy as np
 import pandas as pd
 from Bio import SeqIO
@@ -328,8 +330,9 @@ def irat_risk(ha_risk, na_risk):
     irat_impact_risk : float
         Predicted IRAT impact risk score
     """
-    emergence_mod = sm.load('models/irat_emergence.pickle')
-    impact_mod = sm.load('models/irat_impact.pickle')
+    cwd = os.path.dirname(os.path.abspath(sys.argv[0]))
+    emergence_mod = sm.load(os.path.join(cwd, 'models', 'irat_emergence.pickle'))
+    impact_mod = sm.load(os.path.join(cwd, 'models', 'irat_impact.pickle'))
     geom_mean = np.sqrt(ha_risk*na_risk)
     df = pd.DataFrame({'Geometric_Mean':[geom_mean],
                        'HA_Avg_Qdist':[ha_risk],
