@@ -330,7 +330,7 @@ def irat_risk(ha_risk, na_risk):
     irat_impact_risk : float
         Predicted IRAT impact risk score
     """
-    cwd = os.path.dirname(os.path.abspath(sys.argv[0]))
+    cwd = os.getcwd()
     emergence_mod = sm.load(os.path.join(cwd, 'models', 'irat_emergence.pickle'))
     impact_mod = sm.load(os.path.join(cwd, 'models', 'irat_impact.pickle'))
     geom_mean = np.sqrt(ha_risk*na_risk)
