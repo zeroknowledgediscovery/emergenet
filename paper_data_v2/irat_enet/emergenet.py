@@ -1,8 +1,10 @@
+import os
 import numpy as np
 import pandas as pd
 from Bio import SeqIO
 from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet, membership_degree
 from quasinet import qsampling as qs
+import statsmodels.api as sm
 
 
 class Enet(object):
@@ -61,7 +63,7 @@ class Enet(object):
 
         Returns
         -------
-        seq_df : int
+        num_sequences : int
             Number of sequences
         """
         with open(filepath, 'r') as f:
@@ -211,7 +213,7 @@ class Enet(object):
         membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
+    def emergence_risk(self, seq_df, enet, sample_size=None):
         """Computes emergence risk score.
 
         Parameters
@@ -224,16 +226,13 @@ class Enet(object):
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
-        
-        ignore_nan : bool
-            Whether to show number of ignored nan value in qdistance
 
         Returns
         -------
-        emergence_risk_score : int
+        emergence_risk_score : float
             Emergence risk score
 
-        variance : int
+        variance : float
             Variance of emergence risk score
         """
         if len(seq_df) < 1:
@@ -241,15 +240,11 @@ class Enet(object):
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         qdist_list = []
-        num_nan = 0
         for i in range(len(seq_arr)):
             qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
-                num_nan += 1
                 continue
             qdist_list.append(qdist)
-        if ignore_nan:
-            print('Number of strains with null qdistance:', num_nan, 'out of', len(seq_arr))
         emergence_risk_score = np.average(qdist_list)
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
@@ -276,13 +271,13 @@ class Enet(object):
 
         Returns
         -------
-        avg_emergence_risk_score : int
+        avg_emergence_risk_score : float
             Average emergence risk score among all qsampled sequences
 
-        min_emergence_risk_score : int
+        min_emergence_risk_score : float
             Lower bound on emergence risk score
 
-        max_emergence_risk_score : int
+        max_emergence_risk_score : float
             Upper bound on emergence risk score
         """
         if len(seq_df) < 1:
@@ -314,7 +309,39 @@ class Enet(object):
         max_emergence_risk_score = np.average(max_qdist_list)
         variance = np.var(avg_qdist_list)
         return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
+    
+def irat_risk(ha_risk, na_risk):
+    """Computes IRAT emergence and impact risk scores.
 
+    Parameters
+    ----------
+    ha_risk : float
+        Risk score from HA segment computed by the 'Enet.emergence_risk' function
+
+    na_risk : float
+        Risk score from NA segment computed by the 'Enet.emergence_risk' function
+
+    Returns
+    -------
+    irat_emergence_risk : float
+        Predicted IRAT emergence risk score
+
+    irat_impact_risk : float
+        Predicted IRAT impact risk score
+    """
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    emergence_mod = sm.load(os.path.join(cwd, 'models', 'irat_emergence.pickle'))
+    impact_mod = sm.load(os.path.join(cwd, 'models', 'irat_impact.pickle'))
+    geom_mean = np.sqrt(ha_risk*na_risk)
+    df = pd.DataFrame({'Geometric_Mean':[geom_mean],
+                       'HA_Avg_Qdist':[ha_risk],
+                       'NA_Avg_Qdist':[na_risk]})
+    irat_emergence_risk = emergence_mod.predict(df)[0]
+    irat_impact_risk = impact_mod.predict(df)[0]
+    if geom_mean > 0.3:
+        irat_emergence_risk = 3.8
+        irat_impact_risk = 4.45
+    return irat_emergence_risk, irat_impact_risk
 
 def save_model(enet, outfile, low_mem=False):
     """Saves an Emergenet model.
@@ -335,7 +362,6 @@ def save_model(enet, outfile, low_mem=False):
     None
     """
     save_qnet(enet, outfile, low_mem)
-
 
 def load_model(filepath):
     """Loads an Emergenet model.
