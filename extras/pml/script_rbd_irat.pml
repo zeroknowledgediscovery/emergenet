@@ -1,7 +1,7 @@
 run ./color_L1.py
 
 color_L1 pdb/1ruz.pdb,63 67 106 107 120 150 155 174 179 180 203 205 208 282 318 415 500, red,1,1
-color_L1 pdb/1ruz.pdb,8 48 64 146 148 157 167 201 268 272 283 284 299 303 304 421, yellow, 1,0
+#color_L1 pdb/1ruz.pdb,8 48 64 146 148 157 167 201 268 272 283 284 299 303 304 421, yellow, 1,0
 
 
 set ray_opaque_background, 0
@@ -18,7 +18,7 @@ set_view (\
    350.275970459,  463.393707275,  -20.000000000 )
 ### cut above here and paste into script ###
 
-png figs/iratnosurf_all0.png, dpi=500, ray=1
+png figs/iratnosurf_all0.png, dpi=1200, ray=1
 
 
 ### cut below here and paste into script ###
@@ -32,7 +32,7 @@ set_view (\
 ### cut above here and paste into script ###
 
 
-png figs/iratnosurf_all1.png, dpi=500, ray=1
+png figs/iratnosurf_all1.png, dpi=1200, ray=1
 
 
 ### cut below here and paste into script ###
@@ -45,7 +45,7 @@ set_view (\
    350.275970459,  463.393707275,  -20.000000000 )
 ### cut above here and paste into script ###
 
-png figs/iratnosurf_all2.png, dpi=500, ray=1
+png figs/iratnosurf_all2.png, dpi=1200, ray=1
 
 
 ### cut below here and paste into script ###
@@ -70,6 +70,6 @@ set_view (\
    301.992126465,  574.133422852,  -20.000000000 )
 ### cut above here and paste into script ###
 
-png figs/iratsurf_all0.png, dpi=500, ray=1
+png figs/iratsurf_all0.png, dpi=1200, ray=1
 
 quit

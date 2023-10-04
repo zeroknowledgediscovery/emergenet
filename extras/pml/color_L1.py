@@ -42,7 +42,7 @@ DESCRIPTION
         print("resi "+str(feature))
         cmd.color(col, "resi "+ str(feature))
 
-    cmd.viewport("2560,1920")
+    cmd.viewport(2560,1920)
 
     if MOVIE=="0":
         MOVIE=False
@@ -53,7 +53,7 @@ DESCRIPTION
         cmd.util.mroll(1,10,1)
 
         cmd.mplay
-        cmd.viewport("2560,1920")
+        cmd.viewport(2560,1920)
         cmd.set("ray_trace_frames",1)
         cmd.set("cache_frames",0)
         cmd.mclear
