@@ -92,3 +92,5 @@ Examples are located [here](https://github.com/zeroknowledgediscovery/emergenet/
 ## Documentation
 
 For more documentation, see [here](https://zeroknowledgediscovery.github.io/emergenet/).
+
+For a quick start guide, see [here](https://github.com/zeroknowledgediscovery/emergenet/blob/main/examples/emergenet_package.pdf).
