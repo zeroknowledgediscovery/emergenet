@@ -43,7 +43,7 @@ setup(
         "numpy",  
         "pandas",
         "joblib",
-        "quasinet",
+        "quasinet==0.1.50",
         "scipy"],
     python_requires='>=3.6',
     classifiers=[
