@@ -71,8 +71,6 @@ class Enet(object):
             raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
-        if random_state &lt; 0:
-            raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
         self.random_state = random_state
 
     def __repr__(self):
@@ -616,8 +614,6 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
-        if random_state &lt; 0:
-            raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
         self.random_state = random_state
 
     def __repr__(self):
