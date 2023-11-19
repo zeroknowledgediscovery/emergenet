@@ -27,11 +27,15 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import numpy as np
+<pre><code class="python">import os
+import numpy as np
 import pandas as pd
 from Bio import SeqIO
 from Levenshtein import distance
-from quasinet.qnet import Qnet, qdistance, qdistance_matrix, save_qnet, load_qnet, membership_degree
+from quasinet.qnet import Qnet, qdistance_matrix, save_qnet, load_qnet, membership_degree
+from sklearn.cluster import MeanShift, estimate_bandwidth
+from sklearn.manifold import MDS
+from collections import Counter
 
 
 class DomSeq(object):
@@ -47,7 +51,7 @@ class DomSeq(object):
         Sets seed for random number generator
     &#34;&#34;&#34;
 
-    def __init__(self, seq_trunc_length, random_state=None):
+    def __init__(self, seq_trunc_length, random_state=42):
         if seq_trunc_length &lt;= 0:
             raise ValueError(&#39;Length to truncate sequences must be positive!&#39;)
         self.seq_trunc_length = seq_trunc_length
@@ -85,9 +89,113 @@ class DomSeq(object):
         num_sequences = lines.count(&#39;&gt;&#39;)
         return num_sequences
     
+    @staticmethod
+    def _get_acc(ID):
+        &#34;&#34;&#34;Returns accession code of a sequence.
+
+        Parameters
+        ----------
+        ID : str
+            Sequence metadata
+
+        Returns
+        -------
+        acc : str
+            Accession code
+        &#34;&#34;&#34;
+        ids = ID.split(&#39;|&#39;)
+        # NCBI format
+        if len(ids) == 3: 
+            acc = ids[0]
+            return acc
+        # GISAID format
+        else: 
+            acc = ids[4]
+            return acc
+
+    @staticmethod
+    def _get_name(ID):
+        &#34;&#34;&#34;Returns name of a sequence.
+
+        Parameters
+        ----------
+        ID : str
+            Sequence metadata
+
+        Returns
+        -------
+        name : str
+            Name
+        &#34;&#34;&#34;
+        ids = ID.split(&#39;|&#39;)
+        # NCBI format
+        if len(ids) == 3: 
+            name = &#39;&#39;
+            start = False
+            for c in ids[1]:
+                if c == &#39;(&#39; and not start:
+                    start = True
+                elif c == &#39;(&#39; and start:
+                    break
+                elif start == True:
+                    name += c
+            return name
+        # GISAID format
+        else: 
+            name = ids[0]
+            return name
+        
+    @staticmethod
+    def _get_date(ID):
+        &#34;&#34;&#34;Returns collection date of a sequence.
+
+        Parameters
+        ----------
+        ID : str
+            Sequence metadata
+
+        Returns
+        -------
+        date : str
+            Collection date
+        &#34;&#34;&#34;
+        ids = ID.split(&#39;|&#39;)
+        # NCBI format
+        if len(ids) == 3: 
+            date = ids[2]
+            return date
+        # GISAID format
+        else:
+            date = ids[3]
+            return date
+    
+    @staticmethod
+    def _dm_to_df(dm):
+        &#34;&#34;&#34;Converts a distance matrix to a DataFrame.
+
+        Parameters
+        ----------
+        dm : numpy.ndarray
+            Distance matrix as 2D array
+
+        Returns
+        -------
+        dm : pd.Dataframe
+            Distance matrix as DataFrame
+        &#34;&#34;&#34;
+        columns = np.arange(0, dm.shape[1])
+        index = np.arange(0, dm.shape[0])
+        df = pd.DataFrame(dm, columns=columns, index=index)
+        return df
+    
     def _parse_fasta(self, filepath):
-        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
-        `id` contains fasta metadata.
+        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with four columns.
+        FASTA metadata must be in the format:
+            NCBI: Accession | GenBank Title | Collection Date
+            GISAID: Isolate name | Type | Segment | Collection date | Protein Accession no. | Protein INSDC
+        `acc` contains sequence accession.
+        `name` contains sequence name.
+        `date` contains collection date.
         `sequence` contains sequences truncated to `seq_trunc_length`.
 
         Parameters
@@ -102,14 +210,23 @@ class DomSeq(object):
         &#34;&#34;&#34;
         if self._count_seqs(filepath) == 0:
             raise ValueError(&#39;The file contains no sequences!&#39;)
-        ids = []
+        accs = []
+        names = []
+        dates = []
         seqs = []
         for record in SeqIO.parse(filepath, &#39;fasta&#39;):
+            date = self._get_date(str(record.description))
             if len(record.seq) &lt; self.seq_trunc_length:
                 continue
-            ids.append(str(record.id))
+            if len(date) == 4:
+                date += &#39;-09-25&#39;
+            elif len(date) == 7:
+                date += &#39;-15&#39;
+            accs.append(self._get_acc(str(record.description)))
+            names.append(self._get_name(str(record.description)))
+            dates.append(date)
             seqs.append(&#39;&#39;.join(record.seq[:self.seq_trunc_length].upper()))
-        seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
+        seq_df = pd.DataFrame({&#39;acc&#39;:accs, &#39;name&#39;:names, &#39;date&#39;:dates, &#39;sequence&#39;:seqs})
         return seq_df
 
     def _sequence_array(self, seq_df, sample_size=None):
@@ -130,9 +247,7 @@ class DomSeq(object):
         &#34;&#34;&#34;
         if &#39;sequence&#39; not in seq_df.columns:
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
+        if sample_size is not None and sample_size &lt; len(seq_df):
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
         seqs = seq_df[&#39;sequence&#39;].apply(lambda x: np.array(list(x[:self.seq_trunc_length])))
         seq_lst = []
@@ -191,85 +306,195 @@ class DomSeq(object):
         enet.fit(seq_arr)
         return enet
     
-    def compute_domseq(self, seq_df, sample_size=None):
-        &#34;&#34;&#34;Computes the dominant sequence in the edit (Levenshtein) distance metric.
+    def _compute_domseq_distance_matrix(self, seq_df):
+        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
 
         Parameters
         ----------
         seq_df : pd.DataFrame
             DataFrame of sequences
 
+        Returns
+        -------
+        dm : pd.DataFrame
+            Distance Matrix
+        &#34;&#34;&#34;
+        if &#39;sequence&#39; not in seq_df.columns:
+            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
+        seqs = seq_df[&#39;sequence&#39;].values
+        n = len(seqs)
+        dist_matrix = np.zeros((n, n))
+        for i in range(n):
+            for j in range(i+1, n):
+                dist_matrix[i, j] = distance(seqs[i][:self.seq_trunc_length], seqs[j][:self.seq_trunc_length])
+        dist_matrix += dist_matrix.T
+        dm = self._dm_to_df(dist_matrix)
+        return dm
+    
+    def compute_domseq(self, seq_df, sample_size=None, save_data=None):
+        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+            
         sample_size : int
-            Number of strains to compute dominant strain with, sampled randomly
+            Number of strains to sample randomly from seq_df
+            
+        save_data : string
+            If directory is given, save the following files:
+            1. seq_df.csv (post-sampling, if sample_size is given)
+            2. dm.csv (the distance matrix corresponding to seq_df)
 
         Returns
         -------
-        dom_id : str
-            Dominant sequence metadata
-
-        dom_seq : str
-            Dominant sequence
+        dom_seqs : pd.DataFrame
+            Dominant sequences, with additional column for cluster sizes
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):   
-            seq_df = seq_df.sample(sample_size, random_state = self.random_state)
-        seqs = seq_df[&#39;sequence&#39;].values
-        edit_dists = []
-        for seq in seqs:
-            edit_dist = 0
-            for seq1 in seqs:
-                edit_dist += distance(seq, seq1)
-            edit_dists.append(edit_dist)
-        ind_min = np.argmin(edit_dists)
-        dom_id = seq_df.iloc[ind_min].values[0]
-        dom_seq = seq_df.iloc[ind_min].values[1]
-        return dom_id, dom_seq
+        if sample_size is not None and sample_size &lt; len(seq_df):
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        # distance matrix
+        dm = self._compute_domseq_distance_matrix(seq_df)
+        if save_data is not None and os.path.isdir(save_data):
+            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
+            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
+        # clustering
+        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+        dm_embed = embedding.fit_transform(dm)
+        bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+        clustering = MeanShift(bandwidth=bandwidth)
+        clustering_predictions = clustering.fit_predict(dm_embed)
+        unique_clusters = np.unique(clustering_predictions)
+        # dominant sequences
+        dom_seqs = pd.DataFrame(columns=seq_df.columns)
+        cluster_sizes = []
+        for class_ in unique_clusters:
+            wanted_names = dm.columns[clustering_predictions == class_]
+            # find the centroid in this cluster
+            cluster_seq_df = seq_df.iloc[wanted_names]
+            cluster_dm = dm.iloc[wanted_names, wanted_names]
+            argmin = np.argmin(cluster_dm.sum(axis=&#39;columns&#39;).values)
+            # save sequence
+            dom_seqs = dom_seqs.append(cluster_seq_df.iloc[argmin])
+            cluster_sizes.append(len(wanted_names))
+        dom_seqs[&#39;cluster_size&#39;] = cluster_sizes
+        return dom_seqs
+    
+    def _compute_risk_for_predict_domseq(self, seq_df, pred_seq_df, enet):
+        &#34;&#34;&#34;Computes risk scores for potential prediction sequences.
 
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of current population sequences
+            
+        pred_seq_df : pd.DataFrame
+            DataFrame of candidate sequences
 
-    def predict_domseq(self, seq_df, enet, sample_size=None):
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
+
+        Returns
+        -------
+        pred_seq_df : pd.DataFrame
+            Potential prediction sequences, with additional columns for risk score
+
+        &#34;&#34;&#34;
+        # distance matrix for computing prediction
+        seq_arr = self._sequence_array(seq_df)
+        pred_seq_arr = self._sequence_array(pred_seq_df)
+        dist_matrix = qdistance_matrix(pred_seq_arr, seq_arr, enet, enet) 
+        # convert dist_matrix to dataframe
+        dm = self._dm_to_df(dist_matrix)
+        # find centroid data (sum across rows)
+        first_term = dm.sum(axis=&#39;columns&#39;).values
+        H = len(seq_df)
+        A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
+        second_term = []
+        for i in range(len(pred_seq_arr)):
+            second_term.append(membership_degree(pred_seq_arr[i], enet) * H * A)
+        sums = first_term - second_term
+        pred_seq_df[&#39;first_term&#39;] = first_term
+        pred_seq_df[&#39;second_term&#39;] = second_term
+        pred_seq_df[&#39;sum&#39;] = sums
+        pred_seq_df = pred_seq_df.sort_values(by=&#39;sum&#39;,ascending=True)
+        return pred_seq_df
+    
+    def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None):
         &#34;&#34;&#34;Predicts the future dominant sequence.
 
         Parameters
         ----------
         seq_df : pd.DataFrame
-            DataFrame of sequences
+            DataFrame of current population sequences
+            
+        pred_seq_df : pd.DataFrame
+            DataFrame of candidate sequences
 
         enet : Qnet
             Emergenet that sequences in seq_df belong to
+            
+        n_clusters : int
+            Number of clusters to predict dominant strain on; default 3
 
         sample_size : int
-            Number of strains to compute dominant strain with, sampled randomly
+            Number of strains to sample randomly from seq_df
+            
+        save_data : string
+            If directory is given, save the following files:
+            1. seq_df.csv (post-sampling, if sample_size is given)
+            2. dm.csv (the distance matrix corresponding to seq_df)
+            3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, ... n_clusters)
+            4. clusters.txt (clusters and cluster sizes)
 
         Returns
         -------
-        pred_id : str
-            Emergenet recommended sequence metadata
+        pred_seqs : pd.DataFrame
+            Emergenet recommended sequences, with additional column for cluster sizes
 
-        pred_seq : str
-            Emergenet recommended sequence
         &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
+        if len(seq_df) &lt; 1 or len(pred_seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        H = min(sample_size, len(seq_df))
-        if sample_size &lt; len(seq_df):   
-            seq_df = seq_df.sample(H, random_state = self.random_state)
-        seq_arr = self._sequence_array(seq_df, sample_size)
+        if sample_size is not None and sample_size &lt; len(seq_df):
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        # distance matrix for clustering strains from current season
+        seq_arr = self._sequence_array(seq_df)
         dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
-        first_term = sum(dist_matrix)
-        A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
-        second_term = np.ones(len(seq_arr)) * H * A
-        for i in range(len(seq_arr)):
-            second_term[i] *= membership_degree(seq_arr[i], enet)
-        sums = first_term - second_term
-        pred_id = seq_df.iloc[np.argmin(sums)].values[0]
-        pred_seq = seq_df.iloc[np.argmin(sums)].values[1]
-        return pred_id, pred_seq
-
+        dm = self._dm_to_df(dist_matrix)
+        if save_data is not None and os.path.isdir(save_data):
+            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
+            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
+        # clustering
+        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+        dm_embed = embedding.fit_transform(dm)
+        bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+        clustering = MeanShift(bandwidth=bandwidth)
+        clustering_predictions = clustering.fit_predict(dm_embed)
+        # sort unique clusters by size
+        label_counts = Counter(clustering_predictions)
+        unique_clusters = sorted(label_counts.items(), key=lambda x: x[1], reverse=True)
+        if save_data is not None and os.path.isdir(save_data):
+            with open(save_data + &#39;clusters.txt&#39;, &#39;w&#39;) as file:
+                for item in unique_clusters:
+                    file.write(str(item) + &#39;\n&#39;)
+        # predictions
+        pred_seqs = pd.DataFrame(columns=pred_seq_df.columns)
+        cluster_sizes = []
+        for class_ in unique_clusters[:n_clusters]:
+            wanted_names = dm.columns[clustering_predictions == class_[0]]
+            # take riskiest strain using this cluster
+            cluster_seq_df = seq_df.iloc[wanted_names]
+            pred_seq_df_with_risk = self._compute_risk_for_predict_domseq(cluster_seq_df, pred_seq_df, enet)
+            if save_data is not None and os.path.isdir(save_data):
+                pred_seq_df_with_risk.to_csv(save_data+&#39;pred_seq_df_&#39; + str(class_) + &#39;.csv&#39;, index=False)
+            # save predictions
+            pred_seqs = pred_seqs.append(pred_seq_df_with_risk.iloc[0])
+            cluster_sizes.append(len(wanted_names))
+        pred_seqs[&#39;cluster_size&#39;] = cluster_sizes
+        return pred_seqs
 
 def save_model(enet, outfile, low_mem=False):
     &#34;&#34;&#34;Saves an Emergenet model.
@@ -290,7 +515,6 @@ def save_model(enet, outfile, low_mem=False):
     None
     &#34;&#34;&#34;
     save_qnet(enet, outfile, low_mem)
-
     
 def load_model(filepath):
     &#34;&#34;&#34;Loads an Emergenet model.
@@ -403,7 +627,7 @@ def load_model(filepath):
 <dl>
 <dt id="emergenet.domseq.DomSeq"><code class="flex name class">
 <span>class <span class="ident">DomSeq</span></span>
-<span>(</span><span>seq_trunc_length, random_state=None)</span>
+<span>(</span><span>seq_trunc_length, random_state=42)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Find and predict dominant sequences.</p>
@@ -432,7 +656,7 @@ def load_model(filepath):
         Sets seed for random number generator
     &#34;&#34;&#34;
 
-    def __init__(self, seq_trunc_length, random_state=None):
+    def __init__(self, seq_trunc_length, random_state=42):
         if seq_trunc_length &lt;= 0:
             raise ValueError(&#39;Length to truncate sequences must be positive!&#39;)
         self.seq_trunc_length = seq_trunc_length
@@ -470,9 +694,113 @@ def load_model(filepath):
         num_sequences = lines.count(&#39;&gt;&#39;)
         return num_sequences
     
+    @staticmethod
+    def _get_acc(ID):
+        &#34;&#34;&#34;Returns accession code of a sequence.
+
+        Parameters
+        ----------
+        ID : str
+            Sequence metadata
+
+        Returns
+        -------
+        acc : str
+            Accession code
+        &#34;&#34;&#34;
+        ids = ID.split(&#39;|&#39;)
+        # NCBI format
+        if len(ids) == 3: 
+            acc = ids[0]
+            return acc
+        # GISAID format
+        else: 
+            acc = ids[4]
+            return acc
+
+    @staticmethod
+    def _get_name(ID):
+        &#34;&#34;&#34;Returns name of a sequence.
+
+        Parameters
+        ----------
+        ID : str
+            Sequence metadata
+
+        Returns
+        -------
+        name : str
+            Name
+        &#34;&#34;&#34;
+        ids = ID.split(&#39;|&#39;)
+        # NCBI format
+        if len(ids) == 3: 
+            name = &#39;&#39;
+            start = False
+            for c in ids[1]:
+                if c == &#39;(&#39; and not start:
+                    start = True
+                elif c == &#39;(&#39; and start:
+                    break
+                elif start == True:
+                    name += c
+            return name
+        # GISAID format
+        else: 
+            name = ids[0]
+            return name
+        
+    @staticmethod
+    def _get_date(ID):
+        &#34;&#34;&#34;Returns collection date of a sequence.
+
+        Parameters
+        ----------
+        ID : str
+            Sequence metadata
+
+        Returns
+        -------
+        date : str
+            Collection date
+        &#34;&#34;&#34;
+        ids = ID.split(&#39;|&#39;)
+        # NCBI format
+        if len(ids) == 3: 
+            date = ids[2]
+            return date
+        # GISAID format
+        else:
+            date = ids[3]
+            return date
+    
+    @staticmethod
+    def _dm_to_df(dm):
+        &#34;&#34;&#34;Converts a distance matrix to a DataFrame.
+
+        Parameters
+        ----------
+        dm : numpy.ndarray
+            Distance matrix as 2D array
+
+        Returns
+        -------
+        dm : pd.Dataframe
+            Distance matrix as DataFrame
+        &#34;&#34;&#34;
+        columns = np.arange(0, dm.shape[1])
+        index = np.arange(0, dm.shape[0])
+        df = pd.DataFrame(dm, columns=columns, index=index)
+        return df
+    
     def _parse_fasta(self, filepath):
-        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
-        `id` contains fasta metadata.
+        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with four columns.
+        FASTA metadata must be in the format:
+            NCBI: Accession | GenBank Title | Collection Date
+            GISAID: Isolate name | Type | Segment | Collection date | Protein Accession no. | Protein INSDC
+        `acc` contains sequence accession.
+        `name` contains sequence name.
+        `date` contains collection date.
         `sequence` contains sequences truncated to `seq_trunc_length`.
 
         Parameters
@@ -487,14 +815,23 @@ def load_model(filepath):
         &#34;&#34;&#34;
         if self._count_seqs(filepath) == 0:
             raise ValueError(&#39;The file contains no sequences!&#39;)
-        ids = []
+        accs = []
+        names = []
+        dates = []
         seqs = []
         for record in SeqIO.parse(filepath, &#39;fasta&#39;):
+            date = self._get_date(str(record.description))
             if len(record.seq) &lt; self.seq_trunc_length:
                 continue
-            ids.append(str(record.id))
+            if len(date) == 4:
+                date += &#39;-09-25&#39;
+            elif len(date) == 7:
+                date += &#39;-15&#39;
+            accs.append(self._get_acc(str(record.description)))
+            names.append(self._get_name(str(record.description)))
+            dates.append(date)
             seqs.append(&#39;&#39;.join(record.seq[:self.seq_trunc_length].upper()))
-        seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
+        seq_df = pd.DataFrame({&#39;acc&#39;:accs, &#39;name&#39;:names, &#39;date&#39;:dates, &#39;sequence&#39;:seqs})
         return seq_df
 
     def _sequence_array(self, seq_df, sample_size=None):
@@ -515,9 +852,7 @@ def load_model(filepath):
         &#34;&#34;&#34;
         if &#39;sequence&#39; not in seq_df.columns:
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
+        if sample_size is not None and sample_size &lt; len(seq_df):
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
         seqs = seq_df[&#39;sequence&#39;].apply(lambda x: np.array(list(x[:self.seq_trunc_length])))
         seq_lst = []
@@ -576,146 +911,274 @@ def load_model(filepath):
         enet.fit(seq_arr)
         return enet
     
-    def compute_domseq(self, seq_df, sample_size=None):
-        &#34;&#34;&#34;Computes the dominant sequence in the edit (Levenshtein) distance metric.
+    def _compute_domseq_distance_matrix(self, seq_df):
+        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
 
         Parameters
         ----------
         seq_df : pd.DataFrame
             DataFrame of sequences
 
+        Returns
+        -------
+        dm : pd.DataFrame
+            Distance Matrix
+        &#34;&#34;&#34;
+        if &#39;sequence&#39; not in seq_df.columns:
+            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
+        seqs = seq_df[&#39;sequence&#39;].values
+        n = len(seqs)
+        dist_matrix = np.zeros((n, n))
+        for i in range(n):
+            for j in range(i+1, n):
+                dist_matrix[i, j] = distance(seqs[i][:self.seq_trunc_length], seqs[j][:self.seq_trunc_length])
+        dist_matrix += dist_matrix.T
+        dm = self._dm_to_df(dist_matrix)
+        return dm
+    
+    def compute_domseq(self, seq_df, sample_size=None, save_data=None):
+        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+            
         sample_size : int
-            Number of strains to compute dominant strain with, sampled randomly
+            Number of strains to sample randomly from seq_df
+            
+        save_data : string
+            If directory is given, save the following files:
+            1. seq_df.csv (post-sampling, if sample_size is given)
+            2. dm.csv (the distance matrix corresponding to seq_df)
 
         Returns
         -------
-        dom_id : str
-            Dominant sequence metadata
-
-        dom_seq : str
-            Dominant sequence
+        dom_seqs : pd.DataFrame
+            Dominant sequences, with additional column for cluster sizes
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):   
-            seq_df = seq_df.sample(sample_size, random_state = self.random_state)
-        seqs = seq_df[&#39;sequence&#39;].values
-        edit_dists = []
-        for seq in seqs:
-            edit_dist = 0
-            for seq1 in seqs:
-                edit_dist += distance(seq, seq1)
-            edit_dists.append(edit_dist)
-        ind_min = np.argmin(edit_dists)
-        dom_id = seq_df.iloc[ind_min].values[0]
-        dom_seq = seq_df.iloc[ind_min].values[1]
-        return dom_id, dom_seq
+        if sample_size is not None and sample_size &lt; len(seq_df):
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        # distance matrix
+        dm = self._compute_domseq_distance_matrix(seq_df)
+        if save_data is not None and os.path.isdir(save_data):
+            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
+            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
+        # clustering
+        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+        dm_embed = embedding.fit_transform(dm)
+        bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+        clustering = MeanShift(bandwidth=bandwidth)
+        clustering_predictions = clustering.fit_predict(dm_embed)
+        unique_clusters = np.unique(clustering_predictions)
+        # dominant sequences
+        dom_seqs = pd.DataFrame(columns=seq_df.columns)
+        cluster_sizes = []
+        for class_ in unique_clusters:
+            wanted_names = dm.columns[clustering_predictions == class_]
+            # find the centroid in this cluster
+            cluster_seq_df = seq_df.iloc[wanted_names]
+            cluster_dm = dm.iloc[wanted_names, wanted_names]
+            argmin = np.argmin(cluster_dm.sum(axis=&#39;columns&#39;).values)
+            # save sequence
+            dom_seqs = dom_seqs.append(cluster_seq_df.iloc[argmin])
+            cluster_sizes.append(len(wanted_names))
+        dom_seqs[&#39;cluster_size&#39;] = cluster_sizes
+        return dom_seqs
+    
+    def _compute_risk_for_predict_domseq(self, seq_df, pred_seq_df, enet):
+        &#34;&#34;&#34;Computes risk scores for potential prediction sequences.
 
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of current population sequences
+            
+        pred_seq_df : pd.DataFrame
+            DataFrame of candidate sequences
 
-    def predict_domseq(self, seq_df, enet, sample_size=None):
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
+
+        Returns
+        -------
+        pred_seq_df : pd.DataFrame
+            Potential prediction sequences, with additional columns for risk score
+
+        &#34;&#34;&#34;
+        # distance matrix for computing prediction
+        seq_arr = self._sequence_array(seq_df)
+        pred_seq_arr = self._sequence_array(pred_seq_df)
+        dist_matrix = qdistance_matrix(pred_seq_arr, seq_arr, enet, enet) 
+        # convert dist_matrix to dataframe
+        dm = self._dm_to_df(dist_matrix)
+        # find centroid data (sum across rows)
+        first_term = dm.sum(axis=&#39;columns&#39;).values
+        H = len(seq_df)
+        A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
+        second_term = []
+        for i in range(len(pred_seq_arr)):
+            second_term.append(membership_degree(pred_seq_arr[i], enet) * H * A)
+        sums = first_term - second_term
+        pred_seq_df[&#39;first_term&#39;] = first_term
+        pred_seq_df[&#39;second_term&#39;] = second_term
+        pred_seq_df[&#39;sum&#39;] = sums
+        pred_seq_df = pred_seq_df.sort_values(by=&#39;sum&#39;,ascending=True)
+        return pred_seq_df
+    
+    def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None):
         &#34;&#34;&#34;Predicts the future dominant sequence.
 
         Parameters
         ----------
         seq_df : pd.DataFrame
-            DataFrame of sequences
+            DataFrame of current population sequences
+            
+        pred_seq_df : pd.DataFrame
+            DataFrame of candidate sequences
 
         enet : Qnet
             Emergenet that sequences in seq_df belong to
+            
+        n_clusters : int
+            Number of clusters to predict dominant strain on; default 3
 
         sample_size : int
-            Number of strains to compute dominant strain with, sampled randomly
+            Number of strains to sample randomly from seq_df
+            
+        save_data : string
+            If directory is given, save the following files:
+            1. seq_df.csv (post-sampling, if sample_size is given)
+            2. dm.csv (the distance matrix corresponding to seq_df)
+            3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, ... n_clusters)
+            4. clusters.txt (clusters and cluster sizes)
 
         Returns
         -------
-        pred_id : str
-            Emergenet recommended sequence metadata
+        pred_seqs : pd.DataFrame
+            Emergenet recommended sequences, with additional column for cluster sizes
 
-        pred_seq : str
-            Emergenet recommended sequence
         &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
+        if len(seq_df) &lt; 1 or len(pred_seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        H = min(sample_size, len(seq_df))
-        if sample_size &lt; len(seq_df):   
-            seq_df = seq_df.sample(H, random_state = self.random_state)
-        seq_arr = self._sequence_array(seq_df, sample_size)
+        if sample_size is not None and sample_size &lt; len(seq_df):
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        # distance matrix for clustering strains from current season
+        seq_arr = self._sequence_array(seq_df)
         dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
-        first_term = sum(dist_matrix)
-        A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
-        second_term = np.ones(len(seq_arr)) * H * A
-        for i in range(len(seq_arr)):
-            second_term[i] *= membership_degree(seq_arr[i], enet)
-        sums = first_term - second_term
-        pred_id = seq_df.iloc[np.argmin(sums)].values[0]
-        pred_seq = seq_df.iloc[np.argmin(sums)].values[1]
-        return pred_id, pred_seq</code></pre>
+        dm = self._dm_to_df(dist_matrix)
+        if save_data is not None and os.path.isdir(save_data):
+            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
+            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
+        # clustering
+        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+        dm_embed = embedding.fit_transform(dm)
+        bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+        clustering = MeanShift(bandwidth=bandwidth)
+        clustering_predictions = clustering.fit_predict(dm_embed)
+        # sort unique clusters by size
+        label_counts = Counter(clustering_predictions)
+        unique_clusters = sorted(label_counts.items(), key=lambda x: x[1], reverse=True)
+        if save_data is not None and os.path.isdir(save_data):
+            with open(save_data + &#39;clusters.txt&#39;, &#39;w&#39;) as file:
+                for item in unique_clusters:
+                    file.write(str(item) + &#39;\n&#39;)
+        # predictions
+        pred_seqs = pd.DataFrame(columns=pred_seq_df.columns)
+        cluster_sizes = []
+        for class_ in unique_clusters[:n_clusters]:
+            wanted_names = dm.columns[clustering_predictions == class_[0]]
+            # take riskiest strain using this cluster
+            cluster_seq_df = seq_df.iloc[wanted_names]
+            pred_seq_df_with_risk = self._compute_risk_for_predict_domseq(cluster_seq_df, pred_seq_df, enet)
+            if save_data is not None and os.path.isdir(save_data):
+                pred_seq_df_with_risk.to_csv(save_data+&#39;pred_seq_df_&#39; + str(class_) + &#39;.csv&#39;, index=False)
+            # save predictions
+            pred_seqs = pred_seqs.append(pred_seq_df_with_risk.iloc[0])
+            cluster_sizes.append(len(wanted_names))
+        pred_seqs[&#39;cluster_size&#39;] = cluster_sizes
+        return pred_seqs</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
 <dt id="emergenet.domseq.DomSeq.compute_domseq"><code class="name flex">
-<span>def <span class="ident">compute_domseq</span></span>(<span>self, seq_df, sample_size=None)</span>
+<span>def <span class="ident">compute_domseq</span></span>(<span>self, seq_df, sample_size=None, save_data=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Computes the dominant sequence in the edit (Levenshtein) distance metric.</p>
+<div class="desc"><p>Computes distance matrix in the Levenshtein distance.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
 <dd>DataFrame of sequences</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute dominant strain with, sampled randomly</dd>
+<dd>Number of strains to sample randomly from seq_df</dd>
+<dt><strong><code>save_data</code></strong> :&ensp;<code>string</code></dt>
+<dd>If directory is given, save the following files:
+1. seq_df.csv (post-sampling, if sample_size is given)
+2. dm.csv (the distance matrix corresponding to seq_df)</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>dom_id</code></strong> :&ensp;<code>str</code></dt>
-<dd>Dominant sequence metadata</dd>
-<dt><strong><code>dom_seq</code></strong> :&ensp;<code>str</code></dt>
-<dd>Dominant sequence</dd>
+<dt><strong><code>dom_seqs</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>Dominant sequences, with additional column for cluster sizes</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def compute_domseq(self, seq_df, sample_size=None):
-    &#34;&#34;&#34;Computes the dominant sequence in the edit (Levenshtein) distance metric.
+<pre><code class="python">def compute_domseq(self, seq_df, sample_size=None, save_data=None):
+    &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
 
     Parameters
     ----------
     seq_df : pd.DataFrame
         DataFrame of sequences
-
+        
     sample_size : int
-        Number of strains to compute dominant strain with, sampled randomly
+        Number of strains to sample randomly from seq_df
+        
+    save_data : string
+        If directory is given, save the following files:
+        1. seq_df.csv (post-sampling, if sample_size is given)
+        2. dm.csv (the distance matrix corresponding to seq_df)
 
     Returns
     -------
-    dom_id : str
-        Dominant sequence metadata
-
-    dom_seq : str
-        Dominant sequence
+    dom_seqs : pd.DataFrame
+        Dominant sequences, with additional column for cluster sizes
     &#34;&#34;&#34;
     if len(seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if sample_size is None or sample_size &gt; len(seq_df):
-        sample_size = len(seq_df)
-    if sample_size &lt; len(seq_df):   
-        seq_df = seq_df.sample(sample_size, random_state = self.random_state)
-    seqs = seq_df[&#39;sequence&#39;].values
-    edit_dists = []
-    for seq in seqs:
-        edit_dist = 0
-        for seq1 in seqs:
-            edit_dist += distance(seq, seq1)
-        edit_dists.append(edit_dist)
-    ind_min = np.argmin(edit_dists)
-    dom_id = seq_df.iloc[ind_min].values[0]
-    dom_seq = seq_df.iloc[ind_min].values[1]
-    return dom_id, dom_seq</code></pre>
+    if sample_size is not None and sample_size &lt; len(seq_df):
+        seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+    # distance matrix
+    dm = self._compute_domseq_distance_matrix(seq_df)
+    if save_data is not None and os.path.isdir(save_data):
+        seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
+        dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
+    # clustering
+    embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+    dm_embed = embedding.fit_transform(dm)
+    bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+    clustering = MeanShift(bandwidth=bandwidth)
+    clustering_predictions = clustering.fit_predict(dm_embed)
+    unique_clusters = np.unique(clustering_predictions)
+    # dominant sequences
+    dom_seqs = pd.DataFrame(columns=seq_df.columns)
+    cluster_sizes = []
+    for class_ in unique_clusters:
+        wanted_names = dm.columns[clustering_predictions == class_]
+        # find the centroid in this cluster
+        cluster_seq_df = seq_df.iloc[wanted_names]
+        cluster_dm = dm.iloc[wanted_names, wanted_names]
+        argmin = np.argmin(cluster_dm.sum(axis=&#39;columns&#39;).values)
+        # save sequence
+        dom_seqs = dom_seqs.append(cluster_seq_df.iloc[argmin])
+        cluster_sizes.append(len(wanted_names))
+    dom_seqs[&#39;cluster_size&#39;] = cluster_sizes
+    return dom_seqs</code></pre>
 </details>
 </dd>
 <dt id="emergenet.domseq.DomSeq.load_data"><code class="name flex">
@@ -764,70 +1227,110 @@ def load_model(filepath):
 </details>
 </dd>
 <dt id="emergenet.domseq.DomSeq.predict_domseq"><code class="name flex">
-<span>def <span class="ident">predict_domseq</span></span>(<span>self, seq_df, enet, sample_size=None)</span>
+<span>def <span class="ident">predict_domseq</span></span>(<span>self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Predicts the future dominant sequence.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
+<dd>DataFrame of current population sequences</dd>
+<dt><strong><code>pred_seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>DataFrame of candidate sequences</dd>
 <dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
 <dd>Emergenet that sequences in seq_df belong to</dd>
+<dt><strong><code>n_clusters</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of clusters to predict dominant strain on; default 3</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute dominant strain with, sampled randomly</dd>
+<dd>Number of strains to sample randomly from seq_df</dd>
+<dt><strong><code>save_data</code></strong> :&ensp;<code>string</code></dt>
+<dd>If directory is given, save the following files:
+1. seq_df.csv (post-sampling, if sample_size is given)
+2. dm.csv (the distance matrix corresponding to seq_df)
+3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, &hellip; n_clusters)
+4. clusters.txt (clusters and cluster sizes)</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>pred_id</code></strong> :&ensp;<code>str</code></dt>
-<dd>Emergenet recommended sequence metadata</dd>
-<dt><strong><code>pred_seq</code></strong> :&ensp;<code>str</code></dt>
-<dd>Emergenet recommended sequence</dd>
+<dt><strong><code>pred_seqs</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>Emergenet recommended sequences, with additional column for cluster sizes</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def predict_domseq(self, seq_df, enet, sample_size=None):
+<pre><code class="python">def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None):
     &#34;&#34;&#34;Predicts the future dominant sequence.
 
     Parameters
     ----------
     seq_df : pd.DataFrame
-        DataFrame of sequences
+        DataFrame of current population sequences
+        
+    pred_seq_df : pd.DataFrame
+        DataFrame of candidate sequences
 
     enet : Qnet
         Emergenet that sequences in seq_df belong to
+        
+    n_clusters : int
+        Number of clusters to predict dominant strain on; default 3
 
     sample_size : int
-        Number of strains to compute dominant strain with, sampled randomly
+        Number of strains to sample randomly from seq_df
+        
+    save_data : string
+        If directory is given, save the following files:
+        1. seq_df.csv (post-sampling, if sample_size is given)
+        2. dm.csv (the distance matrix corresponding to seq_df)
+        3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, ... n_clusters)
+        4. clusters.txt (clusters and cluster sizes)
 
     Returns
     -------
-    pred_id : str
-        Emergenet recommended sequence metadata
+    pred_seqs : pd.DataFrame
+        Emergenet recommended sequences, with additional column for cluster sizes
 
-    pred_seq : str
-        Emergenet recommended sequence
     &#34;&#34;&#34;
-    if len(seq_df) &lt; 1:
+    if len(seq_df) &lt; 1 or len(pred_seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if sample_size is None or sample_size &gt; len(seq_df):
-        sample_size = len(seq_df)
-    H = min(sample_size, len(seq_df))
-    if sample_size &lt; len(seq_df):   
-        seq_df = seq_df.sample(H, random_state = self.random_state)
-    seq_arr = self._sequence_array(seq_df, sample_size)
+    if sample_size is not None and sample_size &lt; len(seq_df):
+        seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+    # distance matrix for clustering strains from current season
+    seq_arr = self._sequence_array(seq_df)
     dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
-    first_term = sum(dist_matrix)
-    A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
-    second_term = np.ones(len(seq_arr)) * H * A
-    for i in range(len(seq_arr)):
-        second_term[i] *= membership_degree(seq_arr[i], enet)
-    sums = first_term - second_term
-    pred_id = seq_df.iloc[np.argmin(sums)].values[0]
-    pred_seq = seq_df.iloc[np.argmin(sums)].values[1]
-    return pred_id, pred_seq</code></pre>
+    dm = self._dm_to_df(dist_matrix)
+    if save_data is not None and os.path.isdir(save_data):
+        seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
+        dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
+    # clustering
+    embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+    dm_embed = embedding.fit_transform(dm)
+    bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+    clustering = MeanShift(bandwidth=bandwidth)
+    clustering_predictions = clustering.fit_predict(dm_embed)
+    # sort unique clusters by size
+    label_counts = Counter(clustering_predictions)
+    unique_clusters = sorted(label_counts.items(), key=lambda x: x[1], reverse=True)
+    if save_data is not None and os.path.isdir(save_data):
+        with open(save_data + &#39;clusters.txt&#39;, &#39;w&#39;) as file:
+            for item in unique_clusters:
+                file.write(str(item) + &#39;\n&#39;)
+    # predictions
+    pred_seqs = pd.DataFrame(columns=pred_seq_df.columns)
+    cluster_sizes = []
+    for class_ in unique_clusters[:n_clusters]:
+        wanted_names = dm.columns[clustering_predictions == class_[0]]
+        # take riskiest strain using this cluster
+        cluster_seq_df = seq_df.iloc[wanted_names]
+        pred_seq_df_with_risk = self._compute_risk_for_predict_domseq(cluster_seq_df, pred_seq_df, enet)
+        if save_data is not None and os.path.isdir(save_data):
+            pred_seq_df_with_risk.to_csv(save_data+&#39;pred_seq_df_&#39; + str(class_) + &#39;.csv&#39;, index=False)
+        # save predictions
+        pred_seqs = pred_seqs.append(pred_seq_df_with_risk.iloc[0])
+        cluster_sizes.append(len(wanted_names))
+    pred_seqs[&#39;cluster_size&#39;] = cluster_sizes
+    return pred_seqs</code></pre>
 </details>
 </dd>
 <dt id="emergenet.domseq.DomSeq.train"><code class="name flex">

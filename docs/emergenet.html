@@ -27,11 +27,13 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import numpy as np
+<pre><code class="python">import os
+import numpy as np
 import pandas as pd
 from Bio import SeqIO
 from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet, membership_degree
 from quasinet import qsampling as qs
+import statsmodels.api as sm
 
 
 class Enet(object):
@@ -90,7 +92,7 @@ class Enet(object):
 
         Returns
         -------
-        seq_df : int
+        num_sequences : int
             Number of sequences
         &#34;&#34;&#34;
         with open(filepath, &#39;r&#39;) as f:
@@ -240,7 +242,7 @@ class Enet(object):
         membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
+    def emergence_risk(self, seq_df, enet, sample_size=None):
         &#34;&#34;&#34;Computes emergence risk score.
 
         Parameters
@@ -253,16 +255,13 @@ class Enet(object):
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
-        
-        ignore_nan : bool
-            Whether to show number of ignored nan value in qdistance
 
         Returns
         -------
-        emergence_risk_score : int
+        emergence_risk_score : float
             Emergence risk score
 
-        variance : int
+        variance : float
             Variance of emergence risk score
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
@@ -270,15 +269,11 @@ class Enet(object):
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         qdist_list = []
-        num_nan = 0
         for i in range(len(seq_arr)):
             qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
-                num_nan += 1
                 continue
             qdist_list.append(qdist)
-        if ignore_nan:
-            print(&#39;Number of strains with null qdistance:&#39;, num_nan, &#39;out of&#39;, len(seq_arr))
         emergence_risk_score = np.average(qdist_list)
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
@@ -305,13 +300,13 @@ class Enet(object):
 
         Returns
         -------
-        avg_emergence_risk_score : int
+        avg_emergence_risk_score : float
             Average emergence risk score among all qsampled sequences
 
-        min_emergence_risk_score : int
+        min_emergence_risk_score : float
             Lower bound on emergence risk score
 
-        max_emergence_risk_score : int
+        max_emergence_risk_score : float
             Upper bound on emergence risk score
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
@@ -343,7 +338,39 @@ class Enet(object):
         max_emergence_risk_score = np.average(max_qdist_list)
         variance = np.var(avg_qdist_list)
         return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
+    
+def irat_risk(ha_risk, na_risk):
+    &#34;&#34;&#34;Computes IRAT emergence and impact risk scores.
 
+    Parameters
+    ----------
+    ha_risk : float
+        Risk score from HA segment computed by the &#39;Enet.emergence_risk&#39; function
+
+    na_risk : float
+        Risk score from NA segment computed by the &#39;Enet.emergence_risk&#39; function
+
+    Returns
+    -------
+    irat_emergence_risk : float
+        Predicted IRAT emergence risk score
+
+    irat_impact_risk : float
+        Predicted IRAT impact risk score
+    &#34;&#34;&#34;
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    emergence_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_emergence.pickle&#39;))
+    impact_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_impact.pickle&#39;))
+    geom_mean = np.sqrt(ha_risk*na_risk)
+    df = pd.DataFrame({&#39;Geometric_Mean&#39;:[geom_mean],
+                       &#39;HA_Avg_Qdist&#39;:[ha_risk],
+                       &#39;NA_Avg_Qdist&#39;:[na_risk]})
+    irat_emergence_risk = emergence_mod.predict(df)[0]
+    irat_impact_risk = impact_mod.predict(df)[0]
+    if geom_mean &gt; 0.3:
+        irat_emergence_risk = 3.8
+        irat_impact_risk = 4.45
+    return irat_emergence_risk, irat_impact_risk
 
 def save_model(enet, outfile, low_mem=False):
     &#34;&#34;&#34;Saves an Emergenet model.
@@ -364,7 +391,6 @@ def save_model(enet, outfile, low_mem=False):
     None
     &#34;&#34;&#34;
     save_qnet(enet, outfile, low_mem)
-
 
 def load_model(filepath):
     &#34;&#34;&#34;Loads an Emergenet model.
@@ -390,6 +416,63 @@ def load_model(filepath):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
+<dt id="emergenet.emergenet.irat_risk"><code class="name flex">
+<span>def <span class="ident">irat_risk</span></span>(<span>ha_risk, na_risk)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Computes IRAT emergence and impact risk scores.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>ha_risk</code></strong> :&ensp;<code>float</code></dt>
+<dd>Risk score from HA segment computed by the 'Enet.emergence_risk' function</dd>
+<dt><strong><code>na_risk</code></strong> :&ensp;<code>float</code></dt>
+<dd>Risk score from NA segment computed by the 'Enet.emergence_risk' function</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>irat_emergence_risk</code></strong> :&ensp;<code>float</code></dt>
+<dd>Predicted IRAT emergence risk score</dd>
+<dt><strong><code>irat_impact_risk</code></strong> :&ensp;<code>float</code></dt>
+<dd>Predicted IRAT impact risk score</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def irat_risk(ha_risk, na_risk):
+    &#34;&#34;&#34;Computes IRAT emergence and impact risk scores.
+
+    Parameters
+    ----------
+    ha_risk : float
+        Risk score from HA segment computed by the &#39;Enet.emergence_risk&#39; function
+
+    na_risk : float
+        Risk score from NA segment computed by the &#39;Enet.emergence_risk&#39; function
+
+    Returns
+    -------
+    irat_emergence_risk : float
+        Predicted IRAT emergence risk score
+
+    irat_impact_risk : float
+        Predicted IRAT impact risk score
+    &#34;&#34;&#34;
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    emergence_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_emergence.pickle&#39;))
+    impact_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_impact.pickle&#39;))
+    geom_mean = np.sqrt(ha_risk*na_risk)
+    df = pd.DataFrame({&#39;Geometric_Mean&#39;:[geom_mean],
+                       &#39;HA_Avg_Qdist&#39;:[ha_risk],
+                       &#39;NA_Avg_Qdist&#39;:[na_risk]})
+    irat_emergence_risk = emergence_mod.predict(df)[0]
+    irat_impact_risk = impact_mod.predict(df)[0]
+    if geom_mean &gt; 0.3:
+        irat_emergence_risk = 3.8
+        irat_impact_risk = 4.45
+    return irat_emergence_risk, irat_impact_risk</code></pre>
+</details>
+</dd>
 <dt id="emergenet.emergenet.load_model"><code class="name flex">
 <span>def <span class="ident">load_model</span></span>(<span>filepath)</span>
 </code></dt>
@@ -554,7 +637,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 
         Returns
         -------
-        seq_df : int
+        num_sequences : int
             Number of sequences
         &#34;&#34;&#34;
         with open(filepath, &#39;r&#39;) as f:
@@ -704,7 +787,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
+    def emergence_risk(self, seq_df, enet, sample_size=None):
         &#34;&#34;&#34;Computes emergence risk score.
 
         Parameters
@@ -717,16 +800,13 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
-        
-        ignore_nan : bool
-            Whether to show number of ignored nan value in qdistance
 
         Returns
         -------
-        emergence_risk_score : int
+        emergence_risk_score : float
             Emergence risk score
 
-        variance : int
+        variance : float
             Variance of emergence risk score
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
@@ -734,15 +814,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         seq_arr = self._sequence_array(seq_df, sample_size)
         target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
         qdist_list = []
-        num_nan = 0
         for i in range(len(seq_arr)):
             qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
-                num_nan += 1
                 continue
             qdist_list.append(qdist)
-        if ignore_nan:
-            print(&#39;Number of strains with null qdistance:&#39;, num_nan, &#39;out of&#39;, len(seq_arr))
         emergence_risk_score = np.average(qdist_list)
         variance = np.var(qdist_list)
         return emergence_risk_score, variance
@@ -769,13 +845,13 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 
         Returns
         -------
-        avg_emergence_risk_score : int
+        avg_emergence_risk_score : float
             Average emergence risk score among all qsampled sequences
 
-        min_emergence_risk_score : int
+        min_emergence_risk_score : float
             Lower bound on emergence risk score
 
-        max_emergence_risk_score : int
+        max_emergence_risk_score : float
             Upper bound on emergence risk score
         &#34;&#34;&#34;
         if len(seq_df) &lt; 1:
@@ -811,7 +887,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <h3>Methods</h3>
 <dl>
 <dt id="emergenet.emergenet.Enet.emergence_risk"><code class="name flex">
-<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, enet, sample_size=None, ignore_nan=False)</span>
+<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, enet, sample_size=None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Computes emergence risk score.</p>
@@ -823,21 +899,19 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <dd>Emergenet that sequences in seq_df belong to</dd>
 <dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
 <dd>Number of strains to compute emergence risk with, sampled randomly</dd>
-<dt><strong><code>ignore_nan</code></strong> :&ensp;<code>bool</code></dt>
-<dd>Whether to show number of ignored nan value in qdistance</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
+<dt><strong><code>emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
 <dd>Emergence risk score</dd>
-<dt><strong><code>variance</code></strong> :&ensp;<code>int</code></dt>
+<dt><strong><code>variance</code></strong> :&ensp;<code>float</code></dt>
 <dd>Variance of emergence risk score</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def emergence_risk(self, seq_df, enet, sample_size=None, ignore_nan=False):
+<pre><code class="python">def emergence_risk(self, seq_df, enet, sample_size=None):
     &#34;&#34;&#34;Computes emergence risk score.
 
     Parameters
@@ -850,16 +924,13 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 
     sample_size : int
         Number of strains to compute emergence risk with, sampled randomly
-    
-    ignore_nan : bool
-        Whether to show number of ignored nan value in qdistance
 
     Returns
     -------
-    emergence_risk_score : int
+    emergence_risk_score : float
         Emergence risk score
 
-    variance : int
+    variance : float
         Variance of emergence risk score
     &#34;&#34;&#34;
     if len(seq_df) &lt; 1:
@@ -867,15 +938,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     seq_arr = self._sequence_array(seq_df, sample_size)
     target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
     qdist_list = []
-    num_nan = 0
     for i in range(len(seq_arr)):
         qdist = qdistance(target_seq, seq_arr[i], enet, enet)
         if np.isnan(qdist):
-            num_nan += 1
             continue
         qdist_list.append(qdist)
-    if ignore_nan:
-        print(&#39;Number of strains with null qdistance:&#39;, num_nan, &#39;out of&#39;, len(seq_arr))
     emergence_risk_score = np.average(qdist_list)
     variance = np.var(qdist_list)
     return emergence_risk_score, variance</code></pre>
@@ -901,11 +968,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>avg_emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
+<dt><strong><code>avg_emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
 <dd>Average emergence risk score among all qsampled sequences</dd>
-<dt><strong><code>min_emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
+<dt><strong><code>min_emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
 <dd>Lower bound on emergence risk score</dd>
-<dt><strong><code>max_emergence_risk_score</code></strong> :&ensp;<code>int</code></dt>
+<dt><strong><code>max_emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
 <dd>Upper bound on emergence risk score</dd>
 </dl></div>
 <details class="source">
@@ -934,13 +1001,13 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 
     Returns
     -------
-    avg_emergence_risk_score : int
+    avg_emergence_risk_score : float
         Average emergence risk score among all qsampled sequences
 
-    min_emergence_risk_score : int
+    min_emergence_risk_score : float
         Lower bound on emergence risk score
 
-    max_emergence_risk_score : int
+    max_emergence_risk_score : float
         Upper bound on emergence risk score
     &#34;&#34;&#34;
     if len(seq_df) &lt; 1:
@@ -1144,6 +1211,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
+<li><code><a title="emergenet.emergenet.irat_risk" href="#emergenet.emergenet.irat_risk">irat_risk</a></code></li>
 <li><code><a title="emergenet.emergenet.load_model" href="#emergenet.emergenet.load_model">load_model</a></code></li>
 <li><code><a title="emergenet.emergenet.save_model" href="#emergenet.emergenet.save_model">save_model</a></code></li>
 </ul>
