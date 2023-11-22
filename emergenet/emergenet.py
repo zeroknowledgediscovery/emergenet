@@ -39,15 +39,13 @@ class Enet(object):
             self.seq_metadata = seq_metadata
 
         if seq_trunc_length > len(self.seq):
-            raise ValueError('Length to truncate sequences must not be greater than target sequence length!')
+            raise ValueError('Length to truncate sequences must not be shorter than target sequence!')
         self.seq_trunc_length = seq_trunc_length
 
-        if random_state < 0:
-            raise ValueError('Seed must be between 0 and 2**32 - 1!')
         self.random_state = random_state
 
     def __repr__(self):
-        return "emergenet.Emergenet"
+        return "emergenet.Emergenet" 
 
     def __str__(self):
         return self.__repr__()
