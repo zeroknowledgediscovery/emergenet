@@ -426,3 +426,4 @@ def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
     upper_bound = np.percentile(bootstrap_mins, (1 + confidence_level) / 2 * 100)
 
     return lower_bound, upper_bound
+ 
