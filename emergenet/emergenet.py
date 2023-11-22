@@ -42,6 +42,8 @@ class Enet(object):
             raise ValueError('Length to truncate sequences must not be greater than target sequence length!')
         self.seq_trunc_length = seq_trunc_length
 
+        if random_state < 0:
+            raise ValueError('Seed must be between 0 and 2**32 - 1!')
         self.random_state = random_state
 
     def __repr__(self):
@@ -211,7 +213,10 @@ class Enet(object):
         membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
         return membership_degrees
 
-    def emergence_risk(self, seq_df, enet, sample_size=None):
+
+
+    
+    def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
         """Computes emergence risk score.
 
         Parameters
@@ -224,11 +229,13 @@ class Enet(object):
 
         sample_size : int
             Number of strains to compute emergence risk with, sampled randomly
+        minimum : bool
+            if True return minimum instead of average
 
         Returns
         -------
         emergence_risk_score : float
-            Emergence risk score
+            Emergence risk score   
 
         variance : float
             Variance of emergence risk score
@@ -243,9 +250,21 @@ class Enet(object):
             if np.isnan(qdist):
                 continue
             qdist_list.append(qdist)
-        emergence_risk_score = np.average(qdist_list)
-        variance = np.var(qdist_list)
+        if not minimum:
+            emergence_risk_score = np.average(qdist_list)
+            variance = np.var(qdist_list)
+        else:
+            qdist_list=np.array(qdist_list)
+            qdist_list=qdist_list[qdist_list>0]
+            emergence_risk_score = np.min(qdist_list)
+            lb,ub=bootstrap_min_confidence_interval(qdist_list,confidence_level=0.95)
+            variance = (ub-lb)/2
+
         return emergence_risk_score, variance
+
+
+
+    
 
     def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
         """Computes emergence risk score using qsampling.
@@ -376,3 +395,34 @@ def load_model(filepath):
     """
     enet = load_qnet(filepath)
     return enet
+
+
+
+
+def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
+    """
+    Calculate the confidence interval for the minimum value of a population
+    based on a sample using bootstrap method with m = N-1.
+
+    Args:
+    sample (array-like): The sample data.
+    confidence_level (float): The confidence level for the interval.
+
+    Returns:
+    tuple: Lower and upper bounds of the confidence interval.
+    """
+    n = len(sample)
+    m = n - 5  # Optimal number of bootstrap samples
+    bootstrap_mins = []
+
+    # Generate bootstrap samples and calculate their minima
+    for _ in range(m):
+        bootstrap_sample = np.random.choice(sample, size=m, replace=True)
+        bootstrap_min = np.min(bootstrap_sample)
+        bootstrap_mins.append(bootstrap_min)
+
+    # Calculate the confidence interval
+    lower_bound = np.percentile(bootstrap_mins, (1 - confidence_level) / 2 * 100)
+    upper_bound = np.percentile(bootstrap_mins, (1 + confidence_level) / 2 * 100)
+
+    return lower_bound, upper_bound
