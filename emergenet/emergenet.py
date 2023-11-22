@@ -38,8 +38,10 @@ class Enet(object):
             self.seq = seq.upper()
             self.seq_metadata = seq_metadata
 
+        l=len(self.seq)
         if seq_trunc_length > len(self.seq):
-            raise ValueError('Length to truncate sequences must not be shorter than target sequence!')
+            self.seq=self.seq+''.join((seq_trunc_length-l)*['A'])
+            
         self.seq_trunc_length = seq_trunc_length
 
         self.random_state = random_state

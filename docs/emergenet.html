@@ -67,17 +67,14 @@ class Enet(object):
             self.seq = seq.upper()
             self.seq_metadata = seq_metadata
 
-        l=len(self.seq)
-        if seq_trunc_length &gt; l:
-            self.seq=self.seq+&#39;&#39;.join((seq_trunc_length-l)*[&#39;A&#39;])
-            #print(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
-        
+        if seq_trunc_length &gt; len(self.seq):
+            raise ValueError(&#39;Length to truncate sequences must not be shorter than target sequence!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
         self.random_state = random_state
 
     def __repr__(self):
-        return &#34;emergenet.Emergenet&#34;
+        return &#34;emergenet.Emergenet&#34; 
 
     def __str__(self):
         return self.__repr__()
@@ -245,7 +242,6 @@ class Enet(object):
 
 
 
-
     
     def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
         &#34;&#34;&#34;Computes emergence risk score.
@@ -266,7 +262,7 @@ class Enet(object):
         Returns
         -------
         emergence_risk_score : float
-            Emergence risk score
+            Emergence risk score   
 
         variance : float
             Variance of emergence risk score
@@ -292,6 +288,10 @@ class Enet(object):
             variance = (ub-lb)/2
 
         return emergence_risk_score, variance
+
+
+
+    
 
     def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
         &#34;&#34;&#34;Computes emergence risk score using qsampling.
@@ -452,7 +452,8 @@ def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
     lower_bound = np.percentile(bootstrap_mins, (1 - confidence_level) / 2 * 100)
     upper_bound = np.percentile(bootstrap_mins, (1 + confidence_level) / 2 * 100)
 
-    return lower_bound, upper_bound</code></pre>
+    return lower_bound, upper_bound
+ </code></pre>
 </details>
 </section>
 <section>
@@ -702,17 +703,14 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             self.seq = seq.upper()
             self.seq_metadata = seq_metadata
 
-        l=len(self.seq)
-        if seq_trunc_length &gt; l:
-            self.seq=self.seq+&#39;&#39;.join((seq_trunc_length-l)*[&#39;A&#39;])
-            #print(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
-        
+        if seq_trunc_length &gt; len(self.seq):
+            raise ValueError(&#39;Length to truncate sequences must not be shorter than target sequence!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
         self.random_state = random_state
 
     def __repr__(self):
-        return &#34;emergenet.Emergenet&#34;
+        return &#34;emergenet.Emergenet&#34; 
 
     def __str__(self):
         return self.__repr__()
@@ -880,7 +878,6 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 
 
 
-
     
     def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
         &#34;&#34;&#34;Computes emergence risk score.
@@ -901,7 +898,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
         Returns
         -------
         emergence_risk_score : float
-            Emergence risk score
+            Emergence risk score   
 
         variance : float
             Variance of emergence risk score
@@ -927,6 +924,10 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             variance = (ub-lb)/2
 
         return emergence_risk_score, variance
+
+
+
+    
 
     def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
         &#34;&#34;&#34;Computes emergence risk score using qsampling.
@@ -1037,7 +1038,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
     Returns
     -------
     emergence_risk_score : float
-        Emergence risk score
+        Emergence risk score   
 
     variance : float
         Variance of emergence risk score
