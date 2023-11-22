@@ -1,0 +1,429 @@
+import os
+import numpy as np
+import pandas as pd
+from Bio import SeqIO
+from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet, membership_degree
+from quasinet import qsampling as qs
+import statsmodels.api as sm
+
+
+class Enet(object):
+    """Emergenet architecture.
+
+    Parameters
+    ----------
+    seq : str
+        The target sequence to be analysed by Emergenet
+        Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')
+
+    seq_trunc_length : int
+        Length to truncate sequences in Emergenet analysis
+        (Sequences used to train Emergenet and compute E-distance must be of same length)
+
+    seq_metadata : str
+        Describes the sequence; added automatically if 'seq' is a fasta file path
+
+    random_state : int
+        Sets seed for random number generator
+    """
+
+    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
+        if seq.endswith('.fasta'):
+            if self._count_seqs(seq) != 1:
+                raise ValueError('The file must contain exactly 1 sequence!')
+            for record in SeqIO.parse(seq, 'fasta'):
+                self.seq = str(record.seq.upper())
+                self.seq_metadata = str(record.description)
+        else:
+            self.seq = seq.upper()
+            self.seq_metadata = seq_metadata
+
+        l=len(self.seq)
+        if seq_trunc_length > len(self.seq):
+            self.seq=self.seq+''.join((seq_trunc_length-l)*['A'])
+            
+        self.seq_trunc_length = seq_trunc_length
+
+        self.random_state = random_state
+
+    def __repr__(self):
+        return "emergenet.Emergenet" 
+
+    def __str__(self):
+        return self.__repr__()
+
+    @staticmethod
+    def _count_seqs(filepath):
+        """Returns number of sequences in a fasta file.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        Returns
+        -------
+        num_sequences : int
+            Number of sequences
+        """
+        with open(filepath, 'r') as f:
+            fasta = SeqIO.parse(f, 'fasta')
+            if not any(fasta):
+                raise ValueError('The infile must be in fasta format!')
+        with open(filepath, 'r') as f:
+            lines = f.read()
+        num_sequences = lines.count('>')
+        return num_sequences
+
+    def _parse_fasta(self, filepath):
+        """Parses a fasta file and returns DataFrame with two columns.
+        `id` contains fasta metadata.
+        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        Returns
+        -------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+        """
+        if self._count_seqs(filepath) == 0:
+            raise ValueError('The file contains no sequences!')
+        ids = []
+        seqs = []
+        for record in SeqIO.parse(filepath, 'fasta'):
+            if len(record.seq) < self.seq_trunc_length:
+                continue
+            ids.append(str(record.id))
+            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
+        seq_df = pd.DataFrame({'id': ids, 'sequence': seqs})
+        return seq_df
+
+    def _sequence_array(self, seq_df, sample_size=None):
+        """Extracts array of sequence arrays from DataFrame; includes target sequence.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame containing sequences
+
+        sample_size : int
+            Number of strains to sample randomly
+
+        Returns
+        -------
+        seq_lst: numpy.ndarray
+            Array of sequence arrays
+        """
+        if 'sequence' not in seq_df.columns:
+            raise ValueError('The DataFrame must store sequences in `sequence` column!')
+        if sample_size is None or sample_size > len(seq_df):
+            sample_size = len(seq_df)
+        if sample_size < len(seq_df):
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df['sequence'].values
+        seq_lst = []
+        for seq in seqs:
+            seq_lst.append(seq)
+        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
+        seq_lst = np.array(seq_lst)
+        return seq_lst
+
+    def load_data(self, filepath, outfile=None):
+        """Loads fasta file data and optionally saves to CSV.
+
+        Parameters
+        ----------
+        filepath : str
+            File name
+
+        outfile : str
+            File name to save to ('.csv')
+
+        Returns
+        -------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+        """
+        seq_df = self._parse_fasta(filepath)
+        if outfile is not None:
+            if not outfile.endswith('.csv'):
+                raise ValueError('The outfile must end with `.csv`!')
+            seq_df.to_csv(outfile, index=False)
+        return seq_df
+
+    def train(self, seq_df, sample_size=None, n_jobs=1):
+        """Trains an Emergenet model.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        sample_size : int
+            Number of strains to train Emergenet on, sampled randomly
+
+        n_jobs : int
+            Number of CPUs to use when training
+
+        Returns
+        -------
+        enet : Qnet
+            Trained Emergenet
+        """
+        if len(seq_df) < 1:
+            raise ValueError('The DataFrame contains no sequences!')
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        enet = Qnet(feature_names=['x' + str(i) for i in np.arange(self.seq_trunc_length)],
+                    random_state=self.random_state, n_jobs=n_jobs)
+        enet.fit(seq_arr)
+        return enet
+
+    def sequence_membership(self, seq_df, enet, sample_size=None):
+        """Computes membership degree (see Quasinet documentation) of each sequence
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with, sampled randomly
+
+        Returns
+        -------
+        membership_degrees : np.ndarray
+            Array of membership degrees
+        """
+        if len(seq_df) < 1:
+            raise ValueError('The DataFrame contains no sequences!')
+        if 'sequence' not in seq_df.columns:
+            raise ValueError('The DataFrame must store sequences in `sequence` column!')
+        if sample_size is None or sample_size > len(seq_df):
+            sample_size = len(seq_df)
+        if sample_size < len(seq_df):
+            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
+        seqs = seq_df['sequence'].values
+        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
+        return membership_degrees
+
+
+
+    
+    def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
+        """Computes emergence risk score.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with, sampled randomly
+        minimum : bool
+            if True return minimum instead of average
+
+        Returns
+        -------
+        emergence_risk_score : float
+            Emergence risk score   
+
+        variance : float
+            Variance of emergence risk score
+        """
+        if len(seq_df) < 1:
+            raise ValueError('The DataFrame contains no sequences!')
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+        qdist_list = []
+        for i in range(len(seq_arr)):
+            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
+            if np.isnan(qdist):
+                continue
+            qdist_list.append(qdist)
+        if not minimum:
+            emergence_risk_score = np.average(qdist_list)
+            variance = np.var(qdist_list)
+        else:
+            qdist_list=np.array(qdist_list)
+            qdist_list=qdist_list[qdist_list>0]
+            emergence_risk_score = np.min(qdist_list)
+            lb,ub=bootstrap_min_confidence_interval(qdist_list,confidence_level=0.95)
+            variance = (ub-lb)/2
+
+        return emergence_risk_score, variance
+
+
+
+    
+
+    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
+        """Computes emergence risk score using qsampling.
+
+        Parameters
+        ----------
+        seq_df : pd.DataFrame
+            DataFrame of sequences
+
+        enet : Qnet
+            Emergenet that sequences in seq_df belong to
+
+        sample_size : int
+            Number of strains to compute emergence risk with, sampled randomly
+
+        qsamples : int
+            Number of qsamples to draw from each strain
+
+        steps : int
+            Number of steps to run q-sampling
+
+        Returns
+        -------
+        avg_emergence_risk_score : float
+            Average emergence risk score among all qsampled sequences
+
+        min_emergence_risk_score : float
+            Lower bound on emergence risk score
+
+        max_emergence_risk_score : float
+            Upper bound on emergence risk score
+        """
+        if len(seq_df) < 1:
+            raise ValueError('The DataFrame contains no sequences!')
+        if qsamples < 1:
+            raise ValueError('Number of qsamples must be positive!')
+        if steps < 1:
+            raise ValueError('Number of steps must be positive!')
+        seq_arr = self._sequence_array(seq_df, sample_size)
+        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
+        avg_qdist_list = []
+        min_qdist_list = []
+        max_qdist_list = []
+        for i in range(len(seq_arr)):
+            cur_avg_qdist = 0
+            cur_min_qdist = 1
+            cur_max_qdist = 0
+            for j in range(qsamples):
+                qs_seq = qs.qsample(seq_arr[i], enet, steps)
+                qdist = qdistance(target_seq, qs_seq, enet, enet)
+                cur_avg_qdist += qdist
+                cur_min_qdist = min(qdist, cur_min_qdist)
+                cur_max_qdist = max(qdist, cur_max_qdist)
+            avg_qdist_list.append(cur_avg_qdist / qsamples)
+            min_qdist_list.append(cur_min_qdist)
+            max_qdist_list.append(cur_max_qdist)
+        avg_emergence_risk_score = np.average(avg_qdist_list)
+        min_emergence_risk_score = np.average(min_qdist_list)
+        max_emergence_risk_score = np.average(max_qdist_list)
+        variance = np.var(avg_qdist_list)
+        return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
+    
+def irat_risk(ha_risk, na_risk):
+    """Computes IRAT emergence and impact risk scores.
+
+    Parameters
+    ----------
+    ha_risk : float
+        Risk score from HA segment computed by the 'Enet.emergence_risk' function
+
+    na_risk : float
+        Risk score from NA segment computed by the 'Enet.emergence_risk' function
+
+    Returns
+    -------
+    irat_emergence_risk : float
+        Predicted IRAT emergence risk score
+
+    irat_impact_risk : float
+        Predicted IRAT impact risk score
+    """
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    emergence_mod = sm.load(os.path.join(cwd, 'models', 'irat_emergence.pickle'))
+    impact_mod = sm.load(os.path.join(cwd, 'models', 'irat_impact.pickle'))
+    geom_mean = np.sqrt(ha_risk*na_risk)
+    df = pd.DataFrame({'Geometric_Mean':[geom_mean],
+                       'HA_Avg_Qdist':[ha_risk],
+                       'NA_Avg_Qdist':[na_risk]})
+    irat_emergence_risk = emergence_mod.predict(df)[0]
+    irat_impact_risk = impact_mod.predict(df)[0]
+    if geom_mean > 0.3:
+        irat_emergence_risk = 3.8
+        irat_impact_risk = 4.45
+    return irat_emergence_risk, irat_impact_risk
+
+def save_model(enet, outfile, low_mem=False):
+    """Saves an Emergenet model.
+
+    Parameters
+    ----------
+    enet : Qnet
+        An Emergenet instance
+
+    outfile : str
+        File name to save to ('.joblib')
+
+    low_mem : bool
+        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
+
+    Returns
+    -------
+    None
+    """
+    save_qnet(enet, outfile, low_mem)
+
+def load_model(filepath):
+    """Loads an Emergenet model.
+
+    Parameters
+    ----------
+    filepath : str
+        File name
+
+    Returns
+    -------
+    enet : Qnet
+        An Emergenet instance
+    """
+    enet = load_qnet(filepath)
+    return enet
+
+
+
+
+def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
+    """
+    Calculate the confidence interval for the minimum value of a population
+    based on a sample using bootstrap method with m = N-1.
+
+    Args:
+    sample (array-like): The sample data.
+    confidence_level (float): The confidence level for the interval.
+
+    Returns:
+    tuple: Lower and upper bounds of the confidence interval.
+    """
+    n = len(sample)
+    m = n - 5  # Optimal number of bootstrap samples
+    bootstrap_mins = []
+
+    # Generate bootstrap samples and calculate their minima
+    for _ in range(m):
+        bootstrap_sample = np.random.choice(sample, size=m, replace=True)
+        bootstrap_min = np.min(bootstrap_sample)
+        bootstrap_mins.append(bootstrap_min)
+
+    # Calculate the confidence interval
+    lower_bound = np.percentile(bootstrap_mins, (1 - confidence_level) / 2 * 100)
+    upper_bound = np.percentile(bootstrap_mins, (1 + confidence_level) / 2 * 100)
+
+    return lower_bound, upper_bound
+ 

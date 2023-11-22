@@ -67,8 +67,11 @@ class Enet(object):
             self.seq = seq.upper()
             self.seq_metadata = seq_metadata
 
-        if seq_trunc_length &gt; len(self.seq):
-            raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+        l=len(self.seq)
+        if seq_trunc_length &gt; l:
+            self.seq=self.seq+&#39;&#39;.join((seq_trunc_length-l)*[&#39;A&#39;])
+            #print(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+        
         self.seq_trunc_length = seq_trunc_length
 
         self.random_state = random_state
@@ -699,8 +702,11 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
             self.seq = seq.upper()
             self.seq_metadata = seq_metadata
 
-        if seq_trunc_length &gt; len(self.seq):
-            raise ValueError(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+        l=len(self.seq)
+        if seq_trunc_length &gt; l:
+            self.seq=self.seq+&#39;&#39;.join((seq_trunc_length-l)*[&#39;A&#39;])
+            #print(&#39;Length to truncate sequences must not be greater than target sequence length!&#39;)
+        
         self.seq_trunc_length = seq_trunc_length
 
         self.random_state = random_state
