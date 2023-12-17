@@ -2,7 +2,7 @@
 
 DRYRUN=0
 
-for ((i=6;i<=6;i++))
+for ((i=2;i<=2;i++))
 do
     basedtaname=IXC"$i"
     PROG=" module load python/anaconda-2021.05; python3 variant_strains.py $i"
