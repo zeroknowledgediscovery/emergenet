@@ -7,8 +7,8 @@ Emergenet
 ├── emergenet : files for Emergenet package
 ├── examples : examples using the Emergenet package
 ├── paper_data_v2 : results for current version of the paper
-├── paper_data : results for older versions of the paper, not used in current version
-├── paper_data_old : results for older versions of the paper, not used in current version
+├── paper_data_v1 : results for older versions of the paper, not used in current version
+├── paper_data_v0 : results for older versions of the paper, not used in current version
 └── tex : contains LaTeX and PDF files for paper
 ```
 
