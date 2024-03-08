@@ -1,20 +1,17 @@
-import os 
-import sys
-import random
+import random, shapely, alphashape
 import numpy as np
 np.random.seed(42)
 import pandas as pd
+from typing import Tuple
 from tqdm.notebook import trange
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
-plt.rcParams["figure.dpi"] = 200
+plt.rcParams['figure.dpi'] = 200
 from itertools import cycle
 from sklearn.manifold import MDS
 from sklearn.cluster import MeanShift, estimate_bandwidth
-import shapely
-import alphashape
 from distance import hamming as distance
-from quasinet.qnet import qdistance_matrix, load_qnet
+from quasinet.qnet import qdistance_matrix, load_qnet, Qnet
 
 
 TRUNC = 565 # 2 less than official length of 567
@@ -43,18 +40,16 @@ for i in np.arange(2, 23):
         SOUTH_YEARS.append(str(i))
 
             
-def _dm_to_df(dm):
+def _dm_to_df(dm:np.ndarray) -> pd.DataFrame:
     ''' Converts a distance matrix to a DataFrame.
 
     Parameters
     ----------
-    dm : numpy.ndarray
-        Distance matrix as 2D array
+    dm - Distance matrix as 2D array
 
     Returns
     -------
-    df : pd.Dataframe
-        Distance matrix as DataFrame
+    df - Distance matrix as DataFrame
     '''
     columns = np.arange(0, dm.shape[1])
     index = np.arange(0, dm.shape[0])
@@ -62,18 +57,16 @@ def _dm_to_df(dm):
     return df
     
     
-def _compute_distance_matrix(seqs):
+def _compute_distance_matrix(seqs:np.ndarray) -> pd.DataFrame:
     ''' Computes distance matrix in the Hamming metric.
 
     Parameters
     ----------
-    seqs : numpy.ndarray
-        Array of sequences
+    seqs - Array of sequences
 
     Returns
     -------
-    dm : pd.DataFrame
-        Distance Matrix
+    dm - Distance Matrix
     '''
     n = len(seqs)
     dist_matrix = np.zeros((n, n))
@@ -85,18 +78,16 @@ def _compute_distance_matrix(seqs):
     return dm
 
 
-def _compute_qdistance_matrix(seqs, enet):
+def _compute_qdistance_matrix(seqs:np.ndarray, enet:Qnet) -> pd.DataFrame:
     ''' Computes distance matrix in the Qdistance metric.
 
     Parameters
     ----------
-    seqs : numpy.ndarray
-        Array of sequences
+    seqs - Array of sequences
 
     Returns
     -------
-    dm : pd.DataFrame
-        Distance Matrix
+    dm - Distance Matrix
     '''
     seq_arr = np.array([np.array(list(seq[:TRUNC])) for seq in seqs])
     dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet) 
@@ -104,25 +95,21 @@ def _compute_qdistance_matrix(seqs, enet):
     return dm
 
 
-def plot_embedding(dm_embed, clustering_predictions, n_predictions, title, alpha):
+def plot_embedding(dm_embed:np.ndarray, clustering_predictions:np.ndarray, 
+                   n_predictions:int, title:str, alpha:int):
     ''' Plots the embedding and shows Enet and WHO predictions.
 
     Parameters
     ----------
-    dm_embed : numpy.ndarray
-        Embedding points, the first point is WHO, the next n_predictions points are Enet
+    dm_embed - Embedding points, the first point is WHO, the next n_predictions points are Enet
     
-    clustering_predictions : numpy.array
-        Array of clustering predictions
+    clustering_predictions - Array of clustering predictions
         
-    n_predictions : int
-        Number of Enet predictions to use
+    n_predictions - Number of Enet predictions to use
     
-    title : str
-        Title of plot
+    title - Title of plot
     
-    alpha : int
-        Alpha parameter
+    alpha - Alpha parameter
     '''
     # Normalize points
     mean = np.mean(dm_embed, axis=0)
@@ -180,40 +167,31 @@ def plot_embedding(dm_embed, clustering_predictions, n_predictions, title, alpha
     plt.legend(loc='upper left', bbox_to_anchor=(1, 1));
     
     
-def plot_predictions(hemisphere, subtype, year, metric,
-                     sample_size=None, previous_season=False, alpha=4):
+def plot_predictions(hemisphere:str, subtype:str, year:int, metric:str, sample_size:int=None, 
+                     previous_season:bool=False, alpha:int=4) -> Tuple[pd.DataFrame, pd.DataFrame]:
     ''' Plots the embedding and shows Enet and WHO predictions.
 
     Parameters
     ----------
-    hemisphere : str
-        'north' or 'south'
+    hemisphere - 'north' or 'south'
     
-    subtype : str
-        'hin1' or 'h3n2'
+    subtype - 'hin1' or 'h3n2'
         
-    year : int
-        Index corresponding to sequence in NORTH_YEARS or SOUTH_YEARS, [1, 21]
+    year - Index corresponding to sequence in NORTH_YEARS or SOUTH_YEARS, [1, 21]
     
-    metric : str
-        'hamming' or 'qdistance'
+    metric - 'hamming' or 'qdistance'
     
-    sample_size : int
-        Number of points to sample from the strain population to plot
+    sample_size - Number of points to sample from the strain population to plot
     
-    previous_season : bool
-        If true, plot previous season rather than current season strain population
+    previous_season - If true, plot previous season rather than current season strain population
     
-    alpha : int
-        Alpha parameter, default 4
+    alpha - Alpha parameter, default 4
         
     Returns
     -------
-    pred : pd.DataFrame
-        Dataframe of WHO prediction and WHO and Enet errors, multi-cluster
+    pred - Dataframe of WHO prediction and WHO and Enet errors, multi-cluster
         
-    pred_single : pd.DataFrame
-        Dataframe of WHO prediction and WHO and Enet errors, single-cluster
+    pred_single - Dataframe of WHO prediction and WHO and Enet errors, single-cluster
     '''
     if hemisphere == 'north':
         YEARS = NORTH_YEARS

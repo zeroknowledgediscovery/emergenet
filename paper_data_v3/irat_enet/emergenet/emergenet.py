@@ -15,7 +15,7 @@ NA_TRUNC = 460
 
 
 class Enet(object):
-    ''' Emergenet architecture.
+    ''' Emergenet architecture for predicting emergence risk.
     ''' 
 
     def __init__(self, analysis_date:str, ha_seq:str, na_seq:str,
@@ -78,6 +78,7 @@ class Enet(object):
 
     def _load_sequences(self, yearsbefore:int) -> pd.DataFrame:
         ''' Loads human sequences within yearsbefore years of the analysis date.
+
         Parameters
         ----------
         yearsbefore - Number of years prior to analysis_date to consider 

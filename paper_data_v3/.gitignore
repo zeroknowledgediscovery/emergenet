@@ -1,33 +1,29 @@
+# All models except linear models
 *.joblib
+!enet_predictions/results/enet_predictions/linear_models/*.joblib
+
+# Numpy files
 *.npy
 
-
-
+# All data, can be found in irat_enet/data and enet_predictions/data
 all_data/ncbi/
 all_data/gisaid/
 
-
-
-
-
-irat_enet/results/variant_predictions/*/*/enet_models/
+# Extra variant data
 irat_enet/results/variant_predictions/*/*/data/
 
-irat_enet/results/irat_predictions/*/enet_models/
+# Extra IRAT data
 irat_enet/results/irat_predictions/*/data/
 
+# Large data files, which are generated from irat_enet/data_collection.ipynb
 irat_enet/final_irat_model/data/human/gisaid/human.csv
 irat_enet/final_irat_model/data/human/irat/
-
 irat_enet/emergenet/data/human.csv
-
 irat_enet/data/*.csv
 
-
-
-
-
-
+# Extra Emergenet prediction data
 enet_predictions/random_sampling/data/data_dm/
 enet_predictions/results/enet_predictions/extra_data/
+
+# Large data files, which are generated from enet_predictions/data_collection.ipynb
 enet_predictions/data/merged

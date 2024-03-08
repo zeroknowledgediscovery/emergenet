@@ -14,23 +14,24 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
 
+# Area multiplier for alpha shapes
 AREA_MULTIPLIER = 100
 
 
 class DomSeq(object):
-    ''' Find and predict dominant sequences.
-
-    Parameters
-    ----------
-    seq_trunc_length : int
-        Length to truncate sequences in Emergenet analysis
-        (Sequences used to train Emergenet and compute E-distance must be of same length)
-
-    random_state : int
-        Sets seed for random number generator
+    ''' DomSeq architecture for predicting dominant sequences.
     ''' 
 
-    def __init__(self, seq_trunc_length, random_state=42):
+    def __init__(self, seq_trunc_length:int, random_state:int=42):
+        ''' Initializes an DomSeq instance.
+
+        Parameters
+        ----------
+        seq_trunc_length - Length to truncate sequences in Emergenet analysis
+            (Sequences used to train Emergenet and compute E-distance must be of same length)
+
+        random_state - Sets seed for random number generator
+        '''
         if seq_trunc_length <= 0:
             raise ValueError('Length to truncate sequences must be positive!')
         self.seq_trunc_length = seq_trunc_length
@@ -49,18 +50,16 @@ class DomSeq(object):
     
     
     @staticmethod
-    def _count_seqs(filepath):
+    def _count_seqs(filepath:str) -> int:
         ''' Returns number of sequences in a fasta file.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        filepath - File name
 
         Returns
         -------
-        seq_df : int
-            Number of sequences
+        seq_df - Number of sequences
         ''' 
         with open(filepath, 'r') as f:
             fasta = SeqIO.parse(f, 'fasta')
@@ -73,18 +72,16 @@ class DomSeq(object):
     
     
     @staticmethod
-    def _get_acc(ID):
+    def _get_acc(ID:str) -> str:
         ''' Returns accession code of a sequence.
 
         Parameters
         ----------
-        ID : str
-            Sequence metadata
+        ID - Sequence metadata
 
         Returns
         -------
-        acc : str
-            Accession code
+        acc - Accession code
         ''' 
         ids = ID.split('|')
         # NCBI format
@@ -98,18 +95,16 @@ class DomSeq(object):
 
         
     @staticmethod
-    def _get_name(ID):
+    def _get_name(ID:str) -> str:
         ''' Returns name of a sequence.
 
         Parameters
         ----------
-        ID : str
-            Sequence metadata
+        ID - Sequence metadata
 
         Returns
         -------
-        name : str
-            Name
+        name - Name of sequence
         ''' 
         ids = ID.split('|')
         # NCBI format
@@ -131,18 +126,16 @@ class DomSeq(object):
         
         
     @staticmethod
-    def _get_date(ID):
+    def _get_date(ID:str) -> str:
         ''' Returns collection date of a sequence.
 
         Parameters
         ----------
-        ID : str
-            Sequence metadata
+        ID - Sequence metadata
 
         Returns
         -------
-        date : str
-            Collection date
+        date - Collection date
         ''' 
         ids = ID.split('|')
         # NCBI format
@@ -156,18 +149,16 @@ class DomSeq(object):
     
     
     @staticmethod
-    def _dm_to_df(dm):
+    def _dm_to_df(dm:np.ndarray) -> pd.DataFrame:
         ''' Converts a distance matrix to a DataFrame.
 
         Parameters
         ----------
-        dm : numpy.ndarray
-            Distance matrix as 2D array
+        dm - Distance matrix as 2D array
 
         Returns
         -------
-        df : pd.Dataframe
-            Distance matrix as DataFrame
+        df - Distance matrix as DataFrame
         ''' 
         columns = np.arange(0, dm.shape[1])
         index = np.arange(0, dm.shape[0])
@@ -175,7 +166,7 @@ class DomSeq(object):
         return df
     
     
-    def _parse_fasta(self, filepath):
+    def _parse_fasta(self, filepath:str) -> pd.DataFrame:
         ''' Parses a fasta file and returns DataFrame with four columns.
         FASTA metadata must be in the format:
             NCBI: Accession|GenBank Title|Collection Date
@@ -187,13 +178,11 @@ class DomSeq(object):
 
         Parameters
         ----------
-        filepath : str
-            File name
+        filepath - File name
 
         Returns
         -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        seq_df - DataFrame of sequences
         ''' 
         if self._count_seqs(filepath) == 0:
             raise ValueError('The file contains no sequences!')
@@ -217,21 +206,18 @@ class DomSeq(object):
         return seq_df
 
     
-    def _sequence_array(self, seq_df, sample_size=None):
+    def _sequence_array(self, seq_df:pd.DataFrame, sample_size:int=None) -> np.ndarray:
         ''' Extracts array of sequence arrays from DataFrame; includes target sequence.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame containing sequences
+        seq_df - DataFrame containing sequences
 
-        sample_size : int
-            Number of strains to sample randomly
+        sample_size - Number of strains to sample randomly
 
         Returns
         -------
-        seq_lst: numpy.ndarray
-            Array of sequence arrays
+        seq_lst - Array of sequence arrays
         ''' 
         if 'sequence' not in seq_df.columns:
             raise ValueError('The DataFrame must store sequences in `sequence` column!')
@@ -245,21 +231,18 @@ class DomSeq(object):
         return seq_lst
 
     
-    def load_data(self, filepath, outfile=None):
+    def load_data(self, filepath:str, outfile:str=None) -> pd.DataFrame:
         ''' Loads fasta file data and optionally saves to CSV.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        filepath - File name
 
-        outfile : str
-            File name to save to ('.csv')
+        outfile - File name to save to ('.csv')
 
         Returns
         -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        seq_df - DataFrame of sequences
         ''' 
         seq_df = self._parse_fasta(filepath)
         if outfile is not None:
@@ -269,24 +252,20 @@ class DomSeq(object):
         return seq_df
 
     
-    def train(self, seq_df, sample_size=None, n_jobs=1):
+    def train(self, seq_df:pd.DataFrame, sample_size:int=None, n_jobs:int=1) -> Qnet:
         ''' Trains an Emergenet model.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        seq_df - DataFrame of sequences
 
-        sample_size : int
-            Number of strains to train Emergenet on, sampled randomly
+        sample_size - Number of strains to train Emergenet on, sampled randomly
 
-        n_jobs : int
-            Number of CPUs to use when training
+        n_jobs - Number of CPUs to use when training
 
         Returns
         -------
-        enet : Qnet
-            Trained Emergenet
+        enet - Trained Emergenet
         ''' 
         if len(seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
@@ -297,24 +276,21 @@ class DomSeq(object):
         return enet
     
     
-    def _compute_risk_for_predict_domseq(self, seq_df, pred_seq_df, enet):
+    def _compute_risk_for_predict_domseq(self, seq_df:pd.DataFrame, 
+                                         pred_seq_df:pd.DataFrame, enet:Qnet) -> pd.DataFrame:
         ''' Computes risk scores for potential prediction sequences.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of current population sequences
+        seq_df - DataFrame of current population sequences
             
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
+        pred_seq_df - DataFrame of candidate sequences
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
+        enet - Emergenet that sequences in seq_df belong to
 
         Returns
         -------
-        pred_seq_df : pd.DataFrame
-            Potential prediction sequences, with additional columns for risk score
+        pred_seq_df - Potential prediction sequences, with additional columns for risk score
         ''' 
         # Distance matrix for computing prediction
         seq_arr = self._sequence_array(seq_df)
@@ -338,34 +314,27 @@ class DomSeq(object):
         return pred_seq_df
     
     @staticmethod
-    def _plot_embedding(dm_embed, unique_clusters, clustering_predictions, 
-                        n_clusters, save_data=None, alpha=4):
+    def _plot_embedding(dm_embed:np.ndarray, unique_clusters:Counter, clustering_predictions:np.array, 
+                        n_clusters:int, save_data:str=None, alpha:int=4) -> list[float]:
         ''' Plots the embedding and shows Enet and WHO predictions.
 
         Parameters
         ----------
-        dm_embed : numpy.ndarray
-            Embedding points
+        dm_embed - Embedding points
             
-        unique_clusters : Counter
-            Counter (class, size) of unique clusters, sorted by size
+        unique_clusters - Counter (class, size) of unique clusters, sorted by size
 
-        clustering_predictions : numpy.array
-            Array of clustering predictions
+        clustering_predictions - Array of clustering predictions
 
-        n_clusters : int
-            Number of cluster alphashapes to draw
+        n_clusters - Number of cluster alphashapes to draw
 
-        save_data : string
-            Directory to save plot to
+        save_data - Directory to save plot to
         
-        alpha : int
-            Alpha parameter, default 4
+        alpha - Alpha parameter, default 4
             
         Returns
         -------
-        cluster_areas : list[float]
-            Areas of largest n_clusters
+        cluster_areas - Areas of largest n_clusters
         '''
         # Add noise to offset equal points
         noise = np.random.normal(0, 0.02, size=dm_embed.shape)
@@ -427,29 +396,23 @@ class DomSeq(object):
         return cluster_areas
     
     
-    def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, 
-                       sample_size=None, save_data=None):
+    def predict_domseq(self, seq_df:pd.DataFrame, pred_seq_df:pd.DataFrame, enet:Qnet, 
+                       n_clusters:int=3, sample_size:int=None, save_data:str=None) -> pd.DataFrame:
         ''' Predicts the future dominant sequence with multiple clusters.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of current population sequences
+        seq_df - DataFrame of current population sequences
             
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
+        pred_seq_df - DataFrame of candidate sequences
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
+        enet - Emergenet that sequences in seq_df belong to
             
-        n_clusters : int
-            Number of clusters to predict dominant strain on; default 3
+        n_clusters - Number of clusters to predict dominant strain on; default 3
 
-        sample_size : int
-            Number of strains to sample randomly from seq_df
+        sample_size - Number of strains to sample randomly from seq_df
             
-        save_data : string
-            If directory is given, save the following files:
+        save_data - If directory is given, save the following files:
             1. seq_df.csv (post-sampling, if sample_size is given)
             2. dm.csv (the distance matrix corresponding to seq_df)
             3. pred_seq_df_i.csv (pred_seq_df with columns for risk score, i = 1,2,...n_clusters)
@@ -458,8 +421,7 @@ class DomSeq(object):
 
         Returns
         -------
-        pred_seqs : pd.DataFrame
-            Emergenet recommended sequences, with additional two columns for cluster counts and areas
+        pred_seqs - Emergenet recommended sequences, with additional two columns for cluster counts and areas
         ''' 
         if len(seq_df) < 1 or len(pred_seq_df) < 1:
             raise ValueError('The DataFrame contains no sequences!')
@@ -528,21 +490,18 @@ class DomSeq(object):
         return pred_seqs
 
 
-    def predict_single_domseq(self, pred_seqs, pred_seq_df):
+    def predict_single_domseq(self, pred_seqs:pd.DataFrame, pred_seq_df:pd.DataFrame) -> pd.DataFrame:
         ''' Predicts a single future dominant sequence with a single cluster.
         
         Parameters
         ----------
-        pred_seqs : pd.DataFrame
-            Emergenet recommended sequences, with additional column 'cluster_area'
+        pred_seqs - Emergenet recommended sequences, with additional column 'cluster_area'
         
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
+        pred_seq_df - DataFrame of candidate sequences
             
         Returns
         -------
-        pred_seq : pd.DataFrame
-            Emergenet recommended sequence
+        pred_seq - Emergenet recommended sequence
         ''' 
         if len(pred_seqs) < 2:
             raise ValueError('Not enough prediction sequences!')
@@ -576,39 +535,30 @@ class DomSeq(object):
         return pred_seq
 
     
-def save_model(enet, outfile, low_mem=False):
+def save_model(enet:Qnet, outfile:str, low_mem:bool=False):
     ''' Saves an Emergenet model.
 
     Parameters
     ----------
-    enet : Qnet
-        An Emergenet instance
+    enet - An Emergenet instance
 
-    outfile : str
-        File name to save to ('.joblib')
+    outfile - File name to save to ('.joblib')
 
-    low_mem : bool
-        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
-
-    Returns
-    -------
-    None
+    low_mem - If true, save the Emergenet with low memory by deleting all data attributes
     ''' 
     save_qnet(enet, outfile, low_mem)
+
     
-    
-def load_model(filepath):
+def load_model(filepath:str) -> Qnet:
     ''' Loads an Emergenet model.
 
     Parameters
     ----------
-    filepath : str
-        File name
+    filepath - File name
 
     Returns
     -------
-    enet : Qnet
-        An Emergenet instance
+    enet - An Emergenet instance
     ''' 
     enet = load_qnet(filepath)
     return enet
