@@ -5,7 +5,7 @@ from distance import hamming
 from itertools import cycle
 import shapely
 import alphashape
-from quasinet.qnet import Qnet, qdistance_matrix, save_qnet, load_qnet, membership_degree
+from quasinet.qnet import Qnet, qdistance_matrix, membership_degree
 from sklearn.cluster import MeanShift, estimate_bandwidth
 from sklearn.manifold import MDS
 from collections import Counter
