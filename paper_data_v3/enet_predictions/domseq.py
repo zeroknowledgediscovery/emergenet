@@ -315,7 +315,7 @@ class DomSeq(object):
     
     @staticmethod
     def _plot_embedding(dm_embed:np.ndarray, unique_clusters:Counter, clustering_predictions:np.array, 
-                        n_clusters:int, save_data:str=None, alpha:int=4) -> list[float]:
+                        n_clusters:int, save_data:str=None, alpha:int=4) -> list:
         ''' Plots the embedding and shows Enet and WHO predictions.
 
         Parameters
