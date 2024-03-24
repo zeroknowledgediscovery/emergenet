@@ -3,11 +3,12 @@ Name: emergenet
 Version: 0.2.7
 Summary: Superfast Risk Estimation of Emerging Pathogens
 Home-page: https://github.com/zeroknowledgediscovery/emergenet
-Download-URL: https://github.com/zeroknowledgediscovery/emergenet/archive/ 0.2.7.tar.gz
 Author: zed.uchicago.edu
 Author-email: ishanu@uchicago.edu
 License: LICENSE
+Download-URL: https://github.com/zeroknowledgediscovery/emergenet/archive/ 0.2.7.tar.gz
 Keywords: computational biology,decision trees,machine learning,emerging pathogens
+Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
 Classifier: Intended Audience :: Science/Research
@@ -17,7 +18,6 @@ Classifier: Programming Language :: Python :: 3.6
 Requires-Python: >=3.6
 Description-Content-Type: text/x-rst
 License-File: LICENSE
-License-File: LICENSE.md
 
 ===============
 Emergenet
@@ -44,4 +44,6 @@ Emergenet
 .. code-block::
 
    from emergenet.emergenet import Enet, save_model, load_model
+
+
 
