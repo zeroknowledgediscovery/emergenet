@@ -2,14 +2,14 @@
 
 ### Directory Structure
 
+The file tree shows relavent directories for the current version of the project.
+
 ```
 Emergenet
-├── emergenet : files for Emergenet package
-├── examples : examples using the Emergenet package
-├── paper_data_v2 : results for current version of the paper
-├── paper_data_v1 : results for older versions of the paper, not used in current version
-├── paper_data_v0 : results for older versions of the paper, not used in current version
-└── tex : contains LaTeX and PDF files for paper
+├── emergenet : Emergenet package source code
+├── examples : examples using the emergenet.emergenet and emergenet.domseq modules
+├── paper_data_v3 : results for current version of the paper
+└── tex : LaTeX source files for paper
 ```
 
 ## Description
@@ -34,16 +34,20 @@ pip install emergenet --upgrade
 * [quasinet](https://github.com/zeroknowledgediscovery/quasinet/)
 * numpy 
 * pandas 
-* Levenshtein 
+* matplotlib
+* distance 
 * biopython
 * scikit-learn
-* statsmodels
+* shapely
+* alphashape
 
 ## Usage
 
+Examples are located [here](https://github.com/zeroknowledgediscovery/emergenet/tree/main/examples).
+
 ### Predicting Dominant Sequences
 
-```
+```python
 from emergenet.domseq import DomSeq, save_model, load_model
 
 # initialize DomSeq
@@ -68,26 +72,18 @@ prediction_sequences = domseq.predict_domseq(seq_df=df, pred_seq_df=pred_df, ene
 
 ### Evaluating Sequence Risk
 
+```python
+from emergenet.emergenet import Enet, predict_irat_emergence
+
+# Initialize the Enet
+enet = Enet(analysis_date, ha_seq, na_seq, save_data=SAVE_DIR, random_state=42)
+
+# Estimate the Enet risk scores
+ha_risk, na_risk = enet.risk(sample_size=10000)
+
+# Map the Enet risk scores to the IRAT risk scale
+irat, irat_low, irat_high = predict_irat_emergence(ha_risk, na_risk)
 ```
-from emergenet.emergenet import Enet, save_model, load_model
-
-# initialize Enet
-enet = Enet(seq='target_sequence.fasta', seq_trunc_length=550, random_state=42)
-
-# load data
-df = enet.load_data(filepath='sequences.fasta')
-
-# train enet
-enet_model = enet.train(seq_df=df, sample_size=1000)
-save_model(enet=enet_model, outfile='enet_modes/')
-
-# compute emergence risk score
-erisk, var = enet.emergence_risk(seq_df=df, enet=enet_model, sample_size=1000)
-```
- 
-### Examples
-
-Examples are located [here](https://github.com/zeroknowledgediscovery/emergenet/tree/main/examples).
 
 ## Documentation
 
