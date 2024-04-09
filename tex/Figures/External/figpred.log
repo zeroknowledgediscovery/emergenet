@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  1 DEC 2022 12:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.6.1)  9 APR 2024 11:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2057,1293 +2057,1123 @@ LaTeX Warning: Reference `erisk' on page 1 undefined on input line 30.
 The command '\includegraphics [width=0.98\textwidth ]{Figures/External/seasonal
 pred_both}' has been optimized away. Use '/tikz/external/optimize=false' to dis
 able this.
-(./Figures/figpred.tex
+(./Figures/figpred_v3.tex
 \openout7 = `./Figures/External/figpred.dpth'.
 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
+PGFPlots: reading {Figures/plotdata/irat.csv}
 \tikzexternal@dep@file=\write10
 \openout10 = `./Figures/External/figpred.dep'.
 
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 148.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 153.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 158.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 189.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 205.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 205.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 224.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 243.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 255.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 255.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 255.
+ filtered away) on input line 253.
 
  [warning /pgfplots/warning/plot without coordinates]
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 267.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 267.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 267.
+ filtered away) on input line 265.
 
  [warning /pgfplots/warning/plot without coordinates]
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 277.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-PGFPlots: reading {Figures/plotdata/fulldataframe.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe.csv' has an emp
-ty column name; replacing it by '0'' on input line 277.
-
- [warning /pgfplots/warning/empty column name]
-NOTE: coordinate (-0.3225075937482564,5.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.3115326764141995,4.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.29673375430352,4.4) has been dropped because it is unbound
-ed (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2956959740805424,3.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2926912676710761,3.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2409799211778699,3.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.235900787848641,4.6) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2307377392071816,2.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.2289799257401905,4.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.209372250797113,4.3) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1946531185966865,5.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1624053917945314,3.1) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.1368515330785285,5.3) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0956643063841985,3.7) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0814717591502891,5.8) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.069846708356702,6.2) has been dropped because it is unboun
-ded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0439606934287315,7.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0430370129781231,5.2) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0237569158894373,6.6) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0218220066672006,6.0) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0130736823106119,6.5) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
-NOTE: coordinate (-0.0044201975942504,6.4) has been dropped because it is unbou
-nded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+PGFPlots: reading {Figures/plotdata/irat.csv}
+NOTE: coordinate (11.51293,7.51000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.43000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (11.51293,7.16000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (9.91303,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.65814,6.45000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.41637,7.57000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (6.21312,7.59000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.93619,6.27000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.76145,8.65000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (5.28828,-1.00000) has been dropped because it is unbounded (i
+n x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.97286,5.51000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.28214,5.00000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.21014,4.60000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (4.04529,4.90000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.43441,6.74000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (3.16953,6.18000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.94532,5.30000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.91477,3.94000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.68911,5.96000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.54726,4.26000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (2.52641,3.71000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.96733,5.82000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
+NOTE: coordinate (1.93906,4.39000) has been dropped because it is unbounded (in
+ x). (see also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 277.
+ filtered away) on input line 275.
 
  [warning /pgfplots/warning/plot without coordinates]
-Package pgfplots info on input line 306: fill between: activating layered graph
-ics
-\pgf@layerbox@axis background=\box91
-\pgf@layerboxsaved@axis background=\box92
-\pgf@layerbox@axis grid=\box93
-\pgf@layerboxsaved@axis grid=\box94
-\pgf@layerbox@axis ticks=\box95
-\pgf@layerboxsaved@axis ticks=\box96
-\pgf@layerbox@axis lines=\box97
-\pgf@layerboxsaved@axis lines=\box98
-\pgf@layerbox@axis tick labels=\box99
-\pgf@layerboxsaved@axis tick labels=\box100
-\pgf@layerbox@pre main=\box101
-\pgf@layerboxsaved@pre main=\box102
-\pgf@layerbox@axis descriptions=\box103
-\pgf@layerboxsaved@axis descriptions=\box104
-\pgf@layerbox@axis foreground=\box105
-\pgf@layerboxsaved@axis foreground=\box106
-Package pgfplots info on input line 306: Setting layers 'axis background,axis g
-rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
- foreground'...
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 306.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 305.
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <8> on input line 306.
+(Font)              <8> on input line 305.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 306.
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortE.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortE.csv' has 
-an empty column name; replacing it by '0'' on input line 336.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortE.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortE.csv' has 
-an empty column name; replacing it by '0'' on input line 339.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortE.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortE.csv' has 
-an empty column name; replacing it by '0'' on input line 344.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortE.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortE.csv' has 
-an empty column name; replacing it by '0'' on input line 348.
-
- [warning /pgfplots/warning/empty column name]
-Package pgfplots info on input line 356: fill between: activating layered graph
-ics
-Package pgfplots info on input line 356: Setting layers 'axis background,axis g
-rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
- foreground'...
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortI.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortI.csv' has 
-an empty column name; replacing it by '0'' on input line 390.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortI.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortI.csv' has 
-an empty column name; replacing it by '0'' on input line 393.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortI.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortI.csv' has 
-an empty column name; replacing it by '0'' on input line 398.
-
- [warning /pgfplots/warning/empty column name]
-PGFPlots: reading {Figures/plotdata/fulldataframe_sortI.csv}
-
-Package pgfplots Warning: Table 'Figures/plotdata/fulldataframe_sortI.csv' has 
-an empty column name; replacing it by '0'' on input line 402.
-
- [warning /pgfplots/warning/empty column name]
-Package pgfplots info on input line 409: fill between: activating layered graph
-ics
-Package pgfplots info on input line 409: Setting layers 'axis background,axis g
-rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
- foreground'...
+(Font)              scaled to size 7.59998pt on input line 305.
 <Figures/bionorad.pdf, id=34, 1445.4pt x 531.61324pt>
 File: Figures/bionorad.pdf Graphic file (type pdf)
 <use Figures/bionorad.pdf>
-Package pdftex.def Info: Figures/bionorad.pdf  used on input line 418.
+Package pdftex.def Info: Figures/bionorad.pdf  used on input line 417.
 (pdftex.def)             Requested size: 496.33034pt x 182.5469pt.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <5> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 442.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 441.
 [1
 \providecommand \oddpage@label [2]{}
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./Figures/b
@@ -3462,13 +3292,13 @@ LaTeX Warning: Reference `tabcor' on page 3 undefined on input line 56.
 LaTeX Warning: Reference `figsoa' on page 3 undefined on input line 56.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 62.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 58.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 62.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 58.
 
 
-LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 62.
+LaTeX Warning: Reference `figscheme' on page 3 undefined on input line 58.
 
 
 Package natbib Warning: Citation `agor2018models' on page 3 undefined on input 
@@ -3491,137 +3321,128 @@ LaTeX Warning: Reference `tabrec0' on page 3 undefined on input line 70.
 LaTeX Warning: Reference `tabrec3' on page 3 undefined on input line 70.
 
 
-LaTeX Warning: Reference `tabrec4' on page 3 undefined on input line 70.
-
-
-LaTeX Warning: Reference `tabrec11' on page 3 undefined on input line 70.
-
-
 LaTeX Warning: Reference `figseasonal' on page 3 undefined on input line 70.
 
 
-LaTeX Warning: Reference `figseasonal' on page 3 undefined on input line 70.
+LaTeX Warning: Reference `figseq' on page 4 undefined on input line 76.
 
 
-LaTeX Warning: Reference `tabrec8' on page 3 undefined on input line 70.
-
-
-LaTeX Warning: Reference `tabrec11' on page 3 undefined on input line 70.
-
-
-LaTeX Warning: Reference `figseq' on page 4 undefined on input line 72.
-
-
-LaTeX Warning: Reference `figseq' on page 4 undefined on input line 72.
+LaTeX Warning: Reference `figseq' on page 4 undefined on input line 76.
 
 
 Package natbib Warning: Citation `carugo2001normalized' on page 4 undefined on 
-input line 72.
+input line 76.
 
 
 Package natbib Warning: Citation `righetto2014comparative' on page 4 undefined 
-on input line 72.
+on input line 76.
 
 
-LaTeX Warning: Reference `figdom' on page 4 undefined on input line 72.
+LaTeX Warning: Reference `figdom' on page 4 undefined on input line 76.
 
 
-LaTeX Warning: Reference `eqrho' on page 4 undefined on input line 81.
+LaTeX Warning: Reference `irattab' on page 4 undefined on input line 87.
 
 
-LaTeX Warning: Reference `figirat' on page 4 undefined on input line 81.
+LaTeX Warning: Reference `figirat' on page 4 undefined on input line 87.
 
 
-LaTeX Warning: Reference `irattab_current' on page 4 undefined on input line 84
+LaTeX Warning: Reference `eqrho' on page 4 undefined on input line 87.
+
+
+LaTeX Warning: Reference `figirat' on page 4 undefined on input line 87.
+
+
+LaTeX Warning: Reference `irattab_current' on page 4 undefined on input line 90
 .
 
 
 LaTeX Warning: Reference `tabregGLMemergence' on page 4 undefined on input line
- 86.
+ 92.
 
 
-LaTeX Warning: Reference `tabregGLMimpact' on page 4 undefined on input line 86
+LaTeX Warning: Reference `tabregGLMimpact' on page 4 undefined on input line 92
 .
 
 
-LaTeX Warning: Reference `figirat' on page 4 undefined on input line 86.
+LaTeX Warning: Reference `figirat' on page 4 undefined on input line 92.
 
 
-LaTeX Warning: Reference `figphylo' on page 4 undefined on input line 86.
+LaTeX Warning: Reference `figphylo' on page 4 undefined on input line 92.
 
 
-LaTeX Warning: Reference `figphylo' on page 4 undefined on input line 86.
+LaTeX Warning: Reference `figphylo' on page 4 undefined on input line 92.
 
 
-LaTeX Warning: Reference `highrisktab' on page 4 undefined on input line 86.
+LaTeX Warning: Reference `highrisktab' on page 4 undefined on input line 92.
 
 
-LaTeX Warning: Reference `figriskyseq' on page 4 undefined on input line 87.
+LaTeX Warning: Reference `figriskyseq' on page 4 undefined on input line 93.
 
 
-Package natbib Warning: Citation `ma2009pig' on page 4 undefined on input line 
-91.
-
-
-Package natbib Warning: Citation `nelson2018origins' on page 4 undefined on inp
-ut line 91.
-
-
-Package natbib Warning: Citation `reid2003origin' on page 4 undefined on input 
-line 91.
-
-
-Package natbib Warning: Citation `Baumann' on page 4 undefined on input line 91
-.
-
-
-Package natbib Warning: Citation `qi2013probable' on page 4 undefined on input 
-line 92.
-
-
-Package natbib Warning: Citation `sun2021mink' on page 4 undefined on input lin
-e 92.
-
-
-Package natbib Warning: Citation `posada1998modeltest' on page 5 undefined on i
-nput line 95.
-
-
-Package natbib Warning: Citation `goldberger2005genomic' on page 5 undefined on
- input line 95.
-
-
-Package natbib Warning: Citation `huelsenbeck1997phylogeny' on page 5 undefined
- on input line 95.
-
-
-Package natbib Warning: Citation `neher2014predicting' on page 5 undefined on i
-nput line 95.
-
-
-Package natbib Warning: Citation `VanderMeer2010' on page 5 undefined on input 
-line 95.
-
-
-Package natbib Warning: Citation `Smith2009' on page 5 undefined on input line 
+Package natbib Warning: Citation `ma2009pig' on page 5 undefined on input line 
 95.
 
 
+Package natbib Warning: Citation `nelson2018origins' on page 5 undefined on inp
+ut line 95.
+
+
+Package natbib Warning: Citation `reid2003origin' on page 5 undefined on input 
+line 95.
+
+
+Package natbib Warning: Citation `Baumann' on page 5 undefined on input line 95
+.
+
+
+Package natbib Warning: Citation `qi2013probable' on page 5 undefined on input 
+line 96.
+
+
+Package natbib Warning: Citation `sun2021mink' on page 5 undefined on input lin
+e 96.
+
+
+Package natbib Warning: Citation `posada1998modeltest' on page 5 undefined on i
+nput line 99.
+
+
+Package natbib Warning: Citation `goldberger2005genomic' on page 5 undefined on
+ input line 99.
+
+
+Package natbib Warning: Citation `huelsenbeck1997phylogeny' on page 5 undefined
+ on input line 99.
+
+
+Package natbib Warning: Citation `neher2014predicting' on page 5 undefined on i
+nput line 99.
+
+
+Package natbib Warning: Citation `VanderMeer2010' on page 5 undefined on input 
+line 99.
+
+
+Package natbib Warning: Citation `Smith2009' on page 5 undefined on input line 
+99.
+
+
 Package natbib Warning: Citation `mollentze2021identifying' on page 5 undefined
- on input line 95.
+ on input line 99.
 
 
 Package natbib Warning: Citation `maher2021predicting' on page 5 undefined on i
-nput line 95.
+nput line 99.
 
 
-LaTeX Warning: Reference `tabreg' on page 5 undefined on input line 97.
+LaTeX Warning: Reference `tabreg' on page 5 undefined on input line 101.
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.05249> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 100.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <14.05249> not available
 
-(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 100.
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 104.
 (./method.tex
 
 LaTeX Warning: Reference `figscheme' on page 5 undefined on input line 6.
@@ -3712,24 +3533,20 @@ LaTeX Warning: Reference `tabreg' on page 8 undefined on input line 192.
 LaTeX Warning: Reference `tabreg' on page 8 undefined on input line 194.
 
 
-LaTeX Warning: Reference `tabregGLMemergence' on page 8 undefined on input line
+LaTeX Warning: Reference `tabregGLMemergence' on page 9 undefined on input line
  197.
 
 )
 
-Package natbib Warning: Citation `mcauley2019influenza' on page 9 undefined on 
-input line 112.
-
-
 Package natbib Warning: Citation `hatcher2017virus' on page 9 undefined on inpu
-t line 112.
+t line 120.
 
 
 Package natbib Warning: Citation `bogner2006global' on page 9 undefined on inpu
-t line 112.
+t line 120.
 
 
-LaTeX Warning: Reference `tabseq' on page 9 undefined on input line 112.
+LaTeX Warning: Reference `tabseq' on page 9 undefined on input line 120.
 
 No file ./Figures/External/figpred.bbl.
 (./extfiguresandtables.tex (./Figures/tabdata/improvement_qnet.tex
@@ -3737,48 +3554,48 @@ LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <7> not available
 (Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <5> not available
 (Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 1.
-)
-Overfull \hbox (2.58057pt too wide) in paragraph at lines 1--25
- [][] 
+
+Overfull \hbox (2.66801pt too wide) in paragraph at lines 3--3
+ \OT1/phv/m/n/7 Gene| 
  []
 
-(./Figures/tabdata/north_h1n1_ha.tex) (./Figures/tabdata/south_h1n1_ha.tex)
+) (./Figures/tabdata/north_h1n1_ha.tex) (./Figures/tabdata/south_h1n1_ha.tex)
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 59.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 59.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 60.
 
-LaTeX Warning: Float too large for page by 17.26901pt on input line 60.
+LaTeX Warning: Float too large for page by 10.26901pt on input line 61.
 
 (./Figures/tabdata/north_h3n2_ha.tex) (./Figures/tabdata/south_h3n2_ha.tex)
 The command '\includegraphics [width=0.87\textwidth ]{Figures/External/sequence
 .pdf}' has been optimized away. Use '/tikz/external/optimize=false' to disable 
 this.
 LaTeX Font Info:    Font shape `OT1/ccr/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 116.
+(Font)              Font shape `OT1/cmr/bx/n' tried instead on input line 117.
 
 Package natbib Warning: Citation `tzarum2015structure' on page 12 undefined on 
-input line 116.
+input line 117.
 
 
 Package natbib Warning: Citation `lazniewski2018structural' on page 12 undefine
-d on input line 116.
+d on input line 117.
 
 
 Package natbib Warning: Citation `garcia2015dynamic' on page 12 undefined on in
-put line 116.
+put line 117.
 
 
 Package natbib Warning: Citation `tzarum2015structure' on page 12 undefined on 
-input line 116.
+input line 117.
 
 
 Package natbib Warning: Citation `lazniewski2018structural' on page 12 undefine
-d on input line 116.
+d on input line 117.
 
 
 Package natbib Warning: Citation `garcia2015dynamic' on page 12 undefined on in
-put line 116.
+put line 117.
 
 (./Figures/tabdata/irat_predictions.tex
 Overfull \hbox (2.84526pt too wide) in paragraph at lines 3--3
@@ -3796,34 +3613,6 @@ d.pdf}' has been optimized away. Use '/tikz/external/optimize=false' to disable
  this.
 The command '\includegraphics [width=.6\textwidth ]{Figures/External/dom.pdf}' 
 has been optimized away. Use '/tikz/external/optimize=false' to disable this.
-(./Figures/tabdata/north_h1n1_na.tex) (./Figures/tabdata/south_h1n1_na.tex) (./
-Figures/tabdata/north_h3n2_na.tex) (./Figures/tabdata/south_h3n2_na.tex) (./Fig
-ures/tabdata/north_h1n1_na_3cluster.tex)
-Overfull \hbox (5.62097pt too wide) in paragraph at lines 1--183
- [][] 
- []
-
-(./Figures/tabdata/south_h1n1_na_3cluster.tex)
-Overfull \hbox (5.62097pt too wide) in paragraph at lines 1--198
- [][] 
- []
-
-(./Figures/tabdata/north_h3n2_na_3cluster.tex)
-Overfull \hbox (5.62097pt too wide) in paragraph at lines 1--213
- [][] 
- []
-
-(./Figures/tabdata/south_h3n2_na_3cluster.tex)
-Overfull \hbox (5.62097pt too wide) in paragraph at lines 1--228
- [][] 
- []
-
-(./Figures/tabdata/irat_predictions_current.tex
-Overfull \hbox (2.84526pt too wide) in paragraph at lines 3--3
-\OT1/phv/m/n/7 A/swine/Shandong/1207/2016|  
- []
-
-)
 File: Figures/tabdata/model_emergence_simple.txt  (verbatim)
 File: Figures/tabdata/model_emergence_complex.txt  (verbatim)
 File: Figures/tabdata/model_impact_simple.txt  (verbatim)
@@ -3888,39 +3677,36 @@ File: Figures/tabdata/model2.txt  (verbatim)
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 139.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 144.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
- ) 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 144.
+ )
+(\end occurred when \iftrue on line 237 was incomplete) 
 Here is how much of TeX's memory you used:
- 48104 strings out of 492678
- 1081536 string characters out of 6133536
- 1950673 words of memory out of 11000000
- 50978 multiletter control sequences out of 15000+600000
+ 47984 strings out of 492678
+ 1078419 string characters out of 6133536
+ 1813691 words of memory out of 11000000
+ 50888 multiletter control sequences out of 15000+600000
  102370 words of font info for 244 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 68i,14n,107p,2397b,2777s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concrete/ccr6.60
-0pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fonts
-/xccsy6.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/conc
-math-fonts/xccsy8.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.
-enc} </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concrete/ccr8.
-600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/concmath-fon
-ts/xccmi8.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfour/public/co
-ncmath-fonts/xccmi10.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/ljfou
-r/public/concrete/ccr10.600pk> </home/ishanu/.texlive2018/texmf-var/fonts/pk/lj
-four/public/concmath-fonts/xccsy10.600pk></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
-vetic/uhvr8a.pfb>
-Output written on ./Figures/External/figpred.pdf (1 page, 3429817 bytes).
+ 65i,16n,107p,2471b,2873s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/base/8r.enc} </home/ishanu/.texlive2018/texmf-var/fonts/
+pk/ljfour/public/concrete/ccr8.600pk> </home/ishanu/.texlive2018/texmf-var/font
+s/pk/ljfour/public/concmath-fonts/xccmi8.600pk> </home/ishanu/.texlive2018/texm
+f-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk> </home/ishanu/.texli
+ve2018/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.600pk></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on ./Figures/External/figpred.pdf (1 page, 3415025 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
