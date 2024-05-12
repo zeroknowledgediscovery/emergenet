@@ -1,21 +1,25 @@
 \begin{tikzpicture}[font=\sffamily\fontsize{10}{9}\selectfont]
     \def\RFILE{Figures/plotdata/irat.csv}
-  \def\WDT{5.10in}
+    \def\RFILE{..//paper_data_v3/irat_enet/final_irat_model/results/irat1.csv}
+  \def\WDT{6.25in}
   \def\HGT{4.35in}
   \def\WDTs{1.6in}
   \def\HGTs{1.6in}
   \def\OPC{.2}
   \def\XFT{-.765in}
 \def\TEXTCOLA{black!50}
-\def\MCOL{DodgerBlue1!60}
+\def\MCOL{DodgerBlue4!60}
 \def\COLBLUE{DodgerBlue3}
-\def\DCOL{black}
+\def\DCOL{black!20}
 \def\TXTSZ{6}
 \def\GGCOL{black!15}
       \def\FCOL{DarkOrange1!50}
       \def\FCOLA{DarkOrange2!50}
   \def\AXISCOL{black!15}
 
+\clip (-3.8in,-5.3in) rectangle (3in,2.75in);
+
+  
   \coordinate (Z) at (0,0);
     \node[] (A) at (Z) {
   \begin{tikzpicture}[anchor=center]
@@ -90,7 +94,7 @@
         font=\bf\fontsize{\TXTSZ}{5}\selectfont,
       text=\TEXTCOLA,
     nodes near coords style={
-        anchor=west,xshift=.020in,
+        anchor=west,xshift=0.02in,
       },
     },
     % define the style of the `nodes near coords' that should be shown
@@ -117,7 +121,7 @@
       axis line style={\AXISCOL, opacity=1,thin, rounded corners=0pt},
       grid style={thin,\GGCOL},
       grid=both,
-      enlargelimits=0.01, 
+      enlargelimits=false, 
       width=\WDT, 
       height=\HGT,
       scaled ticks = false,
@@ -130,36 +134,36 @@
       yticklabel style={xshift=-.015in}, nodes near coords,
       point meta=explicit symbolic,
       table/meta=Influenza Virus,      axis on top=false,
-      %ymax=7.6,
-      xlabel={negative geometric mean of HA and NA \qdist },ylabel={CDC computed IRAT emergence score},xlabel style={yshift=-.1in},ylabel style={yshift=-.12in},
-%axis x line=bottom,
-%axis y line=left,
-      ymin=3.5,
-      xmin=1,
-%ymax=7.7,
+      xlabel={negative logarithm of geometric mean of HA and NA \qdist },ylabel={CDC computed IRAT emergence score},xlabel style={yshift=-.1in},ylabel style={yshift=-.12in},ymin=2.5,xmax=7.75,xmin=1.75,
       ]
 
+      % \addplot[smooth, ultra thick,draw=none, opacity=1,mark=*,
+      % nodes near coords null style, ] table[col sep=comma,columns/Influenza Virus/.style={string type},
+      % x=logrisk,y=Emergence Score] \RFILE;
+      % \addplot[smooth, ultra thick,draw=black, opacity=1,mark=none,
+      % nodes near coords null style, ] table[col sep=comma,columns/Influenza Virus/.style={string type},
+      % x=logrisk,y=pred_GM] \RFILE;
 
 
       \addplot[smooth, ultra thick,draw=white, opacity=1,mark=none,
-      nodes near coords null style, ] table[col sep=comma,columns/Influenza Virus/.style={string type},
-      x=Geom Mean Risk,y=Mean High Acceptable Emergence] \RFILE;
+      nodes near coords null style, ] table[col sep=comma,
+      x=logrisk,y=pred_GM] \RFILE;
 
-      %XXXXX
-      % \addplot[nodes near coords null style,forget plot,
-      % name path=UB,smooth, ultra thick,
-      % mark=none,draw=none ] table[col sep=comma,
-      % x=Geom Mean Risk,y=ub_GM] \RFILE;
+      \addplot[nodes near coords null style,forget plot,
+      name path=UB,smooth, ultra thick,
+      mark=none,draw=none ] table[col sep=comma,
+      x=logrisk,y=ub_GM] \RFILE;
       
-      % \addplot[nodes near coords null style,
-      % forget plot, name path=LB,smooth,
-      % ultra thick, mark=none,draw=none ] table[col sep=comma,
-      % x=Geom Mean Risk,y=lb_GM] \RFILE;
+      \addplot[nodes near coords null style,
+      forget plot, name path=LB,smooth,
+      ultra thick, mark=none,draw=none ] table[col sep=comma,
+      x=logrisk,y=lb_GM] \RFILE;
       
-      % \addplot[nodes near coords null style,
-      % forget plot,\FCOLA,opacity=1] fill between[of=LB and UB];
-
-          \addplot[only marks, mark=*,
+      \addplot[nodes near coords null style,
+      forget plot,\FCOLA,opacity=1] fill between[of=LB and UB];
+      
+     
+      \addplot[only marks, mark=*,
       mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.5},
       nodes near coords below style,      
       discard if={Influenza Virus}{A/Shanghai/02/2013},
@@ -183,13 +187,13 @@
       discard if={Influenza Virus}{A/American green-winged teal/Washington/1957050/2014},
       discard if={Influenza Virus}{A/Northern pintail/Washington/40964/2014},
       discard if={Influenza Virus}{A/Netherlands/219/2003} ]
-      table[x=Geom Mean Risk,
-      y=Mean High Acceptable Emergence,col sep=comma] \RFILE;
+      table[x=logrisk,
+      y=Emergence Score,col sep=comma] \RFILE;
 
 
       \pgfplotsinvokeforeach {
-        A/canine/Illinois/12191/2015,
-        A/Netherlands/219/2003%
+         A/Northern pintail/Washington/40964/2014,
+       A/Netherlands/219/2003%
       } {
         \addplot+ [only marks,
         mark=*,
@@ -198,16 +202,16 @@
         forget plot,text=black,
         nodes near coords above style,
         discard if not={Influenza Virus}{#1},
-        ] table[x=Geom Mean Risk,
-        y=Mean High Acceptable Emergence,col sep=comma]\RFILE;
+        ] table[x=logrisk,
+        y=Emergence Score,col sep=comma]\RFILE;
       }
 
 
       \pgfplotsinvokeforeach {
+        A/Jiangxi-Donghu/346/2013,
         A/turkey/Indiana/1573-2/2016,
         A/American green-winged teal/Washington/1957050/2014,
         A/chicken/Tennessee/17-007147-2/2017,
-        A/Northern pintail/Washington/40964/2014,
         A/American wigeon/South Carolina/AH0195145/2021,
         A/chicken/Tennessee/17-007431-3/2017,A/Astrakhan/3212/2020,
         A/Yunnan/14564/2015%
@@ -217,12 +221,13 @@
         forget plot,
         nodes near coords right style,
         discard if not={Influenza Virus}{#1},
-        ] table[x=Geom Mean Risk,
-        y=Mean High Acceptable Emergence,col sep=comma]\RFILE;
+        ] table[x=logrisk,
+        y=Emergence Score,col sep=comma]\RFILE;
       }
 
       \pgfplotsinvokeforeach {
        % A/swine/Shandong/1207/2016,
+        A/canine/Illinois/12191/2015,
         A/Indiana/08/2011,
         A/Shanghai/02/2013,
         A/Hong Kong/125/2017,
@@ -236,8 +241,8 @@
         forget plot,
         nodes near coords left style,
         discard if not={Influenza Virus}{#1},
-        ] table[x=Geom Mean Risk,
-        y=Mean High Acceptable Emergence,col sep=comma]\RFILE;
+        ] table[x=logrisk,
+        y=Emergence Score,col sep=comma]\RFILE;
       }
 
       \pgfplotsinvokeforeach {
@@ -248,8 +253,8 @@
         forget plot,
         nodes near coords axove style,
         discard if not={Influenza Virus}{#1},
-        ] table[x=Geom Mean Risk,
-        y=Mean High Acceptable Emergence,col sep=comma]\RFILE;
+        ] table[x=logrisk,
+        y=Emergence Score,col sep=comma]\RFILE;
       }
 
      \pgfplotsinvokeforeach {
@@ -260,154 +265,49 @@
         forget plot,
         nodes near coords belox style,
         discard if not={Influenza Virus}{#1},
-        ] table[x=Geom Mean Risk,
-        y=Mean High Acceptable Emergence,col sep=comma]\RFILE;
+        ] table[x=logrisk,
+        y=Emergence Score,col sep=comma]\RFILE;
       }
-     \pgfplotsinvokeforeach {A/Jiangxi-Donghu/346/2013,
-      } {
-        \addplot+ [only marks,
-        mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.50},
-        forget plot,
-        nodes near coords beloxx style,
-        discard if not={Influenza Virus}{#1},
-        ] table[x=Geom Mean Risk,
-        y=Mean High Acceptable Emergence,col sep=comma]\RFILE;
-      }
+     % \pgfplotsinvokeforeach {A/Jiangxi-Donghu/346/2013,
+     %  } {
+     %    \addplot+ [only marks,
+     %    mark=*,mark options={fill=black,fill=\MCOL,draw=\DCOL,scale=1.50},
+     %    forget plot,
+     %    nodes near coords beloxx style,
+     %    discard if not={Influenza Virus}{#1},
+     %    ] table[x=logrisk,
+     %    y=Emergence Score,col sep=comma]\RFILE;
+     %  }
 
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.23,3) {H7N9};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.16,3.265) {H7N9};
-  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.31,5.2) {H5N6};
-  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.315,4.45) {H7N7};
- \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.296,4.25) {H5N1};
-  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.296,3.27) {H7N8};
-   \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.31,3.6) {H5N1};
-  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.26,3.8) {H5N2};
- \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.25,4.6) {H5N8};
-   \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.245,4.2) {H5N8};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.225,4.3) {H10N8};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.19,5.8) {H9N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.15,5.42) {H5N6};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.08,3.7) {H3N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.067,5.8) {H1N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.055,6.2) {H9N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.06,7.5) {H1N1};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.06,5.2) {H5N1};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.0375,6.6) {H3N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.08,6.55) {H7N9};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.02,6.25) {H7N9};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:-0.02,5.85) {H3N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.5,3) {H7N9};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.9,3.265) {H7N9};
+  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5,5.2) {H5N6};
+  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.5,4.4) {H10N8};
+ \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.75,4.15) {H5N8};
+  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.4,3.27) {H7N8};
+   \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:4.25,3.45) {H5N1};
+  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:3.9,3.8) {H5N2};
+ \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2,4.8) {H7N7};
+   \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:4.4,3.8) {H5N8};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5,4.3) {H10N8};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,6) {H9N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,5.4) {H5N6};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:6,6.8) {H3N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,5.87) {H3N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:6,5.1) {H5N1};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,7.2) {H1N1};
+ \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.05,4.45) {H5N8};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,4.8) {H5N1};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,6.55) {H7N9};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,6.25) {H7N9};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,5.65) {H1N2};
 
 
-            \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:-.25,6.5) {$R = 0.704$\\p-value\\$0.00026$};
+            \node [text=\COLBLUE,anchor=north west,fill=lightgray!20, fill opacity=.5, inner sep=6pt, rounded corners=5pt,,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:2,6.5) {Regression Eqn: $y = 0.47x + 2.77$\\$R = 0.72$\\p-value: $0.0001$};
 
-  
-      
+            
     \end{axis}
   \end{tikzpicture}};
-% \node[anchor=north west] (B) at ([xshift=\XFT]A.north east) {
-%       \def\RFILE{Figures/plotdata/fulldataframe_sortE.csv}
-
-%   \begin{tikzpicture}[anchor=center]
-% \begin{axis}[enlargelimits=false,scale only axis=true,
-%       axis line style={\AXISCOL, opacity=1,thin, rounded corners=0pt},
-%       grid style={thin,\GGCOL},
-%       grid=both,
-%       enlargelimits=0.015, 
-%       width=\WDTs, 
-%       height=\HGTs,
-%       scaled ticks = false,
-%       x tick label style={yshift=-.05in,/pgf/number format/fixed,
-%         /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
-%       },yticklabel style={/pgf/number format/fixed,
-%         /pgf/number format/precision=2},,xticklabel style={/pgf/number format/fixed,
-%         /pgf/number format/precision=2},
-%       major tick length=0pt,
-%       yticklabel style={xshift=-.015in}, %nodes near coords,
-%       %point meta=explicit symbolic,
-%       %table/meta=Influenza Virus,
-%       axis on top=false,
-%       ymax=7.6,
-%       xmin=3.25,xmax=6.8,      xlabel={predicted emergence score},
-%       ylabel={IRAT emergence score (CDC)},,xlabel style={yshift=-.05in,xshift=0in},ylabel style={yshift=-.225in,xshift=-.2in},
-%       ]
-
-%         \addplot[smooth, only marks, mark=*, mark options={fill=white,scale=.8},, opacity=1,mark=none, ] table[col sep=comma,
-%       y=Mean High Acceptable Emergence,x=Emergenet emergence estimate] \RFILE;
-
-%       \addplot[smooth, ultra thick,draw=white, opacity=1,mark=none, ] table[col sep=comma,
-%       y=pred_E,x=Emergenet emergence estimate] \RFILE;
-
-%       \addplot[forget plot,
-%       name path=UB,smooth, ultra thick,
-%       mark=none,draw=none ] table[col sep=comma,
-%       y=ub_E,x=Emergenet emergence estimate] \RFILE;
-      
-%       \addplot[forget plot, name path=LB,smooth,
-%       ultra thick, mark=none,draw=none ] table[col sep=comma,
-%       y=lb_E,x=Emergenet emergence estimate] \RFILE;
-      
-%       \addplot[forget plot,\FCOL,opacity=1] fill between[of=LB and UB];
-
-%       \node [text=\COLBLUE,anchor=north west,fill=white,align=left] (LLEQ1) at (axis cs:3.30,7.3) {OLS fit:\\$y=.91x+.51$};
-
-%         \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:5,4) {$R = 0.76$\\p-value\\$3.6\times 10^{-5}$};
-
-% \end{axis}
-%   \end{tikzpicture}
-%   };
-
-
-% \node[anchor=south west] (C) at ([xshift=\XFT]A.south east) {
-%       \def\RFILE{Figures/plotdata/fulldataframe_sortI.csv}
-
-%   \begin{tikzpicture}[anchor=center]
-% \begin{axis}[enlargelimits=false,scale only axis=true,
-%       axis line style={\AXISCOL, opacity=1,thin, rounded corners=0pt},
-%       grid style={thin,\GGCOL},
-%       grid=both,
-%       enlargelimits=0.015, 
-%       width=\WDTs, 
-%       height=\HGTs,
-%       scaled ticks = false,
-%       x tick label style={yshift=-.05in,/pgf/number format/fixed,
-%         /pgf/number format/1000 sep = %\thinspace % Optional if you want to replace comma as the 1000 separator 
-%       },yticklabel style={/pgf/number format/fixed,
-%         /pgf/number format/precision=2},,xticklabel style={/pgf/number format/fixed,
-%         /pgf/number format/precision=2},
-%       major tick length=0pt,
-%       yticklabel style={xshift=-.015in}, %nodes near coords,
-%       %point meta=explicit symbolic,
-%       %table/meta=Influenza Virus,
-%       axis on top=false,
-%       ymax=7.6,      xmin=3.75,xmax=6.8,
-%       xlabel={predicted impact score},
-%       ylabel={IRAT impact score (CDC)},,xlabel style={yshift=-.05in,xshift=0in},ylabel style={yshift=-.225in,xshift=-.2in},
-%       ]
-
-      
-%       \addplot[smooth, only marks, mark=*, mark options={fill=white,scale=.8},, opacity=1,mark=none, ] table[col sep=comma,
-%       y=IRAT Impact Estimate,x=Emergenet impact estimate] \RFILE;
-
-%       \addplot[smooth, ultra thick,draw=white, opacity=1,mark=none, ] table[col sep=comma,
-%       y=pred_I,x=Emergenet impact estimate] \RFILE;
-
-%       \addplot[forget plot,
-%       name path=UB,smooth, ultra thick,
-%       mark=none,draw=none ] table[col sep=comma,
-%       y=ub_I,x=Emergenet impact estimate] \RFILE;
-      
-%       \addplot[forget plot, name path=LB,smooth,
-%       ultra thick, mark=none,draw=none ] table[col sep=comma,
-%       y=lb_I,x=Emergenet impact estimate] \RFILE;
-      
-%       \addplot[forget plot,\FCOL,opacity=1] fill between[of=LB and UB];
-
-
-%       \node [text=\COLBLUE,anchor=north west,fill=white,align=left] (LLEQ1) at (axis cs:3.75,7.3) {OLS fit:\\$y=0.81x+1.15$};
-%         \node [text=\COLBLUE,anchor=north west,fill=white,align=left,font=\bf\sffamily\fontsize{8}{9}\selectfont] (LLEQ1) at (axis cs:5.25,4.5) {$R = 0.53$\\p-value\\$0.01$};
-% \end{axis}
-%   \end{tikzpicture}
-%   };
 
 
   \node[anchor=north west] (W) at ([yshift=-.4in]A.south west) {
@@ -463,7 +363,7 @@
 \node[anchor=south west] (LA) at (A.north west) {{\Large a.} \bf Predicted emergence risk vs published IRAT scores};
 %\node[anchor=south west,align=left] (LB) at ([xshift=0in]B.north west) {{\Large b.} \bf Estimating emergence};
 %\node[anchor=south west] (LC) at ([xshift=.1in]C.north west) {{\Large c.} \bf Estimating  impact};
-\node[anchor=south west] (LW) at ([xshift=.1in]W.north west) {{\Large d.} \bf Global prediction of IRAT scored for all \infl sequences collected since 2020};
+\node[anchor=south west] (LW) at ([xshift=0in]W.north west) {{\Large b.} \bf Global prediction of IRAT scored for all \infl sequences collected since 2020};
 
 
 \end{tikzpicture}
