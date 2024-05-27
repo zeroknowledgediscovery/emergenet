@@ -67,13 +67,13 @@
    \else 
    \includegraphics[width=\textwidth]{Figures/External/figpred}
    \fi
-   \vspace{-20pt}
-   
+   \vspace{-10pt} 
+    
   \captionN{\textbf{\enet based estimation of IRAT score}. a, We find  an approximate linear relationship between average E-distance from human circulating strains (negative geometric mean of the \qdist for  HA and NA sequences) and the published IRAT emergence scores calculated by the CDC. b, Estimation of the IRAT emergence score via fitting a  GLM model to  the \qdist{es} estimated from the \enet.  c, Estimation of IRAT impact scores via fitting a separate GLM model to the the \qdist{es}. d, Identifying risky \infl strains amongst those collected between 01/2020-09/2022 using our approach.
   }\label{figirat}
 \end{figure*}
 \else
-\refstepcounter{figure}\label{figirat}
+\refstepcounter{figure}\label{figirat} 
 \fi
 %#############################################
 %#############################################
@@ -86,13 +86,13 @@
   \centering
 %\tikzXtrue
   \iftikzX 
-   \input{Figures/figphylo}  
+   \input{Figures/figphylo_v3}  
    \else 
-   \includegraphics[width=.9\textwidth]{Figures/External/figphylo}
+   \includegraphics[width=.77\textwidth]{Figures/External/figphylo}
    \fi
    \vspace{-10pt}
 
-\captionN{Standard phylogeny constructed with edit distances,  with all  \infl strains collected between 01/2020-09/2022, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 15 edits in the HA, displaying the most risky strains in the collapsed group. The top risky strains are marked with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
+\captionN{Phylogeny constructed with edit distances,  with  \infl strains collected between 01/2020-09/2023, with estimated IRAT emergence risk $> 6.0$, and collapsing leaves which differ by less than 20 edits in the HA, displaying the most risky strains in the collapsed group. The top risky strains are marked with a red arrowhead, which comes from diverse animal hosts, and geographic regions. }\label{figphylo}
 \end{figure}
 \else
 \refstepcounter{table}\label{figphylo}

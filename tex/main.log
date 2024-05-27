@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  12 MAY 2024 03:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  26 MAY 2024 14:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1975,11 +1975,11 @@ line 48.
  (./Figures/figpred_v3.tex
 ===== Image './Figures/External/figpred' is up-to-date. ======
 )
-<Figures/External/figphylo.pdf, id=53, 453.5053pt x 687.63301pt>
+<Figures/External/figphylo.pdf, id=53, 453.0506pt x 795.59435pt>
 File: Figures/External/figphylo.pdf Graphic file (type pdf)
 <use Figures/External/figphylo.pdf>
 Package pdftex.def Info: Figures/External/figphylo.pdf  used on input line 91.
-(pdftex.def)             Requested size: 446.69426pt x 677.30676pt.
+(pdftex.def)             Requested size: 382.17647pt x 671.15968pt.
 ) [1{/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 
 pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
@@ -3217,10 +3217,6 @@ pdfTeX warning: pdflatex: pop empty color page stack 0
 
 LaTeX Warning: Text page 5 contains only floats.
 
-
-Overfull \vbox (4.0898pt too high) has occurred while \output is active []
-
-
 [5
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
@@ -3271,7 +3267,7 @@ LaTeX Warning: Float too large for page by 2.26901pt on input line 61.
 
 (./Figures/tabdata/north_h3n2_ha.tex) (./Figures/tabdata/south_h3n2_ha.tex)
 [15] [16]
-<Figures/External/sequence.pdf, id=582, 491.435pt x 672.11098pt>
+<Figures/External/sequence.pdf, id=639, 491.435pt x 672.11098pt>
 File: Figures/External/sequence.pdf Graphic file (type pdf)
 <use Figures/External/sequence.pdf>
 Package pdftex.def Info: Figures/External/sequence.pdf  used on input line 111.
@@ -3297,7 +3293,7 @@ Overfull \hbox (2.84526pt too wide) in paragraph at lines 3--3
  []
 
 ) (./Figures/tabdata/riskycount.tex) (./Figures/tabdata/highrisk35.tex)
-<Figures/External/riskyseq.pdf, id=587, 508.01997pt x 748.30365pt>
+<Figures/External/riskyseq.pdf, id=644, 508.01997pt x 748.30365pt>
 File: Figures/External/riskyseq.pdf Graphic file (type pdf)
 <use Figures/External/riskyseq.pdf>
 Package pdftex.def Info: Figures/External/riskyseq.pdf  used on input line 188.
@@ -3341,7 +3337,7 @@ h the same identifier (name{table.3}) has been already used, duplicate ignored
                    \relax 
 l.49 }
       
-<Figures/External/blastvalid.pdf, id=720, 523.9575pt x 334.24875pt>
+<Figures/External/blastvalid.pdf, id=777, 523.9575pt x 334.24875pt>
 File: Figures/External/blastvalid.pdf Graphic file (type pdf)
 <use Figures/External/blastvalid.pdf>
 Package pdftex.def Info: Figures/External/blastvalid.pdf  used on input line 67
@@ -3359,7 +3355,7 @@ used, duplicate ignored
                    \relax 
 l.70 ... both the \enet and the classical metric.}
                                                   \label{figsoa}
-<Figures/External/dom.pdf, id=721, 265.44571pt x 262.63823pt>
+<Figures/External/dom.pdf, id=778, 265.44571pt x 262.63823pt>
 File: Figures/External/dom.pdf Graphic file (type pdf)
 <use Figures/External/dom.pdf>
 Package pdftex.def Info: Figures/External/dom.pdf  used on input line 91.
@@ -3476,10 +3472,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  )
 (\end occurred when \iftrue on line 237 was incomplete) 
 Here is how much of TeX's memory you used:
- 51994 strings out of 478862
- 1142401 string characters out of 5858945
- 2133191 words of memory out of 8000000
- 68415 multiletter control sequences out of 15000+600000
+ 52001 strings out of 478862
+ 1142506 string characters out of 5858945
+ 2113467 words of memory out of 8000000
+ 68422 multiletter control sequences out of 15000+600000
  513877 words of font info for 266 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  111i,14n,108p,2437b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3513,10 +3509,10 @@ ist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
 etic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.p
 fb>
-Output written on main.pdf (24 pages, 9998249 bytes).
+Output written on main.pdf (24 pages, 10423812 bytes).
 PDF statistics:
- 1096 PDF objects out of 1200 (max. 8388607)
- 717 compressed objects within 8 object streams
+ 1152 PDF objects out of 1200 (max. 8388607)
+ 728 compressed objects within 8 object streams
  146 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

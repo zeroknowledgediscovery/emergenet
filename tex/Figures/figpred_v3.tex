@@ -2,8 +2,8 @@
     \def\RFILE{Figures/plotdata/irat.csv}
     \def\RFILE{..//paper_data_v3/irat_enet/final_irat_model/results/irat1.csv}
   \def\WDT{6.25in}
-  \def\HGT{4.35in}
-  \def\WDTs{1.6in}
+  \def\HGT{4in}
+  \def\WDTs{1.60in}
   \def\HGTs{1.6in}
   \def\OPC{.2}
   \def\XFT{-.765in}
@@ -17,7 +17,7 @@
       \def\FCOLA{DarkOrange2!50}
   \def\AXISCOL{black!15}
 
-\clip (-3.8in,-5.3in) rectangle (3in,2.75in);
+\clip (-3.8in,-6in) rectangle (3in,2.45in);
 
   
   \coordinate (Z) at (0,0);
@@ -134,7 +134,7 @@
       yticklabel style={xshift=-.015in}, nodes near coords,
       point meta=explicit symbolic,
       table/meta=Influenza Virus,      axis on top=false,
-      xlabel={negative logarithm of geometric mean of HA and NA \qdist },ylabel={CDC computed IRAT emergence score},xlabel style={yshift=-.1in},ylabel style={yshift=-.12in},ymin=2.5,xmax=7.75,xmin=1.75,
+      xlabel={negative logarithm of geometric mean of HA and NA \qdist },ylabel={CDC computed IRAT emergence score},xlabel style={yshift=0.02in},ylabel style={yshift=-.12in},ymin=2.5,xmax=7.75,xmin=1.75,
       ]
 
       % \addplot[smooth, ultra thick,draw=none, opacity=1,mark=*,
@@ -281,7 +281,7 @@
 
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.5,3) {H7N9};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.9,3.265) {H7N9};
-  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5,5.2) {H5N6};
+  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:3.5,5.2) {H5N6};
   \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.5,4.4) {H10N8};
  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.75,4.15) {H5N8};
   \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.4,3.27) {H7N8};
@@ -291,13 +291,14 @@
    \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:4.4,3.8) {H5N8};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5,4.3) {H10N8};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,6) {H9N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,5.4) {H5N6};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:6,6.8) {H3N2};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,5.87) {H3N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:3.5,5.75) {H9N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:6.2,5.4) {H5N6};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:6.2,6.7) {H3N2};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.35,6.05) {H3N2};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:6,5.1) {H5N1};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,7.2) {H1N1};
  \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:2.05,4.45) {H5N8};
-      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.7,4.8) {H5N1};
+      \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:5.2,5.4) {H5N1};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,6.55) {H7N9};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,6.25) {H7N9};
       \node [anchor=center,font=\bf\sffamily\fontsize{6}{6}\selectfont] at (axis cs:7.25,5.65) {H1N2};
@@ -310,61 +311,65 @@
   \end{tikzpicture}};
 
 
-  \node[anchor=north west] (W) at ([yshift=-.4in]A.south west) {
+  \node[anchor=north west] (W) at ([yshift=-0.2in]A.south west) {
     \begin{tikzpicture}[font=\bf\sffamily\fontsize{8}{8}\selectfont]
  \begin{scope}
- \clip (-3.4in,1.25in) rectangle (3.35in,-1in);
+ \clip (-3.4in,1.70in) rectangle (3.35in,-2.7in);
 \node[anchor=center] (A11) at (0,0) {\includegraphics[width=\textwidth]{Figures/bionorad}};
 \end{scope}
 
-%7.5 7.2 6.8 <6
-\def\TEXTCOLA{black!60}
+% \def\TEXTCOLA{black!60}
 
-\node[circle,fill=white,inner sep=1pt,text width=.185in,draw=\TEXTCOLA,label={[text=gray,xshift=.2in,align=center,font=\bf\sffamily\fontsize{7}{8}\selectfont]90:Predicted emergence  score}] (C1) at ([xshift=-1.65in,yshift=.9in]A11.center) {};
-\node [anchor=west,align=left,text=\TEXTCOLA,] (LL1) at ([xshift=.1in]C1.center) {$6.8$};
-\node[circle,fill=white,text width=.15in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
-\node[circle,fill=white,text width=.1in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
-\node[circle,fill=white,text width=.06in,inner sep=1pt,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
-\node[circle,fill=white,inner sep=1pt,text width=.03in,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.12in]C1.south) {};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.14in]LL1.south) {$6.5$};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.07in]LL1.south) {$6.1$};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.06in]LL1.south) {$5.9$};
-\node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.04in]LL1.south) {$5.5$};
+% \node[circle,fill=white,inner sep=1pt,text width=.185in,draw=\TEXTCOLA,label={[text=gray,xshift=.2in,align=center,font=\bf\sffamily\fontsize{7}{8}\selectfont]90:Predicted emergence  score}] (C1) at ([xshift=-1.65in,yshift=.9in]A11.center) {};
+% \node [anchor=west,align=left,text=\TEXTCOLA,] (LL1) at ([xshift=.1in]C1.center) {$6.8$};
+% \node[circle,fill=white,text width=.15in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
+% \node[circle,fill=white,text width=.1in,draw=\TEXTCOLA,inner sep=1pt,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
+% \node[circle,fill=white,text width=.06in,inner sep=1pt,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.1in]C1.south) {};
+% \node[circle,fill=white,inner sep=1pt,text width=.03in,draw=\TEXTCOLA,,anchor=north,text=\TEXTCOLA] (C1) at ([yshift=-.12in]C1.south) {};
+% \node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.14in]LL1.south) {$6.5$};
+% \node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-.07in]LL1.south) {$6.1$};
+% \node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.06in]LL1.south) {$5.9$};
+% \node [anchor=north,align=left,text=\TEXTCOLA] (LL1) at ([yshift=-0.04in]LL1.south) {$5.5$};
 
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Red1!80,text width=.25in,anchor=north,xshift=-0.050in,yshift=-.351in,label={[font=\bf\sffamily\fontsize{7}{8}\selectfont,
-  xshift=.2in,text=gray]90:subtypes of risky Influenza Viruss}] (X1) at (C1.south) {H1N1};
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=Blue1!80,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X2) at (X1.south) {H3N2};
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=DarkOrange1,text width=.25in,anchor=west,xshift=0.02in,yshift=0in] (X1) at (X1.east) {H9N2};
-\node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Green3!70,text width=.25in,anchor=north,xshift=0in,yshift=-.0501in] (X1) at (X1.south) {H7N9};
+% \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Red1!80,text width=.25in,anchor=north,xshift=-0.050in,yshift=-.351in,label={[font=\bf\sffamily\fontsize{7}{8}\selectfont,
+%   xshift=.2in,text=gray]90:subtypes of risky Influenza Viruss}] (X1) at (C1.south) {H1N1};
+% \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=Blue1!80,text width=.25in,anchor=north,xshift=0in,yshift=-.051in] (X2) at (X1.south) {H3N2};
+% \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,text=white,fill=DarkOrange1,text width=.25in,anchor=west,xshift=0.02in,yshift=0in] (X1) at (X1.east) {H9N2};
+% \node[font=\sffamily\fontsize{6}{6}\selectfont,align=center,fill=Green3!70,text width=.25in,anchor=north,xshift=0in,yshift=-.0501in] (X1) at (X1.south) {H7N9};
 
-\node [text=Red1] (LD2) at ([yshift=-0.25in,xshift=-1.95in]A11.east) {};
-\draw [] (LD2) node [text=DarkOrange3,fill=white,fill opacity=.2,text opacity=1,xshift=-0in,right,below,align=right,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/mink/China/chick\_embryo/2020\\(emergence: 6.3, impact: 6.3)}  -- ++(.4in,0in) -- ++(.24in,.24in) ;
+% \node [text=Red1] (LD2) at ([yshift=-0.25in,xshift=-1.95in]A11.east) {};
+% \draw [] (LD2) node [text=DarkOrange3,fill=white,fill opacity=.2,text opacity=1,xshift=-0in,right,below,align=right,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/mink/China/chick\_embryo/2020\\(emergence: 6.3, impact: 6.3)}  -- ++(.4in,0in) -- ++(.24in,.24in) ;
 
 
-\node [text=Red1] (LD3) at ([yshift=.85in,xshift=-2.10in]A11.east) {};
-\draw [] (LD3) node [text=Green3,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/Camel/Inner\_Mongolia/XL/2020\\(emergence: 6.7, impact: 6.6)}  -- ++(.4in,0in) -- ++(.6in,-.60in) ;
+% \node [text=Red1] (LD3) at ([yshift=.85in,xshift=-2.10in]A11.east) {};
+% \draw [] (LD3) node [text=Green3,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/Camel/Inner\_Mongolia/XL/2020\\(emergence: 6.7, impact: 6.6)}  -- ++(.4in,0in) -- ++(.6in,-.60in) ;
 
-% \node [text=Red1] (LD3) at ([yshift=1.15in,xshift=-1.05in]A11.east) {};
-% \draw [] (LD3) node [text=Red1,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Karaganda/04/2020\\(emergence: 6.27, impact: 6.04)}  -- ++(-.4in,0in) -- ++(-.55in,-.55in) ;
-
-	
-\node [text=Red1] (LD4) at ([yshift=-.5in,xshift=.48in]A11.west) {};
-\draw [] (LD4) node [text=Red1,right,below,xshift=.45in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.71, impact: 6.63)}  -- ++(-.4in,0in) -- ++(.5in,.5in) ;
+% % \node [text=Red1] (LD3) at ([yshift=1.15in,xshift=-1.05in]A11.east) {};
+% % \draw [] (LD3) node [text=Red1,right,above,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Karaganda/04/2020\\(emergence: 6.27, impact: 6.04)}  -- ++(-.4in,0in) -- ++(-.55in,-.55in) ;
 
 	
-\node [text=Red1] (LD4) at ([yshift=.5in,xshift=.8in]A11.west) {};
-\draw [] (LD4) node [text=Blue1,right,above,xshift=.35in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Indiana/A02524710/2020\\(emergence: 6.67, impact: 6.61)}  -- ++(.3in,0in) -- ++(-.25in,-.25in) ;
+% \node [text=Red1] (LD4) at ([yshift=-.5in,xshift=.48in]A11.west) {};
+% \draw [] (LD4) node [text=Red1,right,below,xshift=.45in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Missouri/A02524711/2020\\(emergence: 6.71, impact: 6.63)}  -- ++(-.4in,0in) -- ++(.5in,.5in) ;
+
+	
+% \node [text=Red1] (LD4) at ([yshift=.5in,xshift=.8in]A11.west) {};
+% \draw [] (LD4) node [text=Blue1,right,above,xshift=.35in,align=center,font=\bf\sffamily\fontsize{5}{5}\selectfont,xshift=-.25in] {A/swine/Indiana/A02524710/2020\\(emergence: 6.67, impact: 6.61)}  -- ++(.3in,0in) -- ++(-.25in,-.25in) ;
 
 
 \end{tikzpicture}
     };
 
+\node[anchor=south east] (BB) at ([yshift=1in,xshift=0in]W.south east) {
+\includegraphics[width=.5in]{Figures/hazard}};
+    
   
-\node[anchor=south west] (LA) at (A.north west) {{\Large a.} \bf Predicted emergence risk vs published IRAT scores};
+\node[anchor=south west] (LA) at ([yshift=-.07in]A.north west) {{\Large a.} \bf Predicted emergence risk vs published IRAT scores};
 %\node[anchor=south west,align=left] (LB) at ([xshift=0in]B.north west) {{\Large b.} \bf Estimating emergence};
 %\node[anchor=south west] (LC) at ([xshift=.1in]C.north west) {{\Large c.} \bf Estimating  impact};
-\node[anchor=south west] (LW) at ([xshift=0in]W.north west) {{\Large b.} \bf Global prediction of IRAT scored for all \infl sequences collected since 2020};
+\node[anchor=south west] (LW) at ([yshift=-.03in]W.north west) {{\Large b.} \bf Global prediction of IRAT scored for all \infl sequences collected since 2020};
 
+\node[anchor=south,font=\bf\sffamily\small,text=gray] (LC) at ([yshift=1.25in,xshift=.27in]W.south) {subtypes};
+\node[anchor=south,font=\bf\sffamily\small,text=gray] (LD) at ([yshift=2.25in,xshift=1.8in]W.south) {emergence risk};
 
 \end{tikzpicture}
   

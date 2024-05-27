@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  12 MAY 2024 03:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.6.20)  26 MAY 2024 14:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2959,7 +2959,7 @@ Package pgfplots Warning: the current plot has no coordinates (or all have been
  filtered away) on input line 270.
 
  [warning /pgfplots/warning/plot without coordinates]
-Package pgfplots info on input line 309: fill between: activating layered graph
+Package pgfplots info on input line 310: fill between: activating layered graph
 ics
 \pgf@layerbox@axis background=\box113
 \pgf@layerboxsaved@axis background=\box114
@@ -2977,18 +2977,23 @@ ics
 \pgf@layerboxsaved@axis descriptions=\box126
 \pgf@layerbox@axis foreground=\box127
 \pgf@layerboxsaved@axis foreground=\box128
-Package pgfplots info on input line 309: Setting layers 'axis background,axis g
+Package pgfplots info on input line 310: Setting layers 'axis background,axis g
 rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
  foreground'...
 LaTeX Font Info:    External font `xccex10' loaded for size
-(Font)              <8> on input line 309.
+(Font)              <8> on input line 310.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 309.
-<Figures/bionorad.pdf, id=34, 1445.4pt x 531.61324pt>
+(Font)              scaled to size 7.59998pt on input line 310.
+<Figures/bionorad.pdf, id=34, 1445.4pt x 788.39998pt>
 File: Figures/bionorad.pdf Graphic file (type pdf)
 <use Figures/bionorad.pdf>
-Package pdftex.def Info: Figures/bionorad.pdf  used on input line 317.
-(pdftex.def)             Requested size: 496.33034pt x 182.5469pt.
+Package pdftex.def Info: Figures/bionorad.pdf  used on input line 318.
+(pdftex.def)             Requested size: 496.33034pt x 270.7231pt.
+<Figures/hazard.png, id=35, 513.92pt x 513.92pt>
+File: Figures/hazard.png Graphic file (type png)
+<use Figures/hazard.png>
+Package pdftex.def Info: Figures/hazard.png  used on input line 363.
+(pdftex.def)             Requested size: 36.135pt x 36.1349pt.
 [1
 \providecommand \oddpage@label [2]{}
 {/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -4214,9 +4219,10 @@ luded, will be treated as font file not present
 pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
 dmap/pdftex.map): fontmap entry for `rtxptmro' already exists, duplicates ignor
 ed
-} <./Figures/bionorad.pdf>])
-The command '\includegraphics [width=.9\textwidth ]{Figures/External/figphylo}'
- has been optimized away. Use '/tikz/external/optimize=false' to disable this.
+} <./Figures/bionorad.pdf> <./Figures/hazard.png>])
+The command '\includegraphics [width=.77\textwidth ]{Figures/External/figphylo}
+' has been optimized away. Use '/tikz/external/optimize=false' to disable this.
+
 )
 
 Package natbib Warning: Citation `wille2021accurately' on page 1 undefined on i
@@ -4716,11 +4722,11 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred when \iftrue on line 237 was incomplete) 
 Here is how much of TeX's memory you used:
- 52240 strings out of 478862
- 1152105 string characters out of 5858945
- 2109311 words of memory out of 8000000
- 68830 multiletter control sequences out of 15000+600000
- 502160 words of font info for 257 fonts, out of 8000000 for 9000
+ 52199 strings out of 478862
+ 1151462 string characters out of 5858945
+ 2110045 words of memory out of 8000000
+ 68789 multiletter control sequences out of 15000+600000
+ 499373 words of font info for 254 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  115i,14n,111p,2471b,2872s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texm
@@ -4731,10 +4737,10 @@ f-var/fonts/pk/ljfour/public/concmath-fonts/xccmi10.600pk> </home/ishanu/.texli
 ve2020/texmf-var/fonts/pk/ljfour/public/concrete/ccr10.600pk></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on ./Figures/External/figpred.pdf (1 page, 3418263 bytes).
+Output written on ./Figures/External/figpred.pdf (1 page, 4319456 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 154 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

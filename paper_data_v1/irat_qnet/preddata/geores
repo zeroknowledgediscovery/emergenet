@@ -1,0 +1,270 @@
+,formatted_address,latitude,longitude,accuracy,google_place_id,type,postcode,input_string,number_of_results,status
+0,Albania,41.153332,20.168331,APPROXIMATE,ChIJLUwnvfM7RRMR7juY1onlfAc,"country,political",,Albania,1,OK
+1,"Indiana, USA",40.5512165,-85.60236429999999,APPROXIMATE,ChIJHRv42bxQa4gRcuwyy84vEH4,"administrative_area_level_1,political",,Indiana,1,OK
+2,"Gelderland, Netherlands",52.045155,5.871823399999999,APPROXIMATE,ChIJB-9Q0R-6x0cRcFwejVreAAM,"administrative_area_level_1,political",,Netherlands Gelderland,1,OK
+3,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,ISU-Missouri,1,OK
+4,"Florida, USA",27.6648274,-81.5157535,APPROXIMATE,ChIJvypWkWV2wYgR0E7HW9MTLvc,"administrative_area_level_1,political",,Florida,1,OK
+5,Vietnam,14.058324,108.277199,APPROXIMATE,ChIJXx5qc016FTERvmL-4smwO7A,"country,political",,Vietnam,1,OK
+6,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sewden,1,OK
+7,Netherlands,52.132633,5.291265999999999,APPROXIMATE,ChIJu-SH28MJxkcRnwq9_851obM,"country,political",,Netherlands,1,OK
+8,"Antofagasta, Chile",-23.6509279,-70.39750219999999,APPROXIMATE,ChIJaWRlmRmKpZYRlm8eTfQVvp8,"locality,political",,Antofagasta,2,OK
+9,"Tver Oblast, Russia",57.0021654,33.9853142,APPROXIMATE,ChIJAS4yugIKt0YRizHZ99vDWRY,"administrative_area_level_1,political",,Tver_region,1,OK
+10,Mongolia,46.862496,103.846656,APPROXIMATE,ChIJS22qaQYFJzYRluDmNzkh3eA,"country,political",,Mongolia,1,OK
+11,"Scotland, UK",56.49067119999999,-4.2026458,APPROXIMATE,ChIJn6HyA8TiYUgRFAfDCdj6wec,"administrative_area_level_1,political",,Scotland,1,OK
+12,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,USA: Minnesota,1,OK
+13,"Guanajuato, Mexico",21.0190145,-101.2573586,APPROXIMATE,ChIJ6_EMi_VzK4QRdB5XZdGw9CU,"locality,political",,Guanajuato,2,OK
+14,"Massachusetts, USA",42.4072107,-71.3824374,APPROXIMATE,ChIJ_b9z6W1l44kRHA2DVTbQxkU,"administrative_area_level_1,political",,Massachusetts,1,OK
+15,"Guangdong Province, China",23.1317099,113.26627,APPROXIMATE,ChIJP1yvMvGFUjERKZ8lCW8c1C4,"administrative_area_level_1,political",,Guangdong,1,OK
+16,"Schleswig-Holstein, Germany",54.21936720000001,9.696116700000001,APPROXIMATE,ChIJc3WJVkK7s0cR4HhaxmOJJAE,"administrative_area_level_1,political",,Germany-SH,1,OK
+17,"Foshan, Guangdong Province, China",23.0218499,113.12192,APPROXIMATE,ChIJt6V5UFhZAjQRGe397NrIYUA,"locality,political",,Foshan,1,OK
+18,Greece,39.074208,21.824312,APPROXIMATE,ChIJY2xxEcdKWxMRHS2a3HUXOjY,"country,political",,Greece,1,OK
+19,,,,,,,,Chany_Lake,0,ZERO_RESULTS
+20,Hong Kong,22.3193039,114.1693611,APPROXIMATE,ChIJD5gyo-3iAzQRfMnq27qzivA,"country,political",,Hong_Kong,1,OK
+21,"Yunnan, China",25.0452999,102.7097299,APPROXIMATE,ChIJKVugMtuD0DYRKayNyrfrPKY,"administrative_area_level_1,political",,Yunnan,1,OK
+22,"Puebla, Mexico",19.0414398,-98.2062727,APPROXIMATE,ChIJO3q8Xr3Az4URla2U5B1Gpkg,"locality,political",,Puebla,1,OK
+23,"Hiroshima, Japan",34.3852894,132.4553055,APPROXIMATE,ChIJu0_z7giZWjURcvfBz1DO5Ac,"locality,political",,Hiroshima,1,OK
+24,"Jiangxi, China",28.6741699,115.91004,APPROXIMATE,ChIJIXUyNUX2LzQR_wfvzG--O64,"administrative_area_level_1,political",,Jiangxi,1,OK
+25,"North Dakota, USA",47.5514926,-101.0020119,APPROXIMATE,ChIJY-nYVxKD11IRyc9egzmahA0,"administrative_area_level_1,political",,North_Dakota,1,OK
+26,"South Carolina, USA",33.836081,-81.1637245,APPROXIMATE,ChIJ49ExeWml-IgRnhcF9TKh_7k,"administrative_area_level_1,political",,South Carolina,1,OK
+27,"New York, NY, USA",40.7127753,-74.0059728,APPROXIMATE,ChIJOwg_06VPwokRYv534QaPC8g,"locality,political",,New_York,2,OK
+28,"Massachusetts, USA",42.4072107,-71.3824374,APPROXIMATE,ChIJ_b9z6W1l44kRHA2DVTbQxkU,"administrative_area_level_1,political",,Massachussetts,1,OK
+29,"Kagoshima, Japan",31.5968539,130.5571392,APPROXIMATE,ChIJPcXjAFJhPjURhVhcXa393Jo,"locality,political",,Kagoshima,2,OK
+30,"Maryland, USA",39.0457549,-76.64127119999999,APPROXIMATE,ChIJ35Dx6etNtokRsfZVdmU3r_I,"administrative_area_level_1,political",,Maryland,1,OK
+31,"Maine, USA",45.253783,-69.4454689,APPROXIMATE,ChIJ1YpTHd4dsEwR0KggZ2_MedY,"administrative_area_level_1,political",,Maine,1,OK
+32,Japan,36.204824,138.252924,APPROXIMATE,ChIJLxl_1w9OZzQRRFJmfNR1QvU,"country,political",,Japan,1,OK
+33,"Aichi, Japan",35.0182505,137.2923893,APPROXIMATE,ChIJ5zKTSdW6BGARp0EVGF2mX-s,"administrative_area_level_1,political",,Aichi,1,OK
+34,"Wakayama, Japan",34.2303678,135.1707405,APPROXIMATE,ChIJeX68GYWyAGARynFP_dR2zo8,"locality,political",,Wakayama,2,OK
+35,"New Mexico, USA",34.9727305,-105.0323635,APPROXIMATE,ChIJqVKY50NQGIcRup41Yxpuv0Y,"administrative_area_level_1,political",,New_Mexico,1,OK
+36,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany-BY,1,OK
+37,"Saxony, Germany",51.1045407,13.2017384,APPROXIMATE,ChIJR0Kum3LeCUcRsHmIQsuxIQE,"administrative_area_level_1,political",,Sachsen,1,OK
+38,"Alaska, USA",63.588753,-154.4930619,APPROXIMATE,ChIJG8CuwJzfAFQRNduKqSde27w,"administrative_area_level_1,political",,Alaska,1,OK
+39,"Shiga, Japan",35.3292014,136.0563212,APPROXIMATE,ChIJfRcKhFR_AWAR0Ih82zbkEkQ,"administrative_area_level_1,political",,Shiga,1,OK
+40,"Colorado, USA",39.5500507,-105.7820674,APPROXIMATE,ChIJt1YYm3QUQIcR_6eQSTGDVMc,"administrative_area_level_1,political",,Colorado,1,OK
+41,"Tibet, China",29.6472399,91.11744999999999,APPROXIMATE,ChIJwSxKnH4xYTcRmdoThGIswR8,"administrative_area_level_1,political",,Tibet,1,OK
+42,Namibia,-22.95764,18.49041,APPROXIMATE,ChIJIXXTbn489RsRYbLsqKXludM,"country,political",,Namibia,1,OK
+43,"Michigan, USA",44.3148443,-85.60236429999999,APPROXIMATE,ChIJEQTKxz2qTE0Rs8liellI3Zc,"administrative_area_level_1,political",,Michigan,1,OK
+44,"Wyoming, USA",43.0759678,-107.2902839,APPROXIMATE,ChIJaS7hSDTiXocRLzh90nkisCY,"administrative_area_level_1,political",,Wyoming,1,OK
+45,Italy,41.87194,12.56738,APPROXIMATE,ChIJA9KNRIL-1BIRb15jJFz1LOI,"country,political",,Italy,1,OK
+46,"Okayama, Japan",34.6555312,133.919795,APPROXIMATE,ChIJT6D7L3EFVDURZldpYCaAwxA,"locality,political",,Okayama,2,OK
+47,"Ohio, USA",40.4172871,-82.90712300000001,APPROXIMATE,ChIJwY5NtXrpNogRFtmfnDlkzeU,"administrative_area_level_1,political",,Ohio,1,OK
+48,"Saxony, Germany",51.1045407,13.2017384,APPROXIMATE,ChIJR0Kum3LeCUcRsHmIQsuxIQE,"administrative_area_level_1,political",,Germany-SN,1,OK
+49,"Lujiang County, Hefei, Anhui, China",31.3247199,117.09296,APPROXIMATE,ChIJUZRuAt6lNDQRyJwNqIS9W9g,"political,sublocality,sublocality_level_1",,Anhui-Lujiang,1,OK
+50,,,,,,,,ON,0,ZERO_RESULTS
+51,Georgia,42.315407,43.35689199999999,APPROXIMATE,ChIJa2JP5tcMREARwkotEmR5kE8,"country,political",,Georgia,2,OK
+52,Estonia,58.595272,25.013607,APPROXIMATE,ChIJ_UuggpyUkkYRwyW0T7qf6kA,"country,political",,Estonia,1,OK
+53,Croatia,45.1,15.2,APPROXIMATE,ChIJ7ZXdCghBNBMRfxtm4STA86A,"country,political",,Croatia,1,OK
+54,Ecuador,-1.831239,-78.18340599999999,APPROXIMATE,ChIJ1UuaqN2HI5ARAjecEQSvdp0,"country,political",,Ecuador,1,OK
+55,"Fukushima, Japan",37.7607991,140.4747856,APPROXIMATE,ChIJ2U06KtGOil8RRuNPwQ9NBgw,"locality,political",,Fukushima,1,OK
+56,"Republic of Dagestan, Russia",42.14318859999999,47.0949799,APPROXIMATE,ChIJJ7wfNCRiTkARlWe8YPJG1dE,"administrative_area_level_1,political",,Dagestan,1,OK
+57,,,,,,,,Northern_China,0,ZERO_RESULTS
+58,Germany,51.165691,10.451526,APPROXIMATE,ChIJa76xwh5ymkcRW-WRjmtd6HU,"country,political",,Germany,1,OK
+59,"Delaware, USA",38.9108325,-75.52766989999999,APPROXIMATE,ChIJO9YMTXYFx4kReOgEjBItHZQ,"administrative_area_level_1,political",,Delaware,1,OK
+60,Latvia,56.879635,24.603189,APPROXIMATE,ChIJ_ZqKe2cw6UYREPzyaM3PAAA,"country,political",,Latvia,1,OK
+61,Benin,9.30769,2.315834,APPROXIMATE,ChIJlVZ6BCtUIxAR9S5iy_h3suw,"country,political",,Benin,1,OK
+62,"British Columbia, Canada",53.7266683,-127.6476206,APPROXIMATE,ChIJr2prqsdmelMR-fHnN-lBG4g,"administrative_area_level_1,political",,Canada: BC,1,OK
+63,"Lower Saxony, Germany",52.6367036,9.8450765,APPROXIMATE,ChIJZTST8-ORsEcRAHkCY3fPJgE,"administrative_area_level_1,political",,Germany-NI,1,OK
+64,"Iwate, Iwate District, Iwate, Japan",39.9726552,141.2124895,APPROXIMATE,ChIJoUYAazYahV8RIhqAY2qaCQI,"locality,political",,Iwate,2,OK
+65,Morocco,31.791702,-7.092619999999999,APPROXIMATE,ChIJjcVRlmGICw0Rw_8sxIGT09k,"country,political",,Morocco,1,OK
+66,"Boyolali, Boyolali Regency, Central Java, Indonesia",-7.5173045,110.5933862,APPROXIMATE,ChIJ9wnB8VRpei4R1IhoHFHAbg8,"locality,political",,Boyolali,1,OK
+67,"Missouri, USA",37.9642529,-91.8318334,APPROXIMATE,ChIJfeMiSNXmwIcRcr1mBFnEW7U,"administrative_area_level_1,political",,Missouri,1,OK
+68,China,35.86166,104.195397,APPROXIMATE,ChIJwULG5WSOUDERbzafNHyqHZU,"country,political",,China,1,OK
+69,"Moscow Oblast, Russia",55.340396,38.2917651,APPROXIMATE,ChIJ2cXDsDGySkERQvLeO8CzDJE,"administrative_area_level_1,political",,Moscow_region,1,OK
+70,"Connecticut, USA",41.6032207,-73.087749,APPROXIMATE,ChIJpVER8hFT5okR5XBhBVttmq4,"administrative_area_level_1,political",,Connecticut,1,OK
+71,South Korea,35.907757,127.766922,APPROXIMATE,ChIJm7oRy-tVZDURS9uIugCbJJE,"country,political",,South_Korea,1,OK
+72,"Mecklenburg-Vorpommern, Germany",53.6126505,12.4295953,APPROXIMATE,ChIJNzjcO6xQrEcRsuXdZ-Tc2MY,"administrative_area_level_1,political",,Germany-MV,1,OK
+73,"Bird Island, MN 55310, USA",44.76746139999999,-94.89555209999999,APPROXIMATE,ChIJhSvY7QpQ9YcRLod3_VJ_SJI,"locality,political",55310,Bird_Island,1,OK
+74,"Alberta, Canada",53.9332706,-116.5765035,APPROXIMATE,ChIJtRkkqIKyCVMRno6bQJpHqbA,"administrative_area_level_1,political",,Alberta,1,OK
+75,Lithuania,55.169438,23.881275,APPROXIMATE,ChIJE74zDxSU3UYRubpdpdNUCvM,"country,political",,Lithuania,1,OK
+76,Norway,60.47202399999999,8.468945999999999,APPROXIMATE,ChIJv-VNj0VoEkYRK9BkuJ07sKE,"country,political",,Norway,1,OK
+77,"West Virginia, USA",38.5976262,-80.4549026,APPROXIMATE,ChIJRQnL1KVUSogRQzrN3mjHALs,"administrative_area_level_1,political",,West_Virginia,1,OK
+78,"Kurgan, Kurgan Oblast, Russia",55.4590496,65.34932069999999,APPROXIMATE,ChIJ1eOHeaG-t0MRIqQuN3gYCNc,"locality,political",,Kurgan,1,OK
+79,South Korea,35.907757,127.766922,APPROXIMATE,ChIJm7oRy-tVZDURS9uIugCbJJE,"country,political",,Korea,3,OK
+80,"San Luis Potosi, Mexico",22.1520892,-100.9733024,APPROXIMATE,ChIJefusBQCiKoQRV4Lhrynu0g4,"locality,political",,San_Luis_Potosi,1,OK
+81,"British Columbia, Canada",53.7266683,-127.6476206,APPROXIMATE,ChIJr2prqsdmelMR-fHnN-lBG4g,"administrative_area_level_1,political",,British_Colombia,1,OK
+82,"Pskov Oblast, Russia",56.7708599,29.094009,APPROXIMATE,ChIJYfKAmurvwEYRg4DSoMysQOY,"administrative_area_level_1,political",,Pskov_region,1,OK
+83,Pakistan,30.375321,69.34511599999999,APPROXIMATE,ChIJH3X9-NJS2zgRXJIU5veht0Y,"country,political",,Pakistan,1,OK
+84,Bulgaria,42.733883,25.48583,APPROXIMATE,ChIJifBbyMH-qEAREEy_aRKgAAA,"country,political",,Bulgaria,1,OK
+85,"Hebei, China",38.0359899,114.46979,APPROXIMATE,ChIJ1YZMyjCpjDURIfse5yIKRWA,"administrative_area_level_1,political",,Hebei,1,OK
+86,"Hyogo Ward, Kobe, Hyogo, Japan",34.6833357,135.1634864,APPROXIMATE,ChIJn5bfh26PAGARy7yDLwmn2G4,"political,sublocality,sublocality_level_1",,Hyogo,2,OK
+87,"Santiago, Santiago Metropolitan Region, Chile",-33.4488897,-70.6692655,APPROXIMATE,ChIJL68lBEHFYpYRMQkPQDzVdYQ,"colloquial_area,locality,political",,Santiago,4,OK
+88,"Louisiana, USA",30.5190775,-91.5208624,APPROXIMATE,ChIJZYIRslSkIIYRA0flgTL3Vck,"administrative_area_level_1,political",,Louisiana,1,OK
+89,Niger,17.607789,8.081666,APPROXIMATE,ChIJXa-hxnrsmRER1CSOFQqSM8k,"country,political",,Niger,1,OK
+90,"Arica y Parinacota, Chile",-18.5940485,-69.4784541,APPROXIMATE,ChIJEQWs7gx-WpERH_0UYq_-Tn4,"administrative_area_level_1,political",,Arica_y_Parinacota,1,OK
+91,"Liuzhou, Guangxi, China",24.3255257,109.4154583,APPROXIMATE,ChIJUX2u7GgGsDYRFF4QtW36oxc,"locality,political",,Guangxi,1,OK
+92,Costa Rica,9.748916999999999,-83.753428,APPROXIMATE,ChIJJcmsIWLlko8RK5qBNSX3VGI,"country,political",,Costa_Rica,1,OK
+93,"Republic of Tatarstan, Russia",55.1802364,50.7263945,APPROXIMATE,ChIJaf-Qi0dEXkERaIvmnXcqnhI,"administrative_area_level_1,political",,Tatarstan,1,OK
+94,"Kochi, Kerala, India",9.9312328,76.26730409999999,APPROXIMATE,ChIJv8a-SlENCDsRkkGEpcqC1Qs,"locality,political",,Kochi,1,OK
+95,"Virginia, USA",37.4315734,-78.6568942,APPROXIMATE,ChIJzbK8vXDWTIgRlaZGt0lBTsA,"administrative_area_level_1,political",,Virginia,1,OK
+96,"Texas, USA",31.9685988,-99.9018131,APPROXIMATE,ChIJSTKCCzZwQIYRPN4IGI8c6xY,"administrative_area_level_1,political",,Texas,1,OK
+97,Laos,19.85627,102.495496,APPROXIMATE,ChIJiUWCsFeQFDERgc2ZH0iSxQ4,"country,political",,Laos,1,OK
+98,Denmark,56.26392,9.501785,APPROXIMATE,ChIJ-1-U7rYnS0YRzZLgw9BDh1I,"country,political",,Denmark,1,OK
+99,The Gambia,13.443182,-15.310139,APPROXIMATE,ChIJBzivZSmcwg4RKp0Ta0BMSp4,"country,political",,Gambia,1,OK
+100,Slovenia,46.151241,14.995463,APPROXIMATE,ChIJYYOWXuckZUcRZdTiJR5FQOc,"country,political",,Slovenia,1,OK
+101,"Rhineland-Palatinate, Germany",50.118346,7.3089527,APPROXIMATE,ChIJY4Hac2nMl0cR_M8OuHuSeBc,"administrative_area_level_1,political",,Germany-RP,1,OK
+102,Uruguay,-32.522779,-55.765835,APPROXIMATE,ChIJCd5f-zoHdZURSlIWYGGWVUo,"country,political",,Uruguay,1,OK
+103,Chile,-35.675147,-71.542969,APPROXIMATE,ChIJL68lBEHFYpYRHbkCERPhBQU,"country,political",,Chile,1,OK
+104,"Washington, DC, USA",38.9071923,-77.0368707,APPROXIMATE,ChIJW-T2Wt7Gt4kRKl2I1CJFUsI,"locality,political",,Washington,2,OK
+105,"Sakhalin, Sakhalin Oblast, Russia",50.6909848,142.9505689,APPROXIMATE,ChIJAZ0etmQX2l4RA4hzn0Sb4Nw,"establishment,natural_feature",,Sakhalin,2,OK
+106,"Hamburg, Germany",53.5363318,9.994521599999999,APPROXIMATE,ChIJuRMYfoNhsUcR8HjYe_I9JgE,"administrative_area_level_1,political",,Germany-HH,1,OK
+107,Egypt,26.820553,30.802498,APPROXIMATE,ChIJ6TZcw3aJNhQRRMTEJQmgRSw,"country,political",,Egypt,1,OK
+108,Finland,61.92410999999999,25.748151,APPROXIMATE,ChIJ3fYyS9_KgUYREKh1PNZGAQA,"country,political",,Finland,1,OK
+109,Kosovo,42.6026359,20.902977,APPROXIMATE,ChIJ8X2_VPN6UxMRkRfDq9_u_78,"country,political",,Kosovo,1,OK
+110,"Jalisco, Mexico",20.6595382,-103.3494376,APPROXIMATE,ChIJb05i1OtAH4QRU0obWqOw_qA,"administrative_area_level_1,political",,Jalisco,1,OK
+111,"San Lorenzo de Tarapacá, Huara, Tarapacá, Chile",-19.9243492,-69.5109513,APPROXIMATE,ChIJJ_rTmg3XU5ERoDGoNzgaJKQ,"locality,political",,Tarapaca,2,OK
+112,"Khabarovsk, Khabarovsk Krai, Russia",48.4814433,135.0720667,APPROXIMATE,ChIJyYo2sMbp-l4RUH-6Xw68l_o,"locality,political",,Khabarovsk,2,OK
+113,"Iowa, USA",41.8780025,-93.097702,APPROXIMATE,ChIJGWD48W9e7ocR2VnHV0pj78Y,"administrative_area_level_1,political",,Iowa,1,OK
+114,Spain,40.46366700000001,-3.74922,APPROXIMATE,ChIJi7xhMnjjQgwR7KNoB5Qs7KY,"country,political",,Spain,1,OK
+115,"Fujian, China",26.0998199,119.2965899,APPROXIMATE,ChIJ2_lEcNNUFTQR6FDb5LQ07k4,"administrative_area_level_1,political",,Fujian,1,OK
+116,Slovakia,48.669026,19.699024,APPROXIMATE,ChIJf8Z8rrlgFEcRfTpysWdha80,"country,political",,Slovakia,1,OK
+117,,,,,,,,Russia_Primorje,0,ZERO_RESULTS
+118,South Africa,-30.559482,22.937506,APPROXIMATE,ChIJURLu2YmmNBwRoOikHwxjXeg,"country,political",,South_Africa,1,OK
+119,"California, USA",36.778261,-119.4179324,APPROXIMATE,ChIJPV4oX_65j4ARVW8IJ6IJUYs,"administrative_area_level_1,political",,USA: California,1,OK
+120,"Zhejiang, China",30.2655499,120.1536,APPROXIMATE,ChIJv8wKpTQSSTQRt3wYNsVx74E,"administrative_area_level_1,political",,Zhejiang,1,OK
+121,"Prince Edward Island, Canada",46.3188025,-63.14610099999999,APPROXIMATE,ChIJxYN_1N1SXksRhmaS9NXWaKk,"administrative_area_level_1,political",,PEI,1,OK
+122,Thailand,15.870032,100.992541,APPROXIMATE,ChIJsU1CR_eNTTARAuhXB4gs154,"country,political",,Thailand,1,OK
+123,"Astrakhan, Astrakhan Oblast, Russia",46.3586008,48.0569482,APPROXIMATE,ChIJ7cmGp4QFqUERwspdvvpEIVo,"locality,political",,Astrakhan,2,OK
+124,"Arizona, USA",34.0489281,-111.0937311,APPROXIMATE,ChIJaxhMy-sIK4cRcc3Bf7EnOUI,"administrative_area_level_1,political",,Arizona,1,OK
+125,Senegal,14.497401,-14.452362,APPROXIMATE,ChIJcbvFs_VywQ4RQFlhmVClRlo,"country,political",,Senegal,1,OK
+126,"Kentucky, USA",37.8393332,-84.2700179,APPROXIMATE,ChIJyVMZi0xzQogR_N_MxU5vH3c,"administrative_area_level_1,political",,Kentucky,1,OK
+127,"South Carolina, USA",33.836081,-81.1637245,APPROXIMATE,ChIJ49ExeWml-IgRnhcF9TKh_7k,"administrative_area_level_1,political",,South_Carolina,1,OK
+128,"O'Higgins, Chile",-34.5755374,-71.0022311,APPROXIMATE,ChIJKZ0BY11DY5YRqX7hWhgM3Rc,"administrative_area_level_1,political",,Chile Region del Libertador General Bernardo OHiggins,1,OK
+129,"Rostov-on-Don, Rostov Oblast, Russia",47.2357137,39.701505,APPROXIMATE,ChIJ77a0w3fH40ARBE2L5FG0SII,"locality,political",,Rostov,1,OK
+130,"Chiba, Japan",35.6074041,140.1065366,APPROXIMATE,ChIJ38TuyMGaImAR5pEdrNwLnGg,"locality,political",,Chiba,1,OK
+131,"Ningxia, China",38.4711699,106.25867,APPROXIMATE,ChIJb0K7hAzlPzYRXDRtPR6FAv0,"administrative_area_level_1,political",,Ningxia,1,OK
+132,"Tochigi, Japan",36.3823772,139.7341396,APPROXIMATE,ChIJl6qxBoE_H2AR3LHlEtw2YSI,"locality,political",,Tochigi,1,OK
+133,"Coahuila, Mexico",27.058676,-101.7068294,APPROXIMATE,ChIJKR6Opr1yiIYROXrNFNeaAGQ,"administrative_area_level_1,political",,Coahuila,1,OK
+134,"Shizuoka, Japan",34.9755668,138.3826773,APPROXIMATE,ChIJb4VYeiC_G2ARAYGHqCZ2x60,"locality,political",,Shizuoka,2,OK
+135,Jersey,49.2137711,-2.1357662,APPROXIMATE,ChIJM3WSjKRSDEgRw2waCqMjnFE,"country,political",,Jersey,1,OK
+136,"Pennsylvania, USA",41.2033216,-77.1945247,APPROXIMATE,ChIJieUyHiaALYgRPbQiUEchRsI,"administrative_area_level_1,political",,Pennsylvania,1,OK
+137,"Sakha Republic, Russia",66.7613451,124.1237531,APPROXIMATE,ChIJazNRLwMa61sRjtUnokgK4DI,"administrative_area_level_1,political",,Yakutia,1,OK
+138,"Saarland, 66, Germany",49.3964234,7.0229607,APPROXIMATE,ChIJMR-owu-klUcRcHncENXUIgE,"administrative_area_level_1,political",66,Germany-SL,1,OK
+139,"Arkansas, USA",35.20105,-91.8318334,APPROXIMATE,ChIJYSc_dD-e0ocR0NLf_z5pBaQ,"administrative_area_level_1,political",,Arkansas,1,OK
+140,"North Rhine-Westphalia, Germany",51.43323669999999,7.661593799999999,APPROXIMATE,ChIJoUhCjnwWuUcRX4_XT34yTC8,"administrative_area_level_1,political",,Nordrhein-Westfalen,1,OK
+141,"Idaho, USA",44.0682019,-114.7420408,APPROXIMATE,ChIJ6Znkhaj_WFMRWIf3FQUwa9A,"administrative_area_level_1,political",,Idaho,1,OK
+142,"Shandong, China",36.6682599,117.02076,APPROXIMATE,ChIJf0-rNUfNjzURZLPhcCMuOtk,"administrative_area_level_1,political",,Shandong,1,OK
+143,Iceland,64.963051,-19.020835,APPROXIMATE,ChIJQ2Dro1Ir0kgRmkXB5TQEim8,"country,political",,Iceland,1,OK
+144,Bangladesh,23.684994,90.356331,APPROXIMATE,ChIJp4vhgO2qrTARa_zhxOAoLQ8,"country,political",,Bangladesh,1,OK
+145,"Wales, UK",52.1306607,-3.7837117,APPROXIMATE,ChIJ7Q8cbLY0ZEgRouilirxxux4,"administrative_area_level_1,political",,Wales,1,OK
+146,"Córdoba, Spain",37.8881751,-4.7793835,APPROXIMATE,ChIJ7wpe-SbfbA0Rw1aEEOjS8U0,"locality,political",,Cordoba,2,OK
+147,"Moscow, Russia",55.755826,37.6173,APPROXIMATE,ChIJybDUc_xKtUYRTM9XV8zWRD0,"locality,political",,Moscow,1,OK
+148,Kazakhstan,48.019573,66.923684,APPROXIMATE,ChIJR6n87AcQqTgRGw6z5C-Ee18,"country,political",,Kazakhstan,1,OK
+149,"Henan, China",34.7657099,113.75322,APPROXIMATE,ChIJYd_UVOOS1jURyxqiJ3gVsoI,"administrative_area_level_1,political",,Henan,1,OK
+150,"Sanmenxia, Henan, China",34.7727068,111.2000526,APPROXIMATE,ChIJ496K0iVceTYRTlrxD981Xk4,"locality,political",,Sanmenxia,1,OK
+151,"Ibaraki, Higashiibaraki District, Ibaraki, Japan",36.2869435,140.4245362,APPROXIMATE,ChIJ4zA7coI7ImARA2aO5hjj-7k,"locality,political",,Ibaraki,2,OK
+152,"Omsk Oblast, Russia",55.0554669,73.3167343,APPROXIMATE,ChIJ6VtPzxrtqUMRKTPPvsfODQg,"administrative_area_level_1,political",,Omsk_region,1,OK
+153,"Tennessee, USA",35.5174913,-86.5804473,APPROXIMATE,ChIJA8-XniNLYYgRVpGBpcEgPgM,"administrative_area_level_1,political",,Tennessee,1,OK
+154,Moldova,47.411631,28.369885,APPROXIMATE,ChIJoWm3KDZ8yUARy6xT36wZgSU,"country,political",,Moldova,1,OK
+155,Kenya,-0.023559,37.906193,APPROXIMATE,ChIJD5BQg9CAJxgR2W2XobAOO0A,"country,political",,Kenya,1,OK
+156,Cyprus,35.126413,33.429859,APPROXIMATE,ChIJVU1JymcX3hQRbhTEf4A8TDI,"country,political",,Cyprus,1,OK
+157,"Nebraska, USA",41.4925374,-99.9018131,APPROXIMATE,ChIJ7fwMtciNk4cRxArzDwyQJ6E,"administrative_area_level_1,political",,Nebraska,1,OK
+158,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,belgium,1,OK
+159,Guatemala,15.783471,-90.23075899999999,APPROXIMATE,ChIJa1DnNlATiIURu9WEWzcrmDU,"country,political",,Guatemala,1,OK
+160,"Kansas, USA",39.011902,-98.4842465,APPROXIMATE,ChIJawF8cXEXo4cRXwk-S6m0wmg,"administrative_area_level_1,political",,Kansas,1,OK
+161,Belgium,50.503887,4.469936,APPROXIMATE,ChIJl5fz7WR9wUcR8g_mObTy60c,"country,political",,Belgium,1,OK
+162,"Saitama, Japan",35.8616486,139.6454782,APPROXIMATE,ChIJr-eHXCDBGGARXvaiv8DydIw,"locality,political",,Saitama,1,OK
+163,"Chelyabinsk, Chelyabinsk Oblast, Russia",55.1644419,61.4368431,APPROXIMATE,ChIJjTpKEMuSxUMRvxEXbSpKIu8,"locality,political",,Chelyabinsk,2,OK
+164,"Nevada, USA",38.8026097,-116.419389,APPROXIMATE,ChIJcbTe-KEKmYARs5X8qooDR88,"administrative_area_level_1,political",,Nevada,1,OK
+165,"Liaoning, China",41.8357099,123.42925,APPROXIMATE,ChIJhdMfpC5ejzURAE0F4i5UWns,"administrative_area_level_1,political",,Liaoning,1,OK
+166,"Baden-Württemberg, Germany",48.6616037,9.3501336,APPROXIMATE,ChIJ3wZkgmIbkUcRYEgkDb9IjMY,"administrative_area_level_1,political",,Germany-BW,1,OK
+167,"Durango, CO, USA",37.27528,-107.8800667,APPROXIMATE,ChIJI_yFvaYCPIcRWn6mo4KIK9w,"locality,political",,Durango,1,OK
+168,Israel,31.046051,34.851612,APPROXIMATE,ChIJi8mnMiRJABURuiw1EyBCa2o,"country,political",,Israel,1,OK
+169,"Wisconsin, USA",43.7844397,-88.7878678,APPROXIMATE,ChIJr-OEkw_0qFIR1kmG-LjV1fI,"administrative_area_level_1,political",,Wisconsin,1,OK
+170,"Coquimbo, Chile",-29.9590009,-71.3389183,APPROXIMATE,ChIJXdJls83ZkZYRwFyJMScR_Oc,"locality,political",,Coquimbo,2,OK
+171,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Carolina,1,OK
+172,"Manitoba, Canada",53.7608608,-98.81387629999999,APPROXIMATE,ChIJE7XnRW_gbVIRaMfBq_JVDxw,"administrative_area_level_1,political",,Canada Manitoba,1,OK
+173,"Hubei, China",30.5453899,114.34234,APPROXIMATE,ChIJb_KF3fiuLjQRPpKqljdJeeU,"administrative_area_level_1,political",,Hubei,1,OK
+174,,,,,,,,Akita,0,ZERO_RESULTS
+175,"Ñuble, Chile",-36.7225743,-71.7622481,APPROXIMATE,ChIJcZihAkzVbpYRrgOvwC2F4XE,"administrative_area_level_1,political",,Nuble,1,OK
+176,Switzerland,46.818188,8.227511999999999,APPROXIMATE,ChIJYW1Zb-9kjEcRFXvLDxG1Vlw,"country,political",,Switzerland,1,OK
+177,,,,,,,,SVA210413-0437,0,ZERO_RESULTS
+178,,,,,,,,AK,0,ZERO_RESULTS
+179,"Northern Ireland, UK",54.7877149,-6.4923145,APPROXIMATE,ChIJdZmmmcoQXkgR2OO3bu8o5fc,"administrative_area_level_1,political",,Northern_Ireland,1,OK
+180,"Ticino, Switzerland",46.331734,8.800452900000002,APPROXIMATE,ChIJg946LtqXhUcRuN5YORraPgw,"administrative_area_level_1,political",,Switzerland-Ticino,1,OK
+181,"Shanxi, China",37.8734299,112.56272,APPROXIMATE,ChIJAZbireuoCjYRL-LvlMM8zpw,"administrative_area_level_1,political",,Shanxi,1,OK
+182,Poland,51.919438,19.145136,APPROXIMATE,ChIJuwtkpGSZAEcR6lXMScpzdQk,"country,political",,Poland,1,OK
+183,"Tokushima, Japan",34.0703652,134.5549537,APPROXIMATE,ChIJU-wn2gINUzUR94WNIAhofbU,"locality,political",,Tokushima,2,OK
+184,"Hessen, Germany",50.6520515,9.162437599999999,APPROXIMATE,ChIJCdXa3QzsvEcRZ2Vv2bH-Lus,"administrative_area_level_1,political",,Germany-HE,1,OK
+185,"England, UK",52.3555177,-1.1743197,APPROXIMATE,ChIJ39UebIqp0EcRqI4tMyWV4fQ,"administrative_area_level_1,political",,England,1,OK
+186,"Gifu, Japan",35.42342259999999,136.7606217,APPROXIMATE,ChIJfx-w3NOrA2ARTGQAbTv8-5Q,"locality,political",,Gifu,2,OK
+187,,,,,,,,Victoria,0,ZERO_RESULTS
+188,"Banjarbaru, Banjarbaru City, South Kalimantan, Indonesia",-3.4572422,114.8103181,APPROXIMATE,ChIJ35-qV62G5i0RrS7102N48tE,"locality,political",,Banjarbaru,1,OK
+189,Iraq,33.223191,43.679291,APPROXIMATE,ChIJEUr1VD2CVxURAhYGorthpW0,"country,political",,Iraq,1,OK
+190,"Kanagawa Ward, Yokohama, Kanagawa, Japan",35.4827827,139.6146102,APPROXIMATE,ChIJS-blR69eGGARjdCJc8xwNUI,"political,sublocality,sublocality_level_1",,Kanagawa,2,OK
+191,,,,,,,,Atacama,0,ZERO_RESULTS
+192,Ukraine,48.379433,31.16558,APPROXIMATE,ChIJjw5wVMHZ0UAREED2iIQGAQA,"country,political",,Ukraine,1,OK
+193,"Guizhou, China",26.5981999,106.70722,APPROXIMATE,ChIJmdNtrupnvzYRXtWrAHYdnOw,"administrative_area_level_1,political",,Guizhou,1,OK
+194,"Pskov Oblast, Russia",56.7708599,29.094009,APPROXIMATE,ChIJYfKAmurvwEYRg4DSoMysQOY,"administrative_area_level_1,political",,Pskov_Region,1,OK
+195,"Donghu District, Nanchang, Jiangxi, China",28.6850299,115.89925,APPROXIMATE,ChIJ9eWTpaq5OjQRYNp3jOZRemA,"political,sublocality,sublocality_level_1",,Jiangxi-Donghu,1,OK
+196,"Belgorod Oblast, Russia",50.71069259999999,37.7533377,APPROXIMATE,ChIJMbmuUuiAJkERAJbxg6WjAgE,"administrative_area_level_1,political",,Belgorod_region,1,OK
+197,,,,,,,,Choco,0,ZERO_RESULTS
+198,"Hokkaido, Japan",43.2203266,142.8634737,APPROXIMATE,ChIJi4hsnyBZn18RjwPOT1bDPBw,"administrative_area_level_1,political",,Hokkaido,1,OK
+199,"Jilin City, Jilin, China",43.8378399,126.54944,APPROXIMATE,ChIJ99p4bl3XN14RVGqSnIZZ4Rs,"locality,political",,Jilin,2,OK
+200,Nigeria,9.081999,8.675277,APPROXIMATE,ChIJDY2kfa8LThARyAvFaEH-qJk,"country,political",,Nigeria,1,OK
+201,"Valparaíso, Chile",-33.047238,-71.61268849999999,APPROXIMATE,ChIJx84g3uPdiZYRdpvhv4w6Cus,"locality,political",,Valparaiso,2,OK
+202,,,,,,,,Miyazaki,0,ZERO_RESULTS
+203,"Niigata, Japan",37.9161244,139.0363708,APPROXIMATE,ChIJ98DHVcLF9F8RDSOQycubUPE,"locality,political",,Niigata,1,OK
+204,France,46.227638,2.213749,APPROXIMATE,ChIJMVd4MymgVA0R99lHx5Y__Ws,"country,political",,France,1,OK
+205,Ireland,53.77975540000001,-7.3055309,APPROXIMATE,ChIJj2lzXZ5hXkgRjcZqTUQ5m8o,"establishment,natural_feature",,Ireland,2,OK
+206,"Shaanxi, China",34.2648599,108.95424,APPROXIMATE,ChIJn6frE2B6YzYRFldhy29uyUE,"administrative_area_level_1,political",,Shaanxi,1,OK
+207,"Tottori, Japan",35.5011082,134.2351011,APPROXIMATE,ChIJiW-EoMmWVTURVlTlKYZjRzg,"locality,political",,Tottori,1,OK
+208,"State of Espírito Santo, Brazil",-19.1834229,-40.3088626,APPROXIMATE,ChIJWWNkeZUGtwARmfdQPCTVG04,"administrative_area_level_1,political",,Brazil-ES,2,OK
+209,"North Carolina, USA",35.7595731,-79.01929969999999,APPROXIMATE,ChIJgRo4_MQfVIgRGa4i6fUwP60,"administrative_area_level_1,political",,North_Caroloina,1,OK
+210,Luxembourg,49.815273,6.129582999999999,APPROXIMATE,ChIJRyEhyrlFlUcR75LTAvZg22Q,"country,political",,Luxembourg,1,OK
+211,"Miyagi, Japan",38.630612,141.1193048,APPROXIMATE,ChIJcdzg-92SiF8RraQHUTi5b84,"administrative_area_level_1,political",,Miyagi,1,OK
+212,Peru,-9.189967,-75.015152,APPROXIMATE,ChIJ9RRZwFDIBZERSAYheRIBnvI,"country,political",,Peru,1,OK
+213,"New Jersey, USA",40.0583238,-74.4056612,APPROXIMATE,ChIJn0AAnpX7wIkRjW0_-Ad70iw,"administrative_area_level_1,political",,New_Jersey,1,OK
+214,"Guangzhou, Guangdong Province, China",23.1290799,113.26436,APPROXIMATE,ChIJxytco5X4AjQRFeTqrXXgWQ4,"locality,political",,Guangzhou,1,OK
+215,,,,,,,,Kagawa,0,ZERO_RESULTS
+216,"New Hampshire, USA",43.1938516,-71.5723953,APPROXIMATE,ChIJ66bAnUtEs0wR64CmJa8CyNc,"administrative_area_level_1,political",,New_Hampshire,1,OK
+217,"O'Higgins, Chile",-34.5755374,-71.0022311,APPROXIMATE,ChIJKZ0BY11DY5YRqX7hWhgM3Rc,"administrative_area_level_1,political",,Ohiggins,1,OK
+218,Sweden,60.12816100000001,18.643501,APPROXIMATE,ChIJ8fA1bTmyXEYRYm-tjaLruCI,"country,political",,Sweden,1,OK
+219,Czechia,49.81749199999999,15.472962,APPROXIMATE,ChIJQ4Ld14-UC0cRb1jb03UcZvg,"country,political",,Czech_Republic,1,OK
+220,"Anhui, China",31.8615699,117.28565,APPROXIMATE,ChIJ14JwoYykNDQRbXB1bhXWqHo,"administrative_area_level_1,political",,Anhui,1,OK
+221,"Montana, USA",46.8796822,-110.3625658,APPROXIMATE,ChIJ04p7LZwrQVMRGGwqz1jWcfU,"administrative_area_level_1,political",,Montana,1,OK
+222,"Jiangsu, China",32.0607099,118.76295,APPROXIMATE,ChIJRcJLMdoAtzURtVOFbLbqlI0,"administrative_area_level_1,political",,Jiangsu,1,OK
+223,"Thanh Hóa, Thanh Hoa, Vietnam",19.806692,105.7851816,APPROXIMATE,ChIJdyJ-I_73NjEROiH8ezYyOKE,"locality,political",,Thanh_Hoa,2,OK
+224,"Amur Oblast, Russia",54.60350649999999,127.4801721,APPROXIMATE,ChIJib6bin8Lm14R0JVvOTRYBAE,"administrative_area_level_1,political",,Amur_region,1,OK
+225,"Maule, Chile",-35.5183364,-71.6884912,APPROXIMATE,ChIJoQgsCu3CZZYRufAfUHOoBJg,"locality,political",,Maule,2,OK
+226,"Omsk, Omsk Oblast, Russia",54.9913545,73.3645204,APPROXIMATE,ChIJCwkB9uL9qkMRGpumYTjD714,"locality,political",,Omsk,2,OK
+227,"Beijing, China",39.904211,116.407395,APPROXIMATE,ChIJuSwU55ZS8DURiqkPryBWYrk,"locality,political",,Beijing,1,OK
+228,"Tyumen, Tyumen Oblast, Russia",57.1553394,65.5618636,APPROXIMATE,ChIJx7ijUV3hu0MRk2ejKmp7E5s,"locality,political",,Tyumen,1,OK
+229,"Oklahoma, USA",35.0077519,-97.092877,APPROXIMATE,ChIJnU-ssRE5rIcRSOoKQDPPHF0,"administrative_area_level_1,political",,Oklahoma,1,OK
+230,"Oregon, USA",43.8041334,-120.5542012,APPROXIMATE,ChIJVWqfm3xuk1QRdrgLettlTH0,"administrative_area_level_1,political",,Oregon,1,OK
+231,"North Hulu Sungai Regency, South Kalimantan, Indonesia",-2.4421225,115.188916,APPROXIMATE,ChIJnVIKLA075S0RU6iSdx5CYM8,"administrative_area_level_2,political",,Hulu_Sungai_Utara,1,OK
+232,"Newfoundland and Labrador, Canada",54.2730918,-61.7387586,APPROXIMATE,ChIJD_AvfcKjDEsRqDl21bOd7GQ,"administrative_area_level_1,political",,Canada NL,1,OK
+233,Russia,61.52401,105.318756,APPROXIMATE,ChIJ-yRniZpWPEURE_YRZvj9CRQ,"country,political",,Russian_Federation,1,OK
+234,Austria,47.516231,14.550072,APPROXIMATE,ChIJfyqdJZsHbUcRr8Hk3XvUEhA,"country,political",,Austria,1,OK
+235,Argentina,-38.416097,-63.61667199999999,APPROXIMATE,ChIJZ8b99fXKvJURqA_wKpl3Lz0,"country,political",,Argentina,1,OK
+236,"Araucania, Chile",-38.948921,-72.331113,APPROXIMATE,ChIJXcfo0MiyFJYRBgahIIUY3TE,"administrative_area_level_1,political",,Araucania,1,OK
+237,"100000 Karaganda, Kazakhstan",49.8046835,73.1093826,APPROXIMATE,ChIJWQUt0lpGQ0IRM9RE0uBrC6k,"locality,political",100000,Karaganda,1,OK
+238,"Rostov-on-Don, Rostov Oblast, Russia",47.2357137,39.701505,APPROXIMATE,ChIJ77a0w3fH40ARBE2L5FG0SII,"locality,political",,Rostov-on-Don,1,OK
+239,"California, USA",36.778261,-119.4179324,APPROXIMATE,ChIJPV4oX_65j4ARVW8IJ6IJUYs,"administrative_area_level_1,political",,California,1,OK
+240,Zambia,-13.133897,27.849332,APPROXIMATE,ChIJcQv8_KX0QBkRRT5Yfqz5n_E,"country,political",,Zambia,1,OK
+241,"Thuringia, Germany",51.0109892,10.845346,APPROXIMATE,ChIJk_E62n8PpEcR0Hk0dMGOIAE,"administrative_area_level_1,political",,Germany-TH,1,OK
+242,"Utah, USA",39.3209801,-111.0937311,APPROXIMATE,ChIJzfkTj8drTIcRP0bXbKVK370,"administrative_area_level_1,political",,Utah,1,OK
+243,Cambodia,12.565679,104.990963,APPROXIMATE,ChIJQzfc1L-HBzERUxL0ieC_t-Q,"country,political",,Cambodia,1,OK
+244,Romania,45.943161,24.96676,APPROXIMATE,ChIJw3aJlSb_sUARlLEEqJJP74Q,"country,political",,Romania,1,OK
+245,,,,,,,,MA,0,ZERO_RESULTS
+246,"Alberta, Canada",53.9332706,-116.5765035,APPROXIMATE,ChIJtRkkqIKyCVMRno6bQJpHqbA,"administrative_area_level_1,political",,Canada: AB,1,OK
+247,"Toyama, Japan",36.6958223,137.2137211,APPROXIMATE,ChIJ9WoXGAny918R4x0feZe_Wm0,"locality,political",,Toyama,2,OK
+248,"Krasnodar, Krasnodar Krai, Russia",45.036035,38.97457060000001,APPROXIMATE,ChIJszVFcWRF8EARtr7EVk95IPc,"locality,political",,Krasnodar,2,OK
+249,Hong Kong,22.3193039,114.1693611,APPROXIMATE,ChIJD5gyo-3iAzQRfMnq27qzivA,"country,political",,Hong Kong,1,OK
+250,"Novosibirsk Oblast, Russia",55.4467133,80.1043924,APPROXIMATE,ChIJc_dpU4GNHUMRPFMGiXZtmN8,"administrative_area_level_1,political",,Novosibirsk_region,1,OK
+251,"Delaware Bay, United States",39.1201705,-75.2479061,APPROXIMATE,ChIJT5N1QWVZx4kRk90lJ2jKVi8,"establishment,natural_feature",,Delaware_Bay,1,OK
+252,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnesota,1,OK
+253,"North Rhine-Westphalia, Germany",51.43323669999999,7.661593799999999,APPROXIMATE,ChIJoUhCjnwWuUcRX4_XT34yTC8,"administrative_area_level_1,political",,Germany-NW,1,OK
+254,Hungary,47.162494,19.503304,APPROXIMATE,ChIJw-Q333uDQUcREBAeDCnEAAA,"country,political",,Hungary,1,OK
+255,"South Dakota, USA",43.9695148,-99.9018131,APPROXIMATE,ChIJpTjphS1DfYcRt6SGMSnW8Ac,"administrative_area_level_1,political",,South_Dakota,1,OK
+256,,,,,,,,Metropolitana,0,ZERO_RESULTS
+257,"State of Espírito Santo, Brazil",-19.1834229,-40.3088626,APPROXIMATE,ChIJWWNkeZUGtwARmfdQPCTVG04,"administrative_area_level_1,political",,Espirito_Santo,1,OK
+258,"Sichuan, China",30.6508899,104.07572,APPROXIMATE,ChIJs829aDPn5DYRuf6Zj898j94,"administrative_area_level_1,political",,Sichuan,1,OK
+259,Australia,-25.274398,133.775136,APPROXIMATE,ChIJ38WHZwf9KysRUhNblaFnglM,"country,political",,Australia,1,OK
+260,"Leningrad Oblast, Russia",60.0793208,31.8926644,APPROXIMATE,ChIJgxy2QfxivUYRAJdzzhbvAAE,"administrative_area_level_1,political",,Leningrad_region,1,OK
+261,"Illinois, USA",40.6331249,-89.3985283,APPROXIMATE,ChIJGSZubzgtC4gRVlkRZFCCFX8,"administrative_area_level_1,political",,Illinois,1,OK
+262,"Brandenburg, Germany",52.1313922,13.2162494,APPROXIMATE,ChIJmzZ86O1PqEcRjN9SNJwmIoE,"administrative_area_level_1,political",,Germany-BB,1,OK
+263,"Saxony-Anhalt, Germany",51.9502649,11.6922735,APPROXIMATE,ChIJgSRR6JnwpUcRdN4O6BbFHdE,"administrative_area_level_1,political",,Sachsen-Anhalt,1,OK
+264,"Yokohama, Kanagawa, Japan",35.4436739,139.6379639,APPROXIMATE,ChIJCWW2u-xbGGARAFQoYPaDlgY,"locality,political",,Yokohama,1,OK
+265,"Minnesota, USA",46.729553,-94.6858998,APPROXIMATE,ChIJmwt4YJpbWE0RD6L-EJvJogI,"administrative_area_level_1,political",,Minnespta,1,OK
+266,"Urad Rear Banner, Bayannur, Inner Mongolia, China",41.0841399,107.07466,APPROXIMATE,ChIJx-ZDZ4ilIjYRLiLcOKj85nA,"political,sublocality,sublocality_level_1",,Inner_Mongolia,1,OK
+267,"100 N University St, Normal, IL 61761, USA",40.5121009,-88.99476299999999,ROOFTOP,ChIJc7x4lHFxC4gRNCy2X17B5RA,"establishment,point_of_interest,university",61761,ISU-Illinois,1,OK
+268,"Vermont, USA",44.5588028,-72.57784149999999,APPROXIMATE,ChIJ_87aSGzctEwRtGtUNnSJTSY,"administrative_area_level_1,political",,Vermont,1,OK
