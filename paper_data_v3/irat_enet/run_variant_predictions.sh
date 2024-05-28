@@ -3,9 +3,9 @@
 DRYRUN=0
 
 # Number of months prior to emergence to compute risk
-MONTHS="0 1 3 6"
+MONTHS="0 1 3 6 12"
 
-for ((i=0;i<=8;i++)); 
+for ((i=0;i<=11;i++)); 
 do
     for j in `echo $MONTHS`
     do
