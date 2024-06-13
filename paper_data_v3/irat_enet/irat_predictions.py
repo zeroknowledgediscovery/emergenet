@@ -19,4 +19,4 @@ if ha_seq == '-1' or na_seq == '-1':
 # Save directory
 SAVE_DIR = 'results/irat_predictions/' + virus_name + '/'
 enet = Enet(analysis_date, ha_seq, na_seq, save_data=SAVE_DIR, random_state=42)
-ha_risk, na_risk = enet.risk(sample_size=10000)
+ha_risk, na_risk = enet.risk(enet_sample_size=10000)

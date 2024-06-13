@@ -28,4 +28,4 @@ if ha_seq == '-1' or na_seq == '-1':
 SAVE_DIR = 'results/variant_predictions/' + virus_name + '/' + MONTHS + '/'
 if not os.path.exists(SAVE_DIR):
     enet = Enet(analysis_date, ha_seq, na_seq, save_data=SAVE_DIR, random_state=42)
-    ha_risk, na_risk = enet.risk(sample_size=10000)
+    ha_risk, na_risk = enet.risk(enet_sample_size=10000)
