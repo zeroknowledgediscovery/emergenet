@@ -6,9 +6,13 @@ version.py
 emergenet/__init__.py
 emergenet/domseq.py
 emergenet/emergenet.py
+emergenet/unzip_files.py
 emergenet/utils.py
 emergenet.egg-info/PKG-INFO
 emergenet.egg-info/SOURCES.txt
 emergenet.egg-info/dependency_links.txt
 emergenet.egg-info/requires.txt
 emergenet.egg-info/top_level.txt
+emergenet/models/emergence_high_model.joblib
+emergenet/models/emergence_low_model.joblib
+emergenet/models/emergence_model.joblib

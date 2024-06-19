@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+from setuptools.command.install import install
 from codecs import open
 from os import path
 
@@ -16,7 +17,13 @@ here = path.abspath(path.dirname(__file__))
 # Get the long description from the relevant file
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
-
+    
+class PostInstallCommand(install):
+    '''Post-installation for installation mode.'''
+    def run(self):
+        install.run(self)
+        import unzip_files
+        unzip_files.unzip_files(path.dirname(__file__))
 
 setup(
     name=package_name,
@@ -53,4 +60,7 @@ setup(
         "Topic :: Software Development :: Libraries",
         "Programming Language :: Python :: 3.6"],
     include_package_data=True,
+    cmdclass={
+        'install': PostInstallCommand,
+    },
     )
