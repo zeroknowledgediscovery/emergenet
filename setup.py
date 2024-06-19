@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 from codecs import open
 from os import path
+import os, shutil, gzip
 
 package_name = 'emergenet'
 example_dir = 'examples/'
@@ -17,13 +18,25 @@ here = path.abspath(path.dirname(__file__))
 # Get the long description from the relevant file
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
-    
+
 class PostInstallCommand(install):
-    '''Post-installation for installation mode.'''
+'''Post-installation for installation mode.'''
+
     def run(self):
         install.run(self)
-        import unzip_files
-        unzip_files.unzip_files(path.dirname(__file__))
+        self.unzip_files(path.dirname(__file__))
+
+    def unzip_files(self, directory):
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                if file.endswith('.gz'):
+                    gz_file_path = path.join(root, file)
+                    output_file_path = path.join(root, file[:-3])
+                    if not path.exists(output_file_path):
+                        with gzip.open(gz_file_path, 'rb') as f_in:
+                            with open(output_file_path, 'wb') as f_out:
+                                shutil.copyfileobj(f_in, f_out)
+                        os.remove(gz_file_path)
 
 setup(
     name=package_name,
