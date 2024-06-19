@@ -20,7 +20,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 class PostInstallCommand(install):
-'''Post-installation for installation mode.'''
+    '''Post-installation for installation mode.'''
 
     def run(self):
         install.run(self)
