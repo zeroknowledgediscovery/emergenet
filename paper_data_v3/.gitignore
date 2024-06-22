@@ -14,6 +14,7 @@ irat_enet/results/variant_predictions/*/*/data/
 
 # Extra IRAT data
 irat_enet/results/irat_predictions/*/data/
+irat_enet/results/irat_predictions/*/sem/*/data/
 
 # Large data files, which are generated from irat_enet/data_collection.ipynb
 irat_enet/final_irat_model/data/human/gisaid/human.csv

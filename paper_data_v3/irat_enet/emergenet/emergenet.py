@@ -1,7 +1,7 @@
 import re, os, json, joblib
 import numpy as np
 import pandas as pd
-from typing import Tuple
+from typing import Tuple, Union
 from datetime import date, datetime
 from collections import Counter
 from pkg_resources import resource_filename
@@ -213,7 +213,8 @@ class Enet(object):
         return enet
     
 
-    def risk(self, yearsbefore:int=1, enet_sample_size:int=None, risk_sample_size:int=None) -> Tuple[float, float]:
+    def risk(self, yearsbefore:int=1, enet_sample_size:Union[int, float]=None, 
+             risk_sample_size:Union[int, float]=None) -> Tuple[float, float]:
         ''' Computes risk scores for the target sequence.
         If `save_data` is not None, `analysis_date` is not 'PRESENT' and pretrained_enet_path is None, saves the following:
         1. Emergenet models: `save_data/enet_models/<subtype>.joblib`
@@ -229,9 +230,9 @@ class Enet(object):
         ----------
         yearsbefore - Number of years prior to analysis_date to consider 
         
-        enet_sample_size - Number of sequences of each subtype to train Emergenet on, sampled randomly
+        enet_sample_size - Number of or proportion sequences of each subtype to train Emergenet on
         
-        risk_sample_size - Number of sequences of each subtype to sample for risk estimation
+        risk_sample_size - Number or proportion of unique sequences of each subtype to sample for risk estimation
 
         Returns
         -------
@@ -256,7 +257,10 @@ class Enet(object):
                     df = pd.read_csv(human_filepath, na_filter=False)
                     # Sample from human sequences if needed
                     if risk_sample_size is not None:
-                        sample_size = min(risk_sample_size, len(df) // 2)
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size <= 1:
+                            sample_size = int(risk_sample_size * len(df))
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     # Load Enet and compute risks
                     enet = load_model(model_filepath)
@@ -293,7 +297,10 @@ class Enet(object):
                     df = human1[human1[segment] == subtype].drop_duplicates(subset=['sequence'])
                     # Sample from human sequences if needed
                     if risk_sample_size is not None:
-                        sample_size = min(risk_sample_size, len(df) // 2)
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size <= 1:
+                            sample_size = int(risk_sample_size * len(df))
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     # Load Enet and compute risks
                     enet = load_model(os.path.join(self.pretrained_enet_path, subtype + '.joblib'))
@@ -326,19 +333,28 @@ class Enet(object):
                     # Skip subtypes with less than 15 sequences
                     if subtypes[subtype] < 15:
                         continue
-                    # Use entire population for constructing Enet
+                    # Load human strains for constructing enet, sampling if needed
                     df = human1[human1[segment] == subtype]
+                    if enet_sample_size is not None:
+                        if isinstance(enet_sample_size, int):
+                            sample_size = min(enet_sample_size, len(df))
+                        elif isinstance(enet_sample_size, float) and enet_sample_size <= 1:
+                            sample_size = int(enet_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     if self.save_data is not None:
                         df.to_csv(os.path.join(self.save_sequences, subtype + '.csv'), index=False)
                     # Train Enet
-                    enet = self.train(segment, df, sample_size=enet_sample_size)
+                    enet = self.train(segment, df)
                     if self.save_data is not None:
                         save_model(enet, os.path.join(self.save_model, subtype + '.joblib'))
                     # Use only unique sequences for inference
                     df = df.drop_duplicates(subset=['sequence'])
-                    # Sample from human sequences if needed
-                    if risk_sample_size is not None:
-                        sample_size = min(risk_sample_size, len(df) // 2)
+                    # Sample from human sequences if needed (only if we did not already sample for training Enet)
+                    if risk_sample_size is not None and enet_sample_size is None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size <= 1:
+                            sample_size = int(risk_sample_size * len(df))
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     # Compute risks
                     df = self._compute_risks(segment, df, enet)

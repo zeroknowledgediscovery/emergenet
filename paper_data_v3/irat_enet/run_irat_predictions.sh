@@ -5,6 +5,9 @@ DRYRUN=0
 
 for ((i=0;i<=23;i++)); 
 do
+    if [ $i -eq 22 ]; then
+        continue
+    fi
     basedtaname=IXC"$i"
     PROG=" module load python/anaconda-2021.05; python3 irat_predictions.py $i"
     echo -n '... launching '
