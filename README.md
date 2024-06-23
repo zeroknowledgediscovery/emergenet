@@ -1,5 +1,6 @@
 # Emergenet
 
+![Logo](logo.png)
 
 
 ## File Tree
