@@ -334,7 +334,7 @@ class DomSeq(object):
         
         Parameters
         ----------
-        pred_seqs - Emergenet recommended sequences, with additional column 'cluster_area'
+        pred_seqs - Emergenet recommended sequences, with additional column 'cluster_count'
                     This should have at least two rows (i.e. predictions from two clusters)
         
         pred_seq_df - DataFrame of candidate sequences

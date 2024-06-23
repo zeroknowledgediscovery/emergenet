@@ -386,3 +386,9 @@ ui-tests/.pnp.*
 
 # Local example package
 examples_local/
+
+# Generated files from examples
+examples/data/domseq/enet.joblib
+examples/data/domseq/predictions_for_22_23.csv
+examples/data/domseq/single_prediction_for_22_23.csv
+examples/data/emergenet/example_results/
