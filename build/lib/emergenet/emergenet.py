@@ -5,7 +5,7 @@ from typing import Tuple, Union
 from datetime import date, datetime
 from collections import Counter
 from pkg_resources import resource_filename
-from quasinet.qnet import Qnet, qdistance
+from quasinet.qnet import Qnet, qdistance, qdistance_matrix
 from .utils import filter_by_date_range, load_model, save_model
 
 
@@ -167,14 +167,8 @@ class Enet(object):
         elif segment == 'NA':
             TRUNC = NA_TRUNC
             target_seq = np.array(list(self.na_seq[:TRUNC]))
-        risks = []
-        for i in range(len(seq_arr)):
-            qdist = qdistance(target_seq, seq_arr[i], enet, enet)
-            if np.isnan(qdist):
-                risks.append(-1)
-                continue
-            risks.append(qdist)
-        seq_df['risk'] = risks
+        qdist = qdistance_matrix(np.array([target_seq]), seq_arr, enet, enet)
+        seq_df['risk'] = qdist[0]
         return seq_df
     
 
