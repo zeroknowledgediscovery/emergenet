@@ -12,6 +12,16 @@ emergenet.egg-info/SOURCES.txt
 emergenet.egg-info/dependency_links.txt
 emergenet.egg-info/requires.txt
 emergenet.egg-info/top_level.txt
+emergenet/data/current_subtypes.json
+emergenet/data/human.csv.gz
+emergenet/data/current/H1.csv
+emergenet/data/current/H3.csv
+emergenet/data/current/N1.csv
+emergenet/data/current/N2.csv
+emergenet/models/H1.joblib.gz
+emergenet/models/H3.joblib.gz
+emergenet/models/N1.joblib.gz
+emergenet/models/N2.joblib.gz
 emergenet/models/emergence_high_model.joblib
 emergenet/models/emergence_low_model.joblib
 emergenet/models/emergence_model.joblib
