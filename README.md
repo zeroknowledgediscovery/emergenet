@@ -1,31 +1,31 @@
 # Emergenet
 
-### Directory Structure
+## File Tree
 
 The file tree shows relavent directories for the current version of the project.
 
+To replicate the results from the paper, go to `paper_data_v3` and follow the README.
+
 ```
-Emergenet
+emergenet
 ├── emergenet : Emergenet package source code
-├── examples : examples using the emergenet.emergenet and emergenet.domseq modules
-├── paper_data_v3 : results for current version of the paper
+├── examples : Examples using the emergenet.emergenet and emergenet.domseq modules
+├── paper_data_v3 : Results for current version of the paper
 └── tex : LaTeX source files for paper
 ```
 
 ## Description
-- Computing and predicting dominant viral strains
+
+- Predicting future dominant viral strains
 - Superfast risk assessment of emerging pathogens
 
-
 ## Installation
+
 [PyPI](https://pypi.org/project/emergenet/)
 
 To install with pip:
 
 ```
-pip install emergenet
-
-# to update
 pip install emergenet --upgrade
 ```
 
@@ -41,52 +41,76 @@ pip install emergenet --upgrade
 * shapely
 * alphashape
 
-## Usage
+## Quick Start
 
 Examples are located [here](https://github.com/zeroknowledgediscovery/emergenet/tree/main/examples).
 
-### Predicting Dominant Sequences
-
-```python
-from emergenet.domseq import DomSeq, save_model, load_model
-
-# initialize DomSeq
-domseq = DomSeq(seq_trunc_length=565, random_state=42)
-
-# load data from current time period
-df = domseq.load_data(filepath='sequences.fasta')
-
-# compute dataframe of cluster-wise dominant sequences for current time period
-dominant_sequences = domseq.compute_domseq(seq_df=df)
-
-# train enet
-enet_model = domseq.train(seq_df=df, sample_size=3000)
-save_model(enet=enet_model, outfile='enet_modes/')
-
-# load candidate sequences for recommendation
-pred_df = domseq.load_data(filepath='pred_sequences.fasta')
-
-# compute dataframe of cluster-wise recommendation sequences for next time period
-prediction_sequences = domseq.predict_domseq(seq_df=df, pred_seq_df=pred_df, enet=enet_model, sample_size=3000)
-```
-
-### Evaluating Sequence Risk
-
-```python
-from emergenet.emergenet import Enet, predict_irat_emergence
-
-# Initialize the Enet
-enet = Enet(analysis_date, ha_seq, na_seq, save_data=SAVE_DIR, random_state=42)
-
-# Estimate the Enet risk scores
-ha_risk, na_risk = enet.risk(sample_size=10000)
-
-# Map the Enet risk scores to the IRAT risk scale
-irat, irat_low, irat_high = predict_irat_emergence(ha_risk, na_risk)
-```
-
-## Documentation
-
 For more documentation, see [here](https://zeroknowledgediscovery.github.io/emergenet/).
 
-For a quick start guide, see [here](https://github.com/zeroknowledgediscovery/emergenet/blob/main/examples/emergenet_package.pdf).
+### Predicting Future Dominant Strain with `emergenet.domseq` 
+
+```python
+import pandas as pd
+from emergenet.domseq import DomSeq
+from emergenet.utils import save_model, load_model
+
+DATA_DIR = 'data/domseq/'
+
+# Initialize the DomSeq
+domseq = DomSeq(seq_trunc_length=565, random_state=42)
+
+# Load data from current time period (2021-2022 season)
+df = pd.read_csv(DATA_DIR+'north_h1n1_21_22.csv')
+
+# Train enet
+enet = domseq.train(seq_df=df, sample_size=3000, n_jobs=1)
+
+# Load candidate sequences for recommendation
+# This includes all human H1N1 strains up until the 2021-2022 season
+candidate_df = pd.read_csv(DATA_DIR+'north_h1n1_21_22_pred.csv')
+
+# Compute prediction sequences (return predictions from top 3 largest clusters)
+pred_df = domseq.predict_domseq(seq_df=df, 
+                                pred_seq_df=candidate_df, 
+                                enet=enet_model, 
+                                n_clusters=3, 
+                                sample_size=3000)
+
+# Compute a single prediction for the dominant strain
+single_pred_seq = domseq.predict_single_domseq(pred_seqs=pred_df, 
+                                               pred_seq_df=candidate_df)
+```
+
+### Estimating Emergence Risk with `emergenet.emergenet`
+
+```python
+import pandas as pd
+from emergenet.emergenet import Enet, predict_irat_emergence
+
+DATA_DIR = 'data/emergenet/'
+
+# Load IRAT sequence - A/Indiana/08/2011
+irat_df = pd.read_csv(DATA_DIR+'irat.csv')
+row = irat_df.iloc[20]
+
+# We need the analysis date, and HA and NA sequences
+# Optionally, we can proved a save_data directory
+analysis_date = row['Date of Risk Assessment']
+ha_seq = row['HA Sequence']
+na_seq = row['NA Sequence']
+SAVE_DIR = 'data/emergenet/example_results/'
+
+# Initialize the Enet
+enet = Enet(analysis_date=analysis_date, 
+            ha_seq=ha_seq, 
+            na_seq=na_seq, 
+            save_data=SAVE_DIR, 
+            random_state=42)
+
+# Estimate the Enet risk scores
+ha_risk, na_risk = enet.risk()
+
+# Map the Enet risk scores to the IRAT risk scale
+irat, irat_low, irat_high = predict_irat_emergence(ha_risk=ha_risk, 
+                                                   na_risk=na_risk)
+```
