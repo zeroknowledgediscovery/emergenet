@@ -1,5 +1,5 @@
 include version.py
 recursive-include emergenet/examples *.py *.ipynb *.sh
 recursive-include emergenet/bin *.so
-recursive-include emergenet *.ipynb *.joblib *.c *.so *.pyx *.pickle
+recursive-include emergenet *.ipynb *.joblib *.c *.so *.pyx *.pickle *.gz
 recursive-include emergenet/models *.pickle
