@@ -1,3 +1,9 @@
 #!/bin/bash
 
+./makedoc.sh
+
+git rm -rf tex/overleaf
+
 git add * -v ; git commit -m upd; git push
+cd tex
+git clone https://git@git.overleaf.com/65c999c0cffb655cc82c6f24 overleaf
