@@ -47,6 +47,53 @@ Examples are located [here](https://github.com/zeroknowledgediscovery/emergenet/
 
 For more documentation, see [here](https://zeroknowledgediscovery.github.io/emergenet/).
 
+### Estimating Emergence Risk with `emergenet.emergenet`
+
+To evaluate a strain, use `examples/estimate_risk.py`. You only need to provide the HA and NA sequences. Run `python examples/estimate_risk.py -h` for more arguments.
+
+```bash
+$ HA=MKTIIAFSCILCLIFAQKLPGSDNSMATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGGICNSPHQILDGKNCTLIDALLGDPHCDDFQNKEWDLFVERSTAYSNCYPYYVPDYATLRSLVASSGNLEFTQESFNWTGVAQGGSSYACRRGSVNSFFSRLNWLYNLNYKYPEQNVTMPNNDKFDKLYIWGVHHPGTDKDQTNLYVQASGRVIVSTKRSQQTVIPNIGSRPWVRGVSSIISIYWTIVKPGDILLINSTGNLIAPRGYFKIQSGKSSIMRSDAHIDECNSECITPNGSIPNDKPFQNVNKITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGTGQAADLKSTQAAINQITGKLNRVIKKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAEILVALENQHTIDLTDSEMSKLFERTRRQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDIYRNEALNNRFQIKGVQLKSGYKDWILWISFAISCFLLCVVLLGFIMWACQKGNIRCNICI
+$ NA=MNPNQKIITIGSVSLIIATICFLMQIAILVTTVTLHFKQHDYNSPPNNQAMLCEPTIIERNTTEIVYLTNITIEKEICPKLAEYRNWSKPQCNITGFAPFSKDNSIRLSAGGDIWVTREPYVSCDPDKCYQFALGQGTTLNNGHSNNTVHDRTPYRTLLMNELGVPFHLGTRQVCMAWSSSSCHDGKAWLHVCITGNDNNATASFIYNGRLVDSIGSWSKNILRTQESECVCINGTCTVVMTDGSASGKADTKILFVEEGKIVHISTLSGSAQHVEECSCYPRFPGVRCVCRDNWKGSNRPIVDINVKNYSIVSSYVCSGLVGDTPRKSDSVSSSYCLDPNNEKGGHGVKGWAFDDGNDVWMGRTINETLRLGYETFKVIEGWSKANSKLQTNRQVIVEKGDRSGYSGIFSVEGKSCINRCFYVELIRGRKEETKVWWTSNSIVVFCGTSGTYGTGSWPDGADINLMPI
+$ python estimate_risk.py $HA $NA
+
+Estimated IRAT Emergence Score: 6.50
+Time taken: 31.28 seconds
+```
+
+Here is a detailed example using an IRAT strain, A/Indiana/08/2011 evaluated at the time of IRAT assessment.
+
+```python
+import pandas as pd
+from emergenet.emergenet import Enet, predict_irat_emergence
+
+DATA_DIR = 'data/emergenet/'
+
+# Load IRAT sequence - A/Indiana/08/2011
+irat_df = pd.read_csv(DATA_DIR+'irat.csv')
+row = irat_df.iloc[20]
+
+# We need the analysis date, and HA and NA sequences
+# Optionally, we can proved a save_data directory
+analysis_date = row['Date of Risk Assessment']
+ha_seq = row['HA Sequence']
+na_seq = row['NA Sequence']
+SAVE_DIR = 'data/emergenet/example_results/'
+
+# Initialize the Enet
+enet = Enet(analysis_date=analysis_date, 
+            ha_seq=ha_seq, 
+            na_seq=na_seq, 
+            save_data=SAVE_DIR, 
+            random_state=42)
+
+# Estimate the Enet risk scores
+ha_risk, na_risk = enet.risk(risk_sample_size=100)
+
+# Map the Enet risk scores to the IRAT risk scale
+irat, irat_low, irat_high = predict_irat_emergence(ha_risk=ha_risk, 
+                                                   na_risk=na_risk)
+```
+
 ### Predicting Future Dominant Strain with `emergenet.domseq` 
 
 ```python
@@ -79,38 +126,4 @@ pred_df = domseq.predict_domseq(seq_df=df,
 # Compute a single prediction for the dominant strain
 single_pred_seq = domseq.predict_single_domseq(pred_seqs=pred_df, 
                                                pred_seq_df=candidate_df)
-```
-
-### Estimating Emergence Risk with `emergenet.emergenet`
-
-```python
-import pandas as pd
-from emergenet.emergenet import Enet, predict_irat_emergence
-
-DATA_DIR = 'data/emergenet/'
-
-# Load IRAT sequence - A/Indiana/08/2011
-irat_df = pd.read_csv(DATA_DIR+'irat.csv')
-row = irat_df.iloc[20]
-
-# We need the analysis date, and HA and NA sequences
-# Optionally, we can proved a save_data directory
-analysis_date = row['Date of Risk Assessment']
-ha_seq = row['HA Sequence']
-na_seq = row['NA Sequence']
-SAVE_DIR = 'data/emergenet/example_results/'
-
-# Initialize the Enet
-enet = Enet(analysis_date=analysis_date, 
-            ha_seq=ha_seq, 
-            na_seq=na_seq, 
-            save_data=SAVE_DIR, 
-            random_state=42)
-
-# Estimate the Enet risk scores
-ha_risk, na_risk = enet.risk()
-
-# Map the Enet risk scores to the IRAT risk scale
-irat, irat_low, irat_high = predict_irat_emergence(ha_risk=ha_risk, 
-                                                   na_risk=na_risk)
 ```

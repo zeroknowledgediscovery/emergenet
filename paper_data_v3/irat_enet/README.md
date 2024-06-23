@@ -34,6 +34,8 @@ A second demonstration of our approach is obtained by computing the E-risk score
 
 Follow the instructions in `variant_predictions.ipynb`.
 
+For the final figure paper, see `variant_new.ipynb`.
+
 ### 4) Risk Assessment of Animal Strains
 
 Finally, we estimate the IRAT scores of all 6,354 wild Influenza A animal viruses collected globally between January
@@ -51,7 +53,7 @@ irat_enet
 │   ├── irat : Strains previously analyzed by IRAT
 │   └── variant : Variant strains (animal strains that have emerged in humans)
 ├── emergenet : Local version of emergenet.emergenet module
-├── final_irat_model : Generates IRAT models reported in the paper
+├── final_irat_model : Generates IRAT results reported in the paper
 │   ├── data : Data for IRAT risk estimation
 │   ├── results : Results for each IRAT strain
 │   ├── data_collection.ipynb : Creates CSV data from FASTA
@@ -74,6 +76,7 @@ irat_enet
 ├── run_irat_predictions_sem.sh : Parallelize irat_predictions_sem.py
 ├── run_irat_predictions.sh : Parallelize irat_predictions.py
 ├── run_variant_predictions.sh : Parallelize variant_predictions.py
+├── variant_new.ipynb : Final variant figure reported in the paper
 ├── variant_predictions.ipynb : Analyze risk estimates of variant strains
 └── variant_predictions.py : Estimate risk of variant strains
 ```
