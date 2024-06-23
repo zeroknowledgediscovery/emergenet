@@ -60,7 +60,7 @@ Estimated IRAT Emergence Score: 6.50
 Time taken: 31.28 seconds
 ```
 
-Here is a detailed example using an IRAT strain, A/Indiana/08/2011 evaluated at the time of IRAT assessment.
+Here is a detailed example using an IRAT strain, A/Indiana/08/2011, evaluated at the time of IRAT assessment.
 
 ```python
 import pandas as pd
