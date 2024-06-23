@@ -385,4 +385,4 @@ ui-tests/.yarn/*
 ui-tests/.pnp.*
 
 # Local example package
-examples1/
+examples_local/
