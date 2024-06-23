@@ -2,6 +2,7 @@
 
 ./makedoc.sh
 
+rm -rf tex/overleaf
 git rm -rf tex/overleaf
 
 git add * -v ; git commit -m upd; git push
