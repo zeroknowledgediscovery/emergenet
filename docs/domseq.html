@@ -30,221 +30,84 @@
 <pre><code class="python">import os
 import numpy as np
 import pandas as pd
-from Bio import SeqIO
-from Levenshtein import distance
-from quasinet.qnet import Qnet, qdistance_matrix, save_qnet, load_qnet, membership_degree
+from distance import hamming
+from itertools import cycle
+import shapely
+import alphashape
+from quasinet.qnet import Qnet, qdistance_matrix, membership_degree
 from sklearn.cluster import MeanShift, estimate_bandwidth
 from sklearn.manifold import MDS
 from collections import Counter
+import matplotlib.pyplot as plt
+plt.style.use(&#39;fivethirtyeight&#39;)
+
+
+# Area multiplier for alpha shapes
+AREA_MULTIPLIER = 100
 
 
 class DomSeq(object):
-    &#34;&#34;&#34;Find and predict dominant sequences.
+    &#39;&#39;&#39; DomSeq architecture for predicting dominant sequences.
+    &#39;&#39;&#39; 
 
-    Parameters
-    ----------
-    seq_trunc_length : int
-        Length to truncate sequences in Emergenet analysis
-        (Sequences used to train Emergenet and compute E-distance must be of same length)
+    def __init__(self, seq_trunc_length:int, random_state:int=42):
+        &#39;&#39;&#39; Initializes an DomSeq instance.
 
-    random_state : int
-        Sets seed for random number generator
-    &#34;&#34;&#34;
+        Parameters
+        ----------
+        seq_trunc_length - Length to truncate sequences in Emergenet analysis
+            (Sequences used to train Emergenet and compute E-distance must be of same length)
 
-    def __init__(self, seq_trunc_length, random_state=42):
+        random_state - Sets seed for random number generator
+        &#39;&#39;&#39;
         if seq_trunc_length &lt;= 0:
             raise ValueError(&#39;Length to truncate sequences must be positive!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
-        if random_state &lt; 0:
+        if random_state is not None and random_state &lt; 0:
             raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
         self.random_state = random_state
 
+        
     def __repr__(self):
-        return &#34;emergenet.DomSeq&#34;
+        return &#39;emergenet.DomSeq&#39;
 
+    
     def __str__(self):
         return self.__repr__()
     
-    @staticmethod
-    def _count_seqs(filepath):
-        &#34;&#34;&#34;Returns number of sequences in a fasta file.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        Returns
-        -------
-        seq_df : int
-            Number of sequences
-        &#34;&#34;&#34;
-        with open(filepath, &#39;r&#39;) as f:
-            fasta = SeqIO.parse(f, &#39;fasta&#39;)
-            if not any(fasta):
-                raise ValueError(&#39;The infile must be in fasta format!&#39;)
-        with open(filepath, &#39;r&#39;) as f:
-            lines = f.read()
-        num_sequences = lines.count(&#39;&gt;&#39;)
-        return num_sequences
     
     @staticmethod
-    def _get_acc(ID):
-        &#34;&#34;&#34;Returns accession code of a sequence.
+    def _dm_to_df(dm:np.ndarray) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Converts a distance matrix to a DataFrame.
 
         Parameters
         ----------
-        ID : str
-            Sequence metadata
+        dm - Distance matrix as 2D array
 
         Returns
         -------
-        acc : str
-            Accession code
-        &#34;&#34;&#34;
-        ids = ID.split(&#39;|&#39;)
-        # NCBI format
-        if len(ids) == 3: 
-            acc = ids[0]
-            return acc
-        # GISAID format
-        else: 
-            acc = ids[4]
-            return acc
-
-    @staticmethod
-    def _get_name(ID):
-        &#34;&#34;&#34;Returns name of a sequence.
-
-        Parameters
-        ----------
-        ID : str
-            Sequence metadata
-
-        Returns
-        -------
-        name : str
-            Name
-        &#34;&#34;&#34;
-        ids = ID.split(&#39;|&#39;)
-        # NCBI format
-        if len(ids) == 3: 
-            name = &#39;&#39;
-            start = False
-            for c in ids[1]:
-                if c == &#39;(&#39; and not start:
-                    start = True
-                elif c == &#39;(&#39; and start:
-                    break
-                elif start == True:
-                    name += c
-            return name
-        # GISAID format
-        else: 
-            name = ids[0]
-            return name
-        
-    @staticmethod
-    def _get_date(ID):
-        &#34;&#34;&#34;Returns collection date of a sequence.
-
-        Parameters
-        ----------
-        ID : str
-            Sequence metadata
-
-        Returns
-        -------
-        date : str
-            Collection date
-        &#34;&#34;&#34;
-        ids = ID.split(&#39;|&#39;)
-        # NCBI format
-        if len(ids) == 3: 
-            date = ids[2]
-            return date
-        # GISAID format
-        else:
-            date = ids[3]
-            return date
-    
-    @staticmethod
-    def _dm_to_df(dm):
-        &#34;&#34;&#34;Converts a distance matrix to a DataFrame.
-
-        Parameters
-        ----------
-        dm : numpy.ndarray
-            Distance matrix as 2D array
-
-        Returns
-        -------
-        dm : pd.Dataframe
-            Distance matrix as DataFrame
-        &#34;&#34;&#34;
+        df - Distance matrix as DataFrame
+        &#39;&#39;&#39; 
         columns = np.arange(0, dm.shape[1])
         index = np.arange(0, dm.shape[0])
         df = pd.DataFrame(dm, columns=columns, index=index)
         return df
+
     
-    def _parse_fasta(self, filepath):
-        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with four columns.
-        FASTA metadata must be in the format:
-            NCBI: Accession | GenBank Title | Collection Date
-            GISAID: Isolate name | Type | Segment | Collection date | Protein Accession no. | Protein INSDC
-        `acc` contains sequence accession.
-        `name` contains sequence name.
-        `date` contains collection date.
-        `sequence` contains sequences truncated to `seq_trunc_length`.
+    def _sequence_array(self, seq_df:pd.DataFrame, sample_size:int=None) -&gt; np.ndarray:
+        &#39;&#39;&#39; Extracts array of sequence arrays from DataFrame; includes target sequence.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        seq_df - DataFrame containing sequences
+
+        sample_size - Number of strains to sample randomly
 
         Returns
         -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        if self._count_seqs(filepath) == 0:
-            raise ValueError(&#39;The file contains no sequences!&#39;)
-        accs = []
-        names = []
-        dates = []
-        seqs = []
-        for record in SeqIO.parse(filepath, &#39;fasta&#39;):
-            date = self._get_date(str(record.description))
-            if len(record.seq) &lt; self.seq_trunc_length:
-                continue
-            if len(date) == 4:
-                date += &#39;-09-25&#39;
-            elif len(date) == 7:
-                date += &#39;-15&#39;
-            accs.append(self._get_acc(str(record.description)))
-            names.append(self._get_name(str(record.description)))
-            dates.append(date)
-            seqs.append(&#39;&#39;.join(record.seq[:self.seq_trunc_length].upper()))
-        seq_df = pd.DataFrame({&#39;acc&#39;:accs, &#39;name&#39;:names, &#39;date&#39;:dates, &#39;sequence&#39;:seqs})
-        return seq_df
-
-    def _sequence_array(self, seq_df, sample_size=None):
-        &#34;&#34;&#34;Extracts array of sequence arrays from DataFrame; includes target sequence.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame containing sequences
-
-        sample_size : int
-            Number of strains to sample randomly
-
-        Returns
-        -------
-        seq_lst: numpy.ndarray
-            Array of sequence arrays
-        &#34;&#34;&#34;
+        seq_lst - Array of sequence arrays
+        &#39;&#39;&#39; 
         if &#39;sequence&#39; not in seq_df.columns:
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is not None and sample_size &lt; len(seq_df):
@@ -256,48 +119,22 @@ class DomSeq(object):
         seq_lst = np.array(seq_lst)
         return seq_lst
 
-    def load_data(self, filepath, outfile=None):
-        &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
+    
+    def train(self, seq_df:pd.DataFrame, sample_size:int=None, n_jobs:int=1) -&gt; Qnet:
+        &#39;&#39;&#39; Trains an Emergenet model.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        seq_df - DataFrame of sequences
 
-        outfile : str
-            File name to save to (&#39;.csv&#39;)
+        sample_size - Number of strains to train Emergenet on, sampled randomly
 
-        Returns
-        -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        seq_df = self._parse_fasta(filepath)
-        if outfile is not None:
-            if not outfile.endswith(&#39;.csv&#39;):
-                raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
-            seq_df.to_csv(outfile, index=False)
-        return seq_df
-
-    def train(self, seq_df, sample_size=None, n_jobs=1):
-        &#34;&#34;&#34;Trains an Emergenet model.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        sample_size : int
-            Number of strains to train Emergenet on, sampled randomly
-
-        n_jobs : int
-            Number of CPUs to use when training
+        n_jobs - Number of CPUs to use when training
 
         Returns
         -------
-        enet : Qnet
-            Trained Emergenet
-        &#34;&#34;&#34;
+        enet - Trained Emergenet
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
         seq_arr = self._sequence_array(seq_df, sample_size)
@@ -306,116 +143,37 @@ class DomSeq(object):
         enet.fit(seq_arr)
         return enet
     
-    def _compute_domseq_distance_matrix(self, seq_df):
-        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        Returns
-        -------
-        dm : pd.DataFrame
-            Distance Matrix
-        &#34;&#34;&#34;
-        if &#39;sequence&#39; not in seq_df.columns:
-            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        seqs = seq_df[&#39;sequence&#39;].values
-        n = len(seqs)
-        dist_matrix = np.zeros((n, n))
-        for i in range(n):
-            for j in range(i+1, n):
-                dist_matrix[i, j] = distance(seqs[i][:self.seq_trunc_length], seqs[j][:self.seq_trunc_length])
-        dist_matrix += dist_matrix.T
-        dm = self._dm_to_df(dist_matrix)
-        return dm
     
-    def compute_domseq(self, seq_df, sample_size=None, save_data=None):
-        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
+    def _compute_risk_for_predict_domseq(self, seq_df:pd.DataFrame, 
+                                         pred_seq_df:pd.DataFrame, enet:Qnet) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Computes risk scores for potential prediction sequences.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        seq_df - DataFrame of current population sequences
             
-        sample_size : int
-            Number of strains to sample randomly from seq_df
-            
-        save_data : string
-            If directory is given, save the following files:
-            1. seq_df.csv (post-sampling, if sample_size is given)
-            2. dm.csv (the distance matrix corresponding to seq_df)
+        pred_seq_df - DataFrame of candidate sequences
+
+        enet - Emergenet that sequences in seq_df belong to
 
         Returns
         -------
-        dom_seqs : pd.DataFrame
-            Dominant sequences, with additional column for cluster sizes
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if sample_size is not None and sample_size &lt; len(seq_df):
-            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        # distance matrix
-        dm = self._compute_domseq_distance_matrix(seq_df)
-        if save_data is not None and os.path.isdir(save_data):
-            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
-            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
-        # clustering
-        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
-        dm_embed = embedding.fit_transform(dm)
-        bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
-        clustering = MeanShift(bandwidth=bandwidth)
-        clustering_predictions = clustering.fit_predict(dm_embed)
-        unique_clusters = np.unique(clustering_predictions)
-        # dominant sequences
-        dom_seqs = pd.DataFrame(columns=seq_df.columns)
-        cluster_sizes = []
-        for class_ in unique_clusters:
-            wanted_names = dm.columns[clustering_predictions == class_]
-            # find the centroid in this cluster
-            cluster_seq_df = seq_df.iloc[wanted_names]
-            cluster_dm = dm.iloc[wanted_names, wanted_names]
-            argmin = np.argmin(cluster_dm.sum(axis=&#39;columns&#39;).values)
-            # save sequence
-            dom_seqs = dom_seqs.append(cluster_seq_df.iloc[argmin])
-            cluster_sizes.append(len(wanted_names))
-        dom_seqs[&#39;cluster_size&#39;] = cluster_sizes
-        return dom_seqs
-    
-    def _compute_risk_for_predict_domseq(self, seq_df, pred_seq_df, enet):
-        &#34;&#34;&#34;Computes risk scores for potential prediction sequences.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of current population sequences
-            
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
-
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
-        Returns
-        -------
-        pred_seq_df : pd.DataFrame
-            Potential prediction sequences, with additional columns for risk score
-
-        &#34;&#34;&#34;
-        # distance matrix for computing prediction
+        pred_seq_df - Potential prediction sequences, with additional columns for risk score
+        &#39;&#39;&#39; 
+        # Distance matrix for computing prediction
         seq_arr = self._sequence_array(seq_df)
         pred_seq_arr = self._sequence_array(pred_seq_df)
         dist_matrix = qdistance_matrix(pred_seq_arr, seq_arr, enet, enet) 
-        # convert dist_matrix to dataframe
+        
+        # Convert dist_matrix to dataframe
         dm = self._dm_to_df(dist_matrix)
-        # find centroid data (sum across rows)
+        assert len(dm) == len(pred_seq_arr)
+        
+        # Find centroid data (sum across rows)
         first_term = dm.sum(axis=&#39;columns&#39;).values
         H = len(seq_df)
         A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
-        second_term = []
-        for i in range(len(pred_seq_arr)):
-            second_term.append(membership_degree(pred_seq_arr[i], enet) * H * A)
+        second_term = np.array([membership_degree(seq, enet) * H * A for seq in pred_seq_arr])
         sums = first_term - second_term
         pred_seq_df[&#39;first_term&#39;] = first_term
         pred_seq_df[&#39;second_term&#39;] = second_term
@@ -423,114 +181,227 @@ class DomSeq(object):
         pred_seq_df = pred_seq_df.sort_values(by=&#39;sum&#39;,ascending=True)
         return pred_seq_df
     
-    def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None):
-        &#34;&#34;&#34;Predicts the future dominant sequence.
+    @staticmethod
+    def _plot_embedding(dm_embed:np.ndarray, unique_clusters:Counter, clustering_predictions:np.array, 
+                        n_clusters:int, save_data:str=None, alpha:int=4) -&gt; list:
+        &#39;&#39;&#39; Plots the embedding and shows Enet and WHO predictions.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of current population sequences
+        dm_embed - Embedding points
             
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
+        unique_clusters - Counter (class, size) of unique clusters, sorted by size
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-            
-        n_clusters : int
-            Number of clusters to predict dominant strain on; default 3
+        clustering_predictions - Array of clustering predictions
 
-        sample_size : int
-            Number of strains to sample randomly from seq_df
+        n_clusters - Number of cluster alphashapes to draw
+
+        save_data - Directory to save plot to
+        
+        alpha - Alpha parameter, default 4
             
-        save_data : string
-            If directory is given, save the following files:
+        Returns
+        -------
+        cluster_areas - Areas of largest n_clusters
+        &#39;&#39;&#39;
+        # Add noise to offset equal points
+        noise = np.random.normal(0, 0.02, size=dm_embed.shape)
+        dm_embed += noise
+
+        # Find unique clusters
+        pts = []
+        for class_ in unique_clusters:
+            cluster_idx = np.where(clustering_predictions == class_[0])[0]
+            pt = dm_embed[cluster_idx]
+            x = pt[:,0]
+            y = pt[:,1]
+            points = np.column_stack((x, y))
+            pts.append(points)
+
+        # Plot clusters
+        plt.figure(figsize=(10, 10))
+        colors = cycle([&#39;skyblue&#39;,&#39;red&#39;,&#39;orange&#39;,&#39;green&#39;, &#39;purple&#39;])
+        markers = cycle([&#39;o&#39;, &#39;v&#39;])
+        
+        # Plot at most 5 clusters
+        cluster_areas = []
+        for i in range(min(len(pts), 5)):
+            pt = pts[i]
+            x = pt[:,0]
+            y = pt[:,1]
+            points = np.column_stack((x, y))
+            
+            # Draw alphashape for the first n clusters if &gt;= 3 points
+            # Otherwise just scatter the points
+            if i &lt; n_clusters:
+                if len(x) &lt; 3:
+                    cluster_areas.append(0)
+                    plt.scatter(x, y, color = next(colors), alpha = 0.7, 
+                                marker = next(markers), label = f&#39;Size: {len(pt)}&#39;)
+                else:
+                    alpha_shape = alphashape.alphashape(points, alpha=alpha)
+                    area = alpha_shape.area * AREA_MULTIPLIER
+                    cluster_areas.append(area)
+                    if isinstance(alpha_shape, shapely.geometry.multipolygon.MultiPolygon) or \
+                       isinstance(alpha_shape, shapely.GeometryCollection):
+                        for poly in alpha_shape.geoms:
+                            plt.plot(*poly.exterior.xy, &#39;k-&#39;, linewidth=1)
+                    else:
+                        plt.plot(*alpha_shape.exterior.xy, &#39;k-&#39;, linewidth=1)
+                    plt.scatter(x, y, color = next(colors), alpha = 0.7, marker = next(markers),
+                                label = f&#39;Size: {len(pt)}, Area: {round(area, 3)}&#39;)
+            else:
+                if len(x) == 1:
+                    continue
+                plt.scatter(x, y, color = next(colors), alpha = 0.7, 
+                            marker = next(markers), label = f&#39;Size: {len(pt)}&#39;)
+        # Save figure
+        plt.axis(&#39;auto&#39;)
+        plt.legend(loc=&#39;upper left&#39;, bbox_to_anchor=(1, 1));
+        if save_data is not None and os.path.isdir(save_data): 
+            plt.savefig(os.path.join(save_data, &#39;embedding.png&#39;), dpi=300, 
+                        bbox_inches = &#39;tight&#39;, pad_inches = 0, transparent=True)
+        return cluster_areas
+    
+    
+    def predict_domseq(self, seq_df:pd.DataFrame, pred_seq_df:pd.DataFrame, enet:Qnet, 
+                       n_clusters:int=3, sample_size:int=None, save_data:str=None) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Predicts the future dominant sequence with multiple clusters.
+
+        Parameters
+        ----------
+        seq_df - DataFrame of current population sequences
+            
+        pred_seq_df - DataFrame of candidate sequences
+
+        enet - Emergenet that sequences in seq_df belong to
+            
+        n_clusters - Number of clusters to predict dominant strain on; default 3
+
+        sample_size - Number of strains to sample randomly from seq_df
+            
+        save_data - If directory is given, save the following files:
             1. seq_df.csv (post-sampling, if sample_size is given)
             2. dm.csv (the distance matrix corresponding to seq_df)
-            3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, ... n_clusters)
-            4. clusters.txt (clusters and cluster sizes)
+            3. pred_seq_df_i.csv (pred_seq_df with columns for risk score, i = 1,2,...n_clusters)
+            4. clusters.txt (clusters and cluster counts)
+            5. embedding.png (embedding plot with alpha shapes drawn for n_clusters)
 
         Returns
         -------
-        pred_seqs : pd.DataFrame
-            Emergenet recommended sequences, with additional column for cluster sizes
-
-        &#34;&#34;&#34;
+        pred_seqs - Emergenet recommended sequences, with additional two columns for cluster counts and areas
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1 or len(pred_seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
         if sample_size is not None and sample_size &lt; len(seq_df):
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        # distance matrix for clustering strains from current season
+        if n_clusters &lt;= 1:
+            raise ValueError(&#39;For single cluster, please use predict_single_domseq!&#39;)
+        if len(pred_seq_df) &gt; 20000:
+            pred_seq_df = pred_seq_df.sample(20000, random_state=self.random_state)
+        
+        # Parameter for alphashape
+        ALPHA = 4
+            
+        # Distance matrix for clustering strains from current season
         seq_arr = self._sequence_array(seq_df)
         dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
         dm = self._dm_to_df(dist_matrix)
         if save_data is not None and os.path.isdir(save_data):
-            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
-            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
-        # clustering
-        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+            seq_df.to_csv(os.path.join(save_data, &#39;seq_df.csv&#39;), index=False)
+            dm.to_csv(os.path.join(save_data, &#39;dm.csv&#39;), index=False)
+            
+        # Clustering
+        embedding = MDS(n_components=2, dissimilarity=&#39;precomputed&#39;, random_state=self.random_state)
         dm_embed = embedding.fit_transform(dm)
         bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+        bandwidth = max(bandwidth, 1e-5)
         clustering = MeanShift(bandwidth=bandwidth)
         clustering_predictions = clustering.fit_predict(dm_embed)
-        # sort unique clusters by size
+        
+        # Normalize points
+        mean = np.mean(dm_embed, axis=0)
+        std = np.std(dm_embed, axis=0)
+        dm_embed_normalized = (dm_embed - mean) / std
+        if sum(std) == 0:
+            dm_embed_normalized = dm_embed
+        
+        # Sort unique clusters by size
         label_counts = Counter(clustering_predictions)
         unique_clusters = sorted(label_counts.items(), key=lambda x: x[1], reverse=True)
         if save_data is not None and os.path.isdir(save_data):
-            with open(save_data + &#39;clusters.txt&#39;, &#39;w&#39;) as file:
+            with open(os.path.join(save_data, &#39;clusters.txt&#39;), &#39;w&#39;) as file:
                 for item in unique_clusters:
                     file.write(str(item) + &#39;\n&#39;)
-        # predictions
+        
+        # Predictions
         pred_seqs = pd.DataFrame(columns=pred_seq_df.columns)
-        cluster_sizes = []
+        cluster_counts = []
         for class_ in unique_clusters[:n_clusters]:
+            # Take riskiest strain using this cluster
             wanted_names = dm.columns[clustering_predictions == class_[0]]
-            # take riskiest strain using this cluster
             cluster_seq_df = seq_df.iloc[wanted_names]
             pred_seq_df_with_risk = self._compute_risk_for_predict_domseq(cluster_seq_df, pred_seq_df, enet)
             if save_data is not None and os.path.isdir(save_data):
-                pred_seq_df_with_risk.to_csv(save_data+&#39;pred_seq_df_&#39; + str(class_) + &#39;.csv&#39;, index=False)
-            # save predictions
+                pred_seq_df_with_risk.to_csv(os.path.join(save_data, &#39;pred_seq_df_&#39;+str(class_)+&#39;.csv&#39;), index=False)
+            
+            # Save predictions
             pred_seqs = pred_seqs.append(pred_seq_df_with_risk.iloc[0])
-            cluster_sizes.append(len(wanted_names))
-        pred_seqs[&#39;cluster_size&#39;] = cluster_sizes
+            cluster_counts.append(len(wanted_names))
+        
+        # Cluster areas
+        cluster_areas = self._plot_embedding(dm_embed_normalized, unique_clusters, 
+                                             clustering_predictions, n_clusters, save_data, ALPHA)
+            
+        pred_seqs[&#39;cluster_count&#39;] = cluster_counts
+        pred_seqs[&#39;cluster_area&#39;] = cluster_areas
         return pred_seqs
 
-def save_model(enet, outfile, low_mem=False):
-    &#34;&#34;&#34;Saves an Emergenet model.
 
-    Parameters
-    ----------
-    enet : Qnet
-        An Emergenet instance
-
-    outfile : str
-        File name to save to (&#39;.joblib&#39;)
-
-    low_mem : bool
-        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
-
-    Returns
-    -------
-    None
-    &#34;&#34;&#34;
-    save_qnet(enet, outfile, low_mem)
-    
-def load_model(filepath):
-    &#34;&#34;&#34;Loads an Emergenet model.
-
-    Parameters
-    ----------
-    filepath : str
-        File name
-
-    Returns
-    -------
-    enet : Qnet
-        An Emergenet instance
-    &#34;&#34;&#34;
-    enet = load_qnet(filepath)
-    return enet</code></pre>
+    def predict_single_domseq(self, pred_seqs:pd.DataFrame, pred_seq_df:pd.DataFrame) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Predicts a single future dominant sequence with a single cluster.
+        
+        Parameters
+        ----------
+        pred_seqs - Emergenet recommended sequences, with additional column &#39;cluster_count&#39;
+                    This should have at least two rows (i.e. predictions from two clusters)
+        
+        pred_seq_df - DataFrame of candidate sequences
+            
+        Returns
+        -------
+        pred_seq - Emergenet recommended sequence
+        &#39;&#39;&#39; 
+        if len(pred_seqs) &lt; 2:
+            raise ValueError(&#39;Not enough prediction sequences!&#39;)
+        if len(pred_seq_df) &lt; 1:
+            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+            
+        # Sort by cluster area and get top two cluster predictions
+        pred_seqs = pred_seqs.sort_values(by=&#39;cluster_count&#39;,ascending=False)
+        cluster_sizes = pred_seqs[&#39;cluster_count&#39;].values
+        cluster_ratio = cluster_sizes[1]/cluster_sizes[0]
+        seq1 = pred_seqs[&#39;sequence&#39;][0][:self.seq_trunc_length]
+        seq2 = pred_seqs[&#39;sequence&#39;][1][:self.seq_trunc_length]
+        dist = hamming(seq1, seq2)
+        
+        # If there is one dominant cluster, return the prediction from that cluster
+        if seq1 == seq2 or cluster_ratio &lt;= 1/10:
+            return pred_seqs.head(1)
+        ratios = []
+        
+        # Find the strain x closest to satisfying dist(seq1,x)/dist(seq2,x) = cluster2/cluster1
+        for seq in pred_seq_df[&#39;sequence&#39;].values:
+            dist1 = hamming(seq1, seq[:self.seq_trunc_length])
+            dist2 = hamming(seq2, seq[:self.seq_trunc_length])
+            if dist2 == 0 or dist1 + dist2 &gt; dist:
+                ratios.append(1e5)
+                continue
+            ratios.append(abs(dist1/dist2 - cluster_ratio))
+        pred_seq_df[&#39;ratio&#39;] = ratios
+        pred_seq_df = pred_seq_df.sort_values(by=&#39;ratio&#39;, ascending=True)
+        pred_seq = pred_seq_df.head(1)
+        return pred_seq</code></pre>
 </details>
 </section>
 <section>
@@ -538,318 +409,87 @@ def load_model(filepath):
 <section>
 </section>
 <section>
-<h2 class="section-title" id="header-functions">Functions</h2>
-<dl>
-<dt id="emergenet.domseq.load_model"><code class="name flex">
-<span>def <span class="ident">load_model</span></span>(<span>filepath)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Loads an Emergenet model.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>An Emergenet instance</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def load_model(filepath):
-    &#34;&#34;&#34;Loads an Emergenet model.
-
-    Parameters
-    ----------
-    filepath : str
-        File name
-
-    Returns
-    -------
-    enet : Qnet
-        An Emergenet instance
-    &#34;&#34;&#34;
-    enet = load_qnet(filepath)
-    return enet</code></pre>
-</details>
-</dd>
-<dt id="emergenet.domseq.save_model"><code class="name flex">
-<span>def <span class="ident">save_model</span></span>(<span>enet, outfile, low_mem=False)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Saves an Emergenet model.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>An Emergenet instance</dd>
-<dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name to save to ('.joblib')</dd>
-<dt><strong><code>low_mem</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True, save the Emergenet with low memory by deleting all data attributes except the tree structure</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>None</code></dt>
-<dd>&nbsp;</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def save_model(enet, outfile, low_mem=False):
-    &#34;&#34;&#34;Saves an Emergenet model.
-
-    Parameters
-    ----------
-    enet : Qnet
-        An Emergenet instance
-
-    outfile : str
-        File name to save to (&#39;.joblib&#39;)
-
-    low_mem : bool
-        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
-
-    Returns
-    -------
-    None
-    &#34;&#34;&#34;
-    save_qnet(enet, outfile, low_mem)</code></pre>
-</details>
-</dd>
-</dl>
 </section>
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
 <dt id="emergenet.domseq.DomSeq"><code class="flex name class">
 <span>class <span class="ident">DomSeq</span></span>
-<span>(</span><span>seq_trunc_length, random_state=42)</span>
+<span>(</span><span>seq_trunc_length: int, random_state: int = 42)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Find and predict dominant sequences.</p>
+<div class="desc"><p>DomSeq architecture for predicting dominant sequences.</p>
+<p>Initializes an DomSeq instance.</p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_trunc_length</code></strong> :&ensp;<code>int</code></dt>
-<dd>Length to truncate sequences in Emergenet analysis
-(Sequences used to train Emergenet and compute E-distance must be of same length)</dd>
-<dt><strong><code>random_state</code></strong> :&ensp;<code>int</code></dt>
-<dd>Sets seed for random number generator</dd>
-</dl></div>
+<p>seq_trunc_length - Length to truncate sequences in Emergenet analysis
+(Sequences used to train Emergenet and compute E-distance must be of same length)</p>
+<p>random_state - Sets seed for random number generator</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class DomSeq(object):
-    &#34;&#34;&#34;Find and predict dominant sequences.
+    &#39;&#39;&#39; DomSeq architecture for predicting dominant sequences.
+    &#39;&#39;&#39; 
 
-    Parameters
-    ----------
-    seq_trunc_length : int
-        Length to truncate sequences in Emergenet analysis
-        (Sequences used to train Emergenet and compute E-distance must be of same length)
+    def __init__(self, seq_trunc_length:int, random_state:int=42):
+        &#39;&#39;&#39; Initializes an DomSeq instance.
 
-    random_state : int
-        Sets seed for random number generator
-    &#34;&#34;&#34;
+        Parameters
+        ----------
+        seq_trunc_length - Length to truncate sequences in Emergenet analysis
+            (Sequences used to train Emergenet and compute E-distance must be of same length)
 
-    def __init__(self, seq_trunc_length, random_state=42):
+        random_state - Sets seed for random number generator
+        &#39;&#39;&#39;
         if seq_trunc_length &lt;= 0:
             raise ValueError(&#39;Length to truncate sequences must be positive!&#39;)
         self.seq_trunc_length = seq_trunc_length
 
-        if random_state &lt; 0:
+        if random_state is not None and random_state &lt; 0:
             raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
         self.random_state = random_state
 
+        
     def __repr__(self):
-        return &#34;emergenet.DomSeq&#34;
+        return &#39;emergenet.DomSeq&#39;
 
+    
     def __str__(self):
         return self.__repr__()
     
-    @staticmethod
-    def _count_seqs(filepath):
-        &#34;&#34;&#34;Returns number of sequences in a fasta file.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        Returns
-        -------
-        seq_df : int
-            Number of sequences
-        &#34;&#34;&#34;
-        with open(filepath, &#39;r&#39;) as f:
-            fasta = SeqIO.parse(f, &#39;fasta&#39;)
-            if not any(fasta):
-                raise ValueError(&#39;The infile must be in fasta format!&#39;)
-        with open(filepath, &#39;r&#39;) as f:
-            lines = f.read()
-        num_sequences = lines.count(&#39;&gt;&#39;)
-        return num_sequences
     
     @staticmethod
-    def _get_acc(ID):
-        &#34;&#34;&#34;Returns accession code of a sequence.
+    def _dm_to_df(dm:np.ndarray) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Converts a distance matrix to a DataFrame.
 
         Parameters
         ----------
-        ID : str
-            Sequence metadata
+        dm - Distance matrix as 2D array
 
         Returns
         -------
-        acc : str
-            Accession code
-        &#34;&#34;&#34;
-        ids = ID.split(&#39;|&#39;)
-        # NCBI format
-        if len(ids) == 3: 
-            acc = ids[0]
-            return acc
-        # GISAID format
-        else: 
-            acc = ids[4]
-            return acc
-
-    @staticmethod
-    def _get_name(ID):
-        &#34;&#34;&#34;Returns name of a sequence.
-
-        Parameters
-        ----------
-        ID : str
-            Sequence metadata
-
-        Returns
-        -------
-        name : str
-            Name
-        &#34;&#34;&#34;
-        ids = ID.split(&#39;|&#39;)
-        # NCBI format
-        if len(ids) == 3: 
-            name = &#39;&#39;
-            start = False
-            for c in ids[1]:
-                if c == &#39;(&#39; and not start:
-                    start = True
-                elif c == &#39;(&#39; and start:
-                    break
-                elif start == True:
-                    name += c
-            return name
-        # GISAID format
-        else: 
-            name = ids[0]
-            return name
-        
-    @staticmethod
-    def _get_date(ID):
-        &#34;&#34;&#34;Returns collection date of a sequence.
-
-        Parameters
-        ----------
-        ID : str
-            Sequence metadata
-
-        Returns
-        -------
-        date : str
-            Collection date
-        &#34;&#34;&#34;
-        ids = ID.split(&#39;|&#39;)
-        # NCBI format
-        if len(ids) == 3: 
-            date = ids[2]
-            return date
-        # GISAID format
-        else:
-            date = ids[3]
-            return date
-    
-    @staticmethod
-    def _dm_to_df(dm):
-        &#34;&#34;&#34;Converts a distance matrix to a DataFrame.
-
-        Parameters
-        ----------
-        dm : numpy.ndarray
-            Distance matrix as 2D array
-
-        Returns
-        -------
-        dm : pd.Dataframe
-            Distance matrix as DataFrame
-        &#34;&#34;&#34;
+        df - Distance matrix as DataFrame
+        &#39;&#39;&#39; 
         columns = np.arange(0, dm.shape[1])
         index = np.arange(0, dm.shape[0])
         df = pd.DataFrame(dm, columns=columns, index=index)
         return df
+
     
-    def _parse_fasta(self, filepath):
-        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with four columns.
-        FASTA metadata must be in the format:
-            NCBI: Accession | GenBank Title | Collection Date
-            GISAID: Isolate name | Type | Segment | Collection date | Protein Accession no. | Protein INSDC
-        `acc` contains sequence accession.
-        `name` contains sequence name.
-        `date` contains collection date.
-        `sequence` contains sequences truncated to `seq_trunc_length`.
+    def _sequence_array(self, seq_df:pd.DataFrame, sample_size:int=None) -&gt; np.ndarray:
+        &#39;&#39;&#39; Extracts array of sequence arrays from DataFrame; includes target sequence.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        seq_df - DataFrame containing sequences
+
+        sample_size - Number of strains to sample randomly
 
         Returns
         -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        if self._count_seqs(filepath) == 0:
-            raise ValueError(&#39;The file contains no sequences!&#39;)
-        accs = []
-        names = []
-        dates = []
-        seqs = []
-        for record in SeqIO.parse(filepath, &#39;fasta&#39;):
-            date = self._get_date(str(record.description))
-            if len(record.seq) &lt; self.seq_trunc_length:
-                continue
-            if len(date) == 4:
-                date += &#39;-09-25&#39;
-            elif len(date) == 7:
-                date += &#39;-15&#39;
-            accs.append(self._get_acc(str(record.description)))
-            names.append(self._get_name(str(record.description)))
-            dates.append(date)
-            seqs.append(&#39;&#39;.join(record.seq[:self.seq_trunc_length].upper()))
-        seq_df = pd.DataFrame({&#39;acc&#39;:accs, &#39;name&#39;:names, &#39;date&#39;:dates, &#39;sequence&#39;:seqs})
-        return seq_df
-
-    def _sequence_array(self, seq_df, sample_size=None):
-        &#34;&#34;&#34;Extracts array of sequence arrays from DataFrame; includes target sequence.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame containing sequences
-
-        sample_size : int
-            Number of strains to sample randomly
-
-        Returns
-        -------
-        seq_lst: numpy.ndarray
-            Array of sequence arrays
-        &#34;&#34;&#34;
+        seq_lst - Array of sequence arrays
+        &#39;&#39;&#39; 
         if &#39;sequence&#39; not in seq_df.columns:
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
         if sample_size is not None and sample_size &lt; len(seq_df):
@@ -861,48 +501,22 @@ def load_model(filepath):
         seq_lst = np.array(seq_lst)
         return seq_lst
 
-    def load_data(self, filepath, outfile=None):
-        &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
+    
+    def train(self, seq_df:pd.DataFrame, sample_size:int=None, n_jobs:int=1) -&gt; Qnet:
+        &#39;&#39;&#39; Trains an Emergenet model.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        seq_df - DataFrame of sequences
 
-        outfile : str
-            File name to save to (&#39;.csv&#39;)
+        sample_size - Number of strains to train Emergenet on, sampled randomly
 
-        Returns
-        -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        seq_df = self._parse_fasta(filepath)
-        if outfile is not None:
-            if not outfile.endswith(&#39;.csv&#39;):
-                raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
-            seq_df.to_csv(outfile, index=False)
-        return seq_df
-
-    def train(self, seq_df, sample_size=None, n_jobs=1):
-        &#34;&#34;&#34;Trains an Emergenet model.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        sample_size : int
-            Number of strains to train Emergenet on, sampled randomly
-
-        n_jobs : int
-            Number of CPUs to use when training
+        n_jobs - Number of CPUs to use when training
 
         Returns
         -------
-        enet : Qnet
-            Trained Emergenet
-        &#34;&#34;&#34;
+        enet - Trained Emergenet
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
         seq_arr = self._sequence_array(seq_df, sample_size)
@@ -911,116 +525,37 @@ def load_model(filepath):
         enet.fit(seq_arr)
         return enet
     
-    def _compute_domseq_distance_matrix(self, seq_df):
-        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        Returns
-        -------
-        dm : pd.DataFrame
-            Distance Matrix
-        &#34;&#34;&#34;
-        if &#39;sequence&#39; not in seq_df.columns:
-            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        seqs = seq_df[&#39;sequence&#39;].values
-        n = len(seqs)
-        dist_matrix = np.zeros((n, n))
-        for i in range(n):
-            for j in range(i+1, n):
-                dist_matrix[i, j] = distance(seqs[i][:self.seq_trunc_length], seqs[j][:self.seq_trunc_length])
-        dist_matrix += dist_matrix.T
-        dm = self._dm_to_df(dist_matrix)
-        return dm
     
-    def compute_domseq(self, seq_df, sample_size=None, save_data=None):
-        &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
+    def _compute_risk_for_predict_domseq(self, seq_df:pd.DataFrame, 
+                                         pred_seq_df:pd.DataFrame, enet:Qnet) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Computes risk scores for potential prediction sequences.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        seq_df - DataFrame of current population sequences
             
-        sample_size : int
-            Number of strains to sample randomly from seq_df
-            
-        save_data : string
-            If directory is given, save the following files:
-            1. seq_df.csv (post-sampling, if sample_size is given)
-            2. dm.csv (the distance matrix corresponding to seq_df)
+        pred_seq_df - DataFrame of candidate sequences
+
+        enet - Emergenet that sequences in seq_df belong to
 
         Returns
         -------
-        dom_seqs : pd.DataFrame
-            Dominant sequences, with additional column for cluster sizes
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if sample_size is not None and sample_size &lt; len(seq_df):
-            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        # distance matrix
-        dm = self._compute_domseq_distance_matrix(seq_df)
-        if save_data is not None and os.path.isdir(save_data):
-            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
-            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
-        # clustering
-        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
-        dm_embed = embedding.fit_transform(dm)
-        bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
-        clustering = MeanShift(bandwidth=bandwidth)
-        clustering_predictions = clustering.fit_predict(dm_embed)
-        unique_clusters = np.unique(clustering_predictions)
-        # dominant sequences
-        dom_seqs = pd.DataFrame(columns=seq_df.columns)
-        cluster_sizes = []
-        for class_ in unique_clusters:
-            wanted_names = dm.columns[clustering_predictions == class_]
-            # find the centroid in this cluster
-            cluster_seq_df = seq_df.iloc[wanted_names]
-            cluster_dm = dm.iloc[wanted_names, wanted_names]
-            argmin = np.argmin(cluster_dm.sum(axis=&#39;columns&#39;).values)
-            # save sequence
-            dom_seqs = dom_seqs.append(cluster_seq_df.iloc[argmin])
-            cluster_sizes.append(len(wanted_names))
-        dom_seqs[&#39;cluster_size&#39;] = cluster_sizes
-        return dom_seqs
-    
-    def _compute_risk_for_predict_domseq(self, seq_df, pred_seq_df, enet):
-        &#34;&#34;&#34;Computes risk scores for potential prediction sequences.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of current population sequences
-            
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
-
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
-        Returns
-        -------
-        pred_seq_df : pd.DataFrame
-            Potential prediction sequences, with additional columns for risk score
-
-        &#34;&#34;&#34;
-        # distance matrix for computing prediction
+        pred_seq_df - Potential prediction sequences, with additional columns for risk score
+        &#39;&#39;&#39; 
+        # Distance matrix for computing prediction
         seq_arr = self._sequence_array(seq_df)
         pred_seq_arr = self._sequence_array(pred_seq_df)
         dist_matrix = qdistance_matrix(pred_seq_arr, seq_arr, enet, enet) 
-        # convert dist_matrix to dataframe
+        
+        # Convert dist_matrix to dataframe
         dm = self._dm_to_df(dist_matrix)
-        # find centroid data (sum across rows)
+        assert len(dm) == len(pred_seq_arr)
+        
+        # Find centroid data (sum across rows)
         first_term = dm.sum(axis=&#39;columns&#39;).values
         H = len(seq_df)
         A = 0.95/(np.sqrt(8) * self.seq_trunc_length**2)
-        second_term = []
-        for i in range(len(pred_seq_arr)):
-            second_term.append(membership_degree(pred_seq_arr[i], enet) * H * A)
+        second_term = np.array([membership_degree(seq, enet) * H * A for seq in pred_seq_arr])
         sums = first_term - second_term
         pred_seq_df[&#39;first_term&#39;] = first_term
         pred_seq_df[&#39;second_term&#39;] = second_term
@@ -1028,353 +563,447 @@ def load_model(filepath):
         pred_seq_df = pred_seq_df.sort_values(by=&#39;sum&#39;,ascending=True)
         return pred_seq_df
     
-    def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None):
-        &#34;&#34;&#34;Predicts the future dominant sequence.
+    @staticmethod
+    def _plot_embedding(dm_embed:np.ndarray, unique_clusters:Counter, clustering_predictions:np.array, 
+                        n_clusters:int, save_data:str=None, alpha:int=4) -&gt; list:
+        &#39;&#39;&#39; Plots the embedding and shows Enet and WHO predictions.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of current population sequences
+        dm_embed - Embedding points
             
-        pred_seq_df : pd.DataFrame
-            DataFrame of candidate sequences
+        unique_clusters - Counter (class, size) of unique clusters, sorted by size
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-            
-        n_clusters : int
-            Number of clusters to predict dominant strain on; default 3
+        clustering_predictions - Array of clustering predictions
 
-        sample_size : int
-            Number of strains to sample randomly from seq_df
+        n_clusters - Number of cluster alphashapes to draw
+
+        save_data - Directory to save plot to
+        
+        alpha - Alpha parameter, default 4
             
-        save_data : string
-            If directory is given, save the following files:
+        Returns
+        -------
+        cluster_areas - Areas of largest n_clusters
+        &#39;&#39;&#39;
+        # Add noise to offset equal points
+        noise = np.random.normal(0, 0.02, size=dm_embed.shape)
+        dm_embed += noise
+
+        # Find unique clusters
+        pts = []
+        for class_ in unique_clusters:
+            cluster_idx = np.where(clustering_predictions == class_[0])[0]
+            pt = dm_embed[cluster_idx]
+            x = pt[:,0]
+            y = pt[:,1]
+            points = np.column_stack((x, y))
+            pts.append(points)
+
+        # Plot clusters
+        plt.figure(figsize=(10, 10))
+        colors = cycle([&#39;skyblue&#39;,&#39;red&#39;,&#39;orange&#39;,&#39;green&#39;, &#39;purple&#39;])
+        markers = cycle([&#39;o&#39;, &#39;v&#39;])
+        
+        # Plot at most 5 clusters
+        cluster_areas = []
+        for i in range(min(len(pts), 5)):
+            pt = pts[i]
+            x = pt[:,0]
+            y = pt[:,1]
+            points = np.column_stack((x, y))
+            
+            # Draw alphashape for the first n clusters if &gt;= 3 points
+            # Otherwise just scatter the points
+            if i &lt; n_clusters:
+                if len(x) &lt; 3:
+                    cluster_areas.append(0)
+                    plt.scatter(x, y, color = next(colors), alpha = 0.7, 
+                                marker = next(markers), label = f&#39;Size: {len(pt)}&#39;)
+                else:
+                    alpha_shape = alphashape.alphashape(points, alpha=alpha)
+                    area = alpha_shape.area * AREA_MULTIPLIER
+                    cluster_areas.append(area)
+                    if isinstance(alpha_shape, shapely.geometry.multipolygon.MultiPolygon) or \
+                       isinstance(alpha_shape, shapely.GeometryCollection):
+                        for poly in alpha_shape.geoms:
+                            plt.plot(*poly.exterior.xy, &#39;k-&#39;, linewidth=1)
+                    else:
+                        plt.plot(*alpha_shape.exterior.xy, &#39;k-&#39;, linewidth=1)
+                    plt.scatter(x, y, color = next(colors), alpha = 0.7, marker = next(markers),
+                                label = f&#39;Size: {len(pt)}, Area: {round(area, 3)}&#39;)
+            else:
+                if len(x) == 1:
+                    continue
+                plt.scatter(x, y, color = next(colors), alpha = 0.7, 
+                            marker = next(markers), label = f&#39;Size: {len(pt)}&#39;)
+        # Save figure
+        plt.axis(&#39;auto&#39;)
+        plt.legend(loc=&#39;upper left&#39;, bbox_to_anchor=(1, 1));
+        if save_data is not None and os.path.isdir(save_data): 
+            plt.savefig(os.path.join(save_data, &#39;embedding.png&#39;), dpi=300, 
+                        bbox_inches = &#39;tight&#39;, pad_inches = 0, transparent=True)
+        return cluster_areas
+    
+    
+    def predict_domseq(self, seq_df:pd.DataFrame, pred_seq_df:pd.DataFrame, enet:Qnet, 
+                       n_clusters:int=3, sample_size:int=None, save_data:str=None) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Predicts the future dominant sequence with multiple clusters.
+
+        Parameters
+        ----------
+        seq_df - DataFrame of current population sequences
+            
+        pred_seq_df - DataFrame of candidate sequences
+
+        enet - Emergenet that sequences in seq_df belong to
+            
+        n_clusters - Number of clusters to predict dominant strain on; default 3
+
+        sample_size - Number of strains to sample randomly from seq_df
+            
+        save_data - If directory is given, save the following files:
             1. seq_df.csv (post-sampling, if sample_size is given)
             2. dm.csv (the distance matrix corresponding to seq_df)
-            3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, ... n_clusters)
-            4. clusters.txt (clusters and cluster sizes)
+            3. pred_seq_df_i.csv (pred_seq_df with columns for risk score, i = 1,2,...n_clusters)
+            4. clusters.txt (clusters and cluster counts)
+            5. embedding.png (embedding plot with alpha shapes drawn for n_clusters)
 
         Returns
         -------
-        pred_seqs : pd.DataFrame
-            Emergenet recommended sequences, with additional column for cluster sizes
-
-        &#34;&#34;&#34;
+        pred_seqs - Emergenet recommended sequences, with additional two columns for cluster counts and areas
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1 or len(pred_seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
         if sample_size is not None and sample_size &lt; len(seq_df):
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        # distance matrix for clustering strains from current season
+        if n_clusters &lt;= 1:
+            raise ValueError(&#39;For single cluster, please use predict_single_domseq!&#39;)
+        if len(pred_seq_df) &gt; 20000:
+            pred_seq_df = pred_seq_df.sample(20000, random_state=self.random_state)
+        
+        # Parameter for alphashape
+        ALPHA = 4
+            
+        # Distance matrix for clustering strains from current season
         seq_arr = self._sequence_array(seq_df)
         dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
         dm = self._dm_to_df(dist_matrix)
         if save_data is not None and os.path.isdir(save_data):
-            seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
-            dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
-        # clustering
-        embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+            seq_df.to_csv(os.path.join(save_data, &#39;seq_df.csv&#39;), index=False)
+            dm.to_csv(os.path.join(save_data, &#39;dm.csv&#39;), index=False)
+            
+        # Clustering
+        embedding = MDS(n_components=2, dissimilarity=&#39;precomputed&#39;, random_state=self.random_state)
         dm_embed = embedding.fit_transform(dm)
         bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+        bandwidth = max(bandwidth, 1e-5)
         clustering = MeanShift(bandwidth=bandwidth)
         clustering_predictions = clustering.fit_predict(dm_embed)
-        # sort unique clusters by size
+        
+        # Normalize points
+        mean = np.mean(dm_embed, axis=0)
+        std = np.std(dm_embed, axis=0)
+        dm_embed_normalized = (dm_embed - mean) / std
+        if sum(std) == 0:
+            dm_embed_normalized = dm_embed
+        
+        # Sort unique clusters by size
         label_counts = Counter(clustering_predictions)
         unique_clusters = sorted(label_counts.items(), key=lambda x: x[1], reverse=True)
         if save_data is not None and os.path.isdir(save_data):
-            with open(save_data + &#39;clusters.txt&#39;, &#39;w&#39;) as file:
+            with open(os.path.join(save_data, &#39;clusters.txt&#39;), &#39;w&#39;) as file:
                 for item in unique_clusters:
                     file.write(str(item) + &#39;\n&#39;)
-        # predictions
+        
+        # Predictions
         pred_seqs = pd.DataFrame(columns=pred_seq_df.columns)
-        cluster_sizes = []
+        cluster_counts = []
         for class_ in unique_clusters[:n_clusters]:
+            # Take riskiest strain using this cluster
             wanted_names = dm.columns[clustering_predictions == class_[0]]
-            # take riskiest strain using this cluster
             cluster_seq_df = seq_df.iloc[wanted_names]
             pred_seq_df_with_risk = self._compute_risk_for_predict_domseq(cluster_seq_df, pred_seq_df, enet)
             if save_data is not None and os.path.isdir(save_data):
-                pred_seq_df_with_risk.to_csv(save_data+&#39;pred_seq_df_&#39; + str(class_) + &#39;.csv&#39;, index=False)
-            # save predictions
+                pred_seq_df_with_risk.to_csv(os.path.join(save_data, &#39;pred_seq_df_&#39;+str(class_)+&#39;.csv&#39;), index=False)
+            
+            # Save predictions
             pred_seqs = pred_seqs.append(pred_seq_df_with_risk.iloc[0])
-            cluster_sizes.append(len(wanted_names))
-        pred_seqs[&#39;cluster_size&#39;] = cluster_sizes
-        return pred_seqs</code></pre>
+            cluster_counts.append(len(wanted_names))
+        
+        # Cluster areas
+        cluster_areas = self._plot_embedding(dm_embed_normalized, unique_clusters, 
+                                             clustering_predictions, n_clusters, save_data, ALPHA)
+            
+        pred_seqs[&#39;cluster_count&#39;] = cluster_counts
+        pred_seqs[&#39;cluster_area&#39;] = cluster_areas
+        return pred_seqs
+
+
+    def predict_single_domseq(self, pred_seqs:pd.DataFrame, pred_seq_df:pd.DataFrame) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Predicts a single future dominant sequence with a single cluster.
+        
+        Parameters
+        ----------
+        pred_seqs - Emergenet recommended sequences, with additional column &#39;cluster_count&#39;
+                    This should have at least two rows (i.e. predictions from two clusters)
+        
+        pred_seq_df - DataFrame of candidate sequences
+            
+        Returns
+        -------
+        pred_seq - Emergenet recommended sequence
+        &#39;&#39;&#39; 
+        if len(pred_seqs) &lt; 2:
+            raise ValueError(&#39;Not enough prediction sequences!&#39;)
+        if len(pred_seq_df) &lt; 1:
+            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+            
+        # Sort by cluster area and get top two cluster predictions
+        pred_seqs = pred_seqs.sort_values(by=&#39;cluster_count&#39;,ascending=False)
+        cluster_sizes = pred_seqs[&#39;cluster_count&#39;].values
+        cluster_ratio = cluster_sizes[1]/cluster_sizes[0]
+        seq1 = pred_seqs[&#39;sequence&#39;][0][:self.seq_trunc_length]
+        seq2 = pred_seqs[&#39;sequence&#39;][1][:self.seq_trunc_length]
+        dist = hamming(seq1, seq2)
+        
+        # If there is one dominant cluster, return the prediction from that cluster
+        if seq1 == seq2 or cluster_ratio &lt;= 1/10:
+            return pred_seqs.head(1)
+        ratios = []
+        
+        # Find the strain x closest to satisfying dist(seq1,x)/dist(seq2,x) = cluster2/cluster1
+        for seq in pred_seq_df[&#39;sequence&#39;].values:
+            dist1 = hamming(seq1, seq[:self.seq_trunc_length])
+            dist2 = hamming(seq2, seq[:self.seq_trunc_length])
+            if dist2 == 0 or dist1 + dist2 &gt; dist:
+                ratios.append(1e5)
+                continue
+            ratios.append(abs(dist1/dist2 - cluster_ratio))
+        pred_seq_df[&#39;ratio&#39;] = ratios
+        pred_seq_df = pred_seq_df.sort_values(by=&#39;ratio&#39;, ascending=True)
+        pred_seq = pred_seq_df.head(1)
+        return pred_seq</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="emergenet.domseq.DomSeq.compute_domseq"><code class="name flex">
-<span>def <span class="ident">compute_domseq</span></span>(<span>self, seq_df, sample_size=None, save_data=None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Computes distance matrix in the Levenshtein distance.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to sample randomly from seq_df</dd>
-<dt><strong><code>save_data</code></strong> :&ensp;<code>string</code></dt>
-<dd>If directory is given, save the following files:
-1. seq_df.csv (post-sampling, if sample_size is given)
-2. dm.csv (the distance matrix corresponding to seq_df)</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>dom_seqs</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>Dominant sequences, with additional column for cluster sizes</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute_domseq(self, seq_df, sample_size=None, save_data=None):
-    &#34;&#34;&#34;Computes distance matrix in the Levenshtein distance.
-
-    Parameters
-    ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-        
-    sample_size : int
-        Number of strains to sample randomly from seq_df
-        
-    save_data : string
-        If directory is given, save the following files:
-        1. seq_df.csv (post-sampling, if sample_size is given)
-        2. dm.csv (the distance matrix corresponding to seq_df)
-
-    Returns
-    -------
-    dom_seqs : pd.DataFrame
-        Dominant sequences, with additional column for cluster sizes
-    &#34;&#34;&#34;
-    if len(seq_df) &lt; 1:
-        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if sample_size is not None and sample_size &lt; len(seq_df):
-        seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-    # distance matrix
-    dm = self._compute_domseq_distance_matrix(seq_df)
-    if save_data is not None and os.path.isdir(save_data):
-        seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
-        dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
-    # clustering
-    embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
-    dm_embed = embedding.fit_transform(dm)
-    bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
-    clustering = MeanShift(bandwidth=bandwidth)
-    clustering_predictions = clustering.fit_predict(dm_embed)
-    unique_clusters = np.unique(clustering_predictions)
-    # dominant sequences
-    dom_seqs = pd.DataFrame(columns=seq_df.columns)
-    cluster_sizes = []
-    for class_ in unique_clusters:
-        wanted_names = dm.columns[clustering_predictions == class_]
-        # find the centroid in this cluster
-        cluster_seq_df = seq_df.iloc[wanted_names]
-        cluster_dm = dm.iloc[wanted_names, wanted_names]
-        argmin = np.argmin(cluster_dm.sum(axis=&#39;columns&#39;).values)
-        # save sequence
-        dom_seqs = dom_seqs.append(cluster_seq_df.iloc[argmin])
-        cluster_sizes.append(len(wanted_names))
-    dom_seqs[&#39;cluster_size&#39;] = cluster_sizes
-    return dom_seqs</code></pre>
-</details>
-</dd>
-<dt id="emergenet.domseq.DomSeq.load_data"><code class="name flex">
-<span>def <span class="ident">load_data</span></span>(<span>self, filepath, outfile=None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Loads fasta file data and optionally saves to CSV.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name</dd>
-<dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name to save to ('.csv')</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def load_data(self, filepath, outfile=None):
-    &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
-
-    Parameters
-    ----------
-    filepath : str
-        File name
-
-    outfile : str
-        File name to save to (&#39;.csv&#39;)
-
-    Returns
-    -------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-    &#34;&#34;&#34;
-    seq_df = self._parse_fasta(filepath)
-    if outfile is not None:
-        if not outfile.endswith(&#39;.csv&#39;):
-            raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
-        seq_df.to_csv(outfile, index=False)
-    return seq_df</code></pre>
-</details>
-</dd>
 <dt id="emergenet.domseq.DomSeq.predict_domseq"><code class="name flex">
-<span>def <span class="ident">predict_domseq</span></span>(<span>self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None)</span>
+<span>def <span class="ident">predict_domseq</span></span>(<span>self, seq_df: pandas.core.frame.DataFrame, pred_seq_df: pandas.core.frame.DataFrame, enet: quasinet.qnet.Qnet, n_clusters: int = 3, sample_size: int = None, save_data: str = None) ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Predicts the future dominant sequence.</p>
+<div class="desc"><p>Predicts the future dominant sequence with multiple clusters.</p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of current population sequences</dd>
-<dt><strong><code>pred_seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of candidate sequences</dd>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Emergenet that sequences in seq_df belong to</dd>
-<dt><strong><code>n_clusters</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of clusters to predict dominant strain on; default 3</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to sample randomly from seq_df</dd>
-<dt><strong><code>save_data</code></strong> :&ensp;<code>string</code></dt>
-<dd>If directory is given, save the following files:
+<p>seq_df - DataFrame of current population sequences</p>
+<p>pred_seq_df - DataFrame of candidate sequences</p>
+<p>enet - Emergenet that sequences in seq_df belong to</p>
+<p>n_clusters - Number of clusters to predict dominant strain on; default 3</p>
+<p>sample_size - Number of strains to sample randomly from seq_df</p>
+<p>save_data - If directory is given, save the following files:
 1. seq_df.csv (post-sampling, if sample_size is given)
 2. dm.csv (the distance matrix corresponding to seq_df)
-3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, &hellip; n_clusters)
-4. clusters.txt (clusters and cluster sizes)</dd>
-</dl>
+3. pred_seq_df_i.csv (pred_seq_df with columns for risk score, i = 1,2,&hellip;n_clusters)
+4. clusters.txt (clusters and cluster counts)
+5. embedding.png (embedding plot with alpha shapes drawn for n_clusters)</p>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>pred_seqs</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>Emergenet recommended sequences, with additional column for cluster sizes</dd>
+<dt><code>pred_seqs - Emergenet recommended sequences, with additional two columns for cluster counts and areas</code></dt>
+<dd>&nbsp;</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def predict_domseq(self, seq_df, pred_seq_df, enet, n_clusters=3, sample_size=None, save_data=None):
-    &#34;&#34;&#34;Predicts the future dominant sequence.
+<pre><code class="python">def predict_domseq(self, seq_df:pd.DataFrame, pred_seq_df:pd.DataFrame, enet:Qnet, 
+                   n_clusters:int=3, sample_size:int=None, save_data:str=None) -&gt; pd.DataFrame:
+    &#39;&#39;&#39; Predicts the future dominant sequence with multiple clusters.
 
     Parameters
     ----------
-    seq_df : pd.DataFrame
-        DataFrame of current population sequences
+    seq_df - DataFrame of current population sequences
         
-    pred_seq_df : pd.DataFrame
-        DataFrame of candidate sequences
+    pred_seq_df - DataFrame of candidate sequences
 
-    enet : Qnet
-        Emergenet that sequences in seq_df belong to
+    enet - Emergenet that sequences in seq_df belong to
         
-    n_clusters : int
-        Number of clusters to predict dominant strain on; default 3
+    n_clusters - Number of clusters to predict dominant strain on; default 3
 
-    sample_size : int
-        Number of strains to sample randomly from seq_df
+    sample_size - Number of strains to sample randomly from seq_df
         
-    save_data : string
-        If directory is given, save the following files:
+    save_data - If directory is given, save the following files:
         1. seq_df.csv (post-sampling, if sample_size is given)
         2. dm.csv (the distance matrix corresponding to seq_df)
-        3. pred_seq_df_i.csv (pred_seq_df with additional columns for risk score, i = 1, 2, ... n_clusters)
-        4. clusters.txt (clusters and cluster sizes)
+        3. pred_seq_df_i.csv (pred_seq_df with columns for risk score, i = 1,2,...n_clusters)
+        4. clusters.txt (clusters and cluster counts)
+        5. embedding.png (embedding plot with alpha shapes drawn for n_clusters)
 
     Returns
     -------
-    pred_seqs : pd.DataFrame
-        Emergenet recommended sequences, with additional column for cluster sizes
-
-    &#34;&#34;&#34;
+    pred_seqs - Emergenet recommended sequences, with additional two columns for cluster counts and areas
+    &#39;&#39;&#39; 
     if len(seq_df) &lt; 1 or len(pred_seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
     if sample_size is not None and sample_size &lt; len(seq_df):
         seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-    # distance matrix for clustering strains from current season
+    if n_clusters &lt;= 1:
+        raise ValueError(&#39;For single cluster, please use predict_single_domseq!&#39;)
+    if len(pred_seq_df) &gt; 20000:
+        pred_seq_df = pred_seq_df.sample(20000, random_state=self.random_state)
+    
+    # Parameter for alphashape
+    ALPHA = 4
+        
+    # Distance matrix for clustering strains from current season
     seq_arr = self._sequence_array(seq_df)
     dist_matrix = qdistance_matrix(seq_arr, seq_arr, enet, enet)
     dm = self._dm_to_df(dist_matrix)
     if save_data is not None and os.path.isdir(save_data):
-        seq_df.to_csv(save_data+&#39;seq_df.csv&#39;, index=False)
-        dm.to_csv(save_data+&#39;dm.csv&#39;, index=False)
-    # clustering
-    embedding = MDS(n_components=2, dissimilarity=&#34;precomputed&#34;, random_state=self.random_state)
+        seq_df.to_csv(os.path.join(save_data, &#39;seq_df.csv&#39;), index=False)
+        dm.to_csv(os.path.join(save_data, &#39;dm.csv&#39;), index=False)
+        
+    # Clustering
+    embedding = MDS(n_components=2, dissimilarity=&#39;precomputed&#39;, random_state=self.random_state)
     dm_embed = embedding.fit_transform(dm)
     bandwidth = estimate_bandwidth(dm_embed, quantile=0.3, random_state=self.random_state)
+    bandwidth = max(bandwidth, 1e-5)
     clustering = MeanShift(bandwidth=bandwidth)
     clustering_predictions = clustering.fit_predict(dm_embed)
-    # sort unique clusters by size
+    
+    # Normalize points
+    mean = np.mean(dm_embed, axis=0)
+    std = np.std(dm_embed, axis=0)
+    dm_embed_normalized = (dm_embed - mean) / std
+    if sum(std) == 0:
+        dm_embed_normalized = dm_embed
+    
+    # Sort unique clusters by size
     label_counts = Counter(clustering_predictions)
     unique_clusters = sorted(label_counts.items(), key=lambda x: x[1], reverse=True)
     if save_data is not None and os.path.isdir(save_data):
-        with open(save_data + &#39;clusters.txt&#39;, &#39;w&#39;) as file:
+        with open(os.path.join(save_data, &#39;clusters.txt&#39;), &#39;w&#39;) as file:
             for item in unique_clusters:
                 file.write(str(item) + &#39;\n&#39;)
-    # predictions
+    
+    # Predictions
     pred_seqs = pd.DataFrame(columns=pred_seq_df.columns)
-    cluster_sizes = []
+    cluster_counts = []
     for class_ in unique_clusters[:n_clusters]:
+        # Take riskiest strain using this cluster
         wanted_names = dm.columns[clustering_predictions == class_[0]]
-        # take riskiest strain using this cluster
         cluster_seq_df = seq_df.iloc[wanted_names]
         pred_seq_df_with_risk = self._compute_risk_for_predict_domseq(cluster_seq_df, pred_seq_df, enet)
         if save_data is not None and os.path.isdir(save_data):
-            pred_seq_df_with_risk.to_csv(save_data+&#39;pred_seq_df_&#39; + str(class_) + &#39;.csv&#39;, index=False)
-        # save predictions
+            pred_seq_df_with_risk.to_csv(os.path.join(save_data, &#39;pred_seq_df_&#39;+str(class_)+&#39;.csv&#39;), index=False)
+        
+        # Save predictions
         pred_seqs = pred_seqs.append(pred_seq_df_with_risk.iloc[0])
-        cluster_sizes.append(len(wanted_names))
-    pred_seqs[&#39;cluster_size&#39;] = cluster_sizes
+        cluster_counts.append(len(wanted_names))
+    
+    # Cluster areas
+    cluster_areas = self._plot_embedding(dm_embed_normalized, unique_clusters, 
+                                         clustering_predictions, n_clusters, save_data, ALPHA)
+        
+    pred_seqs[&#39;cluster_count&#39;] = cluster_counts
+    pred_seqs[&#39;cluster_area&#39;] = cluster_areas
     return pred_seqs</code></pre>
 </details>
 </dd>
-<dt id="emergenet.domseq.DomSeq.train"><code class="name flex">
-<span>def <span class="ident">train</span></span>(<span>self, seq_df, sample_size=None, n_jobs=1)</span>
+<dt id="emergenet.domseq.DomSeq.predict_single_domseq"><code class="name flex">
+<span>def <span class="ident">predict_single_domseq</span></span>(<span>self, pred_seqs: pandas.core.frame.DataFrame, pred_seq_df: pandas.core.frame.DataFrame) ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Trains an Emergenet model.</p>
+<div class="desc"><p>Predicts a single future dominant sequence with a single cluster.</p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to train Emergenet on, sampled randomly</dd>
-<dt><strong><code>n_jobs</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of CPUs to use when training</dd>
-</dl>
+<p>pred_seqs - Emergenet recommended sequences, with additional column 'cluster_count'
+This should have at least two rows (i.e. predictions from two clusters)</p>
+<p>pred_seq_df - DataFrame of candidate sequences</p>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Trained Emergenet</dd>
+<dt><code>pred_seq - Emergenet recommended sequence</code></dt>
+<dd>&nbsp;</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def train(self, seq_df, sample_size=None, n_jobs=1):
-    &#34;&#34;&#34;Trains an Emergenet model.
+<pre><code class="python">def predict_single_domseq(self, pred_seqs:pd.DataFrame, pred_seq_df:pd.DataFrame) -&gt; pd.DataFrame:
+    &#39;&#39;&#39; Predicts a single future dominant sequence with a single cluster.
+    
+    Parameters
+    ----------
+    pred_seqs - Emergenet recommended sequences, with additional column &#39;cluster_count&#39;
+                This should have at least two rows (i.e. predictions from two clusters)
+    
+    pred_seq_df - DataFrame of candidate sequences
+        
+    Returns
+    -------
+    pred_seq - Emergenet recommended sequence
+    &#39;&#39;&#39; 
+    if len(pred_seqs) &lt; 2:
+        raise ValueError(&#39;Not enough prediction sequences!&#39;)
+    if len(pred_seq_df) &lt; 1:
+        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
+        
+    # Sort by cluster area and get top two cluster predictions
+    pred_seqs = pred_seqs.sort_values(by=&#39;cluster_count&#39;,ascending=False)
+    cluster_sizes = pred_seqs[&#39;cluster_count&#39;].values
+    cluster_ratio = cluster_sizes[1]/cluster_sizes[0]
+    seq1 = pred_seqs[&#39;sequence&#39;][0][:self.seq_trunc_length]
+    seq2 = pred_seqs[&#39;sequence&#39;][1][:self.seq_trunc_length]
+    dist = hamming(seq1, seq2)
+    
+    # If there is one dominant cluster, return the prediction from that cluster
+    if seq1 == seq2 or cluster_ratio &lt;= 1/10:
+        return pred_seqs.head(1)
+    ratios = []
+    
+    # Find the strain x closest to satisfying dist(seq1,x)/dist(seq2,x) = cluster2/cluster1
+    for seq in pred_seq_df[&#39;sequence&#39;].values:
+        dist1 = hamming(seq1, seq[:self.seq_trunc_length])
+        dist2 = hamming(seq2, seq[:self.seq_trunc_length])
+        if dist2 == 0 or dist1 + dist2 &gt; dist:
+            ratios.append(1e5)
+            continue
+        ratios.append(abs(dist1/dist2 - cluster_ratio))
+    pred_seq_df[&#39;ratio&#39;] = ratios
+    pred_seq_df = pred_seq_df.sort_values(by=&#39;ratio&#39;, ascending=True)
+    pred_seq = pred_seq_df.head(1)
+    return pred_seq</code></pre>
+</details>
+</dd>
+<dt id="emergenet.domseq.DomSeq.train"><code class="name flex">
+<span>def <span class="ident">train</span></span>(<span>self, seq_df: pandas.core.frame.DataFrame, sample_size: int = None, n_jobs: int = 1) ‑> quasinet.qnet.Qnet</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Trains an Emergenet model.</p>
+<h2 id="parameters">Parameters</h2>
+<p>seq_df - DataFrame of sequences</p>
+<p>sample_size - Number of strains to train Emergenet on, sampled randomly</p>
+<p>n_jobs - Number of CPUs to use when training</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>enet - Trained Emergenet</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def train(self, seq_df:pd.DataFrame, sample_size:int=None, n_jobs:int=1) -&gt; Qnet:
+    &#39;&#39;&#39; Trains an Emergenet model.
 
     Parameters
     ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
+    seq_df - DataFrame of sequences
 
-    sample_size : int
-        Number of strains to train Emergenet on, sampled randomly
+    sample_size - Number of strains to train Emergenet on, sampled randomly
 
-    n_jobs : int
-        Number of CPUs to use when training
+    n_jobs - Number of CPUs to use when training
 
     Returns
     -------
-    enet : Qnet
-        Trained Emergenet
-    &#34;&#34;&#34;
+    enet - Trained Emergenet
+    &#39;&#39;&#39; 
     if len(seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
     seq_arr = self._sequence_array(seq_df, sample_size)
@@ -1401,20 +1030,13 @@ def load_model(filepath):
 <li><code><a title="emergenet" href="index.html">emergenet</a></code></li>
 </ul>
 </li>
-<li><h3><a href="#header-functions">Functions</a></h3>
-<ul class="">
-<li><code><a title="emergenet.domseq.load_model" href="#emergenet.domseq.load_model">load_model</a></code></li>
-<li><code><a title="emergenet.domseq.save_model" href="#emergenet.domseq.save_model">save_model</a></code></li>
-</ul>
-</li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
 <h4><code><a title="emergenet.domseq.DomSeq" href="#emergenet.domseq.DomSeq">DomSeq</a></code></h4>
 <ul class="">
-<li><code><a title="emergenet.domseq.DomSeq.compute_domseq" href="#emergenet.domseq.DomSeq.compute_domseq">compute_domseq</a></code></li>
-<li><code><a title="emergenet.domseq.DomSeq.load_data" href="#emergenet.domseq.DomSeq.load_data">load_data</a></code></li>
 <li><code><a title="emergenet.domseq.DomSeq.predict_domseq" href="#emergenet.domseq.DomSeq.predict_domseq">predict_domseq</a></code></li>
+<li><code><a title="emergenet.domseq.DomSeq.predict_single_domseq" href="#emergenet.domseq.DomSeq.predict_single_domseq">predict_single_domseq</a></code></li>
 <li><code><a title="emergenet.domseq.DomSeq.train" href="#emergenet.domseq.DomSeq.train">train</a></code></li>
 </ul>
 </li>

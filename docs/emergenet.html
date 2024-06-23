@@ -27,433 +27,407 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import os
+<pre><code class="python">import re, os, json, joblib
 import numpy as np
 import pandas as pd
-from Bio import SeqIO
-from quasinet.qnet import Qnet, qdistance, save_qnet, load_qnet, membership_degree
-from quasinet import qsampling as qs
-import statsmodels.api as sm
+from typing import Tuple, Union
+from datetime import date, datetime
+from collections import Counter
+from pkg_resources import resource_filename
+from quasinet.qnet import Qnet, qdistance
+from .utils import filter_by_date_range, load_model, save_model
+
+
+# Lengths to truncate sequences
+HA_TRUNC = 560
+NA_TRUNC = 460
 
 
 class Enet(object):
-    &#34;&#34;&#34;Emergenet architecture.
+    &#39;&#39;&#39; Emergenet architecture for predicting emergence risk.
+    &#39;&#39;&#39; 
 
-    Parameters
-    ----------
-    seq : str
-        The target sequence to be analysed by Emergenet
-        Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
+    def __init__(self, analysis_date:str, ha_seq:str, na_seq:str, 
+                 pretrained_enet_path:str=None, save_data:str=None, random_state:int=None):
+        &#39;&#39;&#39; Initializes an Emergenet instance.
 
-    seq_trunc_length : int
-        Length to truncate sequences in Emergenet analysis
-        (Sequences used to train Emergenet and compute E-distance must be of same length)
+        Parameters
+        ----------
+        analysis_date - `PRESENT` or date of analysis (YYYY-MM-DD), supported from 2010-01-01 to 2024-01-01
 
-    seq_metadata : str
-        Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
+        ha_seq - The target&#39;s HA sequence to be analysed by Emergenet
+            
+        na_seq - The target&#39;s NA sequence to be analysed by Emergenet
 
-    random_state : int
-        Sets seed for random number generator
-    &#34;&#34;&#34;
+        save_data - Directory to save data to (Enet models, sequences used for training, etc.)
 
-    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
-        if seq.endswith(&#39;.fasta&#39;):
-            if self._count_seqs(seq) != 1:
-                raise ValueError(&#39;The file must contain exactly 1 sequence!&#39;)
-            for record in SeqIO.parse(seq, &#39;fasta&#39;):
-                self.seq = str(record.seq.upper())
-                self.seq_metadata = str(record.description)
-        else:
-            self.seq = seq.upper()
-            self.seq_metadata = seq_metadata
-
-        if seq_trunc_length &gt; len(self.seq):
-            raise ValueError(&#39;Length to truncate sequences must not be shorter than target sequence!&#39;)
-        self.seq_trunc_length = seq_trunc_length
-
+        random_state - Sets seed for random number generator
+        
+        pretrained_enet_path - Base path for all pretrained Enet models
+        &#39;&#39;&#39;
+        # Date
+        if analysis_date != &#39;PRESENT&#39;:
+            if not re.match(r&#39;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&#39;, analysis_date):
+                raise ValueError(&#39;Date must be in format YYYY-MM-DD! or &#34;PRESENT&#34;&#39;)
+            if analysis_date &gt; &#39;2024-01-01&#39; or analysis_date &lt; &#39;2010-01-01&#39;:
+                raise ValueError(&#39;Emergenet only supports sequences from 2010-01-01 to 2024-01-01!&#39;)
+        self.analysis_date = analysis_date
+        # Sequences
+        if HA_TRUNC &gt; len(ha_seq):
+            print(&#39;HA sequence is shorter than required length (560), padding the end with Xs&#39;)
+            ha_seq = ha_seq.ljust(HA_TRUNC, &#39;X&#39;)
+        self.ha_seq = ha_seq.upper()[:HA_TRUNC]
+        if NA_TRUNC &gt; len(na_seq):
+            print(&#39;NA sequence is shorter than required length (460), padding the end with Xs&#39;)
+            na_seq = na_seq.ljust(NA_TRUNC, &#39;X&#39;)
+        self.na_seq = na_seq.upper()[:NA_TRUNC]
+        # Pretrained Enet path
+        self.pretrained_enet_path = pretrained_enet_path
+        # Save data
+        self.save_data = save_data
+        if save_data is not None:
+            if not os.path.exists(save_data):
+                os.makedirs(save_data, exist_ok=True)
+            if self.analysis_date != &#39;PRESENT&#39; and self.pretrained_enet_path is None:
+                self.save_model = os.path.join(save_data, &#39;enet_models&#39;)
+                self.save_sequences = os.path.join(save_data, &#39;data&#39;)
+                self.save_results = os.path.join(save_data, &#39;results&#39;)
+                os.makedirs(self.save_model, exist_ok=True)
+                os.makedirs(self.save_sequences, exist_ok=True)
+                os.makedirs(self.save_results, exist_ok=True)
+        # Random state
+        if random_state is not None and random_state &lt; 0:
+            raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
         self.random_state = random_state
 
+        
     def __repr__(self):
-        return &#34;emergenet.Emergenet&#34; 
+        return &#39;emergenet.Emergenet&#39;
+
 
     def __str__(self):
         return self.__repr__()
+    
 
-    @staticmethod
-    def _count_seqs(filepath):
-        &#34;&#34;&#34;Returns number of sequences in a fasta file.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        Returns
-        -------
-        num_sequences : int
-            Number of sequences
-        &#34;&#34;&#34;
-        with open(filepath, &#39;r&#39;) as f:
-            fasta = SeqIO.parse(f, &#39;fasta&#39;)
-            if not any(fasta):
-                raise ValueError(&#39;The infile must be in fasta format!&#39;)
-        with open(filepath, &#39;r&#39;) as f:
-            lines = f.read()
-        num_sequences = lines.count(&#39;&gt;&#39;)
-        return num_sequences
-
-    def _parse_fasta(self, filepath):
-        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
-        `id` contains fasta metadata.
-        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+    def _load_sequences(self, yearsbefore:int) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Loads human sequences within yearsbefore years of the analysis date.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        yearsbefore - Number of years prior to analysis_date to consider 
 
         Returns
         -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        if self._count_seqs(filepath) == 0:
-            raise ValueError(&#39;The file contains no sequences!&#39;)
-        ids = []
-        seqs = []
-        for record in SeqIO.parse(filepath, &#39;fasta&#39;):
-            if len(record.seq) &lt; self.seq_trunc_length:
-                continue
-            ids.append(str(record.id))
-            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
-        seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
-        return seq_df
+        filtered - DataFrame of human sequences within one year of the analysis date
+        &#39;&#39;&#39;
+        filepath = resource_filename(&#39;emergenet&#39;, &#39;data/human.csv.gz&#39;)
+        human = pd.read_csv(filepath, na_filter=False)
+        end = datetime.strptime(self.analysis_date, &#39;%Y-%m-%d&#39;).date()
+        start = date(end.year - yearsbefore, end.month, end.day)
+        filtered = filter_by_date_range(human, &#39;date&#39;, str(start), str(end))
+        print(&#39;Number of human sequences:&#39;, len(filtered))
+        print(Counter(filtered[filtered[&#39;segment&#39;] == &#39;HA&#39;][&#39;HA&#39;]))
+        print(Counter(filtered[filtered[&#39;segment&#39;] == &#39;NA&#39;][&#39;NA&#39;]))
+        return filtered
+    
 
-    def _sequence_array(self, seq_df, sample_size=None):
-        &#34;&#34;&#34;Extracts array of sequence arrays from DataFrame; includes target sequence.
+    def _sequence_array(self, segment:str, seq_df:pd.DataFrame, 
+                        sample_size:int=None, include_target:bool=True) -&gt; np.ndarray:
+        &#39;&#39;&#39; Extracts array of sequence arrays from DataFrame.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame containing sequences
+        segment - Either &#39;HA&#39; or &#39;NA&#39;
+            
+        seq_df - DataFrame containing sequences
 
-        sample_size : int
-            Number of strains to sample randomly
+        sample_size - Number of sequences to sample randomly
+            
+        include_target - If true, includes target sequence
 
         Returns
         -------
-        seq_lst: numpy.ndarray
-            Array of sequence arrays
-        &#34;&#34;&#34;
+        seq_lst - Array of sequence arrays
+        &#39;&#39;&#39; 
         if &#39;sequence&#39; not in seq_df.columns:
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
+        if sample_size is not None:
+            sample_size = min(sample_size, len(seq_df))
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
         seqs = seq_df[&#39;sequence&#39;].values
         seq_lst = []
+        if segment == &#39;HA&#39;:
+            TRUNC = HA_TRUNC
+            if include_target:
+                seq_lst.append(np.array(list(self.ha_seq[:TRUNC])))
+        elif segment == &#39;NA&#39;:
+            TRUNC = NA_TRUNC
+            if include_target:
+                seq_lst.append(np.array(list(self.na_seq[:TRUNC])))
         for seq in seqs:
-            seq_lst.append(seq)
-        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
+            if len(seq) &lt; TRUNC:
+                continue
+            seq_lst.append(np.array(list(seq[:TRUNC])))
         seq_lst = np.array(seq_lst)
         return seq_lst
 
-    def load_data(self, filepath, outfile=None):
-        &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        outfile : str
-            File name to save to (&#39;.csv&#39;)
-
-        Returns
-        -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        seq_df = self._parse_fasta(filepath)
-        if outfile is not None:
-            if not outfile.endswith(&#39;.csv&#39;):
-                raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
-            seq_df.to_csv(outfile, index=False)
-        return seq_df
-
-    def train(self, seq_df, sample_size=None, n_jobs=1):
-        &#34;&#34;&#34;Trains an Emergenet model.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        sample_size : int
-            Number of strains to train Emergenet on, sampled randomly
-
-        n_jobs : int
-            Number of CPUs to use when training
-
-        Returns
-        -------
-        enet : Qnet
-            Trained Emergenet
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
-                    random_state=self.random_state, n_jobs=n_jobs)
-        enet.fit(seq_arr)
-        return enet
-
-    def sequence_membership(self, seq_df, enet, sample_size=None):
-        &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-
-        Returns
-        -------
-        membership_degrees : np.ndarray
-            Array of membership degrees
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if &#39;sequence&#39; not in seq_df.columns:
-            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
-            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        seqs = seq_df[&#39;sequence&#39;].values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
-        return membership_degrees
-
-
-
     
-    def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
-        &#34;&#34;&#34;Computes emergence risk score.
+    def _compute_risks(self, segment:str, seq_df:pd.DataFrame, enet:Qnet) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Computes risk score with qdistance.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        segment - Either &#39;HA&#39; or &#39;NA&#39;
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
+        seq_df - DataFrame of sequences
 
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-        minimum : bool
-            if True return minimum instead of average
+        enet - Emergenet that sequences in `seq_df` belong to
 
         Returns
         -------
-        emergence_risk_score : float
-            Emergence risk score   
-
-        variance : float
-            Variance of emergence risk score
-        &#34;&#34;&#34;
+        seq_df - The input `seq_df` with extra risk column
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        qdist_list = []
+        seq_arr = self._sequence_array(segment, seq_df, include_target=False)
+        if segment == &#39;HA&#39;:
+            TRUNC = HA_TRUNC
+            target_seq = np.array(list(self.ha_seq[:TRUNC]))
+        elif segment == &#39;NA&#39;:
+            TRUNC = NA_TRUNC
+            target_seq = np.array(list(self.na_seq[:TRUNC]))
+        risks = []
         for i in range(len(seq_arr)):
             qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
+                risks.append(-1)
                 continue
-            qdist_list.append(qdist)
-        if not minimum:
-            emergence_risk_score = np.average(qdist_list)
-            variance = np.var(qdist_list)
-        else:
-            qdist_list=np.array(qdist_list)
-            qdist_list=qdist_list[qdist_list&gt;0]
-            emergence_risk_score = np.min(qdist_list)
-            lb,ub=bootstrap_min_confidence_interval(qdist_list,confidence_level=0.95)
-            variance = (ub-lb)/2
-
-        return emergence_risk_score, variance
-
-
-
+            risks.append(qdist)
+        seq_df[&#39;risk&#39;] = risks
+        return seq_df
     
 
-    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
-        &#34;&#34;&#34;Computes emergence risk score using qsampling.
+    def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
+              include_target:bool=True, n_jobs:int=1) -&gt; Qnet:
+        &#39;&#39;&#39; Trains an Emergenet model.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        segment - Either &#39;HA&#39; or &#39;NA&#39;
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
+        seq_df - DataFrame of sequences
 
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
+        sample_size - Number of sequences to train Emergenet on, sampled randomly
 
-        qsamples : int
-            Number of qsamples to draw from each strain
+        include_target - If true, includes target sequence
 
-        steps : int
-            Number of steps to run q-sampling
+        n_jobs - Number of CPUs to use when training
 
         Returns
         -------
-        avg_emergence_risk_score : float
-            Average emergence risk score among all qsampled sequences
-
-        min_emergence_risk_score : float
-            Lower bound on emergence risk score
-
-        max_emergence_risk_score : float
-            Upper bound on emergence risk score
-        &#34;&#34;&#34;
+        enet - Trained Emergenet
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if qsamples &lt; 1:
-            raise ValueError(&#39;Number of qsamples must be positive!&#39;)
-        if steps &lt; 1:
-            raise ValueError(&#39;Number of steps must be positive!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        avg_qdist_list = []
-        min_qdist_list = []
-        max_qdist_list = []
-        for i in range(len(seq_arr)):
-            cur_avg_qdist = 0
-            cur_min_qdist = 1
-            cur_max_qdist = 0
-            for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], enet, steps)
-                qdist = qdistance(target_seq, qs_seq, enet, enet)
-                cur_avg_qdist += qdist
-                cur_min_qdist = min(qdist, cur_min_qdist)
-                cur_max_qdist = max(qdist, cur_max_qdist)
-            avg_qdist_list.append(cur_avg_qdist / qsamples)
-            min_qdist_list.append(cur_min_qdist)
-            max_qdist_list.append(cur_max_qdist)
-        avg_emergence_risk_score = np.average(avg_qdist_list)
-        min_emergence_risk_score = np.average(min_qdist_list)
-        max_emergence_risk_score = np.average(max_qdist_list)
-        variance = np.var(avg_qdist_list)
-        return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance
+        if segment not in [&#39;HA&#39;, &#39;NA&#39;]:
+            raise ValueError(&#39;Segment must be either HA or NA!&#39;)
+        if segment == &#39;HA&#39;:
+            TRUNC = HA_TRUNC
+        elif segment == &#39;NA&#39;:
+            TRUNC = NA_TRUNC
+        seq_arr = self._sequence_array(segment, seq_df, sample_size, include_target)
+        enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(TRUNC)],
+                    random_state=self.random_state, n_jobs=n_jobs)
+        enet.fit(seq_arr)
+        return enet
     
-def irat_risk(ha_risk, na_risk):
-    &#34;&#34;&#34;Computes IRAT emergence and impact risk scores.
+
+    def risk(self, yearsbefore:int=1, enet_sample_size:Union[int, float]=None, 
+             risk_sample_size:Union[int, float]=None) -&gt; Tuple[float, float]:
+        &#39;&#39;&#39; Computes risk scores for the target sequence.
+        If `save_data` is not None, `analysis_date` is not &#39;PRESENT&#39; and pretrained_enet_path is None, saves the following:
+        1. Emergenet models: `save_data/enet_models/&lt;subtype&gt;.joblib`
+        2. DataFrames of sequences used for training: `save_data/data/&lt;subtype&gt;.csv`
+        3. Results (sequence DataFrames with extra `risk_score` column): `save_data/results/&lt;subtype&gt;.csv`
+        4. Minimum risks for each HA and NA subtype: `save_data/results/&lt;segment&gt;_min_risks.csv`
+
+        If `save_data` is not None, and `analysis_date` is &#39;PRESENT&#39; or pretrained_enet_path is not None, saves the following:
+        1. Results (sequence DataFrames with extra `risk_score` column): `save_data/&lt;subtype&gt;.csv`
+        2. Minimum risks for each HA and NA subtype: `save_data/&lt;segment&gt;_min_risks.csv`
+
+        Parameters
+        ----------
+        yearsbefore - Number of years prior to analysis_date to consider 
+        
+        enet_sample_size - Number of or proportion sequences of each subtype to train Emergenet on
+        
+        risk_sample_size - Number or proportion of unique sequences of each subtype to sample for risk estimation
+
+        Returns
+        -------
+        ha_risk - Risk score for HA segment
+        
+        na_risk - Risk score for NA segment
+        &#39;&#39;&#39;
+        if self.analysis_date == &#39;PRESENT&#39;:
+            filepath = resource_filename(&#39;emergenet&#39;, &#39;data/current_subtypes.json&#39;)
+            with open(filepath, &#39;r&#39;) as file:
+                current_subtypes = json.load(file)
+            for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+                risks = pd.DataFrame()
+                if segment == &#39;HA&#39;:
+                    TRUNC = HA_TRUNC
+                elif segment == &#39;NA&#39;:
+                    TRUNC = NA_TRUNC
+                for subtype in current_subtypes[segment]:
+                    # Load human sequences for and pretrained Enet models for current subtype
+                    human_filepath = resource_filename(&#39;emergenet&#39;, f&#39;data/current/{subtype}.csv&#39;)
+                    model_filepath = resource_filename(&#39;emergenet&#39;, f&#39;models/{subtype}.joblib.gz&#39;)
+                    df = pd.read_csv(human_filepath, na_filter=False)
+                    # Sample from human sequences if needed
+                    if risk_sample_size is not None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                            sample_size = int(risk_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    # Load Enet and compute risks
+                    enet = load_model(model_filepath, gz=True)
+                    df = self._compute_risks(segment, df, enet)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_data, subtype + &#39;.csv&#39;), index=False)
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df[&#39;risk&#39;])]
+                # Save overall minimum risk
+                if self.save_data is not None:
+                    risks.to_csv(os.path.join(self.save_data, segment + &#39;_min_risks.csv&#39;), index=False)
+                if segment == &#39;HA&#39;:
+                    ha_risk = risks.min(axis=1).values[0] + 1e-5
+                elif segment == &#39;NA&#39;:
+                    na_risk = risks.min(axis=1).values[0] + 1e-5
+            return ha_risk, na_risk
+
+        elif self.pretrained_enet_path is not None:
+            human = self._load_sequences(yearsbefore)
+            for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+                risks = pd.DataFrame()
+                if segment == &#39;HA&#39;:
+                    TRUNC = HA_TRUNC
+                elif segment == &#39;NA&#39;:
+                    TRUNC = NA_TRUNC
+                human1 = human[human[&#39;segment&#39;] == segment]
+                human1 = human1[human1[&#39;sequence&#39;].str.len() &gt;= TRUNC]
+                subtypes = Counter(human1[segment])
+                for subtype in subtypes:
+                    # Skip subtypes with less than 15 sequences
+                    if subtypes[subtype] &lt; 15:
+                        continue                    
+                    # Use only unique sequences for inference
+                    df = human1[human1[segment] == subtype].drop_duplicates(subset=[&#39;sequence&#39;])
+                    # Sample from human sequences if needed
+                    if risk_sample_size is not None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                            sample_size = int(risk_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    # Load Enet and compute risks
+                    enet = load_model(os.path.join(self.pretrained_enet_path, subtype + &#39;.joblib&#39;))
+                    df = self._compute_risks(segment, df, enet)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_data, subtype + &#39;.csv&#39;), index=False)
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df[&#39;risk&#39;])]
+                # Save overall minimum risk
+                if self.save_data is not None:
+                    risks.to_csv(os.path.join(self.save_data, segment + &#39;_min_risks.csv&#39;), index=False)
+                if segment == &#39;HA&#39;:
+                    ha_risk = risks.min(axis=1).values[0] + 1e-5
+                elif segment == &#39;NA&#39;:
+                    na_risk = risks.min(axis=1).values[0] + 1e-5
+            return ha_risk, na_risk
+        
+        else:
+            human = self._load_sequences(yearsbefore)
+            for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+                risks = pd.DataFrame()
+                if segment == &#39;HA&#39;:
+                    TRUNC = HA_TRUNC
+                elif segment == &#39;NA&#39;:
+                    TRUNC = NA_TRUNC
+                human1 = human[human[&#39;segment&#39;] == segment]
+                human1 = human1[human1[&#39;sequence&#39;].str.len() &gt;= TRUNC]
+                subtypes = Counter(human1[segment])
+                for subtype in subtypes:
+                    # Skip subtypes with less than 15 sequences
+                    if subtypes[subtype] &lt; 15:
+                        continue
+                    # Load human strains for constructing enet, sampling if needed
+                    df = human1[human1[segment] == subtype]
+                    if enet_sample_size is not None:
+                        if isinstance(enet_sample_size, int):
+                            sample_size = min(enet_sample_size, len(df))
+                        elif isinstance(enet_sample_size, float) and enet_sample_size &lt;= 1:
+                            sample_size = int(enet_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_sequences, subtype + &#39;.csv&#39;), index=False)
+                    # Train Enet
+                    enet = self.train(segment, df)
+                    if self.save_data is not None:
+                        save_model(enet, os.path.join(self.save_model, subtype + &#39;.joblib&#39;))
+                    # Use only unique sequences for inference
+                    df = df.drop_duplicates(subset=[&#39;sequence&#39;])
+                    # Sample from human sequences if needed (only if we did not already sample for training Enet)
+                    if risk_sample_size is not None and enet_sample_size is None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                            sample_size = int(risk_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    # Compute risks
+                    df = self._compute_risks(segment, df, enet)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_results, subtype + &#39;.csv&#39;), index=False)
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df[&#39;risk&#39;])]
+                # Save overall minimum risk
+                if self.save_data is not None:
+                    risks.to_csv(os.path.join(self.save_results, segment + &#39;_min_risks.csv&#39;), index=False)
+                if segment == &#39;HA&#39;:
+                    ha_risk = risks.min(axis=1).values[0] + 1e-5
+                elif segment == &#39;NA&#39;:
+                    na_risk = risks.min(axis=1).values[0] + 1e-5
+            return ha_risk, na_risk
+        
+
+def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, float, float]:
+    &#39;&#39;&#39; Computes IRAT emergence risk score.
 
     Parameters
     ----------
-    ha_risk : float
-        Risk score from HA segment computed by the &#39;Enet.emergence_risk&#39; function
+    ha_risk - Risk score for HA segment
 
-    na_risk : float
-        Risk score from NA segment computed by the &#39;Enet.emergence_risk&#39; function
+    na_risk - Risk score for NA segment
 
     Returns
     -------
-    irat_emergence_risk : float
-        Predicted IRAT emergence risk score
+    irat_emergence - Predicted IRAT emergence risk score
 
-    irat_impact_risk : float
-        Predicted IRAT impact risk score
-    &#34;&#34;&#34;
-    cwd = os.path.dirname(os.path.realpath(__file__))
-    emergence_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_emergence.pickle&#39;))
-    impact_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_impact.pickle&#39;))
-    geom_mean = np.sqrt(ha_risk*na_risk)
-    df = pd.DataFrame({&#39;Geometric_Mean&#39;:[geom_mean],
-                       &#39;HA_Avg_Qdist&#39;:[ha_risk],
-                       &#39;NA_Avg_Qdist&#39;:[na_risk]})
-    irat_emergence_risk = emergence_mod.predict(df)[0]
-    irat_impact_risk = impact_mod.predict(df)[0]
-    if geom_mean &gt; 0.3:
-        irat_emergence_risk = 3.8
-        irat_impact_risk = 4.45
-    return irat_emergence_risk, irat_impact_risk
+    irat_emergence_low - Lower bound IRAT emergence risk score
 
-def save_model(enet, outfile, low_mem=False):
-    &#34;&#34;&#34;Saves an Emergenet model.
-
-    Parameters
-    ----------
-    enet : Qnet
-        An Emergenet instance
-
-    outfile : str
-        File name to save to (&#39;.joblib&#39;)
-
-    low_mem : bool
-        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
-
-    Returns
-    -------
-    None
-    &#34;&#34;&#34;
-    save_qnet(enet, outfile, low_mem)
-
-def load_model(filepath):
-    &#34;&#34;&#34;Loads an Emergenet model.
-
-    Parameters
-    ----------
-    filepath : str
-        File name
-
-    Returns
-    -------
-    enet : Qnet
-        An Emergenet instance
-    &#34;&#34;&#34;
-    enet = load_qnet(filepath)
-    return enet
-
-
-
-
-def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
-    &#34;&#34;&#34;
-    Calculate the confidence interval for the minimum value of a population
-    based on a sample using bootstrap method with m = N-1.
-
-    Args:
-    sample (array-like): The sample data.
-    confidence_level (float): The confidence level for the interval.
-
-    Returns:
-    tuple: Lower and upper bounds of the confidence interval.
-    &#34;&#34;&#34;
-    n = len(sample)
-    m = n - 5  # Optimal number of bootstrap samples
-    bootstrap_mins = []
-
-    # Generate bootstrap samples and calculate their minima
-    for _ in range(m):
-        bootstrap_sample = np.random.choice(sample, size=m, replace=True)
-        bootstrap_min = np.min(bootstrap_sample)
-        bootstrap_mins.append(bootstrap_min)
-
-    # Calculate the confidence interval
-    lower_bound = np.percentile(bootstrap_mins, (1 - confidence_level) / 2 * 100)
-    upper_bound = np.percentile(bootstrap_mins, (1 + confidence_level) / 2 * 100)
-
-    return lower_bound, upper_bound
- </code></pre>
+    irat_emergence_high - Upper bound IRAT emergence risk score
+    &#39;&#39;&#39;
+    geom_mean = np.sqrt(ha_risk * na_risk)
+    x = -np.log(geom_mean + 5e-4)
+    emergence_model = joblib.load(resource_filename(&#39;emergenet&#39;, &#39;models/emergence_model.joblib&#39;))
+    emergence_low_model = joblib.load(resource_filename(&#39;emergenet&#39;, &#39;models/emergence_low_model.joblib&#39;))
+    emergence_high_model = joblib.load(resource_filename(&#39;emergenet&#39;, &#39;models/emergence_high_model.joblib&#39;))
+    irat_emergence = emergence_model[&#39;intercept&#39;] + emergence_model[&#39;slope&#39;] * x
+    irat_emergence_low = emergence_low_model[&#39;intercept&#39;] + emergence_low_model[&#39;slope&#39;] * x
+    irat_emergence_high = emergence_high_model[&#39;intercept&#39;] + emergence_high_model[&#39;slope&#39;] * x
+    return irat_emergence, irat_emergence_low, irat_emergence_high
+        </code></pre>
 </details>
 </section>
 <section>
@@ -463,185 +437,53 @@ def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="emergenet.emergenet.bootstrap_min_confidence_interval"><code class="name flex">
-<span>def <span class="ident">bootstrap_min_confidence_interval</span></span>(<span>sample, confidence_level=0.95)</span>
+<dt id="emergenet.emergenet.predict_irat_emergence"><code class="name flex">
+<span>def <span class="ident">predict_irat_emergence</span></span>(<span>ha_risk: float, na_risk: float) ‑> Tuple[float, float, float]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Calculate the confidence interval for the minimum value of a population
-based on a sample using bootstrap method with m = N-1.</p>
-<p>Args:
-sample (array-like): The sample data.
-confidence_level (float): The confidence level for the interval.</p>
-<p>Returns:
-tuple: Lower and upper bounds of the confidence interval.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def bootstrap_min_confidence_interval(sample, confidence_level=0.95):
-    &#34;&#34;&#34;
-    Calculate the confidence interval for the minimum value of a population
-    based on a sample using bootstrap method with m = N-1.
-
-    Args:
-    sample (array-like): The sample data.
-    confidence_level (float): The confidence level for the interval.
-
-    Returns:
-    tuple: Lower and upper bounds of the confidence interval.
-    &#34;&#34;&#34;
-    n = len(sample)
-    m = n - 5  # Optimal number of bootstrap samples
-    bootstrap_mins = []
-
-    # Generate bootstrap samples and calculate their minima
-    for _ in range(m):
-        bootstrap_sample = np.random.choice(sample, size=m, replace=True)
-        bootstrap_min = np.min(bootstrap_sample)
-        bootstrap_mins.append(bootstrap_min)
-
-    # Calculate the confidence interval
-    lower_bound = np.percentile(bootstrap_mins, (1 - confidence_level) / 2 * 100)
-    upper_bound = np.percentile(bootstrap_mins, (1 + confidence_level) / 2 * 100)
-
-    return lower_bound, upper_bound</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.irat_risk"><code class="name flex">
-<span>def <span class="ident">irat_risk</span></span>(<span>ha_risk, na_risk)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Computes IRAT emergence and impact risk scores.</p>
+<div class="desc"><p>Computes IRAT emergence risk score.</p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>ha_risk</code></strong> :&ensp;<code>float</code></dt>
-<dd>Risk score from HA segment computed by the 'Enet.emergence_risk' function</dd>
-<dt><strong><code>na_risk</code></strong> :&ensp;<code>float</code></dt>
-<dd>Risk score from NA segment computed by the 'Enet.emergence_risk' function</dd>
-</dl>
+<p>ha_risk - Risk score for HA segment</p>
+<p>na_risk - Risk score for NA segment</p>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>irat_emergence_risk</code></strong> :&ensp;<code>float</code></dt>
-<dd>Predicted IRAT emergence risk score</dd>
-<dt><strong><code>irat_impact_risk</code></strong> :&ensp;<code>float</code></dt>
-<dd>Predicted IRAT impact risk score</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def irat_risk(ha_risk, na_risk):
-    &#34;&#34;&#34;Computes IRAT emergence and impact risk scores.
-
-    Parameters
-    ----------
-    ha_risk : float
-        Risk score from HA segment computed by the &#39;Enet.emergence_risk&#39; function
-
-    na_risk : float
-        Risk score from NA segment computed by the &#39;Enet.emergence_risk&#39; function
-
-    Returns
-    -------
-    irat_emergence_risk : float
-        Predicted IRAT emergence risk score
-
-    irat_impact_risk : float
-        Predicted IRAT impact risk score
-    &#34;&#34;&#34;
-    cwd = os.path.dirname(os.path.realpath(__file__))
-    emergence_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_emergence.pickle&#39;))
-    impact_mod = sm.load(os.path.join(cwd, &#39;models&#39;, &#39;irat_impact.pickle&#39;))
-    geom_mean = np.sqrt(ha_risk*na_risk)
-    df = pd.DataFrame({&#39;Geometric_Mean&#39;:[geom_mean],
-                       &#39;HA_Avg_Qdist&#39;:[ha_risk],
-                       &#39;NA_Avg_Qdist&#39;:[na_risk]})
-    irat_emergence_risk = emergence_mod.predict(df)[0]
-    irat_impact_risk = impact_mod.predict(df)[0]
-    if geom_mean &gt; 0.3:
-        irat_emergence_risk = 3.8
-        irat_impact_risk = 4.45
-    return irat_emergence_risk, irat_impact_risk</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.load_model"><code class="name flex">
-<span>def <span class="ident">load_model</span></span>(<span>filepath)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Loads an Emergenet model.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>An Emergenet instance</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def load_model(filepath):
-    &#34;&#34;&#34;Loads an Emergenet model.
-
-    Parameters
-    ----------
-    filepath : str
-        File name
-
-    Returns
-    -------
-    enet : Qnet
-        An Emergenet instance
-    &#34;&#34;&#34;
-    enet = load_qnet(filepath)
-    return enet</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.save_model"><code class="name flex">
-<span>def <span class="ident">save_model</span></span>(<span>enet, outfile, low_mem=False)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Saves an Emergenet model.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>An Emergenet instance</dd>
-<dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name to save to ('.joblib')</dd>
-<dt><strong><code>low_mem</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True, save the Emergenet with low memory by deleting all data attributes except the tree structure</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>None</code></dt>
+<dt><code>irat_emergence - Predicted IRAT emergence risk score</code></dt>
+<dd>&nbsp;</dd>
+<dt><code>irat_emergence_low - Lower bound IRAT emergence risk score</code></dt>
+<dd>&nbsp;</dd>
+<dt><code>irat_emergence_high - Upper bound IRAT emergence risk score</code></dt>
 <dd>&nbsp;</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def save_model(enet, outfile, low_mem=False):
-    &#34;&#34;&#34;Saves an Emergenet model.
+<pre><code class="python">def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, float, float]:
+    &#39;&#39;&#39; Computes IRAT emergence risk score.
 
     Parameters
     ----------
-    enet : Qnet
-        An Emergenet instance
+    ha_risk - Risk score for HA segment
 
-    outfile : str
-        File name to save to (&#39;.joblib&#39;)
-
-    low_mem : bool
-        If True, save the Emergenet with low memory by deleting all data attributes except the tree structure
+    na_risk - Risk score for NA segment
 
     Returns
     -------
-    None
-    &#34;&#34;&#34;
-    save_qnet(enet, outfile, low_mem)</code></pre>
+    irat_emergence - Predicted IRAT emergence risk score
+
+    irat_emergence_low - Lower bound IRAT emergence risk score
+
+    irat_emergence_high - Upper bound IRAT emergence risk score
+    &#39;&#39;&#39;
+    geom_mean = np.sqrt(ha_risk * na_risk)
+    x = -np.log(geom_mean + 5e-4)
+    emergence_model = joblib.load(resource_filename(&#39;emergenet&#39;, &#39;models/emergence_model.joblib&#39;))
+    emergence_low_model = joblib.load(resource_filename(&#39;emergenet&#39;, &#39;models/emergence_low_model.joblib&#39;))
+    emergence_high_model = joblib.load(resource_filename(&#39;emergenet&#39;, &#39;models/emergence_high_model.joblib&#39;))
+    irat_emergence = emergence_model[&#39;intercept&#39;] + emergence_model[&#39;slope&#39;] * x
+    irat_emergence_low = emergence_low_model[&#39;intercept&#39;] + emergence_low_model[&#39;slope&#39;] * x
+    irat_emergence_high = emergence_high_model[&#39;intercept&#39;] + emergence_high_model[&#39;slope&#39;] * x
+    return irat_emergence, irat_emergence_low, irat_emergence_high</code></pre>
 </details>
 </dd>
 </dl>
@@ -651,660 +493,618 @@ tuple: Lower and upper bounds of the confidence interval.</p></div>
 <dl>
 <dt id="emergenet.emergenet.Enet"><code class="flex name class">
 <span>class <span class="ident">Enet</span></span>
-<span>(</span><span>seq, seq_trunc_length, seq_metadata=None, random_state=None)</span>
+<span>(</span><span>analysis_date: str, ha_seq: str, na_seq: str, pretrained_enet_path: str = None, save_data: str = None, random_state: int = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Emergenet architecture.</p>
+<div class="desc"><p>Emergenet architecture for predicting emergence risk.</p>
+<p>Initializes an Emergenet instance.</p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq</code></strong> :&ensp;<code>str</code></dt>
-<dd>The target sequence to be analysed by Emergenet
-Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</dd>
-<dt><strong><code>seq_trunc_length</code></strong> :&ensp;<code>int</code></dt>
-<dd>Length to truncate sequences in Emergenet analysis
-(Sequences used to train Emergenet and compute E-distance must be of same length)</dd>
-<dt><strong><code>seq_metadata</code></strong> :&ensp;<code>str</code></dt>
-<dd>Describes the sequence; added automatically if 'seq' is a fasta file path</dd>
-<dt><strong><code>random_state</code></strong> :&ensp;<code>int</code></dt>
-<dd>Sets seed for random number generator</dd>
-</dl></div>
+<p>analysis_date - <code>PRESENT</code> or date of analysis (YYYY-MM-DD), supported from 2010-01-01 to 2024-01-01</p>
+<p>ha_seq - The target's HA sequence to be analysed by Emergenet</p>
+<p>na_seq - The target's NA sequence to be analysed by Emergenet</p>
+<p>save_data - Directory to save data to (Enet models, sequences used for training, etc.)</p>
+<p>random_state - Sets seed for random number generator</p>
+<p>pretrained_enet_path - Base path for all pretrained Enet models</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Enet(object):
-    &#34;&#34;&#34;Emergenet architecture.
+    &#39;&#39;&#39; Emergenet architecture for predicting emergence risk.
+    &#39;&#39;&#39; 
 
-    Parameters
-    ----------
-    seq : str
-        The target sequence to be analysed by Emergenet
-        Either nucleotide/amino-acid sequence or fasta file path (containing &#39;.fasta&#39;)
+    def __init__(self, analysis_date:str, ha_seq:str, na_seq:str, 
+                 pretrained_enet_path:str=None, save_data:str=None, random_state:int=None):
+        &#39;&#39;&#39; Initializes an Emergenet instance.
 
-    seq_trunc_length : int
-        Length to truncate sequences in Emergenet analysis
-        (Sequences used to train Emergenet and compute E-distance must be of same length)
+        Parameters
+        ----------
+        analysis_date - `PRESENT` or date of analysis (YYYY-MM-DD), supported from 2010-01-01 to 2024-01-01
 
-    seq_metadata : str
-        Describes the sequence; added automatically if &#39;seq&#39; is a fasta file path
+        ha_seq - The target&#39;s HA sequence to be analysed by Emergenet
+            
+        na_seq - The target&#39;s NA sequence to be analysed by Emergenet
 
-    random_state : int
-        Sets seed for random number generator
-    &#34;&#34;&#34;
+        save_data - Directory to save data to (Enet models, sequences used for training, etc.)
 
-    def __init__(self, seq, seq_trunc_length, seq_metadata=None, random_state=None):
-        if seq.endswith(&#39;.fasta&#39;):
-            if self._count_seqs(seq) != 1:
-                raise ValueError(&#39;The file must contain exactly 1 sequence!&#39;)
-            for record in SeqIO.parse(seq, &#39;fasta&#39;):
-                self.seq = str(record.seq.upper())
-                self.seq_metadata = str(record.description)
-        else:
-            self.seq = seq.upper()
-            self.seq_metadata = seq_metadata
-
-        if seq_trunc_length &gt; len(self.seq):
-            raise ValueError(&#39;Length to truncate sequences must not be shorter than target sequence!&#39;)
-        self.seq_trunc_length = seq_trunc_length
-
+        random_state - Sets seed for random number generator
+        
+        pretrained_enet_path - Base path for all pretrained Enet models
+        &#39;&#39;&#39;
+        # Date
+        if analysis_date != &#39;PRESENT&#39;:
+            if not re.match(r&#39;^[0-9]{4}-[0-9]{2}-[0-9]{2}$&#39;, analysis_date):
+                raise ValueError(&#39;Date must be in format YYYY-MM-DD! or &#34;PRESENT&#34;&#39;)
+            if analysis_date &gt; &#39;2024-01-01&#39; or analysis_date &lt; &#39;2010-01-01&#39;:
+                raise ValueError(&#39;Emergenet only supports sequences from 2010-01-01 to 2024-01-01!&#39;)
+        self.analysis_date = analysis_date
+        # Sequences
+        if HA_TRUNC &gt; len(ha_seq):
+            print(&#39;HA sequence is shorter than required length (560), padding the end with Xs&#39;)
+            ha_seq = ha_seq.ljust(HA_TRUNC, &#39;X&#39;)
+        self.ha_seq = ha_seq.upper()[:HA_TRUNC]
+        if NA_TRUNC &gt; len(na_seq):
+            print(&#39;NA sequence is shorter than required length (460), padding the end with Xs&#39;)
+            na_seq = na_seq.ljust(NA_TRUNC, &#39;X&#39;)
+        self.na_seq = na_seq.upper()[:NA_TRUNC]
+        # Pretrained Enet path
+        self.pretrained_enet_path = pretrained_enet_path
+        # Save data
+        self.save_data = save_data
+        if save_data is not None:
+            if not os.path.exists(save_data):
+                os.makedirs(save_data, exist_ok=True)
+            if self.analysis_date != &#39;PRESENT&#39; and self.pretrained_enet_path is None:
+                self.save_model = os.path.join(save_data, &#39;enet_models&#39;)
+                self.save_sequences = os.path.join(save_data, &#39;data&#39;)
+                self.save_results = os.path.join(save_data, &#39;results&#39;)
+                os.makedirs(self.save_model, exist_ok=True)
+                os.makedirs(self.save_sequences, exist_ok=True)
+                os.makedirs(self.save_results, exist_ok=True)
+        # Random state
+        if random_state is not None and random_state &lt; 0:
+            raise ValueError(&#39;Seed must be between 0 and 2**32 - 1!&#39;)
         self.random_state = random_state
 
+        
     def __repr__(self):
-        return &#34;emergenet.Emergenet&#34; 
+        return &#39;emergenet.Emergenet&#39;
+
 
     def __str__(self):
         return self.__repr__()
+    
 
-    @staticmethod
-    def _count_seqs(filepath):
-        &#34;&#34;&#34;Returns number of sequences in a fasta file.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        Returns
-        -------
-        num_sequences : int
-            Number of sequences
-        &#34;&#34;&#34;
-        with open(filepath, &#39;r&#39;) as f:
-            fasta = SeqIO.parse(f, &#39;fasta&#39;)
-            if not any(fasta):
-                raise ValueError(&#39;The infile must be in fasta format!&#39;)
-        with open(filepath, &#39;r&#39;) as f:
-            lines = f.read()
-        num_sequences = lines.count(&#39;&gt;&#39;)
-        return num_sequences
-
-    def _parse_fasta(self, filepath):
-        &#34;&#34;&#34;Parses a fasta file and returns DataFrame with two columns.
-        `id` contains fasta metadata.
-        `sequence` contains sequences truncated to `seq_trunc_length` as character array.
+    def _load_sequences(self, yearsbefore:int) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Loads human sequences within yearsbefore years of the analysis date.
 
         Parameters
         ----------
-        filepath : str
-            File name
+        yearsbefore - Number of years prior to analysis_date to consider 
 
         Returns
         -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        if self._count_seqs(filepath) == 0:
-            raise ValueError(&#39;The file contains no sequences!&#39;)
-        ids = []
-        seqs = []
-        for record in SeqIO.parse(filepath, &#39;fasta&#39;):
-            if len(record.seq) &lt; self.seq_trunc_length:
-                continue
-            ids.append(str(record.id))
-            seqs.append(np.array(record.seq[:self.seq_trunc_length].upper()))
-        seq_df = pd.DataFrame({&#39;id&#39;: ids, &#39;sequence&#39;: seqs})
-        return seq_df
+        filtered - DataFrame of human sequences within one year of the analysis date
+        &#39;&#39;&#39;
+        filepath = resource_filename(&#39;emergenet&#39;, &#39;data/human.csv.gz&#39;)
+        human = pd.read_csv(filepath, na_filter=False)
+        end = datetime.strptime(self.analysis_date, &#39;%Y-%m-%d&#39;).date()
+        start = date(end.year - yearsbefore, end.month, end.day)
+        filtered = filter_by_date_range(human, &#39;date&#39;, str(start), str(end))
+        print(&#39;Number of human sequences:&#39;, len(filtered))
+        print(Counter(filtered[filtered[&#39;segment&#39;] == &#39;HA&#39;][&#39;HA&#39;]))
+        print(Counter(filtered[filtered[&#39;segment&#39;] == &#39;NA&#39;][&#39;NA&#39;]))
+        return filtered
+    
 
-    def _sequence_array(self, seq_df, sample_size=None):
-        &#34;&#34;&#34;Extracts array of sequence arrays from DataFrame; includes target sequence.
+    def _sequence_array(self, segment:str, seq_df:pd.DataFrame, 
+                        sample_size:int=None, include_target:bool=True) -&gt; np.ndarray:
+        &#39;&#39;&#39; Extracts array of sequence arrays from DataFrame.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame containing sequences
+        segment - Either &#39;HA&#39; or &#39;NA&#39;
+            
+        seq_df - DataFrame containing sequences
 
-        sample_size : int
-            Number of strains to sample randomly
+        sample_size - Number of sequences to sample randomly
+            
+        include_target - If true, includes target sequence
 
         Returns
         -------
-        seq_lst: numpy.ndarray
-            Array of sequence arrays
-        &#34;&#34;&#34;
+        seq_lst - Array of sequence arrays
+        &#39;&#39;&#39; 
         if &#39;sequence&#39; not in seq_df.columns:
             raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
+        if sample_size is not None:
+            sample_size = min(sample_size, len(seq_df))
             seq_df = seq_df.sample(sample_size, random_state=self.random_state)
         seqs = seq_df[&#39;sequence&#39;].values
         seq_lst = []
+        if segment == &#39;HA&#39;:
+            TRUNC = HA_TRUNC
+            if include_target:
+                seq_lst.append(np.array(list(self.ha_seq[:TRUNC])))
+        elif segment == &#39;NA&#39;:
+            TRUNC = NA_TRUNC
+            if include_target:
+                seq_lst.append(np.array(list(self.na_seq[:TRUNC])))
         for seq in seqs:
-            seq_lst.append(seq)
-        seq_lst.append(np.array(list(self.seq[:self.seq_trunc_length])))
+            if len(seq) &lt; TRUNC:
+                continue
+            seq_lst.append(np.array(list(seq[:TRUNC])))
         seq_lst = np.array(seq_lst)
         return seq_lst
 
-    def load_data(self, filepath, outfile=None):
-        &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
-
-        Parameters
-        ----------
-        filepath : str
-            File name
-
-        outfile : str
-            File name to save to (&#39;.csv&#39;)
-
-        Returns
-        -------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-        &#34;&#34;&#34;
-        seq_df = self._parse_fasta(filepath)
-        if outfile is not None:
-            if not outfile.endswith(&#39;.csv&#39;):
-                raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
-            seq_df.to_csv(outfile, index=False)
-        return seq_df
-
-    def train(self, seq_df, sample_size=None, n_jobs=1):
-        &#34;&#34;&#34;Trains an Emergenet model.
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        sample_size : int
-            Number of strains to train Emergenet on, sampled randomly
-
-        n_jobs : int
-            Number of CPUs to use when training
-
-        Returns
-        -------
-        enet : Qnet
-            Trained Emergenet
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
-                    random_state=self.random_state, n_jobs=n_jobs)
-        enet.fit(seq_arr)
-        return enet
-
-    def sequence_membership(self, seq_df, enet, sample_size=None):
-        &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
-
-        Parameters
-        ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
-
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
-
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-
-        Returns
-        -------
-        membership_degrees : np.ndarray
-            Array of membership degrees
-        &#34;&#34;&#34;
-        if len(seq_df) &lt; 1:
-            raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if &#39;sequence&#39; not in seq_df.columns:
-            raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-        if sample_size is None or sample_size &gt; len(seq_df):
-            sample_size = len(seq_df)
-        if sample_size &lt; len(seq_df):
-            seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-        seqs = seq_df[&#39;sequence&#39;].values
-        membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
-        return membership_degrees
-
-
-
     
-    def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
-        &#34;&#34;&#34;Computes emergence risk score.
+    def _compute_risks(self, segment:str, seq_df:pd.DataFrame, enet:Qnet) -&gt; pd.DataFrame:
+        &#39;&#39;&#39; Computes risk score with qdistance.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        segment - Either &#39;HA&#39; or &#39;NA&#39;
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
+        seq_df - DataFrame of sequences
 
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
-        minimum : bool
-            if True return minimum instead of average
+        enet - Emergenet that sequences in `seq_df` belong to
 
         Returns
         -------
-        emergence_risk_score : float
-            Emergence risk score   
-
-        variance : float
-            Variance of emergence risk score
-        &#34;&#34;&#34;
+        seq_df - The input `seq_df` with extra risk column
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        qdist_list = []
+        seq_arr = self._sequence_array(segment, seq_df, include_target=False)
+        if segment == &#39;HA&#39;:
+            TRUNC = HA_TRUNC
+            target_seq = np.array(list(self.ha_seq[:TRUNC]))
+        elif segment == &#39;NA&#39;:
+            TRUNC = NA_TRUNC
+            target_seq = np.array(list(self.na_seq[:TRUNC]))
+        risks = []
         for i in range(len(seq_arr)):
             qdist = qdistance(target_seq, seq_arr[i], enet, enet)
             if np.isnan(qdist):
+                risks.append(-1)
                 continue
-            qdist_list.append(qdist)
-        if not minimum:
-            emergence_risk_score = np.average(qdist_list)
-            variance = np.var(qdist_list)
-        else:
-            qdist_list=np.array(qdist_list)
-            qdist_list=qdist_list[qdist_list&gt;0]
-            emergence_risk_score = np.min(qdist_list)
-            lb,ub=bootstrap_min_confidence_interval(qdist_list,confidence_level=0.95)
-            variance = (ub-lb)/2
-
-        return emergence_risk_score, variance
-
-
-
+            risks.append(qdist)
+        seq_df[&#39;risk&#39;] = risks
+        return seq_df
     
 
-    def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
-        &#34;&#34;&#34;Computes emergence risk score using qsampling.
+    def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
+              include_target:bool=True, n_jobs:int=1) -&gt; Qnet:
+        &#39;&#39;&#39; Trains an Emergenet model.
 
         Parameters
         ----------
-        seq_df : pd.DataFrame
-            DataFrame of sequences
+        segment - Either &#39;HA&#39; or &#39;NA&#39;
 
-        enet : Qnet
-            Emergenet that sequences in seq_df belong to
+        seq_df - DataFrame of sequences
 
-        sample_size : int
-            Number of strains to compute emergence risk with, sampled randomly
+        sample_size - Number of sequences to train Emergenet on, sampled randomly
 
-        qsamples : int
-            Number of qsamples to draw from each strain
+        include_target - If true, includes target sequence
 
-        steps : int
-            Number of steps to run q-sampling
+        n_jobs - Number of CPUs to use when training
 
         Returns
         -------
-        avg_emergence_risk_score : float
-            Average emergence risk score among all qsampled sequences
-
-        min_emergence_risk_score : float
-            Lower bound on emergence risk score
-
-        max_emergence_risk_score : float
-            Upper bound on emergence risk score
-        &#34;&#34;&#34;
+        enet - Trained Emergenet
+        &#39;&#39;&#39; 
         if len(seq_df) &lt; 1:
             raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-        if qsamples &lt; 1:
-            raise ValueError(&#39;Number of qsamples must be positive!&#39;)
-        if steps &lt; 1:
-            raise ValueError(&#39;Number of steps must be positive!&#39;)
-        seq_arr = self._sequence_array(seq_df, sample_size)
-        target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-        avg_qdist_list = []
-        min_qdist_list = []
-        max_qdist_list = []
-        for i in range(len(seq_arr)):
-            cur_avg_qdist = 0
-            cur_min_qdist = 1
-            cur_max_qdist = 0
-            for j in range(qsamples):
-                qs_seq = qs.qsample(seq_arr[i], enet, steps)
-                qdist = qdistance(target_seq, qs_seq, enet, enet)
-                cur_avg_qdist += qdist
-                cur_min_qdist = min(qdist, cur_min_qdist)
-                cur_max_qdist = max(qdist, cur_max_qdist)
-            avg_qdist_list.append(cur_avg_qdist / qsamples)
-            min_qdist_list.append(cur_min_qdist)
-            max_qdist_list.append(cur_max_qdist)
-        avg_emergence_risk_score = np.average(avg_qdist_list)
-        min_emergence_risk_score = np.average(min_qdist_list)
-        max_emergence_risk_score = np.average(max_qdist_list)
-        variance = np.var(avg_qdist_list)
-        return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance</code></pre>
+        if segment not in [&#39;HA&#39;, &#39;NA&#39;]:
+            raise ValueError(&#39;Segment must be either HA or NA!&#39;)
+        if segment == &#39;HA&#39;:
+            TRUNC = HA_TRUNC
+        elif segment == &#39;NA&#39;:
+            TRUNC = NA_TRUNC
+        seq_arr = self._sequence_array(segment, seq_df, sample_size, include_target)
+        enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(TRUNC)],
+                    random_state=self.random_state, n_jobs=n_jobs)
+        enet.fit(seq_arr)
+        return enet
+    
+
+    def risk(self, yearsbefore:int=1, enet_sample_size:Union[int, float]=None, 
+             risk_sample_size:Union[int, float]=None) -&gt; Tuple[float, float]:
+        &#39;&#39;&#39; Computes risk scores for the target sequence.
+        If `save_data` is not None, `analysis_date` is not &#39;PRESENT&#39; and pretrained_enet_path is None, saves the following:
+        1. Emergenet models: `save_data/enet_models/&lt;subtype&gt;.joblib`
+        2. DataFrames of sequences used for training: `save_data/data/&lt;subtype&gt;.csv`
+        3. Results (sequence DataFrames with extra `risk_score` column): `save_data/results/&lt;subtype&gt;.csv`
+        4. Minimum risks for each HA and NA subtype: `save_data/results/&lt;segment&gt;_min_risks.csv`
+
+        If `save_data` is not None, and `analysis_date` is &#39;PRESENT&#39; or pretrained_enet_path is not None, saves the following:
+        1. Results (sequence DataFrames with extra `risk_score` column): `save_data/&lt;subtype&gt;.csv`
+        2. Minimum risks for each HA and NA subtype: `save_data/&lt;segment&gt;_min_risks.csv`
+
+        Parameters
+        ----------
+        yearsbefore - Number of years prior to analysis_date to consider 
+        
+        enet_sample_size - Number of or proportion sequences of each subtype to train Emergenet on
+        
+        risk_sample_size - Number or proportion of unique sequences of each subtype to sample for risk estimation
+
+        Returns
+        -------
+        ha_risk - Risk score for HA segment
+        
+        na_risk - Risk score for NA segment
+        &#39;&#39;&#39;
+        if self.analysis_date == &#39;PRESENT&#39;:
+            filepath = resource_filename(&#39;emergenet&#39;, &#39;data/current_subtypes.json&#39;)
+            with open(filepath, &#39;r&#39;) as file:
+                current_subtypes = json.load(file)
+            for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+                risks = pd.DataFrame()
+                if segment == &#39;HA&#39;:
+                    TRUNC = HA_TRUNC
+                elif segment == &#39;NA&#39;:
+                    TRUNC = NA_TRUNC
+                for subtype in current_subtypes[segment]:
+                    # Load human sequences for and pretrained Enet models for current subtype
+                    human_filepath = resource_filename(&#39;emergenet&#39;, f&#39;data/current/{subtype}.csv&#39;)
+                    model_filepath = resource_filename(&#39;emergenet&#39;, f&#39;models/{subtype}.joblib.gz&#39;)
+                    df = pd.read_csv(human_filepath, na_filter=False)
+                    # Sample from human sequences if needed
+                    if risk_sample_size is not None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                            sample_size = int(risk_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    # Load Enet and compute risks
+                    enet = load_model(model_filepath, gz=True)
+                    df = self._compute_risks(segment, df, enet)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_data, subtype + &#39;.csv&#39;), index=False)
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df[&#39;risk&#39;])]
+                # Save overall minimum risk
+                if self.save_data is not None:
+                    risks.to_csv(os.path.join(self.save_data, segment + &#39;_min_risks.csv&#39;), index=False)
+                if segment == &#39;HA&#39;:
+                    ha_risk = risks.min(axis=1).values[0] + 1e-5
+                elif segment == &#39;NA&#39;:
+                    na_risk = risks.min(axis=1).values[0] + 1e-5
+            return ha_risk, na_risk
+
+        elif self.pretrained_enet_path is not None:
+            human = self._load_sequences(yearsbefore)
+            for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+                risks = pd.DataFrame()
+                if segment == &#39;HA&#39;:
+                    TRUNC = HA_TRUNC
+                elif segment == &#39;NA&#39;:
+                    TRUNC = NA_TRUNC
+                human1 = human[human[&#39;segment&#39;] == segment]
+                human1 = human1[human1[&#39;sequence&#39;].str.len() &gt;= TRUNC]
+                subtypes = Counter(human1[segment])
+                for subtype in subtypes:
+                    # Skip subtypes with less than 15 sequences
+                    if subtypes[subtype] &lt; 15:
+                        continue                    
+                    # Use only unique sequences for inference
+                    df = human1[human1[segment] == subtype].drop_duplicates(subset=[&#39;sequence&#39;])
+                    # Sample from human sequences if needed
+                    if risk_sample_size is not None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                            sample_size = int(risk_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    # Load Enet and compute risks
+                    enet = load_model(os.path.join(self.pretrained_enet_path, subtype + &#39;.joblib&#39;))
+                    df = self._compute_risks(segment, df, enet)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_data, subtype + &#39;.csv&#39;), index=False)
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df[&#39;risk&#39;])]
+                # Save overall minimum risk
+                if self.save_data is not None:
+                    risks.to_csv(os.path.join(self.save_data, segment + &#39;_min_risks.csv&#39;), index=False)
+                if segment == &#39;HA&#39;:
+                    ha_risk = risks.min(axis=1).values[0] + 1e-5
+                elif segment == &#39;NA&#39;:
+                    na_risk = risks.min(axis=1).values[0] + 1e-5
+            return ha_risk, na_risk
+        
+        else:
+            human = self._load_sequences(yearsbefore)
+            for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+                risks = pd.DataFrame()
+                if segment == &#39;HA&#39;:
+                    TRUNC = HA_TRUNC
+                elif segment == &#39;NA&#39;:
+                    TRUNC = NA_TRUNC
+                human1 = human[human[&#39;segment&#39;] == segment]
+                human1 = human1[human1[&#39;sequence&#39;].str.len() &gt;= TRUNC]
+                subtypes = Counter(human1[segment])
+                for subtype in subtypes:
+                    # Skip subtypes with less than 15 sequences
+                    if subtypes[subtype] &lt; 15:
+                        continue
+                    # Load human strains for constructing enet, sampling if needed
+                    df = human1[human1[segment] == subtype]
+                    if enet_sample_size is not None:
+                        if isinstance(enet_sample_size, int):
+                            sample_size = min(enet_sample_size, len(df))
+                        elif isinstance(enet_sample_size, float) and enet_sample_size &lt;= 1:
+                            sample_size = int(enet_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_sequences, subtype + &#39;.csv&#39;), index=False)
+                    # Train Enet
+                    enet = self.train(segment, df)
+                    if self.save_data is not None:
+                        save_model(enet, os.path.join(self.save_model, subtype + &#39;.joblib&#39;))
+                    # Use only unique sequences for inference
+                    df = df.drop_duplicates(subset=[&#39;sequence&#39;])
+                    # Sample from human sequences if needed (only if we did not already sample for training Enet)
+                    if risk_sample_size is not None and enet_sample_size is None:
+                        if isinstance(risk_sample_size, int):
+                            sample_size = min(risk_sample_size, len(df))
+                        elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                            sample_size = int(risk_sample_size * len(df))
+                        df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                    # Compute risks
+                    df = self._compute_risks(segment, df, enet)
+                    if self.save_data is not None:
+                        df.to_csv(os.path.join(self.save_results, subtype + &#39;.csv&#39;), index=False)
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df[&#39;risk&#39;])]
+                # Save overall minimum risk
+                if self.save_data is not None:
+                    risks.to_csv(os.path.join(self.save_results, segment + &#39;_min_risks.csv&#39;), index=False)
+                if segment == &#39;HA&#39;:
+                    ha_risk = risks.min(axis=1).values[0] + 1e-5
+                elif segment == &#39;NA&#39;:
+                    na_risk = risks.min(axis=1).values[0] + 1e-5
+            return ha_risk, na_risk</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="emergenet.emergenet.Enet.emergence_risk"><code class="name flex">
-<span>def <span class="ident">emergence_risk</span></span>(<span>self, seq_df, enet, sample_size=None, minimum=False)</span>
+<dt id="emergenet.emergenet.Enet.risk"><code class="name flex">
+<span>def <span class="ident">risk</span></span>(<span>self, yearsbefore: int = 1, enet_sample_size: Union[int, float] = None, risk_sample_size: Union[int, float] = None) ‑> Tuple[float, float]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Computes emergence risk score.</p>
+<div class="desc"><p>Computes risk scores for the target sequence.
+If <code>save_data</code> is not None, <code>analysis_date</code> is not 'PRESENT' and pretrained_enet_path is None, saves the following:
+1. Emergenet models: <code>save_data/enet_models/&lt;subtype&gt;.joblib</code>
+2. DataFrames of sequences used for training: <code>save_data/data/&lt;subtype&gt;.csv</code>
+3. Results (sequence DataFrames with extra <code>risk_score</code> column): <code>save_data/results/&lt;subtype&gt;.csv</code>
+4. Minimum risks for each HA and NA subtype: <code>save_data/results/&lt;segment&gt;_min_risks.csv</code></p>
+<p>If <code>save_data</code> is not None, and <code>analysis_date</code> is 'PRESENT' or pretrained_enet_path is not None, saves the following:
+1. Results (sequence DataFrames with extra <code>risk_score</code> column): <code>save_data/&lt;subtype&gt;.csv</code>
+2. Minimum risks for each HA and NA subtype: <code>save_data/&lt;segment&gt;_min_risks.csv</code></p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Emergenet that sequences in seq_df belong to</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute emergence risk with, sampled randomly</dd>
-<dt><strong><code>minimum</code></strong> :&ensp;<code>bool</code></dt>
-<dd>if True return minimum instead of average</dd>
-</dl>
+<p>yearsbefore - Number of years prior to analysis_date to consider </p>
+<p>enet_sample_size - Number of or proportion sequences of each subtype to train Emergenet on</p>
+<p>risk_sample_size - Number or proportion of unique sequences of each subtype to sample for risk estimation</p>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
-<dd>Emergence risk score</dd>
-<dt><strong><code>variance</code></strong> :&ensp;<code>float</code></dt>
-<dd>Variance of emergence risk score</dd>
+<dt><code>ha_risk - Risk score for HA segment</code></dt>
+<dd>&nbsp;</dd>
+<dt><code>na_risk - Risk score for NA segment</code></dt>
+<dd>&nbsp;</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def emergence_risk(self, seq_df, enet, sample_size=None, minimum=False):
-    &#34;&#34;&#34;Computes emergence risk score.
+<pre><code class="python">def risk(self, yearsbefore:int=1, enet_sample_size:Union[int, float]=None, 
+         risk_sample_size:Union[int, float]=None) -&gt; Tuple[float, float]:
+    &#39;&#39;&#39; Computes risk scores for the target sequence.
+    If `save_data` is not None, `analysis_date` is not &#39;PRESENT&#39; and pretrained_enet_path is None, saves the following:
+    1. Emergenet models: `save_data/enet_models/&lt;subtype&gt;.joblib`
+    2. DataFrames of sequences used for training: `save_data/data/&lt;subtype&gt;.csv`
+    3. Results (sequence DataFrames with extra `risk_score` column): `save_data/results/&lt;subtype&gt;.csv`
+    4. Minimum risks for each HA and NA subtype: `save_data/results/&lt;segment&gt;_min_risks.csv`
+
+    If `save_data` is not None, and `analysis_date` is &#39;PRESENT&#39; or pretrained_enet_path is not None, saves the following:
+    1. Results (sequence DataFrames with extra `risk_score` column): `save_data/&lt;subtype&gt;.csv`
+    2. Minimum risks for each HA and NA subtype: `save_data/&lt;segment&gt;_min_risks.csv`
 
     Parameters
     ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-
-    enet : Qnet
-        Emergenet that sequences in seq_df belong to
-
-    sample_size : int
-        Number of strains to compute emergence risk with, sampled randomly
-    minimum : bool
-        if True return minimum instead of average
+    yearsbefore - Number of years prior to analysis_date to consider 
+    
+    enet_sample_size - Number of or proportion sequences of each subtype to train Emergenet on
+    
+    risk_sample_size - Number or proportion of unique sequences of each subtype to sample for risk estimation
 
     Returns
     -------
-    emergence_risk_score : float
-        Emergence risk score   
+    ha_risk - Risk score for HA segment
+    
+    na_risk - Risk score for NA segment
+    &#39;&#39;&#39;
+    if self.analysis_date == &#39;PRESENT&#39;:
+        filepath = resource_filename(&#39;emergenet&#39;, &#39;data/current_subtypes.json&#39;)
+        with open(filepath, &#39;r&#39;) as file:
+            current_subtypes = json.load(file)
+        for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+            risks = pd.DataFrame()
+            if segment == &#39;HA&#39;:
+                TRUNC = HA_TRUNC
+            elif segment == &#39;NA&#39;:
+                TRUNC = NA_TRUNC
+            for subtype in current_subtypes[segment]:
+                # Load human sequences for and pretrained Enet models for current subtype
+                human_filepath = resource_filename(&#39;emergenet&#39;, f&#39;data/current/{subtype}.csv&#39;)
+                model_filepath = resource_filename(&#39;emergenet&#39;, f&#39;models/{subtype}.joblib.gz&#39;)
+                df = pd.read_csv(human_filepath, na_filter=False)
+                # Sample from human sequences if needed
+                if risk_sample_size is not None:
+                    if isinstance(risk_sample_size, int):
+                        sample_size = min(risk_sample_size, len(df))
+                    elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                        sample_size = int(risk_sample_size * len(df))
+                    df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                # Load Enet and compute risks
+                enet = load_model(model_filepath, gz=True)
+                df = self._compute_risks(segment, df, enet)
+                if self.save_data is not None:
+                    df.to_csv(os.path.join(self.save_data, subtype + &#39;.csv&#39;), index=False)
+                # Save minimum risk for current subtype
+                risks[subtype] = [np.min(df[&#39;risk&#39;])]
+            # Save overall minimum risk
+            if self.save_data is not None:
+                risks.to_csv(os.path.join(self.save_data, segment + &#39;_min_risks.csv&#39;), index=False)
+            if segment == &#39;HA&#39;:
+                ha_risk = risks.min(axis=1).values[0] + 1e-5
+            elif segment == &#39;NA&#39;:
+                na_risk = risks.min(axis=1).values[0] + 1e-5
+        return ha_risk, na_risk
 
-    variance : float
-        Variance of emergence risk score
-    &#34;&#34;&#34;
-    if len(seq_df) &lt; 1:
-        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    seq_arr = self._sequence_array(seq_df, sample_size)
-    target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-    qdist_list = []
-    for i in range(len(seq_arr)):
-        qdist = qdistance(target_seq, seq_arr[i], enet, enet)
-        if np.isnan(qdist):
-            continue
-        qdist_list.append(qdist)
-    if not minimum:
-        emergence_risk_score = np.average(qdist_list)
-        variance = np.var(qdist_list)
+    elif self.pretrained_enet_path is not None:
+        human = self._load_sequences(yearsbefore)
+        for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+            risks = pd.DataFrame()
+            if segment == &#39;HA&#39;:
+                TRUNC = HA_TRUNC
+            elif segment == &#39;NA&#39;:
+                TRUNC = NA_TRUNC
+            human1 = human[human[&#39;segment&#39;] == segment]
+            human1 = human1[human1[&#39;sequence&#39;].str.len() &gt;= TRUNC]
+            subtypes = Counter(human1[segment])
+            for subtype in subtypes:
+                # Skip subtypes with less than 15 sequences
+                if subtypes[subtype] &lt; 15:
+                    continue                    
+                # Use only unique sequences for inference
+                df = human1[human1[segment] == subtype].drop_duplicates(subset=[&#39;sequence&#39;])
+                # Sample from human sequences if needed
+                if risk_sample_size is not None:
+                    if isinstance(risk_sample_size, int):
+                        sample_size = min(risk_sample_size, len(df))
+                    elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                        sample_size = int(risk_sample_size * len(df))
+                    df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                # Load Enet and compute risks
+                enet = load_model(os.path.join(self.pretrained_enet_path, subtype + &#39;.joblib&#39;))
+                df = self._compute_risks(segment, df, enet)
+                if self.save_data is not None:
+                    df.to_csv(os.path.join(self.save_data, subtype + &#39;.csv&#39;), index=False)
+                # Save minimum risk for current subtype
+                risks[subtype] = [np.min(df[&#39;risk&#39;])]
+            # Save overall minimum risk
+            if self.save_data is not None:
+                risks.to_csv(os.path.join(self.save_data, segment + &#39;_min_risks.csv&#39;), index=False)
+            if segment == &#39;HA&#39;:
+                ha_risk = risks.min(axis=1).values[0] + 1e-5
+            elif segment == &#39;NA&#39;:
+                na_risk = risks.min(axis=1).values[0] + 1e-5
+        return ha_risk, na_risk
+    
     else:
-        qdist_list=np.array(qdist_list)
-        qdist_list=qdist_list[qdist_list&gt;0]
-        emergence_risk_score = np.min(qdist_list)
-        lb,ub=bootstrap_min_confidence_interval(qdist_list,confidence_level=0.95)
-        variance = (ub-lb)/2
-
-    return emergence_risk_score, variance</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.Enet.emergence_risk_qsampling"><code class="name flex">
-<span>def <span class="ident">emergence_risk_qsampling</span></span>(<span>self, seq_df, enet, sample_size=None, qsamples=None, steps=None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Computes emergence risk score using qsampling.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Emergenet that sequences in seq_df belong to</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute emergence risk with, sampled randomly</dd>
-<dt><strong><code>qsamples</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of qsamples to draw from each strain</dd>
-<dt><strong><code>steps</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of steps to run q-sampling</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>avg_emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
-<dd>Average emergence risk score among all qsampled sequences</dd>
-<dt><strong><code>min_emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
-<dd>Lower bound on emergence risk score</dd>
-<dt><strong><code>max_emergence_risk_score</code></strong> :&ensp;<code>float</code></dt>
-<dd>Upper bound on emergence risk score</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def emergence_risk_qsampling(self, seq_df, enet, sample_size=None, qsamples=None, steps=None):
-    &#34;&#34;&#34;Computes emergence risk score using qsampling.
-
-    Parameters
-    ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-
-    enet : Qnet
-        Emergenet that sequences in seq_df belong to
-
-    sample_size : int
-        Number of strains to compute emergence risk with, sampled randomly
-
-    qsamples : int
-        Number of qsamples to draw from each strain
-
-    steps : int
-        Number of steps to run q-sampling
-
-    Returns
-    -------
-    avg_emergence_risk_score : float
-        Average emergence risk score among all qsampled sequences
-
-    min_emergence_risk_score : float
-        Lower bound on emergence risk score
-
-    max_emergence_risk_score : float
-        Upper bound on emergence risk score
-    &#34;&#34;&#34;
-    if len(seq_df) &lt; 1:
-        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if qsamples &lt; 1:
-        raise ValueError(&#39;Number of qsamples must be positive!&#39;)
-    if steps &lt; 1:
-        raise ValueError(&#39;Number of steps must be positive!&#39;)
-    seq_arr = self._sequence_array(seq_df, sample_size)
-    target_seq = np.array(list(self.seq[:self.seq_trunc_length]))
-    avg_qdist_list = []
-    min_qdist_list = []
-    max_qdist_list = []
-    for i in range(len(seq_arr)):
-        cur_avg_qdist = 0
-        cur_min_qdist = 1
-        cur_max_qdist = 0
-        for j in range(qsamples):
-            qs_seq = qs.qsample(seq_arr[i], enet, steps)
-            qdist = qdistance(target_seq, qs_seq, enet, enet)
-            cur_avg_qdist += qdist
-            cur_min_qdist = min(qdist, cur_min_qdist)
-            cur_max_qdist = max(qdist, cur_max_qdist)
-        avg_qdist_list.append(cur_avg_qdist / qsamples)
-        min_qdist_list.append(cur_min_qdist)
-        max_qdist_list.append(cur_max_qdist)
-    avg_emergence_risk_score = np.average(avg_qdist_list)
-    min_emergence_risk_score = np.average(min_qdist_list)
-    max_emergence_risk_score = np.average(max_qdist_list)
-    variance = np.var(avg_qdist_list)
-    return avg_emergence_risk_score, min_emergence_risk_score, max_emergence_risk_score, variance</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.Enet.load_data"><code class="name flex">
-<span>def <span class="ident">load_data</span></span>(<span>self, filepath, outfile=None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Loads fasta file data and optionally saves to CSV.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name</dd>
-<dt><strong><code>outfile</code></strong> :&ensp;<code>str</code></dt>
-<dd>File name to save to ('.csv')</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def load_data(self, filepath, outfile=None):
-    &#34;&#34;&#34;Loads fasta file data and optionally saves to CSV.
-
-    Parameters
-    ----------
-    filepath : str
-        File name
-
-    outfile : str
-        File name to save to (&#39;.csv&#39;)
-
-    Returns
-    -------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-    &#34;&#34;&#34;
-    seq_df = self._parse_fasta(filepath)
-    if outfile is not None:
-        if not outfile.endswith(&#39;.csv&#39;):
-            raise ValueError(&#39;The outfile must end with `.csv`!&#39;)
-        seq_df.to_csv(outfile, index=False)
-    return seq_df</code></pre>
-</details>
-</dd>
-<dt id="emergenet.emergenet.Enet.sequence_membership"><code class="name flex">
-<span>def <span class="ident">sequence_membership</span></span>(<span>self, seq_df, enet, sample_size=None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Computes membership degree (see Quasinet documentation) of each sequence</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Emergenet that sequences in seq_df belong to</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to compute emergence risk with, sampled randomly</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>membership_degrees</code></strong> :&ensp;<code>np.ndarray</code></dt>
-<dd>Array of membership degrees</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def sequence_membership(self, seq_df, enet, sample_size=None):
-    &#34;&#34;&#34;Computes membership degree (see Quasinet documentation) of each sequence
-
-    Parameters
-    ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
-
-    enet : Qnet
-        Emergenet that sequences in seq_df belong to
-
-    sample_size : int
-        Number of strains to compute emergence risk with, sampled randomly
-
-    Returns
-    -------
-    membership_degrees : np.ndarray
-        Array of membership degrees
-    &#34;&#34;&#34;
-    if len(seq_df) &lt; 1:
-        raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    if &#39;sequence&#39; not in seq_df.columns:
-        raise ValueError(&#39;The DataFrame must store sequences in `sequence` column!&#39;)
-    if sample_size is None or sample_size &gt; len(seq_df):
-        sample_size = len(seq_df)
-    if sample_size &lt; len(seq_df):
-        seq_df = seq_df.sample(sample_size, random_state=self.random_state)
-    seqs = seq_df[&#39;sequence&#39;].values
-    membership_degrees = np.array([membership_degree(seq[:self.seq_trunc_length], enet) for seq in seqs])
-    return membership_degrees</code></pre>
+        human = self._load_sequences(yearsbefore)
+        for segment in [&#39;HA&#39;, &#39;NA&#39;]:
+            risks = pd.DataFrame()
+            if segment == &#39;HA&#39;:
+                TRUNC = HA_TRUNC
+            elif segment == &#39;NA&#39;:
+                TRUNC = NA_TRUNC
+            human1 = human[human[&#39;segment&#39;] == segment]
+            human1 = human1[human1[&#39;sequence&#39;].str.len() &gt;= TRUNC]
+            subtypes = Counter(human1[segment])
+            for subtype in subtypes:
+                # Skip subtypes with less than 15 sequences
+                if subtypes[subtype] &lt; 15:
+                    continue
+                # Load human strains for constructing enet, sampling if needed
+                df = human1[human1[segment] == subtype]
+                if enet_sample_size is not None:
+                    if isinstance(enet_sample_size, int):
+                        sample_size = min(enet_sample_size, len(df))
+                    elif isinstance(enet_sample_size, float) and enet_sample_size &lt;= 1:
+                        sample_size = int(enet_sample_size * len(df))
+                    df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                if self.save_data is not None:
+                    df.to_csv(os.path.join(self.save_sequences, subtype + &#39;.csv&#39;), index=False)
+                # Train Enet
+                enet = self.train(segment, df)
+                if self.save_data is not None:
+                    save_model(enet, os.path.join(self.save_model, subtype + &#39;.joblib&#39;))
+                # Use only unique sequences for inference
+                df = df.drop_duplicates(subset=[&#39;sequence&#39;])
+                # Sample from human sequences if needed (only if we did not already sample for training Enet)
+                if risk_sample_size is not None and enet_sample_size is None:
+                    if isinstance(risk_sample_size, int):
+                        sample_size = min(risk_sample_size, len(df))
+                    elif isinstance(risk_sample_size, float) and risk_sample_size &lt;= 1:
+                        sample_size = int(risk_sample_size * len(df))
+                    df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
+                # Compute risks
+                df = self._compute_risks(segment, df, enet)
+                if self.save_data is not None:
+                    df.to_csv(os.path.join(self.save_results, subtype + &#39;.csv&#39;), index=False)
+                # Save minimum risk for current subtype
+                risks[subtype] = [np.min(df[&#39;risk&#39;])]
+            # Save overall minimum risk
+            if self.save_data is not None:
+                risks.to_csv(os.path.join(self.save_results, segment + &#39;_min_risks.csv&#39;), index=False)
+            if segment == &#39;HA&#39;:
+                ha_risk = risks.min(axis=1).values[0] + 1e-5
+            elif segment == &#39;NA&#39;:
+                na_risk = risks.min(axis=1).values[0] + 1e-5
+        return ha_risk, na_risk</code></pre>
 </details>
 </dd>
 <dt id="emergenet.emergenet.Enet.train"><code class="name flex">
-<span>def <span class="ident">train</span></span>(<span>self, seq_df, sample_size=None, n_jobs=1)</span>
+<span>def <span class="ident">train</span></span>(<span>self, segment: str, seq_df: pandas.core.frame.DataFrame, sample_size: int = None, include_target: bool = True, n_jobs: int = 1) ‑> quasinet.qnet.Qnet</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Trains an Emergenet model.</p>
 <h2 id="parameters">Parameters</h2>
-<dl>
-<dt><strong><code>seq_df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
-<dd>DataFrame of sequences</dd>
-<dt><strong><code>sample_size</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of strains to train Emergenet on, sampled randomly</dd>
-<dt><strong><code>n_jobs</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of CPUs to use when training</dd>
-</dl>
+<p>segment - Either 'HA' or 'NA'</p>
+<p>seq_df - DataFrame of sequences</p>
+<p>sample_size - Number of sequences to train Emergenet on, sampled randomly</p>
+<p>include_target - If true, includes target sequence</p>
+<p>n_jobs - Number of CPUs to use when training</p>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>enet</code></strong> :&ensp;<code>Qnet</code></dt>
-<dd>Trained Emergenet</dd>
+<dt><code>enet - Trained Emergenet</code></dt>
+<dd>&nbsp;</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def train(self, seq_df, sample_size=None, n_jobs=1):
-    &#34;&#34;&#34;Trains an Emergenet model.
+<pre><code class="python">def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
+          include_target:bool=True, n_jobs:int=1) -&gt; Qnet:
+    &#39;&#39;&#39; Trains an Emergenet model.
 
     Parameters
     ----------
-    seq_df : pd.DataFrame
-        DataFrame of sequences
+    segment - Either &#39;HA&#39; or &#39;NA&#39;
 
-    sample_size : int
-        Number of strains to train Emergenet on, sampled randomly
+    seq_df - DataFrame of sequences
 
-    n_jobs : int
-        Number of CPUs to use when training
+    sample_size - Number of sequences to train Emergenet on, sampled randomly
+
+    include_target - If true, includes target sequence
+
+    n_jobs - Number of CPUs to use when training
 
     Returns
     -------
-    enet : Qnet
-        Trained Emergenet
-    &#34;&#34;&#34;
+    enet - Trained Emergenet
+    &#39;&#39;&#39; 
     if len(seq_df) &lt; 1:
         raise ValueError(&#39;The DataFrame contains no sequences!&#39;)
-    seq_arr = self._sequence_array(seq_df, sample_size)
-    enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(self.seq_trunc_length)],
+    if segment not in [&#39;HA&#39;, &#39;NA&#39;]:
+        raise ValueError(&#39;Segment must be either HA or NA!&#39;)
+    if segment == &#39;HA&#39;:
+        TRUNC = HA_TRUNC
+    elif segment == &#39;NA&#39;:
+        TRUNC = NA_TRUNC
+    seq_arr = self._sequence_array(segment, seq_df, sample_size, include_target)
+    enet = Qnet(feature_names=[&#39;x&#39; + str(i) for i in np.arange(TRUNC)],
                 random_state=self.random_state, n_jobs=n_jobs)
     enet.fit(seq_arr)
     return enet</code></pre>
@@ -1329,10 +1129,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="emergenet.emergenet.bootstrap_min_confidence_interval" href="#emergenet.emergenet.bootstrap_min_confidence_interval">bootstrap_min_confidence_interval</a></code></li>
-<li><code><a title="emergenet.emergenet.irat_risk" href="#emergenet.emergenet.irat_risk">irat_risk</a></code></li>
-<li><code><a title="emergenet.emergenet.load_model" href="#emergenet.emergenet.load_model">load_model</a></code></li>
-<li><code><a title="emergenet.emergenet.save_model" href="#emergenet.emergenet.save_model">save_model</a></code></li>
+<li><code><a title="emergenet.emergenet.predict_irat_emergence" href="#emergenet.emergenet.predict_irat_emergence">predict_irat_emergence</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
@@ -1340,10 +1137,7 @@ Either nucleotide/amino-acid sequence or fasta file path (containing '.fasta')</
 <li>
 <h4><code><a title="emergenet.emergenet.Enet" href="#emergenet.emergenet.Enet">Enet</a></code></h4>
 <ul class="">
-<li><code><a title="emergenet.emergenet.Enet.emergence_risk" href="#emergenet.emergenet.Enet.emergence_risk">emergence_risk</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.emergence_risk_qsampling" href="#emergenet.emergenet.Enet.emergence_risk_qsampling">emergence_risk_qsampling</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.load_data" href="#emergenet.emergenet.Enet.load_data">load_data</a></code></li>
-<li><code><a title="emergenet.emergenet.Enet.sequence_membership" href="#emergenet.emergenet.Enet.sequence_membership">sequence_membership</a></code></li>
+<li><code><a title="emergenet.emergenet.Enet.risk" href="#emergenet.emergenet.Enet.risk">risk</a></code></li>
 <li><code><a title="emergenet.emergenet.Enet.train" href="#emergenet.emergenet.Enet.train">train</a></code></li>
 </ul>
 </li>

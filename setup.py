@@ -43,6 +43,8 @@ setup(
         "pandas",
         "joblib",
         "quasinet==0.1.54",
+        "distance",
+        "alphashape",
         "scipy"],
     python_requires='>=3.6',
     classifiers=[
