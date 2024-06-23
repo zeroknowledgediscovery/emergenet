@@ -91,7 +91,7 @@ class Enet(object):
         -------
         filtered - DataFrame of human sequences within one year of the analysis date
         '''
-        filepath = resource_filename('emergenet', 'data/human.csv')
+        filepath = resource_filename('emergenet', 'data/human.csv.gz')
         human = pd.read_csv(filepath, na_filter=False)
         end = datetime.strptime(self.analysis_date, '%Y-%m-%d').date()
         start = date(end.year - yearsbefore, end.month, end.day)
@@ -253,7 +253,7 @@ class Enet(object):
                 for subtype in current_subtypes[segment]:
                     # Load human sequences for and pretrained Enet models for current subtype
                     human_filepath = resource_filename('emergenet', f'data/current/{subtype}.csv')
-                    model_filepath = resource_filename('emergenet', f'models/{subtype}.joblib')
+                    model_filepath = resource_filename('emergenet', f'models/{subtype}.joblib.gz')
                     df = pd.read_csv(human_filepath, na_filter=False)
                     # Sample from human sequences if needed
                     if risk_sample_size is not None:
@@ -263,7 +263,7 @@ class Enet(object):
                             sample_size = int(risk_sample_size * len(df))
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     # Load Enet and compute risks
-                    enet = load_model(model_filepath)
+                    enet = load_model(model_filepath, gz=True)
                     df = self._compute_risks(segment, df, enet)
                     if self.save_data is not None:
                         df.to_csv(os.path.join(self.save_data, subtype + '.csv'), index=False)

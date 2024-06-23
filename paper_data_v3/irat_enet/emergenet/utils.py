@@ -68,7 +68,7 @@ def filter_by_date_range(df:pd.DataFrame, date_column:str,
     return filtered_df
 
 
-def save_model(enet:Qnet, outfile:str, low_mem:bool=False):
+def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=False):
     ''' Saves an Emergenet model.
 
     Parameters
@@ -78,20 +78,24 @@ def save_model(enet:Qnet, outfile:str, low_mem:bool=False):
     outfile - File name to save to ('.joblib')
 
     low_mem - If true, save the Emergenet with low memory by deleting all data attributes
+    
+    gz - If true, save the gzipped Emergenet
     ''' 
-    save_qnet(enet, outfile, low_mem)
+    save_qnet(enet, outfile, low_mem=low_mem, gz=gz)
 
     
-def load_model(filepath:str) -> Qnet:
+def load_model(filepath:str, gz=False) -> Qnet:
     ''' Loads an Emergenet model.
 
     Parameters
     ----------
     filepath - File name
+    
+    gz - If true, load a gzipped Emergenet
 
     Returns
     -------
     enet - An Emergenet instance
     ''' 
-    enet = load_qnet(filepath)
+    enet = load_qnet(filepath, gz=gz)
     return enet
