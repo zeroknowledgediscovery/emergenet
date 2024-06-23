@@ -28,3 +28,10 @@ enet_predictions/results/enet_predictions/extra_data/
 
 # Large data files, which are generated from enet_predictions/data_collection.ipynb
 enet_predictions/data/merged
+
+# Uncompressed Enets in all_enets
+all_enets/enet_predictions/original/
+all_enets/irat_enet/original/
+all_enets/*/*/data_*
+all_enets/*/*/*/data_*
+all_enets/*/*/*/*/data_*
