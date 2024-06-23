@@ -6,7 +6,7 @@ Run `emergenet_examples.ipynb` for an example estimating emergence risk of an an
 
 ## Quick Start
 
-### Predicting Future Dominant Strain with `emergenet.domseq` 
+### Predicting Seasonal Vaccine Strains with `emergenet.domseq` 
 
 ```python
 import pandas as pd

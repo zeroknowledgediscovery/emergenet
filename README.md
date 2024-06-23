@@ -16,8 +16,8 @@ emergenet
 
 ## Description
 
-- Predicting future dominant viral strains
-- Superfast risk assessment of emerging pathogens
+- Predicting seasonal vaccine strains
+- Estimating emergence risk of non-human strains
 
 ## Installation
 
