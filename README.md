@@ -1,5 +1,8 @@
 # Emergenet
 
+![Logo](logo.png)
+
+
 ## File Tree
 
 The file tree shows relavent directories for the current version of the project.
