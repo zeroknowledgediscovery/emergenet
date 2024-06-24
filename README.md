@@ -4,7 +4,7 @@
 
 <table>
   <tr>
-    <td><img src="logo.png" alt="Logo" width="170"></td>
+    <td><img src="logo.png" alt="Logo" width="200"></td>
     <td>Emergenet is a framework to create digital twin of the wild viral ecosystem of Influenza strains,  to rapidly and scalably assesses the emergence risks of Influenza A strains circulating in non-human hosts. By analyzing genomic sequences of key viral proteins (HA and NA), Emergenet estimates the likelihood of future mutations and predicts the potential for these strains to acquire human host adapatbility.
 </td>
   </tr>
