@@ -1,3 +1,6 @@
+"""
+Emergenet: Fast Scalable Emergence Risk Assessment of Influenza A Strains Circulating In Non-human Hosts
+"""
 import re, os, json, joblib
 import numpy as np
 import pandas as pd

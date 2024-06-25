@@ -1,2 +1,2 @@
-<img src="logozed_nowhite.png" alt="drawing" style="width:400px;"/>
+<img src="logozed_nowhite.png" alt="drawing" style="width:200px;"/>
 

@@ -92,7 +92,7 @@
   }
 
   a {
-    color: #66bb66; /* ishanu */
+    color: #ccbb66; /* ishanu */
     text-decoration: none;
     transition: color .3s ease-in-out;
   }
@@ -316,7 +316,7 @@
 <%def name="desktop()" filter="minify_css">
   @media screen and (min-width: 700px) {
     #sidebar {
-      width: 30%;
+      width: 18%;
       height: 100vh;
       overflow: auto;
       position: sticky;
