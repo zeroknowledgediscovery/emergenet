@@ -68,7 +68,7 @@ def filter_by_date_range(df:pd.DataFrame, date_column:str,
     return filtered_df
 
 
-def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=False):
+def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=True):
     ''' Saves an Emergenet model.
 
     Parameters

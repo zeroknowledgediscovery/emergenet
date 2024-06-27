@@ -97,7 +97,7 @@ def filter_by_date_range(df:pd.DataFrame, date_column:str,
     return filtered_df
 
 
-def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=False):
+def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=True):
     &#39;&#39;&#39; Saves an Emergenet model.
 
     Parameters
@@ -276,7 +276,7 @@ def load_model(filepath:str, gz=False) -&gt; Qnet:
 </details>
 </dd>
 <dt id="emergenet.utils.save_model"><code class="name flex">
-<span>def <span class="ident">save_model</span></span>(<span>enet: quasinet.qnet.Qnet, outfile: str, low_mem: bool = False, gz=False)</span>
+<span>def <span class="ident">save_model</span></span>(<span>enet: quasinet.qnet.Qnet, outfile: str, low_mem: bool = False, gz=True)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Saves an Emergenet model.</p>
@@ -289,7 +289,7 @@ def load_model(filepath:str, gz=False) -&gt; Qnet:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=False):
+<pre><code class="python">def save_model(enet:Qnet, outfile:str, low_mem:bool=False, gz=True):
     &#39;&#39;&#39; Saves an Emergenet model.
 
     Parameters
