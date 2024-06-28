@@ -30,7 +30,7 @@ Follow the instructions at the bottom `emergenet_predictions.ipynb`.
 
 ### 3) Risk Assessment of Variant Strains
 
-A second demonstration of our approach is obtained by computing the E-risk scores for "variants" (animal Influenza A strains isolated in human hosts), which might be expected to pose high risk due to their successful replication in human cells, even if the possibility of HH transmission is not yet observed or guaranteed. We follow the same procedure as with the IRAT strains to estimate the risk of each variant at six, three, one, and zero months before their collection date.
+A second demonstration of our approach is obtained by computing the E-risk scores for "variants" (animal Influenza A strains isolated in human hosts), which might be expected to pose high risk due to their successful replication in human cells, even if the possibility of HH transmission is not yet observed or guaranteed. We follow the same procedure as with the IRAT strains to estimate the risk of each variant at twelve, six, three, one, and zero months before their collection date.
 
 Follow the instructions in `variant_predictions.ipynb`.
 
@@ -76,7 +76,7 @@ irat_enet
 ├── run_irat_predictions_sem.sh : Parallelize irat_predictions_sem.py
 ├── run_irat_predictions.sh : Parallelize irat_predictions.py
 ├── run_variant_predictions.sh : Parallelize variant_predictions.py
-├── variant_new.ipynb : Final variant figure reported in the paper
+├── variant_plots.ipynb : Final variant figures reported in the paper
 ├── variant_predictions.ipynb : Analyze risk estimates of variant strains
 └── variant_predictions.py : Estimate risk of variant strains
 ```
