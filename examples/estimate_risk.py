@@ -7,7 +7,7 @@ def main():
     parser.add_argument('na_seq', type=str, help='NA sequence for the analysis')
     parser.add_argument('--analysis_date', '-a', type=str, default='PRESENT', 
                         help='Analysis date. If not "PRESENT", it will take longer as new Enets must be trained.')
-    parser.add_argument('--risk_sample_size', '-r', type=int, default=100, 
+    parser.add_argument('--risk_sample_size', '-r', type=int, default=None, 
                         help='Risk sample size. Takes ~30 seconds when analysis_date is PRESENT and risk_sample_size is 100.')
     parser.add_argument('--save_data_dir', '-s', type=str, default=None,
                         help='Directory to save data.')
