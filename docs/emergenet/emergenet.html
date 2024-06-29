@@ -200,7 +200,10 @@ class Enet(object):
         elif segment == &#39;NA&#39;:
             TRUNC = NA_TRUNC
             target_seq = np.array(list(self.na_seq[:TRUNC]))
+        print(&#39;eo&#39;)
         qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
+        print(&#39;e1&#39;)
+
         seq_df[&#39;risk&#39;] = qdist.ravel() 
         return seq_df
     
@@ -660,7 +663,10 @@ def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, floa
         elif segment == &#39;NA&#39;:
             TRUNC = NA_TRUNC
             target_seq = np.array(list(self.na_seq[:TRUNC]))
+        print(&#39;eo&#39;)
         qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
+        print(&#39;e1&#39;)
+
         seq_df[&#39;risk&#39;] = qdist.ravel() 
         return seq_df
     
