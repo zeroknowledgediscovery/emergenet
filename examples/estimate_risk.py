@@ -1,5 +1,13 @@
+#!/usr/bin/python
+
 import argparse, time
 from emergenet.emergenet import Enet, predict_irat_emergence
+
+
+#HA=MKTIIAFSCILCLIFAQKLPGSDNSMATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGGICNSPHQILDGKNCTLIDALLGDPHCDDFQNKEWDLFVERSTAYSNCYPYYVPDYATLRSLVASSGNLEFTQESFNWTGVAQGGSSYACRRGSVNSFFSRLNWLYNLNYKYPEQNVTMPNNDKFDKLYIWGVHHPGTDKDQTNLYVQASGRVIVSTKRSQQTVIPNIGSRPWVRGVSSIISIYWTIVKPGDILLINSTGNLIAPRGYFKIQSGKSSIMRSDAHIDECNSECITPNGSIPNDKPFQNVNKITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGTGQAADLKSTQAAINQITGKLNRVIKKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAEILVALENQHTIDLTDSEMSKLFERTRRQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDIYRNEALNNRFQIKGVQLKSGYKDWILWISFAISCFLLCVVLLGFIMWACQKGNIRCNICI
+
+#NA=MNPNQKIITIGSVSLIIATICFLMQIAILVTTVTLHFKQHDYNSPPNNQAMLCEPTIIERNTTEIVYLTNITIEKEICPKLAEYRNWSKPQCNITGFAPFSKDNSIRLSAGGDIWVTREPYVSCDPDKCYQFALGQGTTLNNGHSNNTVHDRTPYRTLLMNELGVPFHLGTRQVCMAWSSSSCHDGKAWLHVCITGNDNNATASFIYNGRLVDSIGSWSKNILRTQESECVCINGTCTVVMTDGSASGKADTKILFVEEGKIVHISTLSGSAQHVEECSCYPRFPGVRCVCRDNWKGSNRPIVDINVKNYSIVSSYVCSGLVGDTPRKSDSVSSSYCLDPNNEKGGHGVKGWAFDDGNDVWMGRTINETLRLGYETFKVIEGWSKANSKLQTNRQVIVEKGDRSGYSGIFSVEGKSCINRCFYVELIRGRKEETKVWWTSNSIVVFCGTSGTYGTGSWPDGADINLMPI
+
 
 def main():
     parser = argparse.ArgumentParser(description="Estimate IRAT Emergence Score using Enet.")
@@ -18,7 +26,7 @@ def main():
         print('Training Enet models ...')
     if args.save_data_dir is not None:
         print(f'Saving data to {args.save_data_dir}')
-    start_time = time.time()
+    #start_time = time.time()
 
     # Initialize the Enet
     enet = Enet(analysis_date=args.analysis_date, 
@@ -34,10 +42,12 @@ def main():
     irat, irat_low, irat_high = predict_irat_emergence(ha_risk=ha_risk, 
                                                        na_risk=na_risk)
     
-    print(f'Estimated IRAT Emergence Score: {irat:.2f}')
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print(f'Time taken: {elapsed_time:.2f} seconds')
+    print(f'Emergence Score: {irat:.2f}')
+    print(f'Emergence Score high: {irat_high:.2f}')
+    print(f'Emergence Score low: {irat_low:.2f}')
+    #end_time = time.time()
+    #elapsed_time = end_time - start_time
+    #print(f'Time taken: {elapsed_time:.2f} seconds')
 
 if __name__ == '__main__':
     main()

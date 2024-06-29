@@ -170,7 +170,7 @@ class Enet(object):
         elif segment == 'NA':
             TRUNC = NA_TRUNC
             target_seq = np.array(list(self.na_seq[:TRUNC]))
-        qdist = qdistance_matrix(np.array([target_seq]), seq_arr, enet, enet)
+        qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
         seq_df['risk'] = qdist[0]
         return seq_df
     
