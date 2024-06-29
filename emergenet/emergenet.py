@@ -177,12 +177,10 @@ class Enet(object):
             seq_df['risk'] = qdist.ravel() 
             return seq_df
         else:
-            def func(x1,x2):
-                return qdistance(x1,x2,enet,enet)
+            qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
+            res = qdist.ravel().min()
             
-            ball_tree = BallTree(seq_arr, metric=func)
-            distances, _ = ball_tree.query([target_seq], k=1)
-            return distances[0][0]
+            return res
 
     def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
               include_target:bool=True, n_jobs:int=1) -> Qnet:
@@ -282,7 +280,7 @@ class Enet(object):
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df['risk'])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 # Save overall minimum risk
                 if self.save_data is not None:
@@ -330,7 +328,7 @@ class Enet(object):
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df['risk'])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 # Save overall minimum risk
                 if self.save_data is not None:
@@ -392,7 +390,7 @@ class Enet(object):
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df['risk'])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                     
                 # Save overall minimum risk

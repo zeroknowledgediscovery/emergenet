@@ -207,12 +207,10 @@ class Enet(object):
             seq_df[&#39;risk&#39;] = qdist.ravel() 
             return seq_df
         else:
-            def func(x1,x2):
-                return qdistance(x1,x2,enet,enet)
+            qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
+            res = qdist.ravel().min()
             
-            ball_tree = BallTree(seq_arr, metric=func)
-            distances, _ = ball_tree.query([target_seq], k=1)
-            return distances[0][0]
+            return res
 
     def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
               include_target:bool=True, n_jobs:int=1) -&gt; Qnet:
@@ -312,7 +310,7 @@ class Enet(object):
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df[&#39;risk&#39;])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 # Save overall minimum risk
                 if self.save_data is not None:
@@ -360,7 +358,7 @@ class Enet(object):
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df[&#39;risk&#39;])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 # Save overall minimum risk
                 if self.save_data is not None:
@@ -422,7 +420,7 @@ class Enet(object):
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df[&#39;risk&#39;])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                     
                 # Save overall minimum risk
@@ -702,12 +700,10 @@ def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, floa
             seq_df[&#39;risk&#39;] = qdist.ravel() 
             return seq_df
         else:
-            def func(x1,x2):
-                return qdistance(x1,x2,enet,enet)
+            qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
+            res = qdist.ravel().min()
             
-            ball_tree = BallTree(seq_arr, metric=func)
-            distances, _ = ball_tree.query([target_seq], k=1)
-            return distances[0][0]
+            return res
 
     def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
               include_target:bool=True, n_jobs:int=1) -&gt; Qnet:
@@ -807,7 +803,7 @@ def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, floa
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df[&#39;risk&#39;])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 # Save overall minimum risk
                 if self.save_data is not None:
@@ -855,7 +851,7 @@ def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, floa
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df[&#39;risk&#39;])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 # Save overall minimum risk
                 if self.save_data is not None:
@@ -917,7 +913,7 @@ def predict_irat_emergence(ha_risk:float, na_risk:float) -&gt; Tuple[float, floa
                         # Save minimum risk for current subtype
                         risks[subtype] = [np.min(df[&#39;risk&#39;])]
                     else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                     
                 # Save overall minimum risk
@@ -1022,7 +1018,7 @@ If <code>save_data</code> is not None, <code>analysis_date</code> is not 'PRESEN
                     # Save minimum risk for current subtype
                     risks[subtype] = [np.min(df[&#39;risk&#39;])]
                 else:
-                    risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                    risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
             # Save overall minimum risk
             if self.save_data is not None:
@@ -1070,7 +1066,7 @@ If <code>save_data</code> is not None, <code>analysis_date</code> is not 'PRESEN
                     # Save minimum risk for current subtype
                     risks[subtype] = [np.min(df[&#39;risk&#39;])]
                 else:
-                    risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                    risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
             # Save overall minimum risk
             if self.save_data is not None:
@@ -1132,7 +1128,7 @@ If <code>save_data</code> is not None, <code>analysis_date</code> is not 'PRESEN
                     # Save minimum risk for current subtype
                     risks[subtype] = [np.min(df[&#39;risk&#39;])]
                 else:
-                    risks[subtype] = self._compute_risks(segment, df, enet,BALL=True)
+                    risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
 
                 
             # Save overall minimum risk
