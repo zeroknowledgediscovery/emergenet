@@ -147,8 +147,7 @@ class Enet(object):
         return seq_lst
 
     
-    def _compute_risks(self, segment:str, seq_df:pd.DataFrame, enet:Qnet,
-                       BALL:bool=False) -> pd.DataFrame:
+    def _compute_risks(self, segment:str, seq_df:pd.DataFrame, enet:Qnet) -> pd.DataFrame:
         ''' Computes risk score with qdistance.
 
         Parameters
@@ -172,15 +171,13 @@ class Enet(object):
         elif segment == 'NA':
             TRUNC = NA_TRUNC
             target_seq = np.array(list(self.na_seq[:TRUNC]))
-        if not BALL:
-            qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
-            seq_df['risk'] = qdist.ravel() 
-            return seq_df
-        else:
-            qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
-            res = qdist.ravel().min()
-            
-            return res
+        #print('eo')
+        qdist = qdistance_matrix(seq_arr, np.array([target_seq]), enet, enet)
+        #print('e1')
+
+        seq_df['risk'] = qdist.ravel() 
+        return seq_df
+    
 
     def train(self, segment:str, seq_df:pd.DataFrame, sample_size:int=None, 
               include_target:bool=True, n_jobs:int=1) -> Qnet:
@@ -268,20 +265,11 @@ class Enet(object):
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     # Load Enet and compute risks
                     enet = load_model(model_filepath, gz=True)
-                    #df = self._compute_risks(segment, df, enet)
-                    #if self.save_data is not None:
-                    #    df.to_csv(os.path.join(self.save_data, subtype + '.csv'), index=False)
-                    ## Save minimum risk for current subtype
-                    #risks[subtype] = [np.min(df['risk'])]
-
+                    df = self._compute_risks(segment, df, enet)
                     if self.save_data is not None:
-                        df = self._compute_risks(segment, df, enet)
                         df.to_csv(os.path.join(self.save_data, subtype + '.csv'), index=False)
-                        # Save minimum risk for current subtype
-                        risks[subtype] = [np.min(df['risk'])]
-                    else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
-
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df['risk'])]
                 # Save overall minimum risk
                 if self.save_data is not None:
                     risks.to_csv(os.path.join(self.save_data, segment + '_min_risks.csv'), index=False)
@@ -317,19 +305,11 @@ class Enet(object):
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
                     # Load Enet and compute risks
                     enet = load_model(os.path.join(self.pretrained_enet_path, subtype + '.joblib'))
-                    #df = self._compute_risks(segment, df, enet)
-                    #if self.save_data is not None:
-                    #    df.to_csv(os.path.join(self.save_data, subtype + '.csv'), index=False)
-                    ## Save minimum risk for current subtype
-                    #risks[subtype] = [np.min(df['risk'])]
+                    df = self._compute_risks(segment, df, enet)
                     if self.save_data is not None:
-                        df = self._compute_risks(segment, df, enet)
                         df.to_csv(os.path.join(self.save_data, subtype + '.csv'), index=False)
-                        # Save minimum risk for current subtype
-                        risks[subtype] = [np.min(df['risk'])]
-                    else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
-
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df['risk'])]
                 # Save overall minimum risk
                 if self.save_data is not None:
                     risks.to_csv(os.path.join(self.save_data, segment + '_min_risks.csv'), index=False)
@@ -377,22 +357,12 @@ class Enet(object):
                         elif isinstance(risk_sample_size, float) and risk_sample_size <= 1:
                             sample_size = int(risk_sample_size * len(df))
                         df = df.sample(n=sample_size, replace=False, random_state=self.random_state)
-                    ## Compute risks
-                    #df = self._compute_risks(segment, df, enet)
-                    #if self.save_data is not None:
-                    #    df.to_csv(os.path.join(self.save_results, subtype + '.csv'), index=False)
-                    ## Save minimum risk for current subtype
-                    #risks[subtype] = [np.min(df['risk'])]
-
+                    # Compute risks
+                    df = self._compute_risks(segment, df, enet)
                     if self.save_data is not None:
-                        df = self._compute_risks(segment, df, enet)
                         df.to_csv(os.path.join(self.save_results, subtype + '.csv'), index=False)
-                        # Save minimum risk for current subtype
-                        risks[subtype] = [np.min(df['risk'])]
-                    else:
-                        risks[subtype] = self._compute_risks(segment, df, enet,BALL=False)
-
-                    
+                    # Save minimum risk for current subtype
+                    risks[subtype] = [np.min(df['risk'])]
                 # Save overall minimum risk
                 if self.save_data is not None:
                     risks.to_csv(os.path.join(self.save_results, segment + '_min_risks.csv'), index=False)
