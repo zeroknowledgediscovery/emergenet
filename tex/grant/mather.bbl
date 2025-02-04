@@ -1,0 +1,65 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{reid2003origin}
+\bibinfo{author}{Reid, A.~H.} \& \bibinfo{author}{Taubenberger, J.~K.}
+\newblock \bibinfo{title}{The origin of the 1918 pandemic influenza virus: a
+  continuing enigma}.
+\newblock \emph{\bibinfo{journal}{Journal of general virology}}
+  \textbf{\bibinfo{volume}{84}}, \bibinfo{pages}{2285--2292}
+  (\bibinfo{year}{2003}).
+
+\bibitem{dos2016influenza}
+\bibinfo{author}{Dos~Santos, G.}, \bibinfo{author}{Neumeier, E.} \&
+  \bibinfo{author}{Bekkat-Berkani, R.}
+\newblock \bibinfo{title}{Influenza: Can we cope better with the
+  unpredictable?}
+\newblock \emph{\bibinfo{journal}{Human vaccines \& immunotherapeutics}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{699--708}
+  (\bibinfo{year}{2016}).
+
+\bibitem{shao2017evolution}
+\bibinfo{author}{Shao, W.}, \bibinfo{author}{Li, X.}, \bibinfo{author}{Goraya,
+  M.~U.}, \bibinfo{author}{Wang, S.} \& \bibinfo{author}{Chen, J.-L.}
+\newblock \bibinfo{title}{Evolution of influenza a virus by mutation and
+  re-assortment}.
+\newblock \emph{\bibinfo{journal}{International journal of molecular sciences}}
+  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{1650} (\bibinfo{year}{2017}).
+
+\bibitem{wille2021accurately}
+\bibinfo{author}{Wille, M.}, \bibinfo{author}{Geoghegan, J.~L.} \&
+  \bibinfo{author}{Holmes, E.~C.}
+\newblock \bibinfo{title}{How accurately can we assess zoonotic risk?}
+\newblock \emph{\bibinfo{journal}{PLoS biology}} \textbf{\bibinfo{volume}{19}},
+  \bibinfo{pages}{e3001135} (\bibinfo{year}{2021}).
+
+\bibitem{Influenz24:online}
+\bibinfo{author}{CDC}.
+\newblock \bibinfo{title}{Influenza risk assessment tool (irat) | pandemic
+  influenza (flu) | cdc}.
+\newblock
+  \bibinfo{howpublished}{\url{https://www.cdc.gov/flu/pandemic-resources/national-strategy/risk-assessment.htm}}.
+\newblock \bibinfo{note}{(Accessed on 07/02/2021)}.
+
+\bibitem{Hothorn06unbiasedrecursive}
+\bibinfo{author}{Hothorn, T.}, \bibinfo{author}{Hornik, K.} \&
+  \bibinfo{author}{Zeileis, A.}
+\newblock \bibinfo{title}{Unbiased recursive partitioning: A conditional
+  inference framework}.
+\newblock \emph{\bibinfo{journal}{JOURNAL OF COMPUTATIONAL AND GRAPHICAL
+  STATISTICS}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{651--674}
+  (\bibinfo{year}{2006}).
+
+\bibitem{wu2024emergenet}
+\bibinfo{author}{Wu, K.~Y.}, \bibinfo{author}{Li, J.},
+  \bibinfo{author}{Esser-Kahn, A.} \& \bibinfo{author}{Chattopadhyay, I.}
+\newblock \bibinfo{title}{Emergenet: A digital twin of sequence evolution for
+  scalable emergence risk assessment of animal influenza a strains}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2411.17154}}
+  (\bibinfo{year}{2024}).
+
+\end{thebibliography}

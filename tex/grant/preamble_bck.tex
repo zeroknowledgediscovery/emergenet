@@ -1,9 +1,11 @@
 \usepackage{etex}
-\usepackage{amsfonts,amsmath,amsthm}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
 \usepackage{graphicx}
-%\usepackage{booktabs}
+\usepackage{booktabs}
 \usepackage[usenames,x11names, dvipsnames, svgnames]{xcolor}
+\usepackage{amsmath,amssymb}
 \usepackage{dsfont}
+\usepackage{amsfonts}
 \usepackage{mathrsfs}
 \usepackage{texshade}
 \usepackage{hyperref}
@@ -24,7 +26,9 @@
 \usepackage{multirow}
 \usepackage{longtable}
 \usepackage{tikz-network}
-%\usepackage{times}
+\usepackage[T1,euler-digits]{eulervm}
+\usepackage{times}
+% \usepackage{pxfonts}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usetikzlibrary{shapes,calc,shadows,fadings,arrows,decorations.pathreplacing,automata,positioning}
@@ -35,10 +39,9 @@
 
 \tikzexternalize[prefix=./Figures/External/]% activate externalization!
 \tikzexternaldisable
+% \addtolength{\voffset}{.1in}  
 \usepackage{geometry}
-\geometry{letterpaper, left=.5in,right=.5in,top=.5in,bottom=.5in,marginparwidth=.55in, % Adjust the width of the marginpar
-  marginparsep=0.05cm % Adjust the separation between the margin paragraph and the text
-}
+\geometry{letterpaper, left=.6in,right=.6in,top=.5in,bottom=0.7in}
 
 %\addtolength{\textwidth}{-.1in}    
 %\addtolength{\hoffset}{.05in}    
@@ -59,79 +62,9 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.markings}
 \usepackage{fancyhdr}
-\renewcommand{\headrulewidth}{0pt}
 \usepackage{mathtools}
 \usepackage{datetime}
 \usepackage{comment}
-
-\usepackage{pgfgantt}
-\usepackage{textcomp}
-\usepackage{colortbl}
-\usepackage{array}
-\usepackage{courier}
-\usepackage{setspace} 
-\usepackage{wrapfig} 
-\usepackage{calligra}
-%\usepackage{ulem} 
-\usepackage{multirow}
-\usepackage{caption}
-\usepackage{colortbl}
-
-\usetikzlibrary{chains,backgrounds}
-\usetikzlibrary{intersections}
-\usepackage{xstring}
-\usepackage{wasysym}
-\usepackage[misc]{ifsym}
-\tikzexternaldisable 
-\parskip=6pt
-\parindent=0pt 
-\lhead{}
-\pagestyle{fancy}
-\rfoot{\thepage} 
-\lfoot{\footnotesize} 
-\chead{\footnotesize Not For Public Release} 
-\chead{} 
-
-\usepackage{lastpage}
-
-% ############################################################
-\newif\iftikzX
-\tikzXtrue
-\tikzXfalse
-
-%\pagestyle{empty}
-\def\COLA{black}
-% ###################################
-\cfoot{\bf\sffamily \scriptsize \color{Maroon!50} I. Chattopadhyay, Department of Medicine, University of Chicago}
-\cfoot{}
-\rhead{}
-% ############################################################
-
-\newcommand\guline{\bgroup\markoverwith
-  {\textcolor{black!30}{\rule[-0.45ex]{2pt}{0.4pt}}}\ULon}
-\newcommand\hilit[2][Red1]{\textcolor{#1}{#2}}
-\newcommand\hilitx[1]{\tikz[baseline]{\node[fill=lightgray, fill opacity=.2,text opacity=1,,rounded corners=5pt,inner sep=5pt]{\mnp{.98\textwidth}{#1}};}}
-% ############################################################
-%\addtolength{\voffset}{.1in}
-%\addtolength{\textwidth}{-.085in}
-%\addtolength{\hoffset}{.0425in}
-\def\ZERO{ACoR\xspace}
-\def\COLWA{\XCOLA!40}
-\def\COLWB{\XCOLD!20}
-\def\COLWC{\XCOLA!40}
-\def\COLWD{\XCOLD!20}
-\def\COLWE{\XCOLA!40}
-\def\COLWF{\XCOLD!20}
-
-% ############################################################
-\def\treatment{case\xspace}
-\def\SUPPLEMENTARY{Supplementary\xspace}
-\def\METHODS{Online Methods\xspace}
-\def\zebra{\textbf{ZeBRA}\xspace}
-\def\EXTENDEDDATA{}
-\def\crb{\texttt{\bf HORUS}\xspace}
-
-
 %% ## Equation Space Control---------------------------
 \def\EQSP{3pt}
 \newcommand{\mltlne}[2][\EQSP]{\begingroup\setlength\abovedisplayskip{#1}\setlength\belowdisplayskip{#1}\begin{equation}\begin{multlined} #2 \end{multlined}\end{equation}\endgroup\noindent}
@@ -177,6 +110,7 @@
 \newcommand{\xalgo}{\textrm{\bf\texttt{xGenESeSS}}\xspace}
 \newcommand{\FNTST}{\bf }
 \newcommand{\FNTED}{\color{darkgray} \scriptsize $\phantom{.}$}
+\renewcommand{\baselinestretch}{.9}
 \newcommand{\sync}{\otimes}
 \newcommand{\psync}{\hspace{3pt}\overrightarrow{\hspace{-3pt}\sync}}
 % \newcommand{\psync}{\raisebox{-4pt}{\begin{tikzpicture}\node[anchor=south] (A) {$\sync$};
@@ -202,28 +136,27 @@
 
 \newcommand{\ND}{ \mathcal{N}  }
 \usepackage[linesnumbered,ruled,vlined,noend]{algorithm2e}
-\newcommand{\captionN}[1]{\caption{\color{DodgerBlue3} \sffamily \fontsize{9}{10}\selectfont #1  }}
+\newcommand{\captionN}[1]{\caption{\color{darkgray} \sffamily \fontsize{9}{10}\selectfont #1  }}
 \newcommand{\btl}{\ \textbf{\small\sffamily bits/letter}}
-% \usepackage{newtxtext}
-\usepackage{newtxmath}
-% \usepackage{ccfonts}
-%save defaults 
-\renewcommand{\rmdefault}{phv} % Arial
-\renewcommand{\sfdefault}{phv} % Arial
-\edef\keptrmdefault{\rmdefault}
-\edef\keptsfdefault{\sfdefault}
-\edef\keptttdefault{\ttdefault}
+%\usepackage{txfonts}
+%%% \usepackage{ccfonts}
+%%% save defaults
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+%\edef\keptrmdefault{\rmdefault}
+%\edef\keptsfdefault{\sfdefault}
+%\edef\keptttdefault{\ttdefault}
 
-%\usepackage{kerkis}
+% \usepackage{kerkis}
 %\usepackage[OT1]{fontenc}
 %\usepackage{concmath}
-%\usepackage{eulervm} 
-%\usepackage[OT1]{fontenc}
-%restore defaults
-\edef\rmdefault{\keptrmdefault}
-\edef\sfdefault{\keptsfdefault}
-\edef\ttdefault{\keptttdefault}
-\tikzexternalenable 
+% \usepackage[T1]{eulervm} 
+% \usepackage[OT1]{fontenc}
+%%% restore defaults
+%\edef\rmdefault{\keptrmdefault}
+%\edef\sfdefault{\keptsfdefault}
+%\edef\ttdefault{\keptttdefault}
+\tikzexternalenable
 % ##########################################################
 \tikzfading[name=fade out,
 inner color=transparent!0,
@@ -407,6 +340,32 @@ outer color=transparent!100]
 \usepackage{xspace}
 \usepackage{flushend}
 \makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {-2ex \@plus -1ex \@minus -.2ex}%
+  {1ex \@plus.1ex}%
+  {\Large\bfseries\scshape}}
+\renewcommand\subsection{\@startsection {subsection}{1}{\z@}%
+  {-2ex \@plus -.25ex \@minus -.2ex}%
+  {0.1ex \@plus.0ex}%
+  {\fontsize{11}{10}\selectfont\bfseries\sffamily\color{black}}}
+\renewcommand\subsubsection{\@startsection {subsubsection}{1}{\z@}%
+  {0ex \@plus -.5ex \@minus -.2ex}%
+  {0.0ex \@plus.5ex}%
+  {\bfseries\itshape\sffamily\color{darkgray}}}
+\renewcommand\paragraph{\@startsection {paragraph}{1}{\z@}%
+  {-.2ex \@plus -.5ex \@minus -.2ex}%
+  {0.0ex \@plus.5ex}%
+  {\fontsize{9}{9}\selectfont\itshape\sffamily\color{darkgray}}}
+       
+%\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsectiondis}{\arabic{subsection}.}
+\renewcommand{\thesectiondis}{\arabic{section}.}
+\renewcommand{\thesection}{\arabic{section}}
+
+\renewcommand{\thetable}{\arabic{table}}
+
+\makeatother
+\makeatletter
 \pgfdeclareradialshading[tikz@ball]{ball}{\pgfqpoint{-10bp}{10bp}}{%
   color(0bp)=(tikz@ball!30!white);
   color(9bp)=(tikz@ball!75!white);
@@ -415,7 +374,7 @@ outer color=transparent!100]
   color(50bp)=(black)}
 \makeatother
 %\newcommand{\tball}[1][CadetBlue4]{${\color{#1}\Large\boldsymbol{\blacksquare}}$}
-\renewcommand{\baselinestretch}{.93}
+\renewcommand{\baselinestretch}{1}
 %\renewcommand{\captionN}[1]{\caption{\color{CadetBlue4!50!black} \sffamily \fontsize{9}{10}\selectfont #1  }}
 \tikzexternaldisable 
 \parskip=6pt
@@ -426,16 +385,6 @@ outer color=transparent!100]
 \newcounter{Dcounter}
 \setcounter{Dcounter}{1}
 \newcommand{\DQS}[1]{\marginpar{\tikzexternaldisable \tikz{\node[rounded corners=5pt,draw=none,thick,fill=black!10,font=\sffamily\fontsize{7}{8}\selectfont] {\mnp{.45in} {\color{Red3}\raggedright  \#\theDcounter.~#1}}; }}\stepcounter{Dcounter}\xspace}
-
-
-\newcounter{Ecounter}
-\setcounter{Ecounter}{1}
-\newcommand{\xhd}[2][.99]{\tikzexternaldisable \tikz[baseline=-0.5ex]{\node[inner sep=2pt,text=black!80,rounded corners=0pt,draw=none,fill=black!10,font=\bf] {  \mnp{#1\textwidth}{\Roman{Ecounter}.~#2}}; }\stepcounter{Ecounter}\xspace}
-
-\newcounter{EEcounter}
-\setcounter{EEcounter}{1}
-\newcommand{\xhdx}[2][.99]{\tikzexternaldisable \tikz[baseline=-0.5ex]{\node[inner sep=2pt,text=black!80,rounded corners=0pt,draw=none,fill=Red1!15,font=\bf] {  \mnp{#1\textwidth}{\alph{EEcounter}.~#2}}; }\stepcounter{EEcounter}\xspace}
-
 
 \newcommand{\qn}[1][i]{\Phi_{#1}}
 \newcommand{\D}[1][i]{\mathscr{D}\left ( {\Sigma_#1} \right ) }
@@ -482,7 +431,7 @@ outer color=transparent!100]
     }
   }
 
-\newcommand{\HLT}[1]{\tikz{\node[fill=lightgray!50,]{\mnp{.985\textwidth}{#1}};}}
+  %\newcommand{\HLT}[2][Red1]{{\color{#1}#2}}
 
  % \def\commatonone{\expandafter\zappointzerozero
 %    \romannumeral`\^^@}
@@ -518,10 +467,9 @@ outer color=transparent!100]
 
 
 
-\renewcommand{\thesubsectiondis}{\arabic{subsection}.}
-\renewcommand{\thesectiondis}{\arabic{section}.}
-\renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thetable}{\arabic{table}}
+
+
+
 
 
 \renewcommand{\thesectiondis}{\arabic{section}.}
@@ -529,21 +477,21 @@ outer color=transparent!100]
 
 \makeatletter
 \renewcommand\section{\@startsection {section}{1}{\z@}%
-  {1pt \@plus -3ex \@minus 0ex}%
+  {-1pt \@plus -30ex \@minus 20ex}%
   {.1pt}%
-  {\large\bfseries\scshape\color{black!70}}}
+  {\large\bfseries\scshape}}
 \renewcommand\subsection{\@startsection {subsection}{2}{\z@}%
   {0ex \@plus -1.75ex \@minus -1.2ex}%
   {0ex \@plus.0ex}%
-  {\fontsize{11}{11}\selectfont\bfseries\sffamily\color{Red3}}}
+  {\fontsize{11}{11}\selectfont\bfseries\sffamily\color{black}}}
 \renewcommand\subsubsection{\@startsection {section}{1}{\z@}%
-  {0ex \@plus -.5ex \@minus -.2ex}%
+  {-.1ex \@plus -.5ex \@minus -.2ex}%
   {0.0ex \@plus.5ex}%
-{\fontsize{14}{11}\selectfont\bfseries\sffamily\color{Red2}}}
+  {\bfseries\sffamily\color{Red4}}}
 \renewcommand\paragraph{\@startsection {section}{1}{\z@}%
   {-.1ex \@plus -.5ex \@minus -.2ex}%
   {0.0ex \@plus.5ex}%
-  {\fontsize{11}{10}\selectfont\bfseries\itshape\sffamily\color{Red2}}}
+  {\fontsize{11}{10}\selectfont\bfseries\itshape\sffamily\color{black}}}
 \makeatother
 
 
@@ -556,8 +504,9 @@ outer color=transparent!100]
   color(50bp)=(black)}
 \makeatother
 \newcommand{\tball}{${\color{CadetBlue3}\Large\boldsymbol{\blacksquare}}$}
+\renewcommand{\baselinestretch}{.87}
 \newcommand{\VSP}{\vspace{-2pt}}
-%\renewcommand{\captionN}[1]{\caption{\color{black} \sffamily \fontsize{9}{10}\selectfont #1  }}
+\renewcommand{\captionN}[1]{\caption{\color{black} \sffamily \fontsize{9}{10}\selectfont #1  }}
 
 
 
@@ -577,7 +526,3 @@ outer color=transparent!100]
   \setlength{\itemsep}{\bibparskip}%
 }
 \setlength{\bibitemsep}{.3\baselineskip plus .05\baselineskip minus .05\baselineskip}
-
-
-\newcommand{\BOX}[2]{\tikz{\node[fill=lightgray!40,inner sep=5pt,rounded corners=4pt] {\mnp{.98\textwidth}{\underline{\textbf{#1}}\vskip .5em #2}};}}
-\newcommand{\BOXp}[2][Yellow2!40]{\tikz[baseline=-0.6ex]{\node[fill=#1,inner sep=2pt,draw=none, fill opacity=.5, text opacity=1,rounded corners=3pt, thin] {#2};}}
