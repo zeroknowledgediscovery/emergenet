@@ -25,9 +25,9 @@
 \parskip=4pt
 \parindent=0pt
 \lhead{}
-\pagestyle{fancy}
-\lfoot{\thepage}
 \pagestyle{empty}
+\lfoot{}
+\pagestyle{fancy}
 \def\COLA{black}
 % ###################################
 \cfoot{\bf\sffamily \scriptsize \color{Maroon!50} I. Chattopadhyay, Department of Medicine, University of Chicago}
@@ -58,8 +58,11 @@
 \def\SUPPLEMENTARY{Supplementary\xspace}
 \def\METHODS{Online Methods\xspace}
 \def\EXTENDED{Extended Data\xspace}
+\def\TITLE{BioNORAD:  Scalable Emergence Risk Assessment of Animal \infl}
 
 \begin{document} 
+
+\lhead{\textbf{\TITLE}}
 
 \limitpages{5}
 %\HDR
@@ -85,9 +88,9 @@
 
 Here we plan to develop a platform powered by  pattern discovery and a novel generative AI framework to analyze all \infl strains currently in public repositories,  to  parse  emergent evolutionary constraints operating  in the wild. We plan to show   that this capability enables preempting  strains which are \textit{expected to be in future human circulation}, and  approximate IRAT scores of non-human strains without  experimental assays or SME scoring, in seconds as opposed to weeks or months. Our approach automatically takes into account the time-sensitive variations in selection pressures as the background strain circulation evolves, and will potentially be able to rank-order strains adaptively.
 
-Additionally, we plan to validate our ability to predict future variations of viral proteins by showing that predicted variants of HA are functional, and maintain replicative fitness in cell cultures.   Thus, bringing together rigorous data-driven modeling, and validation via tools from reverse genetics we plan to deliver an actionable and deployable platform (the \bnd) that optimally exploits the current biosurvellance capacity,  \textit{identifying when and where an imminent  emergence event is likely, and if any specific animal strain is close to achieving human adaptability and  human-to-human transmission capability.}
+Additionally, we plan to validate our ability to predict future variations of viral proteins by showing that predicted variants of HA are functional, and maintain replicative fitness in cell cultures, and animal models.   Bringing together rigorous data-driven modeling, and validation via tools from reverse genetics we plan to deliver an actionable and deployable platform (the \bnd) that optimally exploits the current biosurvellance capacity,  \textit{identifying when and where an imminent  emergence event is likely, and if any specific animal strain is close to achieving human adaptability and  human-to-human transmission capability.}
 
-Our broader goal to develop a general framework for foundational discovery in  pathogen emergence beyond the case of \infl.
+Our broader goal in this work is to develop a general framework for foundational discovery in  pathogen zoonosis,  beyond the primary focus  of understanding \infl emergence.
 
   \subsubsection*{Specific Aims}
 
@@ -105,7 +108,7 @@ This aim integrates Emergenet’s predictive capabilities into an automated glob
 \begin{figure}[t]
   
  \mnp{.65\textwidth}{ \includegraphics[width=\textwidth]{../overleaf/Figures/External/scheme}
-}\hspace{5pt}\mnp{.28\textwidth}{ \captionN{\textbf{Conceptual Scheme: \enet inference}. \textbf{Panel a} Variations of genomes for identical subtypes of \infl are analyzed to infer a recursive forest of conditional inference trees~\cite{Hothorn06unbiasedrecursive} -- the \enet --   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations. With these inferred dependencies we can    estimate the numerical odds of specific mutations, and by extension, the numerical value of the probability of one strain giving rise to another in the wild, under  complex selection pressures from the background. \textbf{Panel b} Snapshot of decision trees  from the \enet inferred for H1N1 HA sequences collected in 2020-2021, which reveals a cyclic dependency. In general, every internal node of a component tree can be ``expanded'' into its own tree, underscoring the recursive structure of the \enet. \textbf{Panel c} First application: forecast  dominant strain(s) for the next flu season, using only  sequences collected up to six months prior and the inferred \enet, using data from the past year. \textbf{Panel d} Second application: estimation of the pandemic risk posed by individual animal strains that are still not known to circulate in humans.}\label{fig1}}
+}\hspace{15pt}\mnp{.28\textwidth}{ \captionN{\textbf{Conceptual Scheme: \enet inference}. \textbf{Panel a} Variations of genomes for identical subtypes of \infl are analyzed to infer a recursive forest of conditional inference trees~\cite{Hothorn06unbiasedrecursive} -- the \enet --   which maximally captures the emergent  dependencies between an a priori unspecified number of   mutations. With these inferred dependencies we aim to   estimate the numerical odds of specific mutations, and by extension, the numerical value of the probability of one strain giving rise to another in the wild, under  complex selection pressures from the background. \textbf{Panel b} Snapshot of decision trees  from the \enet inferred for H1N1 HA sequences collected in 2020-2021, which reveals a cyclic dependency~\cite{wu2024emergenet}. In general, every internal node of a component tree can be ``expanded'' into its own tree, underscoring the recursive structure of the \enet. \textbf{Panel c} First application: forecast  dominant strain(s) for the next flu season, using only  sequences collected up to six months prior and the inferred \enet, using data from the past year. \textbf{Panel d} Second application: estimation of the pandemic risk posed by individual animal strains that are still not known to circulate in humans.}\label{fig1}}
 
   \vspace{-20pt}
 
@@ -118,6 +121,8 @@ This aim integrates Emergenet’s predictive capabilities into an automated glob
 
 \subsubsection*{Feasibility \& Preliminary Results}
 The Emergenet framework has already demonstrated its predictive capability in forecasting the evolutionary trajectories of influenza A strains. By constructing a digital twin of sequence evolution, Emergenet quantitatively assesses the emergence potential of animal strains, providing a scalable alternative to labor-intensive expert assessments. Using a dataset of 220,151 hemagglutinin (HA) sequences, Emergenet outperforms WHO’s seasonal vaccine recommendations for H1N1 and H3N2 subtypes over a 20-year period, improving antigenic match predictions by an average of 3.73 amino acids (28.40\%). Furthermore, Emergenet’s generative models correlate strongly with CDC’s expert-assessed Influenza Risk Assessment Tool (IRAT) scores (Pearson’s r = 0.721, p = $10^{-4}$) while achieving a computational speedup of at least five orders of magnitude, reducing assessment time from months to seconds~\cite{wu2024emergenet}.
+
+\lhead{}
 
 To experimentally validate Emergenet, high-risk HA variants will be generated using the reverse genetics system developed by the BM at U of Iowa. HA segments with predicted mutations will be synthesized and assessed for cell surface expression via flow cytometry and western blotting. Recombinant viruses carrying mutant HA will be generated and validated using next-generation sequencing (NGS). Replication fitness of these recombinant viruses will be evaluated through single-cycle and multicycle replication assays in human lung epithelial cells (A549) and primary human lung cells. Additionally, competition assays between predicted high-fitness mutants and parental strains will be performed in a 1:1 ratio, with fitness outcomes determined via high-resolution melting (HRM) analysis. These experiments will assess the biological relevance of Emergenet’s forecasts, determining whether the predicted mutations enhance viral fitness in human-relevant models.
 
