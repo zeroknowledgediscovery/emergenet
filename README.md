@@ -6,7 +6,7 @@
 | Primary Email     | ishanu_ch@uky.edu                      |
 | Secondary Email   | ishanu.chattopadhyay@gmail.com         |
 | X (Twitter)       | [@ishanu_ch](https://x.com/ishanu_ch)  |
-
+| ARxiv draft       | https://arxiv.org/abs/2411.17154       |
 
 <table>
   <tr>
