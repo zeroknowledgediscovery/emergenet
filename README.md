@@ -1,5 +1,11 @@
 # Emergenet
 
+| Contact Info      | Value                                  |
+|-------------------|----------------------------------------|
+| Name              | Ishanu Chattopadhyay                   |
+| Primary Email     | ishanu_ch@uky.edu                      |
+| Secondary Email   | ishanu.chattopadhyay@gmail.com         |
+| X (Twitter)       | [@ishanu_ch](https://x.com/ishanu_ch)  |
 
 
 <table>
